@@ -51,6 +51,16 @@ class Oficial(unittest.TestCase):
         self.assertIn("HTTP 400", str(e.exception))
         self.assertTrue(visto["url"].startswith(ig.API + "/999?fields=business_discovery.username%28tienda%29"))
 
+    def test_sin_token_la_cabecera_la_pone_el_proxy(self):
+        visto = {}
+
+        def abrir(req, timeout):
+            visto["auth"] = req.get_header("Authorization")
+            return io.BytesIO(json.dumps(EJEMPLO).encode())
+
+        self.assertEqual(ig.pedir("@tienda", None, "999", abrir)["business_discovery"]["username"], "comercio_ejemplo")
+        self.assertIsNone(visto["auth"])
+
 
 if __name__ == "__main__":
     unittest.main()

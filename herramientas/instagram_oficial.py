@@ -2,8 +2,10 @@
 
 Lee las publicaciones públicas recientes de una lista de cuentas profesionales (comercios, ayuntamientos, medios)
 y devuelve las que hablan de un sorteo. Hace falta una cuenta profesional propia enlazada a una página de Facebook
-y una app de Meta en modo desarrollo. El token y el id de esa cuenta van en variables de entorno (IG_TOKEN e
-IG_USER_ID), nunca en el repositorio ni en la salida. Una petición por cuenta.
+y una app de Meta en modo desarrollo. El id de esa cuenta va en la variable de entorno IG_USER_ID. El token va como
+«network secret» del entorno en la nube (Bearer para graph.facebook.com): lo añade el proxy y la sesión no lo ve.
+Si existe IG_TOKEN se usa ese (pruebas a mano); nunca se escribe en el repositorio ni en la salida.
+Una petición por cuenta.
 
   python3 instagram_oficial.py @cuenta1 @cuenta2 … [--dias 21] > candidatos.json
 
@@ -40,14 +42,16 @@ def candidatos(resp, ahora, dias=21):
 
 
 def pedir(cuenta, token, uid, abrir=urllib.request.urlopen):
+    """token=None: la cabecera la pone el proxy del entorno (network secret)."""
     url = f"{API}/{uid}?" + urllib.parse.urlencode({"fields": campos(cuenta)})
-    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"} if token else {})
     try:
         with abrir(req, timeout=30) as r: return json.load(r)
     except urllib.error.HTTPError as e:
         try: msg = json.load(e).get("error", {}).get("message", "")
         except ValueError: msg = ""
-        raise RuntimeError(f"HTTP {e.code}: {msg.replace(token, '***')}"[:300]) from None
+        if token: msg = msg.replace(token, "***")
+        raise RuntimeError(f"HTTP {e.code}: {msg}"[:300]) from None
 
 
 def main():
@@ -55,14 +59,14 @@ def main():
     a.add_argument("cuentas", nargs="+"); a.add_argument("--dias", type=int, default=21)
     o = a.parse_args()
     token, uid = os.environ.get("IG_TOKEN"), os.environ.get("IG_USER_ID")
-    if not token or not uid: sys.exit("Sin configurar: faltan las variables de entorno IG_TOKEN e IG_USER_ID.")
+    if not uid or not uid.isdigit(): sys.exit("Sin configurar: falta la variable de entorno IG_USER_ID (solo cifras).")
     ahora, salida = dt.datetime.now(dt.timezone.utc), {"leidas": [], "errores": {}, "candidatos": []}
     for c in o.cuentas:
         try:
             salida["candidatos"] += candidatos(pedir(c, token, uid), ahora, o.dias)
             salida["leidas"].append(cuenta_limpia(c))
         except (ValueError, RuntimeError, OSError) as e:
-            salida["errores"][c] = str(e).replace(token, "***")
+            salida["errores"][c] = str(e).replace(token, "***") if token else str(e)
     json.dump(salida, sys.stdout, ensure_ascii=False, indent=1)
 
 

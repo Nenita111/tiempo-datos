@@ -46,8 +46,9 @@ revisa varias veces al día con el conector de Drive; Instagram no se abre en ni
   fuera de la zona y las que no son sorteos ni cortes se archivan sin apuntar.
 - Opcional, API oficial de Instagram: `python3 herramientas/instagram_oficial.py @cuenta1 @cuenta2 …` lee con
   Business Discovery las publicaciones recientes de cuentas profesionales de la zona y propone las que hablan de
-  sorteos (mismas reglas para apuntarlas, con su enlace). Necesita las variables de entorno `IG_TOKEN` e
-  `IG_USER_ID`; sin ellas no hace nada. El token no se escribe nunca en el repositorio ni en la salida.
+  sorteos (mismas reglas para apuntarlas, con su enlace). Necesita la variable de entorno `IG_USER_ID` y el token
+  como «network secret» del entorno en la nube (Bearer, host `graph.facebook.com`): lo pone el proxy y la sesión
+  no lo ve. Sin `IG_USER_ID` no hace nada. El token no se escribe nunca en el repositorio ni en la salida.
 
 ## 2b. Cortes anunciados en redes del Ayuntamiento
 
