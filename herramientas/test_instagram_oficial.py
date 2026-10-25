@@ -61,6 +61,25 @@ class Oficial(unittest.TestCase):
         self.assertEqual(ig.pedir("@tienda", None, "999", abrir)["business_discovery"]["username"], "comercio_ejemplo")
         self.assertIsNone(visto["auth"])
 
+    def test_id_propio_con_token_de_pagina_o_de_usuario(self):
+        def respuestas(por_ruta):
+            def abrir(req, timeout):
+                ruta = req.full_url[len(ig.API) + 1:].split("?")[0]
+                r = por_ruta[ruta]
+                if isinstance(r, int):
+                    raise urllib.error.HTTPError(req.full_url, r, "x", {}, io.BytesIO(b'{"error":{"message":"no","code":100}}'))
+                return io.BytesIO(json.dumps(r).encode())
+            return abrir
+
+        pagina = respuestas({"me": {"instagram_business_account": {"id": "1784"}, "id": "55"}})
+        self.assertEqual(ig.id_propio(None, pagina), "1784")
+        usuario = respuestas({"me": 400, "me/accounts": {"data": [{"id": "1"}, {"id": "2", "instagram_business_account": {"id": "1785"}}]}})
+        self.assertEqual(ig.id_propio(None, usuario), "1785")
+        nada = respuestas({"me": 400, "me/accounts": {"data": [{"id": "1"}]}})
+        with self.assertRaises(RuntimeError): ig.id_propio(None, nada)
+        sin_secreto = respuestas({"me": 400, "me/accounts": 400})
+        with self.assertRaises(RuntimeError): ig.id_propio(None, sin_secreto)
+
 
 if __name__ == "__main__":
     unittest.main()
