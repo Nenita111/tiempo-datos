@@ -1,0 +1,368 @@
+{
+ "embalsesFecha": "Boletín del 20/10/2026",
+ "cuenca": "Mediterránea Andaluza",
+ "embalses": [
+  {
+   "nombre": "Benínar",
+   "capacidad": 63.0,
+   "actual": 10.0,
+   "haceUnAnio": 7.0
+  },
+  {
+   "nombre": "Rules",
+   "capacidad": 111.0,
+   "actual": 90.0,
+   "haceUnAnio": 72.0
+  },
+  {
+   "nombre": "Béznar",
+   "capacidad": 53.0,
+   "actual": 36.0,
+   "haceUnAnio": 37.0
+  },
+  {
+   "nombre": "Cuevas de Almanzora",
+   "capacidad": 161.0,
+   "actual": 15.0,
+   "haceUnAnio": 10.0
+  },
+  {
+   "nombre": "La Viñuela",
+   "capacidad": 165.0,
+   "actual": 138.0,
+   "haceUnAnio": 70.0
+  },
+  {
+   "nombre": "Concepción",
+   "capacidad": 62.0,
+   "actual": 28.0,
+   "haceUnAnio": 36.0
+  },
+  {
+   "nombre": "Guadalhorce-Guadalteba",
+   "capacidad": 279.0,
+   "actual": 247.0,
+   "haceUnAnio": 123.0
+  },
+  {
+   "nombre": "Conde Guadalhorce",
+   "capacidad": 66.0,
+   "actual": 39.0,
+   "haceUnAnio": 31.0
+  }
+ ],
+ "cuencaPct": 62.9,
+ "cuencaPctAnterior": 44.1,
+ "espanaPct": 57.2,
+ "espanaPctAnterior": 52.1,
+ "vuelosFecha": "Buscado el 25/10 · ida y vuelta",
+ "vuelosOrigen": "Almería",
+ "vuelos": [
+  {
+   "destino": "Madrid",
+   "fecha": "21/11",
+   "vuelta": "25/11",
+   "precio": "107 €",
+   "compania": "Iberia",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Bucarest",
+   "fecha": "30/11",
+   "vuelta": "04/12",
+   "precio": "109 €",
+   "compania": "Wizz Air",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Sevilla",
+   "fecha": "24/11",
+   "vuelta": "29/11",
+   "precio": "111 €",
+   "compania": "Iberia",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Barcelona",
+   "fecha": "30/11",
+   "vuelta": "03/12",
+   "precio": "115 €",
+   "compania": "Vueling",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Palma de Mallorca",
+   "fecha": "28/11",
+   "vuelta": "02/12",
+   "precio": "140 €",
+   "compania": "Iberia",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Londres",
+   "fecha": "09/11",
+   "vuelta": "14/11",
+   "precio": "172 €",
+   "compania": "easyJet",
+   "escalas": "directo"
+  }
+ ],
+ "butano": {
+  "precio": 18.84,
+  "desde": "2026-09-15",
+  "tope": 19.55,
+  "topeHasta": "2027-06-30"
+ },
+ "aeropuertos": [
+  {
+   "origen": "Almería",
+   "codigo": "LEI",
+   "vuelos": [
+    {
+     "destino": "Madrid",
+     "ida": "2026-11-21",
+     "vuelta": "2026-11-25",
+     "precio": 107,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/rhkztx7"
+    },
+    {
+     "destino": "Bucarest",
+     "ida": "2026-11-30",
+     "vuelta": "2026-12-04",
+     "precio": 109,
+     "compania": "Wizz Air",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/67kkym"
+    },
+    {
+     "destino": "Sevilla",
+     "ida": "2026-11-24",
+     "vuelta": "2026-11-29",
+     "precio": 111,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/nzv6r5"
+    },
+    {
+     "destino": "Barcelona",
+     "ida": "2026-11-30",
+     "vuelta": "2026-12-03",
+     "precio": 115,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/62rsyk9"
+    },
+    {
+     "destino": "Palma de Mallorca",
+     "ida": "2026-11-28",
+     "vuelta": "2026-12-02",
+     "precio": 140,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/z48fwqk"
+    },
+    {
+     "destino": "Londres",
+     "ida": "2026-11-09",
+     "vuelta": "2026-11-14",
+     "precio": 172,
+     "compania": "easyJet",
+     "escalas": "directo",
+     "nota": "Gatwick",
+     "enlace": "https://kiwi.com/u/byf3uvzb"
+    }
+   ]
+  },
+  {
+   "origen": "Granada",
+   "codigo": "GRX",
+   "vuelos": [
+    {
+     "destino": "Oporto",
+     "ida": "2026-11-29",
+     "vuelta": "2026-12-03",
+     "precio": 46,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/tutpwk"
+    },
+    {
+     "destino": "Madrid",
+     "ida": "2026-11-24",
+     "vuelta": "2026-11-26",
+     "precio": 60,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/3m23xjq"
+    },
+    {
+     "destino": "Palma de Mallorca",
+     "ida": "2026-11-18",
+     "vuelta": "2026-11-22",
+     "precio": 61,
+     "compania": "Vueling / Air Europa",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/5cgfwcp"
+    },
+    {
+     "destino": "Gran Canaria",
+     "ida": "2026-11-30",
+     "vuelta": "2026-12-02",
+     "precio": 62,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/sfuq3u4"
+    },
+    {
+     "destino": "Tenerife",
+     "ida": "2026-11-28",
+     "vuelta": "2026-12-02",
+     "precio": 64,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "nota": "Tenerife Norte",
+     "enlace": "https://kiwi.com/u/tyyks3"
+    },
+    {
+     "destino": "Bilbao",
+     "ida": "2026-11-26",
+     "vuelta": "2026-11-29",
+     "precio": 75,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/mtugw9v"
+    }
+   ]
+  },
+  {
+   "origen": "Málaga",
+   "codigo": "AGP",
+   "vuelos": [
+    {
+     "destino": "Palma de Mallorca",
+     "ida": "2026-11-24",
+     "vuelta": "2026-11-28",
+     "precio": 26,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/wfbqj2"
+    },
+    {
+     "destino": "Valencia",
+     "ida": "2026-11-20",
+     "vuelta": "2026-11-22",
+     "precio": 34,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/kxy2rrz"
+    },
+    {
+     "destino": "Ibiza",
+     "ida": "2026-11-21",
+     "vuelta": "2026-11-23",
+     "precio": 34,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/bqvzk2"
+    },
+    {
+     "destino": "Oporto",
+     "ida": "2026-11-28",
+     "vuelta": "2026-11-30",
+     "precio": 38,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/3f6r4k"
+    },
+    {
+     "destino": "Bilbao",
+     "ida": "2026-11-26",
+     "vuelta": "2026-11-30",
+     "precio": 41,
+     "compania": "Vueling / Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/h6vbv3"
+    },
+    {
+     "destino": "Venecia",
+     "ida": "2026-11-11",
+     "vuelta": "2026-11-16",
+     "precio": 41,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/vxcsvx"
+    }
+   ]
+  },
+  {
+   "origen": "Murcia",
+   "codigo": "RMU",
+   "vuelos": [
+    {
+     "destino": "Bilbao",
+     "ida": "2026-11-28",
+     "vuelta": "2026-12-01",
+     "precio": 40,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/z3xhc9"
+    },
+    {
+     "destino": "Birmingham",
+     "ida": "2026-11-27",
+     "vuelta": "2026-11-30",
+     "precio": 56,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/xxmxbd"
+    },
+    {
+     "destino": "Mánchester",
+     "ida": "2026-11-26",
+     "vuelta": "2026-11-29",
+     "precio": 57,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/x5xx5p"
+    },
+    {
+     "destino": "Barcelona",
+     "ida": "2026-11-16",
+     "vuelta": "2026-11-20",
+     "precio": 64,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/62fdgd"
+    },
+    {
+     "destino": "Dublín",
+     "ida": "2026-11-26",
+     "vuelta": "2026-11-30",
+     "precio": 68,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/5ucpw8"
+    },
+    {
+     "destino": "Londres",
+     "ida": "2026-11-27",
+     "vuelta": "2026-11-30",
+     "precio": 83,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "nota": "Stansted",
+     "enlace": "https://kiwi.com/u/zccxkdn"
+    }
+   ]
+  }
+ ],
+ "vuelosBuscado": "2026-10-25",
+ "vuelosBusqueda": "ida y vuelta en noviembre, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "antelacionMinimaDias": 3,
+ "sorteos": [],
+ "sorteosZona": "de Motril a Almería",
+ "sorteosBuscado": "2026-10-25",
+ "actualizado": "2026-10-25T09:59+01:00"
+}

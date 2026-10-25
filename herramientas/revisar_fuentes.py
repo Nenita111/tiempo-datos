@@ -1,0 +1,234 @@
+"""Revisión diaria de las fuentes de la app de la tele: ¿responde cada web y sigue teniendo lo que la app busca?
+
+Para cada fuente pide lo mismo que la app (con su mismo agente) y comprueba la marca de la que depende el programa
+(una expresión en la página, un campo del JSON…). Si una web cambia y la app dejaría una tarjeta vacía, sale aquí.
+
+  python3 revisar_fuentes.py                 # Adra
+  python3 revisar_fuentes.py --json informe.json
+
+Sale con código 1 si alguna fuente está ROTA. «NO COMPROBABLE» = la web bloquea a los servidores en la nube
+(p. ej. Red Eléctrica): desde casa funciona.
+"""
+import argparse, datetime as dt, gzip, io, json, re, ssl, subprocess, sys, tarfile, urllib.error, urllib.parse, urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from zoneinfo import ZoneInfo
+
+UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"      # el de la app (Red.kt)
+UA_WIKI = "TiempoYRadar/1.0 (aplicacion personal de television)"
+TZ = ZoneInfo("Europe/Madrid")
+ADRA = dict(nombre="Adra", provincia="Almería", ine="04003", cp="04770", lat=36.7480, lon=-3.0213)
+MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+def pedir(url, cuerpo=None, tipo=None, agente=UA, tiempo=45):
+    r = urllib.request.Request(url, data=cuerpo, headers={"User-Agent": agente, **({"Content-Type": tipo} if tipo else {})})
+    try:
+        with urllib.request.urlopen(r, timeout=tiempo) as f:
+            return f.read()
+    except urllib.error.URLError as e:
+        # algunas webs de la Administración negocian TLS de forma que Python no acepta y curl sí (como la tele): se reintenta con curl
+        if not isinstance(e.reason, ssl.SSLError) or cuerpo is not None: raise
+        c = subprocess.run(["curl", "-sS", "-f", "-L", "--max-time", str(tiempo), "-A", agente, url], capture_output=True)
+        if c.returncode: raise
+        return c.stdout
+
+
+def texto(url, **k):
+    b = pedir(url, **k)
+    try: return b.decode("utf-8")
+    except UnicodeDecodeError: return b.decode("iso-8859-15")
+
+
+def busca(patron, t, que):
+    if not re.search(patron, t): raise ValueError(f"no aparece {que}")
+
+
+# ------------------------------------------------------------------ cada fuente: devuelve un resumen corto o lanza el fallo
+def prevision(L):
+    t = texto(f"https://www.aemet.es/xml/municipios/localidad_{L['ine']}.xml"); busca(r"<prediccion>", t, "la predicción diaria")
+    t = texto(f"https://www.aemet.es/xml/municipios_h/localidad_h_{L['ine']}.xml"); busca(r"<prediccion>", t, "la predicción por horas")
+    return "diaria y por horas"
+
+def avisos(L):
+    t = texto("https://www.aemet.es/es/eltiempo/prediccion/avisos")
+    ruta = re.search(r"/es/geojson/download/avisos/geojson_\d+\.tar\.gz", t)
+    if not ruta: raise ValueError("no encuentro el paquete de avisos")
+    n = [m.name for m in tarfile.open(fileobj=io.BytesIO(gzip.decompress(pedir("https://www.aemet.es" + ruta.group(0), tiempo=60)))).getmembers()]
+    if not any(re.search(r"^r_D\+[012]_", x.rsplit("/", 1)[-1]) and "_penbal_" in x for x in n): raise ValueError("el paquete no trae los resúmenes")
+    return f"{len(n)} ficheros"
+
+def playas(L):
+    t = texto("https://www.aemet.es/es/eltiempo/prediccion/playas")
+    c = re.findall(r'"id":"[a-z0-9-]+-(\d{7})","nombre":"[^"]*","idLocalidad":"id' + L["ine"] + '"', t)
+    if not c: raise ValueError("no encuentro las playas del municipio")
+    busca(r"<prediccion>", texto(f"https://www.aemet.es/xml/playas/play_v2_{c[0]}.xml"), "la predicción de la playa")
+    return f"{len(set(c))} playas"
+
+def satelite(L):
+    t = texto("https://www.aemet.es/es/eltiempo/observacion/satelite/infra")
+    s = re.findall(r"imagenes_d/eltiempo/observacion/satelite/(\d{12})_s93g\.jpg", t)
+    if not s: raise ValueError("no encuentro las imágenes")
+    return f"última {max(s)}"
+
+def radar(L):
+    b = pedir("https://www.aemet.es/es/api-eltiempo/radar/download/compo", tiempo=60)
+    n = [m.name for m in tarfile.open(fileobj=io.BytesIO(gzip.decompress(b))).getmembers() if m.name.endswith(".tif")]
+    if not n: raise ValueError("el paquete no trae imágenes")
+    return f"{len(n)} imágenes"
+
+def incendio(L):
+    t = texto("https://www.aemet.es/es/eltiempo/prediccion/incendios")
+    ruta = (re.search(r"/es/api-eltiempo/incendios/download[^\"']*", t) or [None])[0] or "/es/api-eltiempo/incendios/download"
+    n = [m.name for m in tarfile.open(fileobj=io.BytesIO(gzip.decompress(pedir("https://www.aemet.es" + ruta, tiempo=90)))).getmembers()]
+    if not any("peligro_p_" in x and x.endswith(".tif") for x in n): raise ValueError("el paquete no trae el peligro de la península")
+    return f"{len(n)} ficheros"
+
+def maritima(L):
+    busca(r"<prediccion|<zona", texto("https://www.aemet.es/xml/maritima/FQXX47MM.xml"), "el boletín"); return "boletín"
+
+def mareas(L):
+    est = json.loads(texto("https://portus.puertos.es/portussvr/api/estaciones/rt/SEA_LEVEL?locale=es"))
+    if not est: raise ValueError("sin mareógrafos")
+    return f"{len(est)} mareógrafos"
+
+def boya(L):
+    est = json.loads(texto("https://portus.puertos.es/portussvr/api/estaciones/rt/WAVE?locale=es"))
+    if not est: raise ValueError("sin boyas")
+    return f"{len(est)} boyas"
+
+def oleaje(L):
+    u = json.loads(texto("https://portus.puertos.es/portussvr/api/ubicaciones/?locale=es"))
+    if not u: raise ValueError("sin ubicaciones")
+    return f"{len(u)} puntos"
+
+def terremotos(L):
+    t = texto("https://www.ign.es/web/ign/portal/ultimos-terremotos/-/ultimos-terremotos/get10dias", tiempo=60)
+    n = len(re.findall(r"<td>(es\w+)</td>\s*<td>([\d/]+)</td>\s*<td>([\d:]+)</td>", t))
+    if not n: raise ValueError("la tabla de terremotos ha cambiado")
+    return f"{n} terremotos"
+
+def efemerides(L):
+    h = dt.datetime.now(TZ).date()
+    t = texto(f"https://es.wikipedia.org/w/index.php?title={h.day}_de_{MESES[h.month - 1]}&action=raw", agente=UA_WIKI)
+    busca(r"==\s*Acontecimientos\s*==", t, "la sección Acontecimientos"); return "ok"
+
+def futbol(L):
+    j = json.loads(texto("https://site.api.espn.com/apis/v2/sports/soccer/esp.2/standings"))
+    if "children" not in j: raise ValueError("la clasificación ha cambiado")
+    return "clasificación"
+
+def campo(L):
+    t = texto("https://www.fhalmeria.com/es/pizarra-precios.aspx", tiempo=60)
+    t = re.sub(r"<[^>]+>", " ", re.sub(r"(?s)<script.*?</script>|<style.*?</style>", " ", t))
+    n = len(re.findall(r"\((\d{2})/(\d{2})/(\d{4})\)", t))
+    if not n: raise ValueError("la pizarra de precios ha cambiado")
+    return f"{n} subastas"
+
+def lonja(L):
+    h = dt.datetime.now(TZ).date(); fin = h - dt.timedelta(days=1); ini = fin - dt.timedelta(days=6)
+    q = urllib.parse.urlencode(dict(filters=json.dumps({"listaFiltro": [{"campo": "fechaVenta", "value": [str(ini), str(fin)]}, {"campo": "provincia", "value": ["4"]}]}),
+                                    agrupaciones=json.dumps({"campos": ["nombreEspecie"]}), page=0, size=200,
+                                    columnasMostrar=json.dumps({"campos": ["nombreEspecie", "totalKilos", "totalEuros"]}), codigoPantalla=21))
+    c = json.loads(texto("https://ws142.juntadeandalucia.es/agriculturaypesca/idapub/idaback/primeraVentaLonja/findPrimeraVentaLonja?" + q, tiempo=60)).get("content")
+    if c is None: raise ValueError("la respuesta no trae «content»")
+    return f"{len(c)} especies"
+
+def trafico(L):
+    t = pedir("https://nap.dgt.es/datex2/v3/dgt/SituationPublication/datex2_v37.xml", tiempo=60)[:400000].decode("utf-8", "replace")
+    busca(r"situationRecord", t, "incidencias"); return "ok"
+
+def gasolina(L):
+    j = json.loads(texto("https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/FiltroProvincia/04", tiempo=60))
+    if not j.get("ListaEESSPrecio"): raise ValueError("sin estaciones")
+    return f"{len(j['ListaEESSPrecio'])} estaciones"
+
+def luz(L):
+    d = dt.datetime.now(TZ).date()
+    try: j = json.loads(texto(f"https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date={d}T00:00&end_date={d}T23:59&time_trunc=hour"))
+    except urllib.error.HTTPError as e:
+        if e.code == 403: raise PermissionError("Red Eléctrica no deja entrar a servidores en la nube")
+        raise
+    if not j.get("included"): raise ValueError("sin precios")
+    return "precios de hoy"
+
+def aire(L):
+    j = json.loads(texto(f"https://air-quality-api.open-meteo.com/v1/air-quality?latitude={L['lat']}&longitude={L['lon']}&hourly=dust&forecast_days=1"))
+    if "hourly" not in j: raise ValueError("sin datos")
+    return "ok"
+
+def planeta(L):
+    for u in ("https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv",
+              "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.txt"):
+        if len(pedir(u, tiempo=60)) < 1000: raise ValueError(f"fichero vacío: {u}")
+    return "temperatura y CO₂"
+
+def sol(L):
+    if not json.loads(texto("https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json")): raise ValueError("sin índice Kp")
+    return "Kp"
+
+def farmacias(L):
+    t = texto("https://www.cofalmeria.com/buscador-de-farmacias/?activo_guardias=on")
+    n = re.search(r'vbf_vars\s*=\s*\{"nonce":"([a-z0-9]+)"', t)
+    if not n: raise ValueError("no encuentro la clave del buscador (vbf_vars)")
+    campos = {"action": "bearer_authentication_with_params", "nonce": n.group(1), "vbf_req_endpoint": "/farmacias-abiertas",
+              "vbf_req_fecha": dt.datetime.now(TZ).date().isoformat(), "vbf_req_cp": L["cp"], "vbf_req_municipio": L["nombre"],
+              "vbf_req_es_listado_geo": "false", "vbf_req_latitud": "null", "vbf_req_longitud": "null", "vbf_req_solo_guardias": "true",
+              "vbf_req_aplica_filtro_fecha": "true", "vbf_req_lang": "es-ES"}
+    r = json.loads(pedir("https://www.cofalmeria.com/wp-admin/admin-ajax.php", urllib.parse.urlencode(campos).encode(), "application/x-www-form-urlencoded"))
+    if not r.get("success"): raise ValueError("el buscador no acepta la consulta")
+    g = [f for x in r["data"]["data"].get("informacion", []) for f in x.get("contenido", []) if f.get("guardias")]
+    if not g: raise ValueError("ninguna farmacia de guardia hoy (¿ha cambiado la respuesta?)")
+    return f"{len(g)} de guardia"
+
+def alimentarias(L):
+    t = texto("https://www.aesan.gob.es/alertas/alertas-alimentarias")
+    i = t.find("alertas-alimentarias-de-interes-para-toda-la-poblacion")
+    if i < 0: raise ValueError("no encuentro el bloque «de interés para toda la población»")
+    n = len(re.findall(r'<a class="seeMoreCardSlide[^"]*" href="([^"]+)" title="([^"]+)">', t[i:]))
+    if not n: raise ValueError("el bloque no trae tarjetas")
+    return f"{n} alertas"
+
+def noticias(L):
+    q = urllib.parse.quote(f'"{L["nombre"]}" {L["provincia"]} when:7d')
+    n = len(re.findall(r"<item>", texto(f"https://news.google.com/rss/search?q={q}&hl=es&gl=ES&ceid=ES:es")))
+    for u in ("https://www.diariodealmeria.es/rss/provincia/", "https://www.lavozdealmeria.com/rss/", "https://www.noticiasdealmeria.com/rss/seccion/65/"):
+        if "<item>" not in texto(u): raise ValueError(f"sin noticias en {u}")
+    return f"{n} en Google Noticias"
+
+def sonda(L):
+    json.loads(texto(f"https://api.v2.sondehub.org/sondes?lat={L['lat']}&lon={L['lon']}&distance=300000&last=10800")); return "ok"
+
+def extras(L):
+    x = json.loads(texto("https://raw.githubusercontent.com/Nenita111/tiempo-datos/main/extras.json"))
+    b = x.get("vuelosBuscado")
+    if not b or (dt.date.today() - dt.date.fromisoformat(b)).days > 2: raise ValueError(f"vuelos sin buscar desde {b}")
+    return f"vuelos del {b}, {len(x.get('sorteos', []))} sorteos"
+
+
+FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
+           trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras]
+
+
+def revisar(L=ADRA):
+    def una(f):
+        try: return f.__name__, "BIEN", f(L)
+        except PermissionError as e: return f.__name__, "NO COMPROBABLE", str(e)
+        except Exception as e: return f.__name__, "ROTA", f"{type(e).__name__}: {e}"[:200]
+    with ThreadPoolExecutor(6) as ex:
+        return list(ex.map(una, FUENTES))
+
+
+def main():
+    a = argparse.ArgumentParser(); a.add_argument("--json"); o = a.parse_args()
+    r = revisar()
+    for n, e, d in r: print(f"{e:15} {n:13} {d}")
+    if o.json:
+        json.dump({"revisado": dt.datetime.now(TZ).isoformat(timespec="minutes"), "fuentes": [dict(fuente=n, estado=e, detalle=d) for n, e, d in r]},
+                  open(o.json, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    rotas = [n for n, e, _ in r if e == "ROTA"]
+    print(f"\n{len(r) - len(rotas)}/{len(r)} bien" + (f" · ROTAS: {', '.join(rotas)}" if rotas else ""))
+    sys.exit(1 if rotas else 0)
+
+
+if __name__ == "__main__":
+    main()
