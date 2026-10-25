@@ -1,8 +1,8 @@
 {
-  "versionCode": 9,
-  "versionName": "1.8",
+  "versionCode": 11,
+  "versionName": "2.0",
   "apk": "app/Tiempo.apk",
-  "sha256": "0e1018a3cac680057f3bc782aaed1572afd0c30194d6c7aa66851a60d6bfa98e",
-  "bytes": 920325,
-  "notas": "Lo aplicado en la tele aguanta los reinicios (salvapantallas, Projectivy al encender, animaciones), aviso de temporal en el mar, fuegos cercanos, índice UV, polen y agua de baño"
+  "sha256": "3b034d1fc35fe88e11c9b64b557cbba34ad29f1868ff0eb2ba0e208e4d138f31",
+  "bytes": 920909,
+  "notas": "Prueba de actualización automática desde la tele; mira si hay versión nueva cada vez que arranca y pide instalarla en cuanto la baja"
 }
