@@ -68,3 +68,12 @@ de la que depende. Si alguna sale **ROTA**, avisar con el nombre de la fuente y 
 
 Comprobar que `extras.json` es JSON válido y que conserva `embalses`, `butano` y los demás campos; hacer commit
 («Datos del AAAA-MM-DD») y push a `main`.
+
+## 5. Precio de la luz de mañana en el móvil (tarea aparte, cada tarde)
+
+`python3 -I herramientas/luz_movil.py salida.png --esperar 50 --apk app/Tiempo.apk`: lee el PVPC de mañana de Red Eléctrica
+(ESIOS, indicador 1001, península; si no, REData una sola vez) y hace una imagen de 1080×2400 con una fila por hora,
+su barra y su precio, la hora más barata, la más cara, la media (comparada con hoy) y las 3 horas seguidas más baratas.
+Si ESIOS responde pero aún no ha publicado, mira cada 4 minutos hasta `--esperar` minutos. Sin precios no dibuja nada
+y sale con código 4. La clave de ESIOS la pone el entorno en la nube como «network secret» (cabecera `x-api-key`
+para `api.esios.ree.es`): no va en el repositorio. Desde servidores en la nube Red Eléctrica suele rechazar REData.
