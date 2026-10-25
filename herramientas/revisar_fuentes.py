@@ -182,11 +182,16 @@ def farmacias(L):
 
 def alimentarias(L):
     t = texto("https://www.aesan.gob.es/alertas/alertas-alimentarias")
-    i = t.find("alertas-alimentarias-de-interes-para-toda-la-poblacion")
-    if i < 0: raise ValueError("no encuentro el bloque «de interés para toda la población»")
+    # la app lee los tres bloques (Alimentarias.kt): toda la población, complementos y alergias
+    bloques = {"toda la población": "alertas-alimentarias-de-interes-para-toda-la-poblacion",
+               "complementos": "alertas-alimentarias-para-personas-que-consumen-complementos-alimenticios",
+               "alergias": "alertas-alimentarias-para-personas-con-alergias-intolerancias"}
+    for nombre, ancla in bloques.items():
+        if ancla not in t: raise ValueError(f"no encuentro el bloque «{nombre}»")
+    i = t.find(bloques["toda la población"])
     n = len(re.findall(r'<a class="seeMoreCardSlide[^"]*" href="([^"]+)" title="([^"]+)">', t[i:]))
-    if not n: raise ValueError("el bloque no trae tarjetas")
-    return f"{n} alertas"
+    if not n: raise ValueError("los bloques no traen tarjetas")
+    return f"{n} alertas en los tres bloques"
 
 def noticias(L):
     q = urllib.parse.quote(f'"{L["nombre"]}" {L["provincia"]} when:7d')
