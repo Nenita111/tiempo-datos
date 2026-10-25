@@ -1,8 +1,8 @@
 {
-  "versionCode": 5,
-  "versionName": "1.4",
+  "versionCode": 8,
+  "versionName": "1.7",
   "apk": "app/Tiempo.apk",
-  "sha256": "336d3ab06b7c76e5e09971cb6b0538acd2fd3cc67adbdbaa82afb8040a8d7bee",
-  "bytes": 915141,
-  "notas": "Aviso de temporal en el mar (Puertos del Estado y avisos costeros de AEMET), fuegos cercanos, índice UV, polen, agua de baño y actualización automática"
+  "sha256": "8c8cf08aac2fa9dc6f511310613b2658a73878d603f74154e9ca841ba1df387f",
+  "bytes": 919749,
+  "notas": "Lo aplicado en la tele aguanta los reinicios (salvapantallas, Projectivy al encender, animaciones), aviso de temporal en el mar, fuegos cercanos, índice UV, polen y agua de baño"
 }
