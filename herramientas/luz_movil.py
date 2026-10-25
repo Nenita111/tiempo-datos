@@ -89,18 +89,18 @@ def etiquetas(precios):
 
 
 # ---------------------------------------------------------------- dibujo
-def html(precios, dia, publicado, fuente, hoy_media=None, fuente_letra=None):
+def html(precios, dia, publicado, fuente, hoy_media=None, fuente_letra=None, rotulo="Precio de la luz mañana · PVPC"):
     R = resumen(precios)
     ps = [p for _, p in precios]; mn, mx = min(ps), max(ps)
     fecha = f"{DIAS[dia.weekday()]} {dia.day} de {MESES[dia.month - 1]}"
     pub = ""
     if publicado:
-        try: pub = f" a las {dt.datetime.fromisoformat(publicado.replace('Z', '+00:00')).astimezone(TZ):%H:%M}"
+        try: pub = f" · publicado a las {dt.datetime.fromisoformat(publicado.replace('Z', '+00:00')).astimezone(TZ):%H:%M}"
         except ValueError: pub = ""
     comp = ""
     if hoy_media:
         d = (R["media"] - hoy_media) / hoy_media * 100
-        comp = f"<small>hoy {coma(hoy_media)} · {'+' if d > 0 else '−'}{coma(abs(d), 0)} %</small>"
+        comp = f"<small>{'+' if d > 0 else '−'}{coma(abs(d), 0)} % que hoy</small>"
     filas = []
     for i, ((t, p), et) in enumerate(zip(precios, etiquetas(precios))):
         marca = " min" if i == R["imin"] else " max" if i == R["imax"] else ""
@@ -111,37 +111,37 @@ def html(precios, dia, publicado, fuente, hoy_media=None, fuente_letra=None):
     th = R["tres"]
     return f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><style>{letra}
 *{{box-sizing:border-box;margin:0;padding:0}}
-html,body{{width:540px;height:1200px}}
-body{{font-family:A,"Atkinson Hyperlegible",system-ui,sans-serif;color:#eef2f7;padding:30px 22px 20px;display:flex;flex-direction:column;gap:14px;
+html,body{{width:540px;height:1200px;overflow:hidden}}
+body{{font-family:A,"Atkinson Hyperlegible",system-ui,sans-serif;color:#eef2f7;padding:26px 18px 16px;display:flex;flex-direction:column;gap:11px;
   background:radial-gradient(700px 400px at 12% -10%,#17243b 0%,rgba(23,36,59,0) 62%),radial-gradient(600px 380px at 106% 112%,#1e1932 0%,rgba(30,25,50,0) 56%),#0b111b;
   font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}}
-.k{{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#8d9ab0;font-weight:800}}
-h1{{font-size:34px;line-height:1.08;font-weight:800;margin-top:6px;letter-spacing:-.01em}}
-.sub{{font-size:14px;color:#a9b4c6;margin-top:6px;font-weight:600;line-height:1.35}}
+.k{{font-size:16px;letter-spacing:.14em;text-transform:uppercase;color:#8d9ab0;font-weight:800}}
+h1{{font-size:40px;line-height:1.05;font-weight:800;margin-top:4px;letter-spacing:-.01em}}
+.sub{{font-size:18px;color:#c3ccda;margin-top:5px;font-weight:600;line-height:1.3}}
 .cajas{{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}}
-.caja{{background:rgba(255,255,255,.06);border-radius:14px;padding:9px 10px}}
-.caja span{{display:block;font-size:12px;color:#8d9ab0;font-weight:800;letter-spacing:.06em;text-transform:uppercase}}
-.caja b{{display:block;font-size:22px;font-weight:800;margin-top:3px}}.caja small{{display:block;font-size:13px;color:#a9b4c6;font-weight:600;margin-top:1px}}
+.caja{{background:rgba(255,255,255,.07);border-radius:14px;padding:8px 10px}}
+.caja span{{display:block;font-size:15px;color:#a9b4c6;font-weight:800;letter-spacing:.04em;text-transform:uppercase}}
+.caja b{{display:block;font-size:30px;font-weight:800;margin-top:2px;line-height:1.1}}.caja small{{display:block;font-size:17px;color:#d5dce7;font-weight:700;margin-top:2px;white-space:nowrap}}
 .caja.b b{{color:#50ccaa}}.caja.c b{{color:#ff6b5b}}
-.tres-n{{font-size:14.5px;color:#cfd7e3;font-weight:600;background:rgba(80,204,170,.10);border-left:4px solid #50ccaa;border-radius:8px;padding:7px 10px}}
+.tres-n{{font-size:19px;line-height:1.3;white-space:nowrap;color:#e3e8ef;font-weight:600;background:rgba(80,204,170,.10);border-left:4px solid #50ccaa;border-radius:8px;padding:7px 10px}}
 .tres-n b{{color:#50ccaa}}
-.graf{{flex:1;display:flex;flex-direction:column;justify-content:space-between;background:rgba(255,255,255,.035);border-radius:16px;padding:8px 10px}}
-.fila{{display:grid;grid-template-columns:62px 1fr 64px;align-items:center;gap:8px;flex:1;border-radius:7px;padding:0 4px}}
-.h{{font-size:15px;color:#a9b4c6;font-weight:700;white-space:nowrap}}
-.pista{{height:62%;display:flex;align-items:center}}.pista i{{display:block;height:100%;border-radius:0 6px 6px 0}}
-.fila b{{font-size:16px;font-weight:800;text-align:right}}
+.graf{{flex:1;display:flex;flex-direction:column;justify-content:space-between;background:rgba(255,255,255,.035);border-radius:16px;padding:6px 8px}}
+.fila{{display:grid;grid-template-columns:72px 1fr 86px;align-items:center;gap:8px;flex:1;min-height:0;border-radius:7px;padding:0 4px}}
+.h{{font-size:22px;color:#d5dce7;font-weight:700;white-space:nowrap}}
+.pista{{height:66%;display:flex;align-items:center}}.pista i{{display:block;height:100%;border-radius:0 6px 6px 0}}
+.fila b{{font-size:24px;font-weight:800;text-align:right}}
 .fila.tres{{background:rgba(80,204,170,.10)}}
 .fila.min b{{color:#50ccaa}}.fila.max b{{color:#ff6b5b}}.fila.min .h,.fila.max .h{{color:#eef2f7}}
-.pie{{font-size:12.5px;color:#7f8ba0;font-weight:600;line-height:1.35}}
+.pie{{font-size:15px;color:#a3aec0;font-weight:600;line-height:1.3}}
 </style></head><body>
-<div><div class="k">Luz · precio por horas (PVPC)</div><h1>Mañana, {fecha}</h1>
-<p class="sub">€/kWh de cada hora · publicado por Red Eléctrica{pub}</p></div>
+<div><div class="k">{rotulo}</div><h1>{fecha[0].upper() + fecha[1:]}</h1>
+<p class="sub">€/kWh de cada hora{pub}</p></div>
 <div class="cajas"><div class="caja b"><span>Más barata</span><b>{etiquetas(precios)[R['imin']]}</b><small>{coma(mn)} €</small></div>
 <div class="caja c"><span>Más cara</span><b>{etiquetas(precios)[R['imax']]}</b><small>{coma(mx)} €</small></div>
 <div class="caja"><span>Media</span><b>{coma(R['media'])}</b>{comp}</div></div>
-<p class="tres-n">Las 3 horas seguidas más baratas: <b>de {precios[th][0][:2]}:00 a {(int(precios[min(th + 2, len(precios) - 1)][0][:2]) + 1) % 24:02d}:00</b> · {coma(R['tres_media'])} € de media (lavadora, lavavajillas, horno)</p>
+<p class="tres-n">3 horas seguidas más baratas: <b>de {int(precios[th][0][:2])} a {(int(precios[min(th + 2, len(precios) - 1)][0][:2]) + 1) % 24} h</b> · {coma(R['tres_media'])} €</p>
 <div class="graf">{"".join(filas)}</div>
-<p class="pie">Término de energía del PVPC 2.0TD, con peajes y cargos y sin impuestos. Fuente: Red Eléctrica ({fuente}). Imagen hecha a las {dt.datetime.now(TZ):%H:%M}.</p>
+<p class="pie">€/kWh con peajes y cargos, sin impuestos · Red Eléctrica ({fuente})</p>
 </body></html>"""
 
 

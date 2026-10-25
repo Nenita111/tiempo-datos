@@ -51,10 +51,11 @@ class LuzMovil(unittest.TestCase):
         p = [[f"{h:02d}:00", round(.08 + h * .005, 5)] for h in range(24)]
         h = L.html(p, dt.date(2026, 10, 26), "2026-10-25T20:17:22.000+01:00", "ESIOS", hoy_media=.2)
         self.assertEqual(h.count('class="fila'), 24)
-        self.assertIn("Mañana, lunes 26 de octubre", h)
-        self.assertIn("a las 20:17", h)
-        self.assertIn("de 00:00 a 03:00", h)
-        self.assertIn("hoy 0,200", h)
+        self.assertIn("Lunes 26 de octubre", h)
+        self.assertIn("Precio de la luz mañana", h)
+        self.assertIn("publicado a las 20:17", h)
+        self.assertIn("de 0 a 3 h", h)
+        self.assertIn("% que hoy", h)
 
 
 if __name__ == "__main__":
