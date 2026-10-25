@@ -1,8 +1,8 @@
 {
-  "versionCode": 4,
-  "versionName": "1.3",
+  "versionCode": 5,
+  "versionName": "1.4",
   "apk": "app/Tiempo.apk",
-  "sha256": "5fa4174bbf2b2e8e6243fd74fded031f5cc6bcd3b6fa04022d8cc49fd15da22a",
-  "bytes": 914417,
-  "notas": "Fuegos vistos por satélite cerca, índice UV, polen de olivo y gramíneas, calidad del agua de baño y actualización automática"
+  "sha256": "336d3ab06b7c76e5e09971cb6b0538acd2fd3cc67adbdbaa82afb8040a8d7bee",
+  "bytes": 915141,
+  "notas": "Aviso de temporal en el mar (Puertos del Estado y avisos costeros de AEMET), fuegos cercanos, índice UV, polen, agua de baño y actualización automática"
 }
