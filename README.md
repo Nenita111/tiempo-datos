@@ -14,4 +14,5 @@ La tele descarga `extras.json` cada hora; una tarea programada lo pone al día c
   su huella y su firma y pide confirmar la instalación con el mando.
 
 No contiene datos personales. Cómo se hace cada cosa: [PROCEDIMIENTO.md](PROCEDIMIENTO.md).
-Herramientas: `herramientas/vuelos.py`, `herramientas/sorteos.py`, `herramientas/cortes.py` y `herramientas/revisar_fuentes.py`.
+Herramientas: `herramientas/vuelos.py`, `herramientas/sorteos.py`, `herramientas/cortes.py`, `herramientas/revisar_fuentes.py`,
+`herramientas/captura.py` (capturas que llegan a mano) e `herramientas/instagram_oficial.py` (API oficial, opcional).
