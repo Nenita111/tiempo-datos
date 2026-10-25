@@ -10,5 +10,8 @@ La tele descarga `extras.json` cada hora; una tarea programada lo pone al día c
 - **Cortes anunciados** (luz, agua, tráfico) que no salen en los periódicos, con su enlace; se quitan al pasar.
 - **Embalses** de la cuenca Mediterránea Andaluza y precio de la bombona de butano.
 
+- **La app** (`app/Tiempo.apk` y `app/version.json`): la tele mira aquí si hay versión nueva, la baja, comprueba
+  su huella y su firma y pide confirmar la instalación con el mando.
+
 No contiene datos personales. Cómo se hace cada cosa: [PROCEDIMIENTO.md](PROCEDIMIENTO.md).
 Herramientas: `herramientas/vuelos.py`, `herramientas/sorteos.py`, `herramientas/cortes.py` y `herramientas/revisar_fuentes.py`.
