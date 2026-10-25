@@ -1,8 +1,8 @@
 {
-  "versionCode": 8,
-  "versionName": "1.7",
+  "versionCode": 9,
+  "versionName": "1.8",
   "apk": "app/Tiempo.apk",
-  "sha256": "8c8cf08aac2fa9dc6f511310613b2658a73878d603f74154e9ca841ba1df387f",
-  "bytes": 919749,
+  "sha256": "0e1018a3cac680057f3bc782aaed1572afd0c30194d6c7aa66851a60d6bfa98e",
+  "bytes": 920325,
   "notas": "Lo aplicado en la tele aguanta los reinicios (salvapantallas, Projectivy al encender, animaciones), aviso de temporal en el mar, fuegos cercanos, índice UV, polen y agua de baño"
 }
