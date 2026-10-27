@@ -16,4 +16,5 @@ La tele descarga `extras.json` cada hora; una tarea programada lo pone al día c
 No contiene datos personales. Cómo se hace cada cosa: [PROCEDIMIENTO.md](PROCEDIMIENTO.md).
 Herramientas: `herramientas/vuelos.py`, `herramientas/sorteos.py`, `herramientas/cortes.py`, `herramientas/revisar_fuentes.py`,
 `herramientas/captura.py` (capturas que llegan a mano), `herramientas/instagram_oficial.py` (API oficial, opcional)
-y `herramientas/luz_movil.py` (precio de la luz de mañana en una imagen para el móvil).
+`herramientas/luz_movil.py` (precio de la luz de mañana en una imagen para el móvil), `herramientas/agenda.py` (agenda del pueblo)
+y `herramientas/avisos_movil.py` (avisos urgentes al móvil: AEMET naranja o rojo, terremotos que se notan, cortes de agua o luz).

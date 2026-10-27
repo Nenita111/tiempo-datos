@@ -58,6 +58,17 @@ Cuando llegue uno (enlace o captura), se apunta con
 `python3 herramientas/cortes.py extras.json --tipo luz|agua|trafico --titulo … --hasta AAAA-MM-DD --enlace …`.
 La tarea diaria solo ejecuta `python3 herramientas/cortes.py extras.json` para quitar los que ya pasaron.
 
+## 2c. Agenda del pueblo (pantalla Hoy)
+
+La agenda de la web del Ayuntamiento no se mantiene, así que las actividades de los próximos 8 días se apuntan una a una
+cuando se ven en una fuente oficial: la web del Ayuntamiento, sus notas de prensa, sus redes (solo por captura en el
+buzón, nunca entrando en ellas) o un medio local que lo cuente citándolo. Búsqueda web pública (sin entrar en redes
+sociales ni saltarse robots.txt): el nombre del pueblo con «programa», «actividades», «concierto», «exposición»,
+«fin de semana», «feria», «jornadas»… Solo se apunta lo que se ha leído: qué, el día y dónde (la hora si la dice), con el
+enlace a la fuente. Sin día, no se apunta; nada deducido.
+`python3 herramientas/agenda.py extras.json --titulo … --fecha AAAA-MM-DD [--hora HH:MM] [--hasta AAAA-MM-DD] [--lugar …] --enlace … --fuente …`.
+Sin argumentos, solo quita lo que ya pasó (lo hace la tarea diaria).
+
 ## 3. Revisión de las fuentes de la app
 
 `python3 herramientas/revisar_fuentes.py --json revision.json`: pide cada fuente como la app y comprueba la marca
@@ -77,3 +88,11 @@ su barra y su precio, la hora más barata, la más cara, la media (comparada con
 Si ESIOS responde pero aún no ha publicado, mira cada 4 minutos hasta `--esperar` minutos. Sin precios no dibuja nada
 y sale con código 4. La clave de ESIOS la pone el entorno en la nube como «network secret» (cabecera `x-api-key`
 para `api.esios.ree.es`): no va en el repositorio. Desde servidores en la nube Red Eléctrica suele rechazar REData.
+
+## 6. Avisos urgentes al móvil (tarea aparte, cada 2 horas)
+
+`python3 -I herramientas/avisos_movil.py --estado avisos_enviados.json --extras extras.json`: avisos naranja o rojo de AEMET
+en la zona del pueblo o su costa; terremotos del IGN que se pueden notar (magnitud 3 a menos de 50 km, 3,5 a menos de 100 km,
+4 a menos de 200 km); cortes de agua o luz apuntados en extras.json o en los titulares de Noticias de Almería (Google Noticias
+y Diario de Almería prohíben en robots.txt a los agentes como este: no se usan). Imprime una línea JSON con los nuevos y apunta en
+`avisos_enviados.json` lo enviado (30 días), para no repetir. Ese fichero solo lleva códigos de avisos públicos.
