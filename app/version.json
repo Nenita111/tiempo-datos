@@ -1,8 +1,8 @@
 {
-  "versionCode": 13,
-  "versionName": "2.2",
+  "versionCode": 14,
+  "versionName": "2.3",
   "apk": "app/Tiempo.apk",
-  "sha256": "5991559129ccb1141c44d7d15b7b82ec202048a2487bc6560038919543779cef",
-  "bytes": 929997,
-  "notas": "Nada cortado: las listas largas (terremotos, precios del campo y la lonja, efemérides, tráfico, noticias, sorteos, cortes, avisos) se enseñan por turnos, una parte en cada vuelta con «1–5 de 20» en la cabecera; los textos que no caben van en más líneas en vez de con puntos suspensivos."
+  "sha256": "5d71b2e3682a65cf65147fa7a705ce0af105632003d82de2f16abdc7f979feed",
+  "bytes": 942005,
+  "notas": "Pantallas nuevas: Precios (campo y lonja) y Empleo (ofertas en plazo de los entes de la Junta y el SAS en BOJA y BOE). Agenda del pueblo, QR en Ahora, Semana, terremotos, campo y lonja, hora de cada terremoto, dos gasolineras por combustible, marca «Nuevo» y animación del tiempo solo en Ahora y con intensidad según los datos."
 }
