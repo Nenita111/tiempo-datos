@@ -366,6 +366,177 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-10-27",
- "actualizado": "2026-10-27T07:50+01:00",
- "cortes": []
+ "actualizado": "2026-10-27T22:56+01:00",
+ "cortes": [],
+ "cielo": {
+  "eventos": [
+   {
+    "fecha": "2026-11-17",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Leónidas",
+    "detalle": "Hasta 15 meteoros por hora en condiciones ideales · visibles del 6 nov al 30 nov · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2026-12-14",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Gemínidas",
+    "detalle": "Hasta 150 meteoros por hora en condiciones ideales · visibles del 4 dic al 20 dic · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2026-12-21",
+    "hora": "21:50",
+    "tipo": "estacion",
+    "titulo": "Empieza el invierno",
+    "detalle": "",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2026.pdf"
+   },
+   {
+    "fecha": "2026-12-22",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Úrsidas",
+    "detalle": "Hasta 10 meteoros por hora en condiciones ideales · visibles del 17 dic al 26 dic · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-01-03",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Cuadrántidas",
+    "detalle": "Hasta 80 meteoros por hora en condiciones ideales · visibles del 28 dic al 12 ene · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-02-20",
+    "tipo": "eclipse",
+    "titulo": "Eclipse penumbral de Luna",
+    "detalle": "Visible en toda España",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2027.pdf"
+   },
+   {
+    "fecha": "2027-03-20",
+    "hora": "21:24",
+    "tipo": "estacion",
+    "titulo": "Empieza la primavera",
+    "detalle": "",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2027.pdf"
+   },
+   {
+    "fecha": "2027-03-28",
+    "tipo": "hora",
+    "titulo": "Cambio de hora",
+    "detalle": "A las 2 de la madrugada serán las 3: una hora menos de sueño",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2027.pdf"
+   },
+   {
+    "fecha": "2027-04-22",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Líridas",
+    "detalle": "Hasta 18 meteoros por hora en condiciones ideales · visibles del 14 abr al 30 abr · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-05-06",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Eta Acuáridas",
+    "detalle": "Hasta 50 meteoros por hora en condiciones ideales · visibles del 19 abr al 28 may · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-06-21",
+    "hora": "16:11",
+    "tipo": "estacion",
+    "titulo": "Empieza el verano",
+    "detalle": "",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2027.pdf"
+   },
+   {
+    "fecha": "2027-07-31",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Delta Acuáridas",
+    "detalle": "Hasta 25 meteoros por hora en condiciones ideales · visibles del 12 jul al 23 ago · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-08-02",
+    "tipo": "eclipse",
+    "titulo": "Eclipse total de Sol",
+    "detalle": "Visible en España, la franja de totalidad atravesará el sur de la Península de oeste a este, entrará por Cádiz cruzando el sur de Málaga, el sur de Granada, el sur de Almeria, Ceuta y Melilla",
+    "enlace": "https://eclipses.ign.es/"
+   },
+   {
+    "fecha": "2027-08-13",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Perseidas",
+    "detalle": "Hasta 100 meteoros por hora en condiciones ideales · visibles del 17 jul al 24 ago · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-08-17",
+    "tipo": "eclipse",
+    "titulo": "Eclipse penumbral de Luna",
+    "detalle": "Visible en sus fases finales en el suroeste de la Península, Ceuta, Melilla e Islas Canarias",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2027.pdf"
+   },
+   {
+    "fecha": "2027-09-23",
+    "hora": "08:01",
+    "tipo": "estacion",
+    "titulo": "Empieza el otoño",
+    "detalle": "",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2027.pdf"
+   },
+   {
+    "fecha": "2027-10-09",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Dracónidas",
+    "detalle": "Hasta 5 meteoros por hora en condiciones ideales · visibles del 6 oct al 10 oct · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-10-21",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Oriónidas",
+    "detalle": "Hasta 20 meteoros por hora en condiciones ideales · visibles del 2 oct al 7 nov · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-10-31",
+    "tipo": "hora",
+    "titulo": "Cambio de hora",
+    "detalle": "A las 3 de la madrugada serán las 2: una hora más",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2027.pdf"
+   },
+   {
+    "fecha": "2027-11-17",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Leónidas",
+    "detalle": "Hasta 15 meteoros por hora en condiciones ideales · visibles del 6 nov al 30 nov · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-12-14",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Gemínidas",
+    "detalle": "Hasta 150 meteoros por hora en condiciones ideales · visibles del 4 dic al 20 dic · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-12-22",
+    "tipo": "meteoros",
+    "titulo": "Máximo de las Úrsidas",
+    "detalle": "Hasta 10 meteoros por hora en condiciones ideales · visibles del 17 dic al 26 dic · fecha aproximada (OAN)",
+    "enlace": "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
+   },
+   {
+    "fecha": "2027-12-22",
+    "hora": "03:42",
+    "tipo": "estacion",
+    "titulo": "Empieza el invierno",
+    "detalle": "",
+    "enlace": "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_2027.pdf"
+   }
+  ],
+  "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"
+ }
 }

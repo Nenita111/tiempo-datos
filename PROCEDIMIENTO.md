@@ -69,6 +69,13 @@ enlace a la fuente. Sin día, no se apunta; nada deducido.
 `python3 herramientas/agenda.py extras.json --titulo … --fecha AAAA-MM-DD [--hora HH:MM] [--hasta AAAA-MM-DD] [--lugar …] --enlace … --fuente …`.
 Sin argumentos, solo quita lo que ya pasó (lo hace la tarea diaria).
 
+## 2d. Calendario del cielo (pantalla Espacio)
+
+`python3 herramientas/cielo.py extras.json`: inicio de las estaciones, eclipses visibles en España y cambio de hora de la
+Agenda astronómica oficial del IGN (este año y el siguiente, en cuanto la publica) y los máximos de las principales lluvias
+de meteoros de la tabla del Observatorio Astronómico Nacional (fecha aproximada). Si el PDF del IGN no se puede bajar, usa la
+copia oficial de `herramientas/muestras/`. Lo ejecuta la tarea diaria.
+
 ## 3. Revisión de las fuentes de la app
 
 `python3 herramientas/revisar_fuentes.py --json revision.json`: pide cada fuente como la app y comprueba la marca
