@@ -1,8 +1,8 @@
 {
-  "versionCode": 12,
-  "versionName": "2.1",
+  "versionCode": 13,
+  "versionName": "2.2",
   "apk": "app/Tiempo.apk",
-  "sha256": "09f60476cbf2dd1aa2ff346759c2bb266e6c7f43c4dbe5e770a310235469a916",
-  "bytes": 927017,
-  "notas": "Datos del día vigente: al encender el salvapantallas no enseña los de ayer, y se ponen al día 4 veces al día (00:15, 06:15, 12:15 y 18:15) aunque la tele esté en reposo."
+  "sha256": "5991559129ccb1141c44d7d15b7b82ec202048a2487bc6560038919543779cef",
+  "bytes": 929997,
+  "notas": "Nada cortado: las listas largas (terremotos, precios del campo y la lonja, efemérides, tráfico, noticias, sorteos, cortes, avisos) se enseñan por turnos, una parte en cada vuelta con «1–5 de 20» en la cabecera; los textos que no caben van en más líneas en vez de con puntos suspensivos."
 }
