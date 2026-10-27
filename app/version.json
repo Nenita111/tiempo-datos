@@ -1,8 +1,8 @@
 {
-  "versionCode": 11,
-  "versionName": "2.0",
+  "versionCode": 12,
+  "versionName": "2.1",
   "apk": "app/Tiempo.apk",
-  "sha256": "3b034d1fc35fe88e11c9b64b557cbba34ad29f1868ff0eb2ba0e208e4d138f31",
-  "bytes": 920909,
-  "notas": "Prueba de actualización automática desde la tele; mira si hay versión nueva cada vez que arranca y pide instalarla en cuanto la baja"
+  "sha256": "09f60476cbf2dd1aa2ff346759c2bb266e6c7f43c4dbe5e770a310235469a916",
+  "bytes": 927017,
+  "notas": "Datos del día vigente: al encender el salvapantallas no enseña los de ayer, y se ponen al día 4 veces al día (00:15, 06:15, 12:15 y 18:15) aunque la tele esté en reposo."
 }
