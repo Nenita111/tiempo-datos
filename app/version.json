@@ -1,8 +1,8 @@
 {
-  "versionCode": 15,
-  "versionName": "2.4",
+  "versionCode": 16,
+  "versionName": "2.5",
   "apk": "app/Tiempo.apk",
-  "sha256": "586efae15e380190081fb77d1334d024145e5d5a6b37000bf8b18fc834aae010",
-  "bytes": 963522,
-  "notas": "En el cielo de Adra (pantalla Espacio): cuándo pasa a la vista la Estación Espacial y el calendario del IGN y del OAN (estaciones, eclipses, lluvias de meteoros, cambio de hora), con aviso arriba el día antes. Regatas de barco dragón de la Federación Andaluza con cuenta atrás (Hoy). Lluvia medida en la estación agroclimática de Adra y lo que falta para regar (Semana)."
+  "sha256": "44f16dc0d53e50b1344c8fc6e7d877613f2368495c61a6c3214a7775acbad4db",
+  "bytes": 1003127,
+  "notas": "Pantallas nuevas: Planeta (el planeta, el cielo de esta noche, el Sol y el aire) y Terremotos (cerca y los más fuertes del mundo, con mapa). Fuentes arriba y hora de actualización en cada tarjeta; Semana con ayer, hoy y mañana por la fecha; 3 gasolineras por combustible; la hora en cada franja de la luz; precios a dos columnas; alertas alimentarias una semana como mucho; internet medido en cada encendido; y una revisión de errores y consumo."
 }
