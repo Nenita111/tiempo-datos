@@ -210,8 +210,47 @@ def extras(L):
     return f"vuelos del {b}, {len(x.get('sorteos', []))} sorteos"
 
 
+def paro(L):
+    # datos abiertos del SEPE: el CSV del año (o del anterior, en enero)
+    y = dt.date.today().year
+    for año in (y, y - 1):
+        try:
+            r = urllib.request.urlopen(urllib.request.Request(f"https://sede.sepe.gob.es/es/portaltrabaja/resources/sede/datos_abiertos/datos/Paro_por_municipios_{año}_csv.csv",
+                                                              headers={"User-Agent": UA}, method="HEAD"), timeout=45)
+            return f"CSV de {año}, {r.headers.get('Last-Modified', 'sin fecha')}"
+        except urllib.error.HTTPError as e:
+            if e.code != 404: raise
+    raise ValueError("no está el CSV de paro por municipios")
+
+def afiliados(L):
+    t = texto("https://www.seg-social.es/wps/portal/wss/internet/EstadisticasPresupuestosEstudios/Estadisticas/est8/est10/est305/c43ad8ea-fe79-4329-ac8e-e5758f3c4d7a/6609c55f-65e4-4e64-b1ab-8917fce27a84", tiempo=60)
+    m = re.findall(r'href="/descarga/es/(Muni\w+)"', t)
+    if not m: raise ValueError("la página no trae los ficheros por municipios")
+    return f"último {m[0]}"
+
+def euribor(L):
+    t = texto("https://clientebancario.bde.es/pcb/es/menu-horizontal/podemosayudarte/tiposinteres/guia_textual/tiposinteresreferenciaotrostiposfrecuentes/tabla_tipos_referencia_oficiales_mercado_hipotecario.html")
+    if not re.search(r'headers="[^"]*\bt151\b', t): raise ValueError("la tabla oficial ha cambiado (sin la columna del euríbor a 1 año)")
+    c = pedir("https://www.bde.es/webbe/es/estadisticas/compartido/datos/csv/ti_1_7.csv")[:3000].decode("latin-1")
+    if "Euríbor. A 12 meses" not in c: raise ValueError("el CSV del euríbor diario ha cambiado")
+    return "tabla oficial y CSV"
+
+def festivos(L):
+    j = json.loads(texto("https://www.juntadeandalucia.es/ssdigitales/datasets/work-calendar/years"))
+    if str(dt.date.today().year) not in j.get("result", []): raise ValueError("el calendario laboral no tiene este año")
+    return "años " + ", ".join(j["result"][-2:])
+
+def rayos(L):
+    t = texto("https://view.eumetsat.int/geoserver/mtg_fd/li_afa/ows?service=WMS&version=1.3.0&request=GetCapabilities")
+    m = re.search(r'<Dimension name="time" default="([^"]+)"', t)
+    if not m: raise ValueError("EUMETView no da la hora de los rayos")
+    edad = dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(m.group(1).replace("Z", "+00:00"))
+    if edad > dt.timedelta(hours=2): raise ValueError(f"la última imagen de rayos es de hace {edad}")
+    return f"última imagen {m.group(1)}"
+
+
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
-           trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras]
+           trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos]
 
 
 def revisar(L=ADRA):

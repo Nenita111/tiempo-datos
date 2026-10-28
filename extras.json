@@ -365,7 +365,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-10-28",
- "actualizado": "2026-10-28T07:47+01:00",
+ "actualizado": "2026-10-28T09:28+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -584,5 +584,90 @@
    "lugar": "Patio del colegio de La Alquería",
    "enlace": "https://www.noticiasdealmeria.com/el-scape-room-saw-novedad-de-halloween-en-adra"
   }
- ]
+ ],
+ "raif": {
+  "provincia": "Almería",
+  "cultivos": [
+   {
+    "cultivo": "Tomate",
+    "desde": "2026-10-19",
+    "hasta": "2026-10-23",
+    "destacados": "Mosca blanca y Trips",
+    "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Tomate.pdf"
+   },
+   {
+    "cultivo": "Pimiento",
+    "desde": "2026-10-19",
+    "hasta": "2026-10-23",
+    "destacados": "Mosca blanca, Trips",
+    "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Pimiento.pdf"
+   },
+   {
+    "cultivo": "Pepino",
+    "desde": "2026-02-02",
+    "hasta": "2026-02-06",
+    "destacados": "Mosca blanca, Trips",
+    "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Pepino.pdf"
+   },
+   {
+    "cultivo": "Calabacín",
+    "desde": "2026-02-09",
+    "hasta": "2026-02-13",
+    "destacados": "Mosca blanca, ToLCNDV",
+    "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Calabacin.pdf"
+   },
+   {
+    "cultivo": "Berenjena",
+    "desde": "2026-10-19",
+    "hasta": "2026-10-23",
+    "destacados": "Mosca blanca, Trips",
+    "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Berenjena.pdf"
+   },
+   {
+    "cultivo": "Sandía",
+    "desde": "2026-04-11",
+    "hasta": "2026-04-15",
+    "destacados": "Mosca blanca y Trips",
+    "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Sandia.pdf"
+   }
+  ],
+  "pagina": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/boletin-provincial/informe-semanal/informe-semanal-almeria/",
+  "fuente": "Red de Alerta e Información Fitosanitaria de Andalucía (RAIF, Junta de Andalucía)"
+ },
+ "respiratorias": {
+  "semana": "42/2026",
+  "iras": {
+   "tasa": 200.9,
+   "previa": 240.0
+  },
+  "gripal": {
+   "tasa": 1.8,
+   "previa": 1.9
+  },
+  "covid": {
+   "tasa": 2.9,
+   "previa": 4.3
+  },
+  "bronquiolitis": {
+   "tasa": 90.9,
+   "previa": 103.9
+  },
+  "irag": {
+   "tasa": 7.0,
+   "previa": 5.9
+  },
+  "positividad": {
+   "gripe": 15.4,
+   "gripePrevia": 0.0,
+   "covid": 34.6,
+   "covidPrevia": 31.0,
+   "vrs": 0.0,
+   "vrsPrevia": 0.0
+  },
+  "desde": "2026-10-12",
+  "hasta": "2026-10-18",
+  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/10/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202642.pdf",
+  "pagina": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/areas/sanidad/salud-vida/vigilancia/paginas/temporada2627.html",
+  "fuente": "Junta de Andalucía (vigilancia centinela de la infección respiratoria aguda)"
+ }
 }

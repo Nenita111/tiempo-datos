@@ -1,8 +1,8 @@
 {
-  "versionCode": 16,
-  "versionName": "2.5",
+  "versionCode": 17,
+  "versionName": "2.6",
   "apk": "app/Tiempo.apk",
-  "sha256": "44f16dc0d53e50b1344c8fc6e7d877613f2368495c61a6c3214a7775acbad4db",
-  "bytes": 1003127,
-  "notas": "Pantallas nuevas: Planeta (el planeta, el cielo de esta noche, el Sol y el aire) y Terremotos (cerca y los más fuertes del mundo, con mapa). Fuentes arriba y hora de actualización en cada tarjeta; Semana con ayer, hoy y mañana por la fecha; 3 gasolineras por combustible; la hora en cada franja de la luz; precios a dos columnas; alertas alimentarias una semana como mucho; internet medido en cada encendido; y una revisión de errores y consumo."
+  "sha256": "81385f130626c2ca78b38232fe98d396cbe0cf72daf9c9a3c56470ce9022eb15",
+  "bytes": 1044007,
+  "notas": "Pantalla Economía (paro y afiliados de Adra, euríbor y Letras, festivos), rayos del satélite en el radar, resultados del Náutico de Adra y tarjeta de barco dragón nueva, plagas de los invernaderos y virus respiratorios"
 }

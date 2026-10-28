@@ -1,0 +1,191 @@
+Secretaría General de Salud Pública y Promoción de la Salud
+
+Informe Semanal de Vigilancia de
+Infección Respiratoria Aguda en Andalucía
+Temporada 2026-27
+Semana 42/2026
+(del 12 al 18 de octubre de 2026)
+
+Servicio de Vigilancia y Salud Laboral
+Secretaría General de Salud Pública y Promoción de la Salud
+Consejería de Presidencia, Sanidad y Emergencias
+Junta de Andalucía
+
+1
+
+Secretaría General de Salud Pública y Promoción de la Salud
+
+Índice
+Resumen ………………………………………………………………………….………………………………….. 3
+I. Vigilancia de Infección Respiratoria Aguda en Atención Primaria (IRAs) en Andalucía …………………... 4
+I.1 Vigilancia sindrómica. Incidencia de IRAs en Andalucía …………………….…….………………..4
+I.2 Vigilancia sindrómica. Síndromes gripales, covid19 y bronquiolitis/bronquitis en menores de
+5 años en Andalucía …………………………………………………………………………………..…… 6
+I.3 Vigilancia centinela de covid19, gripe y VRS en Atención Primaria ………..…….…….………… 7
+I.3.1 Vigilancia virológica …………….…….………………………………………….….…….. 7
+I.3.2 Proxys (tasa de IRAs x positividad) de covid19, gripe y VRS ……………..……..…. 10
+II. Vigilancia de Infección Respiratoria Aguda Grave (IRAG) en Andalucía …………..…………….….…..… 12
+II.1 Vigilancia sindrómica. Incidencia de IRAG en Andalucía …………………….…….………..…….12
+II.2 Vigilancia centinela de covid19, gripe y VRS en hospitales ..…………………………….………. 13
+II.2.1 Vigilancia virológica ……………………………………………………………………….. 13
+II.2.2 Proxys de hospitalización (tasa de IRAG x positividad)……………………………….. 14
+III. Vigilancia nacional e internacional de las IRAs e IRAG ……………..……………..………………….….… 16
+III.1 Vigilancia centinela de las IRAs e IRAG en España (SiVIRA) ………………………….…......….16
+III.2 Vigilancia de la IRAs e IRAG en Europa .……….……………………………………….………… 19
+
+2
+
+Secretaría General de Salud Pública y Promoción de la Salud
+
+Resumen
+Vigilancia de IRA en Atención Primaria
+•
+
+En la semana 42/2026, la tasa de incidencia de IRAs en Andalucía ha sido de 200,9 casos/100.000h (240
+casos/100.000h la semana anterior). El grupo de <1 año es el que presenta mayor incidencia seguido del
+grupo de 1-4. La incidencia fue superior en mujeres que en hombres.
+
+•
+
+En la semana 42/2026, la tasa de síndrome gripal es de 1,8 casos/100.000 h (1,9 casos/100.000 h en la
+semana previa), la de COVID-19 (síndrome) de 2,9 casos/100.000 h (4,3 casos/100.000 h en la semana
+previa) y la de bronquitis y bronquiolitis en menores de 5 años de 90,9 casos/100.000 h (103,9 casos/100.000 h en la semana previa).
+
+•
+
+En la semana 42/2026, el porcentaje de positividad ha sido de 15,4% para gripe (0% en la semana previa),
+34,6% para SARS-Cov-2 (31% en la semana previa) y 0% para VRS (0% en la semana previa). El proxy de
+gripe estima una tasa de incidencia de gripe de 30,9 casos por 100.000h (0 la semana previa), el de COVID-19 estima una tasa de incidencia de COVID-19 de 69,5 casos por 100.000h (74,4 en la semana) y el de
+VRS estima una tasa de incidencia de infección por VRS de 0 casos por 100.000 hab (0 la semana previa).
+
+Vigilancia de IRAG en Hospitales
+•
+
+En la semana 42/2026 la tasa de IRAG en Andalucía se sitúa en 7 casos/100.000 h (5,9 casos/100.000 h en
+la semana 41/2026). Por grupos de edad, las mayores tasas de incidencia esta semana se observan en
+>=80 años seguido del grupo <1. Por sexo, la incidencia es superior en hombres.
+
+•
+
+En la semana 42/2026, el porcentaje de positividad ha sido de 1,7% para gripe (2% en la semana previa),
+13,3% para SARS-CoV-2 (12% en la semana previa), y 0% para VRS (2% en la semana previa). El proxy
+estima una tasa de hospitalización para gripe de 0,1 casos/100.000hab (0,1 en la semana anterior), de COVID-19 de 0,9 casos/100.000hab (0,7 en la semana anterior) y de infección por VRS de 0 casos/100.000hab
+(0,1 en la semana anterior).
+
+3
+
+Secretaría General de Salud Pública y Promoción de la Salud
+
+I. Vigilancia de Infección Respiratoria Aguda en Atención Primaria
+(IRAs) en Andalucía.
+I.1 Vigilancia sindrómica. Incidencia de IRAs en Andalucía.
+En la semana 42/2026, la tasa de incidencia de IRAs en Andalucía ha sido de 200,9 casos/100.000h
+(240 casos/100.000h la semana anterior). El grupo de <1 año es el que presenta mayor incidencia con una tasa
+de 1737,6 casos/100.000h, seguido del grupo de 1-4 con una tasa de 1060,2/100.000h. Por sexo, en la semana
+42/2026 la incidencia fue superior en mujeres que en hombres (227,8/100.000h vs 173,2/100.000h).
+
+Evolución incidencia semanal de IRAs por grupo de edad por 100.000 habitantes. Temporada 2026-2027.
+semana
+
+Tasa IRAs
+
+Tasa <1
+
+Tasa 1-4
+
+Tasa 5-19
+
+Tasa 2059
+
+Tasa 6069
+
+Tasa 7079
+
+Tasa 80+
+
+2026-40
+
+257,0
+
+2.214,8
+
+1.310,1
+
+374,1
+
+164,2
+
+175,0
+
+213,6
+
+256,5
+
+2026-41
+
+240,0
+
+2.050,1
+
+1.280,3
+
+314,5
+
+156,0
+
+164,7
+
+211,7
+
+265,1
+
+2026-42
+
+200,9
+
+1.737,6
+
+1.060,2
+
+226,5
+
+136,7
+
+157,1
+
+184,3
+
+217,6
+
+Tasa de incidencia semanal de IRAs por 100.000 habitantes por provincias. Temporada 2025-26.
+provincia
+
+2026-37
+
+2026-38
+
+2026-39
+
+2026-40
+
+2026-41
+
+2026-42
+
+Almería
+
+174,3
+
+198,4
+
+241,1
+
+273,3
+
+240,0
+
+189,4
+
+4
+
+

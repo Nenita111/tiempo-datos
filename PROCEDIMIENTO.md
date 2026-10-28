@@ -76,6 +76,22 @@ Agenda astronómica oficial del IGN (este año y el siguiente, en cuanto la publ
 de meteoros de la tabla del Observatorio Astronómico Nacional (fecha aproximada). Si el PDF del IGN no se puede bajar, usa la
 copia oficial de `herramientas/muestras/`. Lo ejecuta la tarea diaria.
 
+## 2e. Plagas en los invernaderos (pantalla Precios)
+
+`python3 -I herramientas/raif.py extras.json`: de los boletines semanales oficiales de la Red de Alerta e Información
+Fitosanitaria de Andalucía (RAIF, Junta de Andalucía) de la provincia de Almería, para tomate, pimiento, pepino, calabacín,
+berenjena y sandía, las fechas del boletín y sus «Agentes más destacados», tal cual. La tele solo enseña los cultivos con
+boletín de las dos últimas semanas (fuera de temporada, la RAIF deja el último). Si un cultivo no se puede leer, se queda el
+que había. Lo ejecuta la tarea diaria.
+
+## 2f. Virus respiratorios (pantalla Planeta)
+
+`python3 -I herramientas/respiratorias.py extras.json`: del «Resumen» del último informe semanal de vigilancia de la infección
+respiratoria aguda en Andalucía (red centinela de la Junta; página de la temporada, de la semana 40 a la 39 del año
+siguiente), la tasa de infección respiratoria en atención primaria, la de los hospitales y el porcentaje de muestras positivas
+de gripe, COVID-19 y VRS, con los de la semana anterior. Solo copia cifras del informe, no calcula nada. Si no hay informe
+nuevo no toca nada; si falla, sale con código 2 y deja el que había. Lo ejecuta la tarea diaria.
+
 ## 3. Revisión de las fuentes de la app
 
 `python3 herramientas/revisar_fuentes.py --json revision.json`: pide cada fuente como la app y comprueba la marca
