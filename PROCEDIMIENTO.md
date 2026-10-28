@@ -100,6 +100,17 @@ la demarcación de las Cuencas Mediterráneas Andaluzas, el agua embalsada de la
 `--unidades`). Solo copia lo que dice el informe. El PDF pesa unos 14 MB y solo se baja si ha cambiado su fecha de
 modificación. Si falla, sale con código 2 y deja lo que había. Lo ejecuta la tarea diaria. Necesita `pdftotext`.
 
+## 2h. Colectas de sangre en el pueblo (pantalla Hoy)
+
+La tele lee sola la tabla oficial de colectas del centro de transfusión de la provincia en la web del SAS, pero solo trae los
+próximos días (unos tres). Para saberlo antes, búsqueda web pública de colectas de sangre en Adra anunciadas por el Centro de
+Transfusión, Tejidos y Células de Almería, la Junta, el Ayuntamiento o un medio que lo cite (Teleprensa, Noticias de Almería, Adra
+Digital; La Voz de Almería, Diario de Almería y Google Noticias prohíben en su robots.txt a los agentes como Claude: no se usan),
+y los carteles del buzón de capturas. Nunca redes sociales ni saltarse robots.txt. Solo se apunta si se ha leído el día y el lugar
+(y el horario si lo dice), con el enlace a la fuente:
+`python3 herramientas/sangre.py extras.json --fecha AAAA-MM-DD --horario HH:MM-HH:MM [--horario …] --lugar … --enlace … --fuente …`.
+Sin argumentos, solo quita las que ya pasaron (lo hace la tarea diaria).
+
 ## 3. Revisión de las fuentes de la app
 
 `python3 herramientas/revisar_fuentes.py --json revision.json`: pide cada fuente como la app y comprueba la marca

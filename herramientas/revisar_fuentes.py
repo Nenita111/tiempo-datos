@@ -328,9 +328,19 @@ def sequia(L):
     return f"modificado {mod}"
 
 
+def sangre(L):
+    # Sangre.kt: la tabla «Se puede donar en…» de la página del centro de transfusión de la provincia en la web del SAS
+    t = texto("https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/el-sas/servicios-y-centros/informacion-por-centros/20585", tiempo=60)
+    i = t.find("view-colecta-sangre")
+    if i < 0: raise ValueError("la página del centro ya no trae la tabla de colectas")
+    filas = re.findall(r"views-field-field-colecta-fecha\">\s*(\d\d-\d\d-\d{4})", t[i:t.find("</table>", i)])
+    if not filas: raise ValueError("la tabla de colectas viene vacía")
+    return f"{len(filas)} colectas, del {filas[0]} al {filas[-1]}"
+
+
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
-           medicamentos, productos, agua, camara, radiacion, sequia]
+           medicamentos, productos, agua, camara, radiacion, sequia, sangre]
 
 
 def revisar(L=ADRA):
