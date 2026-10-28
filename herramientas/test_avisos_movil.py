@@ -51,6 +51,26 @@ class Avisos(unittest.TestCase):
         self.assertTrue(n[0]["texto"].startswith("Corte de agua anunciado: Corte de agua el jueves"))
         self.assertEqual(A.nuevos({n[0]["clave"]: "x"}, [], [], c, AHORA), [])
 
+    def test_cortes_de_hidralia(self):
+        # respuestas reales del 28 oct 2026 a las 22:29 (la consulta de la tabla del visor de Agbar)
+        def muestra(n):
+            with open(os.path.join(os.path.dirname(__file__), "muestras", n), encoding="utf-8") as f: return f.read()
+        ahora = dt.datetime(2026, 10, 28, 22, 29, tzinfo=TZ)
+        self.assertEqual(A.cortes_hidralia(muestra("hidralia_04003_20261028.json"), "04003", ahora), [])   # «en curso» desde el 20 oct: ya pasó
+        c = A.cortes_hidralia(muestra("hidralia_30030_20261028.json"), "30030", ahora)
+        self.assertEqual(len(c), 7)
+        self.assertEqual(c[0]["texto"], "Corte de agua (Hidralia) mañana de 8:30 a 9:30 en Carril Torre Salinas 130-158: avería.")
+        self.assertEqual(c[0]["enlace"], "https://gisaguapublic.agbar.net/?municipio_id=30030&cierre_id=224690")
+        self.assertTrue(any(x["titulo"] == "Calle Pío Baroja 4-10 (Javalí Viejo)" for x in c))
+        # ya empezado: «ahora, hasta…»; y una sola vez
+        c2 = A.cortes_hidralia(muestra("hidralia_30030_20261028.json"), "30030", dt.datetime(2026, 10, 29, 9, 0, tzinfo=TZ), horas=0)
+        self.assertEqual(c2[0]["texto"], "Corte de agua (Hidralia) ahora, hasta hoy a las 9:30 (previsión) en Carril Torre Salinas 130-158: avería.")
+        n = A.nuevos({}, [], [], c2, ahora)
+        self.assertEqual(n[0]["clave"], "hidralia:224690")
+        self.assertEqual(A.nuevos({"hidralia:224690": "x"}, [], [], c2[:1], ahora), [])
+        self.assertEqual(A.otras_calles("Colindantes"), " y calles colindantes"); self.assertEqual(A.otras_calles("null"), "")
+        self.assertIn("url_cierres", dir(A)); self.assertIn("COD_MUNI%3D%2704003%27", A.url_cierres("04003"))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -338,9 +338,24 @@ def sangre(L):
     return f"{len(filas)} colectas, del {filas[0]} al {filas[-1]}"
 
 
+def cortesAgua(L):
+    # CortesAgua.kt: la capa «Puntos de cierre» del mapa de obras y afectaciones de Hidralia (Agbar), la misma consulta que su tabla
+    donde = f"COD_MUNI='{L['ine']}' AND CI_ESTADO IN ('4AP','5EC')"
+    u = ("https://services3.arcgis.com/5VitVYyVLQYnzXCo/arcgis/rest/services/Cierres_webPublicas_v/FeatureServer/0/query?where="
+         + urllib.parse.quote_plus(donde) + "&outFields=CI_ID,CI_FH_INI_PREV,CI_FH_FIN_PREV,CI_CALLES,CI_DIRECCION,CI_ESTADO,CI_MOTIVO,EditDate"
+         + "&returnGeometry=false&orderByFields=CI_FH_INI_PREV&f=json")
+    x = json.loads(texto(u))
+    if "error" in x: raise ValueError(f"la capa responde con error: {x['error'].get('message')}")
+    if "features" not in x: raise ValueError("la respuesta no trae «features»")
+    campos = {c["name"] for c in x.get("fields", [])}
+    falta = {"CI_ID", "CI_FH_INI_PREV", "CI_FH_FIN_PREV", "CI_DIRECCION", "CI_ESTADO"} - campos
+    if falta: raise ValueError(f"faltan campos: {', '.join(sorted(falta))}")
+    return f"{len(x['features'])} cierres planificados o en curso en el visor"
+
+
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
-           medicamentos, productos, agua, camara, radiacion, sequia, sangre]
+           medicamentos, productos, agua, camara, radiacion, sequia, sangre, cortesAgua]
 
 
 def revisar(L=ADRA):

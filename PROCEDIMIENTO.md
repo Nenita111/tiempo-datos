@@ -136,5 +136,7 @@ para `api.esios.ree.es`): no va en el repositorio. Desde servidores en la nube R
 `python3 -I herramientas/avisos_movil.py --estado avisos_enviados.json --extras extras.json`: avisos naranja o rojo de AEMET
 en la zona del pueblo o su costa; terremotos del IGN que se pueden notar (magnitud 3 a menos de 50 km, 3,5 a menos de 100 km,
 4 a menos de 200 km); cortes de agua o luz apuntados en extras.json o en los titulares de Noticias de Almería (Google Noticias
-y Diario de Almería prohíben en robots.txt a los agentes como este: no se usan). Imprime una línea JSON con los nuevos y apunta en
+y Diario de Almería prohíben en robots.txt a los agentes como este: no se usan); cortes de agua de Hidralia de su mapa de obras y
+afectaciones (la capa pública de cierres de Agbar en ArcGIS, la misma que lee la app: planificados o en curso que empiezan en menos
+de 36 horas o ya han empezado y no han pasado su previsión de restablecimiento). Imprime una línea JSON con los nuevos y apunta en
 `avisos_enviados.json` lo enviado (30 días), para no repetir. Ese fichero solo lleva códigos de avisos públicos.

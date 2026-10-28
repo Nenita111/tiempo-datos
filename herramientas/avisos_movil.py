@@ -5,13 +5,15 @@
     100 km o 4 a menos de 200 km.
   - Corte de agua o de luz anunciado en el pueblo: los apuntados en extras.json (redes del Ayuntamiento, por el buzón)
     y los titulares de Noticias de Almería (su robots.txt lo permite; Google Noticias y Diario de Almería, no).
+  - Corte de agua de Hidralia (su «Mapa de obras y afectaciones», la capa pública de cierres de Agbar): planificado o en curso,
+    cuando empieza en las próximas 36 horas o ya ha empezado y no ha pasado su previsión de restablecimiento.
 
   python3 avisos_movil.py --estado avisos_enviados.json [--extras extras.json] [--lugar Adra --ine 04003 --lat 36.7489 --lon -3.0206]
 
 Imprime una línea JSON: {"nuevos": [{"tipo", "texto", "enlace", "clave"}], "fallos": […]} y apunta en --estado lo enviado
 (se olvida a los 30 días), para no repetirlo. Sale con 0 aunque falle alguna fuente; con 2 si fallan todas.
 """
-import argparse, datetime as dt, gzip, io, json, math, re, sys, tarfile, unicodedata, urllib.request
+import argparse, datetime as dt, gzip, io, json, math, re, sys, tarfile, unicodedata, urllib.parse, urllib.request
 from xml.etree import ElementTree as ET
 from zoneinfo import ZoneInfo
 
@@ -20,6 +22,7 @@ UA = "TiempoYRadar/1.0 (avisos personales al movil)"
 AEMET = "https://www.aemet.es"
 IGN = "https://www.ign.es/web/ign/portal/ultimos-terremotos/-/ultimos-terremotos/get10dias"
 NDA = ["https://www.noticiasdealmeria.com/rss/seccion/65/"]
+CIERRES = "https://services3.arcgis.com/5VitVYyVLQYnzXCo/arcgis/rest/services/Cierres_webPublicas_v/FeatureServer/0/query"
 FENOMENOS = {"PR": "lluvias", "TO": "tormentas", "VI": "viento", "CO": "fenómenos costeros", "NE": "nevadas", "AT": "temperaturas máximas",
              "TA": "temperaturas máximas", "BT": "temperaturas mínimas", "TI": "temperaturas mínimas", "NI": "nieblas", "PO": "polvo en suspensión",
              "RM": "rachas de viento", "GL": "galernas", "AL": "aludes"}
@@ -152,6 +155,52 @@ def cortes_rss(xml, lugar, desde):
     return res
 
 
+# ------------------------------------------------------------------ cortes de agua de Hidralia (lo mismo que CortesAgua.kt de la app)
+def url_cierres(ine):
+    donde = f"COD_MUNI='{ine}' AND CI_ESTADO IN ('4AP','5EC')"
+    return (CIERRES + "?where=" + urllib.parse.quote_plus(donde) + "&outFields=CI_ID,CI_FH_INI_PREV,CI_FH_FIN_PREV,CI_CALLES,CI_DIRECCION,CI_ESTADO,CI_MOTIVO"
+            "&returnGeometry=false&orderByFields=CI_FH_INI_PREV&f=json")
+
+
+def calle_cierre(d):   # «Camino de Mateo 1-3, 04770, Adra, Almería, Andalucía» → «Camino de Mateo 1-3»
+    d = (d or "").strip()
+    c = re.sub(r"\b(\d+[A-Za-z]?)-\1\b", r"\1", d.split(",")[0].strip())
+    b = re.search(r"\(([^()]+)\)\s*$", d)
+    return f"{c} ({b.group(1).strip()})" if b and b.group(1).strip() not in c else c
+
+
+def otras_calles(s):
+    t = (s or "").strip().rstrip(",.").strip()
+    if not t or t.lower() == "null": return ""
+    return f" y calles {t.lower()}" if re.fullmatch(r"(?i)colindantes|adyacentes", t) else f" (también {t})"
+
+
+def hora(d): return f"{d.hour}:{d.minute:02d}"
+
+
+def cortes_hidralia(js, ine, ahora, horas=36):
+    x = json.loads(js)
+    if "error" in x: raise ValueError(x["error"].get("message", "error"))
+    res = []
+    for f in x.get("features", []):
+        a = f.get("attributes") or {}
+        if a.get("CI_ESTADO") not in ("4AP", "5EC") or not a.get("CI_FH_INI_PREV"): continue
+        ini = dt.datetime.fromtimestamp(a["CI_FH_INI_PREV"] / 1000, TZ)
+        fin = dt.datetime.fromtimestamp(a["CI_FH_FIN_PREV"] / 1000, TZ) if a.get("CI_FH_FIN_PREV") and a["CI_FH_FIN_PREV"] >= a["CI_FH_INI_PREV"] else None
+        if (fin or ini) < ahora or ini > ahora + dt.timedelta(hours=horas): continue   # ya pasó su previsión (el visor no lo cierra) o falta mucho
+        sitio = calle_cierre(a.get("CI_DIRECCION")) + otras_calles(a.get("CI_CALLES"))
+        if ini <= ahora: cuando_ = "ahora" + (f", hasta {cuando(fin.isoformat(), ahora)} (previsión)" if fin else "")
+        else:
+            dias = (ini.date() - ahora.date()).days
+            dia = "hoy" if dias == 0 else "mañana" if dias == 1 else f"el {DIAS[ini.weekday()]} {ini.day}"
+            cuando_ = f"{dia} de {hora(ini)} a {hora(fin)}" if fin and fin.date() == ini.date() else f"{cuando(ini.isoformat(), ahora)}" + (f" hasta {cuando(fin.isoformat(), ahora)}" if fin else "")
+        motivo = "avería" if a.get("CI_MOTIVO") == "AVE" else "obras de mejora del servicio"
+        res.append({"tipo": "agua", "titulo": sitio, "fuente": "Hidralia", "clave": f"hidralia:{a.get('CI_ID')}",
+                    "enlace": f"https://gisaguapublic.agbar.net/?municipio_id={ine}&cierre_id={a.get('CI_ID')}",
+                    "texto": f"Corte de agua (Hidralia) {cuando_} en {sitio}: {motivo}."})
+    return res
+
+
 # ------------------------------------------------------------------ todo junto
 def nuevos(estado, aemet, sismos, cortes, ahora):
     out = []
@@ -167,9 +216,9 @@ def nuevos(estado, aemet, sismos, cortes, ahora):
         out.append({"tipo": "terremoto", "clave": k, "enlace": s["url"],
                     "texto": f"Terremoto de magnitud {mag} a {s['km']} km, {lugar_ign(s['lugar'])}, {cuando(s['hora'].isoformat(), ahora)} (IGN)."})
     for c in cortes:
-        k = "corte:" + (c.get("enlace") or c["titulo"])
+        k = c.get("clave") or "corte:" + (c.get("enlace") or c["titulo"])
         if k in estado: continue
-        out.append({"tipo": "corte", "clave": k, "enlace": c.get("enlace", ""), "texto": f"Corte de {c['tipo']} anunciado: {c['titulo']} ({c['fuente']})."})
+        out.append({"tipo": "corte", "clave": k, "enlace": c.get("enlace", ""), "texto": c.get("texto") or f"Corte de {c['tipo']} anunciado: {c['titulo']} ({c['fuente']})."})
     return out
 
 
@@ -199,6 +248,8 @@ def main():
     for u in NDA:
         try: cortes += cortes_rss(pedir(u), o.lugar, ahora - dt.timedelta(days=2)); bien += 1
         except Exception as e: fallos.append(f"Noticias de Almería: {e}")
+    try: cortes += cortes_hidralia(pedir(url_cierres(o.ine)).decode("utf-8"), o.ine, ahora); bien += 1
+    except Exception as e: fallos.append(f"Hidralia: {e}")
     n = nuevos(estado, aemet, sismos, cortes, ahora)
     for x in n: estado[x["clave"]] = ahora.isoformat(timespec="minutes")
     limite = (ahora - dt.timedelta(days=30)).isoformat()
