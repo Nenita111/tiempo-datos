@@ -92,6 +92,14 @@ siguiente), la tasa de infección respiratoria en atención primaria, la de los 
 de gripe, COVID-19 y VRS, con los de la semana anterior. Solo copia cifras del informe, no calcula nada. Si no hay informe
 nuevo no toca nada; si falla, sale con código 2 y deja el que había. Lo ejecuta la tarea diaria.
 
+## 2g. Sequía y escasez de agua (pantalla Semana)
+
+`python3 -I herramientas/sequia.py extras.json`: del «Informe de escasez y sequía» mensual de la Junta (SAIH Hidrosur) para
+la demarcación de las Cuencas Mediterráneas Andaluzas, el agua embalsada de la demarcación (este mes y el anterior) y el
+índice y el escenario o estado de todas las unidades; la tele enseña las de Adra (UTS 12, UTE 14 y UTE 15, cambiables con
+`--unidades`). Solo copia lo que dice el informe. El PDF pesa unos 14 MB y solo se baja si ha cambiado su fecha de
+modificación. Si falla, sale con código 2 y deja lo que había. Lo ejecuta la tarea diaria. Necesita `pdftotext`.
+
 ## 3. Revisión de las fuentes de la app
 
 `python3 herramientas/revisar_fuentes.py --json revision.json`: pide cada fuente como la app y comprueba la marca

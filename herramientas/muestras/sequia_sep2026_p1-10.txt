@@ -1,0 +1,442 @@
+                                                            Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                            Dirección General de Infraestructuras del Agua
+
+
+
+
+      INFORME DE
+    ESCASEZ Y SEQUÍA
+
+              SEPTIEMBRE 2026
+
+SAIH HIDROSUR
+
+     Demarcación hidrográfica de las Cuencas
+      Mediterráneas Andaluzas
+
+     Demarcación hidrográfica del Guadalete-Barbate
+
+     Demarcación hidrográfica del Tinto, Odiel, Piedras
+      y Chanza
+
+
+
+
+Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+Dirección General de Infraestructuras del Agua
+                                                 Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                 Dirección General de Infraestructuras del Agua
+
+
+
+
+Informe de Escasez y Sequía
+SEPTIEMBRE 2026
+
+
+
+
+                                          ÍNDICE
+
+
+  1. Situación actual de los recursos hídricos………………………………………………………………………….…..1
+  2. Estado de la Escasez por Unidades Territoriales.…………………………………………………………………..4
+  3. Estado de la Sequía por Unidades Territoriales.…………………………………………………………..……….6
+  4. Evolución de los Indicadores de estado de Escasez…………………………………………………….………...8
+        4.1.    Evolución del estado de la escasez por unidades territoriales de las Cuencas
+                Mediterráneas Andaluzas……………………………………………………………………………………8
+        4.2.    Evolución del estado de la escasez por unidades territoriales de las Cuencas
+                Guadalete-Barbate…………………………………………………………………………………….………28
+        4.3.    Evolución del estado de la escasez por unidades territoriales de las Cuencas del
+                Tinto, Odiel, Piedras y Chanza……………………………………………………………………………32
+
+  5. Evolución del estado de Sequía…………………………………………………………………………………..….....36
+        5.1.    Evolución del estado de sequía por unidades territoriales de las Cuencas
+                Mediterráneas Andaluzas………………………………………………………………………………….36
+        5.2.    Evolución del estado de sequía por unidades territoriales de las Cuencas
+                Guadalete-Barbate……………………………………………………………………………………….……52
+        5.3.    Evolución del estado de sequía por unidades territoriales de las Cuencas del
+                Tinto, Odiel, Piedras y Chanza…………………….…………………………………..…………………58
+                                                      Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                      Dirección General de Infraestructuras del Agua
+
+
+
+
+   1. Situación actual de los recursos hídricos.
+
+  A continuación, se representan la situación actual de los recursos hídricos disponibles en las
+Cuencas Mediterráneas Andaluzas, las Cuencas de Guadalete-Barbate y las Cuencas del Tinto,
+Odiel, Piedras y Chanza en comparación con el mes anterior.
+
+
+        COMPARACIÓN DE LOS RECURSOS HÍDRICOS POR DEMARCACIONES
+                            HIDROGRÁFICAS
+                                                       Mes Actual:                   Mes Anterior:
+        DEMARCACIONES                 Capacidad        30/09/2026                    31/08/2026
+        HIDROGRÁFICAS                 total (hm³)
+                                                    Volumen            Volumen
+                                                            Porcentaje         Porcentaje
+                                                     (hm³)              (hm³)
+    D.H. Cuencas Mediterráneas
+                                        1.144         753          65,8%            790           69,0%
+            Andaluzas
+  D.H. Cuencas Guadalete-Barbate        1.652        1.247         75,5%           1.285          77,8%
+   D.H. del Tinto, Odiel, Piedras y
+                                        1.139         826          72,5%            865           75,9%
+               Chanza
+         TOTAL CUENCAS
+                                        3.935        2.826         71,8%           2.940          74,7%
+      INTRACOMUNITARIAS
+
+
+
+
+                                                                                                          1
+                                                      Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                      Dirección General de Infraestructuras del Agua
+
+
+
+
+   2. Estado de la Escasez por Unidades Territoriales.
+
+Definición de Escenarios. Se definen, en función de los resultados de los indicadores de escasez,
+los siguientes escenarios:
+
+      I. Normalidad (ausencia de escasez): Es una situación en que los indicadores muestran
+ausencia de escasez. No corresponde la adopción de medidas coyunturales.
+
+       II. Prealerta (escasez moderada): Situación que identifica un inicio en la disminución de
+los recursos disponibles que puede suponer un riesgo para la atención de las demandas. Se
+podrán aplicar medidas de ahorro y control coyuntural de la demanda ante el riesgo de
+agravamiento de la situación.
+
+       III. Alerta (escasez severa): Se reconoce una intensificación en la disminución de los
+recursos disponibles evidenciando un claro riesgo de imposibilidad de atender las demandas.
+Además de las anteriores, se podrán aplicar medidas destinadas a la conservación y movilización
+del recurso, planteándose reducciones en los suministros, la habilitación coyuntural de sistemas
+de intercambio de derechos y una mayor vigilancia de las zonas con alto valor ambiental. Es decir,
+el organismo de cuenca puede abordar con objetividad las medidas previstas en el artículo 55 del
+TRLA.
+
+        IV. Emergencia (escasez grave): Situación de máximo grado de afección por disminución
+de los recursos disponibles. Además de las medidas que sean pertinentes entre las antes citadas,
+se podrán adoptar las medidas excepcionales y extraordinarias que puedan resultar de aplicación.
+
+
+
+Para entrar o salir en los escenarios definidos en el apartado anterior no será suficiente con que
+el Índice de estado presente los valores correspondientes al escenario en cuestión, sino que se
+requerirá cierta continuidad de los valores para evitar entradas y salidas bruscas que dificultarían
+la gestión o aplicación de las medidas.
+
+No se podrán realizar saltos entre escenarios, de modo que cuando se parte de un escenario de
+normalidad se tiene que pasar obligatoriamente por los escenarios intermedios antes de llegar al
+escenario de emergencia y viceversa. En la tabla siguiente se muestran las condiciones de entrada
+de los escenarios
+
+
+
+
+                                                                                                         2
+                                                       Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                       Dirección General de Infraestructuras del Agua
+
+
+
+
+          Condiciones generales de entrada de los escenarios
+
+                                                            ENTRADAS
+     Escenario de Partida
+                                 Condición IEE            Durante                       Escenario Final
+                                    < 0.5            3 mes consecutivos
+        Normalidad                                                                        Prealerta
+    (ausencia de escasez)            < 0.3                    1 mes                  (escasez moderada)
+
+          Prealerta                                                                          Alerta
+                                     < 0.3          2 meses consecutivos
+     (escasez moderada)                                                                 (escasez severa)
+               Alerta                                                                      Emergencia
+                                    < 0.15          2 meses consecutivos
+          (escasez severa)                                                               (escasez grave)
+Tabla 1
+
+Respecto a las salidas también se requerirá el paso obligado por los escenarios intermedios, no
+permitiendo el salto directo a escenarios más leves. No obstante, las condiciones de salida
+también se aceleran en la medida que lo hacen los valores del IEE, tal y como se observa en la
+tabla siguiente.
+
+          Condiciones generales de salida de los escenarios
+
+                                                             SALIDAS
+     Escenario de Partida
+                                 Condición IEE            Durante                       Escenario Final
+
+          Prealerta                                                                      Normalidad
+                                     ≥ 0.5                    1 mes
+     (escasez moderada)                                                              (ausencia de escasez)
+
+               Alerta                ≥ 0.5          2 meses consecutivos                   Prealerta
+          (escasez severa)           ≥ 0.3          4 meses consecutivos              (escasez moderada)
+                                     ≥ 0.5                 1 mes
+            Emergencia                                                                       Alerta
+                                     ≥ 0.3          2 meses consecutivos
+          (escasez grave)                                                               (escasez severa)
+                                    ≥ 0.15          4 meses consecutivos
+Tabla 2
+
+
+
+
+                                                                                                             3
+                                                                       Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                                       Dirección General de Infraestructuras del Agua
+
+
+
+
+         Unidades Territoriales de Escasez en la D.H. Cuencas Mediterráneas Andaluzas
+
+                                                                                       ÍNDICE
+   CÓDIGO UTE                                  NOMBRE                                                  ESCENARIO FINAL
+                                                                                      ESCASEZ
+
+       UTE 01               Sistema Guadarranque -Charco Redondo                         0,68              Normalidad
+
+       UTE 02                       Cuenca del río Guadiaro (*)                          0,82              Normalidad
+
+       UTE 03           Sistema de abastecimiento E. de la Concepción                    0,42              Prealerta (¹)
+
+                             Cordillera Penibética entre las cuencas
+       UTE 04                                                                            0,71              Normalidad
+                                  Guadalhorce y Guadiaro (*)
+       UTE 05                      Cabecera del Guadalhorce (*)                          0,88              Normalidad
+       UTE 06                  Cuenca Baja del río Guadalhorce (*)                       0,75              Normalidad
+                           Sistema de abastecimiento a Málaga y Z.R.
+       UTE 07                                                                            0,76              Normalidad
+                                          Guadalhorce
+       UTE 08                   Sistema del embalse de la Viñuela                        0,81              Normalidad
+
+       UTE 09               Sierra de Tejeda, Almijara y Alberquilla(*)                  0,66              Normalidad
+
+       UTE 10              Cuenca Alta del río Verde de Almuñécar (*)                    0,74              Normalidad
+
+       UTE 11                          Sistema Béznar-Rules                              0,85              Normalidad
+       UTE 12                    Cuenca Alta del río Guadalfeo (*)                       0,75              Normalidad
+       UTE 13                            La Contraviesa (*)                              0,75              Normalidad
+       UTE 14                          Campo de Dalías (**)                              0,71              Normalidad
+       UTE 15                    Cabecera río Grande de Adra (*)                         0,71              Normalidad
+       UTE 16                      Abastecimiento Almería (**)                           0,71              Normalidad
+       UTE 17                       Cuenca del río Andarax (*)                           0,75              Normalidad
+       UTE 18                                Níjar (**)                                  0,39
+       UTE 19                    Sierras de Filabres y Estancias (*)                     0,64              Normalidad
+       UTE 20                        Levante Almeriense (***)                            1,00              Normalidad
+
+(*) Precipitación en mm últimos 12 meses
+(**) Precipitación en mm últimos 12 meses más desaladoras y sondeos
+(***) Esta Unidad Territorial recibe recursos externos a la Demarcación desde el Embalse del Negratín y Trasvase Tajo-Segura
+(ATS) Demarcación del Guadalquivir y Demarcación del Tajo
+    Datos en revisión
+
+(¹) para entrar en un escenario debe cumplirse las condiciones de la tabla 1 de la página 3
+(²) para salir de un escenario debe cumplirse las condiciones de la tabla 2 de la página 3
+
+
+
+
+                                                                                                                               4
+                                                                       Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                                       Dirección General de Infraestructuras del Agua
+
+
+
+
+         Unidades Territoriales de Escasez en la D.H. Cuencas de Guadalete-Barbate
+
+                                                                                        ÍNDICE
+   CÓDIGO UTE                                  NOMBRE                                                  ESCENARIO FINAL
+                                                                                       ESCASEZ
+       UTE 01                           Sierra de Cádiz (*)                              0,83             Normalidad
+       UTE 02                   Sistema regulado del río Guadalete                       0,76             Normalidad
+       UTE 03                    Sistema regulado del río Barbate                        0,77             Normalidad
+       UTE 04                         Abastecimiento Tarifa                              0,30            Normalidad (¹)
+
+(*) Precipitación en mm últimos 12 meses
+(¹) para entrar en un escenario debe cumplirse las condiciones de la tabla 1 de la página 3
+(²) para salir de un escenario debe cumplirse las condiciones de la tabla 2 de la página 3
+
+
+
+         Unidades Territoriales de Escasez en la D.H. Cuencas del Tinto, Odiel, Piedras y Chanza
+
+                                                                                   ÍNDICE
+    CÓDIGO UTE                                NOMBRE                                                 ESCENARIO FINAL
+                                                                                  ESCASEZ
+        UTE 01                     Costa de Huelva y Andévalo                       0,71                 Normalidad
+        UTE 02                          Cuencas Mineras                             0,64                 Normalidad
+        UTE 03                         Condado de Huelva                            0,77                 Normalidad
+        UTE 04                          Sierra de Huelva                            0,47                  Prealerta
+
+(*) Precipitación en mm últimos 12 meses
+(¹) para entrar en un escenario debe cumplirse las condiciones de la tabla 1 de la página 3
+(²) para salir de un escenario debe cumplirse las condiciones de la tabla 2 de la página 3
+
+
+
+
+                                                                                                                          5
+                                                                                ESTADOESCENARIO
+                                                                                      DE ESCASEZ DE ESCASEZ
+    Demarcación Hidrográfica de las Cuencas Mediterráneas Andaluzas
+    Demarcación Hidrográfica de las Ceuncas Guadalete-Barbate
+                                                                                                 UNIDADES TERRITORIALES DE ESCASEZ
+    Demarcación Hidrográfica del Tinto, Odiel, Piedras y Chanza                                                                                                                    SEPTIEMBRE 2026
+
+
+¬
+                                                                                                                                                                                            Escala 1:1.500.000
+
+                        UTE 04 TOP
+
+
+
+
+                         UTE 02 TOP
+
+
+           UTE 01 TOP      UTE 03 TOP
+
+                                                                                                                                                                                               UTE 20 CMA
+
+                                                                                                                                                                                     UTE 19 CMA
+
+
+
+
+                                                                                         UTE 05 CMA                                                                     UTE 17 CMA
+
+                                                                                                                                                        UTE 15 CMA
+                                                                                                                                         UTE 12 CMA                                        UTE 18 CMA
+                                                                                                            UTE 09 CMA
+                                                                                             UTE 06 CMA                                                                            UTE 16 CMA
+                                                                                                                                UTE 10 CMA
+                                                            UTE 01 GB                                           UTE 08 CMA                      UTE 13 CMA      UTE 14 CMA
+                                                                                                   UTE 07 CMA                     UTE 11 CMA
+
+
+                                           UTE 02 GB                            UTE 04 CMA
+                                                                   UTE 02 CMA
+                                                                                      UTE 03 CMA
+
+
+                                                   UTE 03 GB
+
+                                                            UTE 01 CMA
+                                                                                                                                                                                      Normalidad
+
+                                                       UTE 04 GB                                                                                                                      Prealerta
+                                                                                                                                                                                      Alerta
+                                                                                                                                                                                      Emergencia
+                                                                                                                                                                                      Datos en revisión
+
+                                               Kilometers                                          Sources: Esri, HERE, Garmin, Intermap, increment P Corp., GEBCO, USGS, FAO, NPS, NRCAN, GeoBase, IGN,
+                                                                                                   Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), (c) OpenStreetMap contributors, and
+0     15     30           60          90     120                                                   the GIS User Community
+                                                         Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                         Dirección General de Infraestructuras del Agua
+
+
+
+
+   3. Estado de la Sequía por Unidades Territoriales.
+
+    A partir de la evidencia de un escenario de sequía prolongada proporcionada por los
+indicadores correspondientes, se podrán aplicar las acciones previstas para esta situación.
+
+El escenario de sequía prolongada se establecerá automáticamente cuando los indicadores
+muestren dicha situación, sin condicionantes particulares para las entradas y salidas en ese
+escenario de sequía prolongada.
+
+Cuando se diagnostique sequía prolongada se entiende que la zona afectada está en situación de
+sequía formalmente declarada a los efectos previstos en el artículo 49.5 del Reglamento del
+Dominio Público Hidráulico, que permite la aplicación de un régimen de caudales ecológicos
+menos exigente de acuerdo a lo establecido en el artículo 18.4 del Reglamento de la Planificación
+Hidrológica. Escenarios de sequía
+
+   Datos obtenidos a partir del Índice de Precipitación Estandarizado (SPI) de 12 meses.
+
+       Unidades Territoriales de Sequía en la D.H. Cuencas Mediterráneas Andaluzas
+                                                                                 ÍNDICE
+CÓDIGO UTS                              NOMBRE                                                ESTADO FINAL
+                                                                                 SEQUÍA
+   UTS 01            Cuencas de los ríos Guadarranque y Palmones                   0,65           Ausencia
+   UTS 02                        Cuenca del río Guadiaro                           0,63           Ausencia
+               Cuencas vertientes al mar entre las desembocaduras de los
+   UTS 03                                                                                         Ausencia
+                              ríos Guadiaro y Guadalhorce                          0,58
+   UTS 04          Cuencas de los ríos Guadalhorce y Guadalmedina                  0,72           Ausencia
+   UTS 05               Cuenca endorreica de Fuente de Piedra                      0,58           Ausencia
+   UTS 06                          Cuenca del río Vélez                            0,89           Ausencia
+   UTS 07                           Poljé de Zafarraya                             0,90           Ausencia
+                Cuencas vertientes al mar entre la desembocadura del río
+   UTS 08                                                                                         Ausencia
+                                 Vélez y el río de la Miel                         0,75
+                 Cuencas vertientes al mar entre el río de la Miel y el río
+   UTS 09                                                                                         Ausencia
+                                        Guadalfeo                                  0,59
+   UTS 10                       Cuenca del río Guadalfeo                           0,91           Ausencia
+               Cuencas vertientes al mar entre las desembocaduras de los
+   UTS 11                                                                                         Ausencia
+                                  ríos Guadalfeo y Adra                            0,91
+   UTS 12          Cuenca del río Adra y acuífero del Campo de Dalías              0,69           Ausencia
+   UTS 13                        Cuenca del río Andarax                            0,60           Ausencia
+   UTS 14                 Comarca natural del Campo de Níjar                       0,69           Ausencia
+   UTS 15               Cuencas de los ríos Carboneras y Aguas                     0,76           Ausencia
+   UTS 16                        Cuenca del Almanzora                              0,75           Ausencia
+
+
+
+
+                                                                                                             6
+                                                     Consejería de Agricultura, Pesca, Agua y Desarrollo Rural
+                                                     Dirección General de Infraestructuras del Agua
+
+
+
+
+Datos obtenidos a partir del Índice de Precipitación Estandarizado (SPI) de 6 meses.
+
+   Unidades Territoriales de Sequía en la D.H. Cuencas de Guadalete-Barbate
+
+                                                                ÍNDICE
+CÓDIGO UTS                     NOMBRE                                                ESTADO FINAL
+                                                                SEQUÍA
+  UTS 01                Cabecera del Guadalete                    0,24             Sequía prolongada
+  UTS 02               Grazalema-Alcornocales                     0,20             Sequía prolongada
+  UTS 03              Bajo Guadalete-Intercuenca                  0,24             Sequía prolongada
+  UTS 04                 Alcornocales-Barbate                     0,22             Sequía prolongada
+  UTS 05                       Barbate                            0,26             Sequía prolongada
+  UTS 06                        Tarifa                            0,21             Sequía prolongada
+
+
+
+
+Datos obtenidos a partir del Índice de Precipitación Estandarizado (SPI) de 6 meses.
+
+   Unidades Territoriales de Sequía en la D.H. Cuencas del Tinto, Odiel, Piedras y Chanza.
+
+                                                                ÍNDICE
+CÓDIGO UTE                    NOMBRE                                                  ESTADO FINAL
+                                                               ESCASEZ
+  UTS 01                    Río Piedras                          0,07              Sequía prolongada
+  UTS 02                Cuenca alta del Odiel                    0,05              Sequía prolongada
+  UTS 03             Marismas del Tinto y el Odiel               0,14              Sequía prolongada
+  UTS 04                Cuenca alta del Tinto                    0,17              Sequía prolongada
+
+
+
+
+                                                                                                        7
+

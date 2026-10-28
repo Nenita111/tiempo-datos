@@ -365,7 +365,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-10-28",
- "actualizado": "2026-10-28T09:28+01:00",
+ "actualizado": "2026-10-28T15:22+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -669,5 +669,247 @@
   "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/10/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202642.pdf",
   "pagina": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/areas/sanidad/salud-vida/vigilancia/paginas/temporada2627.html",
   "fuente": "Junta de Andalucía (vigilancia centinela de la infección respiratoria aguda)"
+ },
+ "sequia": {
+  "mes": "2026-09",
+  "demarcacion": "Cuencas Mediterráneas Andaluzas",
+  "embalses": {
+   "capacidad": 1144.0,
+   "volumen": 753.0,
+   "pct": 65.8,
+   "volumenAnterior": 790.0,
+   "pctAnterior": 69.0,
+   "fecha": "2026-09-30",
+   "fechaAnterior": "2026-08-31"
+  },
+  "escasez": [
+   {
+    "codigo": "UTE 01",
+    "nombre": "Sistema Guadarranque -Charco Redondo",
+    "indice": 0.68,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 02",
+    "nombre": "Cuenca del río Guadiaro",
+    "indice": 0.82,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 03",
+    "nombre": "Sistema de abastecimiento E. de la Concepción",
+    "indice": 0.42,
+    "estado": "Prealerta"
+   },
+   {
+    "codigo": "UTE 04",
+    "nombre": "Cordillera Penibética entre las cuencas Guadalhorce y Guadiaro",
+    "indice": 0.71,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 05",
+    "nombre": "Cabecera del Guadalhorce",
+    "indice": 0.88,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 06",
+    "nombre": "Cuenca Baja del río Guadalhorce",
+    "indice": 0.75,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 07",
+    "nombre": "Sistema de abastecimiento a Málaga y Z.R. Guadalhorce",
+    "indice": 0.76,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 08",
+    "nombre": "Sistema del embalse de la Viñuela",
+    "indice": 0.81,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 09",
+    "nombre": "Sierra de Tejeda, Almijara y Alberquilla",
+    "indice": 0.66,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 10",
+    "nombre": "Cuenca Alta del río Verde de Almuñécar",
+    "indice": 0.74,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 11",
+    "nombre": "Sistema Béznar-Rules",
+    "indice": 0.85,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 12",
+    "nombre": "Cuenca Alta del río Guadalfeo",
+    "indice": 0.75,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 13",
+    "nombre": "La Contraviesa",
+    "indice": 0.75,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 14",
+    "nombre": "Campo de Dalías",
+    "indice": 0.71,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 15",
+    "nombre": "Cabecera río Grande de Adra",
+    "indice": 0.71,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 16",
+    "nombre": "Abastecimiento Almería",
+    "indice": 0.71,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 17",
+    "nombre": "Cuenca del río Andarax",
+    "indice": 0.75,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 18",
+    "nombre": "Níjar",
+    "indice": 0.39,
+    "estado": null
+   },
+   {
+    "codigo": "UTE 19",
+    "nombre": "Sierras de Filabres y Estancias",
+    "indice": 0.64,
+    "estado": "Normalidad"
+   },
+   {
+    "codigo": "UTE 20",
+    "nombre": "Levante Almeriense",
+    "indice": 1.0,
+    "estado": "Normalidad"
+   }
+  ],
+  "sequia": [
+   {
+    "codigo": "UTS 01",
+    "nombre": "Cuencas de los ríos Guadarranque y Palmones",
+    "indice": 0.65,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 02",
+    "nombre": "Cuenca del río Guadiaro",
+    "indice": 0.63,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 03",
+    "nombre": "Cuencas vertientes al mar entre las desembocaduras de los ríos Guadiaro y Guadalhorce",
+    "indice": 0.58,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 04",
+    "nombre": "Cuencas de los ríos Guadalhorce y Guadalmedina",
+    "indice": 0.72,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 05",
+    "nombre": "Cuenca endorreica de Fuente de Piedra",
+    "indice": 0.58,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 06",
+    "nombre": "Cuenca del río Vélez",
+    "indice": 0.89,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 07",
+    "nombre": "Poljé de Zafarraya",
+    "indice": 0.9,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 08",
+    "nombre": "Cuencas vertientes al mar entre la desembocadura del río Vélez y el río de la Miel",
+    "indice": 0.75,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 09",
+    "nombre": "Cuencas vertientes al mar entre el río de la Miel y el río Guadalfeo",
+    "indice": 0.59,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 10",
+    "nombre": "Cuenca del río Guadalfeo",
+    "indice": 0.91,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 11",
+    "nombre": "Cuencas vertientes al mar entre las desembocaduras de los ríos Guadalfeo y Adra",
+    "indice": 0.91,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 12",
+    "nombre": "Cuenca del río Adra y acuífero del Campo de Dalías",
+    "indice": 0.69,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 13",
+    "nombre": "Cuenca del río Andarax",
+    "indice": 0.6,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 14",
+    "nombre": "Comarca natural del Campo de Níjar",
+    "indice": 0.69,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 15",
+    "nombre": "Cuencas de los ríos Carboneras y Aguas",
+    "indice": 0.76,
+    "estado": "Ausencia"
+   },
+   {
+    "codigo": "UTS 16",
+    "nombre": "Cuenca del Almanzora",
+    "indice": 0.75,
+    "estado": "Ausencia"
+   }
+  ],
+  "destacadas": [
+   "UTS 12",
+   "UTE 14",
+   "UTE 15"
+  ],
+  "modificado": "Mon, 05 Oct 2026 07:24:14 GMT",
+  "enlace": "https://www.redhidrosurmedioambiente.es/saih/assets/pdf/InformeSequia.pdf",
+  "pagina": "https://www.redhidrosurmedioambiente.es/saih/",
+  "fuente": "Junta de Andalucía (SAIH Hidrosur, informe de escasez y sequía)"
  }
 }

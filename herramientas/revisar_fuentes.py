@@ -9,7 +9,7 @@ Para cada fuente pide lo mismo que la app (con su mismo agente) y comprueba la m
 Sale con código 1 si alguna fuente está ROTA. «NO COMPROBABLE» = la web bloquea a los servidores en la nube
 (p. ej. Red Eléctrica): desde casa funciona.
 """
-import argparse, datetime as dt, gzip, io, json, re, ssl, subprocess, sys, tarfile, urllib.error, urllib.parse, urllib.request
+import argparse, datetime as dt, email.utils, gzip, io, json, math, re, ssl, subprocess, sys, tarfile, urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from zoneinfo import ZoneInfo
 
@@ -37,6 +37,12 @@ def texto(url, **k):
     b = pedir(url, **k)
     try: return b.decode("utf-8")
     except UnicodeDecodeError: return b.decode("iso-8859-15")
+
+
+def distancia(L, lat, lon):
+    """Kilómetros del sitio al punto (haversine, como Lugar.km de la app)."""
+    a = math.sin(math.radians(lat - L["lat"]) / 2) ** 2 + math.cos(math.radians(L["lat"])) * math.cos(math.radians(lat)) * math.sin(math.radians(lon - L["lon"]) / 2) ** 2
+    return 6371 * 2 * math.asin(min(1, math.sqrt(a)))
 
 
 def busca(patron, t, que):
@@ -277,10 +283,54 @@ def agua(L):
     if not redes: raise ValueError("el SINAC no da las redes del municipio")
     return f"{len(redes)} redes"
 
+def camara(L):
+    # Entorno.kt (Camaras): el fichero DATEX II de cámaras de la DGT y la foto de la más cercana, con su hora (Last-Modified)
+    t = texto("https://nap.dgt.es/datex2/v3/dgt/DevicePublication/camaras_datex2_v37.xml", tiempo=120)
+    cerca = []
+    for m in re.finditer(r'(?s)<ns2:device [^>]*id="(\d+)".*?</ns2:device>', t):
+        d = m.group(0)
+        if "<ns2:typeOfDevice>camera</ns2:typeOfDevice>" not in d: continue
+        la, lo, u = (re.search(f"<{e}>([^<]*)</{e}>", d) for e in ("loc:latitude", "loc:longitude", "fse:deviceUrl"))
+        if not (la and lo and u): continue
+        km = distancia(L, float(la.group(1)), float(lo.group(1)))
+        if km <= 25: cerca.append((km, m.group(1), u.group(1)))
+    if not cerca: raise ValueError("el fichero de la DGT no trae cámaras a menos de 25 km")
+    km, cid, url = min(cerca)
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=45) as f:
+        jpg, mod = f.read(), f.headers.get("Last-Modified")
+    if jpg[:2] != b"\xff\xd8": raise ValueError(f"la cámara {cid} no manda un JPEG")
+    if mod:
+        edad = dt.datetime.now(dt.timezone.utc) - email.utils.parsedate_to_datetime(mod)
+        if edad > dt.timedelta(hours=2): raise ValueError(f"la foto de la cámara {cid} es de hace {edad}")
+    return f"cámara {cid} a {km:.1f} km, foto de {len(jpg) // 1000} kB"
+
+def radiacion(L):
+    # Entorno.kt (Radiacion): la API del mapa de la REA del CSN y la serie horaria de la estación más cercana
+    j = json.loads(pedir("https://rea.csn.es/rea-api/V1.0/mapa/estaciones"))
+    f = [x for x in j.get("features", []) if (x.get("properties") or {}).get("status") == "ok_ok"]
+    if not f: raise ValueError("la REA no da estaciones que midan bien")
+    e = min(f, key=lambda x: distancia(L, x["geometry"]["coordinates"][1], x["geometry"]["coordinates"][0]))
+    s = json.loads(pedir(f"https://rea.csn.es/rea-api/V1.0/mapa/estaciones/{e['id']}/dataseries/1h"))
+    if not s: raise ValueError(f"la REA no da la serie de {e['properties'].get('name')}")
+    edad = dt.datetime.now(dt.timezone.utc) - dt.datetime.fromtimestamp(s[-1][0] / 1000, dt.timezone.utc)
+    if edad > dt.timedelta(hours=6): raise ValueError(f"lo último de {e['properties'].get('name')} es de hace {edad}")
+    return f"{len(f)} estaciones; {e['properties'].get('name')}: {s[-1][1]} nSv/h"
+
+def sequia(L):
+    # sequia.py (tarea diaria): el informe de escasez y sequía de Hidrosur, solo la cabecera (pesa 14 MB)
+    with urllib.request.urlopen(urllib.request.Request("https://www.redhidrosurmedioambiente.es/saih/assets/pdf/InformeSequia.pdf",
+                                                       headers={"User-Agent": UA}, method="HEAD"), timeout=45) as f:
+        tipo, mod = f.headers.get("Content-Type", ""), f.headers.get("Last-Modified")
+    if "pdf" not in tipo: raise ValueError(f"el informe no es un PDF ({tipo})")
+    if mod:
+        edad = dt.datetime.now(dt.timezone.utc) - email.utils.parsedate_to_datetime(mod)
+        if edad > dt.timedelta(days=75): raise ValueError(f"el informe no se ha renovado desde {mod}")
+    return f"modificado {mod}"
+
 
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
-           medicamentos, productos, agua]
+           medicamentos, productos, agua, camara, radiacion, sequia]
 
 
 def revisar(L=ADRA):
