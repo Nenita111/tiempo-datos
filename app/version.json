@@ -1,8 +1,8 @@
 {
-  "versionCode": 20,
-  "versionName": "2.9",
+  "versionCode": 21,
+  "versionName": "3.0",
   "apk": "app/Tiempo.apk",
-  "sha256": "fb63fab28b34a475a173c41a9adb984ba5c27eaa4cac993a78c9cd51cf1138a3",
-  "bytes": 1075067,
-  "notas": "Próxima colecta de sangre en Adra (tabla oficial del SAS) en la agenda de Hoy y aviso el día antes"
+  "sha256": "23aacff23d5fd8ade2a2b4bfb69a7bf390d29125664f0a064b26eeab86bb20bd",
+  "bytes": 1083167,
+  "notas": "Pantallas nuevas (Agua, Cielo, Alertas, Productos, Carretera, Mundo y SAS) con todo a la vez; tramos de la luz; mapa de los terremotos de la zona"
 }
