@@ -55,30 +55,30 @@
  "cuencaPctAnterior": 44.1,
  "espanaPct": 57.2,
  "espanaPctAnterior": 52.1,
- "vuelosFecha": "Buscado el 27/10 · ida y vuelta",
+ "vuelosFecha": "Buscado el 28/10 · ida y vuelta",
  "vuelosOrigen": "Almería",
  "vuelos": [
   {
    "destino": "Bucarest",
    "fecha": "27/11",
    "vuelta": "30/11",
-   "precio": "95 €",
+   "precio": "106 €",
    "compania": "Wizz Air",
    "escalas": "directo"
   },
   {
    "destino": "Sevilla",
-   "fecha": "24/11",
+   "fecha": "23/11",
    "vuelta": "27/11",
-   "precio": "111 €",
+   "precio": "110 €",
    "compania": "Iberia",
    "escalas": "directo"
   },
   {
    "destino": "Madrid",
-   "fecha": "06/11",
-   "vuelta": "08/11",
-   "precio": "111 €",
+   "fecha": "28/11",
+   "vuelta": "01/12",
+   "precio": "134 €",
    "compania": "Iberia",
    "escalas": "directo"
   },
@@ -86,7 +86,7 @@
    "destino": "Barcelona",
    "fecha": "30/11",
    "vuelta": "03/12",
-   "precio": "134 €",
+   "precio": "135 €",
    "compania": "Vueling",
    "escalas": "directo"
   },
@@ -102,7 +102,7 @@
    "destino": "Londres",
    "fecha": "09/11",
    "vuelta": "14/11",
-   "precio": "169 €",
+   "precio": "172 €",
    "compania": "easyJet",
    "escalas": "directo"
   }
@@ -122,37 +122,37 @@
      "destino": "Bucarest",
      "ida": "2026-11-27",
      "vuelta": "2026-11-30",
-     "precio": 95,
+     "precio": 106,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/dp2msn"
+     "enlace": "https://kiwi.com/u/r5muptz"
     },
     {
      "destino": "Sevilla",
-     "ida": "2026-11-24",
+     "ida": "2026-11-23",
      "vuelta": "2026-11-27",
-     "precio": 111,
+     "precio": 110,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/8vnv2u"
+     "enlace": "https://kiwi.com/u/2p4sxx"
     },
     {
      "destino": "Madrid",
-     "ida": "2026-11-06",
-     "vuelta": "2026-11-08",
-     "precio": 111,
+     "ida": "2026-11-28",
+     "vuelta": "2026-12-01",
+     "precio": 134,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/6d24g3v"
+     "enlace": "https://kiwi.com/u/3pcr7mv"
     },
     {
      "destino": "Barcelona",
      "ida": "2026-11-30",
      "vuelta": "2026-12-03",
-     "precio": 134,
+     "precio": 135,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/frkbn3w"
+     "enlace": "https://kiwi.com/u/s9xu4hq"
     },
     {
      "destino": "Palma de Mallorca",
@@ -161,17 +161,17 @@
      "precio": 140,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/wqbs36w"
+     "enlace": "https://kiwi.com/u/dpyt8d"
     },
     {
      "destino": "Londres",
      "ida": "2026-11-09",
      "vuelta": "2026-11-14",
-     "precio": 169,
+     "precio": 172,
      "compania": "easyJet",
      "escalas": "directo",
      "nota": "Gatwick",
-     "enlace": "https://kiwi.com/u/rxvpq4r"
+     "enlace": "https://kiwi.com/u/jnrd29"
     }
    ]
   },
@@ -186,7 +186,7 @@
      "precio": 40,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/6gmyfu"
+     "enlace": "https://kiwi.com/u/pj6fh3"
     },
     {
      "destino": "Madrid",
@@ -195,16 +195,16 @@
      "precio": 56,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/rmbx2n"
+     "enlace": "https://kiwi.com/u/2xgjd9"
     },
     {
      "destino": "Nantes",
-     "ida": "2026-11-29",
-     "vuelta": "2026-12-03",
-     "precio": 56,
+     "ida": "2026-11-19",
+     "vuelta": "2026-11-22",
+     "precio": 62,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/5jjfz5h"
+     "enlace": "https://kiwi.com/u/gqm9jjw"
     },
     {
      "destino": "Palma de Mallorca",
@@ -213,27 +213,26 @@
      "precio": 63,
      "compania": "Vueling / Air Europa",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/x2fyy2"
+     "enlace": "https://kiwi.com/u/swuqvg"
     },
     {
      "destino": "Londres",
      "ida": "2026-12-01",
      "vuelta": "2026-12-05",
-     "precio": 63,
+     "precio": 70,
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Luton",
-     "enlace": "https://kiwi.com/u/m3r5vd"
+     "enlace": "https://kiwi.com/u/79np3ry"
     },
     {
-     "destino": "Tenerife",
-     "ida": "2026-11-13",
-     "vuelta": "2026-11-17",
-     "precio": 79,
+     "destino": "Bilbao",
+     "ida": "2026-11-26",
+     "vuelta": "2026-11-29",
+     "precio": 81,
      "compania": "Vueling",
      "escalas": "directo",
-     "nota": "Tenerife Norte",
-     "enlace": "https://kiwi.com/u/9ccsz5"
+     "enlace": "https://kiwi.com/u/6b64qk"
     }
    ]
   },
@@ -243,39 +242,39 @@
    "vuelos": [
     {
      "destino": "Valencia",
-     "ida": "2026-11-27",
-     "vuelta": "2026-11-29",
+     "ida": "2026-11-21",
+     "vuelta": "2026-11-26",
      "precio": 34,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/fzysv5v"
+     "enlace": "https://kiwi.com/u/s32x7vk"
     },
     {
      "destino": "Ibiza",
-     "ida": "2026-11-07",
-     "vuelta": "2026-11-09",
+     "ida": "2026-11-14",
+     "vuelta": "2026-11-16",
      "precio": 34,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/8g4z89"
+     "enlace": "https://kiwi.com/u/9889br"
     },
     {
      "destino": "Palma de Mallorca",
-     "ida": "2026-11-07",
-     "vuelta": "2026-11-09",
+     "ida": "2026-11-26",
+     "vuelta": "2026-11-28",
      "precio": 34,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/n35mrf9"
+     "enlace": "https://kiwi.com/u/ubxx6b"
     },
     {
      "destino": "Oporto",
      "ida": "2026-11-28",
      "vuelta": "2026-11-30",
-     "precio": 39,
+     "precio": 38,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/4cq9nn"
+     "enlace": "https://kiwi.com/u/8jnkrk"
     },
     {
      "destino": "Milán",
@@ -285,16 +284,16 @@
      "compania": "easyJet / Ryanair",
      "escalas": "directo",
      "nota": "ida a Malpensa, vuelta desde Bérgamo",
-     "enlace": "https://kiwi.com/u/stcxd7"
+     "enlace": "https://kiwi.com/u/gbns82"
     },
     {
      "destino": "Lisboa",
      "ida": "2026-11-28",
      "vuelta": "2026-12-03",
-     "precio": 45,
+     "precio": 43,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7vvhhgc"
+     "enlace": "https://kiwi.com/u/m48r4xr"
     }
    ]
   },
@@ -309,64 +308,64 @@
      "precio": 40,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/b3kg4g"
+     "enlace": "https://kiwi.com/u/ttkfmkw"
     },
     {
      "destino": "Mánchester",
      "ida": "2026-11-26",
      "vuelta": "2026-11-29",
-     "precio": 58,
+     "precio": 62,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/tmkdnsp"
+     "enlace": "https://kiwi.com/u/4nyvuv"
     },
     {
      "destino": "Birmingham",
      "ida": "2026-11-27",
      "vuelta": "2026-11-29",
-     "precio": 61,
+     "precio": 64,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/6g4tpd"
+     "enlace": "https://kiwi.com/u/nwfvh2s"
     },
     {
      "destino": "Barcelona",
-     "ida": "2026-11-16",
-     "vuelta": "2026-11-20",
-     "precio": 68,
+     "ida": "2026-11-20",
+     "vuelta": "2026-11-23",
+     "precio": 77,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/pghz8d"
+     "enlace": "https://kiwi.com/u/3r9333"
     },
     {
      "destino": "Dublín",
      "ida": "2026-11-21",
-     "vuelta": "2026-11-23",
-     "precio": 80,
+     "vuelta": "2026-11-26",
+     "precio": 81,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/vcyfh2m"
+     "enlace": "https://kiwi.com/u/zw5w7y"
     },
     {
      "destino": "Londres",
      "ida": "2026-11-28",
      "vuelta": "2026-11-30",
-     "precio": 93,
+     "precio": 90,
      "compania": "Ryanair",
      "escalas": "directo",
      "nota": "Stansted",
-     "enlace": "https://kiwi.com/u/475mn8"
+     "enlace": "https://kiwi.com/u/kvq6u6"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-10-27",
- "vuelosBusqueda": "ida y vuelta del 30/10 al 01/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-10-28",
+ "vuelosBusqueda": "ida y vuelta del 31/10 al 02/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-10-27",
- "actualizado": "2026-10-27T22:56+01:00",
+ "sorteosBuscado": "2026-10-28",
+ "actualizado": "2026-10-28T07:47+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -538,5 +537,52 @@
    }
   ],
   "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"
- }
+ },
+ "agenda": [
+  {
+   "titulo": "Halloween en La Curva: buñuelada, búsqueda del tesoro, hinchables, magia y concurso de disfraces",
+   "fecha": "2026-10-30",
+   "fuente": "Ayuntamiento de Adra (vía Almería Información)",
+   "ine": "04003",
+   "hora": "17:00",
+   "lugar": "Plaza Andalucía (La Curva)",
+   "enlace": "https://almeriainformacion.com/homepage/cultura/item/41561-adra-presenta-una-amplia-programacion-para-vivir-un-halloween-de-miedo"
+  },
+  {
+   "titulo": "Tarde terrorífica en Puente del Río: colchonetas, pintacaras, concurso de disfraces y música",
+   "fecha": "2026-10-31",
+   "fuente": "Ayuntamiento de Adra (vía D-Cerca)",
+   "ine": "04003",
+   "hora": "17:00",
+   "lugar": "Teleclub de Puente del Río",
+   "enlace": "https://d-cerca.com/adra-se-prepara-para-vivir-un-halloween-de-miedo-con-una-completa-programacion-de-actividades/"
+  },
+  {
+   "titulo": "Escuela del Terror en Guainos: pasaje terrorífico (3 €), buñuelos y chocolate",
+   "fecha": "2026-10-31",
+   "fuente": "Ayuntamiento de Adra (vía Almería Información)",
+   "ine": "04003",
+   "hora": "17:30",
+   "lugar": "Guainos",
+   "enlace": "https://almeriainformacion.com/homepage/cultura/item/41561-adra-presenta-una-amplia-programacion-para-vivir-un-halloween-de-miedo"
+  },
+  {
+   "titulo": "Halloween en Adra: photocall, flashmob 'Thriller', pasacalles, Scape Room Saw, Pasaje de Terror, castañada y Halloween Party",
+   "fecha": "2026-10-31",
+   "fuente": "Ayuntamiento de Adra (vía Noticias de Almería)",
+   "ine": "04003",
+   "hora": "18:00",
+   "lugar": "Plaza Puerta del Mar, Auditorio y Salón Municipal",
+   "enlace": "https://www.noticiasdealmeria.com/el-scape-room-saw-novedad-de-halloween-en-adra"
+  },
+  {
+   "titulo": "Convivencia de Todos los Santos en La Alquería: comida, buñuelos, música y túnel del terror",
+   "fecha": "2026-11-01",
+   "fuente": "Ayuntamiento de Adra (vía Noticias de Almería)",
+   "ine": "04003",
+   "hora": "13:00",
+   "lugar": "Patio del colegio de La Alquería",
+   "enlace": "https://www.noticiasdealmeria.com/el-scape-room-saw-novedad-de-halloween-en-adra"
+  }
+ ]
 }
