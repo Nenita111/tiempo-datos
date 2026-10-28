@@ -1,8 +1,8 @@
 {
-  "versionCode": 19,
-  "versionName": "2.8",
+  "versionCode": 20,
+  "versionName": "2.9",
   "apk": "app/Tiempo.apk",
-  "sha256": "8ef8bba7dcd5805480133b4c8aecd40eb976fa406804adb88f747d2e2a0de092",
-  "bytes": 1070727,
-  "notas": "Cámara de la DGT en la A-7 (Hoy), radiación ambiental del CSN (Planeta) y sequía y escasez de agua de la cuenca (Semana)"
+  "sha256": "fb63fab28b34a475a173c41a9adb984ba5c27eaa4cac993a78c9cd51cf1138a3",
+  "bytes": 1075067,
+  "notas": "Próxima colecta de sangre en Adra (tabla oficial del SAS) en la agenda de Hoy y aviso el día antes"
 }
