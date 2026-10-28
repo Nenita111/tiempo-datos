@@ -1,8 +1,8 @@
 {
-  "versionCode": 21,
-  "versionName": "3.0",
+  "versionCode": 22,
+  "versionName": "3.1",
   "apk": "app/Tiempo.apk",
-  "sha256": "23aacff23d5fd8ade2a2b4bfb69a7bf390d29125664f0a064b26eeab86bb20bd",
-  "bytes": 1083167,
-  "notas": "Pantallas nuevas (Agua, Cielo, Alertas, Productos, Carretera, Mundo y SAS) con todo a la vez; tramos de la luz; mapa de los terremotos de la zona"
+  "sha256": "717074c3555ae177e15774d90d101516904dc77edd2d73087728a3c7f4cedc79",
+  "bytes": 1087383,
+  "notas": "Cortes de agua de Hidralia (su mapa de obras y afectaciones): aviso arriba y tarjeta en Noticias"
 }
