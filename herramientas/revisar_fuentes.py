@@ -248,9 +248,39 @@ def rayos(L):
     if edad > dt.timedelta(hours=2): raise ValueError(f"la última imagen de rayos es de hace {edad}")
     return f"última imagen {m.group(1)}"
 
+def medicamentos(L):
+    # Consumo.kt: la lista «normalizedData» que lleva dentro la página de alertas farmacéuticas de la AEMPS
+    t = texto("https://www.aemps.gob.es/comunicacion/alertas/alertas-farmaceuticas-y-retiradas-de-lotes-de-medicamentos-de-uso-humano-por-defectos-de-calidad/", tiempo=60)
+    i = t.find("normalizedData")
+    if i < 0: raise ValueError("la página ya no trae la lista «normalizedData»")
+    lista, _ = json.JSONDecoder().raw_decode(t[t.index("[", i):])
+    if not lista or not {"code", "date", "products", "defectClassification"} <= set(lista[0]): raise ValueError("la lista ha cambiado de forma")
+    return f"{len(lista)} alertas, la última {lista[0]['code']}"
+
+def productos(L):
+    # Consumo.kt: la búsqueda de Safety Gate (notificadas por España), como la hace su web
+    y = dt.date.today().year
+    q = {"criteria": {"notifyingCountry": ["ES"], "year": [y, y - 1]}, "searchCriteriaForNotification": False, "isLaunched": True, "isLaunchSearch": True,
+         "pagination": {"numberElements": 5, "page": 0, "sortField": "PUBLICATION_DATE", "sortOrder": "DESC", "totalElements": 0},
+         "language": "es", "displayDefaultResults": False, "isForMostRecent": False}
+    j = json.loads(pedir("https://ec.europa.eu/safety-gate-alerts/public/api/search", json.dumps(q).encode(), "application/json"))
+    c = j.get("content") or []
+    if not c: raise ValueError("la búsqueda no devuelve notificaciones de España")
+    return f"{j.get('totalElements')} de España, la última del {c[0]['publicationDate'][:10]}"
+
+def agua(L):
+    # Consumo.kt: SINAC, acceso al ciudadano (formularios): las redes del municipio
+    ine = int(L["ine"]); prov = int(L["ine"][:2])
+    t = texto("https://sinac.sanidad.gob.es/CiudadanoWeb/ciudadano/informacionRedes.do", cuerpo=f"codProvincia={prov}&codMunicipio={ine}".encode(),
+              tipo="application/x-www-form-urlencoded")
+    redes = re.findall(r"eleccionRedDistribucion\((\d+)\)", t)
+    if not redes: raise ValueError("el SINAC no da las redes del municipio")
+    return f"{len(redes)} redes"
+
 
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
-           trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos]
+           trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
+           medicamentos, productos, agua]
 
 
 def revisar(L=ADRA):

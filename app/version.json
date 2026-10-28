@@ -1,8 +1,8 @@
 {
-  "versionCode": 17,
-  "versionName": "2.6",
+  "versionCode": 18,
+  "versionName": "2.7",
   "apk": "app/Tiempo.apk",
-  "sha256": "81385f130626c2ca78b38232fe98d396cbe0cf72daf9c9a3c56470ce9022eb15",
-  "bytes": 1044007,
-  "notas": "Pantalla Economía (paro y afiliados de Adra, euríbor y Letras, festivos), rayos del satélite en el radar, resultados del Náutico de Adra y tarjeta de barco dragón nueva, plagas de los invernaderos y virus respiratorios"
+  "sha256": "20bf66b6560e241dd6982ff419a0e4c4314c7b936984fe1ca10f9944b0b69228",
+  "bytes": 1063551,
+  "notas": "Pantalla Consumo (medicamentos retirados, productos peligrosos y agua del grifo), fecha de actualización en todas las tarjetas y nada desfasado en pantalla"
 }
