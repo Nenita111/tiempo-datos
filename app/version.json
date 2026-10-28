@@ -1,8 +1,8 @@
 {
-  "versionCode": 18,
-  "versionName": "2.7",
+  "versionCode": 19,
+  "versionName": "2.8",
   "apk": "app/Tiempo.apk",
-  "sha256": "20bf66b6560e241dd6982ff419a0e4c4314c7b936984fe1ca10f9944b0b69228",
-  "bytes": 1063551,
-  "notas": "Pantalla Consumo (medicamentos retirados, productos peligrosos y agua del grifo), fecha de actualización en todas las tarjetas y nada desfasado en pantalla"
+  "sha256": "8ef8bba7dcd5805480133b4c8aecd40eb976fa406804adb88f747d2e2a0de092",
+  "bytes": 1070727,
+  "notas": "Cámara de la DGT en la A-7 (Hoy), radiación ambiental del CSN (Planeta) y sequía y escasez de agua de la cuenca (Semana)"
 }
