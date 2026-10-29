@@ -365,7 +365,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-10-29",
- "actualizado": "2026-10-29T11:48+01:00",
+ "actualizado": "2026-10-29T12:32+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -983,17 +983,32 @@
    "https://www.juntadeandalucia.es/boja/2026/208/11": {
     "tipo": "convocatoria",
     "provincia": "almeria",
-    "zona": "almeria"
+    "zona": "almeria",
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-11"
+    }
    },
    "https://www.juntadeandalucia.es/boja/2026/208/12": {
     "tipo": "convocatoria",
     "provincia": "almeria",
-    "zona": "almeria"
+    "zona": "almeria",
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-11"
+    }
    },
    "https://www.juntadeandalucia.es/boja/2026/208/13": {
     "tipo": "convocatoria",
     "provincia": "almeria",
-    "zona": "almeria"
+    "zona": "almeria",
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-11"
+    }
    },
    "https://www.juntadeandalucia.es/boja/2026/208/14": {
     "tipo": "convocatoria",
@@ -1101,53 +1116,66 @@
     "url": "https://www.juntadeandalucia.es/boja/2026/208/11",
     "fecha": "2026-10-27",
     "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante, de Coordinador/a de Cuidados de Enfermería de la Unidad de Gestión Clínica de Ejido Norte en el Distrito Sanitario de Atención Primaria Poniente de Almería"
+    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante, de Coordinador/a de Cuidados de Enfermería de la Unidad de Gestión Clínica de Ejido Norte en el Distrito Sanitario de Atención Primaria Poniente de Almería",
+    "hasta": "2026-11-11"
    },
    {
     "url": "https://www.juntadeandalucia.es/boja/2026/208/12",
     "fecha": "2026-10-27",
     "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos en el Distrito Sanitario de Atención Primaria de Almería"
+    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos en el Distrito Sanitario de Atención Primaria de Almería",
+    "hasta": "2026-11-11"
    },
    {
     "url": "https://www.juntadeandalucia.es/boja/2026/208/13",
     "fecha": "2026-10-27",
     "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones, en el Distrito Sanitario de Atención Primaria de Almería"
+    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones, en el Distrito Sanitario de Atención Primaria de Almería",
+    "hasta": "2026-11-11"
    }
   ]
  },
  "etiquetas": {
   "alim": {
    "https://www.aesan.gob.es/alertas/2026_76": {
-    "alergeno": "ninguno"
+    "alergeno": "ninguno",
+    "producto": "dulces"
    },
    "https://www.aesan.gob.es/alertas/2026_75": {
-    "alergeno": "ninguno"
+    "alergeno": "ninguno",
+    "producto": "frutas_verduras"
    },
    "https://www.aesan.gob.es/alertas/2026_73": {
-    "alergeno": "ninguno"
+    "alergeno": "ninguno",
+    "producto": "preparados"
    },
    "https://www.aesan.gob.es/alertas/2026_74": {
-    "alergeno": "ninguno"
+    "alergeno": "ninguno",
+    "producto": "otro"
    },
    "https://www.aesan.gob.es/alertas/2026_72": {
-    "alergeno": "ninguno"
+    "alergeno": "ninguno",
+    "producto": "pescado"
    },
    "https://www.aesan.gob.es/alertas/2026_78": {
-    "alergeno": "ninguno"
+    "alergeno": "ninguno",
+    "producto": "complementos"
    },
    "https://www.aesan.gob.es/alertas/2026_71": {
-    "alergeno": "ninguno"
+    "alergeno": "ninguno",
+    "producto": "complementos"
    },
    "https://www.aesan.gob.es/alertas/2026_70": {
-    "alergeno": "ninguno"
+    "alergeno": "ninguno",
+    "producto": "complementos"
    },
    "https://www.aesan.gob.es/alertas/2026_77": {
-    "alergeno": "huevo"
+    "alergeno": "huevo",
+    "producto": "pescado"
    },
    "https://www.aesan.gob.es/alertas/2026_69": {
-    "alergeno": "gluten"
+    "alergeno": "gluten",
+    "producto": "cereales"
    }
   },
   "med": {
@@ -1211,7 +1239,8 @@
     "zona": false,
     "puesto": "Auxiliar Medio Natural Capataz de Cuadrilla",
     "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-02"
+    "hasta": "2026-11-02",
+    "colectivo": "general"
    },
    "690496": {
     "nivel": "grado",
@@ -1219,7 +1248,8 @@
     "zona": false,
     "puesto": "TÉCNICO/A ELECTRÓNICO",
     "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31"
+    "hasta": "2026-10-31",
+    "colectivo": "general"
    },
    "690112": {
     "nivel": "grado",
@@ -1227,7 +1257,8 @@
     "zona": false,
     "puesto": "Promoción y Traslado-Técnico/a de Gestión Teatro Alhambra",
     "entidad": "Agencia Andaluza de Instituciones Culturales",
-    "hasta": "2026-11-10"
+    "hasta": "2026-11-10",
+    "colectivo": "general"
    },
    "690493": {
     "nivel": "fp_superior",
@@ -1235,7 +1266,8 @@
     "zona": false,
     "puesto": "OPERADOR/A MONTADOR/A DE VÍDEO",
     "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31"
+    "hasta": "2026-10-31",
+    "colectivo": "general"
    },
    "689332": {
     "nivel": "grado",
@@ -1243,7 +1275,8 @@
     "zona": false,
     "puesto": "Gerencia de la Agencia de Vivienda y Rehabilitación de Andalucía",
     "entidad": "Agencia de Vivienda y Rehabilitación de Andalucía",
-    "hasta": "2026-11-10"
+    "hasta": "2026-11-10",
+    "colectivo": "general"
    },
    "690490": {
     "nivel": "fp_superior",
@@ -1251,7 +1284,8 @@
     "zona": false,
     "puesto": "OPERADOR/A MONTADOR DE VIDEO",
     "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31"
+    "hasta": "2026-10-31",
+    "colectivo": "general"
    },
    "690010": {
     "nivel": "sin_titulo",
@@ -1259,7 +1293,8 @@
     "zona": false,
     "puesto": "Profesor/a Instructor/a Jefe/a de Partida",
     "entidad": "Servicio Andaluz de Empleo",
-    "hasta": "2026-11-03"
+    "hasta": "2026-11-03",
+    "colectivo": "general"
    },
    "689971": {
     "nivel": "grado",
@@ -1267,7 +1302,8 @@
     "zona": false,
     "puesto": "Jefatura de Área de Gestión de Medio Hídrico y Actuaciones en Cuencas",
     "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-04"
+    "hasta": "2026-11-04",
+    "colectivo": "general"
    },
    "689719": {
     "nivel": "grado",
@@ -1275,7 +1311,8 @@
     "zona": false,
     "puesto": "Técnico/a Especialista en Evaluación de Tecnologías Sanitarias -32-2026",
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-12"
+    "hasta": "2026-11-12",
+    "colectivo": "general"
    },
    "687547": {
     "nivel": "grado",
@@ -1283,7 +1320,8 @@
     "zona": false,
     "puesto": "Titulado/a Superior Administración de Sistemas",
     "entidad": "Agencia Andaluza de Instituciones Culturales",
-    "hasta": "2026-11-06"
+    "hasta": "2026-11-06",
+    "colectivo": "general"
    },
    "689338": {
     "nivel": "fp_medio",
@@ -1291,7 +1329,8 @@
     "zona": true,
     "puesto": "INSPECTOR/A DE ITV",
     "entidad": "Verificaciones Industriales de Andalucía S.A.",
-    "hasta": "2026-11-11"
+    "hasta": "2026-11-11",
+    "colectivo": "general"
    },
    "689158": {
     "nivel": "grado",
@@ -1299,7 +1338,8 @@
     "zona": false,
     "puesto": "Programador/a Full- Stack - 2483",
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-09"
+    "hasta": "2026-11-09",
+    "colectivo": "general"
    },
    "689119": {
     "nivel": "grado",
@@ -1307,7 +1347,8 @@
     "zona": false,
     "puesto": "Investigador/a Posdoctoral en Machine Learning -2482",
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-09"
+    "hasta": "2026-11-09",
+    "colectivo": "general"
    },
    "689083": {
     "nivel": "grado",
@@ -1315,7 +1356,8 @@
     "zona": false,
     "puesto": "Científico/a de Datos - 2481",
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-09"
+    "hasta": "2026-11-09",
+    "colectivo": "general"
    },
    "688786": {
     "nivel": "sin_titulo",
@@ -1323,41 +1365,230 @@
     "zona": false,
     "puesto": "Bolsa de Trabajo Técnico/a de Escena, especialidad Maquinaria",
     "entidad": "Agencia Andaluza de Instituciones Culturales",
-    "hasta": "2026-11-09"
+    "hasta": "2026-11-09",
+    "colectivo": "general"
    }
   },
   "sae": {
    "01-2026-48086": {
     "nivel": "grado",
     "experiencia": 0.07,
-    "entidad": "junta"
+    "entidad": "junta",
+    "colectivo": "general"
    },
    "01-2026-48457": {
     "nivel": "grado",
     "experiencia": 0.98,
-    "entidad": "otra"
+    "entidad": "otra",
+    "colectivo": "programa_empleo"
    },
    "01-2026-48458": {
     "nivel": "no_consta",
     "experiencia": 0.98,
-    "entidad": "otra"
+    "entidad": "otra",
+    "colectivo": "programa_empleo"
    },
    "01-2026-48675": {
     "nivel": "no_consta",
     "experiencia": 0.07,
-    "entidad": "otra"
+    "entidad": "otra",
+    "colectivo": "general"
    },
    "01-2026-48758": {
     "nivel": "grado",
     "experiencia": 0.05,
-    "entidad": "otra"
+    "entidad": "otra",
+    "colectivo": "general"
    },
    "01-2026-48765": {
     "nivel": "no_consta",
     "experiencia": 0.07,
-    "entidad": "otra"
+    "entidad": "otra",
+    "colectivo": "general"
+   }
+  },
+  "agenda": {
+   "2026-10-30|Halloween en La Curva: buñuelada, búsqueda del tesoro, hinchables, magia y concurso de disfraces": {
+    "gratis": 0.03,
+    "familias": 0.9,
+    "inscripcion": 0.03
+   },
+   "2026-10-31|Tarde terrorífica en Puente del Río: colchonetas, pintacaras, concurso de disfraces y música": {
+    "gratis": 0.03,
+    "familias": 0.88,
+    "inscripcion": 0.03
+   },
+   "2026-10-31|Escuela del Terror en Guainos: pasaje terrorífico (3 €), buñuelos y chocolate": {
+    "gratis": 0.01,
+    "familias": 0.73,
+    "inscripcion": 0.03
+   },
+   "2026-10-31|Halloween en Adra: photocall, flashmob 'Thriller', pasacalles, Scape Room Saw, Pasaje de Terror, castañada y Halloween Party": {
+    "gratis": 0.03,
+    "familias": 0.59,
+    "inscripcion": 0.03
+   },
+   "2026-11-01|Convivencia de Todos los Santos en La Alquería: comida, buñuelos, música y túnel del terror": {
+    "gratis": 0.03,
+    "familias": 0.83,
+    "inscripcion": 0.02
    }
   },
   "fecha": "2026-10-29"
+ },
+ "fap": {
+  "fecha": "2026-10-29",
+  "novedades": [
+   {
+    "tipo": "circular",
+    "titulo": "Normativa Campeonato de Andalucía de Barco Dragón 500 m",
+    "enlace": "https://fapira.com/files/2026/CIRCULARES/C-2626.pdf",
+    "fecha": "2026-10-08",
+    "cambio": false,
+    "dia": "2026-10-31",
+    "lugar": "C.E.A.R. La Cartuja (Sevilla)",
+    "inscripcion": "2026-10-27"
+   }
+  ],
+  "juzgados": {
+   "ff2c8989dec6": {
+    "anuncia": 0.03,
+    "cambio": 0.09,
+    "persona": 0.0
+   },
+   "d2978e144ea6": {
+    "anuncia": 0.53,
+    "cambio": 0.08,
+    "persona": 0.0
+   },
+   "5071d53f7ffc": {
+    "anuncia": 0.25,
+    "cambio": 0.09,
+    "persona": 0.0
+   },
+   "b3ca18edd16a": {
+    "anuncia": 1.0,
+    "cambio": 0.09,
+    "persona": 0.0,
+    "dia": "2026-10-31",
+    "lugar": "C.E.A.R. La Cartuja (Sevilla)",
+    "inscripcion": "2026-10-27"
+   },
+   "0d358f65b941": {
+    "anuncia": 0.06,
+    "cambio": 0.1,
+    "persona": 0.0
+   },
+   "4a8bef2681ac": {
+    "anuncia": 0.01,
+    "cambio": 0.02,
+    "persona": 0.02
+   },
+   "50a44be0462f": {
+    "anuncia": 0.01,
+    "cambio": 0.02,
+    "persona": 0.99
+   },
+   "74411c0ed00f": {
+    "anuncia": 0.25,
+    "cambio": 0.02,
+    "persona": 0.99
+   },
+   "aea465a28cf7": {
+    "anuncia": 0.02,
+    "cambio": 0.02,
+    "persona": 0.04
+   },
+   "b7adc71720e1": {
+    "anuncia": 0.14,
+    "cambio": 0.02,
+    "persona": 0.01
+   },
+   "0bc464a3129b": {
+    "anuncia": 0.02,
+    "cambio": 0.18,
+    "persona": 0.02
+   },
+   "22aad3d3b725": {
+    "anuncia": 0.01,
+    "cambio": 0.01,
+    "persona": 0.03
+   },
+   "923ccf95c737": {
+    "anuncia": 0.02,
+    "cambio": 0.02,
+    "persona": 0.04
+   },
+   "4f2c334dcb4d": {
+    "anuncia": 0.18,
+    "cambio": 0.02,
+    "persona": 0.03
+   },
+   "552febc8c41a": {
+    "anuncia": 0.03,
+    "cambio": 0.02,
+    "persona": 0.08
+   },
+   "28486fb1d746": {
+    "anuncia": 0.42,
+    "cambio": 0.03,
+    "persona": 0.02
+   },
+   "28d4f468ae00": {
+    "anuncia": 0.02,
+    "cambio": 0.02,
+    "persona": 0.99
+   },
+   "2e422ffe2265": {
+    "anuncia": 0.01,
+    "cambio": 0.02,
+    "persona": 0.02
+   },
+   "8611cae68187": {
+    "anuncia": 0.02,
+    "cambio": 0.02,
+    "persona": 0.02
+   },
+   "e7615d0d6e28": {
+    "anuncia": 0.02,
+    "cambio": 0.02,
+    "persona": 0.09
+   },
+   "6c5fb8a0b0c2": {
+    "anuncia": 0.29,
+    "cambio": 0.12,
+    "persona": 0.04
+   },
+   "bb88ac5de28f": {
+    "anuncia": 0.29,
+    "cambio": 0.03,
+    "persona": 0.04
+   },
+   "90b70a876727": {
+    "anuncia": 0.01,
+    "cambio": 0.02,
+    "persona": 0.02
+   },
+   "9c0c590b2f84": {
+    "anuncia": 0.01,
+    "cambio": 0.03,
+    "persona": 0.02
+   },
+   "cc7187140c87": {
+    "anuncia": 0.01,
+    "cambio": 0.02,
+    "persona": 0.08
+   },
+   "0f4b8fe93bed": {
+    "anuncia": 0.02,
+    "cambio": 0.03,
+    "persona": 0.04
+   },
+   "6de2d81bf629": {
+    "anuncia": 0.01,
+    "cambio": 0.02,
+    "persona": 0.99
+   }
+  }
  }
 }
