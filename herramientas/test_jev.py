@@ -2,7 +2,7 @@
 import datetime as dt, io, json, os, sys, tempfile, unittest, urllib.error
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(__file__))
-import jev, zona, avisos_movil as A, titulares as T, receta as R, sortea2 as S2, sas, etiquetas as ET, comprobar_captura as CC, revisar_fuentes as RF
+import jev, zona, avisos_movil as A, titulares as T, receta as R, sortea2 as S2, sas, etiquetas as ET, comprobar_captura as CC, revisar_fuentes as RF, fap
 
 TZ = ZoneInfo("Europe/Madrid")
 AHORA = dt.datetime(2026, 10, 28, 12, 0, tzinfo=TZ)
@@ -209,15 +209,20 @@ class Etiquetas(unittest.TestCase):
         raise AssertionError(url)
 
     def jev(self, cu, t):
-        q = cu["questions"]
-        if "alergeno" in q: return {"answers": {"alergeno": choice("leche" if "leche" in cu["state"]["alerta"]["titulo"].lower() else "ninguno")}}
-        if "devolver" in q: return {"answers": {"devolver": noul(0.85 if "paciente" in cu["state"]["alerta"]["medida"].lower() else 0.1)}}
-        if "ninos" in q: return {"answers": {"ninos": noul(0.2)}}
-        if "entidad" in q: return {"answers": {"nivel": choice("fp_superior"), "experiencia": noul(0.8), "entidad": choice("ayuntamiento")}}
-        if "nivel" in q: return {"answers": {"nivel": choice("grado"), "experiencia": noul(0.15)}}
-        if "mismo" in q: return {"answers": {"mismo": noul(0.95 if "feria" in cu["state"]["a"]["titulo"].lower() and "feria" in cu["state"]["b"]["titulo"].lower() else 0.05)}}
-        if "participa" in q: return {"answers": {"participa": choice("seguir_mencionar")}}
-        raise AssertionError(q)
+        q, st, r = cu["questions"], cu["state"], {}
+        if "alergeno" in q: r["alergeno"] = choice("leche" if "leche" in st["alerta"]["titulo"].lower() else "ninguno")
+        if "producto" in q: r["producto"] = choice("lacteos" if "leche" in st["alerta"]["titulo"].lower() else "otro")    # 3.8
+        if "devolver" in q: r["devolver"] = noul(0.85 if "paciente" in st["alerta"]["medida"].lower() else 0.1)
+        if "ninos" in q: r["ninos"] = noul(0.2)
+        if "entidad" in q: r |= {"nivel": choice("fp_superior"), "experiencia": noul(0.8), "entidad": choice("ayuntamiento")}
+        elif "nivel" in q: r |= {"nivel": choice("grado"), "experiencia": noul(0.15)}
+        if "colectivo" in q: r["colectivo"] = choice("garantia_juvenil" if "puesto" in st["oferta"] else "general")       # 3.8 (SAE: puesto)
+        if "mismo" in q: r["mismo"] = noul(0.95 if "feria" in st["a"]["titulo"].lower() and "feria" in st["b"]["titulo"].lower() else 0.05)
+        if "participa" in q: r["participa"] = choice("seguir_mencionar")
+        if "gratis" in q: r |= {"gratis": noul(0.9 if "Feria" in st["actividad"]["titulo"] else 0.1), "familias": noul(0.2), "inscripcion": noul(0.05)}
+        if "mayor" in q: r |= {"mayor": noul(0.9), "residente": noul(0.2)}
+        if not r: raise AssertionError(q)
+        return {"answers": r}
 
     def test_todo(self):
         x = {"agenda": [{"titulo": "PRUEBA: Feria del libro", "fecha": "2026-10-31", "lugar": "Plaza"},
@@ -244,13 +249,37 @@ class Etiquetas(unittest.TestCase):
         self.assertEqual({k: o[k] for k in ("nivel", "experiencia", "zona", "hasta")}, {"nivel": "grado", "experiencia": 0.15, "zona": False, "hasta": "2026-10-28"})   # Almonte
         self.assertTrue(o["puesto"] and o["entidad"])
         self.assertEqual(sorted(e["sae"]), ["01-2026-48086", "01-2026-48457", "01-2026-48458", "01-2026-48675", "01-2026-48758", "01-2026-48765"])   # 3.7
-        self.assertEqual(e["sae"]["01-2026-48086"], {"nivel": "fp_superior", "experiencia": 0.8, "entidad": "ayuntamiento"})
+        self.assertEqual(e["sae"]["01-2026-48086"], {"nivel": "fp_superior", "experiencia": 0.8, "entidad": "ayuntamiento", "colectivo": "garantia_juvenil"})
+        self.assertEqual(o["colectivo"], "general")                                    # 3.8
+        self.assertTrue(all("producto" in v for v in e["alim"].values()))
+        self.assertEqual(e["agenda"]["2026-10-31|PRUEBA: Feria del libro de Adra"], {"gratis": 0.9, "familias": 0.2, "inscripcion": 0.05})
+        self.assertEqual(sorted(e["agenda"]), ["2026-10-31|PRUEBA: Concierto", "2026-10-31|PRUEBA: Feria del libro de Adra"])
+        self.assertEqual(x["sorteos"][0]["requisitos"], {"mayor": 0.9, "residente": 0.2})
         self.assertEqual([a["titulo"] for a in x["agenda"]], ["PRUEBA: Feria del libro de Adra", "PRUEBA: Concierto"])   # se queda la de más datos
         self.assertEqual(x["sorteos"][0]["participa"], "seguir_mencionar")
         # otra vez: lo ya etiquetado no se pregunta
         preguntas = []
         ET.etiquetar(x, dt.date(2026, 10, 29), red=self.red, pedir_jev=lambda cu, t: preguntas.append(cu) or self.jev(cu, t))
-        self.assertEqual([q for q in preguntas if "nivel" in q["questions"] or "alergeno" in q["questions"]], [])   # tampoco las del SAE
+        self.assertEqual([q for q in preguntas if "mismo" not in q["questions"]], [])   # tampoco las del SAE, la agenda ni los requisitos
+
+    def test_lo_de_antes_solo_lo_nuevo(self):
+        """3.8: a lo etiquetado con 3.7 (sin producto ni colectivo) solo se le pregunta eso."""
+        x = {"etiquetas": {"alim": {"https://www.aesan.gob.es/alertas/2026_76": {"alergeno": "ninguno"}},
+                           "sae": {"01-2026-48086": {"nivel": "grado", "experiencia": 0.1, "entidad": "junta"}}}}
+        preguntas = []
+        ahora = ET.dt.datetime
+        class Fijo(dt.datetime):
+            @classmethod
+            def now(cls, tz=None): return dt.datetime(2026, 10, 29, 11, 0, tzinfo=tz)
+        ET.dt.datetime = Fijo
+        try: ET.etiquetar(x, dt.date(2026, 10, 29), red=self.red, pedir_jev=lambda cu, t: preguntas.append(cu) or self.jev(cu, t))
+        finally: ET.dt.datetime = ahora
+        e = x["etiquetas"]
+        self.assertEqual(e["alim"]["https://www.aesan.gob.es/alertas/2026_76"], {"alergeno": "ninguno", "producto": "otro"})
+        self.assertEqual(e["sae"]["01-2026-48086"], {"nivel": "grado", "experiencia": 0.1, "entidad": "junta", "colectivo": "garantia_juvenil"})
+        q76 = [q for q in preguntas if q["state"].get("alerta", {}).get("titulo") and "producto" in q["questions"] and "alergeno" not in q["questions"]]
+        self.assertEqual(len(q76), 1)
+        self.assertEqual([set(q["questions"]) for q in preguntas if q["state"].get("oferta", {}).get("puesto") and "nivel" not in q["questions"]], [{"colectivo"}])
 
     def test_sin_jev_solo_lo_exacto(self):
         def p403(c, t): raise error(403)
@@ -469,6 +498,145 @@ class CapturaTipo(unittest.TestCase):
         def dudosa(cu, t): return {"answers": {"hasta": noul(0.9), "_tipo": choice("otro", 0.5)}}
         self.assertTrue(CC.comprobar(texto, {"hasta": "jueves"}, dudosa, tipo="corte")["ok"])       # si duda, no bloquea
         self.assertNotIn("_tipo", jev.preguntas_captura({"hasta": "x"}))
+
+
+def muestra(n): 
+    with open(os.path.join(os.path.dirname(__file__), "muestras", n), encoding="utf-8") as f: return f.read()
+
+
+class PlazoSas(unittest.TestCase):
+    """3.8: el plazo de solicitudes de las convocatorias del SAS (frases reales de la BOJA 208/11 y el calendario real de la Junta para Adra)."""
+    def inh(self):
+        return sas.inhabiles({2026}, red=lambda u: muestra("calendario_adra_2026.json") if "year=2026" in u else (_ for _ in ()).throw(OSError("aún no")))
+
+    def test_frases_y_cuentas(self):
+        fr = sas.frases_plazo(muestra("boja_2026_208_11_plazos.txt").replace("\n", " "))
+        self.assertEqual((fr[0][1], fr[0][2]), (10, "habiles")); self.assertIn("solicitudes", fr[0][0])     # primero la de las solicitudes
+        self.assertIn((1, "meses"), [(n, u) for _, n, u in fr])
+        inh = self.inh()
+        self.assertIn(dt.date(2026, 11, 2), inh)                              # el lunes siguiente a Todos los Santos (Andalucía)
+        self.assertIn(dt.date(2026, 9, 8), inh)                               # fiesta local de Adra
+        self.assertEqual(sas.fin_plazo(dt.date(2026, 10, 27), 10, "habiles", inh), dt.date(2026, 11, 11))
+        self.assertEqual(sas.fin_plazo(dt.date(2026, 10, 27), 1, "meses", inh), dt.date(2026, 11, 27))
+        self.assertEqual(sas.fin_plazo(dt.date(2026, 1, 31), 1, "meses", inh), dt.date(2026, 3, 2))         # 28 feb es sábado → lunes 2 mar
+        self.assertEqual(sas.fin_plazo(dt.date(2026, 10, 27), 15, "naturales", inh), dt.date(2026, 11, 11))
+        self.assertEqual(sas.fin_plazo(dt.date(2026, 12, 4), 3, "habiles", inh), dt.date(2026, 12, 11))     # 7 y 8 dic, festivos
+        self.assertTrue(sas.desde_publicacion(fr[0][0], "BOJA"))
+        self.assertFalse(sas.desde_publicacion("PRUEBA: veinte días hábiles desde la publicación del extracto en el Boletín Oficial del Estado.", "BOJA"))
+        self.assertFalse(sas.desde_publicacion("PRUEBA: plazo de diez días desde la notificación.", "BOJA"))
+
+    def test_plazos_con_jev_y_avisar(self):
+        d = [{"texto": "Resolución … del Servicio Andaluz de Salud, por la que se convoca concurso en el Distrito Poniente (PRUEBA).", "url": "u1", "boletin": "BOJA", "fecha": "2026-10-27"},
+             {"texto": "Resolución … del Servicio Andaluz de Salud, por la que se convoca concurso en Sevilla (PRUEBA).", "url": "u2", "boletin": "BOJA", "fecha": "2026-10-27"},
+             {"texto": "Resolución … del Servicio Andaluz de Salud, por la que se convoca concurso en el Hospital Torrecárdenas (PRUEBA).", "url": "u3", "boletin": "BOJA", "fecha": "2026-09-01"}]
+        et = {"u1": {"tipo": "convocatoria", "zona": "almeria"}, "u2": {"tipo": "convocatoria", "zona": "otra"}, "u3": {"tipo": "convocatoria", "zona": "almeria"}}
+        def red(u):
+            if "work-calendar" in u: return muestra("calendario_adra_2026.json") if "year=2026" in u else "{}"
+            return "<html><body><p>" + muestra("boja_2026_208_11_plazos.txt").replace("\n", " ") + "</p></body></html>"
+        vistas = []
+        def pedir(cu, t):
+            vistas.append(cu)
+            frases = cu["questions"]["plazo"]["criteria"]
+            c = next(k for k, f in frases.items() if "solicitudes" in f)
+            return {"answers": {"plazo": choice(c, 0.92)}}
+        self.assertEqual(sas.plazos(d, et, red=red, pedir_jev=pedir), 2)
+        self.assertEqual(len(vistas), 2)                                       # lo de otra provincia, no
+        self.assertEqual(et["u1"]["plazo"], {"n": 10, "unidad": "habiles", "hasta": "2026-11-11"})
+        self.assertNotIn("plazo", et["u2"])
+        self.assertEqual(et["u3"]["plazo"]["hasta"], "2026-09-17")              # sin el 8 ni el 10 de septiembre (fiestas de Adra)
+        self.assertIn("ninguno", vistas[0]["questions"]["plazo"]["criteria"])
+        self.assertEqual(sas.plazos(d, et, red=red, pedir_jev=lambda c, t: self.fail("ya tienen plazo")), 0)
+        a = sas.avisar(d, et, hoy=dt.date(2026, 10, 29))
+        self.assertEqual([(x["url"], x["hasta"]) for x in a], [("u1", "2026-11-11")])     # la de plazo acabado, no
+        # Jev no está seguro: plazo None (no se vuelve a preguntar)
+        et2 = {"u1": {"tipo": "convocatoria", "zona": "almeria"}}
+        sas.plazos(d[:1], et2, red=red, pedir_jev=lambda c, t: {"answers": {"plazo": choice("p0", 0.4)}})
+        self.assertIsNone(et2["u1"]["plazo"])
+        n = A.ofertas({"empleo:sas:": "2026-10-28", "empleo:sae:": "2026-10-28", "empleo:junta:": "2026-10-28", "fap:": "2026-10-28"}, [],
+                      {"sas": {"avisar": [x | {"resumen": "PRUEBA: convoca concurso"} for x in a]}}, AHORA)
+        self.assertTrue(n[0]["texto"].endswith("· solicitudes hasta el 11 nov."), n[0]["texto"])
+
+
+class Fap(unittest.TestCase):
+    """3.8: las novedades de barco dragón de la Federación Andaluza (sus listas reales del 29 oct, recortadas; Jev, de mentira)."""
+    def avisos(self):
+        return fap.circulares(muestra("fap_circulares_20261029.html")) + fap.noticias(muestra("fap_noticias_20261029.html"))
+
+    def test_listas(self):
+        c = fap.circulares(muestra("fap_circulares_20261029.html"))
+        self.assertEqual(len(c), 12); self.assertEqual(c[0]["enlace"], "https://fapira.com/files/2026/CIRCULARES/C-2926.pdf")
+        n = fap.noticias(muestra("fap_noticias_20261029.html"))
+        self.assertEqual([x["fecha"] for x in n], ["2026-09-29", "2026-09-24"]); self.assertTrue(n[0]["resumen"].startswith("Cinco deportistas"))
+        self.assertEqual(fap.titulo_limpio("CIRCULAR Nº 26/2026 - NORMATIVA CAMPEONATO DE ANDALUCÍA DE BARCO DRAGÓN 500m"),
+                         "Normativa Campeonato de Andalucía de Barco Dragón 500 m")
+        self.assertEqual(fap.datos_texto(muestra("fap_c2626_tabla.txt")), {"dia": "2026-10-31", "lugar": "C.E.A.R. La Cartuja (Sevilla)", "inscripcion": "2026-10-27"})
+
+    def test_juzgar_y_novedades(self):
+        av = self.avisos() + [{"tipo": "noticia", "titulo": "PRUEBA: Fulano Mengano, campeón en barco dragón", "enlace": "https://fapira.com/prueba-1",
+                               "fecha": "2026-10-20", "resumen": ""},
+                              {"tipo": "noticia", "titulo": "PRUEBA: Aplazado el Campeonato de Andalucía de Barco Dragón de invierno", "enlace": "https://fapira.com/prueba-2",
+                               "fecha": "2026-10-21", "resumen": "Se celebrará en otra fecha."}]
+        vistas = []
+        def pedir(cu, t):
+            a = cu["state"]["aviso"]; vistas.append(a["titulo"])
+            dragon = "DRAG" in a["titulo"].upper()
+            return {"answers": {"anuncia": noul(0.9 if dragon and "campeón" not in a["titulo"] else 0.1), "cambio": noul(0.9 if "Aplazado" in a["titulo"] else 0.05),
+                                "persona": noul(0.95 if "Fulano" in a["titulo"] else 0.02)}}
+        pdfs = []
+        j, juez = fap.juzgar(av, {}, pedir_jev=pedir, red=lambda u: pdfs.append(u) or b"%PDF", leer_pdf=lambda b: fap.datos_texto(muestra("fap_c2626_tabla.txt")))
+        self.assertEqual(juez, "Jev"); self.assertEqual(len(vistas), len(av))
+        self.assertEqual(pdfs, ["https://fapira.com/files/2026/CIRCULARES/C-2626.pdf"])
+        self.assertTrue(all(len(k) == 12 and "/" not in k for k in j))         # por un resumen del enlace (no el título)
+        nv = fap.novedades(av, j)
+        self.assertEqual([n["titulo"] for n in nv], ["PRUEBA: Aplazado el Campeonato de Andalucía de Barco Dragón de invierno",
+                                                     "Normativa Campeonato de Andalucía de Barco Dragón 500 m",
+                                                     "Cinco palistas del Náutico Sevilla, en el Mundial de Barco Dragón"])
+        self.assertNotIn("Fulano", json.dumps(nv, ensure_ascii=False))       # el que nombra a alguien, no
+        self.assertTrue(nv[0]["cambio"]); self.assertEqual(nv[1]["dia"], "2026-10-31")
+        # otra vez: nada se pregunta
+        self.assertEqual(fap.juzgar(av, j, pedir_jev=lambda c, t: self.fail("ya juzgado"))[0], j)
+        # sin Jev: solo las circulares que dicen «dragón»
+        def p403(c, t): raise error(403)
+        j2, juez2 = fap.juzgar(av, {}, pedir_jev=p403, red=lambda u: b"", leer_pdf=lambda b: {})
+        self.assertTrue(juez2.startswith("sin Jev"))
+        self.assertEqual([n["enlace"] for n in fap.novedades(av, j2)], ["https://fapira.com/files/2026/CIRCULARES/C-2626.pdf"])
+
+    def test_al_movil(self):
+        x = {"fap": {"novedades": [{"tipo": "circular", "titulo": "Normativa Campeonato de Andalucía de Barco Dragón 500 m", "enlace": "https://x/c26",
+                                    "fecha": "2026-10-08", "cambio": False, "dia": "2026-10-31", "lugar": "C.E.A.R. La Cartuja (Sevilla)", "inscripcion": "2026-10-27"}]}}
+        marcas = {"empleo:sae:": "2026-10-28", "empleo:junta:": "2026-10-28", "empleo:sas:": "2026-10-28"}
+        e = dict(marcas)
+        self.assertEqual(A.ofertas(e, [], x, AHORA), []); self.assertIn("fap:", e)          # la primera vez, solo se apunta
+        x["fap"]["novedades"].insert(0, {"tipo": "noticia", "titulo": "PRUEBA: Aplazado el Campeonato", "enlace": "https://x/p", "fecha": "2026-10-28",
+                                         "cambio": True, "dia": "2026-11-14"})
+        n = A.ofertas(e, [], x, AHORA)
+        self.assertEqual([o["clave"] for o in n], ["fap:https://x/p"])
+        self.assertEqual(n[0]["texto"], "🐉 Barco dragón (Federación Andaluza, cambio): PRUEBA: Aplazado el Campeonato · sábado 14 nov.")
+        self.assertIn("anuncia", jev.preguntas_fap()); self.assertIn("persona", jev.preguntas_fap())
+
+
+class Urgentes(unittest.TestCase):
+    """3.8: las noticias urgentes del pueblo (Jev, en la misma petición que el corte)."""
+    RSS = """<rss><channel>
+<item><title>PRUEBA: Desalojadas varias viviendas en Adra por un incendio forestal</title><description>…</description><link>https://x/u1</link><pubDate>Wed, 28 Oct 2026 09:00:00 +0100</pubDate></item>
+<item><title>PRUEBA: Adra presenta su programación de Navidad</title><description>…</description><link>https://x/u2</link><pubDate>Wed, 28 Oct 2026 10:00:00 +0100</pubDate></item>
+<item><title>PRUEBA: Corte de agua en Adra el jueves</title><description>…</description><link>https://x/u3</link><pubDate>Wed, 28 Oct 2026 10:30:00 +0100</pubDate></item>
+<item><title>PRUEBA: Incendio en Adra la semana pasada</title><description>…</description><link>https://x/u4</link><pubDate>Mon, 26 Oct 2026 08:00:00 +0100</pubDate></item>
+</channel></rss>"""
+
+    def test_urgentes(self):
+        def pedir(cu, t):
+            tit = cu["state"]["noticia"]["titulo"]; corte = "Corte" in tit
+            return {"answers": {"anuncia": noul(0.95 if corte else 0.02), "tipo": choice("agua" if corte else "otro"), "en_pueblo": noul(0.9),
+                                "restablecido": noul(0.0), "dia": choice("not_stated"), "mes": choice("not_stated"),
+                                "urgente": noul(0.92 if "ncendio" in tit else 0.6 if corte else 0.05)}}
+        juez = A.Juez(pedir)
+        c = A.cortes_rss(self.RSS, "Adra", AHORA - dt.timedelta(days=3), juez, AHORA)
+        self.assertEqual([x["enlace"] for x in c], ["https://x/u3"])
+        self.assertEqual([u["enlace"] for u in juez.urgentes], ["https://x/u1"])          # la de hace dos días ya no; el corte va aparte
+        self.assertIn("urgente", jev.preguntas_corte()); self.assertIn("urgente", jev.preguntas_titular())
+        juez2 = A.Juez(lambda cu, t: {"answers": {k: v for k, v in pedir(cu, t)["answers"].items() if k != "urgente"}})   # respuesta vieja
+        A.cortes_rss(self.RSS, "Adra", AHORA - dt.timedelta(days=3), juez2, AHORA); self.assertEqual(juez2.urgentes, [])
 
 
 if __name__ == "__main__":

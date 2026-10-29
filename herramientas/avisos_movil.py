@@ -12,6 +12,12 @@
     hasta Motril, toda Andalucía): las de empleo público del SAE (su lista, en cada pasada), las de los entes de la Junta de la zona y las
     convocatorias del SAS de la zona (las dos, de extras.json «etiquetas.ofertas» y «sas.avisar», que pone la tarea diaria con Jev). La primera
     vez solo se apuntan las que ya había, sin avisar (salen en la tele).
+  - (3.8, lo pidió Isa el 29 oct 2026) Noticias urgentes del pueblo: los mismos titulares de Noticias de Almería de las últimas 12 horas que Jev
+    da por urgentes (algo que afecta ahora a la gente del pueblo: un incendio, una inundación, una carretera cortada, un desalojo, una alerta
+    sanitaria), que no sean un corte (esos ya van aparte). Solo con Jev.
+  - (3.8) Novedades de barco dragón de la Federación Andaluza de Piragüismo (extras.json «fap», fap.py en la tarea diaria): una competición
+    nueva, o un cambio de fecha o de sede, una suspensión o un aplazamiento. La primera vez solo se apuntan.
+  - (3.8) En las convocatorias del SAS, el último día del plazo de solicitudes si se sabe (sas.py lo calcula con el calendario de la Junta).
 
   python3 avisos_movil.py --estado avisos_enviados.json [--extras extras.json] [--lugar Adra --ine 04003 --lat 36.7489 --lon -3.0206]
 
@@ -168,6 +174,7 @@ class Juez:
     """Jev para los titulares (una petición por titular); sin Jev (sin clave o sin red), la regla de texto. «usado» dice cuál fue."""
     def __init__(self, pedir=None):
         self.pedir, self.activo, self.usado, self.motivo = pedir, True, "reglas", ""
+        self.urgentes = []           # 3.8: las noticias urgentes del pueblo que no son cortes (se ven en la misma petición)
 
     def corte(self, lugar, p):
         regla = tipo_corte(p["titulo"])
@@ -184,12 +191,22 @@ class Juez:
         return regla, None
 
 
-def cortes_rss(xml, lugar, desde, juez=None):
+URGENTE_H = 12      # una noticia urgente de hace más de 12 horas ya no se manda
+
+
+def es_urgente(r, p, ahora):
+    return (r and "urgente" in r and r["urgente"]["noul"] >= jev.URGENTE and r["restablecido"]["noul"] < jev.SI
+            and p.get("s") and ahora - p["s"] <= dt.timedelta(hours=URGENTE_H))
+
+
+def cortes_rss(xml, lugar, desde, juez=None, ahora=None):
     """Sin juez, solo la regla de texto."""
-    res = []
+    res, ahora = [], ahora or dt.datetime.now(TZ)
     for p in piezas_rss(xml, lugar, desde):
-        tipo = juez.corte(lugar, p)[0] if juez else tipo_corte(p["titulo"])
+        tipo, r = juez.corte(lugar, p) if juez else (tipo_corte(p["titulo"]), None)
         if tipo: res.append({"tipo": tipo, "titulo": p["titulo"], "enlace": p["enlace"], "fuente": "Noticias de Almería"})
+        elif juez and es_urgente(r, p, ahora):
+            juez.urgentes.append({"titulo": p["titulo"], "enlace": p["enlace"], "fuente": "Noticias de Almería"})
     return res
 
 
@@ -197,7 +214,7 @@ def cortes_titulares(lugar, ahora, juez, fallos):
     """Los titulares de los dos últimos días (también lo que hace composio_jev.py en el sandbox, para que las preguntas sean las mismas)."""
     cortes, bien = [], 0
     for u in NDA:
-        try: cortes += cortes_rss(pedir(u), lugar, ahora - dt.timedelta(days=2), juez); bien += 1
+        try: cortes += cortes_rss(pedir(u), lugar, ahora - dt.timedelta(days=2), juez, ahora); bien += 1
         except Exception as e: fallos.append(f"Noticias de Almería: {e}")
     return cortes, bien
 
@@ -273,6 +290,11 @@ def nuevos(estado, aemet, sismos, cortes, ahora):
 MES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 
 
+def fecha_dia(iso):
+    d = dt.date.fromisoformat(iso[:10])
+    return f"{DIAS[d.weekday()]} {d.day} {MES[d.month - 1]}"
+
+
 def hasta(iso):
     try: d = dt.date.fromisoformat((iso or "")[:10])
     except ValueError: return ""
@@ -288,22 +310,45 @@ def frase(t):
     return re.sub(r"\b[abc][12]\b", lambda m: m.group(0).upper(), t)
 
 
+COLECTIVO = {"garantia_juvenil": "Garantía Juvenil", "mayores_45": "mayores de 45", "parados_larga": "parados de larga duración",
+             "discapacidad": "personas con discapacidad", "programa_empleo": "programa de empleo y formación"}
+
+
+def colectivo(e):
+    c = COLECTIVO.get((e or {}).get("colectivo"))
+    return f" · solo {c}" if c and c != COLECTIVO["programa_empleo"] else f" · {c}" if c else ""
+
+
+def plazo_sas(d):
+    h = d.get("hasta")
+    return hasta(h).replace(" · hasta el", " · solicitudes hasta el") if h else ""
+
+
 def ofertas(estado, sae, x, ahora):
     """Las ofertas de empleo de la zona que no se han avisado aún. La primera vez que llega cada lista (SAE, Junta, SAS), ninguna: se apuntan."""
     hoy = ahora.date().isoformat(); out = []
+    et_sae = ((x.get("etiquetas") or {}).get("sae")) or {}
     for o in sae:
         out.append({"tipo": "empleo", "clave": "empleo:sae:" + o["id"], "enlace": o["url"],
-                    "texto": f"💼 Empleo público (SAE): {frase(o['puesto'])} · {', '.join(o['sitios'][:3])}{hasta(o['hasta'])}."})
+                    "texto": f"💼 Empleo público (SAE): {frase(o['puesto'])} · {', '.join(o['sitios'][:3])}{hasta(o['hasta'])}{colectivo(et_sae.get(o['id']))}."})
     for i, e in (((x.get("etiquetas") or {}).get("ofertas")) or {}).items():
         if not e.get("zona") or not e.get("puesto") or (e.get("hasta") and e["hasta"] < hoy): continue
-        out.append({"tipo": "empleo", "clave": "empleo:junta:" + i, "texto": f"💼 Oferta de la Junta ({e.get('entidad') or 'ente instrumental'}): {e['puesto']}{hasta(e.get('hasta'))}.",
+        out.append({"tipo": "empleo", "clave": "empleo:junta:" + i, "texto": f"💼 Oferta de la Junta ({e.get('entidad') or 'ente instrumental'}): {e['puesto']}{hasta(e.get('hasta'))}{colectivo(e)}.",
                     "enlace": f"https://www.juntadeandalucia.es/organismos/transparencia/empleo-publico/entidades-instrumentales/ofertas-empleo/detalle/{i}.html"})
     for d in (((x.get("sas") or {}).get("avisar")) or []):
         r = d.get("resumen") or ""
         out.append({"tipo": "empleo", "clave": "empleo:sas:" + d["url"], "enlace": d["url"],
-                    "texto": f"💼 SAS, convocatoria ({d.get('boletin') or 'BOJA'}): {r[:180] + ('…' if len(r) > 180 else '')}."})
+                    "texto": f"💼 SAS, convocatoria ({d.get('boletin') or 'BOJA'}): {r[:180] + ('…' if len(r) > 180 else '')}{plazo_sas(d)}."})
+    # 3.8: las novedades de barco dragón de la Federación Andaluza de Piragüismo
+    for n in (((x.get("fap") or {}).get("novedades")) or []):
+        if n.get("dia") and n["dia"] < hoy: continue
+        dia = f" · {fecha_dia(n['dia'])}" if n.get("dia") else ""
+        lugar = f" en {n['lugar']}" if n.get("lugar") else ""
+        ins = f" · inscripción hasta el {fecha_dia(n['inscripcion'])}" if n.get("inscripcion") and n["inscripcion"] >= hoy else ""
+        out.append({"tipo": "regata", "clave": "fap:" + n["enlace"], "enlace": n["enlace"],
+                    "texto": f"🐉 Barco dragón (Federación Andaluza{', cambio' if n.get('cambio') else ''}): {n['titulo']}{dia}{lugar}{ins}."})
     res = []
-    for pre in ("empleo:sae:", "empleo:junta:", "empleo:sas:"):          # cada lista, la primera vez que llega, solo se apunta
+    for pre in ("empleo:sae:", "empleo:junta:", "empleo:sas:", "fap:"):    # cada lista, la primera vez que llega, solo se apunta
         primera = pre not in estado                                      # la marca de la lista (se renueva: no se olvida)
         for o in out:
             if not o["clave"].startswith(pre) or o["clave"] in estado: continue
@@ -343,9 +388,14 @@ def main():
     try: cortes += cortes_hidralia(pedir(url_cierres(o.ine)).decode("utf-8"), o.ine, ahora); bien += 1
     except Exception as e: fallos.append(f"Hidralia: {e}")
     n = nuevos(estado, aemet, sismos, cortes, ahora)
-    try:
-        sae = zona.ofertas_sae(zona.lista_sae(), ahora) if zona.aplica(o.ine) else []
-        n += ofertas(estado, sae, x if isinstance(x, dict) else {}, ahora); bien += 1
+    for u in juez.urgentes:                                  # 3.8: noticias urgentes del pueblo (solo con Jev)
+        k = "urgente:" + u["enlace"]
+        if k not in estado and k not in {a["clave"] for a in n}:
+            n.append({"tipo": "noticia", "clave": k, "enlace": u["enlace"], "texto": f"📰 Urgente en {o.lugar}: {u['titulo']} ({u['fuente']})."})
+    sae = []
+    try: sae = zona.ofertas_sae(zona.lista_sae(), ahora) if zona.aplica(o.ine) else []; bien += 1
+    except Exception as e: fallos.append(f"ofertas del SAE: {e}"[:160])      # las demás listas (Junta, SAS, FAP) siguen
+    try: n += ofertas(estado, sae, x if isinstance(x, dict) else {}, ahora)
     except Exception as e: fallos.append(f"ofertas de empleo: {e}"[:160])
     for a in n: estado[a["clave"]] = ahora.isoformat(timespec="minutes")
     limite = (ahora - dt.timedelta(days=30)).isoformat()

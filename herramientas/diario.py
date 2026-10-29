@@ -6,9 +6,10 @@ resumen de una línea, para que la tarea programada gaste pocos tokens (antes le
   JEV_CACHE=/tmp/jev/cache.json python3 -I herramientas/diario.py extras.json      # Jev por Composio (composio_jev.py, antes en el sandbox)
 
 Con Jev (jev.py): los titulares con cortes, y los que anuncian actividades o colectas en el pueblo como candidatos (titulares.py), la
-receta según el tiempo (receta.py), las etiquetas del SAS (sas.py), las de la AESAN, la AEMPS, Safety Gate y las ofertas de la Junta, la
-agenda sin repetidos y cómo se participa en cada sorteo (etiquetas.py) y los sorteos de la zona de sortea2.com ya filtrados (sortea2.py);
-sin Jev, esos pasos no tocan nada (o solo lo exacto).
+receta según el tiempo (receta.py), las etiquetas del SAS y el plazo de sus convocatorias (sas.py), las de la AESAN, la AEMPS, Safety Gate,
+las ofertas de la Junta y del SAE y la agenda, la agenda sin repetidos y cómo se participa en cada sorteo y sus requisitos (etiquetas.py),
+las novedades de barco dragón de la Federación Andaluza de Piragüismo (fap.py) y los sorteos de la zona de sortea2.com ya filtrados
+(sortea2.py); sin Jev, esos pasos no tocan nada (o solo lo exacto).
 
 Imprime una línea JSON: {"pasos": {"cielo": "ok …", "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulares": […],
 "sangre_titulares": […], "agenda": N, "sangre": N,
@@ -23,10 +24,11 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     ("cielo", "cielo.py", 300), ("raif", "raif.py", 300), ("respiratorias", "respiratorias.py", 300), ("sequia", "sequia.py", 900),
     # con Jev (jev.py); sin él no tocan nada
     ("titulares", "titulares.py", 300), ("receta", "receta.py", 120), ("sas", "sas.py", 600), ("etiquetas", "etiquetas.py", 900),
+    ("fap", "fap.py", 300),
 ]
 # el sandbox de Composio (composio_jev.py) repite estos, en este orden, para que Jev vea lo mismo: los que quitan lo pasado (cambian lo que
 # ven las etiquetas) y los que preguntan a Jev; los demás no le tocan y no se repiten
-PREVIOS, CON_JEV = ("cortes", "agenda", "sangre", "sorteos"), ("titulares", "receta", "sas", "etiquetas")
+PREVIOS, CON_JEV = ("cortes", "agenda", "sangre", "sorteos"), ("titulares", "receta", "sas", "etiquetas", "fap")
 
 
 def correr(args, tiempo):

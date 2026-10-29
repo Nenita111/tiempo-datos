@@ -297,6 +297,14 @@ def sae(L):
     pub = [o for o in j if o.get("ofertaPublica") == "S" and (o.get("provincia") or {}).get("id") == L["ine"][:2]]
     return f"{len(j)} ofertas, {len(pub)} de empleo público en la provincia"
 
+def fap(L):
+    # fap.py (3.8, tarea diaria): la lista de circulares de este año de la Federación Andaluza de Piragüismo, como la lee
+    import fap as F
+    y = dt.date.today().year
+    c = F.circulares(pedir(F.CIRCULARES.format(y=y)).decode("utf-8", "replace"))
+    if not c: raise ValueError("la página de circulares ya no da la lista (sin «el-item» con su PDF y su fecha)")
+    return f"{len(c)} circulares de {y}, la última del {c[0]['fecha']}"
+
 def agua(L):
     # Consumo.kt: SINAC, acceso al ciudadano (formularios): las redes del municipio
     ine = int(L["ine"]); prov = int(L["ine"][:2])
@@ -446,7 +454,7 @@ def jev_(L):
 
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
-           medicamentos, productos, sae, agua, camara, radiacion, sequia, sangre, cortesAgua,
+           medicamentos, productos, sae, fap, agua, camara, radiacion, sequia, sangre, cortesAgua,
            mtg, tierra, solVideo, viento, calarVivo, jev_, esios]
 
 

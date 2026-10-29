@@ -150,7 +150,11 @@ afectaciones (la capa pública de cierres de Agbar en ArcGIS, la misma que lee l
 de 36 horas o ya han empezado y no han pasado su previsión de restablecimiento); y (3.7) las ofertas de empleo nuevas de la zona
 (`zona.py`: provincia de Almería sin el Levante, la costa de Granada hasta Motril): las de empleo público del SAE (su lista, cada vez), las de
 los entes de la Junta de la zona y las convocatorias del SAS de la zona (de extras.json «etiquetas.ofertas» y «sas.avisar», que pone la tarea
-diaria con Jev); la primera vez que llega cada lista, solo se apuntan. Imprime una línea JSON con los nuevos y «guardar» (si el fichero ha
+diaria con Jev); la primera vez que llega cada lista, solo se apuntan. (3.8) Además: las noticias urgentes del pueblo (los mismos titulares de
+Noticias de Almería de las últimas 12 horas que Jev da por urgentes —un incendio, una inundación, una carretera cortada, un desalojo, una alerta
+sanitaria— y no son un corte; solo con Jev), las novedades de barco dragón de la Federación Andaluza de Piragüismo (extras.json «fap», de
+fap.py; la primera vez solo se apuntan), en las convocatorias del SAS el último día del plazo de solicitudes y en las ofertas a quién van
+dirigidas («solo Garantía Juvenil», «solo mayores de 45»…). Imprime una línea JSON con los nuevos y «guardar» (si el fichero ha
 cambiado, también sin nada nuevo: hay que subirlo) y apunta en `avisos_enviados.json` lo enviado (30 días), para no repetir. Ese fichero
 solo lleva códigos de avisos y de ofertas públicos.
 
@@ -187,7 +191,12 @@ Nunca se imprime ni se escribe ninguna clave.
 - `sas.py` (diario): el BOJA (sección 2.2) y el BOE de 7 días, como la tele; Jev etiqueta cada disposición del SAS (convocatoria, lista
   provisional o definitiva, nombramiento, cese, bolsa, traslado u otra; Almería, toda Andalucía, otra o no consta) y (3.7) su zona (Almería sin
   lo que es solo del Levante, solo el Levante, la costa de Granada hasta Motril, toda Andalucía, otra o no consta: la tele la usa para enseñar
-  solo lo de la zona). extras.json «sas», con «avisar»: las convocatorias de la zona, para los avisos al móvil.
+  solo lo de la zona). extras.json «sas», con «avisar»: las convocatorias de la zona, para los avisos al móvil. (3.8) El plazo de solicitudes de
+  cada convocatoria de la zona («plazo»: {n, unidad, hasta}): el código saca del texto de la disposición (su página del BOJA o del BOE) las
+  frases con un plazo, Jev dice cuál es el de presentar solicitudes y el código calcula el último día (Ley 39/2015, art. 30: días hábiles salvo
+  que digan naturales, sin sábados, domingos ni los festivos del calendario oficial de días inhábiles de la Junta para el pueblo —Andalucía y
+  los locales—; meses de fecha a fecha; si acaba en inhábil, el siguiente hábil). Si se cuenta desde otra cosa (la publicación en el BOE de una
+  convocatoria del BOJA, una notificación), sin fecha: solo «10 días hábiles».
 - `sortea2.py` (diario): el RSS de sortea2.com (30 últimas promociones de todos los países), los que nombran la zona y, con Jev, los que
   son sorteos de un comercio de la zona, no para toda España, y dicen cuándo acaban. Imprime candidatos; no apunta nada.
 - `titulares.py`, en la misma pregunta: si el titular anuncia una actividad o una colecta en el pueblo → candidatos para la agenda y las
@@ -196,7 +205,17 @@ Nunca se imprime ni se escribe ninguna clave.
   (base oficial CIMA, por su número de registro) y si hay que devolver los de casa, si el producto de Safety Gate es para niños (juguetes y
   puericultura por su categoría) y la titulación mínima y si la experiencia es requisito en cada oferta de la Junta; además, la agenda sin la
   misma actividad dos veces y en cada sorteo cómo se participa («participa»); (3.7) en cada oferta de empleo público del SAE de la zona, quién contrata, la titulación mínima
-  y si pide experiencia («sae»), y en las de la Junta, si son de la zona («zona», por sus lugares de trabajo).
+  y si pide experiencia («sae»), y en las de la Junta, si son de la zona («zona», por sus lugares de trabajo). (3.8) Además: el tipo de
+  alimento de cada alerta de la AESAN («producto», la tele le pone su icono), a quién va dirigida cada oferta de la Junta y del SAE
+  («colectivo»: Garantía Juvenil, mayores de 45, parados de larga duración, discapacidad, programa de empleo y formación o general), si cada
+  actividad de la agenda es gratis, para niños y familias o con inscripción («agenda», por fecha|título) y los requisitos de cada sorteo
+  («requisitos»: mayor de edad, vivir en un sitio). A lo etiquetado antes solo se le pregunta lo que le falta.
+- `fap.py` (diario, 3.8): las circulares y noticias de los últimos 60 días de la Federación Andaluza de Piragüismo (fapira.com; su robots.txt
+  solo cierra las carpetas de Joomla). Las circulares que dicen «dragón» anuncian una competición; para lo demás, Jev dice si anuncia una
+  competición de barco dragón que aún no se ha celebrado, si es un cambio de fecha o de sede, un aplazamiento o una suspensión, y si el título
+  nombra a alguien (esas no se guardan). De las circulares, el PDF (pdftotext): día, lugar y último día de inscripción. extras.json «fap»
+  {novedades, juzgados (por un resumen del enlace)}. La tele enseña en la tarjeta del barco dragón lo que no está en el calendario o cambia, y
+  el último día de inscripción de la regata que viene.
 - `comprobar_captura.py` (buzón): antes de apuntar una captura, Jev mira dato por dato si el texto transcrito dice lo que se va a apuntar; si
   no cuadra, «REVISAR (no cuadra …)».
 - `revisar_fuentes.py` revisa también Jev (`jev_`) y ESIOS (`esios`): Jev por Composio, cuántas respuestas trajo el sandbox (vacía o sin

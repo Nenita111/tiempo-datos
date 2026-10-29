@@ -9,8 +9,12 @@ hay que entender del texto, con Jev (jev.py). Se leen las mismas listas que lee 
     experiencia es requisito (Jev, con la ficha); si es de la zona (zona.py, por sus lugares de trabajo) y lo necesario para avisar al móvil.
   - «sae» {id de la oferta del SAE: {"nivel", "experiencia", "entidad"}} (3.7): las de empleo público de la zona (zona.py), con la titulación
     mínima, si pide experiencia y quién contrata (Jev, con el texto de la oferta).
+  - 3.8: en «alim», además, «producto» (qué tipo de alimento: la tele le pone su icono); en «ofertas» y «sae», «colectivo» (a quién va
+    dirigida: Garantía Juvenil, mayores de 45, parados de larga duración, discapacidad, programa de empleo y formación o general); y
+    «agenda» {fecha|título: {"gratis", "familias", "inscripcion"}}.
 Y en extras.json mismo: la agenda sin la misma actividad apuntada dos veces (Jev compara las del mismo día) y en cada sorteo cómo se participa
-(«participa», una etiqueta de una lista fija). Sin Jev, solo lo exacto (sin receta, categoría de juguetes) y no toca la agenda ni los sorteos.
+(«participa», una etiqueta de una lista fija) y sus requisitos («requisitos»: {"mayor", "residente"}, 3.8). Sin Jev, solo lo exacto (sin
+receta, categoría de juguetes) y no toca la agenda ni los sorteos.
 Lo ya etiquetado no se vuelve a preguntar; lo que la tele ya no enseña se olvida.
 
   python3 -I herramientas/etiquetas.py extras.json
@@ -170,8 +174,8 @@ def ficha_oferta(h):
 def etiquetar(x, hoy, red=pedir, pedir_jev=None):
     """Pone «etiquetas» en x y arregla agenda y sorteos. Devuelve un resumen. Sin Jev, solo lo exacto."""
     E = x.get("etiquetas") or {}
-    nuevas = {k: {} for k in ("alim", "med", "prod", "ofertas", "sae")}
-    hay_jev, motivo, n = True, "", {"alim": 0, "med": 0, "prod": 0, "ofertas": 0, "sae": 0, "agenda_quitadas": 0, "sorteos": 0}
+    nuevas = {k: {} for k in ("alim", "med", "prod", "ofertas", "sae", "agenda")}
+    hay_jev, motivo, n = True, "", {"alim": 0, "med": 0, "prod": 0, "ofertas": 0, "sae": 0, "agenda": 0, "agenda_quitadas": 0, "sorteos": 0}
     fallos = []
 
     def jev_(estado, preguntas):
@@ -183,10 +187,13 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
 
     try:
         for enlace, titulo in alertas_aesan(red(AESAN + "/alertas/alertas-alimentarias"), hoy):
-            ya = (E.get("alim") or {}).get(enlace)
-            if ya: nuevas["alim"][enlace] = ya; continue
-            r = jev_({"alerta": {"titulo": titulo}}, jev.preguntas_alergeno())
-            if r: nuevas["alim"][enlace] = {"alergeno": r["alergeno"]["choice"]}; n["alim"] += 1
+            ya = dict((E.get("alim") or {}).get(enlace) or {})
+            if "alergeno" in ya and "producto" in ya: nuevas["alim"][enlace] = ya; continue
+            # 3.8: el tipo de producto (la tele le pone su icono); a las que ya tenían alérgeno, solo eso
+            r = jev_({"alerta": {"titulo": titulo}}, jev.preguntas_tipo_alim() if "alergeno" in ya else jev.preguntas_alergeno() | jev.preguntas_tipo_alim())
+            if r:
+                ya |= {k: r[k]["choice"] for k in ("alergeno", "producto") if k in r}; n["alim"] += 1
+            if ya: nuevas["alim"][enlace] = ya
     except Exception as e: fallos.append(f"AESAN: {e}"[:160]); nuevas["alim"] = E.get("alim") or {}
     try:
         for a in medicamentos_aemps(red(AEMPS), hoy):
@@ -219,7 +226,7 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
         pedidas = 0
         for fila in filas:
             i = fila["id"]; ya = dict((E.get("ofertas") or {}).get(i) or {})
-            if "zona" in ya and ("nivel" in ya or not hay_jev): nuevas["ofertas"][i] = ya; continue
+            if "zona" in ya and (("nivel" in ya and "colectivo" in ya) or not hay_jev): nuevas["ofertas"][i] = ya; continue
             if pedidas >= 60: continue
             try: h = red(f"{JUNTA}/organismos/transparencia/empleo-publico/entidades-instrumentales/ofertas-empleo/detalle/{i}.html"); pedidas += 1
             except Exception as e:                       # una ficha que no llega: se queda lo que había de ella y siguen las demás
@@ -229,16 +236,24 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
             e = ya | {"zona": zona.junta_en_zona(zona.lugares_ficha(h)), "puesto": fila["puesto"], "entidad": fila["entidad"], "hasta": hasta_oferta(h)}
             if "nivel" not in e:
                 r = jev_({"oferta": ficha_oferta(h)}, jev.preguntas_oferta())
-                if r: e |= {"nivel": r["nivel"]["choice"], "experiencia": r["experiencia"]["noul"]}; n["ofertas"] += 1
+                if r: e |= {"nivel": r["nivel"]["choice"], "experiencia": r["experiencia"]["noul"], "colectivo": r["colectivo"]["choice"]}; n["ofertas"] += 1
+            elif "colectivo" not in e:                   # 3.8: a quién va dirigida, a las que ya tenían lo demás
+                r = jev_({"oferta": ficha_oferta(h)}, jev.preguntas_colectivo())
+                if r: e["colectivo"] = r["colectivo"]["choice"]; n["ofertas"] += 1
             nuevas["ofertas"][i] = e
     except Exception as e: fallos.append(f"ofertas de la Junta: {e}"[:160]); nuevas["ofertas"] = E.get("ofertas") or {}
     # 3.7: las de empleo público del SAE de la zona
     try:
         for o in zona.ofertas_sae(json.loads(red(zona.SAE, b"{}", "application/json")), dt.datetime.now(TZ)):
-            ya = (E.get("sae") or {}).get(o["id"])
-            if ya: nuevas["sae"][o["id"]] = ya; continue
-            r = jev_({"oferta": {"puesto": o["puesto"], "ocupacion": o["ocupacion"], "texto": o["texto"]}}, jev.preguntas_oferta_sae())
-            if r: nuevas["sae"][o["id"]] = {"nivel": r["nivel"]["choice"], "experiencia": r["experiencia"]["noul"], "entidad": r["entidad"]["choice"]}; n["sae"] += 1
+            ya = dict((E.get("sae") or {}).get(o["id"]) or {})
+            if "nivel" in ya and "colectivo" in ya: nuevas["sae"][o["id"]] = ya; continue
+            estado = {"oferta": {"puesto": o["puesto"], "ocupacion": o["ocupacion"], "texto": o["texto"]}}
+            r = jev_(estado, jev.preguntas_colectivo() if "nivel" in ya else jev.preguntas_oferta_sae())
+            if r:
+                ya |= {k: r[k]["choice"] for k in ("nivel", "entidad", "colectivo") if k in r}
+                if "experiencia" in r: ya["experiencia"] = r["experiencia"]["noul"]
+                n["sae"] += 1
+            if ya: nuevas["sae"][o["id"]] = ya
     except Exception as e: fallos.append(f"ofertas del SAE: {e}"[:160]); nuevas["sae"] = E.get("sae") or {}
 
     # la agenda sin repetidos: solo las del mismo día, por parejas
@@ -250,11 +265,22 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
             if r and r["mismo"]["noul"] >= 0.8:
                 fuera.add(i if len(json.dumps(a)) <= len(json.dumps(ag[j])) else j)   # se queda la que tiene más datos
     if fuera: x["agenda"] = [a for k, a in enumerate(ag) if k not in fuera]; n["agenda_quitadas"] = len(fuera)
+    # 3.8: gratis, para niños y familias, con inscripción (clave: fecha|título)
+    for a in x.get("agenda") or []:
+        k = f"{a.get('fecha')}|{a.get('titulo')}"; ya = (E.get("agenda") or {}).get(k)
+        if ya: nuevas["agenda"][k] = ya; continue
+        r = jev_({"actividad": {c: a.get(c) or "" for c in ("titulo", "lugar", "hora", "fuente")}}, jev.preguntas_agenda())
+        if r: nuevas["agenda"][k] = {c: r[c]["noul"] for c in ("gratis", "familias", "inscripcion")}; n["agenda"] += 1
     # cómo se participa en cada sorteo
     for s in x.get("sorteos") or []:
         if s.get("participa"): continue
         r = jev_({"sorteo": {"premio": s.get("premio"), "como": s.get("como") or ""}}, jev.preguntas_participa())
         if r and r["participa"]["choice"] != "otro": s["participa"] = r["participa"]["choice"]; n["sorteos"] += 1
+    # 3.8: los requisitos (mayor de edad, vivir en un sitio)
+    for s in x.get("sorteos") or []:
+        if "requisitos" in s: continue
+        r = jev_({"sorteo": {"premio": s.get("premio"), "como": s.get("como") or ""}}, jev.preguntas_requisitos())
+        if r: s["requisitos"] = {c: r[c]["noul"] for c in ("mayor", "residente")}; n["sorteos"] += 1
 
     x["etiquetas"] = nuevas | {"fecha": hoy.isoformat()}
     return {"nuevas": n, "juez": "Jev" if hay_jev else f"sin Jev ({motivo})", "fallos": fallos}

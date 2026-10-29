@@ -164,7 +164,14 @@ def preguntas_corte():
         "restablecido": noul("Does `noticia` say that the supply is already back or that the cut has ended?"),
         "dia": choice("If `noticia` gives the day of the month when the cut happens, which day is it?", DIAS_MES),
         "mes": choice("If `noticia` gives the month when the cut happens, which month is it?", MESES_OPC),
+        # 3.8 (lo pidió Isa el 29 oct 2026): las noticias urgentes del pueblo, al móvil (avisos_movil.py)
+        "urgente": noul("Does `noticia` report an urgent situation that affects people in `pueblo` now or in the next hours (a fire, a flood, "
+                        "a closed road, an evacuation, a health or safety alert)?",
+                        si="Something people in that town should know about right now", no="Ordinary news, something already over, or elsewhere"),
     }
+
+
+URGENTE = 0.8        # por encima, la noticia va al móvil como urgente
 
 
 def es_corte(r, regla=None):
@@ -294,9 +301,26 @@ NIVELES = {
 }
 
 
+# 3.8: a quién va dirigida (para saber de un vistazo si se puede optar)
+COLECTIVOS = {
+    "garantia_juvenil": "Only for young people registered in the Garantía Juvenil (youth guarantee) system",
+    "mayores_45": "Only for people aged 45 or over",
+    "parados_larga": "Only for long-term unemployed people",
+    "discapacidad": "Reserved for people with a disability",
+    "programa_empleo": "A temporary public employment and training programme with its own eligibility rules (programa de empleo y formación, "
+                       "Iniciativa de Cooperación Local, escuela taller, taller de empleo)",
+    "general": "Open to anyone who meets the qualification and other requirements",
+}
+
+
+def preguntas_colectivo():
+    return {"colectivo": choice("Who can apply for the job described in `oferta`?", COLECTIVOS)}
+
+
 def preguntas_oferta():
     return {"nivel": choice("What is the lowest qualification level that `oferta.titulacion` accepts for the job?", NIVELES),
-            "experiencia": noul("Does `oferta.requisitos` make previous work experience a mandatory requirement to apply (not just a merit that adds points)?")}
+            "experiencia": noul("Does `oferta.requisitos` make previous work experience a mandatory requirement to apply (not just a merit that adds points)?")
+            } | preguntas_colectivo()
 
 
 # 3.7: las ofertas de empleo público del SAE (estado: {"oferta": {"puesto", "ocupacion", "texto"}}): además, quién contrata
@@ -314,7 +338,52 @@ ENTIDADES = {
 def preguntas_oferta_sae():
     return {"nivel": choice("What is the lowest qualification level that the job described in `oferta` requires?", NIVELES),
             "experiencia": noul("Does `oferta` make previous work experience a mandatory requirement (not just a merit)?"),
-            "entidad": choice("Who is the employer offering the job described in `oferta`?", ENTIDADES)}
+            "entidad": choice("Who is the employer offering the job described in `oferta`?", ENTIDADES)} | preguntas_colectivo()
+
+
+# ------------------------------------------------------------------ 3.8: más etiquetas (lo pidió Isa el 29 oct 2026: «añade las nuevas propuestas»)
+# agenda: {"actividad": {"titulo", "lugar", "hora", "fuente"}}
+def preguntas_agenda():
+    return {"gratis": noul("Does `actividad` say that it is free (gratis, gratuita, entrada libre)?"),
+            "familias": noul("Is `actividad` aimed at children or families (infantil, para niños, familiar)?"),
+            "inscripcion": noul("Does `actividad` say that people must register or book in advance (inscripción, reserva previa, plazas limitadas)?")}
+
+
+# sorteos: {"sorteo": {"premio", "como"}}
+def preguntas_requisitos():
+    return {"mayor": noul("Does `sorteo` require participants to be adults (mayores de 18 años)?"),
+            "residente": noul("Does `sorteo` require participants to live in a particular town or area?")}
+
+
+# alertas alimentarias de la AESAN: {"alerta": {"titulo"}}: qué tipo de producto (la tele le pone su icono)
+PRODUCTOS_ALIM = {
+    "lacteos": "Milk, cheese, yogurt or another dairy product", "carne": "Meat or a meat product (embutido, jamón, pollo)",
+    "pescado": "Fish or seafood", "frutas_verduras": "Fruit, vegetables, nuts, seeds or pulses",
+    "cereales": "Bread, flour, pasta, rice, cereals or bakery products", "dulces": "Sweets, chocolate, biscuits, snacks or desserts",
+    "bebidas": "A drink (juice, soft drink, alcoholic drink, water)", "complementos": "A food supplement",
+    "preparados": "A ready meal, sauce, spice or another prepared food", "otro": "Something else",
+}
+
+
+def preguntas_tipo_alim():
+    return {"producto": choice("What kind of food product is `alerta` about?", PRODUCTOS_ALIM)}
+
+
+# circulares y noticias de la Federación Andaluza de Piragüismo: {"aviso": {"titulo", "resumen"}} (fap.py)
+def preguntas_fap():
+    return {"anuncia": noul("Does `aviso` (a circular or news item of the Andalusian Canoe Federation) announce an upcoming dragon boat (barco "
+                            "dragón, dragon boat) competition or event: its call, rules or invitation, or a change of its date or venue?",
+                            si="A dragon boat competition or event that has not been held yet",
+                            no="Results or reports of past events, other disciplines, anything else"),
+            "cambio": noul("Does `aviso` announce a change of date or venue, a postponement or a cancellation?"),
+            "persona": noul("Does `aviso.titulo` contain the name of a person?")}
+
+
+# convocatorias del SAS: de las frases que nombran un plazo, ¿cuál es el de presentar las solicitudes? (las cuentas, en el código)
+def preguntas_plazo(frases):
+    """frases: {id: frase}."""
+    return {"plazo": choice("Which of these sentences from an official call for applications (`convocatoria`) sets the time limit to submit "
+                            "applications (solicitudes) to take part?", dict(frases) | {"ninguno": "None of them sets the time limit to submit applications"})}
 
 
 # ------------------------------------------------------------------ 10. Agenda: ¿dos actividades son la misma?
