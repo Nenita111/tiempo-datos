@@ -58,6 +58,7 @@ def main():
             f = json.load(open(inf, encoding="utf-8"))["fuentes"]
             res["rotas"] = [f"{y['fuente']}: {y['detalle']}"[:200] for y in f if y["estado"] == "ROTA"]
             res["fuentes"] = f"{sum(y['estado'] != 'ROTA' for y in f)}/{len(f)} bien"
+            res["faltan_claves"] = [y["detalle"] for y in f if "falta la variable" in y.get("detalle", "")]   # Jev, ESIOS: las pone Isa en el entorno
         except (OSError, ValueError, KeyError):
             res["rotas"] = [f"revisar_fuentes.py no acabó ({ultima or cod})"]
     print(json.dumps(res, ensure_ascii=False))
