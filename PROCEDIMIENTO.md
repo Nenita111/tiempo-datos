@@ -4,8 +4,9 @@ Datos siempre reales: nada inventado ni estimado. Si algo no se puede comprobar,
 
 Para gastar pocos tokens, la tarea diaria hace de una vez todo lo que no hay que buscar con
 `python3 -I herramientas/diario.py extras.json` (puntos 2b, 2c y 2h sin argumentos, 2d, 2e, 2f, 2g y 3; quita también los sorteos
-acabados): imprime una sola línea JSON con lo que ha ido mal, las fuentes ROTAS y cuántas actividades, colectas, sorteos y cortes
-hay. Lo único que hace a mano es buscar (vuelos, sorteos, agenda y colectas de sangre) y apuntar lo que encuentre.
+acabados): imprime una sola línea JSON con lo que ha ido mal (solo eso: «bien» dice cuántos pasos fueron bien), las fuentes ROTAS y
+cuántas actividades, colectas, sorteos y cortes hay. Los scripts guardan extras.json de golpe (`comun.guardar`): un paso que se corta a
+medias deja el de antes entero. Lo único que hace a mano es buscar (vuelos, sorteos, agenda y colectas de sangre) y apuntar lo que encuentre.
 Con Jev (sección 7) también deja en extras.json los cortes de los titulares, la receta del día y las etiquetas del SAS, y trae en
 «sortea2» los sorteos de la zona de sortea2.com ya filtrados: son los primeros que se miran para el punto 2.
 
@@ -155,8 +156,14 @@ Noticias de Almería de las últimas 12 horas que Jev da por urgentes —un ince
 sanitaria— y no son un corte; solo con Jev), las novedades de barco dragón de la Federación Andaluza de Piragüismo (extras.json «fap», de
 fap.py; la primera vez solo se apuntan), en las convocatorias del SAS el último día del plazo de solicitudes y en las ofertas a quién van
 dirigidas («solo Garantía Juvenil», «solo mayores de 45»…). Imprime una línea JSON con los nuevos y «guardar» (si el fichero ha
-cambiado, también sin nada nuevo: hay que subirlo) y apunta en `avisos_enviados.json` lo enviado (30 días), para no repetir. Ese fichero
-solo lleva códigos de avisos y de ofertas públicos.
+cambiado, también sin nada nuevo: hay que subirlo) y apunta en `avisos_enviados.json` lo enviado (30 días; lo que sigue en su lista no se
+olvida, para no repetirlo), para no repetir. Ese fichero solo lleva códigos de avisos y de ofertas públicos.
+
+(3.9) Antes, `python3 -I herramientas/avisos_movil.py --estado avisos_enviados.json --hace-falta-jev` dice cuántos titulares de ahora no
+tienen aún respuesta de Jev («faltan»): con 0, la tarea no pasa por el sandbox de Composio (las respuestas están en `jev_titulares.json`,
+que guarda el propio script con las de los titulares de ahora y se sube con `avisos_enviados.json`; son de titulares públicos). Con 1 o más,
+el sandbox (`jev_correr("avisos", SHA)`, sección 7) y el script con `JEV_CACHE=/tmp/jev/cache.json`. Las preguntas a Jev de cada titular son
+las mismas que las de titulares.py en la tarea diaria: lo que ya preguntó una, la otra lo encuentra en la caché del sandbox.
 
 ## 7. Jev (TypeSafe System One): decisiones cerradas en las tareas de la nube
 
@@ -169,7 +176,9 @@ suya, conectada en Composio). Las tareas llevan el conector JEV. Los scripts no 
 1. En el sandbox de Composio (herramienta COMPOSIO_REMOTE_WORKBENCH), una celda baja la misma versión del repositorio (el SHA del clon de
    la tarea), repite los pasos que preguntan a Jev con `run_composio_tool("JEV_EVALUATE_STATE", …)` y sube las respuestas: da una «url».
    `jev_correr("diario", SHA)` (los de diario.py que quitan lo pasado y los que preguntan a Jev, y sortea2) o `jev_correr("avisos", SHA)`
-   (los titulares de avisos_movil.py); si contesta «"listo": false», `jev_esperar()` en otra celda.
+   (los titulares de avisos_movil.py); si contesta «"listo": false», `jev_esperar()` en otra celda. (3.9) El sandbox deja de preguntar a
+   los 8 minutos (lo que quede va sin Jev; «caido» dice por qué) y `jev_captura`/`jev_revision` contestan «ocupado» si otra tarea tiene
+   algo en marcha: repetir la llamada en otra celda.
 2. En la tarea: `mkdir -p /tmp/jev && curl -sSL "<url>" -o /tmp/jev/cache.json` y el script con `JEV_CACHE=/tmp/jev/cache.json` delante.
    Cada pregunta igual encuentra su respuesta (la clave es el hash de la petición entera); si una no está (la fuente cambió entre una vez y
    otra), ese elemento se queda sin Jev y el resto sigue. diario.py lo dice en «jev» («N respuestas por Composio, M sin respuesta»).

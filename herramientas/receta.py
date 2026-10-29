@@ -12,6 +12,7 @@ import argparse, datetime as dt, json, os, sys, urllib.request
 from xml.etree import ElementTree as ET
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import comun
 import jev
 
 TZ = ZoneInfo("Europe/Madrid")
@@ -69,17 +70,17 @@ def main():
         print(json.dumps({"receta": viejo["nombre"], "ya": True}, ensure_ascii=False)); return
     R = recetas()
     try:
-        xml = urllib.request.urlopen(urllib.request.Request(f"https://www.aemet.es/xml/municipios/localidad_{o.ine}.xml", headers={"User-Agent": UA}), timeout=40).read()
+        xml = comun.pedir(f"https://www.aemet.es/xml/municipios/localidad_{o.ine}.xml", UA, timeout=40)
         tiempo = tiempo_de(xml, hoy)
         nombre = elegir(R, hoy, tiempo, viejo.get("recientes", []))
-    except jev.SinJev as e:
-        print(json.dumps({"receta": None, "motivo": str(e)}, ensure_ascii=False)); return
+    except (jev.SinJev, ValueError) as e:
+        print(json.dumps({"receta": None, "motivo": str(e)[:200]}, ensure_ascii=False)); return
     if not nombre:
         print(json.dumps({"receta": None, "motivo": "pocas recetas para elegir"}, ensure_ascii=False)); return
     recientes = [r for r in viejo.get("recientes", []) if (hoy - dt.date.fromisoformat(r["fecha"])).days < 7] + [{"fecha": hoy.isoformat(), "nombre": nombre}]
     x["receta"] = {"fecha": hoy.isoformat(), "nombre": nombre, "tiempo": tiempo, "recientes": recientes}
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    json.dump(x, open(o.extras, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    comun.guardar(o.extras, x)
     print(json.dumps({"receta": nombre, "tiempo": tiempo}, ensure_ascii=False))
 
 

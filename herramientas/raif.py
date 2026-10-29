@@ -9,6 +9,8 @@ Si no puede leer un cultivo, deja el que había. Necesita pdftotext (poppler).
 """
 import datetime as dt, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 TZ = ZoneInfo("Europe/Madrid")
 PAGINA = "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/boletin-provincial/informe-semanal/informe-semanal-almeria/"
@@ -95,7 +97,7 @@ def main():
         x["raif"] = {"provincia": "Almería", "cultivos": cultivos, "pagina": PAGINA,
                      "fuente": "Red de Alerta e Información Fitosanitaria de Andalucía (RAIF, Junta de Andalucía)"}
         x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        with open(ruta, "w", encoding="utf-8") as f: json.dump(x, f, ensure_ascii=False, indent=1)
+        comun.guardar(ruta, x)
     print(json.dumps({"cultivos": len(cultivos), "fallos": fallos}, ensure_ascii=False))
     if not cultivos: sys.exit(2)
 

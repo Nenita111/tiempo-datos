@@ -28,7 +28,7 @@ que se apuntan la primera vez), para subirlo. Sale con 0 aunque falle alguna fue
 import argparse, datetime as dt, gzip, io, json, math, os, re, sys, tarfile, unicodedata, urllib.parse, urllib.request
 from xml.etree import ElementTree as ET
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # jev.py, al lado (con -I no se mira la carpeta del script)
-import jev, zona
+import comun, jev, zona
 from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Europe/Madrid")
@@ -45,8 +45,8 @@ DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "doming
 
 
 def pedir(url, timeout=40):
-    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=timeout) as r:
-        return r.read()
+    """Con 3 intentos (comun.pedir): un corte de red de un momento no deja sin avisos 2 horas."""
+    return comun.pedir(url, UA, timeout=timeout)
 
 
 def sin_tildes(s):
@@ -106,7 +106,9 @@ def leer_aemet(lon, lat, ahora):
 
 
 def cuando(iso, ahora):
-    d = dt.datetime.fromisoformat(iso).astimezone(TZ)
+    """«hoy a las 12:00», «mañana a las 8:00», «el lunes 2 a las 0:00»; "" si no hay fecha (3.9: antes se paraba todo)."""
+    try: d = dt.datetime.fromisoformat(iso).astimezone(TZ)
+    except (TypeError, ValueError): return ""
     dias = (d.date() - ahora.date()).days
     dia = "hoy" if dias == 0 else "mañana" if dias == 1 else f"el {DIAS[d.weekday()]} {d.day}"
     return f"{dia} a las {d.hour}:{d.minute:02d}"
@@ -181,10 +183,10 @@ class Juez:
         if self.activo:
             try:
                 r, _ = jev.preguntar({"pueblo": lugar, "noticia": {"titulo": p["titulo"], "entradilla": p["entradilla"]}},
-                                     jev.preguntas_corte(), pedir=self.pedir)
+                                     jev.preguntas_titular(), pedir=self.pedir)   # 3.9: las de titulares.py (la misma respuesta vale)
                 self.usado = "Jev"
                 return jev.es_corte(r, regla), r
-            except jev.SinRespuesta:
+            except (jev.SinRespuesta, ValueError):
                 return regla, None                             # este titular no estaba en la caché de Composio: la regla
             except jev.SinJev as e:
                 self.activo, self.motivo = False, str(e)       # una vez sin Jev, el resto con la regla (no se insiste)
@@ -266,22 +268,26 @@ def cortes_hidralia(js, ine, ahora, horas=36):
 
 
 # ------------------------------------------------------------------ todo junto
-def nuevos(estado, aemet, sismos, cortes, ahora):
-    out = []
+def nuevos(estado, aemet, sismos, cortes, ahora, vivas=None):
+    """Lo que no se ha avisado aún (cada clave una vez, aunque venga de dos sitios). En «vivas», las claves de todo lo que sigue ahí."""
+    out, vivas = [], vivas if vivas is not None else set()
+    visto = lambda k: k in vivas or vivas.add(k) or k in estado               # 3.9: el mismo corte de dos sitios, una vez
     for a in aemet:
         k = "aemet:" + a["codigo"]
-        if k in estado: continue
+        if visto(k): continue
+        desde, hasta_ = cuando(a.get("desde"), ahora), cuando(a.get("hasta"), ahora)
+        plazo = f", {desde} hasta {hasta_}" if desde and hasta_ else f", {desde}" if desde else f", hasta {hasta_}" if hasta_ else ""
         out.append({"tipo": "aviso", "clave": k, "enlace": "https://www.aemet.es/es/eltiempo/prediccion/avisos",
-                    "texto": f"⚠ Aviso {a['color']} de AEMET por {a['fenomeno']} en {a['zona']}, {cuando(a['desde'], ahora)} hasta {cuando(a['hasta'], ahora)}: {a['descripcion']}".strip()})
+                    "texto": f"⚠ Aviso {a['color']} de AEMET por {a['fenomeno']} en {a['zona']}{plazo}: {a['descripcion']}".strip().rstrip(":")})
     for s in sismos:
         k = "ign:" + s["evid"]
-        if k in estado or ahora - s["hora"] > dt.timedelta(hours=24): continue
+        if visto(k) or ahora - s["hora"] > dt.timedelta(hours=24): continue
         mag = f"{s['mag']:.1f}".replace(".", ",")
         out.append({"tipo": "terremoto", "clave": k, "enlace": s["url"],
                     "texto": f"Terremoto de magnitud {mag} a {s['km']} km, {lugar_ign(s['lugar'])}, {cuando(s['hora'].isoformat(), ahora)} (IGN)."})
     for c in cortes:
         k = c.get("clave") or "corte:" + (c.get("enlace") or c["titulo"])
-        if k in estado: continue
+        if visto(k): continue
         out.append({"tipo": "corte", "clave": k, "enlace": c.get("enlace", ""), "texto": c.get("texto") or f"Corte de {c['tipo']} anunciado: {c['titulo']} ({c['fuente']})."})
     return out
 
@@ -324,8 +330,12 @@ def plazo_sas(d):
     return hasta(h).replace(" · hasta el", " · solicitudes hasta el") if h else ""
 
 
-def ofertas(estado, sae, x, ahora):
-    """Las ofertas de empleo de la zona que no se han avisado aún. La primera vez que llega cada lista (SAE, Junta, SAS), ninguna: se apuntan."""
+MARCA_DIAS = 20      # la marca de cada lista se renueva cada 20 días (antes, cada día: un cambio que subir cada día aunque no hubiera nada)
+
+
+def ofertas(estado, sae, x, ahora, vivas=None):
+    """Las ofertas de empleo de la zona que no se han avisado aún. La primera vez que llega cada lista (SAE, Junta, SAS), ninguna: se apuntan.
+    En «vivas», las claves de las que siguen en su lista (no se olvidan mientras sigan: una oferta abierta más de 30 días no se repite)."""
     hoy = ahora.date().isoformat(); out = []
     et_sae = ((x.get("etiquetas") or {}).get("sae")) or {}
     for o in sae:
@@ -348,6 +358,7 @@ def ofertas(estado, sae, x, ahora):
         out.append({"tipo": "regata", "clave": "fap:" + n["enlace"], "enlace": n["enlace"],
                     "texto": f"🐉 Barco dragón (Federación Andaluza{', cambio' if n.get('cambio') else ''}): {n['titulo']}{dia}{lugar}{ins}."})
     res = []
+    if vivas is not None: vivas.update(o["clave"] for o in out)
     for pre in ("empleo:sae:", "empleo:junta:", "empleo:sas:", "fap:"):    # cada lista, la primera vez que llega, solo se apunta
         primera = pre not in estado                                      # la marca de la lista (se renueva: no se olvida)
         for o in out:
@@ -355,7 +366,7 @@ def ofertas(estado, sae, x, ahora):
             if primera: estado[o["clave"]] = ahora.isoformat(timespec="minutes")
             else: res.append(o)
         if primera and not any(o["clave"].startswith(pre) for o in out): continue   # sin nada aún de esa lista: se espera a que llegue
-        estado[pre] = ahora.date().isoformat()
+        if primera or estado[pre] < (ahora - dt.timedelta(days=MARCA_DIAS)).date().isoformat(): estado[pre] = ahora.date().isoformat()
     return res
 
 
@@ -364,14 +375,30 @@ def main():
     p.add_argument("--estado", required=True); p.add_argument("--extras", default="extras.json")
     p.add_argument("--lugar", default=LUGAR); p.add_argument("--ine", default="04003")
     p.add_argument("--lat", type=float, default=36.7489); p.add_argument("--lon", type=float, default=-3.0206)
+    p.add_argument("--titulares-jev", default=None, help="lo que dijo Jev de los titulares de ahora (por defecto, jev_titulares.json junto a --estado)")
+    p.add_argument("--hace-falta-jev", action="store_true", help="solo dice cuántos titulares de ahora no tienen respuesta de Jev guardada")
     o = p.parse_args()
     ahora = dt.datetime.now(TZ)
+    tj = o.titulares_jev or os.path.join(os.path.dirname(os.path.abspath(o.estado)), "jev_titulares.json")
+    if os.path.exists(tj) and tj not in os.environ.get("JEV_CACHE", "").split(os.pathsep):
+        os.environ["JEV_CACHE"] = os.pathsep.join(f for f in (os.environ.get("JEV_CACHE", "").strip(), tj) if f)
+    if o.hace_falta_jev:                                     # 3.9: si no falta nada, la tarea no pasa por el sandbox de Composio
+        fallos, faltan, n = [], 0, 0
+        for u in NDA:
+            try:
+                for pz in piezas_rss(pedir(u), o.lugar, ahora - dt.timedelta(days=2)):
+                    n += 1
+                    cuerpo = {"state": {"pueblo": o.lugar, "noticia": {"titulo": pz["titulo"], "entradilla": pz["entradilla"]}},
+                              "model": jev.MODELO, "questions": jev.preguntas_titular()}
+                    faltan += jev.clave(cuerpo) not in jev.cache()
+            except Exception as e: fallos.append(f"Noticias de Almería: {e}"[:160])
+        print(json.dumps({"titulares": n, "faltan": faltan, "fallos": fallos}, ensure_ascii=False)); return
     try:
         with open(o.estado, encoding="utf-8") as f: estado = json.load(f)
     except FileNotFoundError:
         estado = {}
     antes = json.dumps(estado, sort_keys=True)
-    fallos, aemet, sismos, cortes, bien, x = [], [], [], [], 0, {}
+    fallos, aemet, sismos, cortes, bien, x, vivas = [], [], [], [], 0, {}, set()
     try: aemet = leer_aemet(o.lon, o.lat, ahora); bien += 1
     except Exception as e: fallos.append(f"AEMET: {e}")
     try: sismos = terremotos(pedir(IGN).decode("utf-8", "replace"), o.lat, o.lon); bien += 1
@@ -387,22 +414,32 @@ def main():
     c, b = cortes_titulares(o.lugar, ahora, juez, fallos); cortes += c; bien += b
     try: cortes += cortes_hidralia(pedir(url_cierres(o.ine)).decode("utf-8"), o.ine, ahora); bien += 1
     except Exception as e: fallos.append(f"Hidralia: {e}")
-    n = nuevos(estado, aemet, sismos, cortes, ahora)
+    n = nuevos(estado, aemet, sismos, cortes, ahora, vivas)
     for u in juez.urgentes:                                  # 3.8: noticias urgentes del pueblo (solo con Jev)
         k = "urgente:" + u["enlace"]
-        if k not in estado and k not in {a["clave"] for a in n}:
+        if k not in estado and k not in vivas:
+            vivas.add(k)
             n.append({"tipo": "noticia", "clave": k, "enlace": u["enlace"], "texto": f"📰 Urgente en {o.lugar}: {u['titulo']} ({u['fuente']})."})
     sae = []
     try: sae = zona.ofertas_sae(zona.lista_sae(), ahora) if zona.aplica(o.ine) else []; bien += 1
     except Exception as e: fallos.append(f"ofertas del SAE: {e}"[:160])      # las demás listas (Junta, SAS, FAP) siguen
-    try: n += ofertas(estado, sae, x if isinstance(x, dict) else {}, ahora)
+    try: n += ofertas(estado, sae, x if isinstance(x, dict) else {}, ahora, vivas)
     except Exception as e: fallos.append(f"ofertas de empleo: {e}"[:160])
     for a in n: estado[a["clave"]] = ahora.isoformat(timespec="minutes")
     limite = (ahora - dt.timedelta(days=30)).isoformat()
-    estado = {k: v for k, v in estado.items() if v >= limite}
+    estado = {k: v for k, v in estado.items() if v >= limite or k in vivas}      # 3.9: lo que sigue ahí no se olvida (no se repite)
     with open(o.estado, "w", encoding="utf-8") as f: json.dump(estado, f, ensure_ascii=False, indent=1, sort_keys=True)
+    guardar = json.dumps(estado, sort_keys=True) != antes
+    # 3.9: lo que dijo Jev de los titulares de ahora, para la próxima pasada (si no hay titulares nuevos, no hace falta el sandbox)
+    pre = jev.preguntas_titular()
+    usadas = {k: v for k, v in jev.USADAS.items() if isinstance(v, dict) and set((v.get("answers") or {})) >= set(pre)}
+    try:
+        with open(tj, encoding="utf-8") as f: viejas = json.load(f)
+    except (OSError, ValueError): viejas = None
+    if usadas != viejas and (usadas or viejas):
+        comun.guardar(tj, usadas); guardar = True
     print(json.dumps({"nuevos": n, "fallos": fallos, "titulares": juez.usado + (f" ({juez.motivo})" if juez.motivo else ""),
-                      "guardar": json.dumps(estado, sort_keys=True) != antes}, ensure_ascii=False))
+                      "guardar": guardar}, ensure_ascii=False))
     sys.exit(0 if bien else 2)
 
 

@@ -13,6 +13,9 @@ apunta (sin horario, sí: la tele lo enseña sin hora). Se quitan solas al pasar
 """
 import argparse, datetime as dt, json, re, sys
 from zoneinfo import ZoneInfo
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 TZ = ZoneInfo("Europe/Madrid")
 
@@ -57,7 +60,7 @@ def main():
         except (ValueError, TypeError) as e: sys.exit(f"No se apunta: {e}")
     podar(x)
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    with open(o.extras, "w", encoding="utf-8") as f: json.dump(x, f, ensure_ascii=False, indent=1)
+    comun.guardar(o.extras, x)
     print(f"{len(x['sangre']['colectas'])} colectas de sangre anunciadas en {o.extras}")
 
 

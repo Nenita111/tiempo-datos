@@ -17,6 +17,7 @@ nada (la tele sigue con su regla).
 import argparse, datetime as dt, html, json, os, re, sys, urllib.error, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import comun
 import jev
 
 TZ = ZoneInfo("Europe/Madrid")
@@ -25,9 +26,8 @@ UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"       # el de la ap
 
 
 def pedir(url, aceptar=None, timeout=40):
-    cab = {"User-Agent": UA} | ({"Accept": aceptar} if aceptar else {})
-    with urllib.request.urlopen(urllib.request.Request(url, headers=cab), timeout=timeout) as r:
-        return r.read().decode("utf-8", "replace")
+    """Con 3 intentos (comun.pedir): el servidor de la Junta corta conexiones de vez en cuando."""
+    return comun.pedir(url, UA, aceptar=aceptar, timeout=timeout).decode("utf-8", "replace")
 
 
 def limpio(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s))).strip()
@@ -72,18 +72,28 @@ def sumario_boe(js):
     return res
 
 
-def todas(dias=7, hoy=None):
-    hoy = hoy or dt.datetime.now(TZ).date(); out = []
-    for ruta, fecha in boletines(pedir(f"{JUNTA}/ssdigitales/datasets/contentapi/boja/calendario?fechaDesde=now-{dias}d&fechaHasta=now")):
+def todas(dias=7, hoy=None, red=None):
+    """Las disposiciones de los últimos días del BOJA (sección 2.2) y del BOE. Un día que no llega no tira los demás (3.9); si no llega
+    ninguno, el error."""
+    red = red or pedir
+    hoy = hoy or dt.datetime.now(TZ).date(); out, error, bien = [], None, 0
+    try: dias_boja = boletines(red(f"{JUNTA}/ssdigitales/datasets/contentapi/boja/calendario?fechaDesde=now-{dias}d&fechaHasta=now"))
+    except Exception as e: dias_boja, error = [], e
+    for ruta, fecha in dias_boja:
         base = f"{JUNTA}/eboja/{ruta}/"
-        try: out += [d | {"boletin": "BOJA", "fecha": fecha.isoformat()} for d in disposiciones_boja(pedir(base + "s53.html"), base)]
+        try: out += [d | {"boletin": "BOJA", "fecha": fecha.isoformat()} for d in disposiciones_boja(red(base + "s53.html"), base)]; bien += 1
         except urllib.error.HTTPError as e:
-            if e.code != 404: raise                       # ese día no hubo sección 2.2
+            if e.code == 404: bien += 1                    # ese día no hubo sección 2.2
+            else: error = e
+        except Exception as e: error = e
     for k in range(dias):
         d = hoy - dt.timedelta(days=k)
-        try: out += [x | {"boletin": "BOE", "fecha": d.isoformat()} for x in sumario_boe(pedir(f"https://www.boe.es/datosabiertos/api/boe/sumario/{d:%Y%m%d}", "application/json"))]
+        try: out += [x | {"boletin": "BOE", "fecha": d.isoformat()} for x in sumario_boe(red(f"https://www.boe.es/datosabiertos/api/boe/sumario/{d:%Y%m%d}", "application/json"))]; bien += 1
         except urllib.error.HTTPError as e:
-            if e.code != 404: raise                       # domingos y festivos no hay BOE
+            if e.code == 404: bien += 1                    # domingos y festivos no hay BOE
+            else: error = e
+        except Exception as e: error = e
+    if not bien and error: raise error
     return out
 
 
@@ -182,7 +192,7 @@ def plazos(disps, et, red=pedir, pedir_jev=None):
         hasta = None
         if desde_publicacion(f, d.get("boletin")):
             pub = dt.date.fromisoformat(d["fecha"])
-            if inh is None: inh = inhabiles({pub.year, pub.year + 1}, red)
+            if inh is None: inh = set() if jev.COMPOSIO else inhabiles({pub.year, pub.year + 1}, red)   # en el sandbox no hace falta
             hasta = fin_plazo(pub, n, u, inh).isoformat()
         e["plazo"] = {"n": n, "unidad": u, "hasta": hasta}; hechas += 1
     return hechas
@@ -212,7 +222,7 @@ def etiquetar(disps, ya=None, pedir_jev=None):
         if not d.get("url"): continue
         if d["url"] in ya and "zona" in ya[d["url"]]: et[d["url"]] = dict(ya[d["url"]]); continue
         try: r, _ = jev.preguntar({"disposicion": {"boletin": d["boletin"], "texto": d["texto"][:1500]}}, jev.preguntas_sas(), pedir=pedir_jev)
-        except jev.SinRespuesta: continue          # sin respuesta en la caché de Composio: mañana se pregunta otra vez
+        except (jev.SinRespuesta, ValueError): continue    # sin respuesta en la caché de Composio (o rara): mañana otra vez
         et[d["url"]] = {"tipo": r["tipo"]["choice"], "provincia": r["provincia"]["choice"], "zona": r["zona"]["choice"]}
     return et
 
@@ -228,7 +238,7 @@ def main():
     except jev.SinJev: n = 0
     x["sas"] = {"fecha": dt.datetime.now(TZ).date().isoformat(), "etiquetas": et, "avisar": avisar(disps, et)}
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    json.dump(x, open(o.extras, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    comun.guardar(o.extras, x)
     print(json.dumps({"disposiciones": len(disps), "etiquetas": len(et), "plazos": n, "juez": "Jev"}, ensure_ascii=False))
 
 

@@ -101,7 +101,7 @@ class Titulares(unittest.TestCase):
              "b": dict(anuncia=noul(0.9), tipo=choice("agua"), en_pueblo=noul(0.1), restablecido=noul(0.0), dia=choice("not_stated"), mes=choice("not_stated")),
              "c": dict(anuncia=noul(0.0), tipo=choice("otro"), en_pueblo=noul(0.5), restablecido=noul(0.0), dia=choice("not_stated"), mes=choice("not_stated"))}
         pedir = lambda cuerpo, t: {"answers": r[next(k for k, p in zip("abc", piezas) if p["titulo"] == cuerpo["state"]["noticia"]["titulo"])]}
-        cortes, no, cand = T.juzgar(piezas, "Adra", "04003", pedir, hoy=dt.date(2026, 10, 28))
+        cortes, no, cand, _ = T.juzgar(piezas, "Adra", "04003", pedir, hoy=dt.date(2026, 10, 28))
         self.assertEqual([(c["enlace"], c["tipo"], c["hasta"], c["jev"]) for c in cortes], [("https://x/a", "agua", "2026-10-29", True)])
         self.assertEqual(no, ["https://x/b"])          # la regla lo daría por corte (en Berja): la tele no lo enseña
         self.assertEqual(A.tipo_corte(piezas[1]["titulo"]), "agua")
@@ -115,7 +115,7 @@ class Titulares(unittest.TestCase):
         r = {"https://x/f": base | {"actividad": noul(0.92), "colecta": noul(0.0), "dia": choice("31")},
              "https://x/s": base | {"actividad": noul(0.2), "colecta": noul(0.95), "dia": choice("not_stated")}}
         pedir = lambda cu, t: {"answers": r[next(p["enlace"] for p in piezas if p["titulo"] == cu["state"]["noticia"]["titulo"])]}
-        _, _, cand = T.juzgar(piezas, "Adra", "04003", pedir, hoy=dt.date(2026, 10, 28))
+        _, _, cand, _ = T.juzgar(piezas, "Adra", "04003", pedir, hoy=dt.date(2026, 10, 28))
         self.assertEqual([(c["tipo"], c["enlace"], c["dia"]) for c in cand], [("actividad", "https://x/f", "2026-10-31"), ("colecta", "https://x/s", None)])
         self.assertIn("actividad", jev.preguntas_titular()); self.assertIn("anuncia", jev.preguntas_titular())
 
@@ -317,14 +317,14 @@ class Composio(unittest.TestCase):
     def setUp(self):
         self.env = {k: os.environ.get(k) for k in ("JEV_CACHE", "JEV_FALTAN", "TYPESAFE_API_KEY")}
         for k in self.env: os.environ.pop(k, None)
-        jev.COMPOSIO, jev.GUARDADAS, jev._CACHE = None, {}, None
+        jev.COMPOSIO, jev.GUARDADAS, jev._CACHE, jev.CAIDO, jev.LIMITE = None, {}, None, "", 0.0
         self.dir = tempfile.mkdtemp()
 
     def tearDown(self):
         for k, v in self.env.items():
             if v is None: os.environ.pop(k, None)
             else: os.environ[k] = v
-        jev.COMPOSIO, jev.GUARDADAS, jev._CACHE = None, {}, None
+        jev.COMPOSIO, jev.GUARDADAS, jev._CACHE, jev.CAIDO, jev.LIMITE = None, {}, None, "", 0.0
 
     def composio(self, respuestas, vistas=None):
         def run(slug, args):
@@ -358,7 +358,8 @@ class Composio(unittest.TestCase):
         self.assertEqual([c["enlace"] for c in tarea[0]], ["https://x/a"])
         # un titular que el sandbox no vio (llegó después): ese, sin Jev; los demás, igual
         nuevo = {"titulo": "PRUEBA: titular nuevo", "entradilla": "", "enlace": "https://x/n", "s": pub}
-        self.assertEqual(T.juzgar(piezas + [nuevo], "Adra", "04003", hoy=dt.date(2026, 10, 28)), sandbox)
+        c, no, cand, sin = T.juzgar(piezas + [nuevo], "Adra", "04003", hoy=dt.date(2026, 10, 28))
+        self.assertEqual((c, no, cand), sandbox[:3]); self.assertEqual(sin, {"https://x/n"})   # el nuevo, «sin respuesta» (se conserva lo de antes)
         self.assertEqual(len(open(os.environ["JEV_FALTAN"]).read().split()), 1)
 
     def test_sin_respuesta_solo_ese(self):
@@ -379,9 +380,19 @@ class Composio(unittest.TestCase):
         try:
             def sin_saldo(slug, args): return None, "The user's Composio wallet is out of credits"
             jev.COMPOSIO = sin_saldo
-            with self.assertRaises(jev.SinJev): jev.preguntar({"x": 1}, {"q": jev.noul("Is it?")})
+            # 3.9: sin saldo, esa pregunta y las siguientes se quedan sin respuesta (SinRespuesta: lo de la caché sigue valiendo)
+            with self.assertRaises(jev.SinRespuesta): jev.preguntar({"x": 1}, {"q": jev.noul("Is it?")})
+            self.assertIn("credits", jev.CAIDO)
+            jev._CACHE[jev.clave({"state": {"y": 1}, "model": jev.MODELO, "questions": {"q": jev.noul("Is it?")}})] = {"answers": {"q": noul(0.7)}}
+            self.assertEqual(jev.preguntar({"y": 1}, {"q": jev.noul("Is it?")})[0]["q"]["noul"], 0.7)     # la de la caché, sí
+            with self.assertRaises(jev.SinRespuesta): jev.preguntar({"x": 3}, {"q": jev.noul("Is it?")})  # ya no se llama a Composio
+            jev.CAIDO = ""
             jev.COMPOSIO = lambda slug, args: (None, "HTTP 422: validation error")
-            with self.assertRaises(ValueError): jev.preguntar({"x": 1}, {"q": jev.noul("Is it?")})
+            with self.assertRaises(jev.SinRespuesta): jev.preguntar({"x": 1}, {"q": jev.noul("Is it?")})   # solo esa pregunta
+            self.assertEqual(jev.CAIDO, "")
+            jev.COMPOSIO = lambda slug, args: (None, "Invalid API key for the connected account")
+            with self.assertRaises(jev.SinRespuesta): jev.preguntar({"x": 4}, {"q": jev.noul("Is it?")})
+            self.assertIn("API key", jev.CAIDO); jev.CAIDO = ""                                          # es de la cuenta, no de la pregunta
             n = []
             def a_la_tercera(slug, args):
                 n.append(1)

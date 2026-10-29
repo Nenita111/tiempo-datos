@@ -15,6 +15,8 @@ Guarda hasta 6 por aeropuerto (del más barato al más caro) con su enlace de Ki
 y rellena también los campos antiguos («vuelos», solo Almería) para la versión vieja de la app.
 """
 import argparse, datetime as dt, glob, json, os, sys, time
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 ORIGEN = {"LEI": "Almería", "GRX": "Granada", "AGP": "Málaga", "RMU": "Murcia"}
 ORDEN = ["LEI", "GRX", "AGP", "RMU"]
@@ -145,7 +147,7 @@ def main():
     faltan = [c for c in ORDEN if c not in busquedas]
     if faltan: print("Sin búsqueda de: " + ", ".join(faltan), file=sys.stderr)
     actualizar(x, busquedas, o.buscado, o.busqueda)
-    json.dump(x, open(o.extras, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    comun.guardar(o.extras, x)
     print(", ".join(f"{a['origen']} {len(a['vuelos'])}" for a in x["aeropuertos"]))
 
 

@@ -48,7 +48,7 @@ def candidatos(xml, pedir=None):
                 r, _ = jev.preguntar({"zona": ZONA, "promo": {"texto": p["texto"][:2500]}}, jev.preguntas_sorteo(), pedir=pedir)
                 c["jev"] = {k: v["noul"] for k, v in r.items()}; preguntado = True
                 if not jev.sorteo_candidato(r): continue
-            except jev.SinRespuesta:
+            except (jev.SinRespuesta, ValueError):
                 c["jev"] = None                    # sin respuesta en la caché de Composio: va de candidato sin juzgar
             except jev.SinJev as e:
                 juez = f"sin Jev ({e})"

@@ -22,6 +22,7 @@ Lo ya etiquetado no se vuelve a preguntar; lo que la tele ya no enseña se olvid
 import datetime as dt, html, json, os, re, sys, urllib.error, urllib.request
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import comun
 import jev, zona
 
 TZ = ZoneInfo("Europe/Madrid")
@@ -31,15 +32,7 @@ MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto
 
 def pedir(url, cuerpo=None, tipo=None, timeout=60, intentos=3):
     """Con 3 intentos (el servidor de la Junta corta conexiones de vez en cuando)."""
-    cab = {"User-Agent": UA} | ({"Content-Type": tipo} if tipo else {})
-    for n in range(intentos):
-        try:
-            with urllib.request.urlopen(urllib.request.Request(url, data=cuerpo, headers=cab), timeout=timeout) as r:
-                return r.read().decode("utf-8", "replace")
-        except urllib.error.HTTPError: raise
-        except (urllib.error.URLError, ConnectionError, TimeoutError, OSError):
-            if n == intentos - 1: raise
-            import time; time.sleep(2 * 2 ** n)
+    return comun.pedir(url, UA, cuerpo, tipo, timeout=timeout, intentos=intentos).decode("utf-8", "replace")
 
 
 def limpio(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
@@ -96,17 +89,22 @@ def medicamentos_aemps(h, hoy, dias=45):
     return sorted(L, key=lambda a: -a["date"])[:10]
 
 
+NO_LLEGA = "no llega"       # CIMA no contestó (red): no se guarda y se mira otro día
+
+
 def sin_receta(registros, consultar=None):
-    """True si alguna presentación se vende sin receta según CIMA; False si todas piden receta; None si CIMA no lo sabe.
+    """True si alguna presentación se vende sin receta según CIMA; False si todas piden receta; None si CIMA no lo sabe; NO_LLEGA si no
+    contestó (3.9: antes se guardaba None y no se volvía a mirar).
     El campo «cn» de la lista de la AEMPS es el número de registro del medicamento (61201, 1251964002), no el código nacional."""
     consultar = consultar or (lambda n: json.loads(pedir(f"https://cima.aemps.es/cima/rest/medicamento?nregistro={n}", timeout=30)))
-    vistos = []
+    vistos, fallos = [], 0
     for n in registros:
         if not re.fullmatch(r"\d{4,12}", str(n or "")): continue
         try: vistos.append(consultar(n).get("receta"))
-        except (urllib.error.URLError, ValueError, TimeoutError): continue
+        except ValueError: continue                    # sin ficha (contesta vacío)
+        except OSError: fallos += 1                    # URLError, cortes, tiempo
     vistos = [v for v in vistos if isinstance(v, bool)]
-    return (False in vistos) if vistos else None
+    return (False in vistos) if vistos else NO_LLEGA if fallos else None
 
 
 # ------------------------------------------------------------------ Safety Gate (como Consumo.kt)
@@ -182,7 +180,7 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
         nonlocal hay_jev, motivo
         if not hay_jev: return None
         try: return jev.preguntar(estado, preguntas, pedir=pedir_jev)[0]
-        except jev.SinRespuesta: return None       # solo este elemento (caché de Composio): el resto sigue con Jev
+        except (jev.SinRespuesta, ValueError): return None       # solo este elemento (caché de Composio): el resto sigue con Jev
         except jev.SinJev as e: hay_jev, motivo = False, str(e); return None
 
     try:
@@ -199,8 +197,9 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
         for a in medicamentos_aemps(red(AEMPS), hoy):
             k = a.get("code") or ""; ya = (E.get("med") or {}).get(k) or {}
             et = dict(ya)
-            if "sinReceta" not in et:
-                et["sinReceta"] = sin_receta([p.get("cn") for p in a.get("products") or []])
+            if "sinReceta" not in et and not jev.COMPOSIO:   # en el sandbox de Composio solo cuentan las preguntas a Jev
+                v = sin_receta([p.get("cn") for p in a.get("products") or []])
+                if v is not NO_LLEGA: et["sinReceta"] = v
             if "devolver" not in et:
                 r = jev_({"alerta": {"medida": limpio(a.get("precautionaryMeasures"))[:1500]}}, jev.preguntas_medicamento())
                 if r: et["devolver"] = r["devolver"]["noul"]
@@ -291,7 +290,7 @@ def main():
     x = json.load(open(sys.argv[1], encoding="utf-8"))
     r = etiquetar(x, dt.datetime.now(TZ).date())
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    json.dump(x, open(sys.argv[1], "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    comun.guardar(sys.argv[1], x)
     print(json.dumps(r, ensure_ascii=False))
 
 

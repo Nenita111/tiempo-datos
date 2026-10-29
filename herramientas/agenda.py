@@ -11,6 +11,9 @@ Se quitan solas al pasar el último día.
 """
 import argparse, datetime as dt, json, re, sys
 from zoneinfo import ZoneInfo
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 TZ = ZoneInfo("Europe/Madrid")
 
@@ -49,7 +52,7 @@ def main():
         anadir(x, o.titulo, o.fecha, o.hora, o.hasta, o.lugar, o.enlace, o.fuente, o.ine)
     podar(x)
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    with open(o.extras, "w", encoding="utf-8") as f: json.dump(x, f, ensure_ascii=False, indent=1)
+    comun.guardar(o.extras, x)
     print(f"{len(x['agenda'])} actividades en la agenda de {o.extras}")
 
 

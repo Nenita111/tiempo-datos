@@ -22,7 +22,7 @@ TIPO_SEGURO = 0.7    # 3.7: si Jev ve otra cosa (sorteo, corte, actividad, colec
 
 def comprobar(texto, datos, pedir=None, tipo=None):
     try: r, _ = jev.preguntar({"texto": texto[:6000]}, jev.preguntas_captura(datos, tipo), pedir=pedir)
-    except jev.SinJev as e: return {"ok": True, "datos": {}, "no_cuadra": [], "juez": f"sin Jev ({e}): no se ha comprobado"}
+    except (jev.SinJev, ValueError) as e: return {"ok": True, "datos": {}, "no_cuadra": [], "juez": f"sin Jev ({e}): no se ha comprobado"}
     p = {c: r[c]["noul"] for c in datos}
     mal = [c for c, v in p.items() if v < UMBRAL]
     res = {"datos": p, "juez": "Jev"}

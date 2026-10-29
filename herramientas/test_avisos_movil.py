@@ -72,5 +72,28 @@ class Avisos(unittest.TestCase):
         self.assertIn("url_cierres", dir(A)); self.assertIn("COD_MUNI%3D%2704003%27", A.url_cierres("04003"))
 
 
+    def test_revision_39(self):
+        # un aviso sin «hasta» (o sin «desde») no para nada
+        n = A.nuevos({}, [{"codigo": "s1", "color": "naranja", "fenomeno": "viento", "descripcion": "Rachas de 80 km/h.", "zona": "Poniente",
+                           "desde": "2026-10-28T12:00:00+01:00", "hasta": None}], [], [], AHORA)
+        self.assertEqual(n[0]["texto"], "⚠ Aviso naranja de AEMET por viento en Poniente, mañana a las 12:00: Rachas de 80 km/h.")
+        # el mismo corte de dos sitios (extras.json y el titular), una vez; y en «vivas» aunque ya se hubiera avisado
+        c = [{"tipo": "agua", "titulo": "PRUEBA", "enlace": "https://x/a", "fuente": "Ayuntamiento"},
+             {"tipo": "agua", "titulo": "PRUEBA", "enlace": "https://x/a", "fuente": "Noticias de Almería"},
+             {"tipo": "luz", "titulo": "PRUEBA 2", "enlace": "https://x/b", "fuente": "Ayuntamiento"}]
+        vivas = set()
+        n = A.nuevos({"corte:https://x/b": "2026-09-01T10:00"}, [], [], c, AHORA, vivas)
+        self.assertEqual([x["clave"] for x in n], ["corte:https://x/a"])
+        self.assertEqual(vivas, {"corte:https://x/a", "corte:https://x/b"})
+        # las marcas de cada lista se renuevan cada MARCA_DIAS días, no cada día
+        estado = {"empleo:sae:": "2026-10-20", "empleo:sae:1": "2026-10-20T10:00"}
+        sae = [{"id": "1", "url": "https://x/1", "puesto": "PRUEBA", "sitios": ["Adra"], "hasta": "2026-11-30"}]
+        v = set(); self.assertEqual(A.ofertas(estado, sae, {}, AHORA, v), [])
+        self.assertEqual(estado["empleo:sae:"], "2026-10-20"); self.assertIn("empleo:sae:1", v)
+        estado["empleo:sae:"] = "2026-09-01"; A.ofertas(estado, sae, {}, AHORA)
+        self.assertEqual(estado["empleo:sae:"], "2026-10-27")
+        self.assertEqual(A.cuando(None, AHORA), "")
+
+
 if __name__ == "__main__":
     unittest.main()

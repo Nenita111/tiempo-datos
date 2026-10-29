@@ -31,7 +31,10 @@ class SinRespuesta(SinJev):
 
 
 COMPOSIO = None       # en el sandbox de Composio, run_composio_tool (lo pone composio_jev.py)
+CAIDO = ""            # 3.9: en el sandbox, por qué Composio dejó de contestar; desde entonces solo la caché (lo demás, SinRespuesta)
+LIMITE = 0.0          # 3.9: en el sandbox, la hora (time.time()) a partir de la cual ya no se pregunta (para subir lo que haya a tiempo)
 GUARDADAS = {}        # lo que ha contestado Jev por Composio en esta ejecución: {clave: respuesta}
+USADAS = {}           # 3.9: lo que se ha sacado de la caché en esta ejecución (avisos_movil.py guarda el de los titulares de ahora)
 _CACHE = None
 
 
@@ -44,10 +47,10 @@ def cache():
     global _CACHE
     if _CACHE is None:
         _CACHE = {}
-        f = os.environ.get("JEV_CACHE", "").strip()
-        if f:
+        for f in os.environ.get("JEV_CACHE", "").strip().split(os.pathsep):   # 3.9: uno o varios (separados por «:»)
+            if not f: continue
             try:
-                with open(f, encoding="utf-8") as x: _CACHE = json.load(x)
+                with open(f, encoding="utf-8") as x: _CACHE.update(json.load(x))
             except (OSError, ValueError): pass
     return _CACHE
 
@@ -69,9 +72,10 @@ def _por_composio(cuerpo, intentos=3, dormir=None):
         d = None if err else _con_respuestas(r)
         if d: return {"answers": d["answers"], "model": d.get("model", cuerpo["model"])}
         msg = str(err or (r or {}).get("error") or "sin «answers» en la respuesta")[:300]
-        if re.search(r"\b422\b|validation|invalid", msg, re.I): raise ValueError(f"Jev rechaza la pregunta: {msg}")
-        if re.search(r"credit|unauthori|forbidden|\b40[13]\b|no active connection|not connected|connect (your|their) own", msg, re.I):
+        # primero lo de la cuenta (una «invalid API key» no es una pregunta mal hecha)
+        if re.search(r"credit|unauthori|forbidden|\b40[13]\b|no active connection|not connected|connect (your|their) own|api key|connected account", msg, re.I):
             raise SinJev(f"Jev por Composio: {msg}")
+        if re.search(r"\b422\b|validation error", msg, re.I): raise ValueError(f"Jev rechaza la pregunta: {msg}")
         if n < intentos - 1: dormir(2 * 2 ** n)
     raise SinJev(f"Jev por Composio: {msg}")
 
@@ -88,16 +92,25 @@ def _pedir(cuerpo, timeout):
     k = clave(cuerpo)
     c = cache()
     if k in c:
+        USADAS[k] = c[k]
         if COMPOSIO: GUARDADAS[k] = c[k]             # en el sandbox, lo que sale de la caché guardada también se sube (la tarea la necesita)
         return c[k]
     if COMPOSIO:
-        r = _por_composio(cuerpo)
+        global CAIDO
+        if not CAIDO and LIMITE and time.time() > LIMITE: CAIDO = "se acabó el tiempo del sandbox"
+        if CAIDO: raise SinRespuesta(f"Jev por Composio no contesta ({CAIDO}): solo la caché")
+        try: r = _por_composio(cuerpo)
+        except SinJev as e:                          # un fallo de Composio no tira lo demás: lo que ya estaba en la caché sigue
+            CAIDO = str(e)[:200]; raise SinRespuesta(CAIDO) from None
+        except ValueError as e: raise SinRespuesta(str(e)[:200]) from None    # esta pregunta: las demás siguen
         GUARDADAS[k] = c[k] = r
         return r
     clave_api = os.environ.get("TYPESAFE_API_KEY", "").strip()
-    if os.environ.get("JEV_CACHE", "").strip() and not clave_api:
-        _apuntar_falta(k)
-        raise SinRespuesta("Jev: esta pregunta no está en la caché de Composio")
+    if not clave_api:                                # sin caché de Composio ni clave, a la API directa no se va (Jev, siempre por Composio)
+        if os.environ.get("JEV_CACHE", "").strip():
+            _apuntar_falta(k)
+            raise SinRespuesta("Jev: esta pregunta no está en la caché de Composio")
+        raise SinJev("sin Jev: falta la caché de Composio (JEV_CACHE)")
     cab = {"Content-Type": "application/json", "User-Agent": "TiempoYRadar/1.0 (tareas de la tele)"}
     if clave_api: cab["Authorization"] = f"Bearer {clave_api}"
     r = urllib.request.Request(URL, data=json.dumps(cuerpo, ensure_ascii=False).encode("utf-8"), headers=cab, method="POST")

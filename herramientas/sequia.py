@@ -13,6 +13,8 @@ código 2 y deja lo que había. Necesita pdftotext (poppler).
 """
 import argparse, datetime as dt, email.utils, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
 from zoneinfo import ZoneInfo
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 TZ = ZoneInfo("Europe/Madrid")
 PDF = "https://www.redhidrosurmedioambiente.es/saih/assets/pdf/InformeSequia.pdf"
@@ -122,7 +124,7 @@ def main():
         print(json.dumps({"fallo": str(e)}, ensure_ascii=False)); sys.exit(2)
     x["sequia"] = o
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    with open(p.extras, "w", encoding="utf-8") as f: json.dump(x, f, ensure_ascii=False, indent=1)
+    comun.guardar(p.extras, x)
     print(json.dumps({"mes": o["mes"], "nuevo": True}, ensure_ascii=False))
 
 

@@ -23,6 +23,7 @@ JEV_REPO = "Nenita111/tiempo-datos"
 JEV_BASE = "/home/user/tiempo-datos-"
 JEV_CACHE = "/mnt/files/tiempo/jev_cache.json"     # {clave: {"r": respuesta, "t": "AAAA-MM-DD" de la última vez que se usó}}
 JEV_DIAS = 14
+JEV_MAX = 480          # 3.9: pasados 8 minutos, lo que quede se deja sin Jev (la tarea no espera celda tras celda)
 _jev = globals().setdefault("_jev", {"hilo": None, "estado": None, "raiz": None, "sha": None})
 
 
@@ -125,7 +126,9 @@ def _jev_trabajo(paso, sha, est):
     try:
         raiz = _jev_repo(sha)
         jev = _jev_cargar(raiz)
+        jev.LIMITE = t0 + JEV_MAX
         {"diario": _jev_diario, "avisos": _jev_avisos}[paso](raiz, est)
+        if jev.CAIDO: est["caido"] = jev.CAIDO[:200]          # Composio dejó de contestar (o se acabó el tiempo): lo demás, sin Jev
         f = os.path.join(os.path.dirname(raiz), "jev_cache.json")
         with open(f, "w", encoding="utf-8") as x: json.dump(jev.GUARDADAS, x, ensure_ascii=False)
         est["respuestas"] = len(jev.GUARDADAS)
@@ -176,11 +179,20 @@ def jev_correr(paso, sha=None, espera=160):
     return jev_esperar(espera)
 
 
+def _jev_ocupado(espera=60):
+    """Si otra tarea tiene un paso en marcha en este sandbox, se espera un minuto como mucho (una celda dura 180 s y aún hay que hacer lo
+    propio); si sigue, «ocupado»: repetir la llamada en otra celda."""
+    h = _jev["hilo"]
+    if h and h.is_alive(): h.join(espera)
+    if h and h.is_alive(): return json.dumps({"ocupado": "otra tarea sigue en marcha: repite la llamada"}, ensure_ascii=False)
+    return None
+
+
 def jev_captura(sha, texto, datos, tipo=None):
     """Lo de comprobar_captura.py (dato por dato, ¿lo dice la captura?; con tipo, además ¿qué anuncia?) por Composio:
     {"ok", "datos", "no_cuadra", "juez", "tipo"}."""
-    h = _jev["hilo"]
-    if h and h.is_alive(): h.join(160)
+    o = _jev_ocupado()
+    if o: return o
     raiz = _jev_repo(sha)
     jev = _jev_cargar(raiz)
     import comprobar_captura as C
@@ -193,8 +205,8 @@ def jev_captura(sha, texto, datos, tipo=None):
 def jev_revision(sha, fuentes):
     """Las fuentes que la revisión de la tarea dio por ROTAS, otra vez desde el sandbox: {"fuentes": {nombre: [estado, detalle]}}; si la web
     responde pero falta la marca, el detalle lleva la pista de Jev («el dato parece seguir en la página…»)."""
-    h = _jev["hilo"]
-    if h and h.is_alive(): h.join(160)
+    o = _jev_ocupado()
+    if o: return o
     raiz = _jev_repo(sha)
     jev = _jev_cargar(raiz)
     import revisar_fuentes as R

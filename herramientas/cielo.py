@@ -10,6 +10,8 @@ si tampoco la hay, deja lo que había de ese año.
 """
 import datetime as dt, json, os, re, subprocess, sys, tempfile, urllib.request
 from zoneinfo import ZoneInfo
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 TZ = ZoneInfo("Europe/Madrid")
 AGENDA = "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_{}.pdf"
@@ -108,7 +110,7 @@ def main():
     eventos = sorted({(e["fecha"], e["titulo"]): e for e in eventos if e["fecha"] >= hoy.isoformat()}.values(), key=lambda e: (e["fecha"], e.get("hora", "")))
     x["cielo"] = {"eventos": eventos, "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"}
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    with open(ruta, "w", encoding="utf-8") as f: json.dump(x, f, ensure_ascii=False, indent=1)
+    comun.guardar(ruta, x)
     print(json.dumps({"eventos": len(eventos), "fallos": fallos}, ensure_ascii=False))
 
 

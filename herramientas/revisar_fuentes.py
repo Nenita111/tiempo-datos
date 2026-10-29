@@ -215,11 +215,11 @@ def alimentarias(L):
     return f"{n} alertas en los tres bloques"
 
 def noticias(L):
-    q = urllib.parse.quote(f'"{L["nombre"]}" {L["provincia"]} when:7d')
-    n = len(re.findall(r"<item>", texto(f"https://news.google.com/rss/search?q={q}&hl=es&gl=ES&ceid=ES:es")))
-    for u in ("https://www.diariodealmeria.es/rss/provincia/", "https://www.lavozdealmeria.com/rss/", "https://www.noticiasdealmeria.com/rss/seccion/65/"):
-        if "<item>" not in texto(u): raise ValueError(f"sin noticias en {u}")
-    return f"{n} en Google Noticias"
+    """3.9: solo Noticias de Almería. Google Noticias, Diario de Almería y La Voz de Almería prohíben en su robots.txt a los agentes como
+    Claude: la tarea en la nube no los pide (la tele sí los lee, con su agente)."""
+    n = texto("https://www.noticiasdealmeria.com/rss/seccion/65/").count("<item>")
+    if not n: raise ValueError("sin noticias en Noticias de Almería")
+    return f"{n} en Noticias de Almería (Google Noticias, Diario de Almería y La Voz no se miran desde la nube: su robots.txt no deja)"
 
 def sonda(L):
     json.loads(texto(f"https://api.v2.sondehub.org/sondes?lat={L['lat']}&lon={L['lon']}&distance=300000&last=10800")); return "ok"
@@ -412,6 +412,31 @@ def solVideo(L):
     if n < 100_000: raise ValueError(f"el vídeo pesa {n} bytes")
     return f"{n // 1_000_000} MB, {mod}"
 
+def ruta(L):
+    # Camaras.trayecto (3.9, 268): las fotos de las cámaras del trayecto de Adra a Almería que elige la app (Balanegra, Santa María del
+    # Águila, Vícar y Vía Parque; sin las de la entrada de Almería), con su hora
+    if L["ine"] != "04003": return "NO COMPROBABLE: solo hay trayecto para Adra"
+    horas = []
+    for cid in ("516", "519", "521", "526"):
+        with urllib.request.urlopen(urllib.request.Request(f"https://etraffic.dgt.es/camarasEtraffic/{cid}.jpg", headers={"User-Agent": UA}), timeout=45) as f:
+            jpg, mod = f.read(), f.headers.get("Last-Modified")
+        if len(jpg) < 2000 or jpg[:2] != b"\xff\xd8": raise ValueError(f"la cámara {cid} no manda una foto")
+        horas.append(f"{cid} {email.utils.parsedate_to_datetime(mod).astimezone(TZ):%H:%M}" if mod else cid)
+    return "fotos de " + ", ".join(horas)
+
+def olas(L):
+    # Olas.prevision (3.9, 275): los mapas de previsión de oleaje de Puertos del Estado (dominio Mar de Alborán): que el dominio siga en su
+    # lista y que el mapa de las 00 UTC de hoy sea de la pasada de hoy o de ayer
+    lista = json.loads(texto("https://portus.puertos.es/portussvr/api/mapStaticResources/VHM0Med?locale=es"))
+    if not any(d.get("url", "").endswith("/wave_5") for d in lista): raise ValueError("la lista de mapas ya no trae el dominio wave_5 (Mar de Alborán)")
+    hoy = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d00")
+    r = urllib.request.urlopen(urllib.request.Request(f"https://portus.puertos.es/Portus/pathmaps/wave/wave_5/{hoy}/map_re.png", headers={"User-Agent": UA}), timeout=45)
+    png, mod = r.read(), r.headers.get("Last-Modified")
+    if png[:4] != b"\x89PNG": raise ValueError("el mapa no es una imagen PNG")
+    m = email.utils.parsedate_to_datetime(mod) if mod else None
+    if not m or dt.datetime.now(dt.timezone.utc) - m > dt.timedelta(hours=36): raise ValueError(f"el mapa de hoy es de una pasada vieja ({mod})")
+    return f"pasada del {m.astimezone(TZ):%d/%m %H:%M}"
+
 def viento(L):
     # Viento.ahora: el viento de ahora en la malla de 9 × 6 puntos (una petición con todos)
     la, lo = [], []
@@ -454,7 +479,7 @@ def jev_(L):
 
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
-           medicamentos, productos, sae, fap, agua, camara, radiacion, sequia, sangre, cortesAgua,
+           medicamentos, productos, sae, fap, agua, camara, ruta, olas, radiacion, sequia, sangre, cortesAgua,
            mtg, tierra, solVideo, viento, calarVivo, jev_, esios]
 
 

@@ -10,6 +10,8 @@ Necesita pdftotext (poppler).
 """
 import datetime as dt, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 TZ = ZoneInfo("Europe/Madrid")
 BASE = "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/areas/sanidad/salud-vida/vigilancia/paginas/"
@@ -117,7 +119,7 @@ def main():
         print(json.dumps({"fallo": str(e)}, ensure_ascii=False)); sys.exit(2)
     x["respiratorias"] = o
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    with open(ruta, "w", encoding="utf-8") as f: json.dump(x, f, ensure_ascii=False, indent=1)
+    comun.guardar(ruta, x)
     print(json.dumps({"semana": o["semana"], "nuevo": True}, ensure_ascii=False))
 
 

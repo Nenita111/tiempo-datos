@@ -18,6 +18,7 @@ barco dragón y avisos_movil.py las manda al móvil, una vez.
 import datetime as dt, hashlib, html, json, os, re, subprocess, sys, tempfile, urllib.request
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import comun
 import jev
 
 TZ = ZoneInfo("Europe/Madrid")
@@ -33,11 +34,7 @@ MENUDAS = {"de", "del", "la", "las", "el", "los", "y", "en", "a", "al", "por", "
 
 
 def pedir(url, timeout=60, intentos=3):
-    for n in range(intentos):
-        try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=timeout) as r: return r.read()
-        except Exception:
-            if n == intentos - 1: raise
+    return comun.pedir(url, UA, timeout=timeout, intentos=intentos)
 
 
 def limpio(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
@@ -127,11 +124,11 @@ def juzgar(avisos, ya, pedir_jev=None, red=pedir, leer_pdf=datos_pdf):
                 r, _ = jev.preguntar({"aviso": {"titulo": a["titulo"], "resumen": a.get("resumen", "")}}, jev.preguntas_fap(), pedir=pedir_jev)
                 anuncia, cambio = max(anuncia, r["anuncia"]["noul"]), max(cambio, r["cambio"]["noul"])
                 if not circ: persona = r["persona"]["noul"]
-            except jev.SinRespuesta: continue                  # no estaba en la caché de Composio: mañana
-            except (jev.SinJev, ValueError) as e: juez = f"sin Jev ({e})"
+            except (jev.SinRespuesta, ValueError): continue    # no estaba en la caché de Composio (o la rechazó): mañana
+            except jev.SinJev as e: juez = f"sin Jev ({e})"
         if persona is None or (juez != "Jev" and not anuncia): continue    # sin Jev, solo se da por juzgado lo seguro
         e = {"anuncia": round(anuncia, 2), "cambio": round(cambio, 2), "persona": round(persona, 2)}
-        if anuncia >= jev.SI and circ:
+        if anuncia >= jev.SI and circ and not jev.COMPOSIO:     # el PDF, solo en la tarea (en el sandbox solo cuentan las preguntas)
             try: e |= leer_pdf(red(a["enlace"]))
             except Exception: pass
         out[k] = e
@@ -172,7 +169,7 @@ def main():
     juzgados, juez = juzgar(avisos, ya)
     x["fap"] = {"fecha": hoy.isoformat(), "novedades": novedades(avisos, juzgados), "juzgados": juzgados}
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    json.dump(x, open(sys.argv[1], "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    comun.guardar(sys.argv[1], x)
     print(json.dumps({"avisos": len(avisos), "novedades": len(x["fap"]["novedades"]), "juez": juez, "fallos": fallos}, ensure_ascii=False))
 
 

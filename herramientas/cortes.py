@@ -8,6 +8,9 @@ Solo se apunta lo que se ha visto en la publicación: qué se corta, cuándo (ú
 """
 import argparse, datetime as dt, json, re, sys
 from zoneinfo import ZoneInfo
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 TZ = ZoneInfo("Europe/Madrid")
 TIPOS = ("agua", "luz", "trafico")
@@ -40,7 +43,7 @@ def main():
         anadir(x, o.tipo, o.titulo, o.hasta, o.enlace, o.fuente, o.ine)
     podar(x)
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    json.dump(x, open(o.extras, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    comun.guardar(o.extras, x)
     print(f"{len(x['cortes'])} cortes en {o.extras}")
 
 

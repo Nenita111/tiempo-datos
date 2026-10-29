@@ -10,6 +10,9 @@ y la tele los enseña hasta que acaba su plazo, con un código QR (lo dibuja la 
 """
 import argparse, datetime as dt, json, re, sys
 from zoneinfo import ZoneInfo
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 TZ = ZoneInfo("Europe/Madrid")
 ZONA = "de Motril a Almería"
@@ -61,7 +64,7 @@ def main():
     x["sorteosZona"] = ZONA
     if o.buscado or o.anadir: x["sorteosBuscado"] = dt.date.today().isoformat()
     x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")   # la tele se queda con el más nuevo
-    json.dump(x, open(o.extras, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    comun.guardar(o.extras, x)
     print(f"{len(x['sorteos'])} sorteos activos en {o.extras}")
 
 
