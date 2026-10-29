@@ -25,10 +25,17 @@ UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"       # el de la ap
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
 
-def pedir(url, cuerpo=None, tipo=None, timeout=60):
+def pedir(url, cuerpo=None, tipo=None, timeout=60, intentos=3):
+    """Con 3 intentos (el servidor de la Junta corta conexiones de vez en cuando)."""
     cab = {"User-Agent": UA} | ({"Content-Type": tipo} if tipo else {})
-    with urllib.request.urlopen(urllib.request.Request(url, data=cuerpo, headers=cab), timeout=timeout) as r:
-        return r.read().decode("utf-8", "replace")
+    for n in range(intentos):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, data=cuerpo, headers=cab), timeout=timeout) as r:
+                return r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError: raise
+        except (urllib.error.URLError, ConnectionError, TimeoutError, OSError):
+            if n == intentos - 1: raise
+            import time; time.sleep(2 * 2 ** n)
 
 
 def limpio(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
@@ -214,7 +221,11 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
             i = fila["id"]; ya = dict((E.get("ofertas") or {}).get(i) or {})
             if "zona" in ya and ("nivel" in ya or not hay_jev): nuevas["ofertas"][i] = ya; continue
             if pedidas >= 60: continue
-            h = red(f"{JUNTA}/organismos/transparencia/empleo-publico/entidades-instrumentales/ofertas-empleo/detalle/{i}.html"); pedidas += 1
+            try: h = red(f"{JUNTA}/organismos/transparencia/empleo-publico/entidades-instrumentales/ofertas-empleo/detalle/{i}.html"); pedidas += 1
+            except Exception as e:                       # una ficha que no llega: se queda lo que había de ella y siguen las demás
+                fallos.append(f"ficha {i} de la Junta: {e}"[:160])
+                if ya: nuevas["ofertas"][i] = ya
+                continue
             e = ya | {"zona": zona.junta_en_zona(zona.lugares_ficha(h)), "puesto": fila["puesto"], "entidad": fila["entidad"], "hasta": hasta_oferta(h)}
             if "nivel" not in e:
                 r = jev_({"oferta": ficha_oferta(h)}, jev.preguntas_oferta())

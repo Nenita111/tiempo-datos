@@ -365,7 +365,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-10-29",
- "actualizado": "2026-10-29T10:44+01:00",
+ "actualizado": "2026-10-29T11:48+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -937,133 +937,185 @@
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/209/13": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/209/14": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/209/15": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/209/16": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/209/17": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/209/18": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/209/19": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/209/20": {
     "tipo": "lista_definitiva",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/10": {
     "tipo": "lista_definitiva",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/11": {
     "tipo": "convocatoria",
-    "provincia": "almeria"
+    "provincia": "almeria",
+    "zona": "almeria"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/12": {
     "tipo": "convocatoria",
-    "provincia": "almeria"
+    "provincia": "almeria",
+    "zona": "almeria"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/13": {
     "tipo": "convocatoria",
-    "provincia": "almeria"
+    "provincia": "almeria",
+    "zona": "almeria"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/14": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/15": {
     "tipo": "lista_definitiva",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/16": {
     "tipo": "lista_definitiva",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/17": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/18": {
     "tipo": "lista_definitiva",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/208/19": {
     "tipo": "lista_definitiva",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/18": {
     "tipo": "lista_provisional",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/19": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/20": {
     "tipo": "lista_provisional",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/21": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/22": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/23": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/24": {
     "tipo": "lista_provisional",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/25": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/207/26": {
     "tipo": "convocatoria",
-    "provincia": "otra"
+    "provincia": "otra",
+    "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/206/15": {
     "tipo": "otra",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/206/16": {
     "tipo": "otra",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/206/17": {
     "tipo": "lista_provisional",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.juntadeandalucia.es/boja/2026/206/18": {
     "tipo": "lista_definitiva",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    },
    "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-22323": {
     "tipo": "nombramiento",
-    "provincia": "andalucia"
+    "provincia": "andalucia",
+    "zona": "andalucia"
    }
-  }
+  },
+  "avisar": [
+   {
+    "url": "https://www.juntadeandalucia.es/boja/2026/208/11",
+    "fecha": "2026-10-27",
+    "boletin": "BOJA",
+    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante, de Coordinador/a de Cuidados de Enfermería de la Unidad de Gestión Clínica de Ejido Norte en el Distrito Sanitario de Atención Primaria Poniente de Almería"
+   },
+   {
+    "url": "https://www.juntadeandalucia.es/boja/2026/208/12",
+    "fecha": "2026-10-27",
+    "boletin": "BOJA",
+    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos en el Distrito Sanitario de Atención Primaria de Almería"
+   },
+   {
+    "url": "https://www.juntadeandalucia.es/boja/2026/208/13",
+    "fecha": "2026-10-27",
+    "boletin": "BOJA",
+    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones, en el Distrito Sanitario de Atención Primaria de Almería"
+   }
+  ]
  },
  "etiquetas": {
   "alim": {
@@ -1155,63 +1207,155 @@
   "ofertas": {
    "690598": {
     "nivel": "eso",
-    "experiencia": 0.68
+    "experiencia": 0.68,
+    "zona": false,
+    "puesto": "Auxiliar Medio Natural Capataz de Cuadrilla",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-02"
    },
    "690496": {
     "nivel": "grado",
-    "experiencia": 0.1
+    "experiencia": 0.1,
+    "zona": false,
+    "puesto": "TÉCNICO/A ELECTRÓNICO",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-10-31"
    },
    "690112": {
     "nivel": "grado",
-    "experiencia": 0.04
+    "experiencia": 0.04,
+    "zona": false,
+    "puesto": "Promoción y Traslado-Técnico/a de Gestión Teatro Alhambra",
+    "entidad": "Agencia Andaluza de Instituciones Culturales",
+    "hasta": "2026-11-10"
    },
    "690493": {
     "nivel": "fp_superior",
-    "experiencia": 0.97
+    "experiencia": 0.97,
+    "zona": false,
+    "puesto": "OPERADOR/A MONTADOR/A DE VÍDEO",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-10-31"
    },
    "689332": {
     "nivel": "grado",
-    "experiencia": 0.94
+    "experiencia": 0.94,
+    "zona": false,
+    "puesto": "Gerencia de la Agencia de Vivienda y Rehabilitación de Andalucía",
+    "entidad": "Agencia de Vivienda y Rehabilitación de Andalucía",
+    "hasta": "2026-11-10"
    },
    "690490": {
     "nivel": "fp_superior",
-    "experiencia": 0.97
+    "experiencia": 0.97,
+    "zona": false,
+    "puesto": "OPERADOR/A MONTADOR DE VIDEO",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-10-31"
    },
    "690010": {
     "nivel": "sin_titulo",
-    "experiencia": 0.04
+    "experiencia": 0.04,
+    "zona": false,
+    "puesto": "Profesor/a Instructor/a Jefe/a de Partida",
+    "entidad": "Servicio Andaluz de Empleo",
+    "hasta": "2026-11-03"
    },
    "689971": {
     "nivel": "grado",
-    "experiencia": 0.55
+    "experiencia": 0.55,
+    "zona": false,
+    "puesto": "Jefatura de Área de Gestión de Medio Hídrico y Actuaciones en Cuencas",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-04"
    },
    "689719": {
     "nivel": "grado",
-    "experiencia": 0.94
+    "experiencia": 0.94,
+    "zona": false,
+    "puesto": "Técnico/a Especialista en Evaluación de Tecnologías Sanitarias -32-2026",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-12"
    },
    "687547": {
     "nivel": "grado",
-    "experiencia": 0.05
+    "experiencia": 0.05,
+    "zona": false,
+    "puesto": "Titulado/a Superior Administración de Sistemas",
+    "entidad": "Agencia Andaluza de Instituciones Culturales",
+    "hasta": "2026-11-06"
    },
    "689338": {
     "nivel": "fp_medio",
-    "experiencia": 0.05
-   },
-   "689119": {
-    "nivel": "grado",
-    "experiencia": 0.97
-   },
-   "689083": {
-    "nivel": "grado",
-    "experiencia": 0.88
+    "experiencia": 0.05,
+    "zona": true,
+    "puesto": "INSPECTOR/A DE ITV",
+    "entidad": "Verificaciones Industriales de Andalucía S.A.",
+    "hasta": "2026-11-11"
    },
    "689158": {
     "nivel": "grado",
-    "experiencia": 0.03
+    "experiencia": 0.03,
+    "zona": false,
+    "puesto": "Programador/a Full- Stack - 2483",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-09"
+   },
+   "689119": {
+    "nivel": "grado",
+    "experiencia": 0.97,
+    "zona": false,
+    "puesto": "Investigador/a Posdoctoral en Machine Learning -2482",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-09"
+   },
+   "689083": {
+    "nivel": "grado",
+    "experiencia": 0.88,
+    "zona": false,
+    "puesto": "Científico/a de Datos - 2481",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-09"
    },
    "688786": {
     "nivel": "sin_titulo",
-    "experiencia": 0.04
+    "experiencia": 0.04,
+    "zona": false,
+    "puesto": "Bolsa de Trabajo Técnico/a de Escena, especialidad Maquinaria",
+    "entidad": "Agencia Andaluza de Instituciones Culturales",
+    "hasta": "2026-11-09"
+   }
+  },
+  "sae": {
+   "01-2026-48086": {
+    "nivel": "grado",
+    "experiencia": 0.07,
+    "entidad": "junta"
+   },
+   "01-2026-48457": {
+    "nivel": "grado",
+    "experiencia": 0.98,
+    "entidad": "otra"
+   },
+   "01-2026-48458": {
+    "nivel": "no_consta",
+    "experiencia": 0.98,
+    "entidad": "otra"
+   },
+   "01-2026-48675": {
+    "nivel": "no_consta",
+    "experiencia": 0.07,
+    "entidad": "otra"
+   },
+   "01-2026-48758": {
+    "nivel": "grado",
+    "experiencia": 0.05,
+    "entidad": "otra"
+   },
+   "01-2026-48765": {
+    "nivel": "no_consta",
+    "experiencia": 0.07,
+    "entidad": "otra"
    }
   },
   "fecha": "2026-10-29"
