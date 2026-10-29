@@ -8,16 +8,21 @@
     (jev.py), Jev dice si el titular anuncia un corte en el pueblo; cuando duda, o sin Jev, la regla de texto de antes.
   - Corte de agua de Hidralia (su «Mapa de obras y afectaciones», la capa pública de cierres de Agbar): planificado o en curso,
     cuando empieza en las próximas 36 horas o ya ha empezado y no ha pasado su previsión de restablecimiento.
+  - (3.7, lo pidió Isa el 29 oct 2026) Ofertas de empleo nuevas de la zona (zona.py: provincia de Almería sin el Levante, la costa de Granada
+    hasta Motril, toda Andalucía): las de empleo público del SAE (su lista, en cada pasada), las de los entes de la Junta de la zona y las
+    convocatorias del SAS de la zona (las dos, de extras.json «etiquetas.ofertas» y «sas.avisar», que pone la tarea diaria con Jev). La primera
+    vez solo se apuntan las que ya había, sin avisar (salen en la tele).
 
   python3 avisos_movil.py --estado avisos_enviados.json [--extras extras.json] [--lugar Adra --ine 04003 --lat 36.7489 --lon -3.0206]
 
-Imprime una línea JSON: {"nuevos": [{"tipo", "texto", "enlace", "clave"}], "fallos": […]} y apunta en --estado lo enviado
-(se olvida a los 30 días), para no repetirlo. Sale con 0 aunque falle alguna fuente; con 2 si fallan todas.
+Imprime una línea JSON: {"nuevos": [{"tipo", "texto", "enlace", "clave"}], "fallos": […], "guardar": bool} y apunta en --estado lo enviado
+(se olvida a los 30 días), para no repetirlo; «guardar» dice si --estado ha cambiado (también sin nada nuevo: lo que se olvida y las ofertas
+que se apuntan la primera vez), para subirlo. Sale con 0 aunque falle alguna fuente; con 2 si fallan todas.
 """
 import argparse, datetime as dt, gzip, io, json, math, os, re, sys, tarfile, unicodedata, urllib.parse, urllib.request
 from xml.etree import ElementTree as ET
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # jev.py, al lado (con -I no se mira la carpeta del script)
-import jev
+import jev, zona
 from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Europe/Madrid")
@@ -264,6 +269,51 @@ def nuevos(estado, aemet, sismos, cortes, ahora):
     return out
 
 
+# ------------------------------------------------------------------ ofertas de empleo nuevas de la zona (3.7)
+MES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+
+
+def hasta(iso):
+    try: d = dt.date.fromisoformat((iso or "")[:10])
+    except ValueError: return ""
+    return f" · hasta el {d.day} {MES[d.month - 1]}"
+
+
+def frase(t):
+    """Lo que el SAE da en mayúsculas, como una frase (como frase() de la tele)."""
+    t = re.sub(r"\s+", " ", t or "").strip()
+    if re.search(r"[a-záéíóúñ]", t): return t
+    t = t.lower(); t = t[:1].upper() + t[1:]
+    t = re.sub(r"([.!?]\s+)(\w)", lambda m: m.group(1) + m.group(2).upper(), t)
+    return re.sub(r"\b[abc][12]\b", lambda m: m.group(0).upper(), t)
+
+
+def ofertas(estado, sae, x, ahora):
+    """Las ofertas de empleo de la zona que no se han avisado aún. La primera vez que llega cada lista (SAE, Junta, SAS), ninguna: se apuntan."""
+    hoy = ahora.date().isoformat(); out = []
+    for o in sae:
+        out.append({"tipo": "empleo", "clave": "empleo:sae:" + o["id"], "enlace": o["url"],
+                    "texto": f"💼 Empleo público (SAE): {frase(o['puesto'])} · {', '.join(o['sitios'][:3])}{hasta(o['hasta'])}."})
+    for i, e in (((x.get("etiquetas") or {}).get("ofertas")) or {}).items():
+        if not e.get("zona") or not e.get("puesto") or (e.get("hasta") and e["hasta"] < hoy): continue
+        out.append({"tipo": "empleo", "clave": "empleo:junta:" + i, "texto": f"💼 Oferta de la Junta ({e.get('entidad') or 'ente instrumental'}): {e['puesto']}{hasta(e.get('hasta'))}.",
+                    "enlace": f"https://www.juntadeandalucia.es/organismos/transparencia/empleo-publico/entidades-instrumentales/ofertas-empleo/detalle/{i}.html"})
+    for d in (((x.get("sas") or {}).get("avisar")) or []):
+        r = d.get("resumen") or ""
+        out.append({"tipo": "empleo", "clave": "empleo:sas:" + d["url"], "enlace": d["url"],
+                    "texto": f"💼 SAS, convocatoria ({d.get('boletin') or 'BOJA'}): {r[:180] + ('…' if len(r) > 180 else '')}."})
+    res = []
+    for pre in ("empleo:sae:", "empleo:junta:", "empleo:sas:"):          # cada lista, la primera vez que llega, solo se apunta
+        primera = pre not in estado                                      # la marca de la lista (se renueva: no se olvida)
+        for o in out:
+            if not o["clave"].startswith(pre) or o["clave"] in estado: continue
+            if primera: estado[o["clave"]] = ahora.isoformat(timespec="minutes")
+            else: res.append(o)
+        if primera and not any(o["clave"].startswith(pre) for o in out): continue   # sin nada aún de esa lista: se espera a que llegue
+        estado[pre] = ahora.date().isoformat()
+    return res
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--estado", required=True); p.add_argument("--extras", default="extras.json")
@@ -275,7 +325,8 @@ def main():
         with open(o.estado, encoding="utf-8") as f: estado = json.load(f)
     except FileNotFoundError:
         estado = {}
-    fallos, aemet, sismos, cortes, bien = [], [], [], [], 0
+    antes = json.dumps(estado, sort_keys=True)
+    fallos, aemet, sismos, cortes, bien, x = [], [], [], [], 0, {}
     try: aemet = leer_aemet(o.lon, o.lat, ahora); bien += 1
     except Exception as e: fallos.append(f"AEMET: {e}")
     try: sismos = terremotos(pedir(IGN).decode("utf-8", "replace"), o.lat, o.lon); bien += 1
@@ -292,11 +343,16 @@ def main():
     try: cortes += cortes_hidralia(pedir(url_cierres(o.ine)).decode("utf-8"), o.ine, ahora); bien += 1
     except Exception as e: fallos.append(f"Hidralia: {e}")
     n = nuevos(estado, aemet, sismos, cortes, ahora)
-    for x in n: estado[x["clave"]] = ahora.isoformat(timespec="minutes")
+    try:
+        sae = zona.ofertas_sae(zona.lista_sae(), ahora) if zona.aplica(o.ine) else []
+        n += ofertas(estado, sae, x if isinstance(x, dict) else {}, ahora); bien += 1
+    except Exception as e: fallos.append(f"ofertas de empleo: {e}"[:160])
+    for a in n: estado[a["clave"]] = ahora.isoformat(timespec="minutes")
     limite = (ahora - dt.timedelta(days=30)).isoformat()
     estado = {k: v for k, v in estado.items() if v >= limite}
     with open(o.estado, "w", encoding="utf-8") as f: json.dump(estado, f, ensure_ascii=False, indent=1, sort_keys=True)
-    print(json.dumps({"nuevos": n, "fallos": fallos, "titulares": juez.usado + (f" ({juez.motivo})" if juez.motivo else "")}, ensure_ascii=False))
+    print(json.dumps({"nuevos": n, "fallos": fallos, "titulares": juez.usado + (f" ({juez.motivo})" if juez.motivo else ""),
+                      "guardar": json.dumps(estado, sort_keys=True) != antes}, ensure_ascii=False))
     sys.exit(0 if bien else 2)
 
 

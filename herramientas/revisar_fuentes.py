@@ -453,9 +453,9 @@ FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, o
 def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):
     """La web respondió pero falta la marca que busca la app: ¿el dato sigue en la página con otro formato? Solo una pista (con Jev)."""
     import os
-    if not os.environ.get("TYPESAFE_API_KEY", "").strip() and pedir_jev is None: return ""
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import jev
+    if not os.environ.get("TYPESAFE_API_KEY", "").strip() and pedir_jev is None and not jev.COMPOSIO: return ""   # en el sandbox de Composio, sí
     t = bruto.decode("utf-8", "replace")
     t = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", re.sub(r"(?s)<script.*?</script>|<style.*?</style>", " ", t)))[:5000]
     try: r, _ = jev.preguntar({"fuente": fuente, "fallo": fallo, "pagina": t}, jev.preguntas_pagina(), intentos=2, pedir=pedir_jev)
@@ -464,7 +464,7 @@ def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):
     return " · Jev: el dato parece seguir en la página (¿cambio de formato?)" if p >= 0.7 else " · Jev: el dato ya no parece estar en la página" if p <= 0.3 else ""
 
 
-def revisar(L=ADRA):
+def revisar(L=ADRA, solo=None):
     def una(f):
         ULTIMA.b = b""
         try: return f.__name__, "BIEN", f(L)
@@ -474,7 +474,7 @@ def revisar(L=ADRA):
             if isinstance(e, (ValueError, KeyError)) and ULTIMA.b: d += segunda_mirada(f.__name__, d, ULTIMA.b)
             return f.__name__, "ROTA", d
     with ThreadPoolExecutor(6) as ex:
-        return list(ex.map(una, FUENTES))
+        return list(ex.map(una, [f for f in FUENTES if not solo or f.__name__ in solo]))
 
 
 def main():

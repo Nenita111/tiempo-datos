@@ -147,8 +147,12 @@ en la zona del pueblo o su costa; terremotos del IGN que se pueden notar (magnit
 4 a menos de 200 km); cortes de agua o luz apuntados en extras.json o en los titulares de Noticias de Almería (Google Noticias
 y Diario de Almería prohíben en robots.txt a los agentes como este: no se usan); cortes de agua de Hidralia de su mapa de obras y
 afectaciones (la capa pública de cierres de Agbar en ArcGIS, la misma que lee la app: planificados o en curso que empiezan en menos
-de 36 horas o ya han empezado y no han pasado su previsión de restablecimiento). Imprime una línea JSON con los nuevos y apunta en
-`avisos_enviados.json` lo enviado (30 días), para no repetir. Ese fichero solo lleva códigos de avisos públicos.
+de 36 horas o ya han empezado y no han pasado su previsión de restablecimiento); y (3.7) las ofertas de empleo nuevas de la zona
+(`zona.py`: provincia de Almería sin el Levante, la costa de Granada hasta Motril): las de empleo público del SAE (su lista, cada vez), las de
+los entes de la Junta de la zona y las convocatorias del SAS de la zona (de extras.json «etiquetas.ofertas» y «sas.avisar», que pone la tarea
+diaria con Jev); la primera vez que llega cada lista, solo se apuntan. Imprime una línea JSON con los nuevos y «guardar» (si el fichero ha
+cambiado, también sin nada nuevo: hay que subirlo) y apunta en `avisos_enviados.json` lo enviado (30 días), para no repetir. Ese fichero
+solo lleva códigos de avisos y de ofertas públicos.
 
 ## 7. Jev (TypeSafe System One): decisiones cerradas en las tareas de la nube
 
@@ -165,7 +169,11 @@ suya, conectada en Composio). Las tareas llevan el conector JEV. Los scripts no 
 2. En la tarea: `mkdir -p /tmp/jev && curl -sSL "<url>" -o /tmp/jev/cache.json` y el script con `JEV_CACHE=/tmp/jev/cache.json` delante.
    Cada pregunta igual encuentra su respuesta (la clave es el hash de la petición entera); si una no está (la fuente cambió entre una vez y
    otra), ese elemento se queda sin Jev y el resto sigue. diario.py lo dice en «jev» («N respuestas por Composio, M sin respuesta»).
-En el buzón, la comprobación de cada captura va directa: `jev_captura(SHA, texto, datos)` (lo mismo que comprobar_captura.py).
+En el buzón, la comprobación de cada captura va directa: `jev_captura(SHA, texto, datos, tipo)` (lo mismo que comprobar_captura.py; con
+tipo —sorteo, corte, actividad o colecta— Jev dice además qué anuncia la captura y, si ve otra cosa con seguridad, no cuadra «tipo»).
+Fuentes rotas de la revisión (3.7): `jev_revision(SHA, [fuentes])` las vuelve a pedir desde el sandbox y Jev dice si el dato parece seguir en la
+página. Las respuestas de Jev se guardan en el sandbox (`/mnt/files/tiempo/jev_cache.json`) 14 días desde la última vez que se usaron: lo ya
+preguntado no se vuelve a preguntar (los mismos titulares cada 2 horas, las mismas ofertas cada día).
 Sin la caché, con la variable `TYPESAFE_API_KEY` en el entorno, directo a la API (como antes); sin nada, cada script sigue como antes de Jev.
 Nunca se imprime ni se escribe ninguna clave.
 
@@ -177,7 +185,9 @@ Nunca se imprime ni se escribe ninguna clave.
   sin repetir las de los últimos 7 días ni la de ayer. extras.json «receta». La lista es `recetas.json`, copia de la de la página
   (`herramientas/exportar_recetas.py` del proyecto de la app).
 - `sas.py` (diario): el BOJA (sección 2.2) y el BOE de 7 días, como la tele; Jev etiqueta cada disposición del SAS (convocatoria, lista
-  provisional o definitiva, nombramiento, cese, bolsa, traslado u otra; Almería, toda Andalucía, otra o no consta). extras.json «sas».
+  provisional o definitiva, nombramiento, cese, bolsa, traslado u otra; Almería, toda Andalucía, otra o no consta) y (3.7) su zona (Almería sin
+  lo que es solo del Levante, solo el Levante, la costa de Granada hasta Motril, toda Andalucía, otra o no consta: la tele la usa para enseñar
+  solo lo de la zona). extras.json «sas», con «avisar»: las convocatorias de la zona, para los avisos al móvil.
 - `sortea2.py` (diario): el RSS de sortea2.com (30 últimas promociones de todos los países), los que nombran la zona y, con Jev, los que
   son sorteos de un comercio de la zona, no para toda España, y dicen cuándo acaban. Imprime candidatos; no apunta nada.
 - `titulares.py`, en la misma pregunta: si el titular anuncia una actividad o una colecta en el pueblo → candidatos para la agenda y las
@@ -185,7 +195,8 @@ Nunca se imprime ni se escribe ninguna clave.
 - `etiquetas.py` (diario): extras.json «etiquetas»: el alérgeno de cada alerta de la AESAN, si el medicamento retirado se vende sin receta
   (base oficial CIMA, por su número de registro) y si hay que devolver los de casa, si el producto de Safety Gate es para niños (juguetes y
   puericultura por su categoría) y la titulación mínima y si la experiencia es requisito en cada oferta de la Junta; además, la agenda sin la
-  misma actividad dos veces y en cada sorteo cómo se participa («participa»).
+  misma actividad dos veces y en cada sorteo cómo se participa («participa»); (3.7) en cada oferta de empleo público del SAE de la zona, quién contrata, la titulación mínima
+  y si pide experiencia («sae»), y en las de la Junta, si son de la zona («zona», por sus lugares de trabajo).
 - `comprobar_captura.py` (buzón): antes de apuntar una captura, Jev mira dato por dato si el texto transcrito dice lo que se va a apuntar; si
   no cuadra, «REVISAR (no cuadra …)».
 - `revisar_fuentes.py` revisa también Jev (`jev_`) y ESIOS (`esios`): Jev por Composio, cuántas respuestas trajo el sandbox (vacía o sin

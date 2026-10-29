@@ -10,12 +10,19 @@ En la tarea, una celda del workbench (SHA = `git rev-parse HEAD` del clon de la 
 Si contesta «"listo": false», otra celda: print(jev_esperar()). Con «"listo": true» trae «url» (y «error» si algo falló):
   mkdir -p /tmp/jev && curl -sSL "URL" -o /tmp/jev/cache.json && JEV_CACHE=/tmp/jev/cache.json python3 -I herramientas/diario.py extras.json
 Pasos: "diario" (los de diario.py que quitan lo pasado y los que preguntan a Jev, en su orden, y sortea2.py) y "avisos" (los titulares de
-avisos_movil.py). Capturas del buzón, lo mismo que comprobar_captura.py: print(jev_captura("SHA", texto, {"cuenta": "@…", "hasta": "…"})).
+avisos_movil.py). Capturas del buzón, lo mismo que comprobar_captura.py: print(jev_captura("SHA", texto, {"cuenta": "@…", "hasta": "…"}, "sorteo")).
+Fuentes rotas de la revisión (3.7): print(jev_revision("SHA", ["luz", …])): el sandbox las vuelve a pedir y, si la web responde pero falta la
+marca, Jev dice si el dato parece seguir en la página («pistas»).
+
+Las respuestas de Jev se guardan en el sandbox (CACHE, en /mnt/files, que Composio conserva) 14 días desde la última vez que se usaron: lo que
+ya se preguntó (los mismos titulares cada 2 horas, las mismas ofertas cada día) no se vuelve a preguntar.
 """
 import contextlib, io, json, os, runpy, shutil, sys, tarfile, threading, time, urllib.request, uuid
 
 JEV_REPO = "Nenita111/tiempo-datos"
 JEV_BASE = "/home/user/tiempo-datos-"
+JEV_CACHE = "/mnt/files/tiempo/jev_cache.json"     # {clave: {"r": respuesta, "t": "AAAA-MM-DD" de la última vez que se usó}}
+JEV_DIAS = 14
 _jev = globals().setdefault("_jev", {"hilo": None, "estado": None, "raiz": None, "sha": None})
 
 
@@ -56,8 +63,29 @@ def _jev_cargar(raiz):
     os.environ["TZ"] = "Europe/Madrid"; time.tzset()      # como en la tarea (el sandbox va en UTC)
     for v in ("JEV_CACHE", "JEV_FALTAN"): os.environ.pop(v, None)
     import jev
-    jev.COMPOSIO, jev.GUARDADAS, jev._CACHE = run_composio_tool, {}, {}
+    jev.COMPOSIO, jev.GUARDADAS, jev._CACHE = run_composio_tool, {}, {k: v["r"] for k, v in _jev_leer().items()}
     return jev
+
+
+def _jev_leer():
+    try:
+        with open(JEV_CACHE, encoding="utf-8") as f: c = json.load(f)
+        return c if isinstance(c, dict) else {}
+    except (OSError, ValueError): return {}
+
+
+def _jev_guardar(usadas):
+    """Lo usado en esta pasada, con la fecha de hoy; fuera lo que no se usa desde hace más de JEV_DIAS días."""
+    import datetime as dt
+    hoy = dt.date.today(); c = _jev_leer()
+    for k, r in usadas.items(): c[k] = {"r": r, "t": hoy.isoformat()}
+    c = {k: v for k, v in c.items() if (hoy - dt.date.fromisoformat(v.get("t", "2000-01-01"))).days <= JEV_DIAS}
+    try:
+        os.makedirs(os.path.dirname(JEV_CACHE), exist_ok=True)
+        with open(JEV_CACHE + ".tmp", "w", encoding="utf-8") as f: json.dump(c, f, ensure_ascii=False)
+        os.replace(JEV_CACHE + ".tmp", JEV_CACHE)
+    except OSError: pass
+    return len(c)
 
 
 def _jev_paso(raiz, script, *args):
@@ -101,6 +129,7 @@ def _jev_trabajo(paso, sha, est):
         f = os.path.join(os.path.dirname(raiz), "jev_cache.json")
         with open(f, "w", encoding="utf-8") as x: json.dump(jev.GUARDADAS, x, ensure_ascii=False)
         est["respuestas"] = len(jev.GUARDADAS)
+        est["guardadas"] = _jev_guardar(jev.GUARDADAS)
         r, err = upload_local_file(f)
         if err: raise RuntimeError(f"no se pudo subir: {err}")
         d = r.get("data") if isinstance(r, dict) and isinstance(r.get("data"), dict) else r
@@ -147,13 +176,29 @@ def jev_correr(paso, sha=None, espera=160):
     return jev_esperar(espera)
 
 
-def jev_captura(sha, texto, datos):
-    """Lo de comprobar_captura.py (dato por dato, ¿lo dice la captura?) por Composio: {"ok", "datos", "no_cuadra", "juez"}."""
+def jev_captura(sha, texto, datos, tipo=None):
+    """Lo de comprobar_captura.py (dato por dato, ¿lo dice la captura?; con tipo, además ¿qué anuncia?) por Composio:
+    {"ok", "datos", "no_cuadra", "juez", "tipo"}."""
     h = _jev["hilo"]
     if h and h.is_alive(): h.join(160)
     raiz = _jev_repo(sha)
-    _jev_cargar(raiz)
+    jev = _jev_cargar(raiz)
     import comprobar_captura as C
     with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
-        r = C.comprobar(texto, datos)
+        r = C.comprobar(texto, datos, tipo=tipo)
+    _jev_guardar(jev.GUARDADAS)
     return json.dumps(r, ensure_ascii=False)
+
+
+def jev_revision(sha, fuentes):
+    """Las fuentes que la revisión de la tarea dio por ROTAS, otra vez desde el sandbox: {"fuentes": {nombre: [estado, detalle]}}; si la web
+    responde pero falta la marca, el detalle lleva la pista de Jev («el dato parece seguir en la página…»)."""
+    h = _jev["hilo"]
+    if h and h.is_alive(): h.join(160)
+    raiz = _jev_repo(sha)
+    jev = _jev_cargar(raiz)
+    import revisar_fuentes as R
+    with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+        r = R.revisar(solo=set(fuentes))
+    _jev_guardar(jev.GUARDADAS)
+    return json.dumps({"fuentes": {n: [e, d] for n, e, d in r}}, ensure_ascii=False)

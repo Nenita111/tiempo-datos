@@ -5,7 +5,10 @@ hay que entender del texto, con Jev (jev.py). Se leen las mismas listas que lee 
   - «med» {código de la AEMPS: {"sinReceta", "devolver"}}: si se vende sin receta lo dice la base oficial de medicamentos CIMA (por el número
     de registro de cada medicamento); si hay que devolver los de casa, Jev con el texto de la medida.
   - «prod» {id de Safety Gate: {"ninos"}}: si es para niños: los juguetes y artículos de puericultura por su categoría; los demás, Jev.
-  - «ofertas» {id de la oferta de la Junta: {"nivel", "experiencia"}}: la titulación mínima y si la experiencia es requisito (Jev, con la ficha).
+  - «ofertas» {id de la oferta de la Junta: {"nivel", "experiencia", "zona", "puesto", "entidad", "hasta"}}: la titulación mínima y si la
+    experiencia es requisito (Jev, con la ficha); si es de la zona (zona.py, por sus lugares de trabajo) y lo necesario para avisar al móvil.
+  - «sae» {id de la oferta del SAE: {"nivel", "experiencia", "entidad"}} (3.7): las de empleo público de la zona (zona.py), con la titulación
+    mínima, si pide experiencia y quién contrata (Jev, con el texto de la oferta).
 Y en extras.json mismo: la agenda sin la misma actividad apuntada dos veces (Jev compara las del mismo día) y en cada sorteo cómo se participa
 («participa», una etiqueta de una lista fija). Sin Jev, solo lo exacto (sin receta, categoría de juguetes) y no toca la agenda ni los sorteos.
 Lo ya etiquetado no se vuelve a preguntar; lo que la tele ya no enseña se olvida.
@@ -15,7 +18,7 @@ Lo ya etiquetado no se vuelve a preguntar; lo que la tele ya no enseña se olvid
 import datetime as dt, html, json, os, re, sys, urllib.error, urllib.request
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import jev
+import jev, zona
 
 TZ = ZoneInfo("Europe/Madrid")
 UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"       # el de la app
@@ -134,6 +137,21 @@ def filas_ofertas(h):
     return out
 
 
+def filas_detalle(h):
+    """Las filas del buscador: id, puesto y entidad (como Empleo.filas de la app)."""
+    out = []
+    for tr in re.findall(r"(?s)<tr>(.*?)</tr>", h.split("<tbody", 1)[-1] if "<tbody" in h else ""):
+        m = re.search(r"ofertas-empleo/detalle/(\d+)\.html", tr)
+        c = [limpio(x) for x in re.findall(r"(?s)<td[^>]*>(.*?)</td>", tr)]
+        if m and len(c) >= 4: out.append({"id": m.group(1), "puesto": c[0], "entidad": c[3]})
+    return out
+
+
+def hasta_oferta(h):
+    m = re.search(r"(?s)field-ofem-fecha-ini.*?field__item\">\s*(\d{2})/(\d{2})/(\d{4})\s*-\s*(\d{2})/(\d{2})/(\d{4})", h)
+    return f"{m.group(6)}-{m.group(5)}-{m.group(4)}" if m else ""
+
+
 def ficha_oferta(h):
     tit = re.search(r'(?s)field--name-field-ofem-titulacion-oficial[\s"].*?class="field__item">(.*?)</div>', h)
     t = limpio(re.sub(r"(?s)<script.*?</script>|<style.*?</style>", " ", h))
@@ -145,8 +163,8 @@ def ficha_oferta(h):
 def etiquetar(x, hoy, red=pedir, pedir_jev=None):
     """Pone «etiquetas» en x y arregla agenda y sorteos. Devuelve un resumen. Sin Jev, solo lo exacto."""
     E = x.get("etiquetas") or {}
-    nuevas = {k: {} for k in ("alim", "med", "prod", "ofertas")}
-    hay_jev, motivo, n = True, "", {"alim": 0, "med": 0, "prod": 0, "ofertas": 0, "agenda_quitadas": 0, "sorteos": 0}
+    nuevas = {k: {} for k in ("alim", "med", "prod", "ofertas", "sae")}
+    hay_jev, motivo, n = True, "", {"alim": 0, "med": 0, "prod": 0, "ofertas": 0, "sae": 0, "agenda_quitadas": 0, "sorteos": 0}
     fallos = []
 
     def jev_(estado, preguntas):
@@ -186,20 +204,31 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
             if r: nuevas["prod"][p["id"]] = {"ninos": r["ninos"]["noul"]}; n["prod"] += 1
     except Exception as e: fallos.append(f"Safety Gate: {e}"[:160]); nuevas["prod"] = E.get("prod") or {}
     try:
-        ids = []
+        filas = []
         for pag in range(4):
             h = red(f"{OFERTAS}?field_ofem_fecha_fin_value%5B1%5D=1&items_per_page=50&sort_by=field_ofem_fecha_publi_value&page={pag}")
-            nuevos = filas_ofertas(h); ids += nuevos
+            nuevos = filas_detalle(h); filas += nuevos
             if len(nuevos) < 50: break
-        preguntadas = 0
-        for i in ids:
-            ya = (E.get("ofertas") or {}).get(i)
-            if ya: nuevas["ofertas"][i] = ya; continue
-            if not hay_jev or preguntadas >= 60: continue
-            f = ficha_oferta(red(f"{JUNTA}/organismos/transparencia/empleo-publico/entidades-instrumentales/ofertas-empleo/detalle/{i}.html"))
-            r = jev_({"oferta": f}, jev.preguntas_oferta()); preguntadas += 1
-            if r: nuevas["ofertas"][i] = {"nivel": r["nivel"]["choice"], "experiencia": r["experiencia"]["noul"]}; n["ofertas"] += 1
+        pedidas = 0
+        for fila in filas:
+            i = fila["id"]; ya = dict((E.get("ofertas") or {}).get(i) or {})
+            if "zona" in ya and ("nivel" in ya or not hay_jev): nuevas["ofertas"][i] = ya; continue
+            if pedidas >= 60: continue
+            h = red(f"{JUNTA}/organismos/transparencia/empleo-publico/entidades-instrumentales/ofertas-empleo/detalle/{i}.html"); pedidas += 1
+            e = ya | {"zona": zona.junta_en_zona(zona.lugares_ficha(h)), "puesto": fila["puesto"], "entidad": fila["entidad"], "hasta": hasta_oferta(h)}
+            if "nivel" not in e:
+                r = jev_({"oferta": ficha_oferta(h)}, jev.preguntas_oferta())
+                if r: e |= {"nivel": r["nivel"]["choice"], "experiencia": r["experiencia"]["noul"]}; n["ofertas"] += 1
+            nuevas["ofertas"][i] = e
     except Exception as e: fallos.append(f"ofertas de la Junta: {e}"[:160]); nuevas["ofertas"] = E.get("ofertas") or {}
+    # 3.7: las de empleo público del SAE de la zona
+    try:
+        for o in zona.ofertas_sae(json.loads(red(zona.SAE, b"{}", "application/json")), dt.datetime.now(TZ)):
+            ya = (E.get("sae") or {}).get(o["id"])
+            if ya: nuevas["sae"][o["id"]] = ya; continue
+            r = jev_({"oferta": {"puesto": o["puesto"], "ocupacion": o["ocupacion"], "texto": o["texto"]}}, jev.preguntas_oferta_sae())
+            if r: nuevas["sae"][o["id"]] = {"nivel": r["nivel"]["choice"], "experiencia": r["experiencia"]["noul"], "entidad": r["entidad"]["choice"]}; n["sae"] += 1
+    except Exception as e: fallos.append(f"ofertas del SAE: {e}"[:160]); nuevas["sae"] = E.get("sae") or {}
 
     # la agenda sin repetidos: solo las del mismo día, por parejas
     ag = x.get("agenda") or []; fuera = set()

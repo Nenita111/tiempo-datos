@@ -87,7 +87,9 @@ def _apuntar_falta(k):
 def _pedir(cuerpo, timeout):
     k = clave(cuerpo)
     c = cache()
-    if k in c: return c[k]
+    if k in c:
+        if COMPOSIO: GUARDADAS[k] = c[k]             # en el sandbox, lo que sale de la caché guardada también se sube (la tarea la necesita)
+        return c[k]
     if COMPOSIO:
         r = _por_composio(cuerpo)
         GUARDADAS[k] = c[k] = r
@@ -220,9 +222,25 @@ PROV_SAS = {
 }
 
 
+# 3.7 (lo pidió Isa el 29 oct 2026): la zona de la tele, para enseñar solo lo de Almería (sin lo que es solo del Levante), lo de la costa de
+# Granada hasta Motril y lo de toda Andalucía (la comarca Levante Almeriense: Orden de 14 de marzo de 2003, BOJA 59)
+ZONA_SAS = {
+    "almeria": "A centre or area in the province of Almería that is not only in the Levante Almeriense comarca (Torrecárdenas, Poniente, "
+               "Distrito Almería, Distrito Poniente, the Área de Gestión Sanitaria Norte de Almería as a whole, the Alto Almanzora)",
+    "levante": "Only the Levante Almeriense comarca: Hospital La Inmaculada (Huércal-Overa) or a health centre in Antas, Bédar, Carboneras, "
+               "Cuevas del Almanzora, Los Gallardos, Garrucha, Huércal-Overa, Lubrín, Mojácar, Pulpí, Sorbas, Turre or Vera",
+    "costa_granada": "The coast of Granada from Motril towards Almería: Área de Gestión Sanitaria Sur de Granada, Hospital Santa Ana de Motril, "
+                     "or a health centre in Motril, Calahonda, Castell de Ferro, Polopos, La Mamola, Albuñol or La Rábita",
+    "andalucia": "The whole Andalusian Health Service, with no particular centre, area or province",
+    "otra": "A centre or area in another province (including the rest of the province of Granada)",
+    "no_consta": "The text does not say",
+}
+
+
 def preguntas_sas():
     return {"tipo": choice("What does `disposicion.texto` (the title of a Spanish official gazette entry about the Andalusian Health Service) do?", TIPOS_SAS),
-            "provincia": choice("Which place does `disposicion.texto` concern?", PROV_SAS)}
+            "provincia": choice("Which place does `disposicion.texto` concern?", PROV_SAS),
+            "zona": choice("Which area does `disposicion.texto` concern?", ZONA_SAS)}
 
 
 # ------------------------------------------------------------------ 5. Titulares: además del corte, ¿anuncia una actividad o una colecta?
@@ -281,6 +299,24 @@ def preguntas_oferta():
             "experiencia": noul("Does `oferta.requisitos` make previous work experience a mandatory requirement to apply (not just a merit that adds points)?")}
 
 
+# 3.7: las ofertas de empleo público del SAE (estado: {"oferta": {"puesto", "ocupacion", "texto"}}): además, quién contrata
+ENTIDADES = {
+    "ayuntamiento": "A town council or a municipal body (Ayuntamiento, patronato municipal, mancomunidad)",
+    "diputacion": "A provincial council (Diputación Provincial)",
+    "junta": "The regional government of Andalusia or its agencies (Junta de Andalucía, consejería, SAS, SAE)",
+    "estado": "The Spanish central government or its agencies",
+    "empresa_publica": "A public company, foundation or consortium",
+    "universidad": "A public university",
+    "otra": "Another employer, or the text does not say",
+}
+
+
+def preguntas_oferta_sae():
+    return {"nivel": choice("What is the lowest qualification level that the job described in `oferta` requires?", NIVELES),
+            "experiencia": noul("Does `oferta` make previous work experience a mandatory requirement (not just a merit)?"),
+            "entidad": choice("Who is the employer offering the job described in `oferta`?", ENTIDADES)}
+
+
 # ------------------------------------------------------------------ 10. Agenda: ¿dos actividades son la misma?
 def preguntas_mismo_evento():
     return {"mismo": noul("Do `a` and `b` (two entries of a town's agenda for the same day) describe the same event?",
@@ -310,11 +346,22 @@ CAMPOS_CAPTURA = {
 }
 
 
-def preguntas_captura(datos):
-    """datos: {campo: valor}; cada uno, una pregunta «¿lo dice el texto?»."""
-    return {c: noul(f"Does `texto` (the transcription of a social media post) say that " + CAMPOS_CAPTURA.get(c, c + " is {v}").format(v=v) + "?",
-                    si="The text states it (same meaning, maybe other words or date format)", no="The text does not say it, or says something else")
-            for c, v in datos.items()}
+TIPOS_CAPTURA = {
+    "sorteo": "A giveaway or prize draw (sorteo, concurso, regalamos)",
+    "corte": "A planned or ongoing cut of water, electricity or a road (corte, interrupción del suministro, calle cortada)",
+    "actividad": "A public activity or event on a given day (concert, fair, festivity, sports event, talk, market, exhibition)",
+    "colecta": "A blood donation drive (donación de sangre, colecta, Centro de Transfusión)",
+    "otro": "Anything else",
+}
+
+
+def preguntas_captura(datos, tipo=None):
+    """datos: {campo: valor}; cada uno, una pregunta «¿lo dice el texto?». Con tipo (3.7), además «¿qué es?» (TIPOS_CAPTURA)."""
+    q = {c: noul(f"Does `texto` (the transcription of a social media post) say that " + CAMPOS_CAPTURA.get(c, c + " is {v}").format(v=v) + "?",
+                 si="The text states it (same meaning, maybe other words or date format)", no="The text does not say it, or says something else")
+         for c, v in datos.items()}
+    if tipo: q["_tipo"] = choice("What does `texto` (the transcription of a social media post) announce?", TIPOS_CAPTURA)
+    return q
 
 
 # ------------------------------------------------------------------ 13. Revisión de fuentes: ¿el dato sigue en la página?
