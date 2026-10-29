@@ -6,11 +6,15 @@ Cómo se busca está en CLAUDE.md. Cada búsqueda (una por aeropuerto) se guarda
 
   python3 vuelos.py extras.json LEI=lei.txt GRX=grx.json AGP=agp.txt RMU=rmu.txt --buscado 2026-10-25 \
       --busqueda "ida y vuelta en noviembre, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)"
+  python3 vuelos.py extras.json --sesion --busqueda "…"   # sin ficheros: las respuestas de Kiwi de la sesión de hoy
+
+Con --sesion no hace falta copiar nada: las respuestas del conector de Kiwi quedan en el registro de la sesión de Claude Code
+(~/.claude/projects/**/*.jsonl, o en …/tool-results/ si son grandes) y se toma la última de cada aeropuerto de las últimas 12 horas.
 
 Guarda hasta 6 por aeropuerto (del más barato al más caro) con su enlace de Kiwi (la tele dibuja el QR del más barato)
 y rellena también los campos antiguos («vuelos», solo Almería) para la versión vieja de la app.
 """
-import argparse, datetime as dt, json, sys
+import argparse, datetime as dt, glob, json, os, sys, time
 
 ORIGEN = {"LEI": "Almería", "GRX": "Granada", "AGP": "Málaga", "RMU": "Murcia"}
 ORDEN = ["LEI", "GRX", "AGP", "RMU"]
@@ -49,6 +53,45 @@ def leer(fichero):
     if texto.startswith("{"):
         return [de_kiwi(i) for i in json.loads(texto)["itineraries"]]
     return [de_linea(l) for l in texto.splitlines() if l.strip() and not l.startswith("#")]
+
+
+def cadenas(o):
+    """Las cadenas de un JSON, también las que son a su vez JSON (el resultado del conector va dentro del registro)."""
+    if isinstance(o, str):
+        if o[:1] in "{[" and '"itineraries"' in o:
+            try: yield json.loads(o); return
+            except ValueError: pass
+        yield o
+    elif isinstance(o, dict):
+        if "itineraries" in o and "query" in o: yield o; return
+        for v in o.values(): yield from cadenas(v)
+    elif isinstance(o, list):
+        for v in o: yield from cadenas(v)
+
+
+RAIZ_SESION = os.path.join(os.path.expanduser(os.environ.get("CLAUDE_CONFIG_DIR", "~/.claude")), "projects")
+
+
+def de_la_sesion(raiz=RAIZ_SESION, horas=12):
+    """{aeropuerto: vuelos} con la última respuesta de Kiwi de cada aeropuerto de origen en el registro de la sesión."""
+    limite = time.time() - horas * 3600
+    fich = [f for f in glob.glob(os.path.join(raiz, "**", "*.jsonl"), recursive=True) + glob.glob(os.path.join(raiz, "**", "tool-results", "*"), recursive=True)
+            if os.path.getmtime(f) >= limite]
+    fich.sort(key=os.path.getmtime)                       # de la más vieja a la más nueva: la última respuesta manda
+    res = {}
+    for f in fich:
+        try: crudo = open(f, encoding="utf-8", errors="replace").read()
+        except OSError: continue
+        if "itineraries" not in crudo: continue
+        for l in (crudo.splitlines() if f.endswith(".jsonl") else [crudo]):
+            if "itineraries" not in l: continue
+            try: o = json.loads(l)
+            except ValueError: continue
+            for d in cadenas(o):
+                if isinstance(d, dict) and d.get("itineraries"):
+                    origen = d["itineraries"][0]["outbound"]["from"]
+                    res[origen] = [de_kiwi(i) for i in d["itineraries"] if i["outbound"]["from"] == origen]
+    return res
 
 
 def vuelo(r):
@@ -91,11 +134,16 @@ def actualizar(x, busquedas, buscado, busqueda):
 
 def main():
     a = argparse.ArgumentParser()
-    a.add_argument("extras"); a.add_argument("ficheros", nargs="+", help="CÓDIGO=fichero, p. ej. LEI=lei.txt")
+    a.add_argument("extras"); a.add_argument("ficheros", nargs="*", help="CÓDIGO=fichero, p. ej. LEI=lei.txt")
+    a.add_argument("--sesion", action="store_true", help="las respuestas de Kiwi del registro de la sesión (las de las últimas 12 h)")
     a.add_argument("--buscado", default=dt.date.today().isoformat()); a.add_argument("--busqueda", required=True)
     o = a.parse_args()
     x = json.load(open(o.extras, encoding="utf-8"))
-    busquedas = {par.split("=", 1)[0].upper(): leer(par.split("=", 1)[1]) for par in o.ficheros}
+    busquedas = de_la_sesion() if o.sesion else {}
+    busquedas.update({par.split("=", 1)[0].upper(): leer(par.split("=", 1)[1]) for par in o.ficheros})
+    if not busquedas: sys.exit("No hay búsquedas de Kiwi (ni ficheros ni en la sesión): no se toca nada")
+    faltan = [c for c in ORDEN if c not in busquedas]
+    if faltan: print("Sin búsqueda de: " + ", ".join(faltan), file=sys.stderr)
     actualizar(x, busquedas, o.buscado, o.busqueda)
     json.dump(x, open(o.extras, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(", ".join(f"{a['origen']} {len(a['vuelos'])}" for a in x["aeropuertos"]))

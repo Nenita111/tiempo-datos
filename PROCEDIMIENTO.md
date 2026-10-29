@@ -2,6 +2,11 @@
 
 Datos siempre reales: nada inventado ni estimado. Si algo no se puede comprobar, no se apunta.
 
+Para gastar pocos tokens, la tarea diaria hace de una vez todo lo que no hay que buscar con
+`python3 -I herramientas/diario.py extras.json` (puntos 2b, 2c y 2h sin argumentos, 2d, 2e, 2f, 2g y 3; quita también los sorteos
+acabados): imprime una sola línea JSON con lo que ha ido mal, las fuentes ROTAS y cuántas actividades, colectas, sorteos y cortes
+hay. Lo único que hace a mano es buscar (vuelos, sorteos, agenda y colectas de sangre) y apuntar lo que encuentre.
+
 ## 1. Vuelos baratos (Kiwi.com)
 
 Una búsqueda por aeropuerto, todas el mismo día, con el conector de Kiwi.com:
@@ -11,10 +16,11 @@ Una búsqueda por aeropuerto, todas el mismo día, con el conector de Kiwi.com:
   `nights_in_dst_from: 2`, `nights_in_dst_to: 5`, `sort: "price"`, `locale: "es"`.
 - **Salida con al menos 3 días de antelación**: `departureDate` = día de la búsqueda + 3 días como mínimo
   y `departureDateTo` unas 4–5 semanas después. Nunca vuelos que salgan antes.
-- Cada resultado se apunta en un fichero por aeropuerto, una línea por vuelo:
-  `precio|bookingUrl|destino IATA|ciudad destino|ida AAAA-MM-DD|origen vuelta IATA|vuelta AAAA-MM-DD|compañía ida|compañía vuelta`
-- `python3 herramientas/vuelos.py extras.json LEI=lei.txt GRX=grx.txt AGP=agp.txt RMU=rmu.txt --buscado AAAA-MM-DD --busqueda "…"`
-  guarda hasta 6 por aeropuerto con su enlace (la tele dibuja el QR del más barato).
+- `python3 -I herramientas/vuelos.py extras.json --sesion --busqueda "…"` toma las respuestas de Kiwi del registro de la sesión
+  (la última de cada aeropuerto) y guarda hasta 6 por aeropuerto con su enlace (la tele dibuja el QR del más barato): no hace falta
+  copiar nada. Si no las encuentra, cada resultado se apunta en un fichero por aeropuerto, una línea por vuelo
+  (`precio|bookingUrl|destino IATA|ciudad destino|ida AAAA-MM-DD|origen vuelta IATA|vuelta AAAA-MM-DD|compañía ida|compañía vuelta`)
+  y `python3 herramientas/vuelos.py extras.json LEI=lei.txt GRX=grx.txt AGP=agp.txt RMU=rmu.txt --buscado AAAA-MM-DD --busqueda "…"`.
 
 ## 2. Sorteos de Instagram (de Motril a Almería capital)
 
