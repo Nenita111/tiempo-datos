@@ -1,8 +1,8 @@
 {
-  "versionCode": 29,
-  "versionName": "3.8",
+  "versionCode": 30,
+  "versionName": "3.9",
   "apk": "app/Tiempo.apk",
-  "sha256": "9894f855d45a5d098bfefa970703e315290cd0d99214e0edb8f9a4ae21d5e873",
-  "bytes": 1122203,
-  "notas": "3.8: el tipo de alimento con su icono en las alertas, a quién van dirigidas las ofertas, el plazo de solicitudes de las convocatorias del SAS, gratis o para niños en la agenda, los requisitos de los sorteos y las novedades de barco dragón de la Federación Andaluza (Jev)"
+  "sha256": "23ded7c333403ca11ebf85c9c3f9a98e81ba2a13a636a1c25115e567cd683916",
+  "bytes": 1140603,
+  "notas": "3.9: cámaras de la DGT del trayecto Adra → Almería a cámara rápida (sin Federico García Lorca ni Carretera de Ronda), aviso de tormentas geomagnéticas fuertes con el día previsto, mapa animado del oleaje de 72 h (Puertos del Estado y AEMET). Revisión: menos descargas con la tele encendida o en reposo, datos que no se pierden si una fuente falla, pantallas que se ajustan a lo que llevan."
 }
