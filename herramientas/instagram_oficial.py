@@ -2,7 +2,7 @@
 
 Lee las publicaciones públicas recientes de una lista de cuentas profesionales (comercios, ayuntamientos, medios)
 y devuelve las que hablan de un sorteo. Hace falta una cuenta profesional propia enlazada a una página de Facebook
-y una app de Meta en modo desarrollo. El token de la página va como «network secret» del entorno en la nube (Bearer
+y una app de Meta en modo desarrollo. El token de la página va en la variable IG_TOKEN del entorno en la nube (si no, se espera que lo añada el proxy: Bearer
 para graph.facebook.com): lo añade el proxy y la sesión no lo ve. Con él, el id de la cuenta de Instagram se averigua
 solo (IG_USER_ID lo fija a mano). Si existe IG_TOKEN se usa ese (pruebas); nunca se escribe en el repositorio ni en la
 salida. Una petición por cuenta.

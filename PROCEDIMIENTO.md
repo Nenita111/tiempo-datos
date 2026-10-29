@@ -55,9 +55,9 @@ revisa varias veces al día con el conector de Drive; Instagram no se abre en ni
   fuera de la zona y las que no son sorteos ni cortes se archivan sin apuntar.
 - Opcional, API oficial de Instagram: `python3 herramientas/instagram_oficial.py @cuenta1 @cuenta2 …` lee con
   Business Discovery las publicaciones recientes de cuentas profesionales de la zona y propone las que hablan de
-  sorteos (mismas reglas para apuntarlas, con su enlace). Necesita el token de la página como «network secret» del
-  entorno en la nube (Bearer, host `graph.facebook.com`): lo pone el proxy y la sesión no lo ve; el id de la cuenta
-  se averigua solo. Sin el secreto sale con código 3 y no hace nada. `--probar` comprueba si deja leer cuentas
+  sorteos (mismas reglas para apuntarlas, con su enlace). Necesita el token de la página en la variable `IG_TOKEN`
+  de las «Variables de entorno» del entorno en la nube; el id de la cuenta se averigua solo. Sin el token sale con código 3 y
+  no hace nada. `--probar` comprueba si deja leer cuentas
   ajenas. El token no se escribe nunca en el repositorio ni en la salida.
 
 ## 2b. Cortes anunciados en redes del Ayuntamiento
@@ -137,8 +137,8 @@ Comprobar que `extras.json` es JSON válido y que conserva `embalses`, `butano` 
 (ESIOS, indicador 1001, península; si no, REData una sola vez) y hace una imagen de 1080×2400 con una fila por hora,
 su barra y su precio, la hora más barata, la más cara, la media (comparada con hoy) y las 3 horas seguidas más baratas.
 Si ESIOS responde pero aún no ha publicado, mira cada 4 minutos hasta `--esperar` minutos. Sin precios no dibuja nada
-y sale con código 4. La clave de ESIOS la pone el entorno en la nube como «network secret» (cabecera `x-api-key`
-para `api.esios.ree.es`): no va en el repositorio. Desde servidores en la nube Red Eléctrica suele rechazar REData.
+y sale con código 4. La clave de ESIOS va en la variable `ESIOS_API_KEY` de las «Variables de entorno» del entorno en la nube de la
+tarea (los entornos no tienen almacén de secretos; el script la pasa a curl por la entrada): no va en el repositorio. Desde servidores en la nube Red Eléctrica suele rechazar REData.
 
 ## 6. Avisos urgentes al móvil (tarea aparte, cada 2 horas)
 
@@ -153,9 +153,9 @@ de 36 horas o ya han empezado y no han pasado su previsión de restablecimiento)
 ## 7. Jev (TypeSafe System One): decisiones cerradas en las tareas de la nube
 
 `herramientas/jev.py`: el cliente (sin dependencias) y todas las preguntas y umbrales, en un solo sitio. Jev no escribe: contesta sí/no
-con probabilidad o elige una opción de una lista; las fechas, las cuentas y lo exacto se hacen en el código. La clave va como «network
-secret» del entorno en la nube (sitio `api.typesafe.ai`, cabecera `Authorization: Bearer …`; la pone el proxy y la sesión no la ve) o en la
-variable `TYPESAFE_API_KEY`; nunca en el repositorio ni en la salida. Sin clave (401/403) o sin red, cada script sigue como antes.
+con probabilidad o elige una opción de una lista; las fechas, las cuentas y lo exacto se hacen en el código. La clave va en la variable
+`TYPESAFE_API_KEY` de las «Variables de entorno» del entorno en la nube de las tareas (claude.ai/code → icono de nube → engranaje del
+entorno; no hay almacén de secretos: la ve quien use ese entorno); nunca en el repositorio ni en la salida. Sin clave (401/403) o sin red, cada script sigue como antes.
 Nunca va en la app de la tele: el APK es público y la clave quedaría a la vista.
 
 - Avisos al móvil (`avisos_movil.py`): Jev dice si cada titular de Noticias de Almería que nombra el pueblo anuncia un corte de agua o de

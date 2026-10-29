@@ -2,8 +2,8 @@
 
   python3 luz_movil.py salida.png [--dia AAAA-MM-DD] [--esperar MIN] [--apk app/Tiempo.apk]
 
-Fuente: Red Eléctrica. Primero ESIOS (indicador 1001, península); su clave la pone el proxy del entorno en la nube
-(«network secret», cabecera x-api-key) y aquí no se ve ni se guarda. Si ESIOS no responde, la API pública REData,
+Fuente: Red Eléctrica. Primero ESIOS (indicador 1001, península), con la clave personal de la variable ESIOS_API_KEY (en las
+«Variables de entorno» del entorno en la nube de la tarea; se pasa a curl por la entrada, no en la línea de órdenes, y no se imprime). Si ESIOS no responde, la API pública REData,
 una sola vez. Precios en €/kWh del término de energía del PVPC 2.0TD (con peajes y cargos, sin impuestos).
 Sale con código 4 si los precios de ese día aún no están publicados (y no dibuja nada).
 """
@@ -16,10 +16,12 @@ MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto
 SIN_PRECIOS = 4
 
 
-def curl(url, *cabeceras):
+def curl(url, *cabeceras, secreta=None):
+    """secreta: una cabecera con una clave; va a curl por la entrada (-H @-), para que no salga en la lista de procesos."""
     cmd = ["curl", "-sS", "-f", "--max-time", "40", "-A", UA]
     for c in cabeceras: cmd += ["-H", c]
-    r = subprocess.run(cmd + [url], capture_output=True)
+    if secreta: cmd += ["-H", "@-"]
+    r = subprocess.run(cmd + [url], capture_output=True, input=(secreta + "\n").encode() if secreta else None)
     if r.returncode: raise IOError(r.stderr.decode()[:160].strip())
     return json.loads(r.stdout)
 
@@ -47,8 +49,9 @@ def leer(desde, hasta):
     """Precios de [desde, hasta] y de dónde salen. ESIOS y, si no responde, REData (una sola petición)."""
     fallos = []
     try:
+        clave = os.environ.get("ESIOS_API_KEY", "").strip()
         j = curl(f"https://api.esios.ree.es/indicators/1001?start_date={desde}T00:00&end_date={hasta}T23:59&geo_ids[]=8741",
-                 "Accept: application/json; application/vnd.esios-api-v1+json")
+                 "Accept: application/json; application/vnd.esios-api-v1+json", secreta=f"x-api-key: {clave}" if clave else None)
         return (*de_esios(j), "ESIOS", fallos)
     except Exception as e:
         fallos.append(f"ESIOS: {e}")

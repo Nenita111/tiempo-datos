@@ -6,8 +6,9 @@ Aquí decide cosas que una regla de texto hace mal (si un titular anuncia un cor
 receta pega con el tiempo de hoy, de qué tipo es una disposición del SAS); las fechas, las cuentas y lo que se puede comprobar con
 exactitud se hacen en el código. Las preguntas van en inglés (Jev rinde mejor) y los textos, tal cual, en español.
 
-La clave: en la nube, «network secret» del entorno (sitio api.typesafe.ai, cabecera «Authorization: Bearer …»), que pone el proxy
-sin que la sesión la vea; o la variable TYPESAFE_API_KEY (en un ordenador). Nunca en el repositorio ni en la salida. Sin clave
+La clave: la variable TYPESAFE_API_KEY, en las «Variables de entorno» del entorno en la nube de las tareas (claude.ai/code, icono de
+nube, engranaje del entorno; los entornos aún no tienen almacén de secretos: la ve quien use ese entorno, que es personal). Desde la
+nube api.typesafe.ai ya responde (sin clave, 403 «Must supply an API key»). Nunca en el repositorio ni en la salida. Sin clave
 (401/403) o sin red: SinJev, y cada script sigue como antes de Jev (reglas de texto o nada).
 """
 import json, os, time, urllib.error, urllib.request
@@ -23,7 +24,7 @@ class SinJev(Exception):
 def _pedir(cuerpo, timeout):
     cab = {"Content-Type": "application/json", "User-Agent": "TiempoYRadar/1.0 (tareas de la tele)"}
     clave = os.environ.get("TYPESAFE_API_KEY", "").strip()
-    if clave: cab["Authorization"] = f"Bearer {clave}"       # si no, la pone el proxy (network secret)
+    if clave: cab["Authorization"] = f"Bearer {clave}"
     r = urllib.request.Request(URL, data=json.dumps(cuerpo, ensure_ascii=False).encode("utf-8"), headers=cab, method="POST")
     with urllib.request.urlopen(r, timeout=timeout) as f:
         return json.loads(f.read().decode("utf-8"))
