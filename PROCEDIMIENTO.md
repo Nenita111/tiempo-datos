@@ -169,5 +169,14 @@ Nunca va en la app de la tele: el APK es público y la clave quedaría a la vist
   provisional o definitiva, nombramiento, cese, bolsa, traslado u otra; Almería, toda Andalucía, otra o no consta). extras.json «sas».
 - `sortea2.py` (diario): el RSS de sortea2.com (30 últimas promociones de todos los países), los que nombran la zona y, con Jev, los que
   son sorteos de un comercio de la zona, no para toda España, y dicen cuándo acaban. Imprime candidatos; no apunta nada.
-- `revisar_fuentes.py` revisa también Jev (`jev_`; sin clave, «NO COMPROBABLE»).
+- `titulares.py`, en la misma pregunta: si el titular anuncia una actividad o una colecta en el pueblo → candidatos para la agenda y las
+  colectas (`diario.py` → «agenda_titulares», «sangre_titulares»; la tarea diaria los lee y apunta solo lo que ve).
+- `etiquetas.py` (diario): extras.json «etiquetas»: el alérgeno de cada alerta de la AESAN, si el medicamento retirado se vende sin receta
+  (base oficial CIMA, por su número de registro) y si hay que devolver los de casa, si el producto de Safety Gate es para niños (juguetes y
+  puericultura por su categoría) y la titulación mínima y si la experiencia es requisito en cada oferta de la Junta; además, la agenda sin la
+  misma actividad dos veces y en cada sorteo cómo se participa («participa»).
+- `comprobar_captura.py` (buzón): antes de apuntar una captura, Jev mira dato por dato si el texto transcrito dice lo que se va a apuntar; si
+  no cuadra, «REVISAR (no cuadra …)».
+- `revisar_fuentes.py` revisa también Jev (`jev_`) y ESIOS (`esios`): sin clave, «NO COMPROBABLE»; con clave que no vale, ROTA. Si una fuente
+  sale ROTA porque falta su marca, Jev mira lo último que bajó y dice si el dato parece seguir en la página (¿cambio de formato?).
 Pruebas: `herramientas/test_jev.py` (respuestas de mentira con la forma de la API; los RSS, el XML de AEMET y los boletines, reales).

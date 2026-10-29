@@ -2,7 +2,7 @@
 import datetime as dt, io, json, os, sys, unittest, urllib.error
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(__file__))
-import jev, avisos_movil as A, titulares as T, receta as R, sortea2 as S2, sas
+import jev, avisos_movil as A, titulares as T, receta as R, sortea2 as S2, sas, etiquetas as ET, comprobar_captura as CC, revisar_fuentes as RF
 
 TZ = ZoneInfo("Europe/Madrid")
 AHORA = dt.datetime(2026, 10, 28, 12, 0, tzinfo=TZ)
@@ -101,10 +101,23 @@ class Titulares(unittest.TestCase):
              "b": dict(anuncia=noul(0.9), tipo=choice("agua"), en_pueblo=noul(0.1), restablecido=noul(0.0), dia=choice("not_stated"), mes=choice("not_stated")),
              "c": dict(anuncia=noul(0.0), tipo=choice("otro"), en_pueblo=noul(0.5), restablecido=noul(0.0), dia=choice("not_stated"), mes=choice("not_stated"))}
         pedir = lambda cuerpo, t: {"answers": r[next(k for k, p in zip("abc", piezas) if p["titulo"] == cuerpo["state"]["noticia"]["titulo"])]}
-        cortes, no = T.juzgar(piezas, "Adra", "04003", pedir)
+        cortes, no, cand = T.juzgar(piezas, "Adra", "04003", pedir, hoy=dt.date(2026, 10, 28))
         self.assertEqual([(c["enlace"], c["tipo"], c["hasta"], c["jev"]) for c in cortes], [("https://x/a", "agua", "2026-10-29", True)])
         self.assertEqual(no, ["https://x/b"])          # la regla lo daría por corte (en Berja): la tele no lo enseña
         self.assertEqual(A.tipo_corte(piezas[1]["titulo"]), "agua")
+        self.assertEqual(cand, [])
+
+    def test_actividades_y_colectas(self):
+        pub = dt.datetime(2026, 10, 28, 9, 0, tzinfo=TZ)
+        piezas = [{"titulo": "PRUEBA: Adra celebra el sábado 31 su feria del libro en la plaza", "entradilla": "", "enlace": "https://x/f", "s": pub},
+                  {"titulo": "PRUEBA: Colecta de sangre en Adra", "entradilla": "", "enlace": "https://x/s", "s": pub}]
+        base = dict(anuncia=noul(0.0), tipo=choice("otro"), en_pueblo=noul(0.9), restablecido=noul(0.0), mes=choice("not_stated"))
+        r = {"https://x/f": base | {"actividad": noul(0.92), "colecta": noul(0.0), "dia": choice("31")},
+             "https://x/s": base | {"actividad": noul(0.2), "colecta": noul(0.95), "dia": choice("not_stated")}}
+        pedir = lambda cu, t: {"answers": r[next(p["enlace"] for p in piezas if p["titulo"] == cu["state"]["noticia"]["titulo"])]}
+        _, _, cand = T.juzgar(piezas, "Adra", "04003", pedir, hoy=dt.date(2026, 10, 28))
+        self.assertEqual([(c["tipo"], c["enlace"], c["dia"]) for c in cand], [("actividad", "https://x/f", "2026-10-31"), ("colecta", "https://x/s", None)])
+        self.assertIn("actividad", jev.preguntas_titular()); self.assertIn("anuncia", jev.preguntas_titular())
 
 
 class Receta(unittest.TestCase):
@@ -176,6 +189,84 @@ class Sas(unittest.TestCase):
         et = sas.etiquetar(d, {"u1": {"tipo": "lista_definitiva", "provincia": "andalucia"}}, pedir)
         self.assertEqual(et, {"u1": {"tipo": "lista_definitiva", "provincia": "andalucia"}, "u2": {"tipo": "nombramiento", "provincia": "almeria"}})
         self.assertEqual(len(preguntadas), 1)          # la ya etiquetada no se vuelve a preguntar
+
+
+class Etiquetas(unittest.TestCase):
+    """Las listas reales del 29 oct (AESAN, AEMPS, Safety Gate) y las ofertas de la Junta del 27 oct, recortadas; Jev, de mentira."""
+    def m(self, n): return open(os.path.join(os.path.dirname(__file__), "muestras", n), encoding="utf-8").read()
+
+    def red(self, url, cuerpo=None, tipo=None):
+        if "aesan" in url: return self.m("aesan_alertas_20261029.html")
+        if "aemps.gob.es" in url: return self.m("aemps_lista_20261029.html")
+        if url.endswith("/search"): return self.m("safetygate_busqueda_20261029.json")
+        if "/notification/" in url:
+            i = url.split("/notification/")[1].split("?")[0]
+            try: return self.m(f"safetygate_ficha_{i}.json")
+            except FileNotFoundError: return json.dumps({"product": {"productCategory": {"key": "product.category.electrical.appliances"}, "versions": []}})
+        if "ofertas-empleo.html" in url: return self.m("ofertas_20261027.html")
+        if "/detalle/" in url: return self.m("oferta_688570.html")
+        raise AssertionError(url)
+
+    def jev(self, cu, t):
+        q = cu["questions"]
+        if "alergeno" in q: return {"answers": {"alergeno": choice("leche" if "leche" in cu["state"]["alerta"]["titulo"].lower() else "ninguno")}}
+        if "devolver" in q: return {"answers": {"devolver": noul(0.85 if "paciente" in cu["state"]["alerta"]["medida"].lower() else 0.1)}}
+        if "ninos" in q: return {"answers": {"ninos": noul(0.2)}}
+        if "nivel" in q: return {"answers": {"nivel": choice("grado"), "experiencia": noul(0.15)}}
+        if "mismo" in q: return {"answers": {"mismo": noul(0.95 if "feria" in cu["state"]["a"]["titulo"].lower() and "feria" in cu["state"]["b"]["titulo"].lower() else 0.05)}}
+        if "participa" in q: return {"answers": {"participa": choice("seguir_mencionar")}}
+        raise AssertionError(q)
+
+    def test_todo(self):
+        x = {"agenda": [{"titulo": "PRUEBA: Feria del libro", "fecha": "2026-10-31", "lugar": "Plaza"},
+                        {"titulo": "PRUEBA: Feria del libro de Adra", "fecha": "2026-10-31", "lugar": "Plaza de la Constitución", "hora": "11:00"},
+                        {"titulo": "PRUEBA: Concierto", "fecha": "2026-10-31"}],
+             "sorteos": [{"premio": "PRUEBA: cesta", "como": "seguir y etiquetar a 2 amigos"}]}
+        cima = {"61201": True, "79371": True}
+        orig = ET.sin_receta
+        ET.sin_receta = lambda regs, consultar=None: orig(regs, lambda n: {"receta": cima.get(n, True)})
+        try: r = ET.etiquetar(x, dt.date(2026, 10, 29), red=self.red, pedir_jev=self.jev)
+        finally: ET.sin_receta = orig
+        e = x["etiquetas"]
+        self.assertEqual(r["juez"], "Jev"); self.assertEqual(r["fallos"], [])
+        self.assertEqual(len(e["alim"]), 10)
+        self.assertEqual(len(e["med"]), 5); self.assertTrue(all(v["sinReceta"] is False for k, v in e["med"].items() if k != "R_35/2026"))
+        self.assertEqual(e["prod"]["10118906"], {"ninos": 1.0})                       # juguete: por su categoría, sin preguntar
+        self.assertEqual(len(e["ofertas"]), 17); self.assertEqual(next(iter(e["ofertas"].values())), {"nivel": "grado", "experiencia": 0.15})
+        self.assertEqual([a["titulo"] for a in x["agenda"]], ["PRUEBA: Feria del libro de Adra", "PRUEBA: Concierto"])   # se queda la de más datos
+        self.assertEqual(x["sorteos"][0]["participa"], "seguir_mencionar")
+        # otra vez: lo ya etiquetado no se pregunta
+        preguntas = []
+        ET.etiquetar(x, dt.date(2026, 10, 29), red=self.red, pedir_jev=lambda cu, t: preguntas.append(cu) or self.jev(cu, t))
+        self.assertEqual([q for q in preguntas if "nivel" in q["questions"] or "alergeno" in q["questions"]], [])
+
+    def test_sin_jev_solo_lo_exacto(self):
+        def p403(c, t): raise error(403)
+        x = {"agenda": [{"titulo": "a", "fecha": "2026-10-31"}, {"titulo": "a", "fecha": "2026-10-31"}]}
+        r = ET.etiquetar(x, dt.date(2026, 10, 29), red=self.red, pedir_jev=p403)
+        self.assertTrue(r["juez"].startswith("sin Jev")); self.assertEqual(len(x["agenda"]), 2)
+        self.assertEqual(x["etiquetas"]["prod"], {"10118906": {"ninos": 1.0}}); self.assertEqual(x["etiquetas"]["ofertas"], {})
+
+
+class Captura(unittest.TestCase):
+    def test_dato_que_no_cuadra(self):
+        texto = "PRUEBA: ¡Sorteo! @tienda_prueba regala una cesta. Participa hasta el 5 de noviembre."
+        def pedir(cu, t):
+            assert cu["state"]["texto"] == texto
+            return {"answers": {"premio": noul(0.95), "hasta": noul(0.2)}}          # «a las 20:00» no lo dice
+        r = CC.comprobar(texto, {"premio": "una cesta", "hasta": "5 de noviembre de 2026 a las 20:00"}, pedir)
+        self.assertEqual((r["ok"], r["no_cuadra"]), (False, ["hasta"]))
+        self.assertIn("ends", jev.preguntas_captura({"hasta": "x"})["hasta"]["instructions"])
+        def p403(c, t): raise error(403)
+        self.assertTrue(CC.comprobar(texto, {"premio": "x"}, p403)["ok"])         # sin Jev no bloquea
+
+
+class SegundaMirada(unittest.TestCase):
+    def test_pista(self):
+        pagina = b"<html><body><table><tr><td>Precio medio 0,12 euros/kWh</td></tr></table></body></html>"
+        self.assertIn("parece seguir", RF.segunda_mirada("luz", "ValueError: sin precios", pagina, pedir_jev=lambda c, t: {"answers": {"sigue": noul(0.9)}}))
+        self.assertIn("ya no parece", RF.segunda_mirada("luz", "ValueError: sin precios", pagina, pedir_jev=lambda c, t: {"answers": {"sigue": noul(0.1)}}))
+        self.assertEqual(RF.segunda_mirada("luz", "x", pagina, pedir_jev=lambda c, t: {"answers": {"sigue": noul(0.5)}}), "")
 
 
 if __name__ == "__main__":

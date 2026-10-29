@@ -150,3 +150,101 @@ PROV_SAS = {
 def preguntas_sas():
     return {"tipo": choice("What does `disposicion.texto` (the title of a Spanish official gazette entry about the Andalusian Health Service) do?", TIPOS_SAS),
             "provincia": choice("Which place does `disposicion.texto` concern?", PROV_SAS)}
+
+
+# ------------------------------------------------------------------ 5. Titulares: además del corte, ¿anuncia una actividad o una colecta?
+# (las mismas noticias y el mismo estado que el corte: todo en una petición)
+def preguntas_titular():
+    return preguntas_corte() | {
+        "actividad": noul("Does `noticia` announce a public activity or event (concert, fair, exhibition, festivity, sports event, talk, market) "
+                          "that will take place in `pueblo` on a specific day?",
+                          si="An upcoming event in that town with its day", no="News about something else, an event elsewhere, or one already held"),
+        "colecta": noul("Does `noticia` announce a blood donation drive (colecta, donación de sangre) that will take place in `pueblo`?"),
+    }
+
+
+# ------------------------------------------------------------------ 6. Alertas alimentarias de la AESAN: ¿qué alérgeno?
+# estado: {"alerta": {"titulo": …}}; los 14 alérgenos de declaración obligatoria (Reglamento (UE) 1169/2011, anexo II)
+ALERGENOS = {
+    "gluten": "Cereals containing gluten (gluten, trigo, cebada, centeno, avena)", "crustaceos": "Crustaceans (crustáceos)",
+    "huevo": "Egg (huevo)", "pescado": "Fish (pescado)", "cacahuete": "Peanuts (cacahuete)", "soja": "Soy (soja)",
+    "leche": "Milk or lactose (leche, lactosa, proteína de leche)", "frutos_cascara": "Tree nuts (almendra, avellana, nuez, anacardo, pistacho…)",
+    "apio": "Celery (apio)", "mostaza": "Mustard (mostaza)", "sesamo": "Sesame (sésamo)", "sulfitos": "Sulphites (sulfitos, dióxido de azufre)",
+    "altramuces": "Lupin (altramuces)", "moluscos": "Molluscs (moluscos)",
+    "ninguno": "The alert is not about an undeclared allergen (pathogens, foreign bodies, contaminants, other substances)",
+}
+
+
+def preguntas_alergeno():
+    return {"alergeno": choice("Which undeclared allergen, if any, is `alerta.titulo` (a Spanish food safety alert) about?", ALERGENOS)}
+
+
+# ------------------------------------------------------------------ 7. Medicamentos retirados (AEMPS): ¿hay que devolver los de casa?
+# (si se vende sin receta lo dice la base oficial CIMA, en el código; aquí solo lo que hay que entender del texto)
+def preguntas_medicamento():
+    return {"devolver": noul("Does `alerta.medida` (the measure in a Spanish medicine recall) ask patients or the public to return, or stop "
+                             "using, the units they already have at home?",
+                             si="Patients must return or stop using the affected units", no="Only pharmacies, wholesalers or hospitals must act")}
+
+
+# ------------------------------------------------------------------ 8. Productos peligrosos (Safety Gate): ¿es para niños?
+def preguntas_producto():
+    return {"ninos": noul("Is the product in `producto` meant to be used by or for babies or children (toys, childcare articles, "
+                          "children's clothing, furniture or cosmetics)?")}
+
+
+# ------------------------------------------------------------------ 9. Ofertas de empleo de la Junta: titulación y experiencia
+NIVELES = {
+    "sin_titulo": "No qualification required", "eso": "Secondary school certificate (Graduado en ESO, Graduado Escolar)",
+    "bachillerato": "Bachillerato", "fp_basica": "Basic vocational training (FP Básica)",
+    "fp_medio": "Intermediate vocational training (Técnico, Grado Medio, CFGM)", "fp_superior": "Higher vocational training (Técnico Superior, Grado Superior, CFGS)",
+    "grado": "University degree (Grado, Licenciatura, Diplomatura, Ingeniería, Arquitectura)", "master": "Master's degree or doctorate (Máster, Doctorado)",
+    "no_consta": "The text does not say",
+}
+
+
+def preguntas_oferta():
+    return {"nivel": choice("What is the lowest qualification level that `oferta.titulacion` accepts for the job?", NIVELES),
+            "experiencia": noul("Does `oferta.requisitos` make previous work experience a mandatory requirement to apply (not just a merit that adds points)?")}
+
+
+# ------------------------------------------------------------------ 10. Agenda: ¿dos actividades son la misma?
+def preguntas_mismo_evento():
+    return {"mismo": noul("Do `a` and `b` (two entries of a town's agenda for the same day) describe the same event?",
+                          si="The same event written differently", no="Two different events")}
+
+
+# ------------------------------------------------------------------ 11. Sorteos: cómo se participa (una etiqueta de una lista fija)
+PARTICIPA = {
+    "seguir_mencionar": "Follow the account and like, comment, tag or mention friends on the post",
+    "compra": "Buy something (in the shop or online) to get an entry",
+    "presencial": "Go to the shop, stand or event in person",
+    "formulario": "Fill in a form, register on a website or send a message",
+    "otro": "Something else, or the text does not say",
+}
+
+
+def preguntas_participa():
+    return {"participa": choice("How do people enter the giveaway described in `sorteo`?", PARTICIPA)}
+
+
+# ------------------------------------------------------------------ 12. Buzón de capturas: ¿lo que se va a apuntar está en el texto?
+# estado: {"texto": lo que dice la captura, transcrito}; una pregunta por dato
+CAMPOS_CAPTURA = {
+    "cuenta": "the account that publishes it is {v}", "premio": "the prize is {v}", "lugar": "it is in or for {v}",
+    "hasta": "it ends (or the winner is drawn) on {v}", "fecha": "the event takes place on {v}", "horario": "the time is {v}",
+    "titulo": "it is about: {v}",
+}
+
+
+def preguntas_captura(datos):
+    """datos: {campo: valor}; cada uno, una pregunta «¿lo dice el texto?»."""
+    return {c: noul(f"Does `texto` (the transcription of a social media post) say that " + CAMPOS_CAPTURA.get(c, c + " is {v}").format(v=v) + "?",
+                    si="The text states it (same meaning, maybe other words or date format)", no="The text does not say it, or says something else")
+            for c, v in datos.items()}
+
+
+# ------------------------------------------------------------------ 13. Revisión de fuentes: ¿el dato sigue en la página?
+def preguntas_pagina():
+    return {"sigue": noul("The app reads `fuente` from this web page and the automatic check failed with `fallo`. Does `pagina` still contain "
+                          "that kind of current information, perhaps in a different format?")}

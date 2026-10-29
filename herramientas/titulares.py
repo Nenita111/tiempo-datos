@@ -5,6 +5,8 @@ nombran el pueblo (el mismo RSS que lee la tele y que el robots.txt del medio pe
   - los que Jev da por corte de agua o de luz en el pueblo van a extras.json «cortes» (con «jev»: true, el medio citado y, si el
     titular dice el día, hasta ese día; si no, hasta el día siguiente a la noticia, como hace la tele);
   - los que la regla de la tele daría por corte y Jev dice claramente que no lo son van a «noEsCorte» (sus enlaces), y la tele no los enseña.
+  - en la misma pregunta, si el titular anuncia una actividad o una colecta de sangre en el pueblo: se imprimen como candidatos (con
+    el día si lo dice) para que la tarea diaria los mire y los apunte con agenda.py o sangre.py (aquí no se apunta nada).
 Sin Jev (sin clave o sin red) no toca nada: la tele sigue con su regla.
 
   python3 -I herramientas/titulares.py extras.json [--lugar Adra --ine 04003]
@@ -34,11 +36,12 @@ def fecha_dicha(r, publicada):
     return None
 
 
-def juzgar(piezas, lugar, ine, pedir=None):
-    """(cortes para extras, enlaces que no son cortes). Sin Jev, SinJev."""
-    cortes, no = [], []
+def juzgar(piezas, lugar, ine, pedir=None, hoy=None):
+    """(cortes para extras, enlaces que no son cortes, candidatos a la agenda o a colecta). Sin Jev, SinJev."""
+    cortes, no, cand = [], [], []
+    hoy = hoy or dt.datetime.now(TZ).date()
     for p in piezas:
-        r, _ = jev.preguntar({"pueblo": lugar, "noticia": {"titulo": p["titulo"], "entradilla": p["entradilla"]}}, jev.preguntas_corte(), pedir=pedir)
+        r, _ = jev.preguntar({"pueblo": lugar, "noticia": {"titulo": p["titulo"], "entradilla": p["entradilla"]}}, jev.preguntas_titular(), pedir=pedir)
         regla = A.tipo_corte(p["titulo"])
         pub = p["s"] or dt.datetime.now(TZ)
         if r["anuncia"]["noul"] >= jev.SI and r["en_pueblo"]["noul"] >= 0.5 and r["restablecido"]["noul"] < 0.5 and r["tipo"]["choice"] in ("agua", "luz"):
@@ -47,7 +50,13 @@ def juzgar(piezas, lugar, ine, pedir=None):
                            "hasta": hasta.isoformat(), "ine": ine, "s": int(pub.timestamp()), "jev": True})
         elif regla and (r["anuncia"]["noul"] <= jev.NO or r["restablecido"]["noul"] >= jev.SI or r["en_pueblo"]["noul"] <= jev.NO):
             no.append(p["enlace"])
-    return cortes, no
+        for tipo in ("actividad", "colecta"):
+            if r.get(tipo, {}).get("noul", 0) >= jev.SI:
+                f = fecha_dicha(r, pub)
+                if f is None or f >= hoy:
+                    cand.append({"tipo": tipo, "titulo": p["titulo"], "enlace": p["enlace"], "dia": f.isoformat() if f else None,
+                                 "publicada": pub.astimezone(TZ).date().isoformat()})
+    return cortes, no, cand
 
 
 def main():
@@ -57,7 +66,7 @@ def main():
     ahora = dt.datetime.now(TZ)
     piezas = []
     for u in A.NDA: piezas += A.piezas_rss(A.pedir(u), o.lugar, ahora - dt.timedelta(days=10))
-    try: cortes, no = juzgar(piezas, o.lugar, o.ine)
+    try: cortes, no, cand = juzgar(piezas, o.lugar, o.ine)
     except jev.SinJev as e:
         print(json.dumps({"titulares": len(piezas), "juez": f"sin Jev ({e})"}, ensure_ascii=False)); return
     x = json.load(open(o.extras, encoding="utf-8"))
@@ -66,7 +75,8 @@ def main():
     x["noEsCorte"] = no
     x["actualizado"] = ahora.isoformat(timespec="minutes")
     json.dump(x, open(o.extras, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(json.dumps({"titulares": len(piezas), "cortes": len(cortes), "noEsCorte": len(no), "juez": "Jev"}, ensure_ascii=False))
+    print(json.dumps({"titulares": len(piezas), "cortes": len(cortes), "noEsCorte": len(no), "juez": "Jev",
+                      "agenda": [c for c in cand if c["tipo"] == "actividad"], "colectas": [c for c in cand if c["tipo"] == "colecta"]}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

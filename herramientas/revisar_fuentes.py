@@ -10,7 +10,9 @@ Sale con código 1 si alguna fuente está ROTA. «NO COMPROBABLE» = la web bloq
 (p. ej. Red Eléctrica): desde casa funciona.
 """
 import argparse, datetime as dt, email.utils, gzip, io, json, math, re, ssl, subprocess, sys, tarfile, urllib.error, urllib.parse, urllib.request
+import threading
 from concurrent.futures import ThreadPoolExecutor
+ULTIMA = threading.local()      # lo último que bajó cada hilo: si una fuente sale ROTA, Jev mira si el dato sigue en la página
 from zoneinfo import ZoneInfo
 
 UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"      # el de la app (Red.kt)
@@ -24,13 +26,13 @@ def pedir(url, cuerpo=None, tipo=None, agente=UA, tiempo=45):
     r = urllib.request.Request(url, data=cuerpo, headers={"User-Agent": agente, **({"Content-Type": tipo} if tipo else {})})
     try:
         with urllib.request.urlopen(r, timeout=tiempo) as f:
-            return f.read()
+            ULTIMA.b = f.read(); return ULTIMA.b
     except urllib.error.URLError as e:
         # algunas webs de la Administración negocian TLS de forma que Python no acepta y curl sí (como la tele): se reintenta con curl
         if not isinstance(e.reason, ssl.SSLError) or cuerpo is not None: raise
         c = subprocess.run(["curl", "-sS", "-f", "-L", "--max-time", str(tiempo), "-A", agente, url], capture_output=True)
         if c.returncode: raise
-        return c.stdout
+        ULTIMA.b = c.stdout; return c.stdout
 
 
 def texto(url, **k):
@@ -435,11 +437,29 @@ FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, o
            mtg, tierra, solVideo, viento, calarVivo, jev_, esios]
 
 
+def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):
+    """La web respondió pero falta la marca que busca la app: ¿el dato sigue en la página con otro formato? Solo una pista (con Jev)."""
+    import os
+    if not os.environ.get("TYPESAFE_API_KEY", "").strip() and pedir_jev is None: return ""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import jev
+    t = bruto.decode("utf-8", "replace")
+    t = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", re.sub(r"(?s)<script.*?</script>|<style.*?</style>", " ", t)))[:5000]
+    try: r, _ = jev.preguntar({"fuente": fuente, "fallo": fallo, "pagina": t}, jev.preguntas_pagina(), intentos=2, pedir=pedir_jev)
+    except (jev.SinJev, ValueError): return ""
+    p = r["sigue"]["noul"]
+    return " · Jev: el dato parece seguir en la página (¿cambio de formato?)" if p >= 0.7 else " · Jev: el dato ya no parece estar en la página" if p <= 0.3 else ""
+
+
 def revisar(L=ADRA):
     def una(f):
+        ULTIMA.b = b""
         try: return f.__name__, "BIEN", f(L)
         except PermissionError as e: return f.__name__, "NO COMPROBABLE", str(e)
-        except Exception as e: return f.__name__, "ROTA", f"{type(e).__name__}: {e}"[:200]
+        except Exception as e:
+            d = f"{type(e).__name__}: {e}"[:200]
+            if isinstance(e, (ValueError, KeyError)) and ULTIMA.b: d += segunda_mirada(f.__name__, d, ULTIMA.b)
+            return f.__name__, "ROTA", d
     with ThreadPoolExecutor(6) as ex:
         return list(ex.map(una, FUENTES))
 

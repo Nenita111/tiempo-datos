@@ -4,10 +4,13 @@ resumen de una línea, para que la tarea programada gaste pocos tokens (antes le
 
   python3 -I herramientas/diario.py extras.json [--sin-revision]
 
-Con Jev (jev.py): los titulares con cortes (titulares.py), la receta según el tiempo (receta.py), las etiquetas del SAS (sas.py) y
-los sorteos de la zona de sortea2.com ya filtrados (sortea2.py); sin Jev, esos pasos no tocan nada (o, sortea2, filtran solo por pueblo).
+Con Jev (jev.py): los titulares con cortes, y los que anuncian actividades o colectas en el pueblo como candidatos (titulares.py), la
+receta según el tiempo (receta.py), las etiquetas del SAS (sas.py), las de la AESAN, la AEMPS, Safety Gate y las ofertas de la Junta, la
+agenda sin repetidos y cómo se participa en cada sorteo (etiquetas.py) y los sorteos de la zona de sortea2.com ya filtrados (sortea2.py);
+sin Jev, esos pasos no tocan nada (o solo lo exacto).
 
-Imprime una línea JSON: {"pasos": {"cielo": "ok …", "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda": N, "sangre": N,
+Imprime una línea JSON: {"pasos": {"cielo": "ok …", "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulares": […],
+"sangre_titulares": […], "agenda": N, "sangre": N,
 "sorteos": N, "cortes": N, "rotas": ["fuente: fallo", …]}. Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
 """
@@ -18,7 +21,7 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     ("cortes", "cortes.py", 60), ("agenda", "agenda.py", 60), ("sangre", "sangre.py", 60), ("sorteos", "sorteos.py --podar", 60),
     ("cielo", "cielo.py", 300), ("raif", "raif.py", 300), ("respiratorias", "respiratorias.py", 300), ("sequia", "sequia.py", 900),
     # con Jev (jev.py); sin él no tocan nada
-    ("titulares", "titulares.py", 300), ("receta", "receta.py", 120), ("sas", "sas.py", 600),
+    ("titulares", "titulares.py", 300), ("receta", "receta.py", 120), ("sas", "sas.py", 600), ("etiquetas", "etiquetas.py", 900),
 ]
 
 
@@ -28,16 +31,20 @@ def correr(args, tiempo):
     except subprocess.TimeoutExpired:
         return None, f"no acabó en {tiempo} s"
     lineas = [l for l in (r.stdout + "\n" + r.stderr).splitlines() if l.strip()]
-    return r.returncode, (lineas[-1] if lineas else "")[:240]
+    return r.returncode, (lineas[-1] if lineas else "")
 
 
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     extras = os.path.abspath(sys.argv[1]); revisar = "--sin-revision" not in sys.argv
-    pasos = {}
+    pasos, titulares = {}, {}
     for nombre, script, tiempo in PASOS:
         s, *opc = script.split()
         cod, ultima = correr([os.path.join(RAIZ, "herramientas", s), extras, *opc], tiempo)
+        if nombre == "titulares" and cod == 0:
+            try: titulares = json.loads(ultima); ultima = json.dumps({k: v for k, v in titulares.items() if k not in ("agenda", "colectas")}, ensure_ascii=False)
+            except ValueError: pass
+        ultima = ultima[:240]
         if cod == 0 and not ultima.startswith("{"): ultima = ""     # «N cortes en …»: el número ya va en el resumen
         pasos[nombre] = ("ok" if cod == 0 else f"código {cod}" if cod is not None else "fallo") + (f": {ultima}" if ultima else "")
     # sorteos de la zona en sortea2.com, ya filtrados (con Jev, si lo hay): Claude solo mira estos
@@ -49,6 +56,7 @@ def main():
         s2 = {"candidatos": []}; pasos["sortea2"] = f"fallo: {e}"[:240]
     x = json.load(open(extras, encoding="utf-8"))
     res = {"pasos": pasos, "sortea2": [{"enlace": c["enlace"], "pueblos": c["pueblos"], "texto": c["texto"][:400]} for c in s2["candidatos"]],
+           "agenda_titulares": titulares.get("agenda", []), "sangre_titulares": titulares.get("colectas", []),
            "agenda": len(x.get("agenda") or []), "sangre": len((x.get("sangre") or {}).get("colectas") or []),
            "sorteos": len(x.get("sorteos") or []), "cortes": len(x.get("cortes") or [])}
     if revisar:
