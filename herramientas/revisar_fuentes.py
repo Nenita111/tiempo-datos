@@ -353,9 +353,61 @@ def cortesAgua(L):
     return f"{len(x['features'])} cierres planificados o en curso en el visor"
 
 
+def mtg(L):
+    # Espacio.mtg: la capacidad de la capa Geo Colour del satélite MTG en EUMETView (la hora de la última imagen) y una imagen
+    t = texto("https://view.eumetsat.int/geoserver/mtg_fd/rgb_geocolour/ows?service=WMS&request=GetCapabilities&version=1.3.0")
+    m = re.search(r'<Dimension[^>]*name="time"[^>]*default="([^"]+)"', t)
+    if not m: raise ValueError("la capacidad no dice la hora de la última imagen")
+    ultima = dt.datetime.fromisoformat(m.group(1).replace("Z", "+00:00"))
+    if dt.datetime.now(dt.timezone.utc) - ultima > dt.timedelta(hours=2): raise ValueError(f"la última imagen es de {m.group(1)}")
+    img = pedir("https://view.eumetsat.int/geoserver/ows?service=WMS&request=GetMap&version=1.3.0&layers=mtg_fd:rgb_geocolour&styles=&crs=EPSG:4326"
+                f"&bbox={L['lat'] - 1.3},{L['lon'] - 2.3},{L['lat'] + 1.3},{L['lon'] + 2.3}&width=1100&height=800&format=image/jpeg&interpolations=bicubic&time={m.group(1)}")
+    if img[:2] != b"\xff\xd8": raise ValueError("no manda JPEG")
+    return f"última imagen {m.group(1)}"
+
+def tierra(L):
+    # Planeta.tierra: las fotos del último día de la cámara EPIC de la NASA
+    x = json.loads(texto("https://epic.gsfc.nasa.gov/api/natural"))
+    if not x or "image" not in x[0]: raise ValueError("la API no trae fotos")
+    dia = x[0]["date"][:10]
+    if (dt.date.today() - dt.date.fromisoformat(dia)).days > 7: raise ValueError(f"lo último es del {dia}")
+    return f"{len(x)} fotos del {dia}"
+
+def solVideo(L):
+    # Espacio.solVideo: el vídeo de las últimas 48 horas del Sol (NASA SDO, AIA 171)
+    r = urllib.request.Request("https://sdo.gsfc.nasa.gov/assets/img/latest/mpeg/latest_512_0171.mp4", method="HEAD", headers={"User-Agent": UA})
+    with urllib.request.urlopen(r, timeout=45) as f:
+        mod, n = f.headers.get("Last-Modified"), int(f.headers.get("Content-Length") or 0)
+    if n < 100_000: raise ValueError(f"el vídeo pesa {n} bytes")
+    return f"{n // 1_000_000} MB, {mod}"
+
+def viento(L):
+    # Viento.ahora: el viento de ahora en la malla de 9 × 6 puntos (una petición con todos)
+    la, lo = [], []
+    for i in range(6):
+        for j in range(9):
+            la.append(f"{L['lat'] - 0.40 + 0.62 * i / 5:.3f}"); lo.append(f"{L['lon'] - 0.62 + 1.24 * j / 8:.3f}")
+    x = json.loads(texto("https://api.open-meteo.com/v1/forecast?latitude=" + ",".join(la) + "&longitude=" + ",".join(lo)
+                         + "&current=wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=Europe%2FMadrid"))
+    if not isinstance(x, list) or len(x) != 54: raise ValueError(f"no trae los 54 puntos: {str(x)[:120]}")
+    if any(p.get("current", {}).get("wind_speed_10m") is None for p in x): raise ValueError("algún punto sin viento")
+    return f"54 puntos, {x[0]['current']['time']}"
+
+def calarVivo(L):
+    # CalarVivo: el vídeo MJPEG de la cámara de Calar Alto (solo las cabeceras y la primera imagen)
+    r = urllib.request.Request("https://neteye-3.caha.es/WEBCAMs/EYE56", headers={"User-Agent": UA})
+    with urllib.request.urlopen(r, timeout=30) as f:
+        tipo = f.headers.get("Content-Type", "")
+        cab = f.read(300)
+    if "multipart/x-mixed-replace" not in tipo: raise ValueError(f"ya no es vídeo MJPEG ({tipo})")
+    if not re.search(rb"Content-Length: \d+", cab): raise ValueError("las imágenes no traen Content-Length")
+    return "vídeo MJPEG"
+
+
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
-           medicamentos, productos, agua, camara, radiacion, sequia, sangre, cortesAgua]
+           medicamentos, productos, agua, camara, radiacion, sequia, sangre, cortesAgua,
+           mtg, tierra, solVideo, viento, calarVivo]
 
 
 def revisar(L=ADRA):
