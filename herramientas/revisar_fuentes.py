@@ -404,10 +404,21 @@ def calarVivo(L):
     return "vídeo MJPEG"
 
 
+def jev_(L):
+    """Jev (TypeSafe), para las tareas de la nube (titulares, receta, SAS, sortea2): una pregunta mínima. Sin clave: NO COMPROBABLE."""
+    import os
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import jev
+    try: r, modelo = jev.preguntar({"pueblo": L["nombre"]}, {"q": jev.noul("Is `pueblo` the name of a town?")}, intentos=2)
+    except jev.SinJev as e: raise PermissionError(str(e))
+    if not 0 <= r["q"]["noul"] <= 1: raise ValueError(f"respuesta rara: {r}")
+    return f"responde ({modelo})"
+
+
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
            medicamentos, productos, agua, camara, radiacion, sequia, sangre, cortesAgua,
-           mtg, tierra, solVideo, viento, calarVivo]
+           mtg, tierra, solVideo, viento, calarVivo, jev_]
 
 
 def revisar(L=ADRA):

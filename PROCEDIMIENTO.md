@@ -6,6 +6,8 @@ Para gastar pocos tokens, la tarea diaria hace de una vez todo lo que no hay que
 `python3 -I herramientas/diario.py extras.json` (puntos 2b, 2c y 2h sin argumentos, 2d, 2e, 2f, 2g y 3; quita también los sorteos
 acabados): imprime una sola línea JSON con lo que ha ido mal, las fuentes ROTAS y cuántas actividades, colectas, sorteos y cortes
 hay. Lo único que hace a mano es buscar (vuelos, sorteos, agenda y colectas de sangre) y apuntar lo que encuentre.
+Con Jev (sección 7) también deja en extras.json los cortes de los titulares, la receta del día y las etiquetas del SAS, y trae en
+«sortea2» los sorteos de la zona de sortea2.com ya filtrados: son los primeros que se miran para el punto 2.
 
 ## 1. Vuelos baratos (Kiwi.com)
 
@@ -29,8 +31,9 @@ El Ejido, Almerimar, Balanegra, Vícar, La Mojonera, Roquetas, Aguadulce, Almer�
 
 - **Nunca** entrar en Instagram con ninguna cuenta, ni leerlo con un navegador automatizado, ni saltarse
   robots.txt o comprobaciones anti-bots.
-- Dónde buscar: búsqueda web pública (comercios, centros comerciales, ayuntamientos, medios locales, con sus bases)
-  y el agregador sortea2.com filtrando por los pueblos de la zona.
+- Dónde buscar: primero los candidatos de sortea2.com que trae `diario.py` («sortea2»: su RSS, ya filtrado por pueblos y, con Jev, por
+  sorteo de un comercio de la zona que dice cuándo acaba; no hace falta leer sortea2.com entero) y después la búsqueda web pública
+  (comercios, centros comerciales, ayuntamientos, medios locales, con sus bases).
 - Solo se apunta si se ha visto en la publicación o en sus bases: cuenta, premio, pueblo, fecha y hora de fin y enlace.
 - `python3 herramientas/sorteos.py extras.json --anadir --cuenta … --premio … --lugar … --hasta AAAA-MM-DDTHH:MM --enlace … [--como …] [--fuente …]`;
   si no hay ninguno, `--buscado`. Quita los que ya han acabado.
@@ -146,3 +149,25 @@ y Diario de Almería prohíben en robots.txt a los agentes como este: no se usan
 afectaciones (la capa pública de cierres de Agbar en ArcGIS, la misma que lee la app: planificados o en curso que empiezan en menos
 de 36 horas o ya han empezado y no han pasado su previsión de restablecimiento). Imprime una línea JSON con los nuevos y apunta en
 `avisos_enviados.json` lo enviado (30 días), para no repetir. Ese fichero solo lleva códigos de avisos públicos.
+
+## 7. Jev (TypeSafe System One): decisiones cerradas en las tareas de la nube
+
+`herramientas/jev.py`: el cliente (sin dependencias) y todas las preguntas y umbrales, en un solo sitio. Jev no escribe: contesta sí/no
+con probabilidad o elige una opción de una lista; las fechas, las cuentas y lo exacto se hacen en el código. La clave va como «network
+secret» del entorno en la nube (sitio `api.typesafe.ai`, cabecera `Authorization: Bearer …`; la pone el proxy y la sesión no la ve) o en la
+variable `TYPESAFE_API_KEY`; nunca en el repositorio ni en la salida. Sin clave (401/403) o sin red, cada script sigue como antes.
+Nunca va en la app de la tele: el APK es público y la clave quedaría a la vista.
+
+- Avisos al móvil (`avisos_movil.py`): Jev dice si cada titular de Noticias de Almería que nombra el pueblo anuncia un corte de agua o de
+  luz en él (y si ya está restablecido); si duda, la regla de texto de antes. La línea JSON dice «titulares»: Jev o reglas.
+- `titulares.py` (diario): lo mismo para la tele: los cortes que da Jev van a extras.json «cortes» (con «jev»: true; hasta el día que dice
+  el titular o el siguiente a la noticia) y los que la regla de la tele daría por corte y no lo son, a «noEsCorte».
+- `receta.py` (diario): del tiempo de hoy de AEMET (en palabras: frío/templado/calor, lluvia, viento), la receta del mes que mejor pega,
+  sin repetir las de los últimos 7 días ni la de ayer. extras.json «receta». La lista es `recetas.json`, copia de la de la página
+  (`herramientas/exportar_recetas.py` del proyecto de la app).
+- `sas.py` (diario): el BOJA (sección 2.2) y el BOE de 7 días, como la tele; Jev etiqueta cada disposición del SAS (convocatoria, lista
+  provisional o definitiva, nombramiento, cese, bolsa, traslado u otra; Almería, toda Andalucía, otra o no consta). extras.json «sas».
+- `sortea2.py` (diario): el RSS de sortea2.com (30 últimas promociones de todos los países), los que nombran la zona y, con Jev, los que
+  son sorteos de un comercio de la zona, no para toda España, y dicen cuándo acaban. Imprime candidatos; no apunta nada.
+- `revisar_fuentes.py` revisa también Jev (`jev_`; sin clave, «NO COMPROBABLE»).
+Pruebas: `herramientas/test_jev.py` (respuestas de mentira con la forma de la API; los RSS, el XML de AEMET y los boletines, reales).

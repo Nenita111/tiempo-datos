@@ -4,7 +4,8 @@
   - Terremoto que se puede notar en el pueblo (IGN, últimos 10 días): magnitud 3 a menos de 50 km, 3,5 a menos de
     100 km o 4 a menos de 200 km.
   - Corte de agua o de luz anunciado en el pueblo: los apuntados en extras.json (redes del Ayuntamiento, por el buzón)
-    y los titulares de Noticias de Almería (su robots.txt lo permite; Google Noticias y Diario de Almería, no).
+    y los titulares de Noticias de Almería (su robots.txt lo permite; Google Noticias y Diario de Almería, no). Si hay Jev
+    (jev.py), Jev dice si el titular anuncia un corte en el pueblo; cuando duda, o sin Jev, la regla de texto de antes.
   - Corte de agua de Hidralia (su «Mapa de obras y afectaciones», la capa pública de cierres de Agbar): planificado o en curso,
     cuando empieza en las próximas 36 horas o ya ha empezado y no ha pasado su previsión de restablecimiento.
 
@@ -13,8 +14,10 @@
 Imprime una línea JSON: {"nuevos": [{"tipo", "texto", "enlace", "clave"}], "fallos": […]} y apunta en --estado lo enviado
 (se olvida a los 30 días), para no repetirlo. Sale con 0 aunque falle alguna fuente; con 2 si fallan todas.
 """
-import argparse, datetime as dt, gzip, io, json, math, re, sys, tarfile, unicodedata, urllib.parse, urllib.request
+import argparse, datetime as dt, gzip, io, json, math, os, re, sys, tarfile, unicodedata, urllib.parse, urllib.request
 from xml.etree import ElementTree as ET
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # jev.py, al lado (con -I no se mira la carpeta del script)
+import jev
 from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Europe/Madrid")
@@ -141,17 +144,44 @@ def tipo_corte(titulo):
     return next((k for k, r in CORTES if r.search(t)), None)
 
 
-def cortes_rss(xml, lugar, desde):
+def piezas_rss(xml, lugar, desde):
+    """Las noticias del RSS que nombran el pueblo (título o entradilla), publicadas desde «desde»."""
     res, raiz = [], ET.fromstring(xml)
     for it in raiz.iter("item"):
-        tit = (it.findtext("title") or "").strip(); txt = tit + " " + re.sub(r"<[^>]+>", " ", it.findtext("description") or "")
-        if not re.search(r"\b" + re.escape(sin_tildes(lugar)) + r"\b", sin_tildes(txt)): continue
-        tipo = tipo_corte(tit)
-        if not tipo: continue
+        tit = (it.findtext("title") or "").strip()
+        ent = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", it.findtext("description") or "")).strip()[:700]
+        if not re.search(r"\b" + re.escape(sin_tildes(lugar)) + r"\b", sin_tildes(tit + " " + ent)): continue
         try: s = dt.datetime.strptime((it.findtext("pubDate") or "").strip(), "%a, %d %b %Y %H:%M:%S %z")
         except ValueError: s = None
         if s and s < desde: continue
-        res.append({"tipo": tipo, "titulo": tit, "enlace": (it.findtext("link") or "").strip(), "fuente": "Noticias de Almería"})
+        res.append({"titulo": tit, "entradilla": ent, "enlace": (it.findtext("link") or "").strip(), "s": s})
+    return res
+
+
+class Juez:
+    """Jev para los titulares (una petición por titular); sin Jev (sin clave o sin red), la regla de texto. «usado» dice cuál fue."""
+    def __init__(self, pedir=None):
+        self.pedir, self.activo, self.usado, self.motivo = pedir, True, "reglas", ""
+
+    def corte(self, lugar, p):
+        regla = tipo_corte(p["titulo"])
+        if self.activo:
+            try:
+                r, _ = jev.preguntar({"pueblo": lugar, "noticia": {"titulo": p["titulo"], "entradilla": p["entradilla"]}},
+                                     jev.preguntas_corte(), pedir=self.pedir)
+                self.usado = "Jev"
+                return jev.es_corte(r, regla), r
+            except jev.SinJev as e:
+                self.activo, self.motivo = False, str(e)       # una vez sin Jev, el resto con la regla (no se insiste)
+        return regla, None
+
+
+def cortes_rss(xml, lugar, desde, juez=None):
+    """Sin juez, solo la regla de texto."""
+    res = []
+    for p in piezas_rss(xml, lugar, desde):
+        tipo = juez.corte(lugar, p)[0] if juez else tipo_corte(p["titulo"])
+        if tipo: res.append({"tipo": tipo, "titulo": p["titulo"], "enlace": p["enlace"], "fuente": "Noticias de Almería"})
     return res
 
 
@@ -245,8 +275,9 @@ def main():
                    for c in x.get("cortes", []) if c.get("tipo") in ("agua", "luz") and c.get("ine", o.ine) == o.ine and c.get("hasta", hoy) >= hoy]
         bien += 1
     except Exception as e: fallos.append(f"extras.json: {e}")
+    juez = Juez()
     for u in NDA:
-        try: cortes += cortes_rss(pedir(u), o.lugar, ahora - dt.timedelta(days=2)); bien += 1
+        try: cortes += cortes_rss(pedir(u), o.lugar, ahora - dt.timedelta(days=2), juez); bien += 1
         except Exception as e: fallos.append(f"Noticias de Almería: {e}")
     try: cortes += cortes_hidralia(pedir(url_cierres(o.ine)).decode("utf-8"), o.ine, ahora); bien += 1
     except Exception as e: fallos.append(f"Hidralia: {e}")
@@ -255,7 +286,7 @@ def main():
     limite = (ahora - dt.timedelta(days=30)).isoformat()
     estado = {k: v for k, v in estado.items() if v >= limite}
     with open(o.estado, "w", encoding="utf-8") as f: json.dump(estado, f, ensure_ascii=False, indent=1, sort_keys=True)
-    print(json.dumps({"nuevos": n, "fallos": fallos}, ensure_ascii=False))
+    print(json.dumps({"nuevos": n, "fallos": fallos, "titulares": juez.usado + (f" ({juez.motivo})" if juez.motivo else "")}, ensure_ascii=False))
     sys.exit(0 if bien else 2)
 
 

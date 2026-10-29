@@ -4,8 +4,11 @@ resumen de una línea, para que la tarea programada gaste pocos tokens (antes le
 
   python3 -I herramientas/diario.py extras.json [--sin-revision]
 
-Imprime una línea JSON: {"pasos": {"cielo": "ok …", "sequia": "código 2: …", …}, "agenda": N, "sangre": N, "sorteos": N,
-"cortes": N, "rotas": ["fuente: fallo", …]}. Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
+Con Jev (jev.py): los titulares con cortes (titulares.py), la receta según el tiempo (receta.py), las etiquetas del SAS (sas.py) y
+los sorteos de la zona de sortea2.com ya filtrados (sortea2.py); sin Jev, esos pasos no tocan nada (o, sortea2, filtran solo por pueblo).
+
+Imprime una línea JSON: {"pasos": {"cielo": "ok …", "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda": N, "sangre": N,
+"sorteos": N, "cortes": N, "rotas": ["fuente: fallo", …]}. Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
 """
 import json, os, subprocess, sys
@@ -14,6 +17,8 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     ("cortes", "cortes.py", 60), ("agenda", "agenda.py", 60), ("sangre", "sangre.py", 60), ("sorteos", "sorteos.py --podar", 60),
     ("cielo", "cielo.py", 300), ("raif", "raif.py", 300), ("respiratorias", "respiratorias.py", 300), ("sequia", "sequia.py", 900),
+    # con Jev (jev.py); sin él no tocan nada
+    ("titulares", "titulares.py", 300), ("receta", "receta.py", 120), ("sas", "sas.py", 600),
 ]
 
 
@@ -35,8 +40,16 @@ def main():
         cod, ultima = correr([os.path.join(RAIZ, "herramientas", s), extras, *opc], tiempo)
         if cod == 0 and not ultima.startswith("{"): ultima = ""     # «N cortes en …»: el número ya va en el resumen
         pasos[nombre] = ("ok" if cod == 0 else f"código {cod}" if cod is not None else "fallo") + (f": {ultima}" if ultima else "")
+    # sorteos de la zona en sortea2.com, ya filtrados (con Jev, si lo hay): Claude solo mira estos
+    try:
+        r = subprocess.run([sys.executable, "-I", os.path.join(RAIZ, "herramientas", "sortea2.py")], cwd=RAIZ, capture_output=True, text=True, timeout=180)
+        s2 = json.loads(r.stdout.strip().splitlines()[-1])
+        pasos["sortea2"] = f"ok: {s2['vistos']} vistos, {len(s2['candidatos'])} candidatos ({s2['juez']})"
+    except Exception as e:
+        s2 = {"candidatos": []}; pasos["sortea2"] = f"fallo: {e}"[:240]
     x = json.load(open(extras, encoding="utf-8"))
-    res = {"pasos": pasos, "agenda": len(x.get("agenda") or []), "sangre": len((x.get("sangre") or {}).get("colectas") or []),
+    res = {"pasos": pasos, "sortea2": [{"enlace": c["enlace"], "pueblos": c["pueblos"], "texto": c["texto"][:400]} for c in s2["candidatos"]],
+           "agenda": len(x.get("agenda") or []), "sangre": len((x.get("sangre") or {}).get("colectas") or []),
            "sorteos": len(x.get("sorteos") or []), "cortes": len(x.get("cortes") or [])}
     if revisar:
         inf = os.path.join(RAIZ, "revision.json")
