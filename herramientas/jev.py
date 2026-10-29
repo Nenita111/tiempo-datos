@@ -341,7 +341,8 @@ def preguntas_participa():
 # estado: {"texto": lo que dice la captura, transcrito}; una pregunta por dato
 CAMPOS_CAPTURA = {
     "cuenta": "the account that publishes it is {v}", "premio": "the prize is {v}", "lugar": "it is in or for {v}",
-    "hasta": "it ends (or the winner is drawn) on {v}", "fecha": "the event takes place on {v}", "horario": "the time is {v}",
+    "hasta": "it ends (or the winner is drawn) on {v} (if the text gives no year or no time, judge only the day, month and time it does give)",
+    "fecha": "the event takes place on {v} (if the text gives no year, judge only the day and month)", "horario": "the time is {v}",
     "titulo": "it is about: {v}",
 }
 
