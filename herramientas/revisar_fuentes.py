@@ -157,6 +157,19 @@ def luz(L):
     if not j.get("included"): raise ValueError("sin precios")
     return "precios de hoy"
 
+def esios(L):
+    """La API de ESIOS con la clave de Isa (variable ESIOS_API_KEY del entorno), la que usa la tarea del precio de la luz al móvil."""
+    import os
+    clave = os.environ.get("ESIOS_API_KEY", "").strip()
+    if not clave: raise PermissionError("falta la variable ESIOS_API_KEY en el entorno")
+    d = dt.datetime.now(TZ).date()
+    r = subprocess.run(["curl", "-sS", "-f", "--max-time", "40", "-A", UA, "-H", "Accept: application/json; application/vnd.esios-api-v1+json", "-H", "@-",
+                        f"https://api.esios.ree.es/indicators/1001?start_date={d}T00:00&end_date={d}T23:59&geo_ids[]=8741"],
+                       input=f"x-api-key: {clave}\n".encode(), capture_output=True)
+    if r.returncode: raise IOError(r.stderr.decode()[:160].strip())
+    if not json.loads(r.stdout)["indicator"]["values"]: raise ValueError("sin precios de hoy")
+    return "precios de hoy (con la clave)"
+
 def aire(L):
     j = json.loads(texto(f"https://air-quality-api.open-meteo.com/v1/air-quality?latitude={L['lat']}&longitude={L['lon']}&hourly=dust&forecast_days=1"))
     if "hourly" not in j: raise ValueError("sin datos")
@@ -409,8 +422,9 @@ def jev_(L):
     import os
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import jev
+    if not os.environ.get("TYPESAFE_API_KEY", "").strip(): raise PermissionError("falta la variable TYPESAFE_API_KEY en el entorno")
     try: r, modelo = jev.preguntar({"pueblo": L["nombre"]}, {"q": jev.noul("Is `pueblo` the name of a town?")}, intentos=2)
-    except jev.SinJev as e: raise PermissionError(str(e))
+    except jev.SinJev as e: raise ValueError(str(e))          # hay clave y no vale: ROTA
     if not 0 <= r["q"]["noul"] <= 1: raise ValueError(f"respuesta rara: {r}")
     return f"responde ({modelo})"
 
@@ -418,7 +432,7 @@ def jev_(L):
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
            medicamentos, productos, agua, camara, radiacion, sequia, sangre, cortesAgua,
-           mtg, tierra, solVideo, viento, calarVivo, jev_]
+           mtg, tierra, solVideo, viento, calarVivo, jev_, esios]
 
 
 def revisar(L=ADRA):
