@@ -87,7 +87,8 @@ def etiquetar(disps, ya=None, pedir_jev=None):
     for d in disps:
         if not d.get("url"): continue
         if d["url"] in ya: et[d["url"]] = ya[d["url"]]; continue
-        r, _ = jev.preguntar({"disposicion": {"boletin": d["boletin"], "texto": d["texto"][:1500]}}, jev.preguntas_sas(), pedir=pedir_jev)
+        try: r, _ = jev.preguntar({"disposicion": {"boletin": d["boletin"], "texto": d["texto"][:1500]}}, jev.preguntas_sas(), pedir=pedir_jev)
+        except jev.SinRespuesta: continue          # sin respuesta en la caché de Composio: mañana se pregunta otra vez
         et[d["url"]] = {"tipo": r["tipo"]["choice"], "provincia": r["provincia"]["choice"]}
     return et
 

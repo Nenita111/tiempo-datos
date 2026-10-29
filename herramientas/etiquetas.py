@@ -153,6 +153,7 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
         nonlocal hay_jev, motivo
         if not hay_jev: return None
         try: return jev.preguntar(estado, preguntas, pedir=pedir_jev)[0]
+        except jev.SinRespuesta: return None       # solo este elemento (caché de Composio): el resto sigue con Jev
         except jev.SinJev as e: hay_jev, motivo = False, str(e); return None
 
     try:

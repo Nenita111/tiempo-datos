@@ -21,6 +21,7 @@ import jev
 from zoneinfo import ZoneInfo
 
 TZ = ZoneInfo("Europe/Madrid")
+LUGAR = "Adra"                       # el pueblo de la tele (también el del sandbox de Composio, composio_jev.py)
 UA = "TiempoYRadar/1.0 (avisos personales al movil)"
 AEMET = "https://www.aemet.es"
 IGN = "https://www.ign.es/web/ign/portal/ultimos-terremotos/-/ultimos-terremotos/get10dias"
@@ -171,6 +172,8 @@ class Juez:
                                      jev.preguntas_corte(), pedir=self.pedir)
                 self.usado = "Jev"
                 return jev.es_corte(r, regla), r
+            except jev.SinRespuesta:
+                return regla, None                             # este titular no estaba en la caché de Composio: la regla
             except jev.SinJev as e:
                 self.activo, self.motivo = False, str(e)       # una vez sin Jev, el resto con la regla (no se insiste)
         return regla, None
@@ -183,6 +186,15 @@ def cortes_rss(xml, lugar, desde, juez=None):
         tipo = juez.corte(lugar, p)[0] if juez else tipo_corte(p["titulo"])
         if tipo: res.append({"tipo": tipo, "titulo": p["titulo"], "enlace": p["enlace"], "fuente": "Noticias de Almería"})
     return res
+
+
+def cortes_titulares(lugar, ahora, juez, fallos):
+    """Los titulares de los dos últimos días (también lo que hace composio_jev.py en el sandbox, para que las preguntas sean las mismas)."""
+    cortes, bien = [], 0
+    for u in NDA:
+        try: cortes += cortes_rss(pedir(u), lugar, ahora - dt.timedelta(days=2), juez); bien += 1
+        except Exception as e: fallos.append(f"Noticias de Almería: {e}")
+    return cortes, bien
 
 
 # ------------------------------------------------------------------ cortes de agua de Hidralia (lo mismo que CortesAgua.kt de la app)
@@ -255,7 +267,7 @@ def nuevos(estado, aemet, sismos, cortes, ahora):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--estado", required=True); p.add_argument("--extras", default="extras.json")
-    p.add_argument("--lugar", default="Adra"); p.add_argument("--ine", default="04003")
+    p.add_argument("--lugar", default=LUGAR); p.add_argument("--ine", default="04003")
     p.add_argument("--lat", type=float, default=36.7489); p.add_argument("--lon", type=float, default=-3.0206)
     o = p.parse_args()
     ahora = dt.datetime.now(TZ)
@@ -276,9 +288,7 @@ def main():
         bien += 1
     except Exception as e: fallos.append(f"extras.json: {e}")
     juez = Juez()
-    for u in NDA:
-        try: cortes += cortes_rss(pedir(u), o.lugar, ahora - dt.timedelta(days=2), juez); bien += 1
-        except Exception as e: fallos.append(f"Noticias de Almería: {e}")
+    c, b = cortes_titulares(o.lugar, ahora, juez, fallos); cortes += c; bien += b
     try: cortes += cortes_hidralia(pedir(url_cierres(o.ine)).decode("utf-8"), o.ine, ahora); bien += 1
     except Exception as e: fallos.append(f"Hidralia: {e}")
     n = nuevos(estado, aemet, sismos, cortes, ahora)

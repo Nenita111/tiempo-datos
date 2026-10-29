@@ -6,12 +6,17 @@ Aquí decide cosas que una regla de texto hace mal (si un titular anuncia un cor
 receta pega con el tiempo de hoy, de qué tipo es una disposición del SAS); las fechas, las cuentas y lo que se puede comprobar con
 exactitud se hacen en el código. Las preguntas van en inglés (Jev rinde mejor) y los textos, tal cual, en español.
 
-La clave: la variable TYPESAFE_API_KEY, en las «Variables de entorno» del entorno en la nube de las tareas (claude.ai/code, icono de
-nube, engranaje del entorno; los entornos aún no tienen almacén de secretos: la ve quien use ese entorno, que es personal). Desde la
-nube api.typesafe.ai ya responde (sin clave, 403 «Must supply an API key»). Nunca en el repositorio ni en la salida. Sin clave
-(401/403) o sin red: SinJev, y cada script sigue como antes de Jev (reglas de texto o nada).
+Cómo llega a Jev (29 oct 2026, lo pidió Isa: «usa el conector de Jev de Composio de ahora en adelante»): por el conector JEV de Composio,
+con la cuenta de Isa. Los scripts no pueden llamar a un conector, así que las tareas lo hacen en dos tiempos (composio_jev.py):
+  1. En el sandbox de Composio (COMPOSIO_REMOTE_WORKBENCH, donde está run_composio_tool) se ejecutan los mismos scripts sobre la misma
+     versión del repositorio; cada pregunta va a Jev por Composio (COMPOSIO) y la respuesta se guarda (GUARDADAS) con su clave: el hash de
+     la petición entera (estado, modelo y preguntas). Se sube y da una URL.
+  2. En la sesión de la tarea se baja a un fichero y los scripts se ejecutan con JEV_CACHE=<fichero>: cada pregunta igual encuentra su
+     respuesta. Si falta (la fuente cambió entre una vez y otra), SinRespuesta: ese elemento se queda sin Jev y el resto sigue.
+Sin caché y con la variable TYPESAFE_API_KEY en el entorno, directo a la API (como hasta 3.5). Sin nada de eso: SinJev, y cada script sigue
+como antes de Jev (reglas de texto o nada). La clave nunca en el repositorio ni en la salida.
 """
-import json, os, time, urllib.error, urllib.request
+import hashlib, json, os, re, time, urllib.error, urllib.request
 
 URL = "https://api.typesafe.ai/v1/systemone"
 MODELO = "jev-1.13.0"        # fijado: los umbrales se ajustan contra esta versión
@@ -21,10 +26,78 @@ class SinJev(Exception):
     """No se puede preguntar a Jev (sin clave, sin red o caído): se sigue sin él."""
 
 
+class SinRespuesta(SinJev):
+    """Con la caché de Composio, esta pregunta no tiene respuesta guardada: solo este elemento se queda sin Jev (el resto sigue)."""
+
+
+COMPOSIO = None       # en el sandbox de Composio, run_composio_tool (lo pone composio_jev.py)
+GUARDADAS = {}        # lo que ha contestado Jev por Composio en esta ejecución: {clave: respuesta}
+_CACHE = None
+
+
+def clave(cuerpo):
+    """La de la caché: el hash de la petición entera (igual en el sandbox y en la tarea si el estado y las preguntas son iguales)."""
+    return hashlib.sha256(json.dumps(cuerpo, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")).hexdigest()
+
+
+def cache():
+    global _CACHE
+    if _CACHE is None:
+        _CACHE = {}
+        f = os.environ.get("JEV_CACHE", "").strip()
+        if f:
+            try:
+                with open(f, encoding="utf-8") as x: _CACHE = json.load(x)
+            except (OSError, ValueError): pass
+    return _CACHE
+
+
+def _con_respuestas(r):
+    """La respuesta de JEV_EVALUATE_STATE viene envuelta («data», a veces dos veces): el dict que lleva «answers»."""
+    for _ in range(4):
+        if not isinstance(r, dict): return None
+        if isinstance(r.get("answers"), dict): return r
+        r = r.get("data") if "data" in r else r.get("response")
+    return None
+
+
+def _por_composio(cuerpo, intentos=3, dormir=None):
+    msg, dormir = "", dormir or time.sleep
+    for n in range(intentos):
+        try: r, err = COMPOSIO("JEV_EVALUATE_STATE", {"model": cuerpo["model"], "state": cuerpo["state"], "questions": cuerpo["questions"]})
+        except Exception as e: r, err = None, f"{type(e).__name__}: {e}"
+        d = None if err else _con_respuestas(r)
+        if d: return {"answers": d["answers"], "model": d.get("model", cuerpo["model"])}
+        msg = str(err or (r or {}).get("error") or "sin «answers» en la respuesta")[:300]
+        if re.search(r"\b422\b|validation|invalid", msg, re.I): raise ValueError(f"Jev rechaza la pregunta: {msg}")
+        if re.search(r"credit|unauthori|forbidden|\b40[13]\b|no active connection|not connected|connect (your|their) own", msg, re.I):
+            raise SinJev(f"Jev por Composio: {msg}")
+        if n < intentos - 1: dormir(2 * 2 ** n)
+    raise SinJev(f"Jev por Composio: {msg}")
+
+
+def _apuntar_falta(k):
+    f = os.environ.get("JEV_FALTAN", "").strip()
+    if f:
+        try:
+            with open(f, "a", encoding="utf-8") as x: x.write(k + "\n")
+        except OSError: pass
+
+
 def _pedir(cuerpo, timeout):
+    k = clave(cuerpo)
+    c = cache()
+    if k in c: return c[k]
+    if COMPOSIO:
+        r = _por_composio(cuerpo)
+        GUARDADAS[k] = c[k] = r
+        return r
+    clave_api = os.environ.get("TYPESAFE_API_KEY", "").strip()
+    if os.environ.get("JEV_CACHE", "").strip() and not clave_api:
+        _apuntar_falta(k)
+        raise SinRespuesta("Jev: esta pregunta no está en la caché de Composio")
     cab = {"Content-Type": "application/json", "User-Agent": "TiempoYRadar/1.0 (tareas de la tele)"}
-    clave = os.environ.get("TYPESAFE_API_KEY", "").strip()
-    if clave: cab["Authorization"] = f"Bearer {clave}"
+    if clave_api: cab["Authorization"] = f"Bearer {clave_api}"
     r = urllib.request.Request(URL, data=json.dumps(cuerpo, ensure_ascii=False).encode("utf-8"), headers=cab, method="POST")
     with urllib.request.urlopen(r, timeout=timeout) as f:
         return json.loads(f.read().decode("utf-8"))

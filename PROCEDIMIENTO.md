@@ -153,10 +153,21 @@ de 36 horas o ya han empezado y no han pasado su previsión de restablecimiento)
 ## 7. Jev (TypeSafe System One): decisiones cerradas en las tareas de la nube
 
 `herramientas/jev.py`: el cliente (sin dependencias) y todas las preguntas y umbrales, en un solo sitio. Jev no escribe: contesta sí/no
-con probabilidad o elige una opción de una lista; las fechas, las cuentas y lo exacto se hacen en el código. La clave va en la variable
-`TYPESAFE_API_KEY` de las «Variables de entorno» del entorno en la nube de las tareas (claude.ai/code → icono de nube → engranaje del
-entorno; no hay almacén de secretos: la ve quien use ese entorno); nunca en el repositorio ni en la salida. Sin clave (401/403) o sin red, cada script sigue como antes.
-Nunca va en la app de la tele: el APK es público y la clave quedaría a la vista.
+con probabilidad o elige una opción de una lista; las fechas, las cuentas y lo exacto se hacen en el código. Nunca va en la app de la tele.
+
+**Por el conector JEV de Composio** (desde el 29 oct 2026, lo pidió Isa: «usa ese conector de ahora en adelante»; la cuenta de Jev es la
+suya, conectada en Composio). Las tareas llevan el conector JEV. Los scripts no pueden llamar a un conector, así que va en dos tiempos
+(`herramientas/composio_jev.py`):
+1. En el sandbox de Composio (herramienta COMPOSIO_REMOTE_WORKBENCH), una celda baja la misma versión del repositorio (el SHA del clon de
+   la tarea), repite los pasos que preguntan a Jev con `run_composio_tool("JEV_EVALUATE_STATE", …)` y sube las respuestas: da una «url».
+   `jev_correr("diario", SHA)` (los de diario.py que quitan lo pasado y los que preguntan a Jev, y sortea2) o `jev_correr("avisos", SHA)`
+   (los titulares de avisos_movil.py); si contesta «"listo": false», `jev_esperar()` en otra celda.
+2. En la tarea: `mkdir -p /tmp/jev && curl -sSL "<url>" -o /tmp/jev/cache.json` y el script con `JEV_CACHE=/tmp/jev/cache.json` delante.
+   Cada pregunta igual encuentra su respuesta (la clave es el hash de la petición entera); si una no está (la fuente cambió entre una vez y
+   otra), ese elemento se queda sin Jev y el resto sigue. diario.py lo dice en «jev» («N respuestas por Composio, M sin respuesta»).
+En el buzón, la comprobación de cada captura va directa: `jev_captura(SHA, texto, datos)` (lo mismo que comprobar_captura.py).
+Sin la caché, con la variable `TYPESAFE_API_KEY` en el entorno, directo a la API (como antes); sin nada, cada script sigue como antes de Jev.
+Nunca se imprime ni se escribe ninguna clave.
 
 - Avisos al móvil (`avisos_movil.py`): Jev dice si cada titular de Noticias de Almería que nombra el pueblo anuncia un corte de agua o de
   luz en él (y si ya está restablecido); si duda, la regla de texto de antes. La línea JSON dice «titulares»: Jev o reglas.
@@ -177,6 +188,8 @@ Nunca va en la app de la tele: el APK es público y la clave quedaría a la vist
   misma actividad dos veces y en cada sorteo cómo se participa («participa»).
 - `comprobar_captura.py` (buzón): antes de apuntar una captura, Jev mira dato por dato si el texto transcrito dice lo que se va a apuntar; si
   no cuadra, «REVISAR (no cuadra …)».
-- `revisar_fuentes.py` revisa también Jev (`jev_`) y ESIOS (`esios`): sin clave, «NO COMPROBABLE»; con clave que no vale, ROTA. Si una fuente
+- `revisar_fuentes.py` revisa también Jev (`jev_`) y ESIOS (`esios`): Jev por Composio, cuántas respuestas trajo el sandbox (vacía o sin
+  nada, «NO COMPROBABLE»); con clave que no vale, ROTA. La segunda mirada (abajo) solo con la clave: el sandbox no repite la revisión. Si una fuente
   sale ROTA porque falta su marca, Jev mira lo último que bajó y dice si el dato parece seguir en la página (¿cambio de formato?).
-Pruebas: `herramientas/test_jev.py` (respuestas de mentira con la forma de la API; los RSS, el XML de AEMET y los boletines, reales).
+Pruebas: `herramientas/test_jev.py` (respuestas de mentira con la forma de la API y de Composio; los RSS, el XML de AEMET y los boletines,
+reales), con la ida y vuelta sandbox → caché → tarea.

@@ -3,6 +3,7 @@ calendario del cielo, las plagas, los virus respiratorios y la sequía y revisa 
 resumen de una línea, para que la tarea programada gaste pocos tokens (antes leía la salida de cada script).
 
   python3 -I herramientas/diario.py extras.json [--sin-revision]
+  JEV_CACHE=/tmp/jev/cache.json python3 -I herramientas/diario.py extras.json      # Jev por Composio (composio_jev.py, antes en el sandbox)
 
 Con Jev (jev.py): los titulares con cortes, y los que anuncian actividades o colectas en el pueblo como candidatos (titulares.py), la
 receta según el tiempo (receta.py), las etiquetas del SAS (sas.py), las de la AESAN, la AEMPS, Safety Gate y las ofertas de la Junta, la
@@ -11,7 +12,7 @@ sin Jev, esos pasos no tocan nada (o solo lo exacto).
 
 Imprime una línea JSON: {"pasos": {"cielo": "ok …", "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulares": […],
 "sangre_titulares": […], "agenda": N, "sangre": N,
-"sorteos": N, "cortes": N, "rotas": ["fuente: fallo", …]}. Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
+"sorteos": N, "cortes": N, "jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …]}. Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
 """
 import json, os, subprocess, sys
@@ -23,6 +24,9 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     # con Jev (jev.py); sin él no tocan nada
     ("titulares", "titulares.py", 300), ("receta", "receta.py", 120), ("sas", "sas.py", 600), ("etiquetas", "etiquetas.py", 900),
 ]
+# el sandbox de Composio (composio_jev.py) repite estos, en este orden, para que Jev vea lo mismo: los que quitan lo pasado (cambian lo que
+# ven las etiquetas) y los que preguntan a Jev; los demás no le tocan y no se repiten
+PREVIOS, CON_JEV = ("cortes", "agenda", "sangre", "sorteos"), ("titulares", "receta", "sas", "etiquetas")
 
 
 def correr(args, tiempo):
@@ -38,6 +42,10 @@ def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     extras = os.path.abspath(sys.argv[1]); revisar = "--sin-revision" not in sys.argv
     pasos, titulares = {}, {}
+    cache = os.environ.get("JEV_CACHE", "").strip()
+    if cache:                                    # cada script apunta ahí las preguntas que no estaban en la caché
+        faltan = os.environ["JEV_FALTAN"] = cache + ".faltan"
+        open(faltan, "w").close()
     for nombre, script, tiempo in PASOS:
         s, *opc = script.split()
         cod, ultima = correr([os.path.join(RAIZ, "herramientas", s), extras, *opc], tiempo)
@@ -59,6 +67,13 @@ def main():
            "agenda_titulares": titulares.get("agenda", []), "sangre_titulares": titulares.get("colectas", []),
            "agenda": len(x.get("agenda") or []), "sangre": len((x.get("sangre") or {}).get("colectas") or []),
            "sorteos": len(x.get("sorteos") or []), "cortes": len(x.get("cortes") or [])}
+    if cache:
+        try: n = len(json.load(open(cache, encoding="utf-8")))
+        except (OSError, ValueError): n = 0
+        m = len(set(open(faltan).read().split()))
+        res["jev"] = f"{n} respuestas por Composio, {m} sin respuesta" + (" (¿falló el sandbox?)" if not n else "")
+    elif not os.environ.get("TYPESAFE_API_KEY", "").strip():
+        res["jev"] = "sin Jev: falta la caché de Composio (JEV_CACHE)"
     if revisar:
         inf = os.path.join(RAIZ, "revision.json")
         cod, ultima = correr([os.path.join(RAIZ, "herramientas", "revisar_fuentes.py"), "--json", inf], 900)
@@ -66,7 +81,7 @@ def main():
             f = json.load(open(inf, encoding="utf-8"))["fuentes"]
             res["rotas"] = [f"{y['fuente']}: {y['detalle']}"[:200] for y in f if y["estado"] == "ROTA"]
             res["fuentes"] = f"{sum(y['estado'] != 'ROTA' for y in f)}/{len(f)} bien"
-            res["faltan_claves"] = [y["detalle"] for y in f if "falta la variable" in y.get("detalle", "")]   # Jev, ESIOS: las pone Isa en el entorno
+            res["faltan_claves"] = [y["detalle"] for y in f if "falta la variable" in y.get("detalle", "")]   # ESIOS: la pone Isa en el entorno (Jev va por Composio)
         except (OSError, ValueError, KeyError):
             res["rotas"] = [f"revisar_fuentes.py no acabó ({ultima or cod})"]
     print(json.dumps(res, ensure_ascii=False))

@@ -41,7 +41,8 @@ def juzgar(piezas, lugar, ine, pedir=None, hoy=None):
     cortes, no, cand = [], [], []
     hoy = hoy or dt.datetime.now(TZ).date()
     for p in piezas:
-        r, _ = jev.preguntar({"pueblo": lugar, "noticia": {"titulo": p["titulo"], "entradilla": p["entradilla"]}}, jev.preguntas_titular(), pedir=pedir)
+        try: r, _ = jev.preguntar({"pueblo": lugar, "noticia": {"titulo": p["titulo"], "entradilla": p["entradilla"]}}, jev.preguntas_titular(), pedir=pedir)
+        except jev.SinRespuesta: continue          # con la caché de Composio, este titular no estaba: se queda sin juzgar (el resto sigue)
         regla = A.tipo_corte(p["titulo"])
         pub = p["s"] or dt.datetime.now(TZ)
         if r["anuncia"]["noul"] >= jev.SI and r["en_pueblo"]["noul"] >= 0.5 and r["restablecido"]["noul"] < 0.5 and r["tipo"]["choice"] in ("agua", "luz"):

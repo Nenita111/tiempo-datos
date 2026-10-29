@@ -420,11 +420,16 @@ def calarVivo(L):
 
 
 def jev_(L):
-    """Jev (TypeSafe), para las tareas de la nube (titulares, receta, SAS, sortea2): una pregunta mínima. Sin clave: NO COMPROBABLE."""
+    """Jev (TypeSafe), para las tareas de la nube (titulares, receta, SAS, sortea2). Por Composio (JEV_CACHE): cuántas respuestas trajo
+    el sandbox (vacía: NO COMPROBABLE). Con la clave: una pregunta mínima. Sin nada: NO COMPROBABLE."""
     import os
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import jev
-    if not os.environ.get("TYPESAFE_API_KEY", "").strip(): raise PermissionError("falta la variable TYPESAFE_API_KEY en el entorno")
+    if not os.environ.get("TYPESAFE_API_KEY", "").strip():
+        if os.environ.get("JEV_CACHE", "").strip():
+            if not jev.cache(): raise PermissionError("la caché de Composio (JEV_CACHE) está vacía")
+            return f"por el conector de Composio ({len(jev.cache())} respuestas)"
+        raise PermissionError("sin Jev: ni la caché de Composio (JEV_CACHE) ni la variable TYPESAFE_API_KEY")
     try: r, modelo = jev.preguntar({"pueblo": L["nombre"]}, {"q": jev.noul("Is `pueblo` the name of a town?")}, intentos=2)
     except jev.SinJev as e: raise ValueError(str(e))          # hay clave y no vale: ROTA
     if not 0 <= r["q"]["noul"] <= 1: raise ValueError(f"respuesta rara: {r}")

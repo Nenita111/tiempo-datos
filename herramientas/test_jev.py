@@ -1,5 +1,5 @@
 """Jev sin red: las respuestas son de mentira (con la forma de la API, api.typesafe.ai/v1/systemone) para probar el código que las usa."""
-import datetime as dt, io, json, os, sys, unittest, urllib.error
+import datetime as dt, io, json, os, sys, tempfile, unittest, urllib.error
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(__file__))
 import jev, avisos_movil as A, titulares as T, receta as R, sortea2 as S2, sas, etiquetas as ET, comprobar_captura as CC, revisar_fuentes as RF
@@ -267,6 +267,102 @@ class SegundaMirada(unittest.TestCase):
         self.assertIn("parece seguir", RF.segunda_mirada("luz", "ValueError: sin precios", pagina, pedir_jev=lambda c, t: {"answers": {"sigue": noul(0.9)}}))
         self.assertIn("ya no parece", RF.segunda_mirada("luz", "ValueError: sin precios", pagina, pedir_jev=lambda c, t: {"answers": {"sigue": noul(0.1)}}))
         self.assertEqual(RF.segunda_mirada("luz", "x", pagina, pedir_jev=lambda c, t: {"answers": {"sigue": noul(0.5)}}), "")
+
+
+class Composio(unittest.TestCase):
+    """Jev por el conector de Composio: en el sandbox, COMPOSIO (run_composio_tool) y GUARDADAS; en la tarea, JEV_CACHE (respuestas de mentira)."""
+    def setUp(self):
+        self.env = {k: os.environ.get(k) for k in ("JEV_CACHE", "JEV_FALTAN", "TYPESAFE_API_KEY")}
+        for k in self.env: os.environ.pop(k, None)
+        jev.COMPOSIO, jev.GUARDADAS, jev._CACHE = None, {}, None
+        self.dir = tempfile.mkdtemp()
+
+    def tearDown(self):
+        for k, v in self.env.items():
+            if v is None: os.environ.pop(k, None)
+            else: os.environ[k] = v
+        jev.COMPOSIO, jev.GUARDADAS, jev._CACHE = None, {}, None
+
+    def composio(self, respuestas, vistas=None):
+        def run(slug, args):
+            self.assertEqual(slug, "JEV_EVALUATE_STATE"); self.assertEqual(set(args), {"model", "state", "questions"})
+            if vistas is not None: vistas.append(args)
+            return {"data": {"answers": respuestas(args), "model": args["model"], "usage": {}}, "error": None}, None
+        return run
+
+    def a_la_tarea(self):
+        """Lo que guardó el sandbox, a un fichero; la tarea lo lee con JEV_CACHE (y sin Composio)."""
+        f = os.path.join(self.dir, "cache.json")
+        json.dump(jev.GUARDADAS, open(f, "w", encoding="utf-8"))
+        jev.COMPOSIO, jev._CACHE = None, None
+        os.environ["JEV_CACHE"] = f; os.environ["JEV_FALTAN"] = f + ".faltan"
+        open(f + ".faltan", "w").close()
+        return f
+
+    def test_ida_y_vuelta_titulares(self):
+        pub = dt.datetime(2026, 10, 28, 9, 0, tzinfo=TZ)
+        piezas = [{"titulo": "PRUEBA: Adra se quedará sin agua el jueves 29", "entradilla": "", "enlace": "https://x/a", "s": pub},
+                  {"titulo": "PRUEBA: Adra presenta la feria", "entradilla": "", "enlace": "https://x/c", "s": pub}]
+        corte = dict(anuncia=noul(0.95), tipo=choice("agua"), en_pueblo=noul(0.9), restablecido=noul(0.0), dia=choice("29"), mes=choice("not_stated"))
+        nada = dict(anuncia=noul(0.0), tipo=choice("otro"), en_pueblo=noul(0.5), restablecido=noul(0.0), dia=choice("not_stated"), mes=choice("not_stated"))
+        vistas = []
+        jev.COMPOSIO = self.composio(lambda a: corte if "agua" in a["state"]["noticia"]["titulo"] else nada, vistas)
+        sandbox = T.juzgar(piezas, "Adra", "04003", hoy=dt.date(2026, 10, 28))
+        self.assertEqual(len(vistas), 2); self.assertEqual(len(jev.GUARDADAS), 2)
+        self.a_la_tarea()
+        tarea = T.juzgar(piezas, "Adra", "04003", hoy=dt.date(2026, 10, 28))
+        self.assertEqual(tarea, sandbox)                                   # las mismas preguntas: las mismas respuestas
+        self.assertEqual([c["enlace"] for c in tarea[0]], ["https://x/a"])
+        # un titular que el sandbox no vio (llegó después): ese, sin Jev; los demás, igual
+        nuevo = {"titulo": "PRUEBA: titular nuevo", "entradilla": "", "enlace": "https://x/n", "s": pub}
+        self.assertEqual(T.juzgar(piezas + [nuevo], "Adra", "04003", hoy=dt.date(2026, 10, 28)), sandbox)
+        self.assertEqual(len(open(os.environ["JEV_FALTAN"]).read().split()), 1)
+
+    def test_sin_respuesta_solo_ese(self):
+        self.a_la_tarea()                                                  # caché vacía
+        d = [{"texto": "PRUEBA … Servicio Andaluz de Salud", "url": "u1", "boletin": "BOJA"}]
+        self.assertEqual(sas.etiquetar(d, {}), {})                         # sin etiqueta (mañana otra vez), sin cortar el paso
+        j = A.Juez()
+        self.assertEqual(j.corte("Adra", {"titulo": "PRUEBA: corte de agua en Adra", "entradilla": ""}), ("agua", None))
+        self.assertTrue(j.activo)                                          # el siguiente se sigue preguntando
+        xml = Sortea2.XML.replace("</channel>", Sortea2.PRUEBA + "</channel>")
+        c = S2.candidatos(xml)
+        self.assertEqual([x["jev"] for x in c["candidatos"]], [None])      # va de candidato, sin juzgar
+        with self.assertRaises(jev.SinRespuesta): jev.preguntar({"x": 1}, {"q": jev.noul("Is it?")})
+
+    def test_errores_de_composio(self):
+        esperas = []
+        jev.time.sleep, dormir = esperas.append, jev.time.sleep
+        try:
+            def sin_saldo(slug, args): return None, "The user's Composio wallet is out of credits"
+            jev.COMPOSIO = sin_saldo
+            with self.assertRaises(jev.SinJev): jev.preguntar({"x": 1}, {"q": jev.noul("Is it?")})
+            jev.COMPOSIO = lambda slug, args: (None, "HTTP 422: validation error")
+            with self.assertRaises(ValueError): jev.preguntar({"x": 1}, {"q": jev.noul("Is it?")})
+            n = []
+            def a_la_tercera(slug, args):
+                n.append(1)
+                return (None, "timeout") if len(n) < 3 else ({"data": {"data": {"answers": {"q": noul(0.8)}, "model": "jev-1.13.0"}}}, None)
+            jev.COMPOSIO = a_la_tercera
+            self.assertEqual(jev.preguntar({"x": 2}, {"q": jev.noul("Is it?")})[0]["q"]["noul"], 0.8)
+            self.assertEqual(esperas, [2, 4])
+        finally:
+            jev.time.sleep = dormir
+
+    def test_clave_estable(self):
+        a = {"state": {"b": 1, "a": "ñ"}, "model": "jev-1.13.0", "questions": {"q": {"type": "noul", "instructions": "x"}}}
+        b = {"questions": {"q": {"instructions": "x", "type": "noul"}}, "model": "jev-1.13.0", "state": {"a": "ñ", "b": 1}}
+        self.assertEqual(jev.clave(a), jev.clave(b))
+        self.assertNotEqual(jev.clave(a), jev.clave(a | {"model": "jev-latest"}))
+
+    def test_sandbox_sabe_que_pasos(self):
+        import diario
+        nombres = [n for n, _, _ in diario.PASOS]
+        self.assertTrue(set(diario.PREVIOS + diario.CON_JEV) <= set(nombres))
+        self.assertLess(max(nombres.index(n) for n in diario.PREVIOS), min(nombres.index(n) for n in diario.CON_JEV))
+        g = {"run_composio_tool": None, "upload_local_file": None}
+        exec(open(os.path.join(os.path.dirname(__file__), "composio_jev.py"), encoding="utf-8").read(), g)
+        self.assertTrue(all(callable(g[f]) for f in ("jev_correr", "jev_esperar", "jev_captura")))
 
 
 if __name__ == "__main__":
