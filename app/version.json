@@ -1,8 +1,8 @@
 {
-  "versionCode": 23,
-  "versionName": "3.2",
+  "versionCode": 24,
+  "versionName": "3.3",
   "apk": "app/Tiempo.apk",
-  "sha256": "1fda47b65816fe7b92510b640641ff883aa5c3395d49dee97562b847ef2b29c2",
-  "bytes": 1108087,
-  "notas": "En movimiento: Calar Alto en directo, satélite MTG de las últimas 3 horas, el Sol en vídeo, la Tierra girando, la DGT a cámara rápida y el viento sobre el mapa"
+  "sha256": "f99b87867045b5d7f9d8ef6f952fade4225470e4f222640e4ded16b45cf1bdab",
+  "bytes": 1111983,
+  "notas": "3.3: tráfico solo del trayecto Adra → Almería (con las dos ciudades); la foto de la DGT cuando no hay cámara rápida y, si no hay foto, se dice por qué; una receta distinta cada día; pantallas Campo (con las plagas) y Pescado; la puesta programada ya no baja lo que se mueve con la tele apagada."
 }
