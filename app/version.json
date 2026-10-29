@@ -1,8 +1,8 @@
 {
-  "versionCode": 26,
-  "versionName": "3.5",
+  "versionCode": 27,
+  "versionName": "3.6",
   "apk": "app/Tiempo.apk",
-  "sha256": "78e7308f1d84801dbaa3082db6bbd4d9c8b3e89b16106034d061a5ff1a020b05",
-  "bytes": 1113375,
-  "notas": "3.5: con Jev en la nube, el alérgeno de cada alerta alimentaria, los medicamentos sin receta (CIMA) y si hay que devolver los de casa, los productos para niños, la titulación y la experiencia de cada oferta de empleo y cómo se participa en cada sorteo."
+  "sha256": "647e7fede1702fe14ae4b75ae0be6a35a89d55d436e8a7641afe986654c53670",
+  "bytes": 1119475,
+  "notas": "3.6: ofertas de empleo público del SAE de la zona (provincia de Almería sin el Levante y la costa hasta Motril); entes de la Junta y SAS solo de la zona; un QR en cada oferta"
 }
