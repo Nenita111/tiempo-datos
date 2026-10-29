@@ -1,8 +1,8 @@
 {
-  "versionCode": 22,
-  "versionName": "3.1",
+  "versionCode": 23,
+  "versionName": "3.2",
   "apk": "app/Tiempo.apk",
-  "sha256": "717074c3555ae177e15774d90d101516904dc77edd2d73087728a3c7f4cedc79",
-  "bytes": 1087383,
-  "notas": "Cortes de agua de Hidralia (su mapa de obras y afectaciones): aviso arriba y tarjeta en Noticias"
+  "sha256": "1fda47b65816fe7b92510b640641ff883aa5c3395d49dee97562b847ef2b29c2",
+  "bytes": 1108087,
+  "notas": "En movimiento: Calar Alto en directo, satélite MTG de las últimas 3 horas, el Sol en vídeo, la Tierra girando, la DGT a cámara rápida y el viento sobre el mapa"
 }
