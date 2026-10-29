@@ -365,7 +365,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-10-29",
- "actualizado": "2026-10-29T07:50+01:00",
+ "actualizado": "2026-10-29T10:44+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -914,5 +914,306 @@
  },
  "sangre": {
   "colectas": []
+ },
+ "noEsCorte": [],
+ "receta": {
+  "fecha": "2026-10-29",
+  "nombre": "Crema de calabaza",
+  "tiempo": {
+   "temperature": "mild",
+   "rain": "dry",
+   "wind": "light wind",
+   "sky": ""
+  },
+  "recientes": [
+   {
+    "fecha": "2026-10-29",
+    "nombre": "Crema de calabaza"
+   }
+  ]
+ },
+ "sas": {
+  "fecha": "2026-10-29",
+  "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/209/13": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/209/14": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/209/15": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/209/16": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/209/17": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/209/18": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/209/19": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/209/20": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/10": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/11": {
+    "tipo": "convocatoria",
+    "provincia": "almeria"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/12": {
+    "tipo": "convocatoria",
+    "provincia": "almeria"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/13": {
+    "tipo": "convocatoria",
+    "provincia": "almeria"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/14": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/15": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/16": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/17": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/18": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/208/19": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/18": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/19": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/20": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/21": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/22": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/23": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/24": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/25": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/207/26": {
+    "tipo": "convocatoria",
+    "provincia": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/206/15": {
+    "tipo": "otra",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/206/16": {
+    "tipo": "otra",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/206/17": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/206/18": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia"
+   },
+   "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-22323": {
+    "tipo": "nombramiento",
+    "provincia": "andalucia"
+   }
+  }
+ },
+ "etiquetas": {
+  "alim": {
+   "https://www.aesan.gob.es/alertas/2026_76": {
+    "alergeno": "ninguno"
+   },
+   "https://www.aesan.gob.es/alertas/2026_75": {
+    "alergeno": "ninguno"
+   },
+   "https://www.aesan.gob.es/alertas/2026_73": {
+    "alergeno": "ninguno"
+   },
+   "https://www.aesan.gob.es/alertas/2026_74": {
+    "alergeno": "ninguno"
+   },
+   "https://www.aesan.gob.es/alertas/2026_72": {
+    "alergeno": "ninguno"
+   },
+   "https://www.aesan.gob.es/alertas/2026_78": {
+    "alergeno": "ninguno"
+   },
+   "https://www.aesan.gob.es/alertas/2026_71": {
+    "alergeno": "ninguno"
+   },
+   "https://www.aesan.gob.es/alertas/2026_70": {
+    "alergeno": "ninguno"
+   },
+   "https://www.aesan.gob.es/alertas/2026_77": {
+    "alergeno": "huevo"
+   },
+   "https://www.aesan.gob.es/alertas/2026_69": {
+    "alergeno": "gluten"
+   }
+  },
+  "med": {
+   "R_38/2026": {
+    "sinReceta": false,
+    "devolver": 0.28
+   },
+   "R_37/2026": {
+    "sinReceta": false,
+    "devolver": 0.28
+   },
+   "R_36/2026": {
+    "sinReceta": false,
+    "devolver": 0.26
+   },
+   "R_35/2026": {
+    "sinReceta": null,
+    "devolver": 0.12
+   },
+   "R_34/2026": {
+    "sinReceta": false,
+    "devolver": 0.26
+   }
+  },
+  "prod": {
+   "10118906": {
+    "ninos": 1.0
+   },
+   "10119041": {
+    "ninos": 1.0
+   },
+   "10118951": {
+    "ninos": 0.02
+   },
+   "10118818": {
+    "ninos": 0.05
+   },
+   "10118787": {
+    "ninos": 0.05
+   },
+   "10118789": {
+    "ninos": 0.04
+   },
+   "10118819": {
+    "ninos": 0.17
+   },
+   "10118838": {
+    "ninos": 0.12
+   },
+   "10118891": {
+    "ninos": 1.0
+   },
+   "10118876": {
+    "ninos": 1.0
+   }
+  },
+  "ofertas": {
+   "690598": {
+    "nivel": "eso",
+    "experiencia": 0.68
+   },
+   "690496": {
+    "nivel": "grado",
+    "experiencia": 0.1
+   },
+   "690112": {
+    "nivel": "grado",
+    "experiencia": 0.04
+   },
+   "690493": {
+    "nivel": "fp_superior",
+    "experiencia": 0.97
+   },
+   "689332": {
+    "nivel": "grado",
+    "experiencia": 0.94
+   },
+   "690490": {
+    "nivel": "fp_superior",
+    "experiencia": 0.97
+   },
+   "690010": {
+    "nivel": "sin_titulo",
+    "experiencia": 0.04
+   },
+   "689971": {
+    "nivel": "grado",
+    "experiencia": 0.55
+   },
+   "689719": {
+    "nivel": "grado",
+    "experiencia": 0.94
+   },
+   "687547": {
+    "nivel": "grado",
+    "experiencia": 0.05
+   },
+   "689338": {
+    "nivel": "fp_medio",
+    "experiencia": 0.05
+   },
+   "689119": {
+    "nivel": "grado",
+    "experiencia": 0.97
+   },
+   "689083": {
+    "nivel": "grado",
+    "experiencia": 0.88
+   },
+   "689158": {
+    "nivel": "grado",
+    "experiencia": 0.03
+   },
+   "688786": {
+    "nivel": "sin_titulo",
+    "experiencia": 0.04
+   }
+  },
+  "fecha": "2026-10-29"
  }
 }
