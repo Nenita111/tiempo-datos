@@ -1,8 +1,8 @@
 {
-  "versionCode": 28,
-  "versionName": "3.7",
+  "versionCode": 29,
+  "versionName": "3.8",
   "apk": "app/Tiempo.apk",
-  "sha256": "0ae147bb3705e51868b9572779d625ce4f854515a40c4de8d9f2bc06e12fac14",
-  "bytes": 1119811,
-  "notas": "3.7: en Empleo, quién contrata, la titulación mínima y si piden experiencia en las ofertas del SAE (Jev); en SAS, la zona de cada disposición la decide Jev"
+  "sha256": "9894f855d45a5d098bfefa970703e315290cd0d99214e0edb8f9a4ae21d5e873",
+  "bytes": 1122203,
+  "notas": "3.8: el tipo de alimento con su icono en las alertas, a quién van dirigidas las ofertas, el plazo de solicitudes de las convocatorias del SAS, gratis o para niños en la agenda, los requisitos de los sorteos y las novedades de barco dragón de la Federación Andaluza (Jev)"
 }
