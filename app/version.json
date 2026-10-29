@@ -1,8 +1,8 @@
 {
-  "versionCode": 30,
-  "versionName": "3.9",
+  "versionCode": 31,
+  "versionName": "4.0",
   "apk": "app/Tiempo.apk",
-  "sha256": "23ded7c333403ca11ebf85c9c3f9a98e81ba2a13a636a1c25115e567cd683916",
-  "bytes": 1140603,
-  "notas": "3.9: cámaras de la DGT del trayecto Adra → Almería a cámara rápida (sin Federico García Lorca ni Carretera de Ronda), aviso de tormentas geomagnéticas fuertes con el día previsto, mapa animado del oleaje de 72 h (Puertos del Estado y AEMET). Revisión: menos descargas con la tele encendida o en reposo, datos que no se pierden si una fuente falla, pantallas que se ajustan a lo que llevan."
+  "sha256": "6d43d78815042a2d72f257dae298b3e66b27bd69ea3abd9f2118281e8ee3e2d4",
+  "bytes": 1145239,
+  "notas": "4.0: ofertas de los entes de la Junta con la misma zona que el SAE (Almería sin el Levante, la costa hasta Motril y toda Andalucía); la foto de la Luna de cada año se busca sola; pasos de la estación china Tiangong; nivel del mar medido sobre la marea; calidad del aire prevista para mañana con aviso; índice UV de cada hora (Copernicus)."
 }
