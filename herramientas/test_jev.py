@@ -154,7 +154,7 @@ class Sortea2(unittest.TestCase):
 
 
 class Sas(unittest.TestCase):
-    """Los mismos ficheros reales que EmpleoTest de la app (BOJA 208 del 27 oct, BOE del 26 oct): lo mismo que lee la tele."""
+    """Los mismos ficheros reales que EmpleoTest de la app (BOJA 208 del 27 oct; del BOE del 26 oct, solo lo del SAS y otra, sin el nombre de la persona): lo mismo que lee la tele."""
     def m(self, n): return open(os.path.join(os.path.dirname(__file__), "muestras", n), encoding="utf-8").read()
 
     def test_como_la_tele(self):
