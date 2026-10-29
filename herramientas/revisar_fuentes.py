@@ -289,6 +289,14 @@ def productos(L):
     if not c: raise ValueError("la búsqueda no devuelve notificaciones de España")
     return f"{j.get('totalElements')} de España, la última del {c[0]['publicationDate'][:10]}"
 
+def sae(L):
+    # Empleo.sae (3.6): la lista de ofertas publicadas del Servicio Andaluz de Empleo, la misma que pide su página; las de empleo público
+    # («ofertaPublica»: S) de la provincia
+    j = json.loads(pedir("https://saempleo.es/ags/api/MS-HERMES/hermes/ofertas/ofertaspublicadas", b"{}", "application/json"))
+    if not isinstance(j, list) or not j or "idOferta" not in j[0]: raise ValueError("ya no da la lista de ofertas (sin «idOferta»)")
+    pub = [o for o in j if o.get("ofertaPublica") == "S" and (o.get("provincia") or {}).get("id") == L["ine"][:2]]
+    return f"{len(j)} ofertas, {len(pub)} de empleo público en la provincia"
+
 def agua(L):
     # Consumo.kt: SINAC, acceso al ciudadano (formularios): las redes del municipio
     ine = int(L["ine"]); prov = int(L["ine"][:2])
@@ -438,7 +446,7 @@ def jev_(L):
 
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
-           medicamentos, productos, agua, camara, radiacion, sequia, sangre, cortesAgua,
+           medicamentos, productos, sae, agua, camara, radiacion, sequia, sangre, cortesAgua,
            mtg, tierra, solVideo, viento, calarVivo, jev_, esios]
 
 
