@@ -1,8 +1,8 @@
 {
-  "versionCode": 25,
-  "versionName": "3.4",
+  "versionCode": 26,
+  "versionName": "3.5",
   "apk": "app/Tiempo.apk",
-  "sha256": "d20f6e15ae0f1cb692297d2f7b7ea20f12a2133826724f22ad9e8ff6bd09b38c",
-  "bytes": 1112531,
-  "notas": "3.4: con Jev en la nube (cuando tenga su clave), los cortes de los titulares sin falsos avisos, la receta según el tiempo de hoy y las etiquetas del SAS (convocatoria, lista definitiva…, primero lo de Almería)."
+  "sha256": "78e7308f1d84801dbaa3082db6bbd4d9c8b3e89b16106034d061a5ff1a020b05",
+  "bytes": 1113375,
+  "notas": "3.5: con Jev en la nube, el alérgeno de cada alerta alimentaria, los medicamentos sin receta (CIMA) y si hay que devolver los de casa, los productos para niños, la titulación y la experiencia de cada oferta de empleo y cómo se participa en cada sorteo."
 }
