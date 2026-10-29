@@ -536,22 +536,23 @@ class PlazoSas(unittest.TestCase):
         vistas = []
         def pedir(cu, t):
             vistas.append(cu)
-            frases = cu["questions"]["plazo"]["criteria"]
-            c = next(k for k, f in frases.items() if "solicitudes" in f)
-            return {"answers": {"plazo": choice(c, 0.92)}}
+            return {"answers": {k: noul(0.97 if "solicitudes" in f else 0.03) for k, f in cu["state"]["frases"].items()}}
         self.assertEqual(sas.plazos(d, et, red=red, pedir_jev=pedir), 2)
         self.assertEqual(len(vistas), 2)                                       # lo de otra provincia, no
         self.assertEqual(et["u1"]["plazo"], {"n": 10, "unidad": "habiles", "hasta": "2026-11-11"})
         self.assertNotIn("plazo", et["u2"])
         self.assertEqual(et["u3"]["plazo"]["hasta"], "2026-09-17")              # sin el 8 ni el 10 de septiembre (fiestas de Adra)
-        self.assertIn("ninguno", vistas[0]["questions"]["plazo"]["criteria"])
+        self.assertEqual(set(vistas[0]["questions"]), set(vistas[0]["state"]["frases"]))     # una pregunta por frase
         self.assertEqual(sas.plazos(d, et, red=red, pedir_jev=lambda c, t: self.fail("ya tienen plazo")), 0)
         a = sas.avisar(d, et, hoy=dt.date(2026, 10, 29))
         self.assertEqual([(x["url"], x["hasta"]) for x in a], [("u1", "2026-11-11")])     # la de plazo acabado, no
         # Jev no está seguro: plazo None (no se vuelve a preguntar)
         et2 = {"u1": {"tipo": "convocatoria", "zona": "almeria"}}
-        sas.plazos(d[:1], et2, red=red, pedir_jev=lambda c, t: {"answers": {"plazo": choice("p0", 0.4)}})
+        sas.plazos(d[:1], et2, red=red, pedir_jev=lambda c, t: {"answers": {k: noul(0.55) for k in c["state"]["frases"]}})
         self.assertIsNone(et2["u1"]["plazo"])
+        et3 = {"u1": {"tipo": "convocatoria", "zona": "almeria"}}                 # dos frases seguras: tampoco
+        sas.plazos(d[:1], et3, red=red, pedir_jev=lambda c, t: {"answers": {k: noul(0.9) for k in c["state"]["frases"]}})
+        self.assertIsNone(et3["u1"]["plazo"])
         n = A.ofertas({"empleo:sas:": "2026-10-28", "empleo:sae:": "2026-10-28", "empleo:junta:": "2026-10-28", "fap:": "2026-10-28"}, [],
                       {"sas": {"avisar": [x | {"resumen": "PRUEBA: convoca concurso"} for x in a]}}, AHORA)
         self.assertTrue(n[0]["texto"].endswith("· solicitudes hasta el 11 nov."), n[0]["texto"])

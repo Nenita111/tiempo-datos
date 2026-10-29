@@ -174,11 +174,11 @@ def plazos(disps, et, red=pedir, pedir_jev=None):
         except Exception: continue                   # la página no llega: mañana otra vez
         if not frases: e["plazo"] = None; continue
         ids = {f"p{i}": f for i, (f, _, _) in enumerate(frases)}
-        try: r, _ = jev.preguntar({"convocatoria": d["texto"][:300]}, jev.preguntas_plazo(ids), pedir=pedir_jev)
+        try: r, _ = jev.preguntar({"convocatoria": d["texto"][:300], "frases": ids}, jev.preguntas_plazo(ids), pedir=pedir_jev)
         except (jev.SinRespuesta, ValueError): continue
-        c = r["plazo"].get("choice")
-        if c not in ids or (r["plazo"].get("confidence") or 0) < 0.6: e["plazo"] = None; continue
-        f, n, u = frases[int(c[1:])]
+        p = sorted(((r[i]["noul"], i) for i in ids if i in r), reverse=True)
+        if not p or p[0][0] < jev.SI or (len(p) > 1 and p[1][0] >= 0.5): e["plazo"] = None; continue     # ninguna segura, o dos
+        f, n, u = frases[int(p[0][1][1:])]
         hasta = None
         if desde_publicacion(f, d.get("boletin")):
             pub = dt.date.fromisoformat(d["fecha"])

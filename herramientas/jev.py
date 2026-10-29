@@ -380,10 +380,11 @@ def preguntas_fap():
 
 
 # convocatorias del SAS: de las frases que nombran un plazo, ¿cuál es el de presentar las solicitudes? (las cuentas, en el código)
-def preguntas_plazo(frases):
-    """frases: {id: frase}."""
-    return {"plazo": choice("Which of these sentences from an official call for applications (`convocatoria`) sets the time limit to submit "
-                            "applications (solicitudes) to take part?", dict(frases) | {"ninguno": "None of them sets the time limit to submit applications"})}
+# estado: {"convocatoria": título, "frases": {id: frase}}; una pregunta de sí o no por frase (con una sola de elegir, Jev dudaba con «ninguna»)
+def preguntas_plazo(ids):
+    return {i: noul(f"Does `frases.{i}` set the time limit for submitting applications (solicitudes) to take part in the call described in "
+                    "`convocatoria`?", si="It sets the period to apply or to submit applications",
+                    no="It is about appeals (recursos), notifications, corrections or anything else") for i in ids}
 
 
 # ------------------------------------------------------------------ 10. Agenda: ¿dos actividades son la misma?
