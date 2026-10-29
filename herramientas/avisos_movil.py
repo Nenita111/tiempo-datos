@@ -436,7 +436,7 @@ def main():
     try:
         with open(tj, encoding="utf-8") as f: viejas = json.load(f)
     except (OSError, ValueError): viejas = None
-    if usadas != viejas and (usadas or viejas):
+    if usadas != viejas:                                     # (la primera vez se crea aunque esté vacío: la tarea lo sube siempre)
         comun.guardar(tj, usadas); guardar = True
     print(json.dumps({"nuevos": n, "fallos": fallos, "titulares": juez.usado + (f" ({juez.motivo})" if juez.motivo else ""),
                       "guardar": guardar}, ensure_ascii=False))
