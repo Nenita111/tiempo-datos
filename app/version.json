@@ -1,8 +1,8 @@
 {
-  "versionCode": 24,
-  "versionName": "3.3",
+  "versionCode": 25,
+  "versionName": "3.4",
   "apk": "app/Tiempo.apk",
-  "sha256": "f99b87867045b5d7f9d8ef6f952fade4225470e4f222640e4ded16b45cf1bdab",
-  "bytes": 1111983,
-  "notas": "3.3: tráfico solo del trayecto Adra → Almería (con las dos ciudades); la foto de la DGT cuando no hay cámara rápida y, si no hay foto, se dice por qué; una receta distinta cada día; pantallas Campo (con las plagas) y Pescado; la puesta programada ya no baja lo que se mueve con la tele apagada."
+  "sha256": "d20f6e15ae0f1cb692297d2f7b7ea20f12a2133826724f22ad9e8ff6bd09b38c",
+  "bytes": 1112531,
+  "notas": "3.4: con Jev en la nube (cuando tenga su clave), los cortes de los titulares sin falsos avisos, la receta según el tiempo de hoy y las etiquetas del SAS (convocatoria, lista definitiva…, primero lo de Almería)."
 }
