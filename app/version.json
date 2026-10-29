@@ -1,8 +1,8 @@
 {
-  "versionCode": 27,
-  "versionName": "3.6",
+  "versionCode": 28,
+  "versionName": "3.7",
   "apk": "app/Tiempo.apk",
-  "sha256": "647e7fede1702fe14ae4b75ae0be6a35a89d55d436e8a7641afe986654c53670",
-  "bytes": 1119475,
-  "notas": "3.6: ofertas de empleo público del SAE de la zona (provincia de Almería sin el Levante y la costa hasta Motril); entes de la Junta y SAS solo de la zona; un QR en cada oferta"
+  "sha256": "0ae147bb3705e51868b9572779d625ce4f854515a40c4de8d9f2bc06e12fac14",
+  "bytes": 1119811,
+  "notas": "3.7: en Empleo, quién contrata, la titulación mínima y si piden experiencia en las ofertas del SAE (Jev); en SAS, la zona de cada disposición la decide Jev"
 }
