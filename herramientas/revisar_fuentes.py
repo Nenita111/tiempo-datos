@@ -97,7 +97,10 @@ def maritima(L):
 def mareas(L):
     est = json.loads(texto("https://portus.puertos.es/portussvr/api/estaciones/rt/SEA_LEVEL?locale=es"))
     if not est: raise ValueError("sin mareógrafos")
-    return f"{len(est)} mareógrafos"
+    # 4.0 (281): lo medido por el mareógrafo de Almería 2 (3548) en las últimas 24 horas, como Mareas.medido
+    rt = json.loads(texto("https://portus.puertos.es/portussvr/api/RTData/station/3548?locale=es", cuerpo=b"[27]", tipo="application/json"))
+    if not rt or not any(d.get("paramEseoo") == "SeaLevel" for d in rt[0].get("datos", [])): raise ValueError("sin nivel del mar medido (RTData)")
+    return f"{len(est)} mareógrafos; {len(rt)} medidas del de Almería"
 
 def boya(L):
     est = json.loads(texto("https://portus.puertos.es/portussvr/api/estaciones/rt/WAVE?locale=es"))
@@ -173,9 +176,28 @@ def esios(L):
     return "precios de hoy (con la clave)"
 
 def aire(L):
-    j = json.loads(texto(f"https://air-quality-api.open-meteo.com/v1/air-quality?latitude={L['lat']}&longitude={L['lon']}&hourly=dust&forecast_days=1"))
-    if "hourly" not in j: raise ValueError("sin datos")
+    # 4.0 (283 y 285): lo mismo que Polen.previsto (polen, índice europeo y UV de cada hora)
+    j = json.loads(texto(f"https://air-quality-api.open-meteo.com/v1/air-quality?latitude={L['lat']}&longitude={L['lon']}"
+                         "&hourly=olive_pollen,european_aqi,uv_index&timezone=Europe%2FMadrid&forecast_days=3"))
+    h = j.get("hourly") or {}
+    if not h.get("european_aqi") or all(v is None for v in h.get("european_aqi")): raise ValueError("sin índice europeo previsto")
+    if all(v is None for v in h.get("uv_index") or [None]): raise ValueError("sin UV previsto")
     return "ok"
+
+def iss(L):
+    # 4.0 (279): la Estación Espacial y Tiangong, del grupo «stations» de CelesTrak (una vez: no pide más de una cada 2 horas)
+    t = texto("https://celestrak.org/NORAD/elements/gp.php?GROUP=stations&FORMAT=TLE")
+    falta = [n for n, k in (("Estación Espacial", "1 25544"), ("Tiangong", "1 48274")) if k not in t]
+    if falta: raise ValueError("sin órbita de " + " ni de ".join(falta))
+    return "las dos estaciones"
+
+def luna(L):
+    # la foto de la Luna de cada año de la NASA (Cielo.lunaSvs): la búsqueda responde y la de este año está
+    y = dt.date.today().year
+    j = json.loads(texto(f"https://svs.gsfc.nasa.gov/api/search/?search=Moon%20Phase%20and%20Libration%2C%20{y}&limit=10"))
+    if not any(r.get("title", "").strip() == f"Moon Phase and Libration, {y}" for r in j.get("results", [])): raise ValueError(f"sin la página de {y}")
+    return f"la de {y}" + (f" y la de {y + 1}" if any(r.get("title", "").strip() == f"Moon Phase and Libration, {y + 1}" for r in json.loads(
+        texto(f"https://svs.gsfc.nasa.gov/api/search/?search=Moon%20Phase%20and%20Libration%2C%20{y + 1}&limit=10")).get("results", [])) else "")
 
 def planeta(L):
     for u in ("https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv",
@@ -480,7 +502,7 @@ def jev_(L):
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
            medicamentos, productos, sae, fap, agua, camara, ruta, olas, radiacion, sequia, sangre, cortesAgua,
-           mtg, tierra, solVideo, viento, calarVivo, jev_, esios]
+           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios]
 
 
 def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):

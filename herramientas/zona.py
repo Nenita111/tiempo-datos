@@ -105,8 +105,15 @@ def lugares_ficha(h):
     return out
 
 
+def levante_sitio(sitio):
+    """Un sitio de la ficha de la Junta («Huércal-Overa (2)», «Vera "Hospital"») del Levante Almeriense."""
+    p = plano(re.sub(r'\(.*?\)|".*?"', " ", sitio or ""))
+    return p in LEVANTE or any(p.startswith(x + " ") for x in LEVANTE)
+
+
 def junta_en_zona(lugares):
-    """Como Empleo.dondeOferta con la zona: algún sitio en Almería o en la costa hasta Motril, para toda Andalucía o sin sitio."""
+    """Como Empleo.dondeOferta con la zona (4.0, lo pidió Isa: «los mismos criterios geográficos que en el SAE»): algún sitio en Almería
+    fuera del Levante o en la costa hasta Motril, o para toda Andalucía. Sin sitio en la ficha, no (en el SAE hace falta un sitio de la zona)."""
     prov = {p for _, p in lugares}
-    return (not lugares or len(prov) >= 8 or any(p == "Almería" or (p == "Granada" and costa(s)) for s, p in lugares)
-            or any(re.search(r"(?i)andaluc|todas las provincias", s) for s, _ in lugares))
+    return bool(lugares) and (len(prov) >= 8 or any((p == "Almería" and not levante_sitio(s)) or (p == "Granada" and costa(s)) for s, p in lugares)
+                              or any(re.search(r"(?i)andaluc|todas las provincias", s) for s, _ in lugares))

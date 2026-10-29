@@ -433,7 +433,9 @@ class Zona(unittest.TestCase):
         self.assertEqual(o[0]["url"], "https://saempleo.es/ags/candidaturas/lista-ofertas-publicas/detalle-oferta?origin=portal&ofertaId=01-2026-48086")
         itv = zona.lugares_ficha(open(os.path.join(os.path.dirname(__file__), "muestras", "oferta_688570.html"), encoding="utf-8").read())
         self.assertEqual(itv, [("Almonte", "Huelva")]); self.assertFalse(zona.junta_en_zona(itv))
-        self.assertTrue(zona.junta_en_zona([("Motril", "Granada")]) and zona.junta_en_zona([("Huércal-Overa", "Almería")]) and zona.junta_en_zona([]))
+        self.assertTrue(zona.junta_en_zona([("Motril", "Granada")]) and zona.junta_en_zona([("Vícar", "Almería")]))
+        # 4.0: como en el SAE, sin el Levante y sin las fichas sin sitio
+        self.assertFalse(zona.junta_en_zona([("Huércal-Overa", "Almería")]) or zona.junta_en_zona([('Vera "Hospital"', "Almería")]) or zona.junta_en_zona([]))
 
 
 class OfertasAlMovil(unittest.TestCase):
