@@ -1,8 +1,8 @@
 {
-  "versionCode": 35,
-  "versionName": "4.4",
+  "versionCode": 36,
+  "versionName": "4.5",
   "apk": "app/Tiempo.apk",
-  "sha256": "29b420e9de92d50c8403b6cbfdbb32747207a5309082ed3d55a62deb475ac924",
-  "bytes": 1156967,
-  "notas": "4.4: puesta al día completa a las 6:00 (todas las fuentes) y extras.json a las 6:30"
+  "sha256": "eb19c72bf92eca123f7eca419eae82042a48bf064ee77b7ac11553c521dbbd38",
+  "bytes": 1167043,
+  "notas": "4.5: pantalla Trenes (los trenes de Renfe en marcha: mapa con su retraso, la estación más cercana y los más retrasados)"
 }

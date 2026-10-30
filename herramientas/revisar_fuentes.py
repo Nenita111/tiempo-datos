@@ -209,6 +209,13 @@ def autobus(L):
         n += len(h)
     return f"{n} servicios"
 
+def trenes(L):
+    # 4.5: los trenes de Renfe en marcha (Trenes.kt): el visor de Alta Velocidad, Larga y Media Distancia
+    j = json.loads(texto("https://tiempo-real.largorecorrido.renfe.com/renfe-visor/flotaLD.json"))
+    t = [x for x in j.get("trenes", []) if x.get("latitud") and x.get("longitud") and "ultRetraso" in x]
+    if not t or not j.get("fechaActualizacion"): raise ValueError("sin trenes con posición")
+    return f"{len(t)} trenes, datos de las {j['fechaActualizacion'][11:16]}"
+
 def planeta(L):
     for u in ("https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv",
               "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.txt"):
@@ -512,7 +519,7 @@ def jev_(L):
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
            medicamentos, productos, sae, fap, agua, camara, ruta, olas, radiacion, sequia, sangre, cortesAgua,
-           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios, autobus]
+           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios, autobus, trenes]
 
 
 def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):
