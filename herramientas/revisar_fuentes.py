@@ -199,6 +199,16 @@ def luna(L):
     return f"la de {y}" + (f" y la de {y + 1}" if any(r.get("title", "").strip() == f"Moon Phase and Libration, {y + 1}" for r in json.loads(
         texto(f"https://svs.gsfc.nasa.gov/api/search/?search=Moon%20Phase%20and%20Libration%2C%20{y + 1}&limit=10")).get("results", [])) else "")
 
+def autobus(L):
+    # 4.3: el autobús Adra ⇄ Almería (Autobuses.kt): la API de la Red de Consorcios de Transporte de Andalucía da el horario de los dos sentidos
+    n = 0
+    for o, d in (("9", "10"), ("10", "9")):
+        j = json.loads(texto(f"https://api.ctan.es/v1/Consorcios/6/horarios_origen_destino?origen={o}&destino={d}&lang=ES"))
+        h = [x for x in j.get("horario", []) if len(x.get("horas", [])) >= 2]
+        if not h: raise ValueError(f"sin servicios de {o} a {d}")
+        n += len(h)
+    return f"{n} servicios"
+
 def planeta(L):
     for u in ("https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv",
               "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.txt"):
@@ -502,7 +512,7 @@ def jev_(L):
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
            medicamentos, productos, sae, fap, agua, camara, ruta, olas, radiacion, sequia, sangre, cortesAgua,
-           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios]
+           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios, autobus]
 
 
 def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):
