@@ -1,8 +1,8 @@
 {
-  "versionCode": 31,
-  "versionName": "4.0",
+  "versionCode": 32,
+  "versionName": "4.1",
   "apk": "app/Tiempo.apk",
-  "sha256": "6d43d78815042a2d72f257dae298b3e66b27bd69ea3abd9f2118281e8ee3e2d4",
-  "bytes": 1145239,
-  "notas": "4.0: ofertas de los entes de la Junta con la misma zona que el SAE (Almería sin el Levante, la costa hasta Motril y toda Andalucía); la foto de la Luna de cada año se busca sola; pasos de la estación china Tiangong; nivel del mar medido sobre la marea; calidad del aire prevista para mañana con aviso; índice UV de cada hora (Copernicus)."
+  "sha256": "4e24bc1ea90f81570e724e505b2cdf3965d38c55cf4eec46cbb5e0d341cd3cc8",
+  "bytes": 1146987,
+  "notas": "4.1: ofertas de los entes de la Junta sin provincia o para toda Andalucía; noticias sin Google Noticias (Adra Digital por su API, Ideal Almería nuevo)"
 }
