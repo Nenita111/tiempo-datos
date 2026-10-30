@@ -1,8 +1,8 @@
 {
-  "versionCode": 32,
-  "versionName": "4.1",
+  "versionCode": 33,
+  "versionName": "4.2",
   "apk": "app/Tiempo.apk",
-  "sha256": "4e24bc1ea90f81570e724e505b2cdf3965d38c55cf4eec46cbb5e0d341cd3cc8",
-  "bytes": 1146987,
-  "notas": "4.1: ofertas de los entes de la Junta sin provincia o para toda Andalucía; noticias sin Google Noticias (Adra Digital por su API, Ideal Almería nuevo)"
+  "sha256": "409cfde8b17146919a8e5fd55f8757e4fca52319e2a2435fca1fcbc119351e32",
+  "bytes": 1148175,
+  "notas": "4.2: sin las ofertas de Serón, Tíjola, Olula del Río ni de los pueblos a 10 km"
 }
