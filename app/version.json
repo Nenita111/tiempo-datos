@@ -1,8 +1,8 @@
 {
-  "versionCode": 34,
-  "versionName": "4.3",
+  "versionCode": 35,
+  "versionName": "4.4",
   "apk": "app/Tiempo.apk",
-  "sha256": "22b387eec44cbd5e07639d6dd8cdc78f89be231d4d239c0987f7f18e5c9508d4",
-  "bytes": 1156515,
-  "notas": "4.3: aspecto nuevo (cada pantalla con su color), menú de ajustes con el mando (≡), autobús Adra ⇄ Almería"
+  "sha256": "29b420e9de92d50c8403b6cbfdbb32747207a5309082ed3d55a62deb475ac924",
+  "bytes": 1156967,
+  "notas": "4.4: puesta al día completa a las 6:00 (todas las fuentes) y extras.json a las 6:30"
 }
