@@ -149,7 +149,7 @@ en la zona del pueblo o su costa; terremotos del IGN que se pueden notar (magnit
 y Diario de Almería prohíben en robots.txt a los agentes como este: no se usan); cortes de agua de Hidralia de su mapa de obras y
 afectaciones (la capa pública de cierres de Agbar en ArcGIS, la misma que lee la app: planificados o en curso que empiezan en menos
 de 36 horas o ya han empezado y no han pasado su previsión de restablecimiento); y (3.7) las ofertas de empleo nuevas de la zona
-(`zona.py`: provincia de Almería sin el Levante, la costa de Granada hasta Motril): las de empleo público del SAE (su lista, cada vez), las de
+(`zona.py`: provincia de Almería sin el Levante ni lo que está a 10 km de Serón, Tíjola u Olula del Río —4.2—, la costa de Granada hasta Motril): las de empleo público del SAE (su lista, cada vez), las de
 los entes de la Junta de la zona (4.1: también las que no dicen provincia y las de toda Andalucía) y las convocatorias del SAS de la zona (de extras.json «etiquetas.ofertas» y «sas.avisar», que pone la tarea
 diaria con Jev); la primera vez que llega cada lista, solo se apuntan. (3.8) Además: las noticias urgentes del pueblo (los mismos titulares de
 Noticias de Almería de las últimas 12 horas que Jev da por urgentes —un incendio, una inundación, una carretera cortada, un desalojo, una alerta

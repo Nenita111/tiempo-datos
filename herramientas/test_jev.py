@@ -248,7 +248,7 @@ class Etiquetas(unittest.TestCase):
         o = next(iter(e["ofertas"].values()))
         self.assertEqual({k: o[k] for k in ("nivel", "experiencia", "zona", "hasta")}, {"nivel": "grado", "experiencia": 0.15, "zona": False, "hasta": "2026-10-28"})   # Almonte
         self.assertTrue(o["puesto"] and o["entidad"])
-        self.assertEqual(sorted(e["sae"]), ["01-2026-48086", "01-2026-48457", "01-2026-48458", "01-2026-48675", "01-2026-48758", "01-2026-48765"])   # 3.7
+        self.assertEqual(sorted(e["sae"]), ["01-2026-48086"])   # 3.7; 4.2: sin las de Serón, Tíjola y Olula del Río
         self.assertEqual(e["sae"]["01-2026-48086"], {"nivel": "fp_superior", "experiencia": 0.8, "entidad": "ayuntamiento", "colectivo": "garantia_juvenil"})
         self.assertEqual(o["colectivo"], "general")                                    # 3.8
         self.assertTrue(all("producto" in v for v in e["alim"].values()))
@@ -428,7 +428,15 @@ class Zona(unittest.TestCase):
         self.assertTrue(zona.costa("Motril (1)") and zona.costa("CASTELL DE FERRO") and not zona.costa("Almuñécar") and not zona.costa("Granada"))
         self.assertEqual(zona.nombre("04069", "OLULA DEL RIO"), "Olula del Río"); self.assertEqual(zona.nombre("04902", "EJIDO, EL"), "El Ejido")
         o = zona.ofertas_sae(self.L, dt.datetime(2026, 10, 29, 11, 0))
-        self.assertEqual(sorted(x["id"] for x in o), ["01-2026-48086", "01-2026-48457", "01-2026-48458", "01-2026-48675", "01-2026-48758", "01-2026-48765"])
+        # 4.2 (lo pidió Isa): sin las de Serón (48457, 48458), Tíjola (48675) y Olula del Río (48758, 48765)
+        self.assertEqual([x["id"] for x in o], ["01-2026-48086"])
+        self.assertTrue(all(zona.fuera(m) for m in ["SERON", "Tíjola", "OLULA DEL RIO", "Macael", "Cantoria", "LIJAR", "Vera"]))
+        self.assertFalse(any(zona.fuera(m) for m in ["Albox", "Chercos", "Adra", "Almería"])); self.assertEqual(len(zona.ALMANZORA), 19)
+        self.assertFalse(zona.junta_en_zona([("Macael (2)", "Almería")])); self.assertTrue(zona.junta_en_zona([("Macael", "Almería"), ("Vícar", "Almería")]))
+        self.assertTrue(zona.solo_fuera_sas("Convoca concurso de méritos para la cobertura de un puesto de Director/a de la UGC de Olula del Río"))
+        self.assertTrue(zona.solo_fuera_sas("Centro de Salud de Serón y consultorio de Lúcar"))
+        self.assertFalse(zona.solo_fuera_sas("Convoca, a los fines previstos, plazas del Hospital Universitario Torrecárdenas"))
+        self.assertFalse(zona.solo_fuera_sas("UGC de Macael y Hospital de Poniente") or zona.solo_fuera_sas("Distrito Sanitario Almería"))
         self.assertEqual(o[0]["id"], "01-2026-48086"); self.assertEqual(o[0]["sitios"], ["Almería"])
         self.assertEqual(o[0]["url"], "https://saempleo.es/ags/candidaturas/lista-ofertas-publicas/detalle-oferta?origin=portal&ofertaId=01-2026-48086")
         h = open(os.path.join(os.path.dirname(__file__), "muestras", "oferta_688570.html"), encoding="utf-8").read()
@@ -456,7 +464,7 @@ class OfertasAlMovil(unittest.TestCase):
              "sas": {"avisar": [{"url": "https://x/prueba", "boletin": "BOJA", "resumen": "PRUEBA: convoca concurso de méritos en el Hospital Universitario Poniente"}]}}
         estado = {}
         self.assertEqual(A.ofertas(estado, sae, x, AHORA), [])                    # la primera vez: nada, se apuntan
-        self.assertEqual(len([k for k in estado if k.startswith("empleo:") and not k.endswith(":")]), 8)     # 6 del SAE, la ITV y la del SAS
+        self.assertEqual(len([k for k in estado if k.startswith("empleo:") and not k.endswith(":")]), 3)     # 1 del SAE (4.2), la ITV y la del SAS
         self.assertTrue(all(p in estado for p in ("empleo:sae:", "empleo:junta:", "empleo:sas:")))
         self.assertEqual(A.ofertas(estado, sae, x, AHORA), [])                    # ya avisadas
         x["sas"]["avisar"].append({"url": "https://x/prueba2", "boletin": "BOE", "resumen": "PRUEBA: convoca proceso selectivo"})
@@ -485,6 +493,11 @@ class SasZona(unittest.TestCase):
         self.assertEqual([x["url"] for x in a], ["u1"])                          # ni lo del Levante ni lo que lleva nombres de personas
         self.assertTrue(a[0]["resumen"].startswith("Convoca concurso en el Hospital Universitario Poniente"))
         self.assertIn("zona", jev.preguntas_sas()); self.assertIn("costa_granada", jev.ZONA_SAS)
+        # 4.2: aunque Jev diga «almeria», lo que es solo de la UGC de Olula del Río no se avisa (PRUEBA)
+        d4 = d + [{"texto": "Resolución … del Servicio Andaluz de Salud, por la que se convoca la cobertura del puesto de Director/a de la UGC de Olula del Río (PRUEBA).",
+                   "url": "u4", "boletin": "BOJA", "fecha": "2026-10-27"}]
+        et["u4"] = {"tipo": "convocatoria", "provincia": "almeria", "zona": "almeria"}
+        self.assertEqual([x["url"] for x in sas.avisar(d4, et)], ["u1"])
 
 
 class CacheSandbox(unittest.TestCase):

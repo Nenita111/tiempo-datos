@@ -19,6 +19,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 import jev
+import zona
 
 TZ = ZoneInfo("Europe/Madrid")
 JUNTA = "https://www.juntadeandalucia.es"
@@ -212,7 +213,8 @@ def avisar(disps, et, hoy=None):
              "hasta": (et[d["url"]].get("plazo") or {}).get("hasta")}
             for d in disps if d.get("url") in et and et[d["url"]].get("tipo") == "convocatoria" and et[d["url"]].get("zona") in ZONA_TELE
             and ((et[d["url"]].get("plazo") or {}).get("hasta") or hoy) >= hoy
-            and not re.search(r"\b(?:don|doña|D\.|Dña\.)\s", d["texto"])]          # el repositorio es público: nada con nombres de personas
+            and not re.search(r"\b(?:don|doña|D\.|Dña\.)\s", d["texto"])          # el repositorio es público: nada con nombres de personas
+            and not zona.solo_fuera_sas(d["texto"])]                                # 4.2: ni lo que es solo de alrededor de Serón, Tíjola y Olula
 
 
 def etiquetar(disps, ya=None, pedir_jev=None):

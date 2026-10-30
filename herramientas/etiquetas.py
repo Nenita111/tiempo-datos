@@ -26,7 +26,8 @@ import comun
 import jev, zona
 
 TZ = ZoneInfo("Europe/Madrid")
-ZONA_V = 3          # la regla de zona de las ofertas de la Junta (2: la del SAE, sin el Levante, 4.0; 3: y las que no dicen provincia, 4.1)
+ZONA_V = 4          # la regla de zona de las ofertas de la Junta (2: la del SAE, sin el Levante, 4.0; 3: y las que no dicen provincia, 4.1;
+                    # 4: sin lo de alrededor de Serón, Tíjola y Olula del Río, 4.2)
 UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"       # el de la app
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
