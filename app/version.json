@@ -1,8 +1,8 @@
 {
-  "versionCode": 33,
-  "versionName": "4.2",
+  "versionCode": 34,
+  "versionName": "4.3",
   "apk": "app/Tiempo.apk",
-  "sha256": "409cfde8b17146919a8e5fd55f8757e4fca52319e2a2435fca1fcbc119351e32",
-  "bytes": 1148175,
-  "notas": "4.2: sin las ofertas de Serón, Tíjola, Olula del Río ni de los pueblos a 10 km"
+  "sha256": "22b387eec44cbd5e07639d6dd8cdc78f89be231d4d239c0987f7f18e5c9508d4",
+  "bytes": 1156515,
+  "notas": "4.3: aspecto nuevo (cada pantalla con su color), menú de ajustes con el mando (≡), autobús Adra ⇄ Almería"
 }
