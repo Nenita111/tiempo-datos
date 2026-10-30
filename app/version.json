@@ -1,8 +1,8 @@
 {
-  "versionCode": 36,
-  "versionName": "4.5",
+  "versionCode": 37,
+  "versionName": "4.6",
   "apk": "app/Tiempo.apk",
-  "sha256": "eb19c72bf92eca123f7eca419eae82042a48bf064ee77b7ac11553c521dbbd38",
-  "bytes": 1167043,
-  "notas": "4.5: pantalla Trenes (los trenes de Renfe en marcha: mapa con su retraso, la estación más cercana y los más retrasados)"
+  "sha256": "feb515d9822657bbdedb251bd2650e7ce7ad6ff0443889b783e6a7a3f3f9f57a",
+  "bytes": 1167635,
+  "notas": "4.6: Campo y Pescado en orden alfabético; en Empleo, nada del SAE de Serón, Tíjola ni Olula del Río"
 }
