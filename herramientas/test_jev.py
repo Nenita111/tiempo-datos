@@ -1,5 +1,5 @@
 """Jev sin red: las respuestas son de mentira (con la forma de la API, api.typesafe.ai/v1/systemone) para probar el código que las usa."""
-import datetime as dt, io, json, os, sys, tempfile, unittest, urllib.error
+import datetime as dt, io, json, os, re, sys, tempfile, unittest, urllib.error
 from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(__file__))
 import jev, zona, avisos_movil as A, titulares as T, receta as R, sortea2 as S2, sas, etiquetas as ET, comprobar_captura as CC, revisar_fuentes as RF, fap
@@ -431,11 +431,20 @@ class Zona(unittest.TestCase):
         self.assertEqual(sorted(x["id"] for x in o), ["01-2026-48086", "01-2026-48457", "01-2026-48458", "01-2026-48675", "01-2026-48758", "01-2026-48765"])
         self.assertEqual(o[0]["id"], "01-2026-48086"); self.assertEqual(o[0]["sitios"], ["Almería"])
         self.assertEqual(o[0]["url"], "https://saempleo.es/ags/candidaturas/lista-ofertas-publicas/detalle-oferta?origin=portal&ofertaId=01-2026-48086")
-        itv = zona.lugares_ficha(open(os.path.join(os.path.dirname(__file__), "muestras", "oferta_688570.html"), encoding="utf-8").read())
-        self.assertEqual(itv, [("Almonte", "Huelva")]); self.assertFalse(zona.junta_en_zona(itv))
+        h = open(os.path.join(os.path.dirname(__file__), "muestras", "oferta_688570.html"), encoding="utf-8").read()
+        itv = zona.lugares_ficha(h)
+        self.assertEqual(itv, [("Almonte", "Huelva")]); self.assertFalse(zona.junta_en_zona(itv)); self.assertTrue(zona.ficha_valida(h))
         self.assertTrue(zona.junta_en_zona([("Motril", "Granada")]) and zona.junta_en_zona([("Vícar", "Almería")]))
-        # 4.0: como en el SAE, sin el Levante y sin las fichas sin sitio
-        self.assertFalse(zona.junta_en_zona([("Huércal-Overa", "Almería")]) or zona.junta_en_zona([('Vera "Hospital"', "Almería")]) or zona.junta_en_zona([]))
+        # 4.0: como en el SAE, sin el Levante
+        self.assertFalse(zona.junta_en_zona([("Huércal-Overa", "Almería")]) or zona.junta_en_zona([('Vera "Hospital"', "Almería")]))
+        # 4.1: las que no dicen provincia y las de toda Andalucía, sí; una página que no es la ficha no cuenta
+        self.assertTrue(zona.junta_en_zona([]) and zona.junta_en_zona([("Sevilla", "Sevilla"), ("Servicios centrales", "")]))
+        self.assertTrue(zona.junta_en_zona([("Varias localidades", "Andalucía")]))
+        sin = zona.lugares_ficha(re.sub(r'(?s)(field--name-field-ofem-lugartrabajo.*?class="field__item">)[^<]*', r"\1Servicios centrales", h, count=1))   # PRUEBA
+        self.assertEqual(sin, [("Servicios centrales", "")]); self.assertTrue(zona.junta_en_zona(sin))
+        self.assertFalse(zona.ficha_valida("<html><body>En mantenimiento</body></html>"))
+        self.assertEqual(zona.lugares_ficha('<div class="field--name-field-ofem-lugartrabajo"><div class="field__item">Vera &quot;Hospital&quot; (Almería)</div></main>'),
+                         [('Vera "Hospital"', "Almería")])
 
 
 class OfertasAlMovil(unittest.TestCase):

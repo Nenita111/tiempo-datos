@@ -2,7 +2,7 @@
 la costa de Granada de Motril hacia Almería y lo que es para toda Andalucía. Y las ofertas de empleo público del SAE de esa zona (lo mismo que
 Empleo.ofertasSae), para las etiquetas de Jev (etiquetas.py) y los avisos al móvil (avisos_movil.py).
 """
-import datetime as dt, json, re, unicodedata, urllib.parse, urllib.request
+import datetime as dt, html, json, re, unicodedata, urllib.parse, urllib.request
 
 SAE = "https://saempleo.es/ags/api/MS-HERMES/hermes/ofertas/ofertaspublicadas"     # la lista que pide su página «Ofertas de empleo»; sin robots.txt
 SAE_FICHA = "https://saempleo.es/ags/candidaturas/lista-ofertas-publicas/detalle-oferta?origin=portal&ofertaId="
@@ -95,13 +95,15 @@ def ofertas_sae(lista, ahora):
 
 
 def lugares_ficha(h):
-    """Los lugares de trabajo de la ficha de una oferta de los entes de la Junta (lo mismo que Empleo.ficha): [(sitio, provincia)]."""
+    """Los lugares de trabajo de la ficha de una oferta de los entes de la Junta (lo mismo que Empleo.ficha): [(sitio, provincia)].
+    4.1: un lugar que no dice su provincia («Sede central») va con la provincia vacía (antes se perdía)."""
     b = re.search(r"(?s)field--name-field-ofem-lugartrabajo(.*?)(?:block-field-blocknode|</main>)", h)
     out = []
     for m in re.findall(r'(?s)class="field__item">(.*?)</div>', b.group(1) if b else ""):
-        t = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", m)).strip()
+        t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", m))).strip()     # 4.1: «&quot;La Cepa&quot;» como en la tele
         p = re.match(r"^(.*?)\s*(?:\((\d+)\))?\s*\(([^()]+)\)$", t)
         if p: out.append((p.group(1).strip(), p.group(3).strip()))
+        elif t: out.append((t, ""))
     return out
 
 
@@ -113,7 +115,15 @@ def levante_sitio(sitio):
 
 def junta_en_zona(lugares):
     """Como Empleo.dondeOferta con la zona (4.0, lo pidió Isa: «los mismos criterios geográficos que en el SAE»): algún sitio en Almería
-    fuera del Levante o en la costa hasta Motril, o para toda Andalucía. Sin sitio en la ficha, no (en el SAE hace falta un sitio de la zona)."""
-    prov = {p for _, p in lugares}
-    return bool(lugares) and (len(prov) >= 8 or any((p == "Almería" and not levante_sitio(s)) or (p == "Granada" and costa(s)) for s, p in lugares)
-                              or any(re.search(r"(?i)andaluc|todas las provincias", s) for s, _ in lugares))
+    fuera del Levante o en la costa hasta Motril, o para toda Andalucía. 4.1 (lo pidió Isa: «muestra las ofertas activas que no indiquen
+    provincia o que sean para todas»): también las que no dicen provincia (sin lugares en la ficha o algún lugar sin ella). Quien llama se
+    asegura de que la ficha llegó bien (`ficha_valida`)."""
+    prov = {p for _, p in lugares if p}
+    return (not lugares or any(not p for _, p in lugares) or len(prov) >= 8
+            or any((p == "Almería" and not levante_sitio(s)) or (p == "Granada" and costa(s)) for s, p in lugares)
+            or any(re.search(r"(?i)andaluc|todas las provincias", f"{s} {p}") for s, p in lugares))
+
+
+def ficha_valida(h):
+    """La página es la ficha de una oferta (tiene su plazo o su fecha de publicación), no un error o una página de mantenimiento."""
+    return bool(re.search(r"field-ofem-fecha-(?:publi|ini)", h or ""))

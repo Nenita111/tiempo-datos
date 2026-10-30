@@ -26,7 +26,7 @@ import comun
 import jev, zona
 
 TZ = ZoneInfo("Europe/Madrid")
-ZONA_V = 2          # la regla de zona de las ofertas de la Junta (2: la del SAE, sin el Levante ni las fichas sin sitio; 4.0)
+ZONA_V = 3          # la regla de zona de las ofertas de la Junta (2: la del SAE, sin el Levante, 4.0; 3: y las que no dicen provincia, 4.1)
 UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"       # el de la app
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 
@@ -232,6 +232,10 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
             try: h = red(f"{JUNTA}/organismos/transparencia/empleo-publico/entidades-instrumentales/ofertas-empleo/detalle/{i}.html"); pedidas += 1
             except Exception as e:                       # una ficha que no llega: se queda lo que había de ella y siguen las demás
                 fallos.append(f"ficha {i} de la Junta: {e}"[:160])
+                if ya: nuevas["ofertas"][i] = ya
+                continue
+            if not zona.ficha_valida(h):                 # 4.1: una página que no es la ficha no cuenta como «sin provincia»
+                fallos.append(f"ficha {i} de la Junta: no es la ficha"[:160])
                 if ya: nuevas["ofertas"][i] = ya
                 continue
             e = ya | {"zona": zona.junta_en_zona(zona.lugares_ficha(h)), "zv": ZONA_V, "puesto": fila["puesto"], "entidad": fila["entidad"], "hasta": hasta_oferta(h)}
