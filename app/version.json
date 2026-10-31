@@ -1,8 +1,8 @@
 {
-  "versionCode": 42,
-  "versionName": "4.11",
+  "versionCode": 43,
+  "versionName": "4.12",
   "apk": "app/Tiempo.apk",
-  "sha256": "8b7dee1a2f5dcf32cce533c56dd9552d0eec8f9857472d7833d69075ac08af7a",
-  "bytes": 1197203,
-  "notas": "4.11: Planeta sin el CO₂ ni el hielo del Ártico (sus servidores cierran el paso a los robots)"
+  "sha256": "bfcce1c0d0bc2009f6b74deb8ddccaefb33cf11ef5d3ea47c31b9842bceb6b10",
+  "bytes": 1182399,
+  "notas": "4.12: fuera Open-Meteo (viento animado, polen, aire y UV previstos, calima, solar y el año)"
 }
