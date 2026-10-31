@@ -338,6 +338,8 @@ def sae(L):
 
 def fap(L):
     # fap.py (3.8, tarea diaria): la lista de circulares de este año de la Federación Andaluza de Piragüismo, como la lee
+    import os
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import fap as F
     y = dt.date.today().year
     c = F.circulares(pedir(F.CIRCULARES.format(y=y)).decode("utf-8", "replace"))

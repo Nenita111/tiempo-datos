@@ -365,8 +365,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-10-30",
- "actualizado": "2026-10-30T06:09+01:00",
+ "sorteosBuscado": "2026-10-31",
+ "actualizado": "2026-10-31T06:11+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -541,15 +541,6 @@
  },
  "agenda": [
   {
-   "titulo": "Halloween en La Curva: buñuelada, búsqueda del tesoro, hinchables, magia y concurso de disfraces",
-   "fecha": "2026-10-30",
-   "fuente": "Ayuntamiento de Adra (vía Almería Información)",
-   "ine": "04003",
-   "hora": "17:00",
-   "lugar": "Plaza Andalucía (La Curva)",
-   "enlace": "https://almeriainformacion.com/homepage/cultura/item/41561-adra-presenta-una-amplia-programacion-para-vivir-un-halloween-de-miedo"
-  },
-  {
    "titulo": "Tarde terrorífica en Puente del Río: colchonetas, pintacaras, concurso de disfraces y música",
    "fecha": "2026-10-31",
    "fuente": "Ayuntamiento de Adra (vía D-Cerca)",
@@ -591,15 +582,15 @@
   "cultivos": [
    {
     "cultivo": "Tomate",
-    "desde": "2026-10-19",
-    "hasta": "2026-10-23",
+    "desde": "2026-10-26",
+    "hasta": "2026-10-30",
     "destacados": "Mosca blanca y Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Tomate.pdf"
    },
    {
     "cultivo": "Pimiento",
-    "desde": "2026-10-19",
-    "hasta": "2026-10-23",
+    "desde": "2026-10-26",
+    "hasta": "2026-10-30",
     "destacados": "Mosca blanca, Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Pimiento.pdf"
    },
@@ -612,15 +603,15 @@
    },
    {
     "cultivo": "Calabacín",
-    "desde": "2026-02-09",
-    "hasta": "2026-02-13",
+    "desde": "2026-10-26",
+    "hasta": "2026-10-30",
     "destacados": "Mosca blanca, ToLCNDV",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Calabacin.pdf"
    },
    {
     "cultivo": "Berenjena",
-    "desde": "2026-10-19",
-    "hasta": "2026-10-23",
+    "desde": "2026-10-26",
+    "hasta": "2026-10-30",
     "destacados": "Mosca blanca, Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Berenjena.pdf"
    },
@@ -918,13 +909,13 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-10-30",
-  "nombre": "Lentejas con verduras",
+  "fecha": "2026-10-31",
+  "nombre": "Caldo de pimentón",
   "tiempo": {
    "temperature": "mild",
-   "rain": "dry",
+   "rain": "rain likely",
    "wind": "light wind",
-   "sky": "Nuboso"
+   "sky": "Intervalos nubosos con lluvia escasa"
   },
   "recientes": [
    {
@@ -934,11 +925,15 @@
    {
     "fecha": "2026-10-30",
     "nombre": "Lentejas con verduras"
+   },
+   {
+    "fecha": "2026-10-31",
+    "nombre": "Caldo de pimentón"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-10-30",
+  "fecha": "2026-10-31",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/211/17": {
     "tipo": "convocatoria",
@@ -1139,11 +1134,6 @@
     "tipo": "convocatoria",
     "provincia": "otra",
     "zona": "otra"
-   },
-   "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-22323": {
-    "tipo": "nombramiento",
-    "provincia": "andalucia",
-    "zona": "andalucia"
    }
   },
   "avisar": [
@@ -1186,14 +1176,6 @@
    "https://www.aesan.gob.es/alertas/2026_75": {
     "alergeno": "ninguno",
     "producto": "frutas_verduras"
-   },
-   "https://www.aesan.gob.es/alertas/2026_73": {
-    "alergeno": "ninguno",
-    "producto": "preparados"
-   },
-   "https://www.aesan.gob.es/alertas/2026_74": {
-    "alergeno": "ninguno",
-    "producto": "otro"
    },
    "https://www.aesan.gob.es/alertas/2026_78": {
     "alergeno": "ninguno",
@@ -1239,6 +1221,9 @@
    }
   },
   "prod": {
+   "10119496": {
+    "ninos": 1.0
+   },
    "10119497": {
     "ninos": 1.0
    },
@@ -1265,12 +1250,19 @@
    },
    "10118838": {
     "ninos": 0.12
-   },
-   "10118891": {
-    "ninos": 1.0
    }
   },
   "ofertas": {
+   "690832": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Director/a Gerente",
+    "entidad": "Empresa Pública para la Gestión del Turismo y el Deporte de Andalucía, S.A",
+    "hasta": "2026-11-09",
+    "nivel": "grado",
+    "experiencia": 0.06,
+    "colectivo": "general"
+   },
    "690598": {
     "nivel": "eso",
     "experiencia": 0.68,
@@ -1279,11 +1271,11 @@
     "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
     "hasta": "2026-11-02",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
    },
    "690754": {
     "zona": false,
-    "zv": 2,
+    "zv": 4,
     "puesto": "Monitora o Monitor de Cocina para la Comunidad Terapéutica de Los Palacios",
     "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
     "hasta": "2026-11-11",
@@ -1293,7 +1285,7 @@
    },
    "690745": {
     "zona": false,
-    "zv": 2,
+    "zv": 4,
     "puesto": "Monitora o monitor de Limpieza para la Comunidad Terapéutica de Cartaya",
     "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
     "hasta": "2026-11-11",
@@ -1303,7 +1295,7 @@
    },
    "690730": {
     "zona": false,
-    "zv": 2,
+    "zv": 4,
     "puesto": "Enfermero o Enfermera Pepsa",
     "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
     "hasta": "2026-11-11",
@@ -1313,7 +1305,7 @@
    },
    "690712": {
     "zona": false,
-    "zv": 2,
+    "zv": 4,
     "puesto": "Monitora o monitor sociosanitario",
     "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
     "hasta": "2026-11-11",
@@ -1321,64 +1313,24 @@
     "experiencia": 0.83,
     "colectivo": "general"
    },
-   "690769": {
-    "zona": false,
-    "zv": 2,
-    "puesto": "JEFE/A DE RADIOFRECUENCIA",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31",
-    "nivel": "grado",
-    "experiencia": 0.63,
-    "colectivo": "general"
-   },
-   "689332": {
-    "nivel": "grado",
-    "experiencia": 0.94,
-    "zona": false,
-    "puesto": "Gerencia de la Agencia de Vivienda y Rehabilitación de Andalucía",
-    "entidad": "Agencia de Vivienda y Rehabilitación de Andalucía",
-    "hasta": "2026-11-10",
-    "colectivo": "general",
-    "zv": 2
-   },
-   "690496": {
-    "nivel": "grado",
-    "experiencia": 0.1,
-    "zona": false,
-    "puesto": "TÉCNICO/A ELECTRÓNICO",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31",
-    "colectivo": "general",
-    "zv": 2
-   },
-   "690493": {
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "zona": false,
-    "puesto": "OPERADOR/A MONTADOR/A DE VÍDEO",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31",
-    "colectivo": "general",
-    "zv": 2
-   },
-   "690490": {
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "zona": false,
-    "puesto": "OPERADOR/A MONTADOR DE VIDEO",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31",
-    "colectivo": "general",
-    "zv": 2
-   },
    "690775": {
     "zona": false,
-    "zv": 2,
+    "zv": 4,
     "puesto": "ANALISTA",
     "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
     "hasta": "2026-10-31",
     "nivel": "grado",
     "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "690769": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "JEFE/A DE RADIOFRECUENCIA",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-10-31",
+    "nivel": "grado",
+    "experiencia": 0.63,
     "colectivo": "general"
    },
    "690112": {
@@ -1389,17 +1341,87 @@
     "entidad": "Agencia Andaluza de Instituciones Culturales",
     "hasta": "2026-11-10",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
    },
-   "689971": {
-    "nivel": "grado",
-    "experiencia": 0.55,
+   "690826": {
     "zona": false,
-    "puesto": "Jefatura de Área de Gestión de Medio Hídrico y Actuaciones en Cuencas",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-04",
+    "zv": 4,
+    "puesto": "JEFE/A SECCIÓN COORDINACIÓN TERRITORIAL",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-10-31",
+    "nivel": "grado",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "690496": {
+    "nivel": "grado",
+    "experiencia": 0.1,
+    "zona": false,
+    "puesto": "TÉCNICO/A ELECTRÓNICO",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-10-31",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
+   },
+   "689332": {
+    "nivel": "grado",
+    "experiencia": 0.94,
+    "zona": false,
+    "puesto": "Gerencia de la Agencia de Vivienda y Rehabilitación de Andalucía",
+    "entidad": "Agencia de Vivienda y Rehabilitación de Andalucía",
+    "hasta": "2026-11-10",
+    "colectivo": "general",
+    "zv": 4
+   },
+   "690817": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "JEFE/A SECCIÓN COMERCIAL",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-10-31",
+    "nivel": "grado",
+    "experiencia": 0.08,
+    "colectivo": "general"
+   },
+   "690493": {
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "zona": false,
+    "puesto": "OPERADOR/A MONTADOR/A DE VÍDEO",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-10-31",
+    "colectivo": "general",
+    "zv": 4
+   },
+   "690811": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "JEFE/A DE RADIOENLACES Y UNIDADES MÓVILES",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-10-31",
+    "nivel": "grado",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "690490": {
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "zona": false,
+    "puesto": "OPERADOR/A MONTADOR DE VIDEO",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-10-31",
+    "colectivo": "general",
+    "zv": 4
+   },
+   "690805": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "PROGRAMADOR/A",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-10-31",
+    "nivel": "grado",
+    "experiencia": 0.97,
+    "colectivo": "general"
    },
    "690010": {
     "nivel": "sin_titulo",
@@ -1409,17 +1431,17 @@
     "entidad": "Servicio Andaluz de Empleo",
     "hasta": "2026-11-03",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
    },
-   "687547": {
+   "689971": {
     "nivel": "grado",
-    "experiencia": 0.05,
+    "experiencia": 0.55,
     "zona": false,
-    "puesto": "Titulado/a Superior Administración de Sistemas",
-    "entidad": "Agencia Andaluza de Instituciones Culturales",
-    "hasta": "2026-11-06",
+    "puesto": "Jefatura de Área de Gestión de Medio Hídrico y Actuaciones en Cuencas",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-04",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
    },
    "689719": {
     "nivel": "grado",
@@ -1429,7 +1451,17 @@
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
     "hasta": "2026-11-12",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
+   },
+   "687547": {
+    "nivel": "grado",
+    "experiencia": 0.05,
+    "zona": false,
+    "puesto": "Titulado/a Superior Administración de Sistemas",
+    "entidad": "Agencia Andaluza de Instituciones Culturales",
+    "hasta": "2026-11-06",
+    "colectivo": "general",
+    "zv": 4
    },
    "689338": {
     "nivel": "fp_medio",
@@ -1439,17 +1471,7 @@
     "entidad": "Verificaciones Industriales de Andalucía S.A.",
     "hasta": "2026-11-11",
     "colectivo": "general",
-    "zv": 2
-   },
-   "689158": {
-    "nivel": "grado",
-    "experiencia": 0.03,
-    "zona": false,
-    "puesto": "Programador/a Full- Stack - 2483",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-09",
-    "colectivo": "general",
-    "zv": 2
+    "zv": 4
    },
    "689119": {
     "nivel": "grado",
@@ -1459,7 +1481,7 @@
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
     "hasta": "2026-11-09",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
    },
    "689083": {
     "nivel": "grado",
@@ -1469,7 +1491,17 @@
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
     "hasta": "2026-11-09",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
+   },
+   "689158": {
+    "nivel": "grado",
+    "experiencia": 0.03,
+    "zona": false,
+    "puesto": "Programador/a Full- Stack - 2483",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-09",
+    "colectivo": "general",
+    "zv": 4
    },
    "688786": {
     "nivel": "sin_titulo",
@@ -1479,7 +1511,7 @@
     "entidad": "Agencia Andaluza de Instituciones Culturales",
     "hasta": "2026-11-09",
     "colectivo": "general",
-    "zv": 2
+    "zv": 4
    }
   },
   "sae": {
@@ -1489,43 +1521,20 @@
     "entidad": "junta",
     "colectivo": "general"
    },
-   "01-2026-48675": {
-    "nivel": "no_consta",
-    "experiencia": 0.07,
-    "entidad": "otra",
-    "colectivo": "general"
-   },
-   "01-2026-48457": {
+   "01-2026-49266": {
     "nivel": "grado",
-    "experiencia": 0.98,
     "entidad": "otra",
-    "colectivo": "programa_empleo"
+    "colectivo": "general",
+    "experiencia": 0.09
    },
-   "01-2026-48458": {
+   "01-2026-49367": {
     "nivel": "no_consta",
-    "experiencia": 0.98,
     "entidad": "otra",
-    "colectivo": "programa_empleo"
-   },
-   "01-2026-48758": {
-    "nivel": "grado",
-    "experiencia": 0.05,
-    "entidad": "otra",
-    "colectivo": "general"
-   },
-   "01-2026-48765": {
-    "nivel": "no_consta",
-    "experiencia": 0.07,
-    "entidad": "otra",
-    "colectivo": "general"
+    "colectivo": "programa_empleo",
+    "experiencia": 0.07
    }
   },
   "agenda": {
-   "2026-10-30|Halloween en La Curva: buñuelada, búsqueda del tesoro, hinchables, magia y concurso de disfraces": {
-    "gratis": 0.03,
-    "familias": 0.9,
-    "inscripcion": 0.03
-   },
    "2026-10-31|Tarde terrorífica en Puente del Río: colchonetas, pintacaras, concurso de disfraces y música": {
     "gratis": 0.03,
     "familias": 0.88,
@@ -1547,11 +1556,18 @@
     "inscripcion": 0.02
    }
   },
-  "fecha": "2026-10-30"
+  "fecha": "2026-10-31"
  },
  "fap": {
-  "fecha": "2026-10-30",
+  "fecha": "2026-10-31",
   "novedades": [
+   {
+    "tipo": "noticia",
+    "titulo": "9 clubes y 239 palistas protagonizan el cierre de la III Liga Andaluza de Barco Dragón",
+    "enlace": "https://fapira.com/index.php/noticias-2/noticias-2026/1930-9-clubes-y-239-palistas-protagonizan-el-cierre-de-la-iii-liga-andaluza-de-barco-dragon",
+    "fecha": "2026-10-30",
+    "cambio": false
+   },
    {
     "tipo": "circular",
     "titulo": "Normativa Campeonato de Andalucía de Barco Dragón 500 m",
@@ -1591,6 +1607,11 @@
     "anuncia": 0.06,
     "cambio": 0.1,
     "persona": 0.0
+   },
+   "59207901b32a": {
+    "anuncia": 0.91,
+    "cambio": 0.03,
+    "persona": 0.02
    },
    "4a8bef2681ac": {
     "anuncia": 0.01,
@@ -1696,11 +1717,6 @@
     "anuncia": 0.02,
     "cambio": 0.03,
     "persona": 0.04
-   },
-   "6de2d81bf629": {
-    "anuncia": 0.01,
-    "cambio": 0.02,
-    "persona": 0.99
    }
   }
  }
