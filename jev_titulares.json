@@ -1,4 +1,103 @@
 {
+ "26f9765769f0b75fd06d819e183790963beb8786af1916246b9bb7a5ce1a2454": {
+  "answers": {
+   "actividad": {
+    "noul": 0.02,
+    "type": "noul"
+   },
+   "anuncia": {
+    "noul": 0.01,
+    "type": "noul"
+   },
+   "colecta": {
+    "noul": 0.01,
+    "type": "noul"
+   },
+   "dia": {
+    "choice": "not_stated",
+    "confidence": 1,
+    "probabilities": {
+     "1": 0,
+     "2": 0,
+     "3": 0,
+     "4": 0,
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0,
+     "10": 0,
+     "11": 0,
+     "12": 0,
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0,
+     "19": 0,
+     "20": 0,
+     "21": 0,
+     "22": 0,
+     "23": 0,
+     "24": 0,
+     "25": 0,
+     "26": 0,
+     "27": 0,
+     "28": 0,
+     "29": 0,
+     "30": 0,
+     "31": 0,
+     "not_stated": 1
+    },
+    "type": "choice"
+   },
+   "en_pueblo": {
+    "noul": 0.92,
+    "type": "noul"
+   },
+   "mes": {
+    "choice": "not_stated",
+    "confidence": 1,
+    "probabilities": {
+     "abril": 0,
+     "agosto": 0,
+     "diciembre": 0,
+     "enero": 0,
+     "febrero": 0,
+     "julio": 0,
+     "junio": 0,
+     "marzo": 0,
+     "mayo": 0,
+     "not_stated": 1,
+     "noviembre": 0,
+     "octubre": 0,
+     "septiembre": 0
+    },
+    "type": "choice"
+   },
+   "restablecido": {
+    "noul": 0.02,
+    "type": "noul"
+   },
+   "tipo": {
+    "choice": "trafico",
+    "confidence": 0.52,
+    "probabilities": {
+     "agua": 0,
+     "luz": 0,
+     "otro": 0.36,
+     "trafico": 0.64
+    },
+    "type": "choice"
+   },
+   "urgente": {
+    "noul": 0.05,
+    "type": "noul"
+   }
+  },
+  "model": "jev-1.13.0"
+ },
  "992da26e6ad4da7b3ff835dafa9166680b68e89087042ad0277fe9848e294e6a": {
   "answers": {
    "actividad": {
