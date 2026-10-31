@@ -493,6 +493,22 @@ def ruta(L):
         horas.append(f"{cid} {email.utils.parsedate_to_datetime(mod).astimezone(TZ):%H:%M}" if mod else cid)
     return "fotos de " + ", ".join(horas)
 
+def vista(L):
+    # 4.9 (316): el pueblo desde el satélite (Vista.kt): las muestras pequeñas de las imágenes HLS (Landsat y Sentinel-2) de NASA GIBS;
+    # alguna de los últimos 12 días con imagen (las vacías son PNG de unos cientos de bytes)
+    import math
+    ml = 0.25; mlat = ml * 111.32 * math.cos(math.radians(L["lat"])) * 800 / (1840 * 110.57)
+    bb = f"{L['lat'] - mlat:.4f},{L['lon'] - ml:.4f},{L['lat'] + mlat:.4f},{L['lon'] + ml:.4f}"
+    hoy = dt.datetime.now(TZ).date()
+    for i in range(2, 13):
+        f = hoy - dt.timedelta(days=i)
+        for capa, sat in (("HLS_S30", "Sentinel-2"), ("HLS_L30", "Landsat")):
+            png = pedir(f"https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0&LAYERS={capa}_Nadir_BRDF_Adjusted_Reflectance"
+                        f"&CRS=EPSG:4326&BBOX={bb}&WIDTH=184&HEIGHT=80&FORMAT=image/png&TIME={f}")
+            if png[:4] != b"\x89PNG": raise ValueError("no manda PNG")
+            if len(png) > 2000: return f"con imagen el {f:%d/%m} ({sat})"
+    raise ValueError("ninguna imagen de Landsat ni Sentinel-2 en los últimos 12 días")
+
 def olas(L):
     # Olas.prevision (3.9, 275): los mapas de previsión de oleaje de Puertos del Estado (dominio Mar de Alborán): que el dominio siga en su
     # lista y que el mapa de las 00 UTC de hoy sea de la pasada de hoy o de ayer
@@ -549,7 +565,7 @@ def jev_(L):
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
            medicamentos, productos, sae, fap, agua, camara, ruta, olas, radiacion, sequia, sangre, cortesAgua,
-           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios, autobus, trenes, ipc, saih, rfep, bolsaSas]
+           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios, autobus, trenes, ipc, saih, rfep, bolsaSas, vista]
 
 
 def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):
