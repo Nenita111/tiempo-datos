@@ -1,8 +1,8 @@
 {
-  "versionCode": 38,
-  "versionName": "4.7",
+  "versionCode": 39,
+  "versionName": "4.8",
   "apk": "app/Tiempo.apk",
-  "sha256": "9bf4d513b39502f3e9c7ce79946de154ee961b6da45eca98fe09e039bdeee96a",
-  "bytes": 1168567,
-  "notas": "4.7: lluvia de cada hora en Semana; altura de pleamares y bajamares; sin alertas alimentarias por alérgenos; el SAE sin Níjar"
+  "sha256": "f15782a2530d037e73aa0ce6c9656c077fc8aea3567fb4ab55210fbdb0282247",
+  "bytes": 1190975,
+  "notas": "4.8: IPC; lluvia y ríos ahora (SAIH); barco dragón nacional (Federación Española); novedades de la Bolsa Única del SAS"
 }
