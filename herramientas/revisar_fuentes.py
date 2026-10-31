@@ -175,15 +175,6 @@ def esios(L):
     if not json.loads(r.stdout)["indicator"]["values"]: raise ValueError("sin precios de hoy")
     return "precios de hoy (con la clave)"
 
-def aire(L):
-    # 4.0 (283 y 285): lo mismo que Polen.previsto (polen, índice europeo y UV de cada hora)
-    j = json.loads(texto(f"https://air-quality-api.open-meteo.com/v1/air-quality?latitude={L['lat']}&longitude={L['lon']}"
-                         "&hourly=olive_pollen,european_aqi,uv_index&timezone=Europe%2FMadrid&forecast_days=3"))
-    h = j.get("hourly") or {}
-    if not h.get("european_aqi") or all(v is None for v in h.get("european_aqi")): raise ValueError("sin índice europeo previsto")
-    if all(v is None for v in h.get("uv_index") or [None]): raise ValueError("sin UV previsto")
-    return "ok"
-
 def iss(L):
     # 4.0 (279): la Estación Espacial y Tiangong, del grupo «stations» de CelesTrak (una vez: no pide más de una cada 2 horas)
     t = texto("https://celestrak.org/NORAD/elements/gp.php?GROUP=stations&FORMAT=TLE")
@@ -522,18 +513,6 @@ def olas(L):
     if not m or dt.datetime.now(dt.timezone.utc) - m > dt.timedelta(hours=36): raise ValueError(f"el mapa de hoy es de una pasada vieja ({mod})")
     return f"pasada del {m.astimezone(TZ):%d/%m %H:%M}"
 
-def viento(L):
-    # Viento.ahora: el viento de ahora en la malla de 9 × 6 puntos (una petición con todos)
-    la, lo = [], []
-    for i in range(6):
-        for j in range(9):
-            la.append(f"{L['lat'] - 0.40 + 0.62 * i / 5:.3f}"); lo.append(f"{L['lon'] - 0.62 + 1.24 * j / 8:.3f}")
-    x = json.loads(texto("https://api.open-meteo.com/v1/forecast?latitude=" + ",".join(la) + "&longitude=" + ",".join(lo)
-                         + "&current=wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=kmh&timezone=Europe%2FMadrid"))
-    if not isinstance(x, list) or len(x) != 54: raise ValueError(f"no trae los 54 puntos: {str(x)[:120]}")
-    if any(p.get("current", {}).get("wind_speed_10m") is None for p in x): raise ValueError("algún punto sin viento")
-    return f"54 puntos, {x[0]['current']['time']}"
-
 def calarVivo(L):
     # CalarVivo: el vídeo MJPEG de la cámara de Calar Alto (solo las cabeceras y la primera imagen)
     r = urllib.request.Request("https://neteye-3.caha.es/WEBCAMs/EYE56", headers={"User-Agent": UA})
@@ -563,9 +542,9 @@ def jev_(L):
 
 
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
-           trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
+           trafico, gasolina, luz, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
            medicamentos, productos, sae, fap, agua, camara, ruta, olas, radiacion, sequia, sangre, cortesAgua,
-           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios, autobus, trenes, ipc, saih, rfep, bolsaSas, vista]
+           mtg, tierra, solVideo, calarVivo, iss, luna, jev_, esios, autobus, trenes, ipc, saih, rfep, bolsaSas, vista]
 
 
 def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):
