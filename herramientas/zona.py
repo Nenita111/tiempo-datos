@@ -62,6 +62,8 @@ def plano(s):
 
 def levante(municipio): return plano(municipio) in LEVANTE
 def fuera(municipio): return plano(municipio) in FUERA           # 4.2: el Levante y lo de alrededor de Serón, Tíjola y Olula del Río
+FUERA_SAE = {"NIJAR"}                                           # 4.7 (lo pidió Isa el 31 oct 2026): en las del SAE, tampoco Níjar
+def fuera_sae(municipio): return fuera(municipio) or plano(municipio) in FUERA_SAE
 
 
 def costa(sitio):
@@ -95,7 +97,7 @@ def ofertas_sae(lista, ahora):
         aqui = []
         for s in sitios:
             p, m = (s.get("provincia") or {}).get("id", ""), (s.get("municipio") or {})
-            if m.get("nombre") and ((p == "04" and not fuera(m["nombre"])) or (p == "18" and costa(m["nombre"]))):
+            if m.get("nombre") and ((p == "04" and not fuera_sae(m["nombre"])) or (p == "18" and costa(m["nombre"]))):
                 n = nombre(m.get("id", ""), m["nombre"])
                 if n not in aqui: aqui.append(n)
         if not aqui or not o.get("idOferta"): continue

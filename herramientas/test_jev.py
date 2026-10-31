@@ -438,6 +438,14 @@ class Zona(unittest.TestCase):
         self.assertFalse(zona.solo_fuera_sas("Convoca, a los fines previstos, plazas del Hospital Universitario Torrecárdenas"))
         self.assertFalse(zona.solo_fuera_sas("UGC de Macael y Hospital de Poniente") or zona.solo_fuera_sas("Distrito Sanitario Almería"))
         self.assertEqual(o[0]["id"], "01-2026-48086"); self.assertEqual(o[0]["sitios"], ["Almería"])
+
+    def test_sae_sin_nijar(self):
+        """4.7 (lo pidió Isa el 31 oct 2026): en las del SAE, tampoco Níjar. La lista real del 30 oct (las 20 de empleo público de Almería y
+        Granada, sin el texto libre): de las 8 de Almería quedan Almería y El Ejido."""
+        L = json.load(open(os.path.join(os.path.dirname(__file__), "muestras", "sae_20261030.json"), encoding="utf-8"))
+        o = zona.ofertas_sae(L, dt.datetime(2026, 10, 30, 21, 31))
+        self.assertEqual([x["id"] for x in o], ["01-2026-48086", "01-2026-49266"])
+        self.assertTrue(zona.fuera_sae("NIJAR") and zona.fuera_sae("Níjar") and not zona.fuera("Níjar"))
         self.assertEqual(o[0]["url"], "https://saempleo.es/ags/candidaturas/lista-ofertas-publicas/detalle-oferta?origin=portal&ofertaId=01-2026-48086")
         h = open(os.path.join(os.path.dirname(__file__), "muestras", "oferta_688570.html"), encoding="utf-8").read()
         itv = zona.lugares_ficha(h)
