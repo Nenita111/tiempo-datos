@@ -245,10 +245,10 @@ def bolsaSas(L):
     return f"{len(f)} novedades, la última del {max(f)}"
 
 def planeta(L):
-    for u in ("https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv",
-              "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.txt"):
-        if len(pedir(u, tiempo=60)) < 1000: raise ValueError(f"fichero vacío: {u}")
-    return "temperatura y CO₂"
+    # 4.11: solo la temperatura de la Tierra (Copernicus); fuera el CO₂ y el hielo del Ártico (NOAA y NSIDC cierran el paso a los robots)
+    u = "https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv"
+    if len(pedir(u, tiempo=60)) < 1000: raise ValueError(f"fichero vacío: {u}")
+    return "temperatura de la Tierra"
 
 def sol(L):
     if not json.loads(texto("https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json")): raise ValueError("sin índice Kp")

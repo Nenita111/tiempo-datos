@@ -1,8 +1,8 @@
 {
-  "versionCode": 41,
-  "versionName": "4.10",
+  "versionCode": 42,
+  "versionName": "4.11",
   "apk": "app/Tiempo.apk",
-  "sha256": "2d46c0879026ec5ce91168bf87c8cace4ade1f87b31fcdea923607cd698a2ae9",
-  "bytes": 1199267,
-  "notas": "4.10: extras.json con ETag (menos descargas de GitHub)"
+  "sha256": "8b7dee1a2f5dcf32cce533c56dd9552d0eec8f9857472d7833d69075ac08af7a",
+  "bytes": 1197203,
+  "notas": "4.11: Planeta sin el CO₂ ni el hielo del Ártico (sus servidores cierran el paso a los robots)"
 }
