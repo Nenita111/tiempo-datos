@@ -216,6 +216,34 @@ def trenes(L):
     if not t or not j.get("fechaActualizacion"): raise ValueError("sin trenes con posición")
     return f"{len(t)} trenes, datos de las {j['fechaActualizacion'][11:16]}"
 
+def ipc(L):
+    # 4.8 (302): IPC del INE (Economia.ipc): la variación anual de España, de la comunidad y de la provincia
+    d = json.loads(texto("https://servicios.ine.es/wstempus/js/ES/DATOS_SERIE/IPC290750?nult=2&tip=A")).get("Data") or []
+    if not d or d[-1].get("Valor") is None: raise ValueError("sin datos del IPC")
+    return f"España {d[-1]['Valor']} % ({d[-1]['Anyo']}-{d[-1]['T3_Periodo']}{', avance' if d[-1].get('T3_TipoDato') == 'Avance' else ''})"
+
+def saih(L):
+    # 4.8 (303): lluvia y ríos de la red SAIH Hidrosur (Saih.kt): la hora de los datos y las tablas
+    p = texto("https://www.redhidrosurmedioambiente.es/saih/resumen/precipitacion")
+    m = re.search(r"actualizados a:\s*(\d{2}-\d{2}-\d{4} \d{2}:\d{2})", p)
+    if not m or "Acumulado 24 horas" not in p: raise ValueError("sin la hora o la tabla de lluvia")
+    if "Caudal medio" not in texto("https://www.redhidrosurmedioambiente.es/saih/resumen/rios"): raise ValueError("sin la tabla de ríos")
+    return f"datos de {m.group(1)}"
+
+def rfep(L):
+    # 4.8 (300): la Federación Española de Piragüismo (Rfep.kt): el PDF del calendario y la carpeta de resultados de barco dragón
+    y = dt.date.today().year
+    if not re.search(r"calendario-competiciones-nacionales-\d{4}[^\"]*\.pdf", texto("https://rfep.es/competiciones/calendario/")): raise ValueError("sin el PDF del calendario")
+    if not re.search(r"\bterm-\d+\b", texto(f"https://rfep.es/wp-file-download/barco-dragon-temporada-{y}/")): raise ValueError("sin la carpeta de resultados")
+    return "calendario y resultados"
+
+def bolsaSas(L):
+    # 4.8 (304): las novedades de la Bolsa Única del SAS (Empleo.bolsaSas)
+    h = texto("https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/novedades?term_node_tid_depth=26", tiempo=60)
+    f = re.findall(r'<time datetime="(\d{4}-\d{2}-\d{2})', h)
+    if not f: raise ValueError("sin la lista de novedades")
+    return f"{len(f)} novedades, la última del {max(f)}"
+
 def planeta(L):
     for u in ("https://sites.ecmwf.int/data/climatepulse/data/series/era5_daily_series_2t_global.csv",
               "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_daily_mlo.txt"):
@@ -521,7 +549,7 @@ def jev_(L):
 FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, oleaje, incendio, terremotos, efemerides, futbol, campo, lonja,
            trafico, gasolina, luz, aire, planeta, sol, farmacias, alimentarias, noticias, sonda, extras, paro, afiliados, euribor, festivos, rayos,
            medicamentos, productos, sae, fap, agua, camara, ruta, olas, radiacion, sequia, sangre, cortesAgua,
-           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios, autobus, trenes]
+           mtg, tierra, solVideo, viento, calarVivo, iss, luna, jev_, esios, autobus, trenes, ipc, saih, rfep, bolsaSas]
 
 
 def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):

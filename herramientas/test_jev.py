@@ -486,6 +486,25 @@ class OfertasAlMovil(unittest.TestCase):
         self.assertEqual(A.frase("PERSONAL INTERINO. ESPECIALIDAD (A1.2002)"), "Personal interino. Especialidad (A1.2002)")
 
 
+class BolsaSas(unittest.TestCase):
+    """4.8 (304): lo nuevo de la Bolsa Única del SAS al móvil, una vez; la primera vez que llega la lista, solo se apunta."""
+    def test_novedades(self):
+        h = open(os.path.join(os.path.dirname(__file__), "muestras", "sas_bolsa_novedades_20261031.html"), encoding="utf-8").read()
+        b = A.novedades_bolsa(h)
+        self.assertEqual(len(b), 20)
+        self.assertEqual(b[0]["fecha"], "2026-10-14T09:53")
+        self.assertTrue(b[0]["titulo"].startswith("Transparencia. Actualizado el histórico de nombramientos"))
+        self.assertTrue(b[0]["enlace"].startswith("https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/"))
+        ahora = dt.datetime(2026, 10, 15, 10, 0, tzinfo=A.TZ)
+        estado = {}
+        self.assertEqual(A.ofertas(estado, [], {}, ahora, bolsa=b), [])          # la primera vez: se apuntan
+        self.assertIn("bolsa:", estado)
+        nueva = dict(b[0], fecha="2026-10-15T09:00", titulo="PRUEBA: disponibles listados definitivos", enlace="https://x/prueba-bolsa")
+        n = A.ofertas(estado, [], {}, ahora, bolsa=[nueva] + b)
+        self.assertEqual([o["clave"] for o in n], ["bolsa:https://x/prueba-bolsa"])
+        self.assertIn("🏥 Bolsa Única del SAS (jueves 15 oct): PRUEBA: disponibles listados definitivos.", n[0]["texto"])
+
+
 class SasZona(unittest.TestCase):
     def test_zona_y_avisar(self):
         d = [{"texto": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca concurso en el Hospital Universitario Poniente (PRUEBA).", "url": "u1", "boletin": "BOJA", "fecha": "2026-10-27"},

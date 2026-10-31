@@ -26,6 +26,7 @@ Imprime una línea JSON: {"nuevos": [{"tipo", "texto", "enlace", "clave"}], "fal
 que se apuntan la primera vez), para subirlo. Sale con 0 aunque falle alguna fuente; con 2 si fallan todas.
 """
 import argparse, datetime as dt, gzip, io, json, math, os, re, sys, tarfile, unicodedata, urllib.parse, urllib.request
+from html import unescape
 from xml.etree import ElementTree as ET
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # jev.py, al lado (con -I no se mira la carpeta del script)
 import comun, jev, zona
@@ -332,8 +333,24 @@ def plazo_sas(d):
 
 MARCA_DIAS = 20      # la marca de cada lista se renueva cada 20 días (antes, cada día: un cambio que subir cada día aunque no hubiera nada)
 
+# 4.8 (304, lo pidió Isa el 31 oct 2026): lo nuevo de la Bolsa Única del SAS (listados, trámites de audiencia, criterios…): las «Novedades»
+# de la web del SAS filtradas por la Bolsa (término 26), como la tele (Empleo.novedadesBolsa). Su robots.txt da 403: sin restricciones.
+SSPA = "https://www.sspa.juntadeandalucia.es"
+BOLSA = SSPA + "/servicioandaluzdesalud/novedades?term_node_tid_depth=26"
 
-def ofertas(estado, sae, x, ahora, vivas=None):
+
+def novedades_bolsa(html):
+    res, vistos = [], set()
+    for m in re.finditer(r'(?s)<time datetime="([^"]+)"[^>]*>[^<]*</time>(.{0,3000}?)<a href="([^"]+)"[^>]*>(.*?)</a>', html):
+        t = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", " ", m.group(4)))).strip()
+        u = m.group(3) if m.group(3).startswith("http") else SSPA + m.group(3)
+        if len(t) < 8 or u in vistos: continue
+        vistos.add(u); res.append({"fecha": m.group(1)[:16], "titulo": t, "enlace": u})
+    if not res: raise ValueError("la página de novedades del SAS ya no trae la lista")
+    return sorted(res, key=lambda x: x["fecha"], reverse=True)
+
+
+def ofertas(estado, sae, x, ahora, vivas=None, bolsa=()):
     """Las ofertas de empleo de la zona que no se han avisado aún. La primera vez que llega cada lista (SAE, Junta, SAS), ninguna: se apuntan.
     En «vivas», las claves de las que siguen en su lista (no se olvidan mientras sigan: una oferta abierta más de 30 días no se repite)."""
     hoy = ahora.date().isoformat(); out = []
@@ -357,9 +374,13 @@ def ofertas(estado, sae, x, ahora, vivas=None):
         ins = f" · inscripción hasta el {fecha_dia(n['inscripcion'])}" if n.get("inscripcion") and n["inscripcion"] >= hoy else ""
         out.append({"tipo": "regata", "clave": "fap:" + n["enlace"], "enlace": n["enlace"],
                     "texto": f"🐉 Barco dragón (Federación Andaluza{', cambio' if n.get('cambio') else ''}): {n['titulo']}{dia}{lugar}{ins}."})
+    # 4.8 (304): lo nuevo de la Bolsa Única del SAS (de las 2 últimas semanas)
+    for b in bolsa:
+        if b["fecha"][:10] < (ahora - dt.timedelta(days=14)).date().isoformat(): continue
+        out.append({"tipo": "empleo", "clave": "bolsa:" + b["enlace"], "enlace": b["enlace"], "texto": f"🏥 Bolsa Única del SAS ({fecha_dia(b['fecha'][:10])}): {b['titulo']}."})
     res = []
     if vivas is not None: vivas.update(o["clave"] for o in out)
-    for pre in ("empleo:sae:", "empleo:junta:", "empleo:sas:", "fap:"):    # cada lista, la primera vez que llega, solo se apunta
+    for pre in ("empleo:sae:", "empleo:junta:", "empleo:sas:", "fap:", "bolsa:"):    # cada lista, la primera vez que llega, solo se apunta
         primera = pre not in estado                                      # la marca de la lista (se renueva: no se olvida)
         for o in out:
             if not o["clave"].startswith(pre) or o["clave"] in estado: continue
@@ -423,7 +444,10 @@ def main():
     sae = []
     try: sae = zona.ofertas_sae(zona.lista_sae(), ahora) if zona.aplica(o.ine) else []; bien += 1
     except Exception as e: fallos.append(f"ofertas del SAE: {e}"[:160])      # las demás listas (Junta, SAS, FAP) siguen
-    try: n += ofertas(estado, sae, x if isinstance(x, dict) else {}, ahora, vivas)
+    bolsa = []
+    try: bolsa = novedades_bolsa(pedir(BOLSA, 60).decode("utf-8", "replace")); bien += 1
+    except Exception as e: fallos.append(f"Bolsa del SAS: {e}"[:160])
+    try: n += ofertas(estado, sae, x if isinstance(x, dict) else {}, ahora, vivas, bolsa)
     except Exception as e: fallos.append(f"ofertas de empleo: {e}"[:160])
     for a in n: estado[a["clave"]] = ahora.isoformat(timespec="minutes")
     limite = (ahora - dt.timedelta(days=30)).isoformat()
