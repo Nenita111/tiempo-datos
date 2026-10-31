@@ -1,8 +1,8 @@
 {
-  "versionCode": 40,
-  "versionName": "4.9",
+  "versionCode": 41,
+  "versionName": "4.10",
   "apk": "app/Tiempo.apk",
-  "sha256": "d5b90750a8e142abf7e6918f78fdd3b3005148141349eb6f68a728137e0a5869",
-  "bytes": 1199087,
-  "notas": "4.9: el pueblo desde el satélite (Landsat y Sentinel-2, una imagen sin apenas nubes por semana)"
+  "sha256": "2d46c0879026ec5ce91168bf87c8cace4ade1f87b31fcdea923607cd698a2ae9",
+  "bytes": 1199267,
+  "notas": "4.10: extras.json con ETag (menos descargas de GitHub)"
 }
