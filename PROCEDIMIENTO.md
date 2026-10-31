@@ -10,6 +10,18 @@ medias deja el de antes entero. Lo único que hace a mano es buscar (vuelos, sor
 Con Jev (sección 7) también deja en extras.json los cortes de los titulares, la receta del día y las etiquetas del SAS, y trae en
 «sortea2» los sorteos de la zona de sortea2.com ya filtrados: son los primeros que se miran para el punto 2.
 
+**Menos tokens y menos GitHub (4.10, lo pidió Isa el 31 oct 2026: «minimiza el uso de tokens y de GitHub»).**
+- Las tareas clonan sin el APK ni las muestras de las pruebas (unos 2,7 MB menos cada vez):
+  `git clone -q --depth 1 --filter=blob:none --no-checkout https://github.com/Nenita111/tiempo-datos.git && cd tiempo-datos &&
+  git sparse-checkout set --no-cone '/*' '!/app/' '!/herramientas/muestras/' && git checkout -q main`.
+- `diario.py` dice en «toca» qué buscar hoy: los vuelos (4 búsquedas de Kiwi, lo que más tokens gasta), un día sí y otro no (la tele
+  los da por viejos a los 3 días); las búsquedas web de sorteos, agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y
+  de los titulares, todos los días).
+- El buzón va dentro de la tarea de avisos (cada 3 horas): si no hay capturas no cuesta nada más; si las hay, lee
+  `herramientas/BUZON.md`. Antes eran dos tareas (avisos cada 2 horas y buzón 3 veces al día): de 13 sesiones al día a 7.
+- Cada commit solo si algo ha cambiado. Versiones de la app: juntar los cambios (cada APK publicado suma 1,2 MB a la historia del
+  repositorio).
+
 ## 1. Vuelos baratos (Kiwi.com)
 
 Una búsqueda por aeropuerto, todas el mismo día, con el conector de Kiwi.com:
@@ -41,8 +53,8 @@ El Ejido, Almerimar, Balanegra, Vícar, La Mojonera, Roquetas, Aguadulce, Almer�
 
 ## 2a. Buzón de capturas (sorteos y cortes que llegan a mano)
 
-Las capturas de pantalla de publicaciones se dejan en una carpeta privada de Google Drive. Una tarea aparte las
-revisa varias veces al día con el conector de Drive; Instagram no se abre en ningún momento.
+Las capturas de pantalla de publicaciones se dejan en una carpeta privada de Google Drive. La tarea de avisos (cada 3 horas, desde
+4.10) mira si hay alguna y, si la hay, sigue `herramientas/BUZON.md`; Instagram no se abre en ningún momento.
 
 - `download_file_content` de cada captura y luego `python3 -I herramientas/captura.py FILEID /tmp/buzon`: busca la
   descarga donde la haya dejado Claude Code (registro de la sesión o fichero aparte si es grande), la guarda como
@@ -141,7 +153,7 @@ Si ESIOS responde pero aún no ha publicado, mira cada 4 minutos hasta `--espera
 y sale con código 4. La clave de ESIOS va en la variable `ESIOS_API_KEY` de las «Variables de entorno» del entorno en la nube de la
 tarea (los entornos no tienen almacén de secretos; el script la pasa a curl por la entrada): no va en el repositorio. Desde servidores en la nube Red Eléctrica suele rechazar REData.
 
-## 6. Avisos urgentes al móvil (tarea aparte, cada 2 horas)
+## 6. Avisos urgentes al móvil (tarea aparte, cada 3 horas de 8 a 23, con el buzón)
 
 `python3 -I herramientas/avisos_movil.py --estado avisos_enviados.json --extras extras.json`: avisos naranja o rojo de AEMET
 en la zona del pueblo o su costa; terremotos del IGN que se pueden notar (magnitud 3 a menos de 50 km, 3,5 a menos de 100 km,

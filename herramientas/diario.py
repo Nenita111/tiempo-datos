@@ -14,10 +14,12 @@ las novedades de barco dragón de la Federación Andaluza de Piragüismo (fap.py
 Imprime una línea JSON: {"bien": N (los pasos que fueron bien, sin contarlos uno a uno), "pasos": {solo los que fallaron o fueron sin
 Jev: "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulares": […],
 "sangre_titulares": […], "agenda": N, "sangre": N,
-"sorteos": N, "cortes": N, "jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …]}. Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
+"sorteos": N, "cortes": N, "toca": {"vuelos": …, "web": …}, "jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …]}.
+«toca» (4.10, menos tokens): los vuelos, un día sí y otro no (si ya se buscaron ayer, no; la tele los da por viejos a los 3 días); las
+búsquedas web de sorteos, agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días). Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
 """
-import json, os, re, subprocess, sys
+import datetime as dt, json, os, re, subprocess, sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
@@ -42,6 +44,13 @@ def correr(args, tiempo):
         return None, f"no acabó en {tiempo} s"
     lineas = [l for l in (r.stdout + "\n" + r.stderr).splitlines() if l.strip()]
     return r.returncode, (lineas[-1] if lineas else "")
+
+
+def toca(x, hoy=None):
+    """Lo que la tarea tiene que buscar hoy (lo que gasta más tokens): los vuelos (4 búsquedas de Kiwi), un día sí y otro no; las
+    búsquedas web, los lunes y los jueves."""
+    hoy = hoy or dt.date.today()
+    return {"vuelos": (x.get("vuelosBuscado") or "") < (hoy - dt.timedelta(days=1)).isoformat(), "web": hoy.weekday() in (0, 3)}
 
 
 def main():
@@ -73,7 +82,7 @@ def main():
     res = {"bien": len(bien), "pasos": pasos, "sortea2": [{"enlace": c["enlace"], "pueblos": c["pueblos"], "texto": c["texto"][:400]} for c in s2["candidatos"]],
            "agenda_titulares": titulares.get("agenda", []), "sangre_titulares": titulares.get("colectas", []),
            "agenda": len(x.get("agenda") or []), "sangre": len((x.get("sangre") or {}).get("colectas") or []),
-           "sorteos": len(x.get("sorteos") or []), "cortes": len(x.get("cortes") or [])}
+           "sorteos": len(x.get("sorteos") or []), "cortes": len(x.get("cortes") or []), "toca": toca(x)}
     if cache:
         try: n = len(json.load(open(cache, encoding="utf-8")))
         except (OSError, ValueError): n = 0
