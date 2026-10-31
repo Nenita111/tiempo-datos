@@ -1,8 +1,8 @@
 {
-  "versionCode": 39,
-  "versionName": "4.8",
+  "versionCode": 40,
+  "versionName": "4.9",
   "apk": "app/Tiempo.apk",
-  "sha256": "f15782a2530d037e73aa0ce6c9656c077fc8aea3567fb4ab55210fbdb0282247",
-  "bytes": 1190975,
-  "notas": "4.8: IPC; lluvia y ríos ahora (SAIH); barco dragón nacional (Federación Española); novedades de la Bolsa Única del SAS"
+  "sha256": "d5b90750a8e142abf7e6918f78fdd3b3005148141349eb6f68a728137e0a5869",
+  "bytes": 1199087,
+  "notas": "4.9: el pueblo desde el satélite (Landsat y Sentinel-2, una imagen sin apenas nubes por semana)"
 }
