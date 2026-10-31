@@ -1,8 +1,8 @@
 {
-  "versionCode": 37,
-  "versionName": "4.6",
+  "versionCode": 38,
+  "versionName": "4.7",
   "apk": "app/Tiempo.apk",
-  "sha256": "feb515d9822657bbdedb251bd2650e7ce7ad6ff0443889b783e6a7a3f3f9f57a",
-  "bytes": 1167635,
-  "notas": "4.6: Campo y Pescado en orden alfabético; en Empleo, nada del SAE de Serón, Tíjola ni Olula del Río"
+  "sha256": "9bf4d513b39502f3e9c7ce79946de154ee961b6da45eca98fe09e039bdeee96a",
+  "bytes": 1168567,
+  "notas": "4.7: lluvia de cada hora en Semana; altura de pleamares y bajamares; sin alertas alimentarias por alérgenos; el SAE sin Níjar"
 }
