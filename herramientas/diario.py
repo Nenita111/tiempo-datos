@@ -15,8 +15,8 @@ Imprime una línea JSON: {"bien": N (los pasos que fueron bien, sin contarlos un
 Jev: "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulares": […],
 "sangre_titulares": […], "agenda": N, "sangre": N,
 "sorteos": N, "cortes": N, "toca": {"vuelos": …, "web": …}, "jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …]}.
-«toca» (4.10, menos tokens): los vuelos, un día sí y otro no (si ya se buscaron ayer, no; la tele los da por viejos a los 3 días); las
-búsquedas web de sorteos, agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días). Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
+«toca» (4.10, menos tokens): los vuelos, una vez al día (4.13, lo pidió Isa: antes, un día sí y otro no); las búsquedas web de sorteos,
+agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días). Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
 """
 import datetime as dt, json, os, re, subprocess, sys
@@ -47,10 +47,10 @@ def correr(args, tiempo):
 
 
 def toca(x, hoy=None):
-    """Lo que la tarea tiene que buscar hoy (lo que gasta más tokens): los vuelos (4 búsquedas de Kiwi), un día sí y otro no; las
-    búsquedas web, los lunes y los jueves."""
+    """Lo que la tarea tiene que buscar hoy: los vuelos (4 búsquedas de Kiwi), si aún no se han buscado hoy; las búsquedas web, los
+    lunes y los jueves."""
     hoy = hoy or dt.date.today()
-    return {"vuelos": (x.get("vuelosBuscado") or "") < (hoy - dt.timedelta(days=1)).isoformat(), "web": hoy.weekday() in (0, 3)}
+    return {"vuelos": (x.get("vuelosBuscado") or "") < hoy.isoformat(), "web": hoy.weekday() in (0, 3)}
 
 
 def main():

@@ -419,11 +419,11 @@ class Composio(unittest.TestCase):
         self.assertTrue(all(callable(g[f]) for f in ("jev_correr", "jev_esperar", "jev_captura")))
 
     def test_toca(self):
-        """4.10: los vuelos, un día sí y otro no; las búsquedas web, lunes y jueves (menos tokens)."""
+        """4.13: los vuelos, una vez al día; las búsquedas web, lunes y jueves (menos tokens)."""
         import datetime as dt, diario
         lun = dt.date(2026, 11, 2)
-        self.assertEqual(diario.toca({"vuelosBuscado": "2026-11-01"}, lun), {"vuelos": False, "web": True})
-        self.assertEqual(diario.toca({"vuelosBuscado": "2026-10-31"}, lun), {"vuelos": True, "web": True})
+        self.assertEqual(diario.toca({"vuelosBuscado": "2026-11-02"}, lun), {"vuelos": False, "web": True})
+        self.assertEqual(diario.toca({"vuelosBuscado": "2026-11-01"}, lun), {"vuelos": True, "web": True})
         self.assertEqual(diario.toca({}, lun + dt.timedelta(days=1)), {"vuelos": True, "web": False})
         self.assertTrue(diario.toca({}, lun + dt.timedelta(days=3))["web"])   # jueves
 

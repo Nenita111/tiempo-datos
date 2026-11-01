@@ -1,8 +1,8 @@
 {
-  "versionCode": 43,
-  "versionName": "4.12",
+  "versionCode": 44,
+  "versionName": "4.13",
   "apk": "app/Tiempo.apk",
-  "sha256": "bfcce1c0d0bc2009f6b74deb8ddccaefb33cf11ef5d3ea47c31b9842bceb6b10",
-  "bytes": 1182399,
-  "notas": "4.12: fuera Open-Meteo (viento animado, polen, aire y UV previstos, calima, solar y el año)"
+  "sha256": "23fb5b25bd05629f5f0351cc4d0dc01898655d2219e7a50f3af2767d5c95f1fc",
+  "bytes": 1192875,
+  "notas": "4.13: Hoy con el oleaje de la costa; Espacio con la comarca y el pueblo en el mismo marco; dónde se mide el aire; la agenda en Noticias; terremotos del mundo del más reciente al más antiguo; un dibujo de cada producto del campo y del pescado; fechas siempre con el día"
 }

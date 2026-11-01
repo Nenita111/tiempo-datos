@@ -14,9 +14,8 @@ Con Jev (sección 7) también deja en extras.json los cortes de los titulares, l
 - Las tareas clonan sin el APK ni las muestras de las pruebas (unos 2,7 MB menos cada vez):
   `git clone -q --depth 1 --filter=blob:none --no-checkout https://github.com/Nenita111/tiempo-datos.git && cd tiempo-datos &&
   git sparse-checkout set --no-cone '/*' '!/app/' '!/herramientas/muestras/' && git checkout -q main`.
-- `diario.py` dice en «toca» qué buscar hoy: los vuelos (4 búsquedas de Kiwi, lo que más tokens gasta), un día sí y otro no (la tele
-  los da por viejos a los 3 días); las búsquedas web de sorteos, agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y
-  de los titulares, todos los días).
+- `diario.py` dice en «toca» qué buscar hoy: los vuelos (4 búsquedas de Kiwi), una vez al día (4.13, lo pidió Isa); las búsquedas web
+  de sorteos, agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días).
 - El buzón va dentro de la tarea de avisos (cada 3 horas): si no hay capturas no cuesta nada más; si las hay, lee
   `herramientas/BUZON.md`. Antes eran dos tareas (avisos cada 2 horas y buzón 3 veces al día): de 13 sesiones al día a 7.
 - Cada commit solo si algo ha cambiado. Versiones de la app: juntar los cambios (cada APK publicado suma 1,2 MB a la historia del

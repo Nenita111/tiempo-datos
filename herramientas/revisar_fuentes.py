@@ -120,7 +120,7 @@ def terremotos(L):
 
 def efemerides(L):
     h = dt.datetime.now(TZ).date()
-    t = texto(f"https://es.wikipedia.org/w/index.php?title={h.day}_de_{MESES[h.month - 1]}&action=raw", agente=UA_WIKI)
+    t = texto(f"https://es.wikipedia.org/wiki/{h.day}_de_{MESES[h.month - 1]}?action=raw", agente=UA_WIKI)
     busca(r"==\s*Acontecimientos\s*==", t, "la sección Acontecimientos"); return "ok"
 
 def futbol(L):
