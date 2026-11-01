@@ -365,8 +365,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-10-31",
- "actualizado": "2026-10-31T06:11+01:00",
+ "sorteosBuscado": "2026-11-01",
+ "actualizado": "2026-11-01T06:09+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -540,33 +540,6 @@
   "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"
  },
  "agenda": [
-  {
-   "titulo": "Tarde terrorífica en Puente del Río: colchonetas, pintacaras, concurso de disfraces y música",
-   "fecha": "2026-10-31",
-   "fuente": "Ayuntamiento de Adra (vía D-Cerca)",
-   "ine": "04003",
-   "hora": "17:00",
-   "lugar": "Teleclub de Puente del Río",
-   "enlace": "https://d-cerca.com/adra-se-prepara-para-vivir-un-halloween-de-miedo-con-una-completa-programacion-de-actividades/"
-  },
-  {
-   "titulo": "Escuela del Terror en Guainos: pasaje terrorífico (3 €), buñuelos y chocolate",
-   "fecha": "2026-10-31",
-   "fuente": "Ayuntamiento de Adra (vía Almería Información)",
-   "ine": "04003",
-   "hora": "17:30",
-   "lugar": "Guainos",
-   "enlace": "https://almeriainformacion.com/homepage/cultura/item/41561-adra-presenta-una-amplia-programacion-para-vivir-un-halloween-de-miedo"
-  },
-  {
-   "titulo": "Halloween en Adra: photocall, flashmob 'Thriller', pasacalles, Scape Room Saw, Pasaje de Terror, castañada y Halloween Party",
-   "fecha": "2026-10-31",
-   "fuente": "Ayuntamiento de Adra (vía Noticias de Almería)",
-   "ine": "04003",
-   "hora": "18:00",
-   "lugar": "Plaza Puerta del Mar, Auditorio y Salón Municipal",
-   "enlace": "https://www.noticiasdealmeria.com/el-scape-room-saw-novedad-de-halloween-en-adra"
-  },
   {
    "titulo": "Convivencia de Todos los Santos en La Alquería: comida, buñuelos, música y túnel del terror",
    "fecha": "2026-11-01",
@@ -909,8 +882,8 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-10-31",
-  "nombre": "Caldo de pimentón",
+  "fecha": "2026-11-01",
+  "nombre": "Crema de puerros",
   "tiempo": {
    "temperature": "mild",
    "rain": "rain likely",
@@ -929,11 +902,15 @@
    {
     "fecha": "2026-10-31",
     "nombre": "Caldo de pimentón"
+   },
+   {
+    "fecha": "2026-11-01",
+    "nombre": "Crema de puerros"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-10-31",
+  "fecha": "2026-11-01",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/211/17": {
     "tipo": "convocatoria",
@@ -1134,6 +1111,11 @@
     "tipo": "convocatoria",
     "provincia": "otra",
     "zona": "otra"
+   },
+   "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-22323": {
+    "tipo": "nombramiento",
+    "provincia": "andalucia",
+    "zona": "andalucia"
    }
   },
   "avisar": [
@@ -1273,26 +1255,6 @@
     "colectivo": "general",
     "zv": 4
    },
-   "690754": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o Monitor de Cocina para la Comunidad Terapéutica de Los Palacios",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.86,
-    "colectivo": "general"
-   },
-   "690745": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o monitor de Limpieza para la Comunidad Terapéutica de Cartaya",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_medio",
-    "experiencia": 0.79,
-    "colectivo": "general"
-   },
    "690730": {
     "zona": false,
     "zv": 4,
@@ -1313,24 +1275,24 @@
     "experiencia": 0.83,
     "colectivo": "general"
    },
-   "690775": {
+   "690754": {
     "zona": false,
     "zv": 4,
-    "puesto": "ANALISTA",
-    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
-    "hasta": "2026-10-31",
-    "nivel": "grado",
-    "experiencia": 0.97,
+    "puesto": "Monitora o Monitor de Cocina para la Comunidad Terapéutica de Los Palacios",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "fp_superior",
+    "experiencia": 0.86,
     "colectivo": "general"
    },
-   "690769": {
+   "690745": {
     "zona": false,
     "zv": 4,
-    "puesto": "JEFE/A DE RADIOFRECUENCIA",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31",
-    "nivel": "grado",
-    "experiencia": 0.63,
+    "puesto": "Monitora o monitor de Limpieza para la Comunidad Terapéutica de Cartaya",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "fp_medio",
+    "experiencia": 0.79,
     "colectivo": "general"
    },
    "690112": {
@@ -1340,26 +1302,6 @@
     "puesto": "Promoción y Traslado-Técnico/a de Gestión Teatro Alhambra",
     "entidad": "Agencia Andaluza de Instituciones Culturales",
     "hasta": "2026-11-10",
-    "colectivo": "general",
-    "zv": 4
-   },
-   "690826": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "JEFE/A SECCIÓN COORDINACIÓN TERRITORIAL",
-    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
-    "hasta": "2026-10-31",
-    "nivel": "grado",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "690496": {
-    "nivel": "grado",
-    "experiencia": 0.1,
-    "zona": false,
-    "puesto": "TÉCNICO/A ELECTRÓNICO",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31",
     "colectivo": "general",
     "zv": 4
    },
@@ -1373,66 +1315,6 @@
     "colectivo": "general",
     "zv": 4
    },
-   "690817": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "JEFE/A SECCIÓN COMERCIAL",
-    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
-    "hasta": "2026-10-31",
-    "nivel": "grado",
-    "experiencia": 0.08,
-    "colectivo": "general"
-   },
-   "690493": {
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "zona": false,
-    "puesto": "OPERADOR/A MONTADOR/A DE VÍDEO",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31",
-    "colectivo": "general",
-    "zv": 4
-   },
-   "690811": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "JEFE/A DE RADIOENLACES Y UNIDADES MÓVILES",
-    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
-    "hasta": "2026-10-31",
-    "nivel": "grado",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "690490": {
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "zona": false,
-    "puesto": "OPERADOR/A MONTADOR DE VIDEO",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-10-31",
-    "colectivo": "general",
-    "zv": 4
-   },
-   "690805": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "PROGRAMADOR/A",
-    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
-    "hasta": "2026-10-31",
-    "nivel": "grado",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "690010": {
-    "nivel": "sin_titulo",
-    "experiencia": 0.04,
-    "zona": false,
-    "puesto": "Profesor/a Instructor/a Jefe/a de Partida",
-    "entidad": "Servicio Andaluz de Empleo",
-    "hasta": "2026-11-03",
-    "colectivo": "general",
-    "zv": 4
-   },
    "689971": {
     "nivel": "grado",
     "experiencia": 0.55,
@@ -1443,13 +1325,13 @@
     "colectivo": "general",
     "zv": 4
    },
-   "689719": {
-    "nivel": "grado",
-    "experiencia": 0.94,
+   "690010": {
+    "nivel": "sin_titulo",
+    "experiencia": 0.04,
     "zona": false,
-    "puesto": "Técnico/a Especialista en Evaluación de Tecnologías Sanitarias -32-2026",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-12",
+    "puesto": "Profesor/a Instructor/a Jefe/a de Partida",
+    "entidad": "Servicio Andaluz de Empleo",
+    "hasta": "2026-11-03",
     "colectivo": "general",
     "zv": 4
    },
@@ -1463,6 +1345,16 @@
     "colectivo": "general",
     "zv": 4
    },
+   "689719": {
+    "nivel": "grado",
+    "experiencia": 0.94,
+    "zona": false,
+    "puesto": "Técnico/a Especialista en Evaluación de Tecnologías Sanitarias -32-2026",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-12",
+    "colectivo": "general",
+    "zv": 4
+   },
    "689338": {
     "nivel": "fp_medio",
     "experiencia": 0.05,
@@ -1470,6 +1362,16 @@
     "puesto": "INSPECTOR/A DE ITV",
     "entidad": "Verificaciones Industriales de Andalucía S.A.",
     "hasta": "2026-11-11",
+    "colectivo": "general",
+    "zv": 4
+   },
+   "689158": {
+    "nivel": "grado",
+    "experiencia": 0.03,
+    "zona": false,
+    "puesto": "Programador/a Full- Stack - 2483",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-09",
     "colectivo": "general",
     "zv": 4
    },
@@ -1488,16 +1390,6 @@
     "experiencia": 0.88,
     "zona": false,
     "puesto": "Científico/a de Datos - 2481",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-09",
-    "colectivo": "general",
-    "zv": 4
-   },
-   "689158": {
-    "nivel": "grado",
-    "experiencia": 0.03,
-    "zona": false,
-    "puesto": "Programador/a Full- Stack - 2483",
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
     "hasta": "2026-11-09",
     "colectivo": "general",
@@ -1535,31 +1427,16 @@
    }
   },
   "agenda": {
-   "2026-10-31|Tarde terrorífica en Puente del Río: colchonetas, pintacaras, concurso de disfraces y música": {
-    "gratis": 0.03,
-    "familias": 0.88,
-    "inscripcion": 0.03
-   },
-   "2026-10-31|Escuela del Terror en Guainos: pasaje terrorífico (3 €), buñuelos y chocolate": {
-    "gratis": 0.01,
-    "familias": 0.73,
-    "inscripcion": 0.03
-   },
-   "2026-10-31|Halloween en Adra: photocall, flashmob 'Thriller', pasacalles, Scape Room Saw, Pasaje de Terror, castañada y Halloween Party": {
-    "gratis": 0.03,
-    "familias": 0.59,
-    "inscripcion": 0.03
-   },
    "2026-11-01|Convivencia de Todos los Santos en La Alquería: comida, buñuelos, música y túnel del terror": {
     "gratis": 0.03,
     "familias": 0.83,
     "inscripcion": 0.02
    }
   },
-  "fecha": "2026-10-31"
+  "fecha": "2026-11-01"
  },
  "fap": {
-  "fecha": "2026-10-31",
+  "fecha": "2026-11-01",
   "novedades": [
    {
     "tipo": "noticia",
