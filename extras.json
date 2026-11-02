@@ -365,8 +365,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-01",
- "actualizado": "2026-11-01T06:09+01:00",
+ "sorteosBuscado": "2026-11-02",
+ "actualizado": "2026-11-02T06:08+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -539,17 +539,7 @@
   ],
   "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"
  },
- "agenda": [
-  {
-   "titulo": "Convivencia de Todos los Santos en La Alquería: comida, buñuelos, música y túnel del terror",
-   "fecha": "2026-11-01",
-   "fuente": "Ayuntamiento de Adra (vía Noticias de Almería)",
-   "ine": "04003",
-   "hora": "13:00",
-   "lugar": "Patio del colegio de La Alquería",
-   "enlace": "https://www.noticiasdealmeria.com/el-scape-room-saw-novedad-de-halloween-en-adra"
-  }
- ],
+ "agenda": [],
  "raif": {
   "provincia": "Almería",
   "cultivos": [
@@ -882,13 +872,13 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-01",
-  "nombre": "Crema de puerros",
+  "fecha": "2026-11-02",
+  "nombre": "Ensalada de aguacate y mandarina",
   "tiempo": {
    "temperature": "mild",
-   "rain": "rain likely",
+   "rain": "dry",
    "wind": "light wind",
-   "sky": "Intervalos nubosos con lluvia escasa"
+   "sky": "Nubes altas"
   },
   "recientes": [
    {
@@ -906,11 +896,15 @@
    {
     "fecha": "2026-11-01",
     "nombre": "Crema de puerros"
+   },
+   {
+    "fecha": "2026-11-02",
+    "nombre": "Ensalada de aguacate y mandarina"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-01",
+  "fecha": "2026-11-02",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/211/17": {
     "tipo": "convocatoria",
@@ -1066,56 +1060,6 @@
     "tipo": "lista_definitiva",
     "provincia": "andalucia",
     "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/18": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/19": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/20": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/21": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/22": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/23": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/24": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/25": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/207/26": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-22323": {
-    "tipo": "nombramiento",
-    "provincia": "andalucia",
-    "zona": "andalucia"
    }
   },
   "avisar": [
@@ -1255,26 +1199,6 @@
     "colectivo": "general",
     "zv": 4
    },
-   "690730": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Enfermero o Enfermera Pepsa",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "grado",
-    "experiencia": 0.82,
-    "colectivo": "general"
-   },
-   "690712": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o monitor sociosanitario",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.83,
-    "colectivo": "general"
-   },
    "690754": {
     "zona": false,
     "zv": 4,
@@ -1293,6 +1217,26 @@
     "hasta": "2026-11-11",
     "nivel": "fp_medio",
     "experiencia": 0.79,
+    "colectivo": "general"
+   },
+   "690730": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Enfermero o Enfermera Pepsa",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "grado",
+    "experiencia": 0.82,
+    "colectivo": "general"
+   },
+   "690712": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Monitora o monitor sociosanitario",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "fp_superior",
+    "experiencia": 0.83,
     "colectivo": "general"
    },
    "690112": {
@@ -1335,16 +1279,6 @@
     "colectivo": "general",
     "zv": 4
    },
-   "687547": {
-    "nivel": "grado",
-    "experiencia": 0.05,
-    "zona": false,
-    "puesto": "Titulado/a Superior Administración de Sistemas",
-    "entidad": "Agencia Andaluza de Instituciones Culturales",
-    "hasta": "2026-11-06",
-    "colectivo": "general",
-    "zv": 4
-   },
    "689719": {
     "nivel": "grado",
     "experiencia": 0.94,
@@ -1355,6 +1289,16 @@
     "colectivo": "general",
     "zv": 4
    },
+   "687547": {
+    "nivel": "grado",
+    "experiencia": 0.05,
+    "zona": false,
+    "puesto": "Titulado/a Superior Administración de Sistemas",
+    "entidad": "Agencia Andaluza de Instituciones Culturales",
+    "hasta": "2026-11-06",
+    "colectivo": "general",
+    "zv": 4
+   },
    "689338": {
     "nivel": "fp_medio",
     "experiencia": 0.05,
@@ -1362,6 +1306,16 @@
     "puesto": "INSPECTOR/A DE ITV",
     "entidad": "Verificaciones Industriales de Andalucía S.A.",
     "hasta": "2026-11-11",
+    "colectivo": "general",
+    "zv": 4
+   },
+   "689083": {
+    "nivel": "grado",
+    "experiencia": 0.88,
+    "zona": false,
+    "puesto": "Científico/a de Datos - 2481",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-09",
     "colectivo": "general",
     "zv": 4
    },
@@ -1385,16 +1339,6 @@
     "colectivo": "general",
     "zv": 4
    },
-   "689083": {
-    "nivel": "grado",
-    "experiencia": 0.88,
-    "zona": false,
-    "puesto": "Científico/a de Datos - 2481",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-09",
-    "colectivo": "general",
-    "zv": 4
-   },
    "688786": {
     "nivel": "sin_titulo",
     "experiencia": 0.04,
@@ -1406,37 +1350,12 @@
     "zv": 4
    }
   },
-  "sae": {
-   "01-2026-48086": {
-    "nivel": "grado",
-    "experiencia": 0.07,
-    "entidad": "junta",
-    "colectivo": "general"
-   },
-   "01-2026-49266": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.09
-   },
-   "01-2026-49367": {
-    "nivel": "no_consta",
-    "entidad": "otra",
-    "colectivo": "programa_empleo",
-    "experiencia": 0.07
-   }
-  },
-  "agenda": {
-   "2026-11-01|Convivencia de Todos los Santos en La Alquería: comida, buñuelos, música y túnel del terror": {
-    "gratis": 0.03,
-    "familias": 0.83,
-    "inscripcion": 0.02
-   }
-  },
-  "fecha": "2026-11-01"
+  "sae": {},
+  "agenda": {},
+  "fecha": "2026-11-02"
  },
  "fap": {
-  "fecha": "2026-11-01",
+  "fecha": "2026-11-02",
   "novedades": [
    {
     "tipo": "noticia",
@@ -1484,6 +1403,11 @@
     "anuncia": 0.06,
     "cambio": 0.1,
     "persona": 0.0
+   },
+   "fd70594d471d": {
+    "anuncia": 0.02,
+    "cambio": 0.02,
+    "persona": 0.07
    },
    "59207901b32a": {
     "anuncia": 0.91,
