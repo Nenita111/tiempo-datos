@@ -113,6 +113,10 @@ siguiente), la tasa de infección respiratoria en atención primaria, la de los 
 de gripe, COVID-19 y VRS, con los de la semana anterior. Solo copia cifras del informe, no calcula nada. Si no hay informe
 nuevo no toca nada; si falla, sale con código 2 y deja el que había. Lo ejecuta la tarea diaria.
 
+`python3 -I herramientas/cruceros.py extras.json` (4.16; va dentro de diario.py): los cruceros previstos en el puerto de Almería, de la
+relación oficial de la Autoridad Portuaria (el PDF «Cruceros AAAA» de apalmeria.com/pasajeros/cruceros/); los de hoy en adelante, en
+«cruceros». Los ferris no (su pantalla de llegadas y salidas no se puede leer desde la nube).
+
 ## 2g. Sequía y escasez de agua (pantalla Semana)
 
 `python3 -I herramientas/sequia.py extras.json`: del «Informe de escasez y sequía» mensual de la Junta (SAIH Hidrosur) para

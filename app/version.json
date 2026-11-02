@@ -1,8 +1,8 @@
 {
-  "versionCode": 46,
-  "versionName": "4.15",
+  "versionCode": 47,
+  "versionName": "4.16",
   "apk": "app/Tiempo.apk",
-  "sha256": "80732d14327dddc41fc832e6e30e04c4c3cb4e2ae477b151d0f89844e13dde3e",
-  "bytes": 1195651,
-  "notas": "4.15: en Campo, si sube o baja cada precio frente a la semana anterior (y al mismo mes del año pasado, cuando haya un año apuntado)"
+  "sha256": "6c3ad1b46e49fb642904c7db0222df8ec9cefcfd0f2d07c1ef6b7836c37a8419",
+  "bytes": 1197235,
+  "notas": "4.16: cruceros previstos en el puerto de Almería (Mar); carburantes con su subida o bajada en una semana (Casa)"
 }

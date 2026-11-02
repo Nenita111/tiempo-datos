@@ -711,5 +711,28 @@ class Urgentes(unittest.TestCase):
         A.cortes_rss(self.RSS, "Adra", AHORA - dt.timedelta(days=3), juez2, AHORA); self.assertEqual(juez2.urgentes, [])
 
 
+
+class Cruceros(unittest.TestCase):
+    """4.16 (335): la relación de cruceros de la Autoridad Portuaria de Almería (filas reales de CRUCEROS-2026.pdf, como las da pdftotext)."""
+    def test_leer(self):
+        import cruceros
+        t = """                PREVISIONES(Actualización 15/02/26)
+ 2   11-12/04/2026    Sábado   9:00-15:00             WIND STAR            WINDSTAR CRUISES            Ribera 2    132  RONCO       MARMEDSA      GIBRALTAR   CARTAGENA
+14    08/08/2026      Sábado   07:00-19:00           RENAISSANCE      Compagnie Francaise de CroisieresRibera 2   1.295  SALG      PEREZ Y CIA      MALAGA        IBIZA
+16    31/08/2026      Viernes  08:00-17:00       SPIRIT OF ADVENTURE            Saga Cruise            Ribera 2    999   SALG      PEREZ Y CIA     CORCEGA     GIBRALTAR
+27    05/11/2026      Jueves   08:00-16:00            WIND STAR            WINDSTAR CRUISES            Ribera 2    132  RONCO       MARMEDSA
+ 6    22/04/2026     Miercoles 09.00-18:00       SPIRIT OF DISCOVERY            Saga Cruise            Ribera 2    724   SALG      PEREZ Y CIA     CORCEGA       LISBOA"""
+        f, act = cruceros.leer(t)
+        self.assertEqual(act, "15/02/26")
+        self.assertEqual([x["fecha"] for x in f], ["2026-04-11", "2026-08-08", "2026-08-31", "2026-11-05", "2026-04-22"])
+        self.assertEqual((f[0]["hasta"], f[0]["naviera"], f[0]["pasajeros"], f[0]["desde"], f[0]["hacia"]), ("2026-04-12", "Windstar Cruises", 132, "Gibraltar", "Cartagena"))
+        self.assertEqual((f[1]["naviera"], f[1]["pasajeros"], f[1]["hacia"]), ("Compagnie Francaise de Croisieres", 1295, "Ibiza"))
+        self.assertEqual(f[2]["dia"], "lunes")   # en la relación dice viernes: el 31 de agosto de 2026 es lunes
+        self.assertNotIn("desde", f[3])          # sin procedencia ni destino
+        self.assertEqual(f[4]["entrada"], "09:00")
+        self.assertEqual(cruceros.pdf_del_anio('<a href="https://apalmeria.com/wp-content/uploads/2025/09/02_cruceros-2024.pdf">'
+                                               '<a href="https://apalmeria.com/wp-content/uploads/2026/03/CRUCEROS-2026.pdf">', 2026),
+                         "https://apalmeria.com/wp-content/uploads/2026/03/CRUCEROS-2026.pdf")
+
 if __name__ == "__main__":
     unittest.main()
