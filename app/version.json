@@ -1,8 +1,8 @@
 {
-  "versionCode": 47,
-  "versionName": "4.16",
+  "versionCode": 48,
+  "versionName": "4.17",
   "apk": "app/Tiempo.apk",
-  "sha256": "6c3ad1b46e49fb642904c7db0222df8ec9cefcfd0f2d07c1ef6b7836c37a8419",
-  "bytes": 1197235,
-  "notas": "4.16: cruceros previstos en el puerto de Almería (Mar); carburantes con su subida o bajada en una semana (Casa)"
+  "sha256": "e764ae3fb45519969aa487fb83b4654c443327920229ca721d09d4534ce1b587",
+  "bytes": 1199847,
+  "notas": "4.17: en Carretera, lo que aterriza, despega o está en el aeropuerto de Almería ahora (OpenSky)"
 }
