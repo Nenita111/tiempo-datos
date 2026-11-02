@@ -1,8 +1,8 @@
 {
-  "versionCode": 45,
-  "versionName": "4.14",
+  "versionCode": 46,
+  "versionName": "4.15",
   "apk": "app/Tiempo.apk",
-  "sha256": "cd11b68526cf3791360864927e112e5901607360ff1801f9475b7974b90693fd",
-  "bytes": 1194299,
-  "notas": "4.14: las fotos de Productos, bajadas por la app una a una y guardadas; el aviso de versión nueva, siempre arriba"
+  "sha256": "80732d14327dddc41fc832e6e30e04c4c3cb4e2ae477b151d0f89844e13dde3e",
+  "bytes": 1195651,
+  "notas": "4.15: en Campo, si sube o baja cada precio frente a la semana anterior (y al mismo mes del año pasado, cuando haya un año apuntado)"
 }
