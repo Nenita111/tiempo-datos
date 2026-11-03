@@ -365,8 +365,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-02",
- "actualizado": "2026-11-02T22:42+01:00",
+ "sorteosBuscado": "2026-11-03",
+ "actualizado": "2026-11-03T06:07+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -872,13 +872,13 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-02",
-  "nombre": "Ensalada de aguacate y mandarina",
+  "fecha": "2026-11-03",
+  "nombre": "Sopa de ajo",
   "tiempo": {
    "temperature": "mild",
-   "rain": "dry",
+   "rain": "rain likely",
    "wind": "light wind",
-   "sky": "Nubes altas"
+   "sky": "Intervalos nubosos con lluvia escasa"
   },
   "recientes": [
    {
@@ -900,12 +900,61 @@
    {
     "fecha": "2026-11-02",
     "nombre": "Ensalada de aguacate y mandarina"
+   },
+   {
+    "fecha": "2026-11-03",
+    "nombre": "Sopa de ajo"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-02",
+  "fecha": "2026-11-03",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/212/10": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/212/11": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/212/12": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/212/13": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/212/14": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/212/15": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/212/16": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/212/17": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/212/18": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
    "https://www.juntadeandalucia.es/boja/2026/211/17": {
     "tipo": "convocatoria",
     "provincia": "otra",
@@ -995,71 +1044,6 @@
     "tipo": "lista_definitiva",
     "provincia": "andalucia",
     "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/10": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/11": {
-    "tipo": "convocatoria",
-    "provincia": "almeria",
-    "zona": "almeria",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-11"
-    }
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/12": {
-    "tipo": "convocatoria",
-    "provincia": "almeria",
-    "zona": "almeria",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-11"
-    }
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/13": {
-    "tipo": "convocatoria",
-    "provincia": "almeria",
-    "zona": "almeria",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-11"
-    }
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/14": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/15": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/16": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/17": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/18": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/208/19": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
    }
   },
   "avisar": [
@@ -1069,27 +1053,6 @@
     "boletin": "BOJA",
     "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios en el Área de Gestión Sanitaria Norte de Almería",
     "hasta": "2026-11-16"
-   },
-   {
-    "url": "https://www.juntadeandalucia.es/boja/2026/208/11",
-    "fecha": "2026-10-27",
-    "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante, de Coordinador/a de Cuidados de Enfermería de la Unidad de Gestión Clínica de Ejido Norte en el Distrito Sanitario de Atención Primaria Poniente de Almería",
-    "hasta": "2026-11-11"
-   },
-   {
-    "url": "https://www.juntadeandalucia.es/boja/2026/208/12",
-    "fecha": "2026-10-27",
-    "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos en el Distrito Sanitario de Atención Primaria de Almería",
-    "hasta": "2026-11-11"
-   },
-   {
-    "url": "https://www.juntadeandalucia.es/boja/2026/208/13",
-    "fecha": "2026-10-27",
-    "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones, en el Distrito Sanitario de Atención Primaria de Almería",
-    "hasta": "2026-11-11"
    }
   ]
  },
@@ -1098,10 +1061,6 @@
    "https://www.aesan.gob.es/alertas/2026_76": {
     "alergeno": "ninguno",
     "producto": "dulces"
-   },
-   "https://www.aesan.gob.es/alertas/2026_75": {
-    "alergeno": "ninguno",
-    "producto": "frutas_verduras"
    },
    "https://www.aesan.gob.es/alertas/2026_78": {
     "alergeno": "ninguno",
@@ -1140,10 +1099,6 @@
    "R_35/2026": {
     "sinReceta": null,
     "devolver": 0.12
-   },
-   "R_34/2026": {
-    "sinReceta": false,
-    "devolver": 0.26
    }
   },
   "prod": {
@@ -1189,26 +1144,6 @@
     "experiencia": 0.06,
     "colectivo": "general"
    },
-   "690598": {
-    "nivel": "eso",
-    "experiencia": 0.68,
-    "zona": false,
-    "puesto": "Auxiliar Medio Natural Capataz de Cuadrilla",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-02",
-    "colectivo": "general",
-    "zv": 4
-   },
-   "690754": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o Monitor de Cocina para la Comunidad Terapéutica de Los Palacios",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.86,
-    "colectivo": "general"
-   },
    "690745": {
     "zona": false,
     "zv": 4,
@@ -1239,15 +1174,15 @@
     "experiencia": 0.83,
     "colectivo": "general"
    },
-   "690112": {
-    "nivel": "grado",
-    "experiencia": 0.04,
+   "690754": {
     "zona": false,
-    "puesto": "Promoción y Traslado-Técnico/a de Gestión Teatro Alhambra",
-    "entidad": "Agencia Andaluza de Instituciones Culturales",
-    "hasta": "2026-11-10",
-    "colectivo": "general",
-    "zv": 4
+    "zv": 4,
+    "puesto": "Monitora o Monitor de Cocina para la Comunidad Terapéutica de Los Palacios",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "fp_superior",
+    "experiencia": 0.86,
+    "colectivo": "general"
    },
    "689332": {
     "nivel": "grado",
@@ -1255,6 +1190,16 @@
     "zona": false,
     "puesto": "Gerencia de la Agencia de Vivienda y Rehabilitación de Andalucía",
     "entidad": "Agencia de Vivienda y Rehabilitación de Andalucía",
+    "hasta": "2026-11-10",
+    "colectivo": "general",
+    "zv": 4
+   },
+   "690112": {
+    "nivel": "grado",
+    "experiencia": 0.04,
+    "zona": false,
+    "puesto": "Promoción y Traslado-Técnico/a de Gestión Teatro Alhambra",
+    "entidad": "Agencia Andaluza de Instituciones Culturales",
     "hasta": "2026-11-10",
     "colectivo": "general",
     "zv": 4
@@ -1279,16 +1224,6 @@
     "colectivo": "general",
     "zv": 4
    },
-   "689719": {
-    "nivel": "grado",
-    "experiencia": 0.94,
-    "zona": false,
-    "puesto": "Técnico/a Especialista en Evaluación de Tecnologías Sanitarias -32-2026",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-12",
-    "colectivo": "general",
-    "zv": 4
-   },
    "687547": {
     "nivel": "grado",
     "experiencia": 0.05,
@@ -1299,6 +1234,16 @@
     "colectivo": "general",
     "zv": 4
    },
+   "689719": {
+    "nivel": "grado",
+    "experiencia": 0.94,
+    "zona": false,
+    "puesto": "Técnico/a Especialista en Evaluación de Tecnologías Sanitarias -32-2026",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-12",
+    "colectivo": "general",
+    "zv": 4
+   },
    "689338": {
     "nivel": "fp_medio",
     "experiencia": 0.05,
@@ -1306,16 +1251,6 @@
     "puesto": "INSPECTOR/A DE ITV",
     "entidad": "Verificaciones Industriales de Andalucía S.A.",
     "hasta": "2026-11-11",
-    "colectivo": "general",
-    "zv": 4
-   },
-   "689083": {
-    "nivel": "grado",
-    "experiencia": 0.88,
-    "zona": false,
-    "puesto": "Científico/a de Datos - 2481",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-09",
     "colectivo": "general",
     "zv": 4
    },
@@ -1339,6 +1274,16 @@
     "colectivo": "general",
     "zv": 4
    },
+   "689083": {
+    "nivel": "grado",
+    "experiencia": 0.88,
+    "zona": false,
+    "puesto": "Científico/a de Datos - 2481",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-09",
+    "colectivo": "general",
+    "zv": 4
+   },
    "688786": {
     "nivel": "sin_titulo",
     "experiencia": 0.04,
@@ -1352,10 +1297,10 @@
   },
   "sae": {},
   "agenda": {},
-  "fecha": "2026-11-02"
+  "fecha": "2026-11-03"
  },
  "fap": {
-  "fecha": "2026-11-02",
+  "fecha": "2026-11-03",
   "novedades": [
    {
     "tipo": "noticia",
@@ -1523,17 +1468,6 @@
  },
  "cruceros": {
   "lista": [
-   {
-    "fecha": "2026-11-02",
-    "dia": "lunes",
-    "entrada": "08:00",
-    "salida": "22:00",
-    "barco": "Wind Surf",
-    "naviera": "Windstar Cruises",
-    "pasajeros": 296,
-    "desde": "Cartagena",
-    "hacia": "Malaga"
-   },
    {
     "fecha": "2026-11-04",
     "dia": "miércoles",
