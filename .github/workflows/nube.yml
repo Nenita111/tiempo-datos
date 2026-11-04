@@ -6,6 +6,10 @@ on:
   schedule:
     - cron: "11,41 * * * *"
   workflow_dispatch:
+  # también al cambiar la página o la parte de la app que baja los datos (publicar_nube.py): así sale enseguida
+  push:
+    branches: [main]
+    paths: ["nube/**", ".github/workflows/nube.yml"]
 permissions:
   contents: read
   pages: write
