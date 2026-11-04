@@ -3,3 +3,4 @@ android/
 estado/
 web/
 vuelta.log
+!*.txt
