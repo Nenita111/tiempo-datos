@@ -1,6 +1,6 @@
 # 4.21 (lo pidió Isa el 4 nov 2026: «quiero que sea una dirección html que se pueda ver desde cualquier dispositivo»): la página de la
 # tele en internet, https://nenita111.github.io/tiempo-datos/, puesta al día cada media hora (nube/vuelta.sh). Gratis: el repositorio
-# es público. Hace falta, una vez: Settings → Pages → Build and deployment → Source: «GitHub Actions».
+# es público. Pages, con «Source: GitHub Actions» (activado el 4 nov 2026).
 name: Página en internet
 on:
   schedule:
