@@ -1,8 +1,8 @@
 {
-  "versionCode": 49,
-  "versionName": "4.18",
+  "versionCode": 50,
+  "versionName": "4.19",
   "apk": "app/Tiempo.apk",
-  "sha256": "269a1ec6fda4815bfe1177bdf9c719f0c3a6e605b6f9eba4fc37b668327acde5",
-  "bytes": 1200551,
-  "notas": "4.18: diseño más moderno y eficiente: más sitio para las tarjetas, títulos con un punto de color en lugar de la barra, bordes y sombras más finos; en Mar, los cruceros en la columna con más hueco; en Cielo, sin aviones cerca, sin el radar vacío; en Noticias, la agenda sin hueco abajo."
+  "sha256": "0f34c61530441e4edcb3b68da00d52b396d6a0d7bb41f11317e8350bb21823a9",
+  "bytes": 1220933,
+  "notas": "4.19: el salvapantallas en el móvil (misma wifi que la tele; el enlace y su QR, en el menú ≡): ◀ ▶ o deslizar para cambiar de pantalla, ampliar con dos dedos y 📍 para elegir el municipio de Almería (también en «Cambiar el sitio» de la tele)."
 }
