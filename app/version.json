@@ -1,8 +1,8 @@
 {
-  "versionCode": 55,
-  "versionName": "4.24",
+  "versionCode": 56,
+  "versionName": "4.25",
   "apk": "app/Tiempo.apk",
-  "sha256": "e0fde1e094e760fa03ca2245f32ff80e1628e31295688943bd6c0e161dfe2aac",
-  "bytes": 1229737,
-  "notas": "En Pescado, la lonja de Adra: su último día de venta con el total y cada especie (kilos y precio medio por kilo)"
+  "sha256": "0d44b4ee69d8571be881ef7cf054604f0853c047a4726e524fa7c1c907bf1b87",
+  "bytes": 1233445,
+  "notas": "En Semana, el mapa del riesgo de incendio de AEMET (hoy, mañana y pasado)"
 }

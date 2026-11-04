@@ -757,6 +757,14 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .polvo{display:flex;flex-direction:column}.polvo .marco{position:relative;flex:1;min-height:200px;border-radius:14px;overflow:hidden;background:#fff}
 .polvo .marco img{width:100%;height:100%;object-fit:contain;display:block}.polvo .tag{left:12px;top:12px;font-size:19px;padding:8px 14px}
 .polvo .polvo-e{display:block;width:100%;height:auto;margin-top:10px;border-radius:6px;background:#fff}
+/* 4.25 (368): el mapa del riesgo de incendio */
+.incm{display:flex;flex-direction:column}.incm .marco{position:relative;flex:1;min-height:0;border-radius:14px;overflow:hidden}
+.incm svg{display:block;width:100%;height:100%}.incm image{image-rendering:pixelated}.incm .tag{left:12px;top:12px;font-size:19px;padding:8px 14px}
+.im-mar{fill:#0c1826}.im-costa{fill:none;stroke:rgba(235,242,250,.85);stroke-width:.45}.im-pais{fill:none;stroke:rgba(235,242,250,.6);stroke-width:.35}
+.im-prov{fill:none;stroke:rgba(20,30,45,.55);stroke-width:.3;stroke-dasharray:1.2 1.2}.im-yo{fill:#f08a24;stroke:#fff;stroke-width:.6}.im-fuego{fill:#ff2a1a;stroke:#fff;stroke-width:.4}
+.im-t{font:800 4.4px Atkinson,sans-serif;fill:#14202e;paint-order:stroke;stroke:#fff;stroke-width:1.1px;stroke-linejoin:round}
+body.claro .im-mar{fill:#d6e4f0}body.claro .im-costa{stroke:rgba(20,40,70,.75)}body.claro .im-pais{stroke:rgba(20,40,70,.5)}
+.incm .leyenda-m{margin-top:10px;font-size:19px;text-align:left}.incm .leyenda-m i{display:inline-block;width:16px;height:16px;border-radius:4px;margin:0 6px -2px 10px}.incm .leyenda-m i:first-child{margin-left:0}.incm .leyenda-m i.f{background:#ff2a1a;border-radius:50%;border:2px solid #fff}
 .lonjap{display:flex;flex-direction:column}.lonjap .lp-tot{font-size:22px;color:var(--tx2);margin:2px 0 10px;text-align:left}.lonjap .lp-tot b{font-size:30px;color:var(--tx)}
 .lonjap .lp{list-style:none;flex:1;min-height:0}.lonjap .lp li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--linea);font-size:23px}
 .lonjap .lp li span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-align:left}.lonjap .lp li i{font-style:normal;color:var(--mu);font-weight:700;font-size:20px}
@@ -1416,7 +1424,7 @@ const VALE_H = {polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: 
   lluvia: 12, mareas: 24, incendio: 24, alimentarias: 24, campo: 24, ofertasEmpleo: 24, sae: 24, boja: 24, boe: 24, planeta: 36, efemerides: 36,   farmacias: 36, gasolina: 48, medicamentos: 48, euribor: 48, espacio: 48, bolsaSas: 48, lonja: 72, productos: 72, regatas: 72, rfep: 72, paro: 72, afiliados: 72, ipc: 168,
   agua: 168, festivos: 168, aguaBano: 168, iss: 168, autobus: 168};
 const SIN_EDAD = new Set(["avisos", "luz", "internet", "extras", "actualizacion"]);   // valen por su propia fecha
-const CLAVES_FUENTE = {prevision: ["horas", "dias", "soles", "elaborado", "aemet"], aviones: ["aviones", "aeropuerto"], lonja: ["lonja", "lonjaPueblo"]};   // 4.17: los del aeropuerto, con los de encima   // la previsión llega en varias claves
+const CLAVES_FUENTE = {prevision: ["horas", "dias", "soles", "elaborado", "aemet"], aviones: ["aviones", "aeropuerto"], lonja: ["lonja", "lonjaPueblo"], incendio: ["incendio", "incendioMapa"]};   // 4.17: los del aeropuerto, con los de encima   // la previsión llega en varias claves
 const EN_EXTRAS = {vuelos: ["vuelos", "aeropuertos", "vuelosOrigen", "vuelosFecha", "vuelosBuscado", "vuelosBusqueda"], sequia: ["sequia"]};
 // 4.23: en la página de internet los datos se ponen al día cada media hora (GitHub): lo que vale menos de hora y cuarto (radar,
 // satélite, cámaras…) vale hasta entonces (cada tarjeta dice de cuándo es)
@@ -1765,8 +1773,8 @@ function pAhora() {
 }
 
 /* ---------- 2. semana: siete días, 24 horas y comparado con hace un año ---------- */
-function curva(H) {
-  const W = 1740, ts = H.map(h => h.temp), lo = Math.min(...ts) - 1, hi = Math.max(...ts) + 1, n = H.length - 1;
+function curva(H, W = 1740) {   // 4.25: más estrecha con el mapa del riesgo de incendio al lado
+  const ts = H.map(h => h.temp), lo = Math.min(...ts) - 1, hi = Math.max(...ts) + 1, n = H.length - 1;
   const X = i => (24 + i / n * (W - 48)).toFixed(0), Y = t => ((hi - t) / (hi - lo) * 118 + 42).toFixed(0);
   const linea = H.map((h, i) => `${i ? "L" : "M"}${X(i)},${Y(h.temp)}`).join(" ");
   const gotas = H.map((h, i) => {
@@ -1804,11 +1812,68 @@ function pSemana() {
       <div class="tt"><b class="num">${x.max ?? "–"}°</b><span>${x.min ?? "–"}°</span></div><div class="rango"><u style="left:${a.toFixed(0)}%;width:${Math.max(6, b - a).toFixed(0)}%"></u></div>
       <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}</div>`;
   }).join("");
-  const H = horasAhora().slice(0, 24).filter(h => h.temp != null), sol = solHoy();
+  const H = horasAhora().slice(0, 24).filter(h => h.temp != null), sol = solHoy(), inc = tarjetaIncendio(3);
   const hayLluvia = H.some(h => h.prob), hayTormenta = H.some(h => (h.tormenta || 0) >= 10), hayMm = H.some(h => h.mm >= .05);
   const leyenda = hayLluvia || hayTormenta || hayMm ? `<p class="leyenda">${hayLluvia ? `<i style="background:var(--gota)"></i><span>Probabilidad de lluvia</span>` : ""}${hayMm ? `<b class="mm">l/m²</b><span>Lluvia de cada hora, encima de su columna</span>` : ""}${hayTormenta ? `<i style="background:var(--rayo)"></i><span>Probabilidad de tormenta</span>` : ""}</p>` : "";
-  const graf = H.length > 2 ? `<div data-f="prevision" class="tile curva" style="--i:2"><div class="k">Próximas 24 horas${sol ? `<em>Sale el sol a las ${esc(sol.orto)} · se pone a las ${esc(sol.ocaso)}</em>` : ""}</div>${curva(H)}${leyenda}</div>` : vacia("", 2);
-  return `<div class="main"><div data-f="prevision" class="tile semana${aemetMunicipio(false) ? " conqr" : ""}" style="--i:1">${qrEsquina(aemetMunicipio(false), "Los 7 días<br>en AEMET", 80)}<div class="k">Próximos 7 días</div><div class="dias">${cols}</div></div>${graf}</div>`;
+  const graf = H.length > 2 ? `<div data-f="prevision" class="tile curva" style="--i:2"><div class="k">Próximas 24 horas${sol ? `<em>Sale el sol a las ${esc(sol.orto)} · se pone a las ${esc(sol.ocaso)}</em>` : ""}</div>${curva(H, inc ? 1740 - 600 - 22 : 1740)}${leyenda}</div>` : vacia("", 2);
+  return `<div class="main"${inc ? ' style="grid-template-columns:minmax(0,1fr) 600px"' : ""}><div data-f="prevision" class="tile semana${aemetMunicipio(false) ? " conqr" : ""}" style="--i:1">${qrEsquina(aemetMunicipio(false), "Los 7 días<br>en AEMET", 80)}<div class="k">Próximos 7 días</div><div class="dias">${cols}</div></div>${graf}${inc}</div>`;
+}
+/* 368 (lo pidió Isa el 4 nov 2026): el mapa del riesgo de incendio forestal de AEMET de hoy, mañana y pasado (Mas.incendio: de sus GeoTIFF,
+   el píxel del centro de cada celda de 0,02°), con la costa y las provincias, el sitio y los fuegos vistos por satélite (NASA FIRMS); los
+   días se pasan solos cada 4 s. Cada día, una imagen de un píxel por celda con los colores de AEMET (FUEGO), sin suavizar. */
+let incendioFotos = [];
+function fotosIncendio(M) {
+  if (fotosIncendio.de === M) return fotosIncendio.f;
+  const cv = document.createElement("canvas"); cv.width = M.cols; cv.height = M.filas;
+  const cx = cv.getContext("2d"), rgb = c => [1, 3, 5].map(k => parseInt(c.slice(k, k + 2), 16));
+  const f = M.dias.map(d => {
+    const im = cx.createImageData(M.cols, M.filas); let k = 0;
+    for (const [, v, n] of d.celdas.matchAll(/(\d)(\d+)\./g)) {
+      if (+v && FUEGO[v]) { const c = rgb(FUEGO[v][1]); for (let j = 0; j < +n; j++) im.data.set([...c, 255], (k + j) * 4); }
+      k += +n;
+    }
+    cx.putImageData(im, 0, 0);
+    return {url: cv.toDataURL(), hora: diaFecha(d.fecha), niveles: new Set(d.celdas.match(/(?:^|\.)[1-6]/g).map(x => +x.slice(-1)))};
+  });
+  fotosIncendio.de = M; fotosIncendio.f = f;
+  return f;
+}
+function tarjetaIncendio(i) {
+  const M0 = E.incendioMapa, hoy = isoDe(new Date()), D = ((M0 && M0.dias) || []).filter(d => d.fecha >= hoy);
+  if (!D.length || !M0.cols || !M0.filas) return "";
+  const M = D.length === M0.dias.length ? M0 : {...M0, dias: D};
+  incendioFotos = fotosIncendio(M);
+  cargarMapa();
+  const k = Math.cos((M.lat1 - M.filas * M.paso / 2) * Math.PI / 180), W = M.cols * k, H = M.filas;
+  const xy = (lon, lat) => [(lon - M.lon0) / M.paso * k, (M.lat1 - lat) / M.paso];
+  const clave = `${M.lon0},${M.lat1},${M.paso},${M.cols},${M.filas}`;
+  if (!tarjetaIncendio.lineas || tarjetaIncendio.lineas.clave !== clave) tarjetaIncendio.lineas = {clave, svg: ["R", "P", "C"].map(t => mapa.filter(l => l.t === t).map(l => {
+    const p = l.p.map(([lon, lat]) => xy(lon, lat)).filter(([x, y]) => x > -8 && x < W + 8 && y > -8 && y < H + 8);
+    return p.length > 1 ? `<polyline points="${p.map(q => q.map(v => v.toFixed(2)).join(",")).join(" ")}" class="${{C: "im-costa", P: "im-pais", R: "im-prov"}[t]}"/>` : ""; }).join("")).join("")};
+  const [sx, sy] = xy(E.lugar.lon, E.lugar.lat);
+  const fuegos = fuegosCerca().map(f => xy(f.lon, f.lat)).filter(([x, y]) => x >= 0 && x <= W && y >= 0 && y <= H)
+    .map(([x, y]) => `<circle cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="1.6" class="im-fuego"/>`).join("");
+  const niveles = [...new Set(incendioFotos.flatMap(f => [...f.niveles]))].sort();
+  return `<div data-f="incendio" class="tile incm" style="--i:${i}"><div class="k">Riesgo de incendio<em>${D.length > 1 ? `${D.length === 2 ? "hoy y mañana" : "hoy, mañana y pasado"}` : "hoy"}</em></div>
+    <div class="marco"><svg viewBox="0 0 ${W.toFixed(2)} ${H}" preserveAspectRatio="xMidYMid meet"><defs><clipPath id="incRecorte"><rect width="${W.toFixed(2)}" height="${H}"/></clipPath></defs>
+      <g clip-path="url(#incRecorte)"><rect width="${W.toFixed(2)}" height="${H}" class="im-mar"/>
+      <image id="incendioMapa" href="${incendioFotos[0].url}" x="0" y="0" width="${W.toFixed(2)}" height="${H}" preserveAspectRatio="none"/>${tarjetaIncendio.lineas.svg}${fuegos}
+      <circle cx="${sx.toFixed(2)}" cy="${sy.toFixed(2)}" r="1.5" class="im-yo"/><text x="${(sx + 2.4).toFixed(2)}" y="${(sy + 4.6).toFixed(2)}" class="im-t">${esc(E.lugar.nombre)}</text></g></svg>
+      <div class="tag" id="incendioHora">${esc(incendioFotos[0].hora)}</div></div>
+    <p class="leyenda-m">${niveles.map(n => `<i style="background:${FUEGO[n][1]}"></i>${FUEGO[n][0]}`).join(" ")}${fuegos ? ` <i class="f"></i>fuego visto (NASA)` : ""}</p></div>`;
+}
+function animarIncendio() {
+  const img = document.getElementById("incendioMapa"), F = incendioFotos;
+  if (!img || F.length < 2) return;
+  let i = 0, id = null;
+  const paso = () => {
+    if (!img.isConnected) return;
+    i = (i + 1) % F.length; img.setAttribute("href", F[i].url);
+    const h = document.getElementById("incendioHora"); if (h) h.textContent = F[i].hora;
+    id = setTimeout(paso, 4000);
+  };
+  paradas.push(() => clearTimeout(id));
+  id = setTimeout(paso, 4000);
 }
 /* sequía y escasez de agua (232, lo pidió Isa el 28 oct 2026): el informe mensual de la Junta (SAIH Hidrosur) para las Cuencas
    Mediterráneas Andaluzas, que apunta herramientas/sequia.py en extras.json. Las unidades de Adra (las «destacadas»): la de sequía
@@ -4292,7 +4357,7 @@ function animar(p) {
   pararMovimiento();
   if (p === "ahora") { if (document.getElementById("radar")) radar(); else if (document.getElementById("sat")) satelite(); }
   // 3.2: lo que se mueve en las demás pantallas (cada cosa, si está en la pantalla)
-  for (const [id, f] of [["mtg", animarMtg], ["calarVivo", calarEnDirecto], ["globo", girarTierra], ["dgtFoto", lapsoDgt], ["olasMapa", animarOlas], ["polvoMapa", animarPolvo], ["trenesMapa", dibujarTrenes]])
+  for (const [id, f] of [["mtg", animarMtg], ["calarVivo", calarEnDirecto], ["globo", girarTierra], ["dgtFoto", lapsoDgt], ["olasMapa", animarOlas], ["polvoMapa", animarPolvo], ["incendioMapa", animarIncendio], ["trenesMapa", dibujarTrenes]])
     if (document.getElementById(id)) try { f(); } catch (e) {}
   if (document.querySelector(".ruta-g")) try { lapsoRuta(); } catch (e) {}
 }
