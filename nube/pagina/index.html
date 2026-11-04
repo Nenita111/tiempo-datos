@@ -1742,7 +1742,7 @@ function pAhora() {
        <div class="ley"><span>Débil</span><i></i><span>Intensa</span>${Ry ? `<b class="ley-r">rayos (½ h)</b>` : ""}</div><div class="prog"><u id="radarProg" style="width:0"></u></div></div>`;
   } else if (S.length) {
     izq = `<div data-f="satelite" class="tile mapa"><canvas id="sat" width="1000" height="760"></canvas><div class="tag" id="satHora">Satélite</div>
-       <div class="ley"><span>Sin lluvia en el radar: nubes vistas desde el satélite</span></div><div class="prog"><u id="satProg" style="width:0"></u></div></div>`;
+       <div class="ley"><span>${R ? "Sin lluvia en el radar: nubes" : "Nubes"} vistas desde el satélite</span></div><div class="prog"><u id="satProg" style="width:0"></u></div></div>`;
   } else izq = vaciaDe("radar", E.lugar.enCanarias ? "El radar de AEMET de esta pantalla cubre la Península y Baleares." : "Cargando el radar de AEMET…");
   const hero = `<div data-f="prevision" class="tile hero" style="--i:1">${qrEsquina(aemetMunicipio(true), "Por horas<br>en AEMET", 80)}<div class="ya">${icono(h0.cod, h0.desc, 136)}<div><div class="t0 num">${h0.temp ?? "–"}°</div>
       <div class="desc">${esc(h0.desc)}</div></div></div>${titular()}${lineaSalir()}
@@ -4158,7 +4158,7 @@ function animarMtg() {
    la página pide una tras otra y va poniendo la que llega. Hasta que llega la primera, la foto fija. */
 function calarEnDirecto() {
   let img = document.getElementById("calarVivo");
-  if (!img) return;
+  if (!img || window.NUBE) return;   // 4.21: en la página de internet no hay quien lea el vídeo: la foto fija
   let n = 0, fallos = 0, id = null, vivo = false;
   const pedir = () => {
     if (!img.isConnected) return;

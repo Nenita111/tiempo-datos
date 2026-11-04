@@ -22,7 +22,7 @@ export TZ=Europe/Madrid
 java -Xmx2g -Duser.timezone=Europe/Madrid -Duser.language=es -Duser.country=ES \
   -cp "tiempo-nube.jar:deps/*:android/android-all-instrumented-14-robolectric-10818077-i7.jar" \
   -Drobolectric.offline=true -Drobolectric.dependency.dir="$PWD/android" \
-  -Dnube.dir="$PWD/estado" -Dnube.salida="$PWD/web" -Dnube.limite="${NUBE_LIMITE:-600}" \
+  -Dnube.dir="$PWD/estado" -Dnube.salida="$PWD/web" -Dnube.limite="${NUBE_LIMITE:-600}" -Dnube.municipios="$PWD/pagina/almeria.json" \
   org.junit.runner.JUnitCore com.isa.tiempo.NubeTest > vuelta.log 2>&1 || true
 grep -E "^\.?NUBE|^OK|^Tests run|^[0-9]+\) |Exception" vuelta.log | grep -v "^Picked up" | head -40 || true
 grep -q "^OK (1 test)" vuelta.log && [ -s web/datos.json ] || { echo "La vuelta no ha salido bien: no se publica (queda la página anterior)"; exit 1; }

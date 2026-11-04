@@ -1,8 +1,8 @@
 {
-  "versionCode": 51,
-  "versionName": "4.20",
+  "versionCode": 52,
+  "versionName": "4.21",
   "apk": "app/Tiempo.apk",
-  "sha256": "528245baf3adb335f7de4d3c7c430697a2417f4b9ac08464b4dcff4a086604fc",
-  "bytes": 1221013,
-  "notas": "4.20: el enlace del móvil es siempre http://<dirección de la tele>:8090/tiempo/ (sin clave al azar); solo atiende a los aparatos de casa."
+  "sha256": "d296511fe29e2ff2e0d3ead86c8057027428d21c1b60b10beca1d3c11cd7bacb",
+  "bytes": 1226581,
+  "notas": "4.21: el satélite MTG vuelve a llegar (EUMETView cambió su aviso); en el móvil, tocando el nombre del pueblo se elige otro municipio; la página en internet (https://nenita111.github.io/tiempo-datos/) con los demás municipios de Almería."
 }
