@@ -1,8 +1,8 @@
 {
-  "versionCode": 54,
-  "versionName": "4.23",
+  "versionCode": 55,
+  "versionName": "4.24",
   "apk": "app/Tiempo.apk",
-  "sha256": "f7abe96ab06b7558e3bd1ec227dc302d6242761e066a8246b8899463b9ccbd34",
-  "bytes": 1227665,
-  "notas": "4.23: en Cielo, la luz del día (duración, cuánto cambia, horas dorada y azul y el día más corto); en Planeta, el polvo del Sáhara previsto (CAMS de Copernicus)."
+  "sha256": "e0fde1e094e760fa03ca2245f32ff80e1628e31295688943bd6c0e161dfe2aac",
+  "bytes": 1229737,
+  "notas": "En Pescado, la lonja de Adra: su último día de venta con el total y cada especie (kilos y precio medio por kilo)"
 }

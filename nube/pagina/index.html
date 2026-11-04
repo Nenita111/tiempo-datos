@@ -757,6 +757,10 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .polvo{display:flex;flex-direction:column}.polvo .marco{position:relative;flex:1;min-height:200px;border-radius:14px;overflow:hidden;background:#fff}
 .polvo .marco img{width:100%;height:100%;object-fit:contain;display:block}.polvo .tag{left:12px;top:12px;font-size:19px;padding:8px 14px}
 .polvo .polvo-e{display:block;width:100%;height:auto;margin-top:10px;border-radius:6px;background:#fff}
+.lonjap{display:flex;flex-direction:column}.lonjap .lp-tot{font-size:22px;color:var(--tx2);margin:2px 0 10px;text-align:left}.lonjap .lp-tot b{font-size:30px;color:var(--tx)}
+.lonjap .lp{list-style:none;flex:1;min-height:0}.lonjap .lp li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--linea);font-size:23px}
+.lonjap .lp li span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-align:left}.lonjap .lp li i{font-style:normal;color:var(--mu);font-weight:700;font-size:20px}
+.lonjap .lp li b{font-size:24px;white-space:nowrap;min-width:96px;text-align:right}.lonjap .lp .pf{flex:none;width:64px;height:32px;display:block}
 .mn-movil{display:flex;align-items:center;gap:22px;margin-top:18px;padding-top:16px;border-top:1px solid var(--linea)}.mn-movil svg.qr{width:116px;height:116px;padding:6px}
 .mn-movil p{font-size:19px;line-height:1.35;color:var(--mu);font-weight:600}.mn-movil b{display:block;font-size:23px;color:var(--tx);margin-bottom:2px}.mn-movil u{text-decoration:none;color:var(--c1);white-space:nowrap}
 .mn-ay{display:flex;gap:28px;justify-content:center;margin-top:24px;font-size:19px;color:var(--mu);font-weight:700}.mn-ay span{white-space:nowrap}
@@ -924,7 +928,7 @@ const marcaTurno = (d, n, total) => total > n ? `<span class="turno">${n > 1 ? `
 const CORTABLES = ".ag-v h3,.ag-v p,.ag-p span,.ag-p b,.ag-p em,.lugar h1,.ab,.k,.k em,.fuente,.salir,.cm span,.mar-av,.ventanas b,.mr-k span,.gas li em," +
   ".sorteos .sq,.vu .of b,.traf li p b,.mar-txt,.al-desc,.not-l h2,.nlist b,.sorteos b,.cortes b,.ev p,.traf li p span,.santos," +
   ".cielo-t .iss b,.cielo-t .iss span,.cielo-t li b,.cielo-t li span,.rg-t b,.rg-t span,.rg-l span,.rg-fap,.ruta-g figcaption b,.seco small,.lst.anio li,.pr .precios .pn,.lst.mundo .ms,.leyenda-m,.l1 .fuente," +
-  ".sa-k span,.sa-s,.sa-r,.sa-l li span,.rg-esp,.bo-l li b,.eco-1 p,.eco-d,.rg-rt,.rg-club p,.rg-p li span,.rg-sede,.raif .precios li b,.resp-t p,.let li,.em-n,.emb-t span,.dia-l,.tramo,.ley-tr";
+  ".sa-k span,.sa-s,.sa-r,.sa-l li span,.rg-esp,.bo-l li b,.eco-1 p,.eco-d,.rg-rt,.rg-club p,.rg-p li span,.rg-sede,.raif .precios li b,.resp-t p,.let li,.em-n,.emb-t span,.dia-l,.tramo,.ley-tr,.lonjap .lp li span";
 const UNA_LINEA = ".pr .precios .pn";
 function noCabe(el) { return el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight + 2; }
 function ajustarTextos(raiz) {
@@ -1412,7 +1416,7 @@ const VALE_H = {polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: 
   lluvia: 12, mareas: 24, incendio: 24, alimentarias: 24, campo: 24, ofertasEmpleo: 24, sae: 24, boja: 24, boe: 24, planeta: 36, efemerides: 36,   farmacias: 36, gasolina: 48, medicamentos: 48, euribor: 48, espacio: 48, bolsaSas: 48, lonja: 72, productos: 72, regatas: 72, rfep: 72, paro: 72, afiliados: 72, ipc: 168,
   agua: 168, festivos: 168, aguaBano: 168, iss: 168, autobus: 168};
 const SIN_EDAD = new Set(["avisos", "luz", "internet", "extras", "actualizacion"]);   // valen por su propia fecha
-const CLAVES_FUENTE = {prevision: ["horas", "dias", "soles", "elaborado", "aemet"], aviones: ["aviones", "aeropuerto"]};   // 4.17: los del aeropuerto, con los de encima   // la previsión llega en varias claves
+const CLAVES_FUENTE = {prevision: ["horas", "dias", "soles", "elaborado", "aemet"], aviones: ["aviones", "aeropuerto"], lonja: ["lonja", "lonjaPueblo"]};   // 4.17: los del aeropuerto, con los de encima   // la previsión llega en varias claves
 const EN_EXTRAS = {vuelos: ["vuelos", "aeropuertos", "vuelosOrigen", "vuelosFecha", "vuelosBuscado", "vuelosBusqueda"], sequia: ["sequia"]};
 // 4.23: en la página de internet los datos se ponen al día cada media hora (GitHub): lo que vale menos de hora y cuarto (radar,
 // satélite, cámaras…) vale hasta entonces (cada tarjeta dice de cuándo es)
@@ -3612,11 +3616,21 @@ function pCampo() {
     : `<div class="main" style="grid-template-columns:1fr">${campo}</div>`;
 }
 function pPescado() {
-  const Lj = E.lonja;
-  return `<div class="main" style="grid-template-columns:1fr">${listaPrecios("lonja", Lj.especies, e => [e.nombre, e.precio],
+  const Lj = E.lonja, P = tarjetaLonjaPueblo(2);   // 4.24 (365): con la lonja del pueblo, a la derecha y la provincia a dos columnas
+  return `<div class="main" style="grid-template-columns:${P ? "minmax(0,1fr) 600px" : "1fr"}">${listaPrecios("lonja", Lj.especies, e => [e.nombre, e.precio],
     "Todas las especies y lonjas · <b>Junta de Andalucía</b> (IDAPES) · precio medio por kilo", Lj.url || "https://ws142.juntadeandalucia.es/agriculturaypesca/idapub/", 1,
-    `Pescado en lonja<em>${fechaVuelo(Lj.desde, Lj.hasta)} · provincia${Lj.antesDesde ? ` · ▲▼ frente a ${fechaVuelo(Lj.antesDesde, Lj.antesHasta)}` : ""}</em>`, 3, dibujoPescado,
-    e => tendencia(e.precio, e.antes))}</div>`;   // 4.22: si sube o baja frente a la semana anterior (IDAPES)
+    `Pescado en lonja<em>${fechaVuelo(Lj.desde, Lj.hasta)} · provincia${Lj.antesDesde ? ` · ▲▼ frente a ${fechaVuelo(Lj.antesDesde, Lj.antesHasta)}` : ""}</em>`, P ? 2 : 3, dibujoPescado,
+    e => tendencia(e.precio, e.antes))}${P ? `<div class="col" style="grid-template-rows:1fr">${P}</div>` : ""}</div>`;   // 4.22: si sube o baja frente a la semana anterior (IDAPES)
+}
+/* 365 (lo pidió Isa el 4 nov 2026): la lonja del pueblo (Mas.lonjaPueblo: IDAPES, la misma fuente que Pescado): su último día de venta,
+   con el total y cada especie (kilos y precio medio por kilo), las que más kilos primero */
+function tarjetaLonjaPueblo(i) {
+  const P = E.lonjaPueblo;
+  if (!P || !(P.especies || []).length) return "";
+  return `<div data-f="lonja" class="tile lonjap" style="--i:${i}"><div class="k">Lonja de ${esc(P.pueblo)}<em>${diaFecha(P.dia)}</em></div>
+    <p class="lp-tot"><b>${miles(P.kilos)} kg</b> vendidos por ${miles(P.euros)} € · ${P.especies.length} especies</p>
+    ${(t => `<ul class="lp" ${t.attr}>${t.items.map(e => `<li>${dibujoPescado(e.nombre) || '<i class="pf"></i>'}<span>${esc(e.nombre)}</span><i>${miles(e.kilos)} kg</i><b>${coma(e.precio, 2)} €</b></li>`).join("")}</ul>`)(enTurno("lonjap", P.especies, 14))}
+    <p class="nota">El último día con ventas en su lonja (la Junta los publica con unos días de retraso); precio medio por kilo.</p></div>`;
 }
 
 /* ---------- empleo público (lo pidió Isa el 27 oct 2026): ofertas en plazo de las entidades instrumentales de la Junta
