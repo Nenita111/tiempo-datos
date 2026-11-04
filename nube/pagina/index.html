@@ -3561,7 +3561,8 @@ function pPescado() {
   const Lj = E.lonja;
   return `<div class="main" style="grid-template-columns:1fr">${listaPrecios("lonja", Lj.especies, e => [e.nombre, e.precio],
     "Todas las especies y lonjas · <b>Junta de Andalucía</b> (IDAPES) · precio medio por kilo", Lj.url || "https://ws142.juntadeandalucia.es/agriculturaypesca/idapub/", 1,
-    `Pescado en lonja<em>${fechaVuelo(Lj.desde, Lj.hasta)} · provincia</em>`, 3, dibujoPescado)}</div>`;
+    `Pescado en lonja<em>${fechaVuelo(Lj.desde, Lj.hasta)} · provincia${Lj.antesDesde ? ` · ▲▼ frente a ${fechaVuelo(Lj.antesDesde, Lj.antesHasta)}` : ""}</em>`, 3, dibujoPescado,
+    e => tendencia(e.precio, e.antes))}</div>`;   // 4.22: si sube o baja frente a la semana anterior (IDAPES)
 }
 
 /* ---------- empleo público (lo pidió Isa el 27 oct 2026): ofertas en plazo de las entidades instrumentales de la Junta

@@ -1,8 +1,8 @@
 {
-  "versionCode": 52,
-  "versionName": "4.21",
+  "versionCode": 53,
+  "versionName": "4.22",
   "apk": "app/Tiempo.apk",
-  "sha256": "d296511fe29e2ff2e0d3ead86c8057027428d21c1b60b10beca1d3c11cd7bacb",
-  "bytes": 1226581,
-  "notas": "4.21: el satélite MTG vuelve a llegar (EUMETView cambió su aviso); en el móvil, tocando el nombre del pueblo se elige otro municipio; la página en internet (https://nenita111.github.io/tiempo-datos/) con los demás municipios de Almería."
+  "sha256": "bbccb195d56531a9feab2da625b841e83eeec0ae776f4e0d734ca0992eaed058",
+  "bytes": 1223625,
+  "notas": "4.22: flechas de sube o baja en Pescado (frente a la semana anterior) y en Campo (frente al último día apuntado mientras no hay uno de hace una semana); sin el selector de localidad en el móvil."
 }
