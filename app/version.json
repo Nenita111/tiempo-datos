@@ -1,8 +1,8 @@
 {
-  "versionCode": 53,
-  "versionName": "4.22",
+  "versionCode": 54,
+  "versionName": "4.23",
   "apk": "app/Tiempo.apk",
-  "sha256": "bbccb195d56531a9feab2da625b841e83eeec0ae776f4e0d734ca0992eaed058",
-  "bytes": 1223625,
-  "notas": "4.22: flechas de sube o baja en Pescado (frente a la semana anterior) y en Campo (frente al último día apuntado mientras no hay uno de hace una semana); sin el selector de localidad en el móvil."
+  "sha256": "f7abe96ab06b7558e3bd1ec227dc302d6242761e066a8246b8899463b9ccbd34",
+  "bytes": 1227665,
+  "notas": "4.23: en Cielo, la luz del día (duración, cuánto cambia, horas dorada y azul y el día más corto); en Planeta, el polvo del Sáhara previsto (CAMS de Copernicus)."
 }

@@ -754,6 +754,9 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .mn li .mn-s{min-width:120px;text-align:right;font-size:20px;font-weight:700;color:var(--tx2)}
 .mn li.mn-x b{color:var(--c1)}.mn li.mn-x span{margin-left:auto;font-size:18px;color:var(--mu);font-weight:600}
 .mn li.sel{background:var(--tile2);box-shadow:inset 0 0 0 3px var(--c1),0 0 26px -6px var(--c1s)}
+.polvo{display:flex;flex-direction:column}.polvo .marco{position:relative;flex:1;min-height:200px;border-radius:14px;overflow:hidden;background:#fff}
+.polvo .marco img{width:100%;height:100%;object-fit:contain;display:block}.polvo .tag{left:12px;top:12px;font-size:19px;padding:8px 14px}
+.polvo .polvo-e{display:block;width:100%;height:auto;margin-top:10px;border-radius:6px;background:#fff}
 .mn-movil{display:flex;align-items:center;gap:22px;margin-top:18px;padding-top:16px;border-top:1px solid var(--linea)}.mn-movil svg.qr{width:116px;height:116px;padding:6px}
 .mn-movil p{font-size:19px;line-height:1.35;color:var(--mu);font-weight:600}.mn-movil b{display:block;font-size:23px;color:var(--tx);margin-bottom:2px}.mn-movil u{text-decoration:none;color:var(--c1);white-space:nowrap}
 .mn-ay{display:flex;gap:28px;justify-content:center;margin-top:24px;font-size:19px;color:var(--mu);font-weight:700}.mn-ay span{white-space:nowrap}
@@ -1356,11 +1359,11 @@ function qrSvg(url, cls, maxN) {
 /* ---------- fuentes que llevan horas fallando: se dice en la cabecera de su pantalla, en gris, para no enseñar datos viejos como si fueran de hoy ---------- */
 const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"],
   agua: ["lluvia", "saih", "sequia", "agua"], mar: ["boya", "playas", "oleaje", "maritima", "mareas", "aguaBano"], cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
-  espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "aire", "radiacion"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
+  espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "aire", "radiacion", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
   alertas: ["alimentarias", "medicamentos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "olas", "regatas", "rfep"], carretera: ["camara", "ruta", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
   sismos: ["terremotos"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
   noticias: ["noticias", "cortesAgua", "sangre"]};
-const NOMBRE_FUENTE = {autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
+const NOMBRE_FUENTE = {polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
   renovable: "renovables", alimentarias: "alertas AESAN", efemerides: "efemérides", terremotos: "terremotos", futbol: "UD Almería",
   farmacias: "farmacias", campo: "precios del campo", lonja: "lonja", trafico: "tráfico", noticias: "noticias",
   ofertasEmpleo: "ofertas de empleo", sae: "ofertas del SAE", boja: "BOJA", boe: "BOE", iss: "Estación Espacial", lluvia: "lluvia medida", regatas: "regatas",
@@ -1403,7 +1406,7 @@ const esperandoHoy = (B = E) => deAyer(B).length > 0 && Date.now() - (B.arranque
      la DGT (45 min), la radiación (la última hora de la REA, 6 h) y el informe de sequía (50 días después de acabar su mes).
    Su tarjeta sale vacía o no sale, y arriba se dice qué falta y desde cuándo («⚠ Sin actualizar desde…»).
    Los avisos de AEMET no se quitan (cada uno dice hasta cuándo vale), pero sin datos al día no se dice «Sin avisos». */
-const VALE_H = {vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
+const VALE_H = {polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
   comarca: 3, terremotos: 3, aire: 4,
   sol: 6, renovable: 6, sismosMundo: 6, boya: 6, prevision: 12, playas: 12, maritima: 12, oleaje: 12, noticias: 12, futbol: 12,
   lluvia: 12, mareas: 24, incendio: 24, alimentarias: 24, campo: 24, ofertasEmpleo: 24, sae: 24, boja: 24, boe: 24, planeta: 36, efemerides: 36,   farmacias: 36, gasolina: 48, medicamentos: 48, euribor: 48, espacio: 48, bolsaSas: 48, lonja: 72, productos: 72, regatas: 72, rfep: 72, paro: 72, afiliados: 72, ipc: 168,
@@ -1411,7 +1414,9 @@ const VALE_H = {vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes
 const SIN_EDAD = new Set(["avisos", "luz", "internet", "extras", "actualizacion"]);   // valen por su propia fecha
 const CLAVES_FUENTE = {prevision: ["horas", "dias", "soles", "elaborado", "aemet"], aviones: ["aviones", "aeropuerto"]};   // 4.17: los del aeropuerto, con los de encima   // la previsión llega en varias claves
 const EN_EXTRAS = {vuelos: ["vuelos", "aeropuertos", "vuelosOrigen", "vuelosFecha", "vuelosBuscado", "vuelosBusqueda"], sequia: ["sequia"]};
-const valeH = (k, f) => VALE_H[k] ?? Math.max(2, 3 * ((f && f.cada) || 60) / 60);
+// 4.23: en la página de internet los datos se ponen al día cada media hora (GitHub): lo que vale menos de hora y cuarto (radar,
+// satélite, cámaras…) vale hasta entonces (cada tarjeta dice de cuándo es)
+const valeH = (k, f) => (v => window.NUBE ? Math.max(v, 1.25) : v)(VALE_H[k] ?? Math.max(2, 3 * ((f && f.cada) || 60) / 60));
 /* fuente → momento de lo último que se tiene (0 si no se sabe) de todo lo desfasado del estado B */
 function desfasadasDe(B) {
   const F = B.fuentes || {}, ahora = Date.now(), D = {}, d = new Date();
@@ -1547,7 +1552,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   mar: "Fuentes: Puertos del Estado · AEMET · Agencia Europea de Medio Ambiente (agua de baño)",
   cielo: "Fuentes: NASA (Luna y Sol) · NOAA · CelesTrak · IGN (Observatorio Astronómico Nacional) · OpenSky · adsbdb",
   espacio: "Fuentes: NASA Worldview · Observatorio de Calar Alto",
-  planeta: "Fuentes: NASA · Copernicus · Agencia Europea de Medio Ambiente",
+  planeta: "Fuentes: NASA · Copernicus · Agencia Europea de Medio Ambiente · polvo: CAMS (Copernicus, ECMWF)",
   casa: "Fuentes: Red Eléctrica · CNMC (peaje 2.0TD, BOE) · MITECO · Cloudflare",
   alertas: "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)",
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
@@ -2178,7 +2183,7 @@ function animarOlas() {
 /* ---------- cielo (3.0): la Luna y el Sol, la Estación Espacial y el calendario del cielo, y los aviones de encima ---------- */
 // 3.9: sin aviones, su columna más estrecha (el radar vacío no necesita tanto) y más sitio para el calendario del cielo
 // 4.18 (eficiente): sin aviones cerca, sin su columna (el radar vacío no dice nada); el calendario del cielo se queda con el sitio
-const pCielo = () => E.aviones && !E.aviones.length
+const pCielo = () => !E.aviones || !E.aviones.length   // 4.23: sin datos al día de los aviones, tampoco su columna
   ? `<div class="main" style="grid-template-columns:620px minmax(0,1fr)"><div class="col" style="grid-template-rows:auto 1fr">${tarjetaCielo()}${tarjetaSol()}</div>
   <div class="col" style="grid-template-rows:1fr">${tarjetaCieloAdra()}</div></div>`
   : `<div class="main"><div class="col" style="grid-template-rows:auto 1fr">${tarjetaCielo()}${tarjetaSol()}</div>
@@ -2318,7 +2323,22 @@ function tarjetaPlaneta(grande) {
   return `<div data-f="planeta" class="tile planeta-t${grande ? " grande" : ""}" style="--i:1"><div class="k">El planeta hoy</div>${T ? `<div class="pl-fila">${bloqueTierra(T)}${d}</div>` : d}</div>`;
 }
 /* planeta (3.0): el planeta hoy y los virus respiratorios; el aire y la radiación, en una columna entera */
-const pPlaneta = () => (r => `<div class="main"><div class="col" style="grid-template-rows:${r ? "1fr auto" : "1fr"}">${tarjetaPlaneta(true)}${r}</div><div class="col" style="grid-template-rows:1fr">${tarjetaAire()}</div></div>`)(tarjetaRespiratorias(2));
+const pPlaneta = () => (r => (pv => `<div class="main"><div class="col" style="grid-template-rows:${r ? "1fr auto" : "1fr"}">${tarjetaPlaneta(true)}${r}</div><div class="col" style="grid-template-rows:${pv ? "auto 1fr" : "1fr"}">${tarjetaAire()}${pv}</div></div>`)(tarjetaPolvo(4)))(tarjetaRespiratorias(2));
+/* 354 (lo pidió Isa el 4 nov 2026): la calima prevista: el polvo del Sáhara sobre la península a mediodía (12 UTC) de hoy, mañana y
+   pasado, de CAMS (Copernicus, ECMWF; Polvo.kt). Los mapas se pasan solos; debajo, su escala (profundidad óptica del polvo a 550 nm). */
+let polvoFotos = [];
+function tarjetaPolvo(i) {
+  const P = E.polvo, hoy = isoDe(new Date()), M = ((P && P.mapas) || []).filter(m => m.dia >= hoy);
+  if (!M.length) return "";
+  polvoFotos = M.map(m => ({url: m.url, hora: `${diaFecha(m.dia)}, a las ${horaMin(m.t)}`}));
+  return `<div data-f="polvo" class="tile polvo" style="--i:${i}"><div class="k">Polvo del Sáhara previsto<em>la calima, de hoy a pasado</em></div>
+    <div class="marco"><img id="polvoMapa" src="${esc(polvoFotos[0].url)}" alt=""><div class="tag" id="polvoHora">${esc(polvoFotos[0].hora)}</div></div>
+    ${P.escala ? `<img class="polvo-e" src="${esc(P.escala)}" alt="">` : ""}<p class="nota">Cuanto más hacia el amarillo y el rojo, más polvo en el aire; en blanco, menos de 0,1 (nada que notar).</p></div>`;
+}
+function animarPolvo() {
+  const img = document.getElementById("polvoMapa");
+  if (img && polvoFotos.length >= 2) cicloFotos(img, polvoFotos, "polvoHora", null, {desde: 0, primero: 4000, normal: 4000, ultimo: 4000, inicio: 4000});
+}
 
 /* ---------- en el cielo de Adra (lo pidió Isa el 27 oct 2026): la Estación Espacial y el calendario astronómico ----------
    La Estación Espacial: órbita de CelesTrak (la app la baja cada 8 horas) y cálculo SGP4 con satellite.js. Un paso es visible
@@ -2422,11 +2442,45 @@ function detalleCielo(e) {
   if (e.tipo === "estacion" && e.hora) return `A las ${e.hora}`;
   return e.detalle || "";
 }
+/* 352 (lo pidió Isa el 4 nov 2026): la luz del día en el sitio: cuánto dura y cuánto cambia de un día a otro, el día más corto (o el más
+   largo) que viene y las horas dorada (el Sol entre 6° y −4°) y azul (entre −4° y −6°), de mañana y de tarde. Cálculo astronómico con las
+   fórmulas de la NOAA (las del orto y el ocaso, con la refracción: −0,833°), sin fuente de fuera; al minuto. */
+function solDia(f, lat, lon) {
+  const r = Math.PI / 180, a = f.getFullYear(), m = f.getMonth(), d = f.getDate();
+  const T = (Date.UTC(a, m, d, 12) / 864e5 + 2440587.5 - 2451545) / 36525;
+  const L0 = ((280.46646 + T * (36000.76983 + T * 0.0003032)) % 360 + 360) % 360, M = 357.52911 + T * (35999.05029 - 0.0001537 * T);
+  const e = 0.016708634 - T * (0.000042037 + 0.0000001267 * T);
+  const C = Math.sin(M * r) * (1.914602 - T * (0.004817 + 0.000014 * T)) + Math.sin(2 * M * r) * (0.019993 - 0.000101 * T) + Math.sin(3 * M * r) * 0.000289;
+  const om = 125.04 - 1934.136 * T, lam = L0 + C - 0.00569 - 0.00478 * Math.sin(om * r);
+  const eps = 23 + (26 + (21.448 - T * (46.815 + T * (0.00059 - T * 0.001813))) / 60) / 60 + 0.00256 * Math.cos(om * r);
+  const dec = Math.asin(Math.sin(eps * r) * Math.sin(lam * r)), y = Math.tan(eps * r / 2) ** 2;
+  const eq = 4 / r * (y * Math.sin(2 * L0 * r) - 2 * e * Math.sin(M * r) + 4 * e * y * Math.sin(M * r) * Math.cos(2 * L0 * r)
+    - .5 * y * y * Math.sin(4 * L0 * r) - 1.25 * e * e * Math.sin(2 * M * r));
+  const mediodia = 720 - 4 * lon - eq;   // minutos desde las 0 UTC
+  const lado = h => { const c = (Math.sin(h * r) - Math.sin(lat * r) * Math.sin(dec)) / (Math.cos(lat * r) * Math.cos(dec)); return Math.abs(c) > 1 ? null : Math.acos(c) / r * 4; };
+  const en = h => { const x = lado(h); return x == null ? null : [Date.UTC(a, m, d) + (mediodia - x) * 6e4, Date.UTC(a, m, d) + (mediodia + x) * 6e4]; };
+  const s = lado(-0.833);
+  return {dur: s == null ? null : 2 * s, sol: en(-0.833), h6: en(6), h4: en(-4), h6n: en(-6)};
+}
+function filaLuz() {
+  const l = E && E.lugar; if (!l) return "";
+  const hoy = new Date(), dia = n => new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate() + n), S = solDia(hoy, l.lat, l.lon);
+  if (!S.dur || !S.h6 || !S.h4 || !S.h6n) return "";
+  const hm = x => (m => `${Math.floor(m / 60)} h ${m % 60} min`)(Math.round(x)), dif = S.dur - solDia(dia(-1), l.lat, l.lon).dur;
+  const s = Math.round(Math.abs(dif) * 60), cambio = s < 1 ? "lo mismo que" : `${s >= 60 ? `${Math.floor(s / 60)} min ` : ""}${s % 60 ? `${s % 60} s ` : ""}${dif > 0 ? "más" : "menos"} que`;
+  // el día más corto (si menguan) o el más largo (si crecen) que viene
+  let k = 0, prev = S.dur;
+  for (let n = 1; n < 200; n++) { const x = solDia(dia(n), l.lat, l.lon).dur; if ((dif < 0 && x > prev) || (dif >= 0 && x < prev)) { k = n - 1; break; } prev = x; }
+  const ext = k > 0 ? `el día más ${dif < 0 ? "corto" : "largo"}, el ${diaFecha(isoDe(dia(k)))} (${hm(solDia(dia(k), l.lat, l.lon).dur)})` : "";
+  const t = horaMin, tramo = (x, y) => `${t(x)}–${t(y)}`;
+  return `<div class="iss luz"><b>Luz del día: ${hm(S.dur)}, ${cambio} el ${diaFecha(isoDe(dia(-1)))}</b>
+    <span>Hora dorada ${tramo(S.h4[0], S.h6[0])} y ${tramo(S.h6[1], S.h4[1])} · hora azul ${tramo(S.h6n[0], S.h4[0])} y ${tramo(S.h4[1], S.h6n[1])}${ext ? ` · ${ext}` : ""}</span></div>`;
+}
 function tarjetaCieloAdra() {
-  const iss = filaISS(), ev = eventosCielo(183);   // con su columna entera, medio año
-  if (!iss && !ev.length) return vacia("Calculando el cielo de esta noche…", 2);
+  const iss = filaISS(), ev = eventosCielo(183), luz = filaLuz();   // con su columna entera, medio año
+  if (!iss && !ev.length && !luz) return vacia("Calculando el cielo de esta noche…", 2);
   const t = enTurno("cielo", ev, 12);
-  return `<div data-f="iss x" class="tile cielo-t" style="--i:2"><div class="k">En el cielo de ${esc(E.lugar.nombre)}</div>${iss}
+  return `<div data-f="iss x" class="tile cielo-t" style="--i:2"><div class="k">En el cielo de ${esc(E.lugar.nombre)}</div>${luz}${iss}
     ${t.items.length ? `<ul ${t.attr}>${t.items.map(e => `<li ${claveNuevo("cielo:" + e.fecha + e.titulo)}><i>${fechaCorta(e.fecha)}<small>${faltan(e.fecha)}</small></i>
       <p><b>${esc(e.titulo)}${marcaNuevo("cielo:" + e.fecha + e.titulo)}</b>${detalleCielo(e) ? `<span>${esc(detalleCielo(e))}</span>` : ""}</p></li>`).join("")}</ul>` : ""}</div>`;
 }
@@ -4224,7 +4278,7 @@ function animar(p) {
   pararMovimiento();
   if (p === "ahora") { if (document.getElementById("radar")) radar(); else if (document.getElementById("sat")) satelite(); }
   // 3.2: lo que se mueve en las demás pantallas (cada cosa, si está en la pantalla)
-  for (const [id, f] of [["mtg", animarMtg], ["calarVivo", calarEnDirecto], ["globo", girarTierra], ["dgtFoto", lapsoDgt], ["olasMapa", animarOlas], ["trenesMapa", dibujarTrenes]])
+  for (const [id, f] of [["mtg", animarMtg], ["calarVivo", calarEnDirecto], ["globo", girarTierra], ["dgtFoto", lapsoDgt], ["olasMapa", animarOlas], ["polvoMapa", animarPolvo], ["trenesMapa", dibujarTrenes]])
     if (document.getElementById(id)) try { f(); } catch (e) {}
   if (document.querySelector(".ruta-g")) try { lapsoRuta(); } catch (e) {}
 }
