@@ -1,8 +1,8 @@
 {
-  "versionCode": 50,
-  "versionName": "4.19",
+  "versionCode": 51,
+  "versionName": "4.20",
   "apk": "app/Tiempo.apk",
-  "sha256": "0f34c61530441e4edcb3b68da00d52b396d6a0d7bb41f11317e8350bb21823a9",
-  "bytes": 1220933,
-  "notas": "4.19: el salvapantallas en el móvil (misma wifi que la tele; el enlace y su QR, en el menú ≡): ◀ ▶ o deslizar para cambiar de pantalla, ampliar con dos dedos y 📍 para elegir el municipio de Almería (también en «Cambiar el sitio» de la tele)."
+  "sha256": "528245baf3adb335f7de4d3c7c430697a2417f4b9ac08464b4dcff4a086604fc",
+  "bytes": 1221013,
+  "notas": "4.20: el enlace del móvil es siempre http://<dirección de la tele>:8090/tiempo/ (sin clave al azar); solo atiende a los aparatos de casa."
 }
