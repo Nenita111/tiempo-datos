@@ -55,55 +55,55 @@
  "cuencaPctAnterior": 44.1,
  "espanaPct": 57.2,
  "espanaPctAnterior": 52.1,
- "vuelosFecha": "Buscado el 04/11 · ida y vuelta",
+ "vuelosFecha": "Buscado el 05/11 · ida y vuelta",
  "vuelosOrigen": "Almería",
  "vuelos": [
   {
-   "destino": "Bucarest",
-   "fecha": "27/11",
-   "vuelta": "30/11",
-   "precio": "98 €",
-   "compania": "Wizz Air",
+   "destino": "Sevilla",
+   "fecha": "24/11",
+   "vuelta": "29/11",
+   "precio": "109 €",
+   "compania": "Iberia",
    "escalas": "directo"
   },
   {
    "destino": "Madrid",
    "fecha": "05/12",
    "vuelta": "10/12",
-   "precio": "106 €",
-   "compania": "Iberia",
-   "escalas": "directo"
-  },
-  {
-   "destino": "Sevilla",
-   "fecha": "02/12",
-   "vuelta": "07/12",
-   "precio": "111 €",
+   "precio": "117 €",
    "compania": "Iberia",
    "escalas": "directo"
   },
   {
    "destino": "Barcelona",
-   "fecha": "30/11",
-   "vuelta": "03/12",
-   "precio": "127 €",
+   "fecha": "02/12",
+   "vuelta": "04/12",
+   "precio": "129 €",
    "compania": "Vueling",
    "escalas": "directo"
   },
   {
-   "destino": "Londres",
-   "fecha": "07/12",
-   "vuelta": "10/12",
-   "precio": "156 €",
-   "compania": "easyJet",
+   "destino": "Bucarest",
+   "fecha": "27/11",
+   "vuelta": "30/11",
+   "precio": "133 €",
+   "compania": "Wizz Air",
    "escalas": "directo"
   },
   {
    "destino": "Palma de Mallorca",
    "fecha": "25/11",
    "vuelta": "28/11",
-   "precio": "162 €",
+   "precio": "158 €",
    "compania": "Iberia",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Londres",
+   "fecha": "07/12",
+   "vuelta": "10/12",
+   "precio": "161 €",
+   "compania": "easyJet",
    "escalas": "directo"
   }
  ],
@@ -119,59 +119,59 @@
    "codigo": "LEI",
    "vuelos": [
     {
-     "destino": "Bucarest",
-     "ida": "2026-11-27",
-     "vuelta": "2026-11-30",
-     "precio": 98,
-     "compania": "Wizz Air",
+     "destino": "Sevilla",
+     "ida": "2026-11-24",
+     "vuelta": "2026-11-29",
+     "precio": 109,
+     "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/y9rt9u"
+     "enlace": "https://kiwi.com/u/9fp3kx"
     },
     {
      "destino": "Madrid",
      "ida": "2026-12-05",
      "vuelta": "2026-12-10",
-     "precio": 106,
+     "precio": 117,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/x39982y"
-    },
-    {
-     "destino": "Sevilla",
-     "ida": "2026-12-02",
-     "vuelta": "2026-12-07",
-     "precio": 111,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/97gx9m"
+     "enlace": "https://kiwi.com/u/t98cc4"
     },
     {
      "destino": "Barcelona",
-     "ida": "2026-11-30",
-     "vuelta": "2026-12-03",
-     "precio": 127,
+     "ida": "2026-12-02",
+     "vuelta": "2026-12-04",
+     "precio": 129,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/n8u7uv"
+     "enlace": "https://kiwi.com/u/w4tuxd9"
     },
     {
-     "destino": "Londres",
-     "ida": "2026-12-07",
-     "vuelta": "2026-12-10",
-     "precio": 156,
-     "compania": "easyJet",
+     "destino": "Bucarest",
+     "ida": "2026-11-27",
+     "vuelta": "2026-11-30",
+     "precio": 133,
+     "compania": "Wizz Air",
      "escalas": "directo",
-     "nota": "Gatwick",
-     "enlace": "https://kiwi.com/u/5xd979s"
+     "enlace": "https://kiwi.com/u/xh63pc3"
     },
     {
      "destino": "Palma de Mallorca",
      "ida": "2026-11-25",
      "vuelta": "2026-11-28",
-     "precio": 162,
+     "precio": 158,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/z2uzjh"
+     "enlace": "https://kiwi.com/u/83rf2v"
+    },
+    {
+     "destino": "Londres",
+     "ida": "2026-12-07",
+     "vuelta": "2026-12-10",
+     "precio": 161,
+     "compania": "easyJet",
+     "escalas": "directo",
+     "nota": "Gatwick",
+     "enlace": "https://kiwi.com/u/qpmkc8"
     }
    ]
   },
@@ -181,30 +181,21 @@
    "vuelos": [
     {
      "destino": "Oporto",
-     "ida": "2026-11-15",
-     "vuelta": "2026-11-19",
+     "ida": "2026-11-22",
+     "vuelta": "2026-11-26",
      "precio": 50,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/vqf8sx"
+     "enlace": "https://kiwi.com/u/wf89xm"
     },
     {
-     "destino": "Madrid",
-     "ida": "2026-12-02",
-     "vuelta": "2026-12-07",
-     "precio": 58,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/vt4tq2"
-    },
-    {
-     "destino": "Bilbao",
-     "ida": "2026-12-03",
-     "vuelta": "2026-12-06",
-     "precio": 60,
+     "destino": "Gran Canaria",
+     "ida": "2026-12-10",
+     "vuelta": "2026-12-12",
+     "precio": 57,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/u6cyzp"
+     "enlace": "https://kiwi.com/u/mjn872q"
     },
     {
      "destino": "Nantes",
@@ -213,26 +204,35 @@
      "precio": 60,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/23jttk4"
-    },
-    {
-     "destino": "Palma de Mallorca",
-     "ida": "2026-11-12",
-     "vuelta": "2026-11-15",
-     "precio": 65,
-     "compania": "Vueling / Air Europa",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/cmnz5vc"
+     "enlace": "https://kiwi.com/u/yvw9y8"
     },
     {
      "destino": "Londres",
      "ida": "2026-12-01",
      "vuelta": "2026-12-05",
-     "precio": 68,
+     "precio": 62,
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Luton",
-     "enlace": "https://kiwi.com/u/h6cpq6t"
+     "enlace": "https://kiwi.com/u/mf7n4z"
+    },
+    {
+     "destino": "Palma de Mallorca",
+     "ida": "2026-11-21",
+     "vuelta": "2026-11-24",
+     "precio": 63,
+     "compania": "Air Europa / Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/tsc36bp"
+    },
+    {
+     "destino": "Bilbao",
+     "ida": "2026-12-03",
+     "vuelta": "2026-12-06",
+     "precio": 65,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/36mut3"
     }
    ]
   },
@@ -247,16 +247,34 @@
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/qu6r2fy"
+     "enlace": "https://kiwi.com/u/pb4xhg"
     },
     {
      "destino": "Palma de Mallorca",
-     "ida": "2026-11-26",
-     "vuelta": "2026-11-29",
+     "ida": "2026-11-28",
+     "vuelta": "2026-11-30",
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/q8cnzb"
+     "enlace": "https://kiwi.com/u/dmhcf8"
+    },
+    {
+     "destino": "Turín",
+     "ida": "2026-12-10",
+     "vuelta": "2026-12-14",
+     "precio": 36,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/n5t5md"
+    },
+    {
+     "destino": "Bilbao",
+     "ida": "2026-12-10",
+     "vuelta": "2026-12-14",
+     "precio": 40,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/bqmfyr"
     },
     {
      "destino": "Venecia",
@@ -265,25 +283,7 @@
      "precio": 40,
      "compania": "Wizz Air / Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/2ung48"
-    },
-    {
-     "destino": "Lisboa",
-     "ida": "2026-11-28",
-     "vuelta": "2026-12-03",
-     "precio": 41,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/mzn536u"
-    },
-    {
-     "destino": "Bilbao",
-     "ida": "2026-12-07",
-     "vuelta": "2026-12-10",
-     "precio": 42,
-     "compania": "Vueling",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7f429q"
+     "enlace": "https://kiwi.com/u/jsnzw2y"
     },
     {
      "destino": "Valencia",
@@ -292,7 +292,7 @@
      "precio": 44,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/hhdduqk"
+     "enlace": "https://kiwi.com/u/xb2x9z"
     }
    ]
   },
@@ -301,31 +301,22 @@
    "codigo": "RMU",
    "vuelos": [
     {
+     "destino": "Barcelona",
+     "ida": "2026-12-07",
+     "vuelta": "2026-12-11",
+     "precio": 54,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/87w9xy"
+    },
+    {
      "destino": "Bilbao",
      "ida": "2026-11-28",
      "vuelta": "2026-12-01",
      "precio": 54,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/cnd8kh"
-    },
-    {
-     "destino": "Barcelona",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-11",
-     "precio": 57,
-     "compania": "Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/y26fuuv9"
-    },
-    {
-     "destino": "Mánchester",
-     "ida": "2026-11-27",
-     "vuelta": "2026-11-29",
-     "precio": 62,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/dymgsx"
+     "enlace": "https://kiwi.com/u/srvv7yq"
     },
     {
      "destino": "Dublín",
@@ -334,37 +325,46 @@
      "precio": 68,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/dzn7b7"
+     "enlace": "https://kiwi.com/u/582w9t"
+    },
+    {
+     "destino": "Mánchester",
+     "ida": "2026-11-26",
+     "vuelta": "2026-11-29",
+     "precio": 70,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/wf7ksb"
     },
     {
      "destino": "Birmingham",
      "ida": "2026-12-06",
      "vuelta": "2026-12-11",
-     "precio": 82,
+     "precio": 79,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7py62q"
+     "enlace": "https://kiwi.com/u/n4dp96"
     },
     {
      "destino": "Londres",
      "ida": "2026-12-09",
      "vuelta": "2026-12-11",
-     "precio": 87,
+     "precio": 88,
      "compania": "easyJet / Ryanair",
      "escalas": "directo",
      "nota": "ida a Gatwick, vuelta desde Stansted",
-     "enlace": "https://kiwi.com/u/tqzjhj"
+     "enlace": "https://kiwi.com/u/pmgwqq"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-04",
- "vuelosBusqueda": "ida y vuelta del 07/11 al 09/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-05",
+ "vuelosBusqueda": "ida y vuelta del 08/11 al 10/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-04",
- "actualizado": "2026-11-04T06:08+01:00",
+ "sorteosBuscado": "2026-11-05",
+ "actualizado": "2026-11-05T06:08+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -624,22 +624,22 @@
   "fuente": "Junta de Andalucía (vigilancia centinela de la infección respiratoria aguda)"
  },
  "sequia": {
-  "mes": "2026-09",
+  "mes": "2026-10",
   "demarcacion": "Cuencas Mediterráneas Andaluzas",
   "embalses": {
    "capacidad": 1144.0,
-   "volumen": 753.0,
-   "pct": 65.8,
-   "volumenAnterior": 790.0,
-   "pctAnterior": 69.0,
-   "fecha": "2026-09-30",
-   "fechaAnterior": "2026-08-31"
+   "volumen": 733.0,
+   "pct": 64.0,
+   "volumenAnterior": 753.0,
+   "pctAnterior": 65.8,
+   "fecha": "2026-10-31",
+   "fechaAnterior": "2026-09-30"
   },
   "escasez": [
    {
     "codigo": "UTE 01",
     "nombre": "Sistema Guadarranque -Charco Redondo",
-    "indice": 0.68,
+    "indice": 0.64,
     "estado": "Normalidad"
    },
    {
@@ -651,7 +651,7 @@
    {
     "codigo": "UTE 03",
     "nombre": "Sistema de abastecimiento E. de la Concepción",
-    "indice": 0.42,
+    "indice": 0.46,
     "estado": "Prealerta"
    },
    {
@@ -663,55 +663,55 @@
    {
     "codigo": "UTE 05",
     "nombre": "Cabecera del Guadalhorce",
-    "indice": 0.88,
+    "indice": 0.87,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 06",
     "nombre": "Cuenca Baja del río Guadalhorce",
-    "indice": 0.75,
+    "indice": 0.73,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 07",
     "nombre": "Sistema de abastecimiento a Málaga y Z.R. Guadalhorce",
-    "indice": 0.76,
+    "indice": 0.73,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 08",
     "nombre": "Sistema del embalse de la Viñuela",
-    "indice": 0.81,
+    "indice": 0.8,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 09",
     "nombre": "Sierra de Tejeda, Almijara y Alberquilla",
-    "indice": 0.66,
+    "indice": 0.69,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 10",
     "nombre": "Cuenca Alta del río Verde de Almuñécar",
-    "indice": 0.74,
+    "indice": 0.73,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 11",
     "nombre": "Sistema Béznar-Rules",
-    "indice": 0.85,
+    "indice": 0.84,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 12",
     "nombre": "Cuenca Alta del río Guadalfeo",
-    "indice": 0.75,
+    "indice": 0.74,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 13",
     "nombre": "La Contraviesa",
-    "indice": 0.75,
+    "indice": 0.74,
     "estado": "Normalidad"
    },
    {
@@ -735,19 +735,19 @@
    {
     "codigo": "UTE 17",
     "nombre": "Cuenca del río Andarax",
-    "indice": 0.75,
+    "indice": 0.79,
     "estado": "Normalidad"
    },
    {
     "codigo": "UTE 18",
     "nombre": "Níjar",
-    "indice": 0.39,
+    "indice": 0.58,
     "estado": null
    },
    {
     "codigo": "UTE 19",
     "nombre": "Sierras de Filabres y Estancias",
-    "indice": 0.64,
+    "indice": 0.68,
     "estado": "Normalidad"
    },
    {
@@ -761,13 +761,13 @@
    {
     "codigo": "UTS 01",
     "nombre": "Cuencas de los ríos Guadarranque y Palmones",
-    "indice": 0.65,
+    "indice": 0.59,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 02",
     "nombre": "Cuenca del río Guadiaro",
-    "indice": 0.63,
+    "indice": 0.62,
     "estado": "Ausencia"
    },
    {
@@ -779,79 +779,79 @@
    {
     "codigo": "UTS 04",
     "nombre": "Cuencas de los ríos Guadalhorce y Guadalmedina",
-    "indice": 0.72,
+    "indice": 0.66,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 05",
     "nombre": "Cuenca endorreica de Fuente de Piedra",
-    "indice": 0.58,
+    "indice": 0.49,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 06",
     "nombre": "Cuenca del río Vélez",
-    "indice": 0.89,
+    "indice": 0.86,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 07",
     "nombre": "Poljé de Zafarraya",
-    "indice": 0.9,
+    "indice": 0.86,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 08",
     "nombre": "Cuencas vertientes al mar entre la desembocadura del río Vélez y el río de la Miel",
-    "indice": 0.75,
+    "indice": 0.7,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 09",
     "nombre": "Cuencas vertientes al mar entre el río de la Miel y el río Guadalfeo",
-    "indice": 0.59,
+    "indice": 0.46,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 10",
     "nombre": "Cuenca del río Guadalfeo",
-    "indice": 0.91,
+    "indice": 0.84,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 11",
     "nombre": "Cuencas vertientes al mar entre las desembocaduras de los ríos Guadalfeo y Adra",
-    "indice": 0.91,
+    "indice": 0.85,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 12",
     "nombre": "Cuenca del río Adra y acuífero del Campo de Dalías",
-    "indice": 0.69,
+    "indice": 0.62,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 13",
     "nombre": "Cuenca del río Andarax",
-    "indice": 0.6,
+    "indice": 0.55,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 14",
     "nombre": "Comarca natural del Campo de Níjar",
-    "indice": 0.69,
+    "indice": 0.67,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 15",
     "nombre": "Cuencas de los ríos Carboneras y Aguas",
-    "indice": 0.76,
+    "indice": 0.71,
     "estado": "Ausencia"
    },
    {
     "codigo": "UTS 16",
     "nombre": "Cuenca del Almanzora",
-    "indice": 0.75,
+    "indice": 0.71,
     "estado": "Ausencia"
    }
   ],
@@ -860,7 +860,7 @@
    "UTE 14",
    "UTE 15"
   ],
-  "modificado": "Mon, 05 Oct 2026 07:24:14 GMT",
+  "modificado": "Wed, 04 Nov 2026 12:38:16 GMT",
   "enlace": "https://www.redhidrosurmedioambiente.es/saih/assets/pdf/InformeSequia.pdf",
   "pagina": "https://www.redhidrosurmedioambiente.es/saih/",
   "fuente": "Junta de Andalucía (SAIH Hidrosur, informe de escasez y sequía)"
@@ -870,19 +870,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-04",
-  "nombre": "Potaje de acelgas",
+  "fecha": "2026-11-05",
+  "nombre": "Olla de trigo",
   "tiempo": {
    "temperature": "mild",
    "rain": "rain likely",
    "wind": "light wind",
-   "sky": "Muy nuboso con lluvia"
+   "sky": "Intervalos nubosos con lluvia escasa"
   },
   "recientes": [
-   {
-    "fecha": "2026-10-29",
-    "nombre": "Crema de calabaza"
-   },
    {
     "fecha": "2026-10-30",
     "nombre": "Lentejas con verduras"
@@ -906,11 +902,15 @@
    {
     "fecha": "2026-11-04",
     "nombre": "Potaje de acelgas"
+   },
+   {
+    "fecha": "2026-11-05",
+    "nombre": "Olla de trigo"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-04",
+  "fecha": "2026-11-05",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/213/20": {
     "tipo": "convocatoria",
@@ -1065,6 +1065,14 @@
  },
  "etiquetas": {
   "alim": {
+   "https://www.aesan.gob.es/alertas/2026_79": {
+    "alergeno": "ninguno",
+    "producto": "lacteos"
+   },
+   "https://www.aesan.gob.es/alertas/2026_80": {
+    "alergeno": "ninguno",
+    "producto": "carne"
+   },
    "https://www.aesan.gob.es/alertas/2026_78": {
     "alergeno": "ninguno",
     "producto": "complementos"
@@ -1080,10 +1088,6 @@
    "https://www.aesan.gob.es/alertas/2026_77": {
     "alergeno": "huevo",
     "producto": "pescado"
-   },
-   "https://www.aesan.gob.es/alertas/2026_69": {
-    "alergeno": "gluten",
-    "producto": "cereales"
    }
   },
   "med": {
@@ -1137,6 +1141,36 @@
    }
   },
   "ofertas": {
+   "691333": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a Especialista de Apoyo a la Investigación - 2486",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-16",
+    "nivel": "grado",
+    "experiencia": 0.95,
+    "colectivo": "general"
+   },
+   "691267": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a Especialista de Apoyo a la Investigación -2485",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-16",
+    "nivel": "grado",
+    "experiencia": 0.95,
+    "colectivo": "general"
+   },
+   "691435": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Monitora o monitor sociosanitario de la Comunidad Terapéutica de Tarifa (Cádiz) (2699)",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-06",
+    "nivel": "fp_superior",
+    "experiencia": 0.05,
+    "colectivo": "general"
+   },
    "690832": {
     "zona": false,
     "zv": 4,
@@ -1145,26 +1179,6 @@
     "hasta": "2026-11-09",
     "nivel": "grado",
     "experiencia": 0.06,
-    "colectivo": "general"
-   },
-   "690754": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o Monitor de Cocina para la Comunidad Terapéutica de Los Palacios",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.86,
-    "colectivo": "general"
-   },
-   "690745": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o monitor de Limpieza para la Comunidad Terapéutica de Cartaya",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_medio",
-    "experiencia": 0.79,
     "colectivo": "general"
    },
    "690730": {
@@ -1187,6 +1201,26 @@
     "experiencia": 0.83,
     "colectivo": "general"
    },
+   "690754": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Monitora o Monitor de Cocina para la Comunidad Terapéutica de Los Palacios",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "fp_superior",
+    "experiencia": 0.86,
+    "colectivo": "general"
+   },
+   "690745": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Monitora o monitor de Limpieza para la Comunidad Terapéutica de Cartaya",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "fp_medio",
+    "experiencia": 0.79,
+    "colectivo": "general"
+   },
    "690112": {
     "nivel": "grado",
     "experiencia": 0.04,
@@ -1207,13 +1241,13 @@
     "colectivo": "general",
     "zv": 4
    },
-   "689971": {
+   "687547": {
     "nivel": "grado",
-    "experiencia": 0.55,
+    "experiencia": 0.05,
     "zona": false,
-    "puesto": "Jefatura de Área de Gestión de Medio Hídrico y Actuaciones en Cuencas",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-04",
+    "puesto": "Titulado/a Superior Administración de Sistemas",
+    "entidad": "Agencia Andaluza de Instituciones Culturales",
+    "hasta": "2026-11-06",
     "colectivo": "general",
     "zv": 4
    },
@@ -1227,16 +1261,6 @@
     "colectivo": "general",
     "zv": 4
    },
-   "687547": {
-    "nivel": "grado",
-    "experiencia": 0.05,
-    "zona": false,
-    "puesto": "Titulado/a Superior Administración de Sistemas",
-    "entidad": "Agencia Andaluza de Instituciones Culturales",
-    "hasta": "2026-11-06",
-    "colectivo": "general",
-    "zv": 4
-   },
    "689338": {
     "nivel": "fp_medio",
     "experiencia": 0.05,
@@ -1244,16 +1268,6 @@
     "puesto": "INSPECTOR/A DE ITV",
     "entidad": "Verificaciones Industriales de Andalucía S.A.",
     "hasta": "2026-11-11",
-    "colectivo": "general",
-    "zv": 4
-   },
-   "689083": {
-    "nivel": "grado",
-    "experiencia": 0.88,
-    "zona": false,
-    "puesto": "Científico/a de Datos - 2481",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-09",
     "colectivo": "general",
     "zv": 4
    },
@@ -1272,6 +1286,16 @@
     "experiencia": 0.97,
     "zona": false,
     "puesto": "Investigador/a Posdoctoral en Machine Learning -2482",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-09",
+    "colectivo": "general",
+    "zv": 4
+   },
+   "689083": {
+    "nivel": "grado",
+    "experiencia": 0.88,
+    "zona": false,
+    "puesto": "Científico/a de Datos - 2481",
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
     "hasta": "2026-11-09",
     "colectivo": "general",
@@ -1300,13 +1324,19 @@
     "entidad": "junta",
     "colectivo": "general",
     "experiencia": 0.06
+   },
+   "01-2026-49200": {
+    "nivel": "no_consta",
+    "entidad": "junta",
+    "colectivo": "general",
+    "experiencia": 0.06
    }
   },
   "agenda": {},
-  "fecha": "2026-11-04"
+  "fecha": "2026-11-05"
  },
  "fap": {
-  "fecha": "2026-11-04",
+  "fecha": "2026-11-05",
   "novedades": [
    {
     "tipo": "noticia",
@@ -1354,6 +1384,11 @@
     "anuncia": 0.06,
     "cambio": 0.1,
     "persona": 0.0
+   },
+   "7e554cb63c1b": {
+    "anuncia": 0.61,
+    "cambio": 0.04,
+    "persona": 0.02
    },
    "cb07881418ec": {
     "anuncia": 0.02,
@@ -1474,28 +1509,6 @@
  },
  "cruceros": {
   "lista": [
-   {
-    "fecha": "2026-11-04",
-    "dia": "miércoles",
-    "entrada": "08:00",
-    "salida": "19:00",
-    "barco": "Club Med2",
-    "naviera": "Club Med",
-    "pasajeros": 386,
-    "desde": "Alicante",
-    "hacia": "Malaga"
-   },
-   {
-    "fecha": "2026-11-04",
-    "dia": "miércoles",
-    "entrada": "08:00",
-    "salida": "18:00",
-    "barco": "Marella Explorer 2",
-    "naviera": "Marella Cruises",
-    "pasajeros": 2000,
-    "desde": "Alicante",
-    "hacia": "Malaga"
-   },
    {
     "fecha": "2026-11-05",
     "dia": "jueves",
