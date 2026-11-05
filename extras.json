@@ -364,7 +364,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-05",
- "actualizado": "2026-11-05T11:47+01:00",
+ "actualizado": "2026-11-05T12:44+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -1932,5 +1932,35 @@
   "pdf": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/09/maritimas_almeria_20260930.pdf",
   "url": "https://www.juntadeandalucia.es/organismos/saludyconsumo/areas/entornos-saludables/salud-ambiental/paginas/zonas-bano.html",
   "fuente": "Junta de Andalucía (Consejería de Sanidad)"
- }
+ },
+ "agendaJunta": [
+  {
+   "titulo": "Posidonia oceánica: un símbolo de conservación en el Mediterráneo",
+   "fecha": "2026-11-07",
+   "lugar": "Almería",
+   "km": 50,
+   "fuente": "Junta de Andalucía",
+   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
+   "horario": "De 08:00h a 14:00h",
+   "precio": "Actividad gratuita"
+  },
+  {
+   "titulo": "II Jornada de Empleo, Formación y Emprendimiento de Huércal de Almería",
+   "fecha": "2026-11-10",
+   "lugar": "Huércal de Almería",
+   "km": 54,
+   "fuente": "Junta de Andalucía",
+   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
+   "horario": "De 10:00 a 14:00 y de 16:00 a 18:00 horas"
+  },
+  {
+   "titulo": "XLIII Jornadas Universitarias Andaluzas de Derecho del Trabajo y Relaciones Laborales \"Redefiniendo el papel de las fuentes del Derecho del Trabajo en el contexto actual\"",
+   "fecha": "2026-11-26",
+   "lugar": "Almería",
+   "km": 50,
+   "fuente": "Junta de Andalucía",
+   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
+   "hasta": "2026-11-27"
+  }
+ ]
 }

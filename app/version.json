@@ -1,8 +1,8 @@
 {
-  "versionCode": 57,
-  "versionName": "4.26",
+  "versionCode": 58,
+  "versionName": "4.27",
   "apk": "app/Tiempo.apk",
-  "sha256": "22a9b52934d5258fb3a18a2e4b95c092d20215ad7117944c797fcffbdb42affd",
-  "bytes": 1258205,
-  "notas": "Pantallas nuevas: Clima, Aire y sol, Tormentas y Naturaleza; playas de la Junta y corriente en Mar; solo la lonja de Adra; pestañas reordenadas; el sol de fondo, suave en la tele"
+  "sha256": "a1c89d965a836265f46cd253cbca19b0229b4a57849e6459a9f0d18d5f692fa2",
+  "bytes": 1269605,
+  "notas": "Zonas inundables con el zoom del puerto, ozono, agenda cultural de la Junta, fotos de las especies y la cámara de Adra más grande en Carretera"
 }

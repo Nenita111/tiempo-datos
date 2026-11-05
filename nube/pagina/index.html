@@ -607,6 +607,7 @@ footer.ap1 .tabs .tab.on{margin:0 6px}footer.ap1 .tabs .tab.on::before{left:-8px
 .ruta-g{display:grid;gap:14px;margin-top:2px}.ruta-g figure{margin:0;min-width:0}.ruta-g .rm{position:relative;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:704/576}
 .ruta-g img{width:100%;height:100%;object-fit:cover;display:block}.ruta-g figcaption{margin-top:6px;font-size:18px;line-height:1.3;color:var(--tx2);text-align:left}
 .ruta-g figcaption b{display:block;font-size:20px;font-weight:800;color:var(--tx);white-space:nowrap}.ruta-g .rm .prog{left:8px;right:8px;bottom:6px}
+.ruta.baja .rm{aspect-ratio:704/340}.ruta.baja figcaption{margin-top:4px;font-size:16px}.ruta.baja figcaption b{font-size:18px}
 .ruta.sola{display:flex;flex-direction:column}.ruta.sola .ruta-g{flex:1;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr))}
 .ruta.sola figure{display:flex;flex-direction:column;min-height:0}.ruta.sola .rm{aspect-ratio:auto;flex:1;min-height:0}
 .ruta-g .rm i{position:absolute;left:8px;top:8px;font-style:normal;font-size:15px;font-weight:800;background:rgba(9,14,24,.82);color:#dfe6ef;padding:2px 9px;border-radius:9px}
@@ -667,7 +668,7 @@ body.p-ahora{--h:205;--h2:250}body.p-semana{--h:198;--h2:168}body.p-agua{--h:200
 body.p-cielo{--h:246;--h2:286}body.p-espacio{--h:266;--h2:308}body.p-planeta{--h:150;--h2:192}body.p-casa{--h:36;--h2:12}body.p-alertas{--h:4;--h2:338}
 body.p-productos{--h:328;--h2:282}body.p-hoy{--h:44;--h2:196}body.p-carretera{--h:26;--h2:48}body.p-sismos{--h:12;--h2:36}body.p-mundo{--h:206;--h2:150}
 body.p-campo{--h:96;--h2:142}body.p-pescado{--h:196;--h2:232}body.p-noticias{--h:222;--h2:10}body.p-economia{--h:158;--h2:44}body.p-empleo{--h:262;--h2:212}
-body.p-sas{--h:172;--h2:204}body.p-clima{--h:14;--h2:44}body.p-aire{--h:168;--h2:48}body.p-tormentas{--h:262;--h2:46}body.p-naturaleza{--h:120;--h2:84}body.p-aviso{--h:24;--h2:2}
+body.p-sas{--h:172;--h2:204}body.p-clima{--h:14;--h2:44}body.p-aire{--h:168;--h2:48}body.p-tormentas{--h:262;--h2:46}body.p-inundaciones{--h:214;--h2:190}body.p-naturaleza{--h:120;--h2:84}body.p-aviso{--h:24;--h2:2}
 body{--c1:hsl(var(--h),92%,67%);--c2:hsl(var(--h2),88%,66%);--c1s:hsla(var(--h),92%,62%,.38);--kc:hsl(var(--h),62%,76%);
   --tile2:hsla(var(--h),50%,74%,.075);--linea:hsla(var(--h),40%,80%,.10);
   --velo:linear-gradient(162deg,hsla(var(--h),85%,72%,.085),hsla(var(--h),60%,60%,.012) 42%,rgba(255,255,255,.028));
@@ -761,6 +762,17 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .polvo{display:flex;flex-direction:column}.polvo .marco{position:relative;flex:1;min-height:200px;border-radius:14px;overflow:hidden;background:#fff}
 .polvo .marco img{width:100%;height:100%;object-fit:contain;display:block}.polvo .tag{left:12px;top:12px;font-size:19px;padding:8px 14px}
 .polvo .polvo-e{display:block;width:100%;height:auto;margin-top:10px;border-radius:6px;background:#fff}
+/* 4.27: Inundaciones y ozono */
+.inund{display:flex;flex-direction:column}.inund-f{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 820px;gap:24px}
+.inund-m{min-width:0;min-height:0;display:flex;flex-direction:column;align-items:center;gap:10px}.inund-m .marco{flex:1;min-height:0;max-width:100%}.inund-m .nota{align-self:stretch;margin:0}
+.inund-r{position:absolute;border:3px solid #ffd23f;border-radius:4px;box-shadow:0 0 0 2px rgba(0,0,0,.45)}
+.inund-z{margin:0 0 14px}.inund-z .marco{position:relative;width:100%;border-radius:14px;overflow:hidden;border:3px solid #ffd23f}
+.inund-z figcaption{font-size:18px;font-weight:700;color:var(--tx2);margin-top:6px;text-align:left}.inund-l{display:flex;flex-direction:column;min-height:0}
+.inund .marco{position:relative;border-radius:16px;overflow:hidden;background:#0c1826}.inund .marco img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.inund .marco img.capa{transition:opacity 1s}.inund .tag{left:14px;top:14px}
+.inund-l ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px}.inund-l li{display:flex;align-items:center;gap:12px;font-size:21px;font-weight:700;padding:9px 14px;border-radius:14px;cursor:pointer;color:var(--tx2)}
+.inund-l li.on{background:var(--tile2);color:var(--tx);box-shadow:inset 0 0 0 3px var(--c1)}.inund-l li i{width:26px;height:26px;border-radius:7px;flex:none}.inund-l li small{display:block;font-size:16px;color:var(--mu);font-weight:600}.inund-l .nota{margin-top:18px}
+.solt .marco{position:relative}.solt .tag{left:10px;top:10px;font-size:17px;padding:6px 12px}.solt .ozono{font-size:20px;margin-top:8px}
 /* 4.26: Naturaleza y Tormentas */
 .mapa-caja{width:100%;height:100%;display:block}.nat-mapa,.rayos-mapa,.nat-datos,.tormentas{display:flex;flex-direction:column}.nat-mapa .marco,.rayos-mapa .marco{flex:1;min-height:0}
 .nat-p{stroke:#fff;stroke-width:1.5;opacity:.9}.rayo-p{fill:none;stroke:#ffd23f;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}.rayo-u{fill:none;stroke:#ffd23f;stroke-width:4;stroke-dasharray:6 5}
@@ -771,7 +783,10 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .nat-at{font-size:16px;color:var(--mu);text-align:left;margin-top:2px}.k.sub{margin-top:14px}
 .nat-r{list-style:none}.nat-r li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--linea);font-size:20px}
 .nat-r li span{min-width:0;overflow:hidden;white-space:nowrap}.nat-r em{color:var(--mu);font-size:17px}.nat-r small{font-size:16px;color:var(--mu);font-weight:700;white-space:nowrap}
-.nat-r small.amen{color:var(--mal)}.nat-datos .nota{margin-top:auto;padding-top:10px}
+.nat-r small.amen{color:var(--mal)}
+.nat-f{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}.nat-f figure{position:relative;border-radius:12px;overflow:hidden;height:150px;background:var(--tile2)}
+.nat-f img{width:100%;height:100%;object-fit:cover;display:block}.nat-f figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 5px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;text-align:left}
+.nat-f figcaption b{display:block;font-size:16px;line-height:1.15;white-space:nowrap;overflow:hidden}.nat-f figcaption span{display:block;font-size:11px;opacity:.85;white-space:nowrap;overflow:hidden}.nat-datos .nota{margin-top:auto;padding-top:10px}
 .tor-max{font-size:24px;margin:4px 0 8px}.tor-barras{display:flex;align-items:flex-end;gap:2px;height:150px;border-bottom:2px solid var(--linea)}
 .tor-barras div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.tor-barras i{display:block;background:var(--acc);border-radius:3px 3px 0 0}
 .tor-barras span{position:absolute;bottom:-26px;left:0;font-size:15px;color:var(--mu);font-weight:700;white-space:nowrap}.tormentas .k.sub{margin-top:40px}
@@ -994,7 +1009,7 @@ const marcaTurno = (d, n, total) => total > n ? `<span class="turno">${n > 1 ? `
 const CORTABLES = ".ag-v h3,.ag-v p,.ag-p span,.ag-p b,.ag-p em,.lugar h1,.ab,.k,.k em,.fuente,.salir,.cm span,.mar-av,.ventanas b,.mr-k span,.gas li em," +
   ".sorteos .sq,.vu .of b,.traf li p b,.mar-txt,.al-desc,.not-l h2,.nlist b,.sorteos b,.cortes b,.ev p,.traf li p span,.santos," +
   ".cielo-t .iss b,.cielo-t .iss span,.cielo-t li b,.cielo-t li span,.rg-t b,.rg-t span,.rg-l span,.rg-fap,.ruta-g figcaption b,.seco small,.lst.anio li,.pr .precios .pn,.lst.mundo .ms,.leyenda-m,.l1 .fuente," +
-  ".sa-k span,.sa-s,.sa-r,.sa-l li span,.rg-esp,.bo-l li b,.eco-1 p,.eco-d,.rg-rt,.rg-club p,.rg-p li span,.rg-sede,.raif .precios li b,.resp-t p,.let li,.em-n,.emb-t span,.dia-l,.tramo,.ley-tr,.lonjap .lp li span,.pj li span:first-child,.nat-r li span";
+  ".sa-k span,.sa-s,.sa-r,.sa-l li span,.rg-esp,.bo-l li b,.eco-1 p,.eco-d,.rg-rt,.rg-club p,.rg-p li span,.rg-sede,.raif .precios li b,.resp-t p,.let li,.em-n,.emb-t span,.dia-l,.tramo,.ley-tr,.lonjap .lp li span,.pj li span:first-child,.nat-r li span,.nat-f figcaption b,.nat-f figcaption span";
 const UNA_LINEA = ".pr .precios .pn";
 function noCabe(el) { return el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight + 2; }
 function ajustarTextos(raiz) {
@@ -1427,14 +1442,14 @@ function qrSvg(url, cls, maxN) {
 }
 
 /* ---------- fuentes que llevan horas fallando: se dice en la cabecera de su pantalla, en gris, para no enseñar datos viejos como si fueran de hoy ---------- */
-const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], tormentas: ["rayos", "prevision"], clima: ["clima", "lluvia", "prevision"], naturaleza: ["naturaleza"],
+const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], tormentas: ["rayos", "prevision"], inundaciones: ["inundaciones"], clima: ["clima", "lluvia", "prevision"], naturaleza: ["naturaleza"],
   aire: ["aire", "radiacion", "radsol", "prevision"],
   agua: ["lluvia", "saih", "sequia", "agua"], mar: ["boya", "playas", "oleaje", "maritima", "mareas", "aguaBano"], cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
   espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
   alertas: ["alimentarias", "medicamentos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "olas", "regatas", "rfep"], carretera: ["camara", "ruta", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
   sismos: ["terremotos"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
   noticias: ["noticias", "cortesAgua", "sangre"]};
-const NOMBRE_FUENTE = {naturaleza: "biodiversidad (GBIF)", clima: "clima (AEMET)", radsol: "radiación solar (AEMET)", polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
+const NOMBRE_FUENTE = {inundaciones: "zonas inundables", naturaleza: "biodiversidad (GBIF)", clima: "clima (AEMET)", radsol: "radiación solar (AEMET)", polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
   renovable: "renovables", alimentarias: "alertas AESAN", efemerides: "efemérides", terremotos: "terremotos", futbol: "UD Almería",
   farmacias: "farmacias", campo: "precios del campo", lonja: "lonja", trafico: "tráfico", noticias: "noticias",
   ofertasEmpleo: "ofertas de empleo", sae: "ofertas del SAE", boja: "BOJA", boe: "BOE", iss: "Estación Espacial", lluvia: "lluvia medida", regatas: "regatas",
@@ -1477,7 +1492,7 @@ const esperandoHoy = (B = E) => deAyer(B).length > 0 && Date.now() - (B.arranque
      la DGT (45 min), la radiación (la última hora de la REA, 6 h) y el informe de sequía (50 días después de acabar su mes).
    Su tarjeta sale vacía o no sale, y arriba se dice qué falta y desde cuándo («⚠ Sin actualizar desde…»).
    Los avisos de AEMET no se quitan (cada uno dice hasta cuándo vale), pero sin datos al día no se dice «Sin avisos». */
-const VALE_H = {naturaleza: 24 * 7, clima: 24 * 40, radsol: 36, polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
+const VALE_H = {inundaciones: 24 * 120, naturaleza: 24 * 7, clima: 24 * 40, radsol: 36, polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
   comarca: 3, terremotos: 3, aire: 4,
   sol: 6, renovable: 6, sismosMundo: 6, boya: 6, prevision: 12, playas: 12, maritima: 12, oleaje: 12, noticias: 12, futbol: 12,
   lluvia: 12, mareas: 24, incendio: 24, alimentarias: 24, campo: 24, ofertasEmpleo: 24, sae: 24, boja: 24, boe: 24, planeta: 36, efemerides: 36,   farmacias: 36, gasolina: 48, medicamentos: 48, euribor: 48, espacio: 48, bolsaSas: 48, lonja: 72, productos: 72, regatas: 72, rfep: 72, paro: 72, afiliados: 72, ipc: 168,
@@ -1573,7 +1588,7 @@ const avisosFuertes = () => (E.avisos || []).filter(a => a.nivel >= 2).sort((a, 
    intentando evitar rotaciones y manteniendo la legibilidad, aumenta el número de pantallas si fuera necesario»): cada pantalla, de un
    tema y con sus listas enteras siempre que quepan a un tamaño que se lea. Las que no tienen nada que enseñar no salen. */
 const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente());
-const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayTormentas() ? ["tormentas"] : [], hayClima() ? ["clima"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], ["mar"], ["cielo"],
+const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayTormentas() ? ["tormentas"] : [], hayClima() ? ["clima"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayInundaciones() ? ["inundaciones"] : [], ["mar"], ["cielo"],
   E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayAlertas() ? ["alertas"] : [], hayProductos() ? ["productos"] : [],
   ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.terremotos ? ["sismos"] : [], E.sismosMundo ? ["mundo"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
@@ -1585,7 +1600,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
    el tiempo (ahora, semana, clima), lo que se respira (aire y sol), el agua y el mar, el cielo y el planeta, el día (hoy, casa, alertas,
    productos y noticias), moverse (carretera y trenes), la Tierra (terremotos y mundo) y el trabajo y el dinero (campo, pescado, economía,
    empleo y SAS). ORDEN_V: al cambiar el orden de siempre, el que se había guardado con el mando deja paso al nuevo una vez. */
-const ORDEN_BASE = ["ahora", "semana", "tormentas", "clima", "aire", "agua", "mar", "cielo", "espacio", "planeta", "naturaleza", "hoy", "casa", "alertas", "productos", "noticias",
+const ORDEN_BASE = ["ahora", "semana", "tormentas", "clima", "aire", "agua", "inundaciones", "mar", "cielo", "espacio", "planeta", "naturaleza", "hoy", "casa", "alertas", "productos", "noticias",
   "carretera", "trenes", "sismos", "mundo", "campo", "pescado", "economia", "empleo", "sas"];
 const ORDEN_V = 2;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
@@ -1620,12 +1635,12 @@ const paginas = () => {
 };
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
-const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", tormentas: "Tormentas", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
+const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", tormentas: "Tormentas", inundaciones: "Inundaciones", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
   alertas: "Alertas", productos: "Productos", hoy: "Hoy", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Pescado", noticias: "Noticias",
   economia: "Economía", empleo: "Empleo", sas: "SAS"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
   clima: "Fuentes: AEMET (valores normales 1981-2010 y extremos) · Junta de Andalucía (RIA, lluvia medida)",
-  tormentas: "Fuentes: EUMETSAT (rayos, satélite MTG) · AEMET (probabilidad de tormenta)", naturaleza: "Fuente: GBIF (red mundial de información sobre biodiversidad)",
+  tormentas: "Fuentes: EUMETSAT (rayos, satélite MTG) · AEMET (probabilidad de tormenta)", inundaciones: "Fuentes: MITECO (SNCZI) por la IDEE · IGN (ortofoto PNOA)", naturaleza: "Fuente: GBIF (red mundial de información sobre biodiversidad)",
   aire: "Fuentes: Agencia Europea de Medio Ambiente y Copernicus (aire) · CSN (radiación ambiental) · AEMET (UV y radiación solar) · OMS (consejos)",
   agua: "Fuentes: MITECO (boletín hidrológico) · Ministerio de Sanidad (SINAC, agua del grifo)",
   mar: "Fuentes: Puertos del Estado · AEMET · Junta de Andalucía y Agencia Europea de Medio Ambiente (agua de baño)",
@@ -2907,16 +2922,28 @@ function tarjetaUV(i) {
     ${S && S.soluvi ? `<div class="marco blanco"><img src="${esc(S.soluvi)}" alt="Índice UV medido ayer (AEMET)"></div>` : ""}</div>`;
 }
 const horasMin = m => { const t = Math.round(m); return `${Math.floor(t / 60)} h${t % 60 ? ` ${t % 60} min` : ""}`; };
+const NOTA_RAD = "Radiación global (la que llega al suelo) y difusa (la que llega sin sol directo, la de las nubes), en vatios por metro cuadrado; cuanto más se separan, más sol directo.";
+const NOTA_OZO = "Ozono total de cada día de este año (azul) frente a la media de años anteriores (negro), en unidades Dobson: con menos ozono, más UV.";
+function animarSolGraf() {   // 4.27: la radiación de ayer y el ozono del año, por turno
+  const im = document.getElementById("solGraf"), S = E.radsol, O = S && S.ozono, tag = document.getElementById("solGrafTag"), nota = document.getElementById("solGrafNota");
+  if (!im || !O || !O.grafica) return;
+  const F = [[S.solrad, "Radiación de ayer", NOTA_RAD], [O.grafica, `Ozono del año · ${O.estacion}`, NOTA_OZO]];
+  F.forEach(f => precargar(f[0]));
+  let k = 0, id = null;
+  const paso = () => { if (!im.isConnected) return; k = (k + 1) % 2; im.src = F[k][0]; if (tag) tag.textContent = F[k][1]; if (nota) nota.textContent = F[k][2]; id = setTimeout(paso, 6000); };
+  paradas.push(() => clearTimeout(id)); id = setTimeout(paso, 6000);
+}
 function tarjetaSolar(i) {
-  const S = E.radsol, C = E.clima, hoy = new Date(), N = C && (C.normales || [])[hoy.getMonth()], L = E.lugar;
+  const S = E.radsol, O = S && S.ozono, C = E.clima, hoy = new Date(), N = C && (C.normales || [])[hoy.getMonth()], L = E.lugar;
   if (!(S && S.solrad) && !(N && N.I)) return "";
   const dias = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0).getDate(), luz = solDia(hoy, L.lat, L.lon).dur, sol = N && N.I ? N.I / dias * 60 : null;
   const anillo = sol && luz ? (f => `<svg class="anillo-sol" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="fondo"/><circle cx="60" cy="60" r="50" class="sol" stroke-dasharray="${(f * 314.2).toFixed(1)} 400" transform="rotate(-90 60 60)"/>
       <text x="60" y="58" class="v">${Math.round(f * 100)} %</text><text x="60" y="80" class="e">de sol</text></svg>`)(Math.min(1, sol / luz)) : "";
   return `<div data-f="radsol clima" class="tile solt" style="--i:${i}"><div class="k">Radiación solar<em>${S && S.dia ? `medida ${diaFecha(S.dia)} · ${esc(S.estacion)}` : esc(C.estacion)}</em></div>
     ${anillo ? `<div class="sol-top">${anillo}<p>En ${MESES[hoy.getMonth()]} brilla el sol <b>${horasMin(sol)}</b> al día de media (${Math.round(N.I)} h en el mes, ${esc(C.estacion)}), de las <b>${horasMin(luz)}</b> de luz de hoy en ${esc(L.nombre)}.</p></div>` : ""}
-    ${S && S.solrad ? `<div class="marco blanco"><img src="${esc(S.solrad)}" alt="Radiación global y difusa medida ayer (AEMET)"></div>
-      <p class="nota">Radiación global (la que llega al suelo) y difusa (la que llega sin sol directo, la de las nubes), en vatios por metro cuadrado; cuanto más se separan, más sol directo.</p>` : ""}</div>`;
+    ${S && S.solrad ? `<div class="marco blanco"><img id="solGraf" src="${esc(S.solrad)}" alt="Radiación global y difusa medida ayer (AEMET)">${O ? `<div class="tag" id="solGrafTag">Radiación de ayer</div>` : ""}</div>
+      <p class="nota" id="solGrafNota">${NOTA_RAD}</p>` : ""}
+    ${O && O.ud != null ? `<p class="ozono">Ozono total en ${esc(O.estacion)}: <b>${O.ud} UD</b> (unidades Dobson; la capa que filtra el UV)</p>` : ""}</div>`;
 }
 const hayAire = () => !!((E.aire && E.aire.global) || radiacionCerca().length || tarjetaUV(0) || tarjetaSolar(0));
 function pAire() {
@@ -3007,11 +3034,14 @@ function tarjetaNatDatos(i) {
   const N = E.naturaleza, G = N.grupos || [], max = Math.max(...G.map(g => g[1]), 1), A = (N.anios || []).slice(-15), amax = Math.max(...A.map(a => a[1]), 1);
   const barras = G.slice(0, 7).map(([g, n]) => `<li><span>${esc(g)}</span><u><i style="width:${(n / max * 100).toFixed(1)}%;background:${colorGrupo(g)}"></i></u><b>${miles(n)}</b></li>`).join("");
   const anios = A.map(([a, n]) => `<div title="${a}"><i style="height:${Math.max(2, n / amax * 100).toFixed(0)}%"></i><span>${String(a).slice(2)}</span></div>`).join("");
+  const F = (N.fotos || []).slice(0, 6);   // 4.27 (lo pidió Isa: «añade imágenes de las especies»): con fotos, las fotos
   const R = (N.recientes || []).slice(0, 6).map(r => `<li><span><b>${esc(r.nombre || r.especie)}</b>${r.nombre ? ` <em>${esc(r.especie)}</em>` : ""}${r.amenaza ? ` <small class="amen">${{VU: "vulnerable", EN: "en peligro", CR: "en peligro crítico"}[r.amenaza]}</small>` : ""}</span><small>${esc(r.grupo)} · ${diaFecha(r.fecha)}</small></li>`).join("");
   return `<div data-f="naturaleza" class="tile nat-datos" style="--i:${i}"><div class="k">Especies registradas en el entorno<em>${miles(N.total)} registros</em></div>
     <ul class="nat-g">${barras}</ul><div class="nat-a">${anios}</div><p class="nat-at">Registros de cada año (los de iNaturalist y otros crecen desde 2017)</p>
-    <div class="k sub">Lo último visto</div><ul class="nat-r">${R}</ul>
-    <p class="nota">Unos 27 × 22 km alrededor de ${esc(E.lugar.nombre)}, con el mar. Los registros no deben interpretarse como censos completos ni como presencia actual confirmada: es lo que alguien vio y apuntó (museos, herbarios, censos y observaciones de aficionados). «Vulnerable» y «en peligro», de la lista roja de la UICN.</p></div>`;
+    ${F.length >= 3 ? `<div class="k sub">Fotos de lo visto<em>los dos últimos meses</em></div><div class="nat-f">${F.map(f => `<figure><img src="${esc(f.url)}" alt="">
+      <figcaption><b>${esc(f.nombre || f.especie)}</b><span>${diaFecha(f.fecha)} · © ${esc(f.autor)} · ${esc(f.licencia)}</span></figcaption></figure>`).join("")}</div>`
+      : `<div class="k sub">Lo último visto</div><ul class="nat-r">${R}</ul>`}
+    <p class="nota">Unos 27 × 22 km alrededor de ${esc(E.lugar.nombre)}, con el mar. Los registros no deben interpretarse como censos completos ni como presencia actual confirmada: es lo que alguien vio y apuntó (museos, herbarios, censos y observaciones de aficionados). «Vulnerable» y «en peligro», de la lista roja de la UICN.${F.length >= 3 ? " Fotos de quienes las vieron (iNaturalist y otros, por GBIF), con su licencia." : ""}</p></div>`;
 }
 const pNaturaleza = () => `<div class="main" style="grid-template-columns:minmax(0,1fr) 760px">${tarjetaNatMapa(1)}${tarjetaNatDatos(2)}</div>`;
 /* ---------- 4.26 (lo pidió Isa el 5 nov 2026: «actividad eléctrica atmosférica»): los rayos que ve el satélite MTG ahora (zona del radar), el
@@ -3047,6 +3077,36 @@ function tarjetaTormentas(i) {
     <p class="nota">Rayos del satélite Meteosat de tercera generación (EUMETSAT), los que ha visto la tele mientras estaba encendida.</p></div>`;
 }
 const pTormentas = () => `<div class="main" style="grid-template-columns:minmax(0,1fr) 700px">${tarjetaRayosMapa(1)}${tarjetaTormentas(2)}</div>`;
+/* ---------- 4.27 (lo pidió Isa el 5 nov 2026: «mapa de peligrosidad por inundaciones»): las zonas inundables oficiales (SNCZI, por la IDEE)
+   sobre la ortofoto del PNOA: cada escenario por turno (5 s); en el móvil y en el ordenador, tocando la leyenda se elige uno. Son escenarios
+   de peligrosidad, no una previsión. ---------- */
+const hayInundaciones = () => !!(E.inundaciones && E.inundaciones.base && (E.inundaciones.capas || []).length);
+const COLOR_INUND = {FluvialT10: "#0526da", FluvialT100: "#0526da", FluvialT500: "#0526da", MarinaT100: "#189df1", MarinaT500: "#189df1"};   // los del mapa oficial
+function pInundaciones() {
+  const I = E.inundaciones, C = I.capas, Z = I.zoom && I.zoom.base && (I.zoom.capas || []).length === C.length ? I.zoom : null;
+  // 4.27 (lo pidió Isa: «haz un zoom en un recuadro con 2 km alrededor del puerto» y «haz el zoom más grande y que se vea el puerto pero no
+  // el agua de debajo»): el recuadro en el mapa grande y su zoom al lado, a 820 px de ancho, con la leyenda a dos columnas debajo
+  const c = I.caja, pc = (v, a, b) => ((v - a) / (b - a) * 100).toFixed(2);
+  const caja = Z ? `<div class="inund-r" style="left:${pc(Z.caja[0], c[0], c[2])}%;right:${(100 - pc(Z.caja[2], c[0], c[2])).toFixed(2)}%;top:${(100 - pc(Z.caja[3], c[1], c[3])).toFixed(2)}%;bottom:${pc(Z.caja[1], c[1], c[3])}%"></div>` : "";
+  const zoom = Z ? `<figure class="inund-z"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1}"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}</div>
+      <figcaption>${esc(Z.puerto)} y ${coma(Z.interior || 1.5, 1)} km tierra adentro, ${coma(Z.km, 0)} km a cada lado</figcaption></figure>` : "";
+  return `<div class="main" style="grid-template-columns:1fr"><div data-f="inundaciones" class="tile inund"><div class="k">Zonas inundables<em>escenarios oficiales · no es una previsión</em></div>
+    <div class="inund-f"><div class="inund-m"><div class="marco" style="aspect-ratio:${I.ancho || 1400}/${I.alto || 914}"><img class="base" src="${esc(I.base)}" alt="">${C.map((c, k) => `<img class="capa" id="inund${k}" src="${esc(c.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}
+      ${caja}<div class="tag" id="inundTag">${esc(C[0].nombre)}</div></div>
+      <p class="nota">Lo que se inundaría con una crecida del río o un temporal en la costa que de media pasa una vez cada 10, 100 o 500 años (Sistema Nacional de Cartografía de Zonas Inundables, del Ministerio para la Transición Ecológica, por la IDEE). Escenarios de peligrosidad: no dicen que vaya a pasar ahora.</p></div>
+    <div class="inund-l">${zoom}<ul>${C.map((c, k) => `<li data-k="${k}" class="${k ? "" : "on"}"><i style="background:${COLOR_INUND[c.id] || "#4aa3ff"}"></i><span>${esc(c.nombre)}${c.vacia ? "<small>sin zona cartografiada aquí</small>" : ""}</span></li>`).join("")}</ul></div></div></div></div>`;
+}
+function animarInundaciones() {
+  const C = (E.inundaciones || {}).capas || [], tag = document.getElementById("inundTag");
+  if (!tag || C.length < 2) return;
+  let k = 0, id = null, fijo = false;
+  const ver = j => { k = j; C.forEach((c, n) => { ["inund", "inundZ"].forEach(p => { const im = document.getElementById(p + n); if (im) im.style.opacity = n === j ? 1 : 0; }); });
+    tag.textContent = C[j].nombre + (C[j].vacia ? " · sin zona cartografiada aquí" : ""); document.querySelectorAll(".inund-l li").forEach(li => li.classList.toggle("on", +li.dataset.k === j)); };
+  document.querySelectorAll(".inund-l li").forEach(li => li.addEventListener("click", () => { fijo = true; ver(+li.dataset.k); }));   // móvil y ordenador
+  const paso = () => { if (!tag.isConnected) return; if (!fijo) ver((k + 1) % C.length); id = setTimeout(paso, 5000); };
+  paradas.push(() => clearTimeout(id));
+  id = setTimeout(paso, 5000);
+}
 function tarjetaGas() {
   const G = (E.gasolina && E.gasolina.estaciones) || [];
   // las tres más baratas de cada combustible (lo pidió Isa el 28 oct 2026); la segunda y la tercera, en filas más pequeñas
@@ -3388,7 +3448,10 @@ function lapsoRuta() {
 function pCarretera() {
   const cam = tarjetaCamara(1), ruta = tarjetaRuta(2, cam ? 0 : 2), ae = tarjetaAeropuerto(6);
   // 4.17: el aeropuerto, debajo de las cámaras (o, sin ellas, debajo del tráfico)
-  const izq = [cam, ruta, cam || ruta ? ae : ""].filter(Boolean);
+  // 4.27 (lo pidió Isa el 5 nov 2026: «haz que la cámara de la DGT de Adra sea igual o más grande que el resto»): con la cámara del pueblo,
+  // las del camino y el aeropuerto, las del camino, más bajas (recortadas por arriba y por abajo): la del pueblo se quedaba en 100 px de
+  // alto y las del camino, en 193
+  const izq = [cam, cam && ae && ruta ? ruta.replace('class="tile ruta', 'class="tile ruta baja') : ruta, cam || ruta ? ae : ""].filter(Boolean);
   const der = [tarjetaTrafico(3), tarjetaAutobus(4, izq.length ? 3 : 4), hayVuelos() ? tarjetaVuelosTodo(5) : ""].filter(Boolean);
   const col = (l, filas) => `<div class="col" style="grid-template-rows:${filas}">${l.join("")}</div>`;
   const filasIzq = ["1fr"].concat(izq.slice(1).map(() => "auto")).join(" ");
@@ -3682,6 +3745,8 @@ function agendaProxima() {
   const sangre = colectasSangre().map(c => ({titulo: "Donación de sangre", fecha: c.fecha, hora: horasColecta(c), lugar: c.oficial ? tit(c.lugar) : c.lugar, enlace: c.enlace, sangre: true}));
   return ((E.extras || {}).agenda || []).filter(a => a.titulo && a.fecha && (a.hasta || a.fecha) >= hoy && a.fecha <= tope
       && (!a.ine || !E.lugar.ine || a.ine === E.lugar.ine)).concat(sangre)   // 3.9: solo las del pueblo (como los cortes y las colectas)
+    .concat(((E.extras || {}).agendaJunta || []).filter(a => a.titulo && a.fecha && (a.hasta || a.fecha) >= hoy && a.fecha <= isoDe(new Date(Date.now() + 30 * 864e5)))
+      .map(a => ({...a, hora: a.horario ? (a.horario.match(/\d{1,2}[:.]\d{2}/) || [""])[0].replace(".", ":") : "", lugar: `${a.lugar} · Junta de Andalucía`, junta: true})))   // 4.27
     .sort((a, b) => (a.fecha + (a.hora || "")).localeCompare(b.fecha + (b.hora || "")));
 }
 /* colectas de sangre en el pueblo (lo pidió Isa el 28 oct 2026: «cuando conste como programada»): las de la tabla oficial del centro
@@ -3723,7 +3788,7 @@ function tarjetaAgenda(i = 5, n = 8) {
   const A = agendaProxima();
   if (!A.length) return "";
   const t = enTurno("agenda", A, n);
-  return `<div data-f="x sangre" class="tile agenda" style="--i:${i}"><div class="k">Agenda de ${esc(E.lugar.nombre)}<em>próximos días</em></div><ul ${t.attr}>
+  return `<div data-f="x sangre" class="tile agenda" style="--i:${i}"><div class="k">Agenda de ${esc(E.lugar.nombre)}${A.some(a => a.junta) ? " y alrededores" : ""}<em>próximos días</em></div><ul ${t.attr}>
     ${t.items.map(a => `<li ${claveNuevo("ag:" + a.titulo + a.fecha)}${a.sangre ? ' class="sangre"' : ""}><div><span class="ag-c">${cuandoAgenda(a)}</span><b>${a.sangre ? GOTA_SANGRE : ""}${esc(a.titulo)}${marcaNuevo("ag:" + a.titulo + a.fecha)}</b>${a.lugar ? `<span>${esc(a.lugar)}</span>` : ""}${a.sangre ? "" : etiquetasAgenda(a)}</div>${qrSvg(a.enlace, "qr nq", 54)}</li>`).join("")}</ul></div>`;
 }
 
@@ -4427,7 +4492,7 @@ function tarjetaAgua() {
       ${qrPie(A.url, "SINAC, Ministerio de Sanidad", 56)}</div></div>`;
 }
 /* ---------- pintar ---------- */
-const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, tormentas: pTormentas, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
+const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, tormentas: pTormentas, inundaciones: pInundaciones, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
   alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
   economia: pEconomia, empleo: pEmpleo, sas: pSas};
 function pintar() {
@@ -4602,7 +4667,7 @@ function animar(p) {
   pararMovimiento();
   if (p === "ahora") { if (document.getElementById("radar")) radar(); else if (document.getElementById("sat")) satelite(); }
   // 3.2: lo que se mueve en las demás pantallas (cada cosa, si está en la pantalla)
-  for (const [id, f] of [["mtg", animarMtg], ["calarVivo", calarEnDirecto], ["globo", girarTierra], ["dgtFoto", lapsoDgt], ["olasMapa", animarOlas], ["polvoMapa", animarPolvo], ["incendioMapa", animarIncendio], ["trenesMapa", dibujarTrenes]])
+  for (const [id, f] of [["mtg", animarMtg], ["calarVivo", calarEnDirecto], ["globo", girarTierra], ["dgtFoto", lapsoDgt], ["olasMapa", animarOlas], ["polvoMapa", animarPolvo], ["incendioMapa", animarIncendio], ["inundTag", animarInundaciones], ["solGraf", animarSolGraf], ["trenesMapa", dibujarTrenes]])
     if (document.getElementById(id)) try { f(); } catch (e) {}
   if (document.querySelector(".ruta-g")) try { lapsoRuta(); } catch (e) {}
 }
