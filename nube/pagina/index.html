@@ -35,9 +35,11 @@ body.claro{background:var(--granoimg,none) 0 0/160px 160px,radial-gradient(1400p
 body:not(.p-ahora):not(.p-mar) #amb{display:none}body.p-mar #amb>div:not(.a-olas){display:none}   /* la animación del tiempo, solo en la pantalla Ahora (lo pidió Isa el 27 oct 2026) */
 #amb>div{position:absolute;opacity:0;transition:opacity 2.5s ease}
 .a-sol{right:-420px;top:-560px;width:1320px;height:1320px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,190,80,.34),rgba(255,170,60,.10) 48%,rgba(255,170,60,0))}
-.a-rayos{right:-640px;top:-780px;width:1760px;height:1760px;border-radius:50%;
-  background:repeating-conic-gradient(from 0deg,rgba(255,205,110,.13) 0deg 3.5deg,rgba(255,205,110,0) 3.5deg 12deg);
-  -webkit-mask-image:radial-gradient(closest-side,#000 14%,rgba(0,0,0,0) 70%);animation:gira 150s steps(600) infinite}
+/* 4.26 (lo pidió Isa el 5 nov 2026: «la animación del sol la veo mucho mejor y realista en el PC que en la tele»): los rayos eran un degradado
+   cónico con máscara de 1760 px que la tele repintaba a saltos y la calidad automática quitaba (calidad 1); ahora son una imagen hecha una
+   vez (rayosSol, con la máscara dentro) que la tarjeta gráfica gira sola, sin repintar: suave en la tele y en todas las calidades (en la 0, quieta) */
+.a-rayos{right:-640px;top:-780px;width:1760px;height:1760px;border-radius:50%;background:center/100% 100% no-repeat;will-change:transform;
+  animation:gira 150s linear infinite}
 @keyframes gira{to{transform:rotate(360deg)}}
 .a-luna{right:-260px;top:-320px;width:920px;height:920px;border-radius:50%;background:radial-gradient(closest-side,rgba(200,215,255,.16),rgba(200,215,255,0))}
 .a-est{inset:0}.a-est canvas{position:absolute;left:0;top:0;width:1920px;height:1080px}
@@ -73,8 +75,7 @@ body:not(.p-ahora):not(.p-mar) #amb{display:none}body.p-mar #amb>div:not(.a-olas
 .a-olas path{fill:var(--olacol)}
 @keyframes ola{to{transform:translateX(-1920px)}}
 
-/* calidad automática: 2 completa · 1 ligera (sin rayos de sol ni capas dobles) · 0 mínima (fondos quietos) */
-html[data-calidad="1"] .a-rayos,html[data-calidad="0"] .a-rayos{display:none!important}
+/* calidad automática: 2 completa · 1 ligera (sin capas dobles) · 0 mínima (fondos quietos) */
 html[data-calidad="1"] .a-olas svg+svg,html[data-calidad="0"] .a-olas svg+svg{display:none}
 html[data-calidad="1"] .a-est canvas+canvas,html[data-calidad="1"] .a-calor::after,html[data-calidad="1"] .nueva .tile{animation:none}
 html[data-calidad="0"] #amb *,html[data-calidad="0"] #amb *::before,html[data-calidad="0"] #amb *::after,html[data-calidad="0"] .tile,html[data-calidad="0"] .alarma::after{animation:none!important}
@@ -177,7 +178,7 @@ footer{height:46px;flex:none;display:flex;justify-content:space-between;align-it
 /* ---------- 3. mar y cielo ---------- */
 .p-mar .main{grid-template-columns:1fr 680px}
 .p-mar .col.izq{grid-template-rows:auto 1fr auto}.p-mar .col.der{grid-template-rows:auto 1fr}
-.boya{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.boya{display:grid;grid-template-columns:repeat(var(--n,6),minmax(0,1fr));gap:8px}
 .boya b{display:block;font-size:42px;line-height:1;color:var(--mar)}.boya b small{font-family:Atkinson,sans-serif;font-size:21px;color:var(--tx2);font-weight:700;letter-spacing:0;margin-left:4px}
 .boya span{display:block;margin-top:8px;font-size:19px;color:var(--mu);font-weight:700}
 .pm{display:grid;grid-template-columns:190px repeat(3,1fr);gap:12px 14px;align-items:center}
@@ -591,7 +592,8 @@ footer.ap1 .tabs .tab.on{margin:0 6px}footer.ap1 .tabs .tab.on::before{left:-8px
 .planeta-t.grande .pl-d>div{display:grid;grid-template-columns:400px minmax(0,1fr);grid-template-rows:auto auto;column-gap:26px;align-items:center;padding:16px 22px;border-radius:20px;background:var(--tile2)}
 .planeta-t.grande .pl-d span{grid-column:1;font-size:16px}.planeta-t.grande .pl-d b{grid-column:1;font-size:54px}.planeta-t.grande .pl-d p{grid-column:2;grid-row:1/3;font-size:21px;line-height:1.35}
 .aire p{font-size:19px;color:var(--mu);font-weight:600;margin-top:4px;text-align:left}
-.p-planeta .aire-t{display:flex;flex-direction:column}.p-planeta .aire-t .aire6{gap:14px;margin-top:22px}
+.p-aire .aire-t{display:flex;flex-direction:column}.p-aire .aire6 li:not(.sub){grid-template-columns:1fr auto;row-gap:4px}.p-aire .aire6 li:not(.sub) .esc6{grid-column:1/-1;grid-row:2}
+.p-aire .aire6 li.rad span{white-space:nowrap}.p-planeta .aire-t{display:flex;flex-direction:column}.p-planeta .aire-t .aire6{gap:14px;margin-top:22px}
 /* alertas y productos */
 .alims .pp-m em.al-tipo{font-style:normal;font-size:15px;font-weight:800;padding:2px 10px;border-radius:99px;margin-right:8px;white-space:nowrap}
 .al-tipo.al-general{background:#e53935;color:#fff}.al-tipo.al-complementos{background:#8e44ad;color:#fff}
@@ -665,7 +667,7 @@ body.p-ahora{--h:205;--h2:250}body.p-semana{--h:198;--h2:168}body.p-agua{--h:200
 body.p-cielo{--h:246;--h2:286}body.p-espacio{--h:266;--h2:308}body.p-planeta{--h:150;--h2:192}body.p-casa{--h:36;--h2:12}body.p-alertas{--h:4;--h2:338}
 body.p-productos{--h:328;--h2:282}body.p-hoy{--h:44;--h2:196}body.p-carretera{--h:26;--h2:48}body.p-sismos{--h:12;--h2:36}body.p-mundo{--h:206;--h2:150}
 body.p-campo{--h:96;--h2:142}body.p-pescado{--h:196;--h2:232}body.p-noticias{--h:222;--h2:10}body.p-economia{--h:158;--h2:44}body.p-empleo{--h:262;--h2:212}
-body.p-sas{--h:172;--h2:204}body.p-aviso{--h:24;--h2:2}
+body.p-sas{--h:172;--h2:204}body.p-clima{--h:14;--h2:44}body.p-aire{--h:168;--h2:48}body.p-tormentas{--h:262;--h2:46}body.p-naturaleza{--h:120;--h2:84}body.p-aviso{--h:24;--h2:2}
 body{--c1:hsl(var(--h),92%,67%);--c2:hsl(var(--h2),88%,66%);--c1s:hsla(var(--h),92%,62%,.38);--kc:hsl(var(--h),62%,76%);
   --tile2:hsla(var(--h),50%,74%,.075);--linea:hsla(var(--h),40%,80%,.10);
   --velo:linear-gradient(162deg,hsla(var(--h),85%,72%,.085),hsla(var(--h),60%,60%,.012) 42%,rgba(255,255,255,.028));
@@ -753,10 +755,62 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .mn li.off .mn-v{background:var(--tile2);color:var(--mu)}.mn li.off b{color:var(--mu);text-decoration:line-through;text-decoration-thickness:2px}
 .mn li .mn-s{min-width:120px;text-align:right;font-size:20px;font-weight:700;color:var(--tx2)}
 .mn li.mn-x b{color:var(--c1)}.mn li.mn-x span{margin-left:auto;font-size:18px;color:var(--mu);font-weight:600}
+/* 4.26: con más pantallas, filas más bajas para que el menú quepa entero */
+.mn ol.apretado{row-gap:3px}.mn ol.apretado li{min-height:44px;padding:5px 18px;font-size:22px}
 .mn li.sel{background:var(--tile2);box-shadow:inset 0 0 0 3px var(--c1),0 0 26px -6px var(--c1s)}
 .polvo{display:flex;flex-direction:column}.polvo .marco{position:relative;flex:1;min-height:200px;border-radius:14px;overflow:hidden;background:#fff}
 .polvo .marco img{width:100%;height:100%;object-fit:contain;display:block}.polvo .tag{left:12px;top:12px;font-size:19px;padding:8px 14px}
 .polvo .polvo-e{display:block;width:100%;height:auto;margin-top:10px;border-radius:6px;background:#fff}
+/* 4.26: Naturaleza y Tormentas */
+.mapa-caja{width:100%;height:100%;display:block}.nat-mapa,.rayos-mapa,.nat-datos,.tormentas{display:flex;flex-direction:column}.nat-mapa .marco,.rayos-mapa .marco{flex:1;min-height:0}
+.nat-p{stroke:#fff;stroke-width:1.5;opacity:.9}.rayo-p{fill:none;stroke:#ffd23f;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}.rayo-u{fill:none;stroke:#ffd23f;stroke-width:4;stroke-dasharray:6 5}
+.nat-g{list-style:none;display:grid;gap:8px;margin-top:6px}.nat-g li{display:grid;grid-template-columns:200px 1fr 90px;gap:12px;align-items:center;font-size:20px;font-weight:700}
+.nat-g u{display:block;height:14px;border-radius:7px;background:var(--tile2)}.nat-g u i{display:block;height:100%;border-radius:7px}.nat-g b{text-align:right}
+.nat-a{display:flex;align-items:flex-end;gap:6px;height:90px;margin-top:16px}.nat-a div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.nat-a i{display:block;width:100%;background:var(--acc);border-radius:4px 4px 0 0;opacity:.85}.nat-a span{font-size:14px;color:var(--mu);font-weight:700;margin-top:3px}
+.nat-at{font-size:16px;color:var(--mu);text-align:left;margin-top:2px}.k.sub{margin-top:14px}
+.nat-r{list-style:none}.nat-r li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--linea);font-size:20px}
+.nat-r li span{min-width:0;overflow:hidden;white-space:nowrap}.nat-r em{color:var(--mu);font-size:17px}.nat-r small{font-size:16px;color:var(--mu);font-weight:700;white-space:nowrap}
+.nat-r small.amen{color:var(--mal)}.nat-datos .nota{margin-top:auto;padding-top:10px}
+.tor-max{font-size:24px;margin:4px 0 8px}.tor-barras{display:flex;align-items:flex-end;gap:2px;height:150px;border-bottom:2px solid var(--linea)}
+.tor-barras div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.tor-barras i{display:block;background:var(--acc);border-radius:3px 3px 0 0}
+.tor-barras span{position:absolute;bottom:-26px;left:0;font-size:15px;color:var(--mu);font-weight:700;white-space:nowrap}.tormentas .k.sub{margin-top:40px}
+.tor-u,.tor-d{font-size:22px;line-height:1.4;margin-top:6px}.tormentas .nota{margin-top:auto}
+/* 4.26: Aire y sol, Clima, playas de la Junta */
+.chip.aire{color:#fff}.tend-aire{font-size:21px;font-weight:800;margin:2px 0 4px}.tend-aire.peor{color:var(--mal)}.tend-aire.mejor{color:var(--ok)}
+.uvt,.solt{display:flex;flex-direction:column}.uv-top{display:flex;align-items:center;gap:14px;margin-top:4px}.arco-uv{width:300px;flex:none}
+.arco-uv .aguja{stroke:var(--tx);stroke-width:5;stroke-linecap:round}.arco-uv text.v{font:800 74px Atkinson,sans-serif;fill:var(--tx);text-anchor:middle}
+.arco-uv text.e{font:700 17px Atkinson,sans-serif;fill:var(--mu);text-anchor:middle}
+.uv-cat b{display:block;font-size:40px;font-weight:800;line-height:1.1}.uv-cat span{display:block;font-size:21px;color:var(--tx2);font-weight:700;margin-top:6px;text-align:left}
+.uv-consejo{border-left:6px solid;padding:6px 0 6px 14px;margin:12px 0 4px;font-size:21px;line-height:1.35;font-weight:600}
+.uv-filas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0}.uv-filas div{background:var(--tile2);border-radius:14px;padding:10px 14px}
+.uv-filas span{display:block;font-size:18px;color:var(--mu);font-weight:700}.uv-filas b{font-size:36px;font-weight:800;margin-right:8px}.uv-filas small{font-size:18px;color:var(--tx2);font-weight:700;text-align:left}.uv-filas div{text-align:left}
+.uvt .marco,.solt .marco{flex:1;min-height:0;border-radius:14px;overflow:hidden}.marco.blanco{background:#fff}.marco.blanco img{width:100%;height:100%;object-fit:contain;display:block}
+.sol-top{display:flex;align-items:center;gap:18px;margin:6px 0 12px}.anillo-sol{width:130px;flex:none}.anillo-sol circle{fill:none;stroke-width:14}
+.anillo-sol .fondo{stroke:var(--tile2)}.anillo-sol .sol{stroke:#f6b72b;stroke-linecap:round}.anillo-sol text.v{font:800 26px Atkinson,sans-serif;fill:var(--tx);text-anchor:middle}
+.anillo-sol text.e{font:700 15px Atkinson,sans-serif;fill:var(--mu);text-anchor:middle}.sol-top p{font-size:21px;line-height:1.4}.solt .nota{margin-top:10px}
+.clima-hoy{display:flex;flex-direction:column;justify-content:space-between;gap:18px}.cmps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cmp{background:var(--tile2);border-radius:18px;padding:14px 18px;position:relative}.cmp span{display:block;font-size:19px;color:var(--mu);font-weight:700}
+.cmp b{font-size:58px;font-weight:800;line-height:1.05}.cmp small{display:block;font-size:19px;color:var(--tx2);font-weight:700}
+.cmp i{position:absolute;right:16px;top:44px;font-style:normal;font-size:28px;font-weight:800;padding:4px 12px;border-radius:12px}
+.cmp i.calido{background:rgba(255,110,60,.18);color:#f0603a}.cmp i.frio{background:rgba(70,150,255,.18);color:#3b8ff0}.cmp i.igual{color:var(--mu)}
+.termo{position:relative;padding:58px 0 0}.termo .barra{height:24px;border-radius:12px;background:linear-gradient(90deg,#4aa3ff,#9ad0ff 35%,#ffd27a 65%,#ff7a45)}
+.termo .normal{position:absolute;top:52px;height:36px;border:3px solid var(--tx);border-radius:12px;box-sizing:border-box}
+.termo .mk{position:absolute;top:0;transform:translateX(-50%);text-align:center}.termo .mk span{font-size:19px;font-weight:800;white-space:nowrap}
+.termo .mk i{display:block;width:4px;height:44px;margin:2px auto 0;background:var(--tx);border-radius:2px}.termo .mk.hoy-max span{color:#f0603a}.termo .mk.hoy-min span{color:#3b8ff0}
+.termo .ext{display:flex;justify-content:space-between;gap:12px;margin-top:14px;font-size:21px;color:var(--tx2);font-weight:600}.termo .ext .nm{color:var(--tx);font-weight:800}
+.ll-mes .ll-t{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.ll-t span{font-size:20px;color:var(--mu);font-weight:700;flex-basis:100%}
+.ll-t b{font-size:40px;font-weight:800;color:var(--gota)}.ll-t small{font-size:20px;color:var(--tx2);font-weight:700}
+.ll-barra{height:16px;border-radius:8px;background:var(--tile2);margin:10px 0;overflow:hidden}.ll-barra i{display:block;height:100%;background:var(--gota);border-radius:8px}
+.ll-mes p{font-size:20px;color:var(--tx2);text-align:left}.clima-anio{display:flex;flex-direction:column}.clima-anio .anio{flex:1;min-height:0;width:100%}
+.anio .ya{fill:var(--tile2)}.anio text{font:700 15px Atkinson,sans-serif;text-anchor:middle;fill:var(--mu)}.anio text.t{fill:#f0603a;font-weight:800}.anio text.t2{fill:#3b8ff0;font-weight:800}
+.anio text.m{font-size:18px;fill:var(--tx2)}.anio text.m.ya{fill:var(--tx);font-weight:800}.anio .ll{fill:var(--gota);opacity:.75}.anio text.r{fill:var(--gota);font-size:14px}
+.anio .sol{fill:none;stroke:#f6b72b;stroke-width:3;stroke-dasharray:6 6}.anio .sol-p{fill:#f6b72b}
+.clima-anio .leyenda-m i.ll{background:var(--gota);border-radius:3px}.clima-anio .leyenda-m i.sol{background:#f6b72b}.clima-anio .anual{font-size:21px;margin-top:6px}
+.playasj .pj-res{font-size:22px;font-weight:800;color:var(--ok);margin:2px 0 10px}.playasj .pj-res.mal{color:var(--mal)}
+.pj{list-style:none}.pj li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--linea);font-size:21px}
+.pj li span:first-child{flex:1;min-width:0;white-space:nowrap;overflow:hidden}.pj li small{font-size:17px;color:var(--mu);font-weight:700}
+.pj .pts{display:flex;gap:5px}.pj .pts i{width:14px;height:14px;border-radius:50%;background:var(--ok)}.pj .pts i.no{background:var(--mal)}
 /* 4.25 (368): el mapa del riesgo de incendio */
 .incm{display:flex;flex-direction:column}.incm .marco{position:relative;flex:1;min-height:0;border-radius:14px;overflow:hidden}
 .incm svg{display:block;width:100%;height:100%}.incm image{image-rendering:pixelated}.incm .tag{left:12px;top:12px;font-size:19px;padding:8px 14px}
@@ -768,7 +822,11 @@ body.claro .im-mar{fill:#d6e4f0}body.claro .im-costa{stroke:rgba(20,40,70,.75)}b
 .lonjap{display:flex;flex-direction:column}.lonjap .lp-tot{font-size:22px;color:var(--tx2);margin:2px 0 10px;text-align:left}.lonjap .lp-tot b{font-size:30px;color:var(--tx)}
 .lonjap .lp{list-style:none;flex:1;min-height:0}.lonjap .lp li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--linea);font-size:23px}
 .lonjap .lp li span{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-align:left}.lonjap .lp li i{font-style:normal;color:var(--mu);font-weight:700;font-size:20px}
-.lonjap .lp li b{font-size:24px;white-space:nowrap;min-width:96px;text-align:right}.lonjap .lp .pf{flex:none;width:64px;height:32px;display:block}
+.lonjap .lp li b{font-size:24px;white-space:nowrap;min-width:96px;text-align:right}.lonjap .lp .tend{flex:none;font-style:normal;font-size:18px;font-weight:800;white-space:nowrap}
+.lonjap .tend.sube{color:var(--ok)}.lonjap .tend.baja{color:var(--mal)}.lonjap .tend.igual{color:var(--mu)}
+.lonjap.toda .lp{column-count:var(--cols);column-gap:48px;column-fill:balance}.lonjap.toda .lp li{break-inside:avoid;font-size:26px;padding:11px 0}.lonjap.toda .lp li b{font-size:27px}
+.lonjap.toda .lp-tot{font-size:26px}.lonjap.toda .lp-tot b{font-size:38px}
+.lonjap.toda.pocas .lp li{font-size:32px;padding:20px 0}.lonjap.toda.pocas .lp li b{font-size:34px}.lonjap.toda.pocas .lp li i{font-size:24px}.lonjap.toda.pocas .lp .pf,.lonjap.toda.pocas .lp svg{transform:scale(1.25)}.lonjap .lp .pf{flex:none;width:64px;height:32px;display:block}
 .mn-movil{display:flex;align-items:center;gap:22px;margin-top:18px;padding-top:16px;border-top:1px solid var(--linea)}.mn-movil svg.qr{width:116px;height:116px;padding:6px}
 .mn-movil p{font-size:19px;line-height:1.35;color:var(--mu);font-weight:600}.mn-movil b{display:block;font-size:23px;color:var(--tx);margin-bottom:2px}.mn-movil u{text-decoration:none;color:var(--c1);white-space:nowrap}
 .mn-ay{display:flex;gap:28px;justify-content:center;margin-top:24px;font-size:19px;color:var(--mu);font-weight:700}.mn-ay span{white-space:nowrap}
@@ -936,7 +994,7 @@ const marcaTurno = (d, n, total) => total > n ? `<span class="turno">${n > 1 ? `
 const CORTABLES = ".ag-v h3,.ag-v p,.ag-p span,.ag-p b,.ag-p em,.lugar h1,.ab,.k,.k em,.fuente,.salir,.cm span,.mar-av,.ventanas b,.mr-k span,.gas li em," +
   ".sorteos .sq,.vu .of b,.traf li p b,.mar-txt,.al-desc,.not-l h2,.nlist b,.sorteos b,.cortes b,.ev p,.traf li p span,.santos," +
   ".cielo-t .iss b,.cielo-t .iss span,.cielo-t li b,.cielo-t li span,.rg-t b,.rg-t span,.rg-l span,.rg-fap,.ruta-g figcaption b,.seco small,.lst.anio li,.pr .precios .pn,.lst.mundo .ms,.leyenda-m,.l1 .fuente," +
-  ".sa-k span,.sa-s,.sa-r,.sa-l li span,.rg-esp,.bo-l li b,.eco-1 p,.eco-d,.rg-rt,.rg-club p,.rg-p li span,.rg-sede,.raif .precios li b,.resp-t p,.let li,.em-n,.emb-t span,.dia-l,.tramo,.ley-tr,.lonjap .lp li span";
+  ".sa-k span,.sa-s,.sa-r,.sa-l li span,.rg-esp,.bo-l li b,.eco-1 p,.eco-d,.rg-rt,.rg-club p,.rg-p li span,.rg-sede,.raif .precios li b,.resp-t p,.let li,.em-n,.emb-t span,.dia-l,.tramo,.ley-tr,.lonjap .lp li span,.pj li span:first-child,.nat-r li span";
 const UNA_LINEA = ".pr .precios .pn";
 function noCabe(el) { return el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight + 2; }
 function ajustarTextos(raiz) {
@@ -1369,13 +1427,14 @@ function qrSvg(url, cls, maxN) {
 }
 
 /* ---------- fuentes que llevan horas fallando: se dice en la cabecera de su pantalla, en gris, para no enseñar datos viejos como si fueran de hoy ---------- */
-const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"],
+const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], tormentas: ["rayos", "prevision"], clima: ["clima", "lluvia", "prevision"], naturaleza: ["naturaleza"],
+  aire: ["aire", "radiacion", "radsol", "prevision"],
   agua: ["lluvia", "saih", "sequia", "agua"], mar: ["boya", "playas", "oleaje", "maritima", "mareas", "aguaBano"], cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
-  espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "aire", "radiacion", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
+  espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
   alertas: ["alimentarias", "medicamentos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "olas", "regatas", "rfep"], carretera: ["camara", "ruta", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
   sismos: ["terremotos"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
   noticias: ["noticias", "cortesAgua", "sangre"]};
-const NOMBRE_FUENTE = {polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
+const NOMBRE_FUENTE = {naturaleza: "biodiversidad (GBIF)", clima: "clima (AEMET)", radsol: "radiación solar (AEMET)", polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
   renovable: "renovables", alimentarias: "alertas AESAN", efemerides: "efemérides", terremotos: "terremotos", futbol: "UD Almería",
   farmacias: "farmacias", campo: "precios del campo", lonja: "lonja", trafico: "tráfico", noticias: "noticias",
   ofertasEmpleo: "ofertas de empleo", sae: "ofertas del SAE", boja: "BOJA", boe: "BOE", iss: "Estación Espacial", lluvia: "lluvia medida", regatas: "regatas",
@@ -1418,13 +1477,13 @@ const esperandoHoy = (B = E) => deAyer(B).length > 0 && Date.now() - (B.arranque
      la DGT (45 min), la radiación (la última hora de la REA, 6 h) y el informe de sequía (50 días después de acabar su mes).
    Su tarjeta sale vacía o no sale, y arriba se dice qué falta y desde cuándo («⚠ Sin actualizar desde…»).
    Los avisos de AEMET no se quitan (cada uno dice hasta cuándo vale), pero sin datos al día no se dice «Sin avisos». */
-const VALE_H = {polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
+const VALE_H = {naturaleza: 24 * 7, clima: 24 * 40, radsol: 36, polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
   comarca: 3, terremotos: 3, aire: 4,
   sol: 6, renovable: 6, sismosMundo: 6, boya: 6, prevision: 12, playas: 12, maritima: 12, oleaje: 12, noticias: 12, futbol: 12,
   lluvia: 12, mareas: 24, incendio: 24, alimentarias: 24, campo: 24, ofertasEmpleo: 24, sae: 24, boja: 24, boe: 24, planeta: 36, efemerides: 36,   farmacias: 36, gasolina: 48, medicamentos: 48, euribor: 48, espacio: 48, bolsaSas: 48, lonja: 72, productos: 72, regatas: 72, rfep: 72, paro: 72, afiliados: 72, ipc: 168,
   agua: 168, festivos: 168, aguaBano: 168, iss: 168, autobus: 168};
 const SIN_EDAD = new Set(["avisos", "luz", "internet", "extras", "actualizacion"]);   // valen por su propia fecha
-const CLAVES_FUENTE = {prevision: ["horas", "dias", "soles", "elaborado", "aemet"], aviones: ["aviones", "aeropuerto"], lonja: ["lonja", "lonjaPueblo"], incendio: ["incendio", "incendioMapa"]};   // 4.17: los del aeropuerto, con los de encima   // la previsión llega en varias claves
+const CLAVES_FUENTE = {prevision: ["horas", "dias", "soles", "elaborado", "aemet"], aviones: ["aviones", "aeropuerto"], lonja: ["lonjaPueblo"], incendio: ["incendio", "incendioMapa"]};   // 4.17: los del aeropuerto, con los de encima   // la previsión llega en varias claves
 const EN_EXTRAS = {vuelos: ["vuelos", "aeropuertos", "vuelosOrigen", "vuelosFecha", "vuelosBuscado", "vuelosBusqueda"], sequia: ["sequia"]};
 // 4.23: en la página de internet los datos se ponen al día cada media hora (GitHub): lo que vale menos de hora y cuarto (radar,
 // satélite, cámaras…) vale hasta entonces (cada tarjeta dice de cuándo es)
@@ -1513,24 +1572,29 @@ const avisosFuertes = () => (E.avisos || []).filter(a => a.nivel >= 2).sort((a, 
 /* 3.0 (lo pidió Isa el 28 oct 2026: «reorganiza la información de la forma más eficiente, intenta mostrar toda la información posible
    intentando evitar rotaciones y manteniendo la legibilidad, aumenta el número de pantallas si fuera necesario»): cada pantalla, de un
    tema y con sus listas enteras siempre que quepan a un tamaño que se lea. Las que no tienen nada que enseñar no salen. */
-const hayPlaneta = () => !!(E.planeta || (E.aire && E.aire.global) || radiacionCerca().length || respiratoriasVigente());
-const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayAgua() ? ["agua"] : [], ["mar"], ["cielo"],
-  E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], ["casa"], hayAlertas() ? ["alertas"] : [], hayProductos() ? ["productos"] : [],
-  ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.terremotos ? ["sismos"] : [], E.sismosMundo ? ["mundo"] : [], E.campo || raifVigente().length ? ["campo"] : [], E.lonja ? ["pescado"] : [],
+const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente());
+const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayTormentas() ? ["tormentas"] : [], hayClima() ? ["clima"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], ["mar"], ["cielo"],
+  E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayAlertas() ? ["alertas"] : [], hayProductos() ? ["productos"] : [],
+  ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.terremotos ? ["sismos"] : [], E.sismosMundo ? ["mundo"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
   ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() ? ["sas"] : []);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): ajustes de las pantallas con el mando (≡ en la app): las que no salen, su orden y los
    segundos de cada una. Los guarda la app (Android.ajustes / guardarAjustes, SharedPreferences): los mismos en la app y en el salvapantallas.
    El aviso de AEMET sale siempre, el primero. */
-const ORDEN_BASE = ["ahora", "semana", "agua", "mar", "cielo", "espacio", "planeta", "casa", "alertas", "productos", "hoy", "carretera", "trenes", "sismos",
-  "mundo", "campo", "pescado", "noticias", "economia", "empleo", "sas"];
+/* 4.26 (lo pidió Isa el 5 nov 2026: «reorganiza las pestañas de la forma más eficiente posible»): por temas, de lo de ahora a lo de fuera:
+   el tiempo (ahora, semana, clima), lo que se respira (aire y sol), el agua y el mar, el cielo y el planeta, el día (hoy, casa, alertas,
+   productos y noticias), moverse (carretera y trenes), la Tierra (terremotos y mundo) y el trabajo y el dinero (campo, pescado, economía,
+   empleo y SAS). ORDEN_V: al cambiar el orden de siempre, el que se había guardado con el mando deja paso al nuevo una vez. */
+const ORDEN_BASE = ["ahora", "semana", "tormentas", "clima", "aire", "agua", "mar", "cielo", "espacio", "planeta", "naturaleza", "hoy", "casa", "alertas", "productos", "noticias",
+  "carretera", "trenes", "sismos", "mundo", "campo", "pescado", "economia", "empleo", "sas"];
+const ORDEN_V = 2;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
 function leerAjustes() {
   let s = null, a = {};
   try { s = window.Android && Android.ajustes ? Android.ajustes() : localStorage.getItem("tiempo.ajustes"); } catch (e) {}
   try { a = JSON.parse(s || "{}") || {}; } catch (e) {}
   const de = x => Array.isArray(x) ? x.filter((p, i) => ORDEN_BASE.includes(p) && x.indexOf(p) === i) : [];
-  return {orden: de(a.orden), ocultas: de(a.ocultas), seg: a.seg && typeof a.seg === "object" ? a.seg : {}};
+  return {orden: a.ordenV === ORDEN_V ? de(a.orden) : [], ocultas: de(a.ocultas), seg: a.seg && typeof a.seg === "object" ? a.seg : {}, ordenV: ORDEN_V};
 }
 let AJ = leerAjustes();
 function guardarAjustes() {
@@ -1556,15 +1620,18 @@ const paginas = () => {
 };
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
-const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
+const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", tormentas: "Tormentas", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
   alertas: "Alertas", productos: "Productos", hoy: "Hoy", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Pescado", noticias: "Noticias",
   economia: "Economía", empleo: "Empleo", sas: "SAS"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
+  clima: "Fuentes: AEMET (valores normales 1981-2010 y extremos) · Junta de Andalucía (RIA, lluvia medida)",
+  tormentas: "Fuentes: EUMETSAT (rayos, satélite MTG) · AEMET (probabilidad de tormenta)", naturaleza: "Fuente: GBIF (red mundial de información sobre biodiversidad)",
+  aire: "Fuentes: Agencia Europea de Medio Ambiente y Copernicus (aire) · CSN (radiación ambiental) · AEMET (UV y radiación solar) · OMS (consejos)",
   agua: "Fuentes: MITECO (boletín hidrológico) · Ministerio de Sanidad (SINAC, agua del grifo)",
-  mar: "Fuentes: Puertos del Estado · AEMET · Agencia Europea de Medio Ambiente (agua de baño)",
+  mar: "Fuentes: Puertos del Estado · AEMET · Junta de Andalucía y Agencia Europea de Medio Ambiente (agua de baño)",
   cielo: "Fuentes: NASA (Luna y Sol) · NOAA · CelesTrak · IGN (Observatorio Astronómico Nacional) · OpenSky · adsbdb",
   espacio: "Fuentes: NASA Worldview · Observatorio de Calar Alto",
-  planeta: "Fuentes: NASA · Copernicus · Agencia Europea de Medio Ambiente · polvo: CAMS (Copernicus, ECMWF)",
+  planeta: "Fuentes: NASA · Copernicus · polvo: CAMS (Copernicus, ECMWF)",
   casa: "Fuentes: Red Eléctrica · CNMC (peaje 2.0TD, BOE) · MITECO · Cloudflare",
   alertas: "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)",
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
@@ -1638,6 +1705,7 @@ function chips() {
   const inc = (E.incendio || [])[0]; if (inc && inc.nivel >= 4) c.push(`<span class="chip fuego">Riesgo de incendio ${FUEGO[inc.nivel][0].toLowerCase()}</span>`);
   const t6 = ventanaTormenta(horasAhora().slice(0, 6), 40);
   if (t6) c.push(`<span class="chip tormenta">Tormentas probables (${t6.max} %)</span>`);
+  const ai = E.aire && E.aire.global; if (ai >= 4) c.push(`<span class="chip aire" style="background:${AQ[ai][1]}">Aire ${AQ[ai][0].toLowerCase()}${E.aire.antes < ai ? " y empeora" : ""}</span>`);
   const uv = avisoUV(); if (uv) c.push(`<span class="chip uv">UV ${uv.nivel} (${uv.uv}): protégete de ${uv.horas}</span>`);
   const tg = E.trafico && (E.trafico.lista || []).find(t => t.prio <= 1);
   if (tg) c.push(`<span class="chip trafico">${esc(tg.gestion && tg.prio === 0 ? may(tg.gestion) : tg.titulo)} en ${esc(tg.carretera)}</span>`);
@@ -1668,7 +1736,7 @@ function textoFuentes(p) {
     + (p === "economia" && ((E.ipc || {}).espana || []).length ? " · INE (IPC)" : "") + (p === "sas" && bolsaNovedades().length ? " · Servicio Andaluz de Salud (Bolsa Única)" : "") + (p === "hoy" && (regatasProximas().some(r => !r.espana) || resultadosRegatas().some(x => !x.espana) || novedadFap(regatasProximas())) ? " · Federación Andaluza de Piragüismo" : "")
     + (p === "hoy" && rfepEnTarjeta() ? " · Federación Española de Piragüismo" : "")
     + (p === "ahora" && rayosRecientes() ? " · rayos: EUMETSAT (satélite MTG)" : "") + (p === "campo" && raifVigente().length ? " · plagas: RAIF (Junta de Andalucía)" : "")
-    + (p === "planeta" && respiratoriasVigente() ? " · virus respiratorios: Junta de Andalucía" : "") + (p === "planeta" && radiacionCerca().length ? " · radiación: Consejo de Seguridad Nuclear" : "")
+    + (p === "planeta" && respiratoriasVigente() ? " · virus respiratorios: Junta de Andalucía" : "")
     + (p === "agua" && sequiaDestacadas().length ? " · sequía: Junta de Andalucía (Hidrosur)" : "")
     + (p === "noticias" && agendaProxima().some(a => !a.sangre) ? " · agenda: Ayuntamiento de Adra" : "")
     + (p === "noticias" && colectasSangre().length ? ` · donación de sangre: ${colectasSangre()[0].oficial ? "SAS (Centro de Transfusión)" : colectasSangre()[0].fuente || "Centro de Transfusión"}` : "")
@@ -1979,9 +2047,10 @@ function tarjetaBoya() {
   if (!B) return vaciaDe("boya", "Boya de Puertos del Estado no disponible ahora mismo.", 1);
   const vieja = B.dia && B.dia !== isoDe(new Date()) ? " · dato antiguo" : "";
   const c = (v, u, n) => v == null ? "" : `<div><b class="num">${coma(v, Number.isInteger(v) ? 0 : 1)}<small>${u}</small></b><span>${n}</span></div>`;
-  return `<div data-f="boya" class="tile" style="--i:1"><div class="k">${esc(B.nombre)} · en directo<em>${B.hora}${vieja} · a ${B.km} km</em></div><div class="boya">
+  return `<div data-f="boya" class="tile" style="--i:1"><div class="k">${esc(B.nombre)} · en directo<em>${B.hora}${vieja} · a ${B.km} km</em></div><div class="boya" style="--n:${[B.hs, B.hmax, B.tp, B.agua, B.viento, B.aire, B.corriente].filter(v => v != null).length}">
     ${c(B.hs, "m", "Ola")}${c(B.hmax, "m", "Ola máxima")}${c(B.tp, "s", "Periodo")}${c(B.agua, "°", "Agua")}
-    ${B.viento != null ? `<div><b class="num">${B.viento}<small>km/h</small></b><span>Viento ${B.dirViento != null ? "del " + rumbo(B.dirViento) : ""}</span></div>` : ""}${c(B.aire, "°", "Aire")}</div></div>`;
+    ${B.viento != null ? `<div><b class="num">${B.viento}<small>km/h</small></b><span>Viento ${B.dirViento != null ? "del " + rumbo(B.dirViento) : ""}</span></div>` : ""}${c(B.aire, "°", "Aire")}
+    ${B.corriente != null ? `<div><b class="num">${coma(B.corriente, 1)}<small>cm/s</small></b><span>Corriente${B.dirCorriente != null ? " al " + rumbo(B.dirCorriente) : ""}</span></div>` : ""}</div></div>`;
 }
 function ventanas(cond, H) {
   const S = E.soles || [];
@@ -2039,7 +2108,9 @@ function lineaAguaBano(AB) {
     return Object.keys(grupos).length === 1 && n.length > 2 ? `<b>${c.toLowerCase()}</b> en las ${n.length} zonas de baño de ${esc(E.lugar.nombre)}`
       : `<b${c === "Insuficiente" || c === "Suficiente" ? ' class="mal"' : ""}>${c.toLowerCase()}</b> en ${n.map(esc).join(", ")}`;
   });
-  return `<p class="ab">Agua de baño (calificación oficial ${E.aguaBano.temporada}): ${partes.join(" · ")}</p>`;
+  const PJ = playasJunta(), ult = PJ ? PJ.playas.map(p => p.inspecciones[p.inspecciones.length - 1]).filter(Boolean) : [], f = ult.map(x => x.fecha).sort().pop();
+  const junta = f ? (n => ` · Junta, ${diaFecha(f)}: ${n ? `<b class="mal">${n} no aptas</b>` : "todas aptas"}`)(ult.filter(x => !/^zona apta/i.test(x.valoracion || "")).length) : "";
+  return `<p class="ab">Agua de baño (calificación oficial ${E.aguaBano.temporada}): ${partes.join(" · ")}${junta}</p>`;
 }
 /* playas de junio a octubre (todas, sin turnos) y el oleaje de 4 días siempre */
 function tarjetaPlayas(i) {
@@ -2191,6 +2262,7 @@ function tarjetaCruceros(i) {
 const pMar = () => {
   const izq = [tarjetaBoya(), tarjetaPlayas(2), tarjetaOleaje(3)].filter(Boolean), der = [tarjetaNautica(), tarjetaMarea(5)].filter(Boolean), cr = tarjetaCruceros(4);
   if (cr) (der.length < izq.length ? der : izq).push(cr);   // 4.18: los cruceros, en la columna con menos tarjetas (no apretados abajo)
+  const pj = enTemporada() ? "" : tarjetaPlayasJunta(6); if (pj) (der.length < izq.length ? der : izq).push(pj);   // 4.26: fuera de temporada (en ella van con las playas)
   const filasDer = der.map((x, j) => j === 0 ? "1fr" : "auto").join(" ");
   return `<div class="main"><div class="col izq" style="grid-template-rows:${izq.map((x, j) => j === izq.length - 1 ? "1fr" : "auto").join(" ")}">${izq.join("")}</div>
     <div class="col der" style="grid-template-rows:${filasDer}">${der.join("")}</div></div>`;
@@ -2392,7 +2464,7 @@ function tarjetaPlaneta(grande) {
   return `<div data-f="planeta" class="tile planeta-t${grande ? " grande" : ""}" style="--i:1"><div class="k">El planeta hoy</div>${T ? `<div class="pl-fila">${bloqueTierra(T)}${d}</div>` : d}</div>`;
 }
 /* planeta (3.0): el planeta hoy y los virus respiratorios; el aire y la radiación, en una columna entera */
-const pPlaneta = () => (r => (pv => `<div class="main"><div class="col" style="grid-template-rows:${r ? "1fr auto" : "1fr"}">${tarjetaPlaneta(true)}${r}</div><div class="col" style="grid-template-rows:${pv ? "auto 1fr" : "1fr"}">${tarjetaAire()}${pv}</div></div>`)(tarjetaPolvo(4)))(tarjetaRespiratorias(2));
+const pPlaneta = () => (r => (pv => `<div class="main"><div class="col" style="grid-template-rows:${r ? "1fr auto" : "1fr"}">${tarjetaPlaneta(true)}${r}</div>${pv ? `<div class="col" style="grid-template-rows:1fr">${pv}</div>` : ""}</div>`)(tarjetaPolvo(4)))(tarjetaRespiratorias(2));
 /* 354 (lo pidió Isa el 4 nov 2026): la calima prevista: el polvo del Sáhara sobre la península a mediodía (12 UTC) de hoy, mañana y
    pasado, de CAMS (Copernicus, ECMWF; Polvo.kt). Los mapas se pasan solos; debajo, su escala (profundidad óptica del polvo a 550 nm). */
 let polvoFotos = [];
@@ -2797,12 +2869,184 @@ function tarjetaAire() {
   const notaRad = R.length ? [mesRad.length ? `Último mes: ${mesRad.join(" y ")}.` : "", Rd.medianaEspana != null ? `Mediana de las ${Rd.enEspana} estaciones de España: ${coma(Rd.medianaEspana, 1)}.` : ""].filter(Boolean).join(" ") || "Radiación gamma al aire libre." : "";
   const cab = A && A.hora ? `índice de las ${esc(A.hora)}` : "";
   return `<div data-f="aire radiacion" class="tile aire-t${R.length ? " con-rad" : ""}" style="--i:2"><div class="k">${R.length && !nom ? "Radiación ambiental" : "Calidad del aire"}${cab ? `<em>${cab}</em>` : ""}</div>
-    ${nom ? `<div class="aire"><div class="aro" style="border-color:${col}"></div><div><h3>${nom}</h3><p>${DONDE_AIRE(E.lugar.nombre)}</p></div></div>` : ""}
+    ${nom ? `<div class="aire"><div class="aro" style="border-color:${col}"></div><div><h3>${nom}</h3>${tendenciaAire(A)}<p>${DONDE_AIRE(E.lugar.nombre)}</p></div></div>` : ""}
     <ul class="aire6">${filas}${rad}</ul>
     <div class="escalas">${filas ? `<p><b>Índice europeo:</b> ${[1, 2, 3, 4, 5, 6].map(n => `<i style="background:${AQ[n][1]}"></i>${AQ[n][0].toLowerCase()}`).join(" ")}</p>` : ""}
       ${R.length ? `<p><b>Radiación, en nSv/h (mapa del CSN):</b> ${REA.map(([m, c], n) => `<i style="background:${c}"></i>${n === 0 ? `menos de ${m}` : m === Infinity ? `${REA[n - 1][0]} o más` : `${REA[n - 1][0]} a ${m}`}`).join(" ")}</p>` : ""}</div>
     <p class="nota">${notaRad || "Índice europeo de calidad del aire de la Agencia Europea de Medio Ambiente: de buena a extremadamente desfavorable."}</p></div>`;
 }
+/* ---------- 4.26 (lo pidió Isa el 5 nov 2026): «Aire y sol» (la calidad del aire con su tendencia, el UV y la radiación solar) y «Clima»
+   (hoy frente a los valores normales y los récords del mes, y el año mes a mes). Todo de fuentes oficiales: el UV previsto es el de AEMET
+   para el municipio (el máximo de cada día); el medido, el de su estación de radiación más cercana (Sol.ayer, la gráfica de ayer); los
+   normales (1981-2010) y los récords, los del observatorio principal más cercano (Clima.mes). No hay previsión oficial del UV hora a hora:
+   no se inventa. Los consejos del UV son los de la OMS. ---------- */
+const tendenciaAire = A => !A || A.antes == null || A.antes === A.global ? "" :
+  `<p class="tend-aire ${A.antes < A.global ? "peor" : "mejor"}">${A.antes < A.global ? "▲ Empeora" : "▼ Mejora"}: a las ${esc(A.antesHora || "")} era ${AQ[A.antes] ? AQ[A.antes][0].toLowerCase() : ""}</p>`;
+const UV_CAT = [[11, "Extremo", "#7e57c2"], [8, "Muy alto", "#d8001d"], [6, "Alto", "#f85900"], [3, "Moderado", "#f7c400"], [0, "Bajo", "#43a047"]];
+const catUV = v => UV_CAT.find(([m]) => v >= m);
+const CONSEJO_UV = v => v >= 8 ? "Protección extra: evita estar fuera al mediodía y busca la sombra; camiseta, crema y sombrero, imprescindibles."
+  : v >= 3 ? "Protección necesaria: busca la sombra al mediodía, ponte camiseta, crema solar y sombrero, y gafas de sol."
+  : "No hace falta protección: se puede estar fuera sin riesgo.";
+function arcoUV(v) {   // medio círculo con las 11 casillas del índice y la aguja en el valor
+  const cx = 180, cy = 170, R = 150, r = 104, n = 11, paso = Math.PI / n, pt = (a, q) => [cx - q * Math.cos(a), cy - q * Math.sin(a)];
+  const seg = Array.from({length: n}, (_, i) => { const a0 = i * paso + .02, a1 = (i + 1) * paso - .02, [x0, y0] = pt(a0, R), [x1, y1] = pt(a1, R), [x2, y2] = pt(a1, r), [x3, y3] = pt(a0, r);
+    return `<path d="M${x0.toFixed(1)},${y0.toFixed(1)} A${R},${R} 0 0 1 ${x1.toFixed(1)},${y1.toFixed(1)} L${x2.toFixed(1)},${y2.toFixed(1)} A${r},${r} 0 0 0 ${x3.toFixed(1)},${y3.toFixed(1)}Z" fill="${catUV(i + 1)[2]}" opacity="${i + 1 <= Math.max(1, v) ? 1 : .22}"/>`; }).join("");
+  const a = (Math.min(v, 11) - .5) * paso, [ax, ay] = pt(a, R + 12), [bx, by] = pt(a, r - 16);
+  return `<svg class="arco-uv" viewBox="0 0 360 190">${seg}<line x1="${bx.toFixed(1)}" y1="${by.toFixed(1)}" x2="${ax.toFixed(1)}" y2="${ay.toFixed(1)}" class="aguja"/>
+    <text x="${cx}" y="${cy - 12}" class="v">${v}</text><text x="${cx - R + 6}" y="${cy + 20}" class="e">1</text><text x="${cx + R - 6}" y="${cy + 20}" class="e">11+</text></svg>`;
+}
+function tarjetaUV(i) {
+  const d0 = diaPrevision(0) || {}, d1 = diaPrevision(1) || {}, S = E.radsol, h = horasUV();
+  if (d0.uv == null && !(S && S.uviMax != null)) return "";
+  const v = d0.uv, c = v != null ? catUV(v) : null;
+  const fila = (t, x, sub) => x == null ? "" : `<div><span>${t}</span><b style="color:${catUV(x)[2]}">${x}</b><small>${catUV(x)[1].toLowerCase()}${sub ? ` · ${sub}` : ""}</small></div>`;
+  return `<div data-f="prevision radsol" class="tile uvt" style="--i:${i}"><div class="k">Radiación ultravioleta<em>${v != null ? `máximo previsto ${diaFecha(d0.fecha)}` : "medida ayer"}</em></div>
+    ${v != null ? `<div class="uv-top">${arcoUV(v)}<div class="uv-cat"><b style="color:${c[2]}">${c[1]}</b>${v >= 3 && h ? `<span>Protégete de ${h.texto}</span>` : `<span>Todo el día sin riesgo</span>`}</div></div>
+      <p class="uv-consejo" style="border-color:${c[2]}">${CONSEJO_UV(v)}</p>` : ""}
+    <div class="uv-filas">${fila(diaFecha(d1.fecha || ""), d1.uv, "previsto")}${S && S.uviMax != null ? fila(S.dia ? diaFecha(S.dia) : "Ayer", S.uviMax, `medido en ${esc(S.estacion)}`) : ""}</div>
+    ${S && S.soluvi ? `<div class="marco blanco"><img src="${esc(S.soluvi)}" alt="Índice UV medido ayer (AEMET)"></div>` : ""}</div>`;
+}
+const horasMin = m => { const t = Math.round(m); return `${Math.floor(t / 60)} h${t % 60 ? ` ${t % 60} min` : ""}`; };
+function tarjetaSolar(i) {
+  const S = E.radsol, C = E.clima, hoy = new Date(), N = C && (C.normales || [])[hoy.getMonth()], L = E.lugar;
+  if (!(S && S.solrad) && !(N && N.I)) return "";
+  const dias = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0).getDate(), luz = solDia(hoy, L.lat, L.lon).dur, sol = N && N.I ? N.I / dias * 60 : null;
+  const anillo = sol && luz ? (f => `<svg class="anillo-sol" viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="fondo"/><circle cx="60" cy="60" r="50" class="sol" stroke-dasharray="${(f * 314.2).toFixed(1)} 400" transform="rotate(-90 60 60)"/>
+      <text x="60" y="58" class="v">${Math.round(f * 100)} %</text><text x="60" y="80" class="e">de sol</text></svg>`)(Math.min(1, sol / luz)) : "";
+  return `<div data-f="radsol clima" class="tile solt" style="--i:${i}"><div class="k">Radiación solar<em>${S && S.dia ? `medida ${diaFecha(S.dia)} · ${esc(S.estacion)}` : esc(C.estacion)}</em></div>
+    ${anillo ? `<div class="sol-top">${anillo}<p>En ${MESES[hoy.getMonth()]} brilla el sol <b>${horasMin(sol)}</b> al día de media (${Math.round(N.I)} h en el mes, ${esc(C.estacion)}), de las <b>${horasMin(luz)}</b> de luz de hoy en ${esc(L.nombre)}.</p></div>` : ""}
+    ${S && S.solrad ? `<div class="marco blanco"><img src="${esc(S.solrad)}" alt="Radiación global y difusa medida ayer (AEMET)"></div>
+      <p class="nota">Radiación global (la que llega al suelo) y difusa (la que llega sin sol directo, la de las nubes), en vatios por metro cuadrado; cuanto más se separan, más sol directo.</p>` : ""}</div>`;
+}
+const hayAire = () => !!((E.aire && E.aire.global) || radiacionCerca().length || tarjetaUV(0) || tarjetaSolar(0));
+function pAire() {
+  const cols = [(E.aire && E.aire.global) || radiacionCerca().length ? tarjetaAire() : "", tarjetaUV(3), tarjetaSolar(4)].filter(Boolean);
+  return `<div class="main" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(c => `<div class="col" style="grid-template-rows:1fr">${c}</div>`).join("")}</div>`;
+}
+/* Clima: hoy frente a lo normal del mes y sus récords (un termómetro del mes) y la lluvia del mes; el año, mes a mes */
+const hayClima = () => !!(E.clima && (E.clima.normales || []).length >= 12);
+const fechaRecord = f => { const [a, m, d] = String(f).split("-"); return d ? `${+d} ${MES3[+m - 1]} ${a}` : `${MESES[+m - 1]} de ${a}`; };
+function tarjetaClimaHoy(i) {
+  const C = E.clima, hoy = new Date(), N = C.normales[hoy.getMonth()], X = C.extremos || {}, d = diaPrevision(0) || {}, mes = MESES[hoy.getMonth()];
+  const dif = (v, n) => v == null || n == null ? "" : (x => `<i class="${x > .4 ? "calido" : x < -.4 ? "frio" : "igual"}">${x > 0 ? "+" : x < 0 ? "−" : "±"}${coma(Math.abs(x), 1)}°</i>`)(Math.round((v - n) * 10) / 10);
+  const comp = (t, v, n) => `<div class="cmp"><span>${t}</span><b class="num">${v ?? "–"}°</b><small>normal ${coma(n, 1)}°</small>${dif(v, n)}</div>`;
+  // el termómetro del mes: de la mínima récord a la máxima récord, con la franja normal y lo de hoy
+  const lo = Math.floor(Math.min(X.Tmn ? X.Tmn[0] : N.Tm - 8, d.min ?? 99) - 1), hi = Math.ceil(Math.max(X.TMX ? X.TMX[0] : N.TM + 8, d.max ?? -99) + 1), x = t => ((t - lo) / (hi - lo) * 100).toFixed(1);
+  const marca = (t, txt, cls) => t == null ? "" : `<div class="mk ${cls}" style="left:${x(t)}%"><span>${txt}</span><i></i></div>`;
+  const termo = `<div class="termo"><div class="barra"><div class="normal" style="left:${x(N.Tm)}%;width:${(x(N.TM) - x(N.Tm)).toFixed(1)}%"></div></div>
+    ${marca(d.min, `Hoy ${d.min}°`, "hoy-min")}${marca(d.max, `Hoy ${d.max}°`, "hoy-max")}
+    <div class="ext"><span>${X.Tmn ? `Récord: <b>${coma(X.Tmn[0], 1)}°</b> el ${fechaRecord(X.Tmn[1])}` : ""}</span><span class="nm">Lo normal: ${coma(N.Tm, 1)}° a ${coma(N.TM, 1)}°</span>
+      <span>${X.TMX ? `Récord: <b>${coma(X.TMX[0], 1)}°</b> el ${fechaRecord(X.TMX[1])}` : ""}</span></div></div>`;
+  const Ll = E.lluvia, llMes = Ll && Ll.hasta && Ll.hasta.slice(0, 7) === isoDe(hoy).slice(0, 7) ? Ll.mes : null;
+  const lluvia = `<div class="ll-mes"><div class="ll-t"><span>Lluvia de ${mes}${llMes != null ? ` en ${esc(Ll.estacion)} (hasta el ${diaFecha(Ll.hasta)})` : ""}</span>
+      <b>${llMes != null ? `${coma(llMes, 1)} l/m²` : "–"}</b><small>de ${Math.round(N.R)} l/m² normales en ${coma(N.DR, 1)} días</small></div>
+    <div class="ll-barra"><i style="width:${llMes != null ? Math.min(100, llMes / Math.max(1, N.R) * 100).toFixed(1) : 0}%"></i></div>
+    <p>${[X.PMD ? `Récord en un día: <b>${coma(X.PMD[0], 1)} l/m²</b> el ${fechaRecord(X.PMD[1])}` : "", X.PMA ? `el ${mes} más lluvioso, <b>${coma(X.PMA[0], 1)} l/m²</b> en ${X.PMA[1].slice(0, 4)}` : ""].filter(Boolean).join(" · ")}</p></div>`;
+  return `<div data-f="clima prevision lluvia" class="tile clima-hoy" style="--i:${i}"><div class="k">Hoy frente al clima de ${mes}<em>${esc(C.estacion)}, a ${C.km} km · normales ${esc(C.periodo)}</em></div>
+    <div class="cmps">${comp(`Máxima ${diaFecha(d.fecha || isoDe(hoy))}`, d.max, N.TM)}${comp("Mínima", d.min, N.Tm)}${comp("Media del mes", null, N.T).replace('<b class="num">–°</b>', `<b class="num">${coma(N.T, 1)}°</b>`).replace(/<small>normal [^<]*<\/small>/, "<small>lo normal</small>")}</div>
+    ${termo}${lluvia}</div>`;
+}
+function tarjetaClimaAnio(i) {
+  const C = E.clima, M = C.normales.slice(0, 12), A = C.normales[12] || {}, ya = new Date().getMonth();
+  const W = 640, H = 600, x0 = 40, ancho = (W - x0 - 10) / 12, tmin = Math.floor(Math.min(...M.map(m => m.Tm)) / 5) * 5, tmax = Math.ceil(Math.max(...M.map(m => m.TM)) / 5) * 5;
+  const yT = t => (40 + (tmax - t) / (tmax - tmin) * 300).toFixed(1), rmax = Math.max(...M.map(m => m.R), 1), yR = r => (H - 40 - r / rmax * 140).toFixed(1);
+  const imax = Math.max(...M.map(m => m.I || 0), 1), yI = h => (30 + (1 - h / imax) * 300).toFixed(1);
+  const cols = M.map((m, k) => { const cx = x0 + k * ancho + ancho / 2;
+    return `${k === ya ? `<rect x="${(cx - ancho / 2 + 2).toFixed(1)}" y="6" width="${(ancho - 4).toFixed(1)}" height="${H - 12}" rx="10" class="ya"/>` : ""}
+      <rect x="${(cx - 9).toFixed(1)}" y="${yT(m.TM)}" width="18" height="${(yT(m.Tm) - yT(m.TM)).toFixed(1)}" rx="9" fill="url(#gradT)"/>
+      <text x="${cx.toFixed(1)}" y="${(yT(m.TM) - 8).toFixed(1)}" class="t">${Math.round(m.TM)}</text><text x="${cx.toFixed(1)}" y="${(+yT(m.Tm) + 20).toFixed(1)}" class="t2">${Math.round(m.Tm)}</text>
+      <rect x="${(cx - 12).toFixed(1)}" y="${yR(m.R)}" width="24" height="${(H - 40 - yR(m.R)).toFixed(1)}" rx="4" class="ll"/><text x="${cx.toFixed(1)}" y="${(yR(m.R) - 6)}" class="r">${Math.round(m.R)}</text>
+      <text x="${cx.toFixed(1)}" y="${H - 14}" class="m${k === ya ? " ya" : ""}">${MES3[k]}</text>`; }).join("");
+  const solL = M.map((m, k) => `${k ? "L" : "M"}${(x0 + k * ancho + ancho / 2).toFixed(1)},${yI(m.I || 0)}`).join(" ");
+  return `<div data-f="clima" class="tile clima-anio" style="--i:${i}"><div class="k">El año, mes a mes<em>${esc(C.estacion)} · normales ${esc(C.periodo)}</em></div>
+    <svg viewBox="0 0 ${W} ${H}" class="anio"><defs><linearGradient id="gradT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a45"/><stop offset="1" stop-color="#4aa3ff"/></linearGradient></defs>
+      ${cols}<path d="${solL}" class="sol"/>${M.map((m, k) => `<circle cx="${(x0 + k * ancho + ancho / 2).toFixed(1)}" cy="${yI(m.I || 0)}" r="4" class="sol-p"/>`).join("")}</svg>
+    <p class="leyenda-m"><i style="background:linear-gradient(#ff7a45,#4aa3ff)"></i>máximas y mínimas (°C) <i class="ll"></i>lluvia (l/m²) <i class="sol"></i>horas de sol</p>
+    <p class="anual">Al año: <b>${coma(A.T, 1)}°</b> de media · <b>${Math.round(A.R)} l/m²</b> en ${Math.round(A.DR)} días · <b>${miles(Math.round(A.I))} h</b> de sol</p></div>`;
+}
+const pClima = () => `<div class="main" style="grid-template-columns:minmax(0,1fr) 700px">${tarjetaClimaHoy(1)}${tarjetaClimaAnio(2)}</div>`;
+/* las playas del pueblo: las inspecciones sanitarias de la Junta de la temporada (playas.py en la nube, extras.json) */
+const playasJunta = () => { const P = (E.extras || {}).playas; return P && (P.playas || []).length ? P : null; };
+function tarjetaPlayasJunta(i) {
+  const P = playasJunta();
+  if (!P) return "";
+  const apta = x => /^zona apta/i.test(x.valoracion || ""), ult = P.playas.map(p => p.inspecciones[p.inspecciones.length - 1]).filter(Boolean);
+  const fecha = ult.map(x => x.fecha).sort().pop(), malas = ult.filter(x => !apta(x)).length;
+  const fila = p => `<li><span>${esc(p.nombre)}</span><small>${esc((p.calificacion || "").toLowerCase())}</small><span class="pts">${p.inspecciones.map(x =>
+    `<i class="${apta(x) ? "si" : "no"}" title="${esc(x.fecha)}"></i>`).join("")}</span></li>`;
+  return `<div data-f="extras" class="tile playasj" style="--i:${i}"><div class="k">Playas de ${esc(E.lugar.nombre)} · agua de baño<em>temporada ${P.temporada} · ${P.playas[0].inspecciones.length} inspecciones</em></div>
+    <p class="pj-res${malas ? " mal" : ""}">${malas ? `${malas} no aptas` : `Todas aptas para el baño`} en la última inspección de la Junta, el ${diaFecha(fecha)}</p>
+    <ul class="pj">${P.playas.map(fila).join("")}</ul><p class="nota">Cada punto, una inspección de la temporada (de la Consejería de Sanidad, cada quince días del 1 de junio al 30 de septiembre); en rojo, no apta. Junto al nombre, su calificación del año.</p></div>`;
+}
+/* ---------- 4.26 (lo pidió Isa el 5 nov 2026: «mapa de biodiversidad de Adra»): los registros de GBIF del entorno (Naturaleza.entorno): el mapa
+   del último mes, cuántos hay de cada grupo y de cada año y lo último visto. «Los registros no deben interpretarse como censos completos ni
+   como presencia actual confirmada» (Isa). ---------- */
+const COLOR_GRUPO = {"Aves": "#4aa3ff", "Plantas con flor": "#43a047", "Insectos": "#f6b72b", "Mamíferos": "#a1663a", "Reptiles": "#8bc34a",
+  "Anfibios": "#26a69a", "Peces": "#1e88e5", "Arañas y afines": "#8e6bd6", "Caracoles y babosas": "#c08b5c", "Coníferas": "#2e7d32", "Setas": "#d4774a"};
+const colorGrupo = g => COLOR_GRUPO[g] || "#9aa5b1";
+const hayNaturaleza = () => !!(E.naturaleza && E.naturaleza.total);
+function mapaCaja(c, W, extra) {   // la costa y las provincias de mapa.txt en un rectángulo [oeste, sur, este, norte], a escala
+  cargarMapa();
+  const k = Math.cos((c[1] + c[3]) / 2 * Math.PI / 180), H = W * (c[3] - c[1]) / ((c[2] - c[0]) * k);
+  const xy = (lon, lat) => [(lon - c[0]) / (c[2] - c[0]) * W, (c[3] - lat) / (c[3] - c[1]) * H];
+  const lin = ["R", "P", "C"].map(t => mapa.filter(l => l.t === t).map(l => { const q = l.p.map(([lo, la]) => xy(lo, la)).filter(([x, y]) => x > -40 && x < W + 40 && y > -40 && y < H + 40);
+    return q.length > 1 ? `<polyline points="${q.map(v => v.map(n => n.toFixed(1)).join(",")).join(" ")}" class="${{C: "mc-costa", P: "mc-pais", R: "mc-prov"}[t]}"/>` : ""; }).join("")).join("");
+  const [sx, sy] = xy(E.lugar.lon, E.lugar.lat);
+  return `<svg class="mapa-caja" viewBox="0 0 ${W} ${H.toFixed(0)}" preserveAspectRatio="xMidYMid meet"><defs><clipPath id="cajaR"><rect width="${W}" height="${H.toFixed(0)}" rx="16"/></clipPath></defs>
+    <g clip-path="url(#cajaR)"><rect width="${W}" height="${H.toFixed(0)}" class="mc-mar"/>${lin}${extra(xy)}
+    <circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="9" fill="#f08a24" stroke="#fff" stroke-width="3"/><text x="${(sx + 14).toFixed(1)}" y="${(sy + 30).toFixed(1)}" class="mc-yo">${esc(E.lugar.nombre)}</text></g></svg>`;
+}
+function tarjetaNatMapa(i) {
+  const N = E.naturaleza, P = N.puntos || [], grupos = [...new Set(P.map(p => p[2]))];
+  const cuenta = g => P.filter(p => p[2] === g).length;
+  return `<div data-f="naturaleza" class="tile nat-mapa" style="--i:${i}"><div class="k">La vida que se ha visto · último mes<em>${miles(N.mes)} registros · GBIF</em></div>
+    <div class="marco">${mapaCaja(N.caja, 1000, xy => P.map(([la, lo, g]) => { const [x, y] = xy(lo, la); return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="7" fill="${colorGrupo(g)}" class="nat-p"/>`; }).join(""))}</div>
+    <p class="leyenda-m">${grupos.sort((a, b) => cuenta(b) - cuenta(a)).slice(0, 7).map(g => `<i style="background:${colorGrupo(g)}"></i>${esc(g.toLowerCase())} (${cuenta(g)})`).join(" ")}</p></div>`;
+}
+function tarjetaNatDatos(i) {
+  const N = E.naturaleza, G = N.grupos || [], max = Math.max(...G.map(g => g[1]), 1), A = (N.anios || []).slice(-15), amax = Math.max(...A.map(a => a[1]), 1);
+  const barras = G.slice(0, 7).map(([g, n]) => `<li><span>${esc(g)}</span><u><i style="width:${(n / max * 100).toFixed(1)}%;background:${colorGrupo(g)}"></i></u><b>${miles(n)}</b></li>`).join("");
+  const anios = A.map(([a, n]) => `<div title="${a}"><i style="height:${Math.max(2, n / amax * 100).toFixed(0)}%"></i><span>${String(a).slice(2)}</span></div>`).join("");
+  const R = (N.recientes || []).slice(0, 6).map(r => `<li><span><b>${esc(r.nombre || r.especie)}</b>${r.nombre ? ` <em>${esc(r.especie)}</em>` : ""}${r.amenaza ? ` <small class="amen">${{VU: "vulnerable", EN: "en peligro", CR: "en peligro crítico"}[r.amenaza]}</small>` : ""}</span><small>${esc(r.grupo)} · ${diaFecha(r.fecha)}</small></li>`).join("");
+  return `<div data-f="naturaleza" class="tile nat-datos" style="--i:${i}"><div class="k">Especies registradas en el entorno<em>${miles(N.total)} registros</em></div>
+    <ul class="nat-g">${barras}</ul><div class="nat-a">${anios}</div><p class="nat-at">Registros de cada año (los de iNaturalist y otros crecen desde 2017)</p>
+    <div class="k sub">Lo último visto</div><ul class="nat-r">${R}</ul>
+    <p class="nota">Unos 27 × 22 km alrededor de ${esc(E.lugar.nombre)}, con el mar. Los registros no deben interpretarse como censos completos ni como presencia actual confirmada: es lo que alguien vio y apuntó (museos, herbarios, censos y observaciones de aficionados). «Vulnerable» y «en peligro», de la lista roja de la UICN.</p></div>`;
+}
+const pNaturaleza = () => `<div class="main" style="grid-template-columns:minmax(0,1fr) 760px">${tarjetaNatMapa(1)}${tarjetaNatDatos(2)}</div>`;
+/* ---------- 4.26 (lo pidió Isa el 5 nov 2026: «actividad eléctrica atmosférica»): los rayos que ve el satélite MTG ahora (zona del radar), el
+   último a 50 km o menos y los días con rayos cerca del último mes (lo que vio la tele: Rayos.conHistoria) y la probabilidad de tormenta de
+   AEMET de las próximas 48 horas. La lluvia del radar, con los rayos encima, está en Ahora. Sale solo si hay algo que contar. ---------- */
+const rayoUltimo = () => { const U = (E.rayos || {}).ultimo; return U && U.t && Date.now() - U.t < 7 * 864e5 ? U : null; };
+const tormentaPrevista48 = () => horasAhora().slice(0, 48).filter(h => (h.tormenta || 0) >= 20);
+const hayTormentas = () => !!(rayosRecientes() || rayoUltimo() || tormentaPrevista48().length);
+function tarjetaRayosMapa(i) {
+  const R = rayosRecientes(), U = rayoUltimo(), L = E.lugar, d = .9, caja = [L.lon - d / Math.cos(L.lat * Math.PI / 180) * 1.5, L.lat - d, L.lon + d / Math.cos(L.lat * Math.PI / 180) * 1.5, L.lat + d];
+  const P = R ? R.puntos : [], ahora = Date.now();
+  const extra = xy => {
+    const [cx, cy] = xy(L.lon, L.lat), [ex] = xy(L.lon + 50 / (111.32 * Math.cos(L.lat * Math.PI / 180)), L.lat), r50 = ex - cx;
+    const anillos = [25, 50].map(km => `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${(r50 * km / 50).toFixed(1)}" class="mc-r"/><text x="${(cx + r50 * km / 50 * .72 + 6).toFixed(1)}" y="${(cy - r50 * km / 50 * .72).toFixed(1)}" class="mc-t">${km} km</text>`).join("");
+    const pts = P.map(([la, lo, t]) => { const [x, y] = xy(lo, la), m = (ahora - t) / 6e4; return `<path d="M${x - 6},${y + 8} L${x + 2},${y - 2} L${x - 2},${y - 2} L${x + 6},${y - 12}" class="rayo-p" style="opacity:${m < 10 ? 1 : m < 20 ? .7 : .45}"/>`; }).join("");
+    const u = !P.length && U && U.lat != null ? (([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="12" class="rayo-u"/>`)(xy(U.lon, U.lat)) : "";
+    return anillos + pts + u;
+  };
+  return `<div data-f="rayos" class="tile rayos-mapa" style="--i:${i}"><div class="k">Rayos ${R ? "de la última media hora" : "cerca"}<em>${R ? `${P.length} zonas con rayos · satélite MTG` : U ? `el último, ${diaFecha(isoDe(new Date(U.t)))} a las ${horaMin(U.t)}` : "ninguno ahora"}</em></div>
+    <div class="marco">${mapaCaja(caja, 1000, extra)}</div>
+    <p class="leyenda-m">${R ? "Cada rayo dibujado, una zona de unos 4 km con rayos; más apagados, los de hace más de 10 y 20 minutos. " : ""}La lluvia del radar, con los rayos encima, en la pantalla Ahora.</p></div>`;
+}
+function tarjetaTormentas(i) {
+  const H = horasAhora().slice(0, 48), U = rayoUltimo(), D = (E.rayos || {}).dias || {}, dias = Object.keys(D).sort();
+  const barras = H.map(h => `<div title="${h.t}"><i style="height:${Math.max(0, h.tormenta || 0)}%;${(h.tormenta || 0) >= 40 ? "background:var(--rayo)" : ""}"></i>${+h.t.slice(11, 13) % 6 === 0 ? `<span>${+h.t.slice(11, 13)} h</span>` : ""}</div>`).join("");
+  const maxT = Math.max(0, ...H.map(h => h.tormenta || 0));
+  return `<div data-f="prevision rayos" class="tile tormentas" style="--i:${i}"><div class="k">Probabilidad de tormenta<em>próximas 48 horas · AEMET</em></div>
+    <p class="tor-max">${maxT ? `Hasta el <b>${maxT} %</b>${(t => t ? `, ${diaFecha(t.t.slice(0, 10))} a las ${+t.t.slice(11, 13)} h` : "")(H.find(h => h.tormenta === maxT))}` : "Sin tormentas previstas"}</p>
+    <div class="tor-barras">${barras}</div>
+    <div class="k sub">Rayos cerca</div>
+    <p class="tor-u">${U ? `El último a menos de 50 km: <b>${diaFecha(isoDe(new Date(U.t)))} a las ${horaMin(U.t)}</b>, a ${coma(U.km, U.km < 10 ? 1 : 0)} km al ${rumboTexto(U.rumbo)}.` : "Ninguno a menos de 50 km en la última semana."}</p>
+    ${dias.length ? `<p class="tor-d">${dias.length === 1 ? "1 día" : `${dias.length} días`} con rayos a menos de 50 km en el último mes: ${dias.slice(-6).map(d => diaFecha(d)).join(", ")}.</p>` : ""}
+    <p class="nota">Rayos del satélite Meteosat de tercera generación (EUMETSAT), los que ha visto la tele mientras estaba encendida.</p></div>`;
+}
+const pTormentas = () => `<div class="main" style="grid-template-columns:minmax(0,1fr) 700px">${tarjetaRayosMapa(1)}${tarjetaTormentas(2)}</div>`;
 function tarjetaGas() {
   const G = (E.gasolina && E.gasolina.estaciones) || [];
   // las tres más baratas de cada combustible (lo pidió Isa el 28 oct 2026); la segunda y la tercera, en filas más pequeñas
@@ -3680,22 +3924,20 @@ function pCampo() {
   return raif ? `<div class="main" style="grid-template-columns:minmax(0,1fr) 700px">${campo}<div class="col" style="grid-template-rows:1fr">${raif}</div></div>`
     : `<div class="main" style="grid-template-columns:1fr">${campo}</div>`;
 }
-function pPescado() {
-  const Lj = E.lonja, P = tarjetaLonjaPueblo(2);   // 4.24 (365): con la lonja del pueblo, a la derecha y la provincia a dos columnas
-  return `<div class="main" style="grid-template-columns:${P ? "minmax(0,1fr) 600px" : "1fr"}">${listaPrecios("lonja", Lj.especies, e => [e.nombre, e.precio],
-    "Todas las especies y lonjas · <b>Junta de Andalucía</b> (IDAPES) · precio medio por kilo", Lj.url || "https://ws142.juntadeandalucia.es/agriculturaypesca/idapub/", 1,
-    `Pescado en lonja<em>${fechaVuelo(Lj.desde, Lj.hasta)} · provincia${Lj.antesDesde ? ` · ▲▼ frente a ${fechaVuelo(Lj.antesDesde, Lj.antesHasta)}` : ""}</em>`, P ? 2 : 3, dibujoPescado,
-    e => tendencia(e.precio, e.antes))}${P ? `<div class="col" style="grid-template-rows:1fr">${P}</div>` : ""}</div>`;   // 4.22: si sube o baja frente a la semana anterior (IDAPES)
+function pPescado() {   // 4.26 (lo pidió Isa el 5 nov 2026: «deja solo los datos de la lonja de Adra»): la lonja del pueblo, a toda la pantalla
+  return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${tarjetaLonjaPueblo(1, true)}</div></div>`;
 }
 /* 365 (lo pidió Isa el 4 nov 2026): la lonja del pueblo (Mas.lonjaPueblo: IDAPES, la misma fuente que Pescado): su último día de venta,
    con el total y cada especie (kilos y precio medio por kilo), las que más kilos primero */
-function tarjetaLonjaPueblo(i) {
+const hayLonjaPueblo = () => !!(E.lonjaPueblo && (E.lonjaPueblo.especies || []).length);
+function tarjetaLonjaPueblo(i, toda) {
   const P = E.lonjaPueblo;
   if (!P || !(P.especies || []).length) return "";
-  return `<div data-f="lonja" class="tile lonjap" style="--i:${i}"><div class="k">Lonja de ${esc(P.pueblo)}<em>${diaFecha(P.dia)}</em></div>
+  const cols = toda ? Math.min(3, Math.max(1, Math.ceil(P.especies.length / 9))) : 1;
+  return `<div data-f="lonja" class="tile lonjap${toda ? " toda" : ""}${toda && P.especies.length <= 8 ? " pocas" : ""}" style="--i:${i};--cols:${cols}"><div class="k">Lonja de ${esc(P.pueblo)}<em>${diaFecha(P.dia)}${P.antesDia ? ` · ▲▼ frente al ${diaFecha(P.antesDia)}` : ""}</em></div>
     <p class="lp-tot"><b>${miles(P.kilos)} kg</b> vendidos por ${miles(P.euros)} € · ${P.especies.length} especies</p>
-    ${(t => `<ul class="lp" ${t.attr}>${t.items.map(e => `<li>${dibujoPescado(e.nombre) || '<i class="pf"></i>'}<span>${esc(e.nombre)}</span><i>${miles(e.kilos)} kg</i><b>${coma(e.precio, 2)} €</b></li>`).join("")}</ul>`)(enTurno("lonjap", P.especies, 14))}
-    <p class="nota">El último día con ventas en su lonja (la Junta los publica con unos días de retraso); precio medio por kilo.</p></div>`;
+    ${(t => `<ul class="lp" ${t.attr}>${t.items.map(e => `<li>${dibujoPescado(e.nombre) || '<i class="pf"></i>'}<span>${esc(e.nombre)}</span><i>${miles(e.kilos)} kg</i>${tendencia(e.precio, e.antes)}<b>${coma(e.precio, 2)} €</b></li>`).join("")}</ul>`)(enTurno("lonjap", P.especies, toda ? 60 : 14))}
+    <p class="nota">El último día con ventas en su lonja (la Junta de Andalucía, IDAPES, los publica con unos días de retraso); precio medio por kilo; ▲▼, frente al día de venta anterior.</p></div>`;
 }
 
 /* ---------- empleo público (lo pidió Isa el 27 oct 2026): ofertas en plazo de las entidades instrumentales de la Junta
@@ -4139,7 +4381,10 @@ function tarjetaProductos(todo) {   // todo: en su pantalla, en dos columnas
   if (!E.productos) return "";
   if (!L.length) return `<div data-f="productos" class="tile cons prod" style="--i:2"><div class="k">Productos peligrosos · Safety Gate (UE)<em>avisados por España</em></div>
     <p class="mut" style="font-size:24px">España no ha avisado de ningún producto peligroso en los últimos 3 meses.</p></div>`;
-  const t = enTurno("productos", L, todo ? 16 : 4);
+  // 4.26 (lo pidió Isa el 5 nov 2026: «muestra los productos peligrosos más recientes, máximo todo en 1 pantalla»): siempre desde el más
+  // reciente y solo los que caben (sin pasar a los siguientes en otra vuelta)
+  turnos.siguiente.productos = turnos.desde.productos = 0;
+  const t = enTurno("productos", L.slice().sort((a, b) => String(b.fecha || "").localeCompare(String(a.fecha || ""))), todo ? 16 : 4);
   const fila = x => {
     const k = "sg:" + x.id, mod = (x.modelos || []).slice(0, 2);
     const datos = [(x.marcas || []).map(esc).join(", "), mod.length ? `modelo ${mod.map(esc).join(", ")}` : "", x.origen ? `hecho en ${esc(origenCorto(x.origen))}` : ""].filter(Boolean).join(" · ");
@@ -4182,7 +4427,7 @@ function tarjetaAgua() {
       ${qrPie(A.url, "SINAC, Ministerio de Sanidad", 56)}</div></div>`;
 }
 /* ---------- pintar ---------- */
-const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
+const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, tormentas: pTormentas, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
   alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
   economia: pEconomia, empleo: pEmpleo, sas: pSas};
 function pintar() {
@@ -4454,8 +4699,22 @@ function satelite() {
    El nivel se recuerda 3 días y la app puede forzarlo (?calidad=N) si la página se ha caído. */
 let calidad = 2;
 try { const q = new URLSearchParams(location.search).get("calidad"); if (q !== null && q !== "") calidad = Math.max(0, Math.min(2, +q)); } catch (e) {}
-try { const g = JSON.parse(localStorage.getItem("calidad") || "null"); if (g && Date.now() - g.t < 3 * 864e5) calidad = Math.min(calidad, g.n); } catch (e) {}
+const CALIDAD_V = 2;   // 4.26: la medida con los rayos de antes no vale
+try { const g = JSON.parse(localStorage.getItem("calidad") || "null"); if (g && g.v === CALIDAD_V && Date.now() - g.t < 3 * 864e5) calidad = Math.min(calidad, g.n); } catch (e) {}
 function aplicarCalidad() { document.documentElement.dataset.calidad = calidad; }
+function rayosSol() {   // 4.26: los rayos del sol, una vez: 30 rayos de 3,5° cada 12°, que se apagan del 14 % al 70 % del radio
+  const el = document.querySelector(".a-rayos"); if (!el) return;
+  try {
+    const n = 880, r = n / 2, cv = document.createElement("canvas"); cv.width = cv.height = n;
+    const x = cv.getContext("2d"), g = Math.PI / 180;
+    x.fillStyle = "rgba(255,205,110,.13)";
+    for (let a = 0; a < 360; a += 12) { x.beginPath(); x.moveTo(r, r); x.arc(r, r, r, (a - 90) * g, (a + 3.5 - 90) * g); x.closePath(); x.fill(); }
+    const m = x.createRadialGradient(r, r, 0, r, r, r); m.addColorStop(.14, "#000"); m.addColorStop(.7, "rgba(0,0,0,0)");
+    x.globalCompositeOperation = "destination-in"; x.fillStyle = m; x.fillRect(0, 0, n, n);
+    el.style.backgroundImage = `url(${cv.toDataURL()})`;
+  } catch (e) {}
+}
+rayosSol();
 aplicarCalidad();
 function medirFluidez() {
   if (calidad === 0 || document.hidden) return;
@@ -4468,7 +4727,7 @@ function medirFluidez() {
     window.FLUIDEZ = {fps: Math.round(fps), saltos, calidad};
     if (fps < 24 || saltos / n > .25) {
       calidad--; aplicarCalidad();
-      try { localStorage.setItem("calidad", JSON.stringify({n: calidad, t: Date.now()})); } catch (e) {}
+      try { localStorage.setItem("calidad", JSON.stringify({n: calidad, t: Date.now(), v: CALIDAD_V})); } catch (e) {}
     }
   }
   requestAnimationFrame(paso);
@@ -4493,7 +4752,7 @@ function pintarMenu() {
       + `<span class="mn-v">${off ? "no sale" : "sale"}</span><span class="mn-s">${off ? "" : `◀ ${s} s ▶`}</span></li>`;
   };
   m.innerHTML = `<div class="mn"><div class="mn-k">Ajustes de las pantallas<em>se guardan solos · también en el salvapantallas</em></div>
-    <ol>${F.map(fila).join("")}</ol>
+    <ol class="${F.length > 24 ? "apretado" : ""}" style="grid-template-rows:repeat(${Math.ceil(F.length / 2)},auto)">${F.map(fila).join("")}</ol>
     ${menuMovil()}<div class="mn-ay"><span>▲ ▼ elegir</span><span>OK quitar o poner</span><span>◀ ▶ segundos</span><span>« » mover</span><span>Atrás o ≡ cerrar</span></div></div>`;
 }
 /* 4.19: el enlace para ver la página en un móvil de casa (lo sirve la app), con su QR; en el móvil no sale */
@@ -4525,7 +4784,7 @@ function accionMenu(a) {
     menu = null; pintarMenu();
     try { Android.cambiarSitio(); } catch (e) {}
     return;
-  } else if (a === "ok" && f.t === "reset") { AJ = {orden: [], ocultas: [], seg: {}}; guardarAjustes(); }
+  } else if (a === "ok" && f.t === "reset") { AJ = {orden: [], ocultas: [], seg: {}, ordenV: ORDEN_V}; guardarAjustes(); }
   else if (a === "ok" && f.t === "p") {
     AJ.ocultas = AJ.ocultas.includes(f.p) ? AJ.ocultas.filter(x => x !== f.p) : AJ.ocultas.concat(f.p);
     guardarAjustes();

@@ -15,6 +15,9 @@
   "use strict";
   window.MOVIL = true;
   const NUBE = !!window.NUBE;
+  // 4.26 (lo pidió Isa el 5 nov 2026: «haz una versión para salvapantallas en Windows»): con «?salvapantallas», sin botones ni puntero
+  // (la abre a pantalla completa el salvapantallas de Windows, pc/salvapantallas, y se cierra al mover el ratón o tocar una tecla)
+  const SALVA = /(?:^|[?&#])salvapantallas\b/.test(location.search.slice(1) + "&" + location.hash.slice(1));
   const sync = u => { try { const x = new XMLHttpRequest(); x.open("GET", u, false); x.send(); return x.status === 200 ? x.responseText : ""; } catch (e) { return ""; } };
   const zoom = () => (window.visualViewport ? visualViewport.scale : 1);
   let etag = null, espera = null, mv = null, ultimo = "";
@@ -105,7 +108,8 @@ html{touch-action:pan-x pan-y pinch-zoom}footer .pista{display:none}
 #mv .mv-aviso{position:absolute;left:50%;top:10px;transform:translateX(-50%);max-width:calc(100% - 24px);background:rgba(20,30,44,.9);
   border-radius:12px;padding:8px 14px;font-size:14px;text-align:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.8)}
 #mv .mv-gira{position:absolute;left:0;right:0;text-align:center;font-size:14px;color:#9fb0c4}
-#mv .mv-gira[hidden],#mv .mv-aviso[hidden]{display:none}`;
+#mv .mv-gira[hidden],#mv .mv-aviso[hidden]{display:none}
+#mv.salva .mv-b,#mv.salva .mv-c,#mv.salva .mv-gira{display:none!important}html.salva,html.salva *{cursor:none!important}`;
     document.head.appendChild(st);
     mv = document.createElement("div"); mv.id = "mv";
     mv.innerHTML = `<button class="mv-b mv-izq" type="button" aria-label="Pantalla anterior">◀</button>
@@ -114,6 +118,7 @@ html{touch-action:pan-x pan-y pinch-zoom}footer .pista{display:none}
       <div class="mv-gira" hidden>Gira el móvil para verla más grande · con dos dedos se amplía</div>
       <div class="mv-aviso">${NUBE ? "Cargando…" : "Conectando con la tele…"}</div>`;
     document.documentElement.appendChild(mv);   // fuera del body (que va escalado): los botones, a su tamaño
+    if (SALVA) { mv.classList.add("salva"); document.documentElement.classList.add("salva"); }
     mv.querySelector(".mv-izq").addEventListener("click", () => mover(-1));
     mv.querySelector(".mv-der").addEventListener("click", () => mover(1));
     const fs = mv.querySelector(".mv-c"), de = document.documentElement;

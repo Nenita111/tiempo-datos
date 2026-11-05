@@ -1,5 +1,5 @@
 """Tarea diaria, la parte que no hace falta buscar: quita lo pasado (cortes, agenda, colectas de sangre, sorteos), pone al día el
-calendario del cielo, las plagas, los virus respiratorios, los cruceros del puerto de Almería (4.16) y la sequía y revisa las fuentes de la app. Todo de una vez y con un
+calendario del cielo, las plagas, los virus respiratorios, los cruceros del puerto de Almería (4.16), las inspecciones de las playas (4.26) y la sequía y revisa las fuentes de la app. Todo de una vez y con un
 resumen de una línea, para que la tarea programada gaste pocos tokens (antes leía la salida de cada script).
 
   python3 -I herramientas/diario.py extras.json [--sin-revision]
@@ -28,7 +28,7 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     # sequía, que puede tardar 15 minutos, y lo que cambiaba entretanto ya no estaba en la caché de Composio)
     ("titulares", "titulares.py", 300), ("receta", "receta.py", 120), ("sas", "sas.py", 600), ("etiquetas", "etiquetas.py", 900),
     ("fap", "fap.py", 300),
-    ("cielo", "cielo.py", 300), ("raif", "raif.py", 300), ("respiratorias", "respiratorias.py", 300), ("cruceros", "cruceros.py", 120),
+    ("cielo", "cielo.py", 300), ("raif", "raif.py", 300), ("respiratorias", "respiratorias.py", 300), ("cruceros", "cruceros.py", 120), ("playas", "playas.py", 180),
     ("sequia", "sequia.py", 900),
 ]
 # el sandbox de Composio (composio_jev.py) repite estos, en este orden, para que Jev vea lo mismo: los que quitan lo pasado (cambian lo que

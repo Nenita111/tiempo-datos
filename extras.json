@@ -364,7 +364,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-05",
- "actualizado": "2026-11-05T06:08+01:00",
+ "actualizado": "2026-11-05T11:47+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -1556,5 +1556,381 @@
   "pdf": "https://apalmeria.com/wp-content/uploads/2026/03/CRUCEROS-2026.pdf",
   "url": "https://apalmeria.com/pasajeros/cruceros/",
   "actualizacion": "15/02/26"
+ },
+ "playas": {
+  "temporada": 2026,
+  "playas": [
+   {
+    "nombre": "Carboncillo",
+    "calificacion": "Excelente",
+    "inspecciones": [
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-05-18"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-01"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-15"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-06"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-20"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-03"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-17"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-31"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-09-14"
+     }
+    ]
+   },
+   {
+    "nombre": "Censo",
+    "calificacion": "Excelente",
+    "inspecciones": [
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-05-18"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-01"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-15"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-06"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-20"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-03"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-17"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-31"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-09-14"
+     }
+    ]
+   },
+   {
+    "nombre": "El Lance de la Virgen",
+    "calificacion": "Excelente",
+    "inspecciones": [
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-05-18"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-01"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-15"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-06"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-20"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-03"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-17"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-31"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-09-14"
+     }
+    ]
+   },
+   {
+    "nombre": "Guainos Bajos",
+    "calificacion": "Excelente",
+    "inspecciones": [
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-05-18"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-01"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-15"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-06"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-20"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-03"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-17"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-31"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-09-14"
+     }
+    ]
+   },
+   {
+    "nombre": "La Caracola",
+    "calificacion": "Excelente",
+    "inspecciones": [
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-05-18"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-01"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-15"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-06"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-20"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-03"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-17"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-31"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-09-14"
+     }
+    ]
+   },
+   {
+    "nombre": "San Nicolas",
+    "calificacion": "Excelente",
+    "inspecciones": [
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-05-18"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-01"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-15"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-06"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-20"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-03"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-17"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-31"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-09-14"
+     }
+    ]
+   },
+   {
+    "nombre": "Sirena Loca",
+    "calificacion": "Excelente",
+    "inspecciones": [
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-05-18"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-01"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-06-15"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-06"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-07-20"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-03"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-17"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-08-31"
+     },
+     {
+      "valoracion": "Zona Apta para el baño",
+      "comunicado": "Apta para su uso",
+      "fecha": "2026-09-14"
+     }
+    ]
+   }
+  ],
+  "informes": [
+   "2026-06-01",
+   "2026-06-16",
+   "2026-06-30",
+   "2026-07-14",
+   "2026-07-31",
+   "2026-08-14",
+   "2026-09-02",
+   "2026-09-16",
+   "2026-09-30"
+  ],
+  "pdf": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/09/maritimas_almeria_20260930.pdf",
+  "url": "https://www.juntadeandalucia.es/organismos/saludyconsumo/areas/entornos-saludables/salud-ambiental/paginas/zonas-bano.html",
+  "fuente": "Junta de Andalucía (Consejería de Sanidad)"
  }
 }

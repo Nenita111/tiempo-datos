@@ -1,8 +1,8 @@
 {
-  "versionCode": 56,
-  "versionName": "4.25",
+  "versionCode": 57,
+  "versionName": "4.26",
   "apk": "app/Tiempo.apk",
-  "sha256": "0d44b4ee69d8571be881ef7cf054604f0853c047a4726e524fa7c1c907bf1b87",
-  "bytes": 1233445,
-  "notas": "En Semana, el mapa del riesgo de incendio de AEMET (hoy, mañana y pasado)"
+  "sha256": "22a9b52934d5258fb3a18a2e4b95c092d20215ad7117944c797fcffbdb42affd",
+  "bytes": 1258205,
+  "notas": "Pantallas nuevas: Clima, Aire y sol, Tormentas y Naturaleza; playas de la Junta y corriente en Mar; solo la lonja de Adra; pestañas reordenadas; el sol de fondo, suave en la tele"
 }
