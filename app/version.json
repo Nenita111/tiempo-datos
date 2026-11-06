@@ -1,8 +1,8 @@
 {
-  "versionCode": 58,
-  "versionName": "4.27",
+  "versionCode": 59,
+  "versionName": "4.28",
   "apk": "app/Tiempo.apk",
-  "sha256": "a1c89d965a836265f46cd253cbca19b0229b4a57849e6459a9f0d18d5f692fa2",
-  "bytes": 1269605,
-  "notas": "Zonas inundables con el zoom del puerto, ozono, agenda cultural de la Junta, fotos de las especies y la cámara de Adra más grande en Carretera"
+  "sha256": "cf7c8782a6e0d8d8de3a8d3b5e4c119c4a4c33434e419e27f9b60ba74164c11f",
+  "bytes": 1295973,
+  "notas": "Islas de calor, maremotos y acuíferos; lo normal de los últimos años en Adra; horas de sol con su cifra; lo de hoy en amarillo en Empleo y SAS; fin previsto de las incidencias; terremotos nuevos que parpadean; agua de baño solo en temporada; fotos de Naturaleza arregladas"
 }
