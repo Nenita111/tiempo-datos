@@ -3152,7 +3152,7 @@ function pInundaciones() {
   // el agua de debajo»): el recuadro en el mapa grande y su zoom al lado, a 820 px de ancho, con la leyenda a dos columnas debajo
   const c = I.caja, pc = (v, a, b) => ((v - a) / (b - a) * 100).toFixed(2);
   const caja = Z ? `<div class="inund-r" style="left:${pc(Z.caja[0], c[0], c[2])}%;right:${(100 - pc(Z.caja[2], c[0], c[2])).toFixed(2)}%;top:${(100 - pc(Z.caja[3], c[1], c[3])).toFixed(2)}%;bottom:${pc(Z.caja[1], c[1], c[3])}%"></div>` : "";
-  const zoom = Z ? `<figure class="inund-z"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1}"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${puntoNavegantes(Z.caja)}</div>
+  const zoom = Z ? `<figure class="inund-z"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1}"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${puntoZoom(Z.caja)}</div>
       <figcaption>${Z.titulo ? esc(Z.titulo) : `${esc(Z.puerto)} y ${coma(Z.interior || 1.5, 1)} km tierra adentro, ${coma(Z.km, 0)} km a cada lado`}</figcaption></figure>` : "";
   return `<div class="main" style="grid-template-columns:1fr"><div data-f="inundaciones" class="tile inund"><div class="k">Zonas inundables<em>escenarios oficiales · no es una previsión</em></div>
     <div class="inund-f"><div class="inund-m"><div class="marco" style="aspect-ratio:${I.ancho || 1400}/${I.alto || 914}"><img class="base" src="${esc(I.base)}" alt="">${C.map((c, k) => `<img class="capa" id="inund${k}" src="${esc(c.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}
@@ -3752,16 +3752,15 @@ const pSismos = () => (m => m ? `<div class="main" style="grid-template-columns:
 /* ---------- 4.28 (lo pidió Isa el 6 nov 2026): tres pantallas sobre la ortofoto del PNOA de las zonas inundables (la misma caja): las islas de
    calor (Landsat), el riesgo de maremoto (Junta e IGN) y los acuíferos (MITECO, REDIAM, plan hidrológico) ---------- */
 const ortoBase = () => { const I = E.inundaciones; return I && I.base && I.caja ? I : null; };
-/* 4.29 (lo pidió Isa el 6 nov 2026): en los mapas amplios, un punto en el pueblo; en los ampliados, en el Paseo de los Navegantes, 11 (el
-   portal del Callejero Digital de Andalucía Unificado, de la Junta) */
-const NAVEGANTES = {ine: "04003", lon: -3.01605, lat: 36.74777, texto: "P.º de los Navegantes, 11"};
+/* 4.29 y 4.30 (lo pidió Isa el 6 nov 2026): en los mapas amplios, un punto en el pueblo; en los ampliados, el punto que pidió, sin nombre */
+const PUNTO_ZOOM = {ine: "04003", lon: -3.01605, lat: 36.74777};
 function puntoMapa(lon, lat, c, texto, cls) {
   if (lon < c[0] || lon > c[2] || lat < c[1] || lat > c[3]) return "";
   const x = (lon - c[0]) / (c[2] - c[0]) * 100;
-  return `<div class="pto ${cls}${x > 72 ? " izq" : ""}" style="left:${x.toFixed(2)}%;top:${pcY(lat, c)}%"><i></i><span>${esc(texto)}</span></div>`;
+  return `<div class="pto ${cls}${x > 72 ? " izq" : ""}" style="left:${x.toFixed(2)}%;top:${pcY(lat, c)}%"><i></i>${texto ? `<span>${esc(texto)}</span>` : ""}</div>`;
 }
 const puntoPueblo = c => E.lugar ? puntoMapa(E.lugar.lon, E.lugar.lat, c, E.lugar.nombre, "pueblo") : "";
-const puntoNavegantes = c => E.lugar && E.lugar.ine === NAVEGANTES.ine ? puntoMapa(NAVEGANTES.lon, NAVEGANTES.lat, c, NAVEGANTES.texto, "nav") : "";
+const puntoZoom = c => E.lugar && E.lugar.ine === PUNTO_ZOOM.ine ? puntoMapa(PUNTO_ZOOM.lon, PUNTO_ZOOM.lat, c, "", "nav") : "";
 const pcX = (lon, c) => ((lon - c[0]) / (c[2] - c[0]) * 100).toFixed(2), pcY = (lat, c) => ((c[3] - lat) / (c[3] - c[1]) * 100).toFixed(2);
 /* el marco del mapa: la ortofoto (si está; si no, el fondo oscuro con la forma de la caja [c]) y lo de encima, en % de la caja de la ortofoto */
 function mapaOrto(c, dentro, alto) {
@@ -3831,7 +3830,7 @@ function pMaremotos() {
     + (M.encuentro || []).filter(q => q[0] >= c[0] && q[0] <= c[2] && q[1] >= c[1] && q[1] <= c[3]).map(q => `<i class="mar-pe" style="left:${pcX(q[0], c)}%;top:${pcY(q[1], c)}%"></i>`).join("");
   // 4.28: el puerto y el pueblo, de cerca (la franja que se inundaría es estrecha), arriba a la derecha, sobre el monte
   const capas = cb => dibujo(cb) + puntoPueblo(cb) + (zc ? `<div class="inund-r" style="left:${pcX(Z.caja[0], cb)}%;right:${(100 - pcX(Z.caja[2], cb)).toFixed(2)}%;top:${pcY(Z.caja[3], cb)}%;bottom:${(100 - pcY(Z.caja[1], cb)).toFixed(2)}%"></div>
-      <div class="orto-z" style="aspect-ratio:${Z.ancho || 1000}/${Z.alto || 578}"><img src="${esc(Z.base)}" alt="">${dibujo(Z.caja)}${puntoNavegantes(Z.caja)}</div>` : "")
+      <div class="orto-z" style="aspect-ratio:${Z.ancho || 1000}/${Z.alto || 578}"><img src="${esc(Z.base)}" alt="">${dibujo(Z.caja)}${puntoZoom(Z.caja)}</div>` : "")
     + `<div class="tag">La zona que inundaría el peor maremoto</div>`;
   const ley = `<p class="leyenda-m"><i class="mz"></i>zona inundable (la envolvente de las simulaciones)${(M.encuentro || []).length ? ` <i class="pe"></i>puntos de encuentro propuestos (aún por verificar por el Ayuntamiento)` : ""}</p>`;
   const fila = h => `<li><b>${h.anio}</b><span><b>${esc(h.lugar)}${h.km ? ` <small>a ${h.km} km</small>` : ""}:</b> ${esc(h.visto || "")}${h.altura != null ? ` Ola de ${coma(h.altura, 2)} m` : ""}${h.viaje ? `${h.altura != null ? "," : ""} llegó en ${esc(h.viaje)}` : ""}${h.altura != null || h.viaje ? "." : ""}

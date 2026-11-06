@@ -1,8 +1,8 @@
 {
-  "versionCode": 60,
-  "versionName": "4.29",
+  "versionCode": 61,
+  "versionName": "4.30",
   "apk": "app/Tiempo.apk",
-  "sha256": "485cb41987fded2f472625f53ef13158da21cff60f698796d993779c442d6307",
-  "bytes": 1297137,
-  "notas": "Zoom fijo del centro y el puerto en Inundaciones y Maremotos, con el Paseo de los Navegantes 11 y Adra señalados; cámaras de la DGT y fotos de Naturaleza en la página de internet"
+  "sha256": "f91cf4f3d71fbc71da96455b3c17e2eb097bcdf35adc25da18e6d7b5a9c999d3",
+  "bytes": 1297097,
+  "notas": "El punto de los zooms de Inundaciones y Maremotos, sin nombre"
 }
