@@ -363,8 +363,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-05",
- "actualizado": "2026-11-05T12:44+01:00",
+ "sorteosBuscado": "2026-11-06",
+ "actualizado": "2026-11-06T06:08+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -588,38 +588,38 @@
   "fuente": "Red de Alerta e Información Fitosanitaria de Andalucía (RAIF, Junta de Andalucía)"
  },
  "respiratorias": {
-  "semana": "43/2026",
+  "semana": "44/2026",
   "iras": {
-   "tasa": 248.7,
-   "previa": 200.9
+   "tasa": 279.3,
+   "previa": 248.7
   },
   "gripal": {
-   "tasa": 2.2,
-   "previa": 1.8
+   "tasa": 2.5,
+   "previa": 2.2
   },
   "covid": {
-   "tasa": 2.4,
-   "previa": 2.9
+   "tasa": 2.0,
+   "previa": 2.4
   },
   "bronquiolitis": {
-   "tasa": 117.7,
-   "previa": 90.9
+   "tasa": 126.0,
+   "previa": 117.7
   },
   "irag": {
-   "tasa": 7.5,
-   "previa": 7.0
+   "tasa": 8.9,
+   "previa": 7.5
   },
   "positividad": {
-   "gripe": 1.9,
-   "gripePrevia": 7.4,
-   "covid": 15.4,
-   "covidPrevia": 38.9,
+   "gripe": 5.0,
+   "gripePrevia": 1.4,
+   "covid": 17.5,
+   "covidPrevia": 17.1,
    "vrs": 0.0,
    "vrsPrevia": 0.0
   },
-  "desde": "2026-10-19",
-  "hasta": "2026-10-25",
-  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/10/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202643.pdf",
+  "desde": "2026-10-26",
+  "hasta": "2026-11-01",
+  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/11/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202644.pdf",
   "pagina": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/areas/sanidad/salud-vida/vigilancia/paginas/temporada2627.html",
   "fuente": "Junta de Andalucía (vigilancia centinela de la infección respiratoria aguda)"
  },
@@ -870,19 +870,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-05",
-  "nombre": "Olla de trigo",
+  "fecha": "2026-11-06",
+  "nombre": "Crema de calabaza",
   "tiempo": {
    "temperature": "mild",
-   "rain": "rain likely",
+   "rain": "dry",
    "wind": "light wind",
-   "sky": "Intervalos nubosos con lluvia escasa"
+   "sky": "Poco nuboso"
   },
   "recientes": [
-   {
-    "fecha": "2026-10-30",
-    "nombre": "Lentejas con verduras"
-   },
    {
     "fecha": "2026-10-31",
     "nombre": "Caldo de pimentón"
@@ -906,12 +902,21 @@
    {
     "fecha": "2026-11-05",
     "nombre": "Olla de trigo"
+   },
+   {
+    "fecha": "2026-11-06",
+    "nombre": "Crema de calabaza"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-05",
+  "fecha": "2026-11-06",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/215/12": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
    "https://www.juntadeandalucia.es/boja/2026/213/20": {
     "tipo": "convocatoria",
     "provincia": "otra",
@@ -1002,66 +1007,13 @@
     "provincia": "otra",
     "zona": "otra"
    },
-   "https://www.juntadeandalucia.es/boja/2026/211/17": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
+   "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23185": {
+    "tipo": "nombramiento",
+    "provincia": "andalucia",
     "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/211/18": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/211/19": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/211/20": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/211/21": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/211/22": {
-    "tipo": "convocatoria",
-    "provincia": "almeria",
-    "zona": "almeria",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-16"
-    }
-   },
-   "https://www.juntadeandalucia.es/boja/2026/211/23": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/211/24": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/211/25": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
    }
   },
-  "avisar": [
-   {
-    "url": "https://www.juntadeandalucia.es/boja/2026/211/22",
-    "fecha": "2026-10-30",
-    "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios en el Área de Gestión Sanitaria Norte de Almería",
-    "hasta": "2026-11-16"
-   }
-  ]
+  "avisar": []
  },
  "etiquetas": {
   "alim": {
@@ -1141,6 +1093,36 @@
    }
   },
   "ofertas": {
+   "691750": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico Facultativo Patrimonio Público",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-10",
+    "nivel": "grado",
+    "experiencia": 0.87,
+    "colectivo": "general"
+   },
+   "691918": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a Medio",
+    "entidad": "Agencia Pública Andaluza de Educación",
+    "hasta": "2026-11-19",
+    "nivel": "grado",
+    "experiencia": 0.03,
+    "colectivo": "general"
+   },
+   "691687": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "AUDITOR/A",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-11-14",
+    "nivel": "master",
+    "experiencia": 0.93,
+    "colectivo": "general"
+   },
    "691333": {
     "zona": false,
     "zv": 4,
@@ -1181,16 +1163,6 @@
     "experiencia": 0.06,
     "colectivo": "general"
    },
-   "690730": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Enfermero o Enfermera Pepsa",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "grado",
-    "experiencia": 0.82,
-    "colectivo": "general"
-   },
    "690712": {
     "zona": false,
     "zv": 4,
@@ -1219,6 +1191,16 @@
     "hasta": "2026-11-11",
     "nivel": "fp_medio",
     "experiencia": 0.79,
+    "colectivo": "general"
+   },
+   "690730": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Enfermero o Enfermera Pepsa",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "grado",
+    "experiencia": 0.82,
     "colectivo": "general"
    },
    "690112": {
@@ -1313,12 +1295,6 @@
    }
   },
   "sae": {
-   "01-2026-49010": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
    "01-2026-49263": {
     "nivel": "fp_medio",
     "entidad": "junta",
@@ -1330,13 +1306,19 @@
     "entidad": "junta",
     "colectivo": "general",
     "experiencia": 0.06
+   },
+   "01-2026-50065": {
+    "nivel": "no_consta",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.08
    }
   },
   "agenda": {},
-  "fecha": "2026-11-05"
+  "fecha": "2026-11-06"
  },
  "fap": {
-  "fecha": "2026-11-05",
+  "fecha": "2026-11-06",
   "novedades": [
    {
     "tipo": "noticia",
@@ -1499,25 +1481,11 @@
     "anuncia": 0.01,
     "cambio": 0.03,
     "persona": 0.02
-   },
-   "cc7187140c87": {
-    "anuncia": 0.01,
-    "cambio": 0.02,
-    "persona": 0.08
    }
   }
  },
  "cruceros": {
   "lista": [
-   {
-    "fecha": "2026-11-05",
-    "dia": "jueves",
-    "entrada": "08:00",
-    "salida": "16:00",
-    "barco": "Wind Star",
-    "naviera": "Windstar Cruises",
-    "pasajeros": 132
-   },
    {
     "fecha": "2026-11-07",
     "dia": "sábado",
@@ -1952,6 +1920,14 @@
    "fuente": "Junta de Andalucía",
    "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
    "horario": "De 10:00 a 14:00 y de 16:00 a 18:00 horas"
+  },
+  {
+   "titulo": "I Jornada Nacional de Conservación y Restauración del Patrimonio: ciencia e innovación aplicada a la piedra natural",
+   "fecha": "2026-11-25",
+   "lugar": "Almería",
+   "km": 50,
+   "fuente": "Junta de Andalucía",
+   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia"
   },
   {
    "titulo": "XLIII Jornadas Universitarias Andaluzas de Derecho del Trabajo y Relaciones Laborales \"Redefiniendo el papel de las fuentes del Derecho del Trabajo en el contexto actual\"",
