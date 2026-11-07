@@ -419,11 +419,6 @@ svg.mundo{display:block;width:100%;height:300px;margin-top:6px;border-radius:14p
 .pieqr p{font-size:19px;color:var(--tx2);line-height:1.3;text-align:left}
 i.nuevo{display:inline-block;font-style:normal;font-size:.62em;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:#0a0f16;background:#6fd8b4;
   padding:2px 9px;border-radius:999px;margin-left:10px;vertical-align:.18em;line-height:1.35}
-/* 4.31: ¿se puede remar? */
-.remar-h{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;margin-top:6px}.remar-h li{display:flex;flex-direction:column;align-items:center;padding:5px 2px;border-radius:10px;line-height:1.1}
-.remar-h li b{font-size:16px;color:var(--mu)}.remar-h li span{font-size:28px;font-weight:800}.remar-h li small{font-size:15px;color:var(--tx2)}.remar-h li em{font-style:normal;font-size:14px;font-weight:700;color:var(--tx2)}
-.remar-h li.v{background:rgba(63,185,80,.22)}.remar-h li.a{background:rgba(245,166,35,.25)}.remar-h li.r{background:rgba(229,57,53,.25)}
-.remar-r{margin-top:8px;font-size:19px;color:var(--tx2)}.remar-r b.v{color:#2e9d48}.remar-r b.a{color:#c98a00}.remar-r b.r{color:var(--mal)}.remar .nota{margin-top:6px}
 /* 4.28: las pantallas sobre la ortofoto (islas de calor, maremotos, acuíferos) */
 .calor-m,.mare-m,.acu-mapa{display:flex;flex-direction:column}.orto{position:relative;border-radius:16px;overflow:hidden;background:#0c1826;width:100%;flex:0 1 auto;min-height:0}
 .orto>img.base,.orto .cal-l img,.orto-z>img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}.orto .cal-l img{inset:auto;object-fit:fill;opacity:.78}
@@ -452,7 +447,7 @@ i.nuevo{display:inline-block;font-style:normal;font-size:.62em;font-weight:800;l
 .acu-t li.cab{border-top:0;font-size:15px;color:var(--mu);font-weight:700}.acu-t li span small{display:block;font-size:13px;color:var(--mu);font-weight:600}.acu-t .ap-n b{display:block;font-size:18px;line-height:1.2}.acu-t .ap-d{font-size:15px;color:var(--tx2);font-weight:600}
 .acu-t li span.mal{color:var(--mal)}.acu-ps{display:flex;flex-direction:column}.acu-ps .nota{margin-top:auto;padding-top:8px}
 /* 4.28 (lo pidió Isa el 6 nov 2026: «pon fondo amarillo a las ofertas de empleo y SAS que no estaban ayer»): lo publicado hoy */
-.k b.am{font-weight:800;color:var(--tx)}.emp li.dehoy{background:var(--nueva);border-radius:10px;padding-left:12px;padding-right:8px;border-top-color:transparent}.emp li.dehoy + li{border-top-color:transparent}
+.k b.am{font-weight:800;color:var(--tx)}.emp .k b.am{display:inline;font-size:inherit;line-height:inherit}.emp li.dehoy{background:var(--nueva);border-radius:10px;padding-left:12px;padding-right:8px;border-top-color:transparent}.emp li.dehoy + li{border-top-color:transparent}
 .agenda ul,.emp ul{list-style:none;display:grid;gap:10px}.agenda li,.emp li{display:flex;align-items:center;gap:16px;padding:10px 0;border-top:1px solid var(--linea)}
 .agenda li:first-child,.emp li:first-child{border-top:0;padding-top:0}.agenda li>div,.emp li>div{flex:1;min-width:0}
 .agenda b,.emp b{display:block;font-size:23px;line-height:1.25;font-weight:800;color:var(--tx);text-align:left}.agenda li span,.emp li span{display:block;font-size:19px;color:var(--tx2);margin-top:3px}
@@ -830,7 +825,8 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .tor-barras div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.tor-barras i{display:block;background:var(--acc);border-radius:3px 3px 0 0}
 .tor-barras span{position:absolute;bottom:-26px;left:0;font-size:15px;color:var(--mu);font-weight:700;white-space:nowrap}.tormentas .k.sub{margin-top:40px}
 .tor-u,.tor-d{font-size:22px;line-height:1.4;margin-top:6px}.tormentas .nota{margin-top:auto}
-.tor-ah{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px}.tor-ah-p{padding-bottom:26px}.tor-ah .tor-barras{height:84px}.tor-ah .tor-max{font-size:21px;margin:2px 0 6px}
+.tor-ah{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px}.tor-ah-p{padding-bottom:26px}.tor-ah .tor-barras{height:84px;margin-top:22px}
+.tor-barras div>b{position:absolute;left:0;margin-bottom:2px;font-size:14px;font-weight:800;color:var(--tx);white-space:nowrap;line-height:1}.tor-ah .tor-max{font-size:21px;margin:2px 0 6px}
 .tor-ah .tor-u,.tor-ah .tor-d{font-size:19px;line-height:1.35;margin-top:4px;text-align:justify;hyphens:auto}
 /* 4.26: Aire y sol, Clima, playas de la Junta */
 .chip.aire{color:#fff}.tend-aire{font-size:21px;font-weight:800;margin:2px 0 4px}.tend-aire.peor{color:var(--mal)}.tend-aire.mejor{color:var(--ok)}
@@ -882,6 +878,9 @@ body.claro .im-mar{fill:#d6e4f0}body.claro .im-costa{stroke:rgba(20,40,70,.75)}b
 .lonjap .tend.sube{color:var(--ok)}.lonjap .tend.baja{color:var(--mal)}.lonjap .tend.igual{color:var(--mu)}
 .lonjap.toda .lp{column-count:var(--cols);column-gap:48px;column-fill:balance}.lonjap.toda .lp li{break-inside:avoid;font-size:26px;padding:11px 0}.lonjap.toda .lp li b{font-size:27px}
 .lonjap.toda .lp-tot{font-size:26px}.lonjap.toda .lp-tot b{font-size:38px}
+/* 4.34: en Campo y lonja (media pantalla), la letra algo menor para que quepan todas las especies a la vez (22 en dos columnas) */
+.p-campo .lonjap.toda .lp li{font-size:23px;padding:8px 0;gap:10px}.p-campo .lonjap.toda .lp li b{font-size:24px;min-width:88px}.p-campo .lonjap.toda .lp{column-gap:36px}
+.p-campo .lonjap.toda .lp-tot{font-size:22px;margin-bottom:6px}.p-campo .lonjap.toda .lp-tot b{font-size:32px}
 .lonjap.toda.pocas .lp li{font-size:32px;padding:20px 0}.lonjap.toda.pocas .lp li b{font-size:34px}.lonjap.toda.pocas .lp li i{font-size:24px}.lonjap.toda.pocas .lp .pf,.lonjap.toda.pocas .lp svg{transform:scale(1.25)}.lonjap .lp .pf{flex:none;width:64px;height:32px;display:block}
 .mn-movil{display:flex;align-items:center;gap:22px;margin-top:18px;padding-top:16px;border-top:1px solid var(--linea)}.mn-movil svg.qr{width:116px;height:116px;padding:6px}
 .mn-movil p{font-size:19px;line-height:1.35;color:var(--mu);font-weight:600}.mn-movil b{display:block;font-size:23px;color:var(--tx);margin-bottom:2px}.mn-movil u{text-decoration:none;color:var(--c1);white-space:nowrap}
@@ -926,6 +925,11 @@ body.claro .sd-costa{stroke:rgba(20,40,70,.75)}body.claro .sd-prov{stroke:rgba(2
 .polen .po-s{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:19px;color:var(--tx2)}.polen .po-s b{color:var(--tx)}.polen .po-s i,.polen .nota i{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 .polen .po-c{width:100%;border-collapse:separate;border-spacing:3px;margin-top:10px;font-size:15px;table-layout:fixed}.polen .po-c th{font-weight:700;color:var(--tx2);text-align:center}
 .polen .po-c th:first-child{width:28%}.polen .po-c tr th:first-child{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.polen .po-c td{height:24px;border-radius:5px;background:var(--tile2);text-align:center;color:#fff;font-weight:800}
+.mar-z2{fill:rgba(255,45,45,.18);stroke:#ff2d2d;stroke-width:2}.inund-l li.mz{cursor:default}.inund-l li span{text-align:left;hyphens:manual}.inund-l li i.mz2{background:rgba(255,45,45,.25);box-shadow:inset 0 0 0 3px #ff2d2d}
+.inund-l li i.pe2{background:#5fd38d;border-radius:50%;width:18px;height:18px;margin:0 4px;border:2px solid #fff}.mare-c{align-self:stretch}.mare-c .k.sub{margin:0 0 6px}.mare-c .mare-niv{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mare-c .mare-niv li{font-size:16px;line-height:1.25;gap:8px}
+.mare-c .mare-niv b{flex:0 0 auto;font-size:15px;padding:2px 8px}.mare-c .mare-p{font-size:16px;margin-top:6px;text-align:justify;hyphens:auto}
+.trabajo .emp b{font-size:19px;line-height:1.22}.trabajo .emp li span{font-size:16px}.trabajo .emp li{gap:12px;padding:8px 0}.trabajo .emp svg.nq{width:72px;height:72px}
+.p-sismos .mundo-r .mundo2 li{font-size:17px;padding:5px 9px;gap:6px}.p-sismos .mundo-r .mundo2{gap:6px 10px}.p-sismos .mundo-r .mundo2 .mag{min-width:44px;padding:1px 5px}
 </style>
 </head>
 <body>
@@ -1121,6 +1125,8 @@ function cortada(t, soloAlto) {   // soloAlto: solo lo que se sale por abajo (lo
   const abajo = r.bottom - parseFloat(getComputedStyle(t).paddingBottom || 0) * f + 2;
   // 4.18: el QR del pie tampoco puede salirse de la tarjeta (con listas largas a tres columnas, en Campo, asomaba 4 px)
   for (const q of t.querySelectorAll(".pieqr")) if (q.getBoundingClientRect().bottom > r.bottom + 1) return true;
+  // 4.34: ni el QR de una fila por la derecha (en Alertas, con tres columnas, al agrandar la letra se salía el de las alimentarias)
+  if (!soloAlto) for (const q of t.querySelectorAll("li svg.qr")) { const b = q.getBoundingClientRect(); if (b.height && b.right > r.right + 1) return true; }
   for (const el of t.querySelectorAll("*")) {
     if (el.closest("svg,canvas,img,.marco,.mapa,.nl-foto,.nr-foto,.act")) continue;
     if (![...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
@@ -1173,7 +1179,7 @@ function ajustarTurnos(raiz) {
   }
 }
 function ajustarTarjetas(raiz) {
-  // 4.31: lo prescindible (la nota del criterio de remar) se quita si su columna o alguna de sus tarjetas no caben enteras
+  // 4.31: lo prescindible (clase «prescindible») se quita si su columna o alguna de sus tarjetas no caben enteras
   for (const c of raiz.querySelectorAll(".col")) {
     const P = c.querySelectorAll(".prescindible");
     if (P.length && (c.scrollHeight > c.clientHeight + 2 || [...c.querySelectorAll(".tile")].some(t => cortada(t)))) P.forEach(e => { e.style.display = "none"; });
@@ -1509,13 +1515,13 @@ function qrSvg(url, cls, maxN) {
 }
 
 /* ---------- fuentes que llevan horas fallando: se dice en la cabecera de su pantalla, en gris, para no enseñar datos viejos como si fueran de hoy ---------- */
-const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], inundaciones: ["inundaciones"], calor: ["islasCalor"], maremotos: ["maremotos"], acuiferos: ["x"], clima: ["climaRia", "clima", "lluvia", "prevision"], naturaleza: ["naturaleza"],
+const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], inundaciones: ["inundaciones", "maremotos"], calor: ["islasCalor"], maremotos: ["maremotos"], acuiferos: ["x"], clima: ["climaRia", "clima", "lluvia", "prevision"], naturaleza: ["naturaleza"],
   get aire() { return ["aire", "radiacion", "radsol", "prevision"].concat(polen() ? ["x"] : []); },
   agua: ["lluvia", "saih", "sequia", "agua"], get mar() { return ["boya", "playas", "oleaje", "maritima", "mareas"].concat(enBano() ? ["aguaBano"] : []); }, cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
   espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
-  alertas: ["alimentarias", "medicamentos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "olas", "regatas", "rfep"], carretera: ["camara", "ruta", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
-  sismos: ["terremotos"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
-  noticias: ["noticias", "cortesAgua", "sangre"], senderos: ["x", "senderosTiempo", "incendio", "avisos"], planes: ["x"], ayudas: ["x"]};
+  alertas: ["alimentarias", "medicamentos", "productos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "olas", "regatas", "rfep"], carretera: ["camara", "ruta", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
+  sismos: ["terremotos", "sismosMundo"], mundo: ["sismosMundo"], campo: ["campo", "lonja"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo", "boja", "boe", "bolsaSas", "x"], sas: ["boja", "boe", "bolsaSas"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
+  noticias: ["noticias", "cortesAgua", "sangre"], senderos: ["x", "senderosTiempo", "incendio", "avisos"], planes: ["x", "senderosTiempo", "incendio", "avisos"], ayudas: ["x"]};
 const NOMBRE_FUENTE = {senderosTiempo: "el tiempo en los senderos", islasCalor: "temperatura de la superficie (Landsat)", maremotos: "riesgo de maremoto", inundaciones: "zonas inundables", naturaleza: "biodiversidad (GBIF)", clima: "clima (AEMET)", climaRia: "lo normal en el pueblo (IFAPA)", radsol: "radiación solar (AEMET)", polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
   renovable: "renovables", alimentarias: "alertas AESAN", efemerides: "efemérides", terremotos: "terremotos", futbol: "UD Almería",
   farmacias: "farmacias", campo: "precios del campo", lonja: "lonja", trafico: "tráfico", noticias: "noticias",
@@ -1658,11 +1664,11 @@ const avisosFuertes = () => (E.avisos || []).filter(a => a.nivel >= 2).sort((a, 
    intentando evitar rotaciones y manteniendo la legibilidad, aumenta el número de pantallas si fuera necesario»): cada pantalla, de un
    tema y con sus listas enteras siempre que quepan a un tamaño que se lea. Las que no tienen nada que enseñar no salen. */
 const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente());
-const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayClima() ? ["clima"] : [], hayCalor() ? ["calor"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayAcuiferos() ? ["acuiferos"] : [], hayInundaciones() ? ["inundaciones"] : [], hayMaremotos() ? ["maremotos"] : [], ["mar"], ["cielo"],
-  E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayAlertas() ? ["alertas"] : [], hayProductos() ? ["productos"] : [],
-  ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.terremotos ? ["sismos"] : [], E.sismosMundo ? ["mundo"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
+const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayClima() ? ["clima"] : [], hayCalor() ? ["calor"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayAcuiferos() ? ["acuiferos"] : [], hayInundaciones() || hayMaremotos() ? ["inundaciones"] : [], ["mar"], ["cielo"],
+  E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayAlertas() || hayProductos() ? ["alertas"] : [],
+  ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.terremotos || E.sismosMundo ? ["sismos"] : [], E.campo || raifVigente().length || hayLonjaPueblo() ? ["campo"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
-  ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() ? ["sas"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() ? ["planes"] : [], haySenderos() ? ["senderos"] : []);
+  ofertasVigentes().length || saeVigentes().length || haySas() || hayAyudas() ? ["empleo"] : [], hayPlanes() || haySenderos() ? ["planes"] : []);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): ajustes de las pantallas con el mando (≡ en la app): las que no salen, su orden y los
    segundos de cada una. Los guarda la app (Android.ajustes / guardarAjustes, SharedPreferences): los mismos en la app y en el salvapantallas.
    El aviso de AEMET sale siempre, el primero. */
@@ -1670,8 +1676,10 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
    el tiempo (ahora, semana, clima), lo que se respira (aire y sol), el agua y el mar, el cielo y el planeta, el día (hoy, casa, alertas,
    productos y noticias), moverse (carretera y trenes), la Tierra (terremotos y mundo) y el trabajo y el dinero (campo, pescado, economía,
    empleo y SAS). ORDEN_V: al cambiar el orden de siempre, el que se había guardado con el mando deja paso al nuevo una vez. */
-const ORDEN_BASE = ["ahora", "semana", "clima", "calor", "aire", "agua", "acuiferos", "inundaciones", "maremotos", "mar", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "senderos", "casa", "alertas", "productos", "noticias",
-  "carretera", "trenes", "sismos", "mundo", "campo", "pescado", "economia", "empleo", "sas", "ayudas"];   // 4.31: planes y senderos detrás de Hoy; ayudas y cursos, al final
+// 4.34 (lo pidió Isa: «la menor cantidad de pestañas posible»): Maremotos va en Inundaciones; Senderos, en Planes; Productos, en Alertas; el
+// mundo, en Terremotos; Pescado, en Campo; el SAS, las ayudas y los cursos, en Empleo (un orden guardado con las de antes, las ignora)
+const ORDEN_BASE = ["ahora", "semana", "clima", "calor", "aire", "agua", "acuiferos", "inundaciones", "mar", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "casa", "alertas", "noticias",
+  "carretera", "trenes", "sismos", "campo", "economia", "empleo"];
 const ORDEN_V = 2;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
 function leerAjustes() {
@@ -1705,12 +1713,12 @@ const paginas = () => {
 };
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
-const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
-  alertas: "Alertas", productos: "Productos", hoy: "Hoy", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Pescado", noticias: "Noticias",
-  economia: "Economía", empleo: "Empleo", sas: "SAS", senderos: "Senderos", planes: "Planes", ayudas: "Ayudas y cursos"};
+const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones y maremotos", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
+  alertas: "Alertas y productos", productos: "Productos", hoy: "Hoy", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo y lonja", pescado: "Pescado", noticias: "Noticias",
+  economia: "Economía", empleo: "Empleo y ayudas", sas: "SAS", senderos: "Senderos", planes: "Planes y senderos", ayudas: "Ayudas y cursos"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
   clima: "Fuentes: Junta de Andalucía (IFAPA, red RIA: lo normal de los últimos años y la lluvia medida) · AEMET (horas de sol 1981-2010 y récords)",
-  inundaciones: "Fuentes: MITECO (SNCZI) por la IDEE · IGN (ortofoto PNOA)",
+  get inundaciones() { return "Fuentes: MITECO (SNCZI) por la IDEE · IGN (ortofoto PNOA)" + (hayMaremotos() ? " · Junta de Andalucía (Plan de Emergencia ante el Riesgo de Maremotos) · IGN (peligrosidad sísmica) · BOE (Plan Estatal)" : ""); },
   calor: "Fuentes: Landsat 8 y 9 (USGS/NASA) por el Planetary Computer de Microsoft · Copernicus (CORINE Land Cover 2018) · IGN (ortofoto PNOA)",
   maremotos: "Fuentes: Junta de Andalucía (Plan de Emergencia ante el Riesgo de Maremotos) · IGN (catálogo de tsunamis, peligrosidad sísmica) · BOE (Plan Estatal)",
   acuiferos: "Fuentes: MITECO (red de control, por la REDIAM de la Junta) · plan hidrológico 2022-2027 (Junta de Andalucía, AEMA) · IGN (ortofoto PNOA)", naturaleza: "Fuente: GBIF (red mundial de información sobre biodiversidad)",
@@ -1721,18 +1729,18 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   espacio: "Fuentes: NASA Worldview · Observatorio de Calar Alto",
   planeta: "Fuentes: NASA · Copernicus · polvo: CAMS (Copernicus, ECMWF)",
   casa: "Fuentes: Red Eléctrica · CNMC (peaje 2.0TD, BOE) · MITECO · Cloudflare",
-  alertas: "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)",
+  get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (hayProductos() ? " · Comisión Europea, Safety Gate (productos que avisa España)" : ""); },
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
   hoy: "Fuentes: Wikipedia · Colegio de Farmacéuticos · ESPN",
   carretera: "Fuentes: DGT (cámaras e incidencias) · Consorcio de Transporte del Área de Almería (autobús) · Kiwi.com (vuelos) · OpenSky (aeropuerto)",
   trenes: "Fuente: Renfe (visor de trenes en tiempo real de Alta Velocidad, Larga y Media Distancia)",
-  sismos: "Fuente: Instituto Geográfico Nacional (IGN)",
+  get sismos() { return "Fuentes: Instituto Geográfico Nacional (IGN)" + (E.sismosMundo ? " · Servicio Geológico de EE. UU. (USGS) · mapa: Natural Earth" : ""); },
   mundo: "Fuentes: Servicio Geológico de EE. UU. (USGS) · mapa: Natural Earth",
-  campo: "Fuente: FHAlmería (pizarra de las subastas)", pescado: "Fuente: Junta de Andalucía (IDAPES, primera venta en lonjas)",
-  empleo: "Fuentes: Servicio Andaluz de Empleo (ofertas publicadas) · Junta de Andalucía (Transparencia: ofertas de las entidades instrumentales)",
+  get campo() { return "Fuentes: FHAlmería (pizarra de las subastas)" + (hayLonjaPueblo() ? " · Junta de Andalucía (IDAPES, primera venta en lonjas)" : ""); }, pescado: "Fuente: Junta de Andalucía (IDAPES, primera venta en lonjas)",
+  empleo: "Fuentes: Servicio Andaluz de Empleo · Junta de Andalucía (Transparencia) · BOJA · BOE · Base de Datos Nacional de Subvenciones (IGAE) · Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
   sas: "Fuentes: BOJA · BOE (datos abiertos)",
   senderos: "Fuentes: Junta de Andalucía (REDIAM y Ventana del Visitante: senderos señalizados) · AEMET (predicción por municipios, avisos y riesgo de incendio)",
-  planes: "Fuentes: Ayuntamiento de Adra (Adra en la Senda) · Turismo de Almería (Ayuntamiento de Almería) · Motril Turismo · Diputación de Almería (Deportes) · Junta de Andalucía (agenda de eventos)",
+  planes: "Fuentes: Ayuntamiento de Adra (Adra en la Senda) · Turismo de Almería · Motril Turismo · Diputación de Almería · Junta de Andalucía (agenda, REDIAM y Ventana del Visitante: senderos) · AEMET",
   ayudas: "Fuentes: Base de Datos Nacional de Subvenciones (IGAE) · Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
   economia: "Fuentes: SEPE (paro registrado) · Seguridad Social (afiliados) · Banco de España (euríbor y Letras del Tesoro) · Junta de Andalucía (calendario laboral)",
   noticias: "Fuentes: Diario de Almería · La Voz de Almería · Noticias de Almería · Ideal Almería · Adra Digital"};
@@ -2352,53 +2360,13 @@ function tarjetaCruceros(i) {
   return `<div data-f="x" class="tile cruc" style="--i:${i}"><div class="k">Cruceros en el puerto de Almería<em>previstos${C.actualizacion ? ` · relación del ${esc(C.actualizacion)}` : ""}</em></div>
     <ul ${t.attr}>${t.items.map(fila).join("")}</ul></div>`;
 }
-/* ---------- 4.31, 403 (lo pidió Isa el 7 nov 2026: «¿se puede remar hoy en el puerto?», para el barco dragón): las horas de luz que quedan
-   (si quedan menos de tres, las de mañana), con el viento y las rachas de la previsión de AEMET por horas, la ola del día de Puertos del
-   Estado y el aviso costero de AEMET, cada cosa con su escala oficial (Beaufort, Douglas) y un color con el criterio de la nota ---------- */
-const BEAUFORT_N = [[1, "calma"], [6, "ventolina"], [12, "flojito"], [20, "flojo"], [29, "bonancible"], [39, "fresquito"], [50, "fresco"], [62, "frescachón"],
-  [75, "temporal"], [89, "temporal fuerte"], [103, "temporal duro"], [118, "temporal muy duro"], [1e9, "temporal huracanado"]];
-const fuerzaB = kmh => { const k = BEAUFORT_N.findIndex(([h]) => kmh < h); return [k, BEAUFORT_N[k][1]]; };
-const DOUGLAS_N = [[0.001, "calma"], [0.1, "rizada"], [0.5, "marejadilla"], [1.25, "marejada"], [2.5, "fuerte marejada"], [4, "gruesa"], [6, "muy gruesa"], [9, "arbolada"], [14, "montañosa"], [1e9, "enorme"]];
-const marD = hs => { const k = DOUGLAS_N.findIndex(([h]) => hs <= h); return [k, DOUGLAS_N[k][1]]; };
-// el criterio (en la nota): verde, hasta fuerza 3 y rachas de menos de 29 km/h; rojo, fuerza 5 o más, rachas de 39 o más, ola de 1,25 m o más o aviso costero
-const colorRemar = (v, r) => v >= 29 || r >= 39 ? "r" : v <= 19 && r < 29 ? "v" : "a";
-function horasRemar() {
-  const H = E.horas || [], ahora = Date.now(), dias = [0, 1].map(d => { const f = new Date(); f.setDate(f.getDate() + d); return isoDe(f); });
-  const luz = f => { const s = (E.soles || []).find(x => x.fecha === f); return s ? [s.orto, s.ocaso] : ["08:00", "19:00"]; };
-  const de = f => { const [o, c] = luz(f); return H.filter(h => h.t.slice(0, 10) === f && h.t.slice(11, 16) >= o.padStart(5, "0").slice(0, 3) + "00" && h.t.slice(11, 16) <= c.padStart(5, "0")
-    && new Date(h.t).getTime() + 36e5 > ahora && h.viento != null); };
-  const hoy = de(dias[0]);
-  return hoy.length >= 3 ? {fecha: dias[0], horas: hoy} : {fecha: dias[1], horas: de(dias[1])};
-}
-const hayRemar = () => horasRemar().horas.length >= 3;
-function tarjetaRemar(i) {
-  if (!hayRemar()) return "";
-  const {fecha, horas} = horasRemar(), H = horas.slice(0, 12);
-  const ola = (E.oleaje || []).find(o => o.fecha === fecha), M = E.maritima || {}, aviso = !!(M.aviso && String(M.aviso).trim());
-  const [dK, dN] = ola ? marD(ola.hs) : [null, ""];
-  const dia = c => aviso || (ola && ola.hs >= 1.25) ? "r" : c === "v" && ola && ola.hs > 0.5 ? "a" : c;
-  const celdas = H.map(h => { const c = dia(colorRemar(h.viento, h.racha || h.viento)), [b] = fuerzaB(h.viento);
-    return `<li class="${c}"><b>${+h.t.slice(11, 13)} h</b><span>${h.viento}</span><small>${h.racha != null ? h.racha : "–"} · F${b}</small></li>`; }).join("");
-  const n = {v: H.filter(h => dia(colorRemar(h.viento, h.racha || h.viento)) === "v").length};
-  const mejor = (() => { // el tramo verde más largo
-    let ini = -1, largo = 0, bi = -1, bl = 0;
-    H.forEach((h, k) => { if (dia(colorRemar(h.viento, h.racha || h.viento)) === "v") { if (ini < 0) ini = k; largo = k - ini + 1; if (largo > bl) { bl = largo; bi = ini; } } else ini = -1; });
-    return bl ? `de ${+H[bi].t.slice(11, 13)}:00 a ${+H[bi + bl - 1].t.slice(11, 13) + 1}:00` : ""; })();
-  const B = E.boya;
-  return `<div data-f="prevision oleaje maritima" class="tile remar" style="--i:${i}"><div class="k">¿Se puede remar? · ${diaFecha(fecha)}<em>viento · racha (km/h) · fuerza</em></div>
-    <ul class="remar-h">${celdas}</ul>
-    <p class="remar-r">${n.v ? `<b class="v">Buenas horas: ${mejor}</b>` : `<b class="${aviso || (ola && ola.hs >= 1.25) ? "r" : "a"}">Ninguna hora en verde</b>`}${ola ? ` · Mar: <b>${dN}</b> (ola de ${coma(ola.hs, 1)} m, Douglas ${dK})` : ""}${aviso ? ` · <b class="r">aviso costero</b>` : ""}${B && B.agua != null ? ` · agua a ${coma(B.agua, 1)}° (${esc(B.nombre)})` : ""}</p>
-    <p class="nota prescindible">Verde: hasta fuerza 3 (flojo, menos de 20 km/h) y rachas de menos de 29 km/h, con marejadilla como mucho. Rojo: fuerza 5 o más, rachas de 39 km/h o más, ola de 1,25 m o más o aviso costero. Lo demás, ámbar. Es un criterio de la app, no una norma: lo decide el club.</p></div>`;
-}
 const pMar = () => {
   const izq = [tarjetaBoya(), tarjetaPlayas(2), tarjetaOleaje(3)].filter(Boolean), der = [tarjetaNautica(), tarjetaMarea(5)].filter(Boolean), cr = tarjetaCruceros(4);
-  // 4.31: ¿se puede remar?, arriba de la columna con menos tarjetas (fuera de la temporada de playas, la ancha)
-  const rm = tarjetaRemar(7); if (rm) (der.length < izq.length ? der : izq).unshift(rm);
   if (cr) (der.length < izq.length ? der : izq).push(cr);   // 4.18: los cruceros, en la columna con menos tarjetas (no apretados abajo)
   // 4.26: las inspecciones de la Junta van con las playas (sin su previsión, en su tarjeta); 4.28: fuera de la temporada de baño, nada de agua
   // de baño (lo pidió Isa)
   const pj = enBano() && !izq.some(x => x.includes('data-f="playas"')) ? tarjetaPlayasJunta(6) : ""; if (pj) (der.length < izq.length ? der : izq).push(pj);
-  const k1 = der.findIndex(x => !x.includes('class="tile remar"')), filasDer = der.map((x, j) => j === k1 ? "1fr" : "auto").join(" ");   // 4.31: lo que crece, no lo de remar
+  const filasDer = der.map((x, j) => j === 0 ? "1fr" : "auto").join(" ");
   return `<div class="main"><div class="col izq" style="grid-template-rows:${izq.map((x, j) => j === izq.length - 1 ? "1fr" : "auto").join(" ")}">${izq.join("")}</div>
     <div class="col der" style="grid-template-rows:${filasDer}">${der.join("")}</div></div>`;
 };
@@ -3200,7 +3168,9 @@ const hayTormentas = () => !!(rayosRecientes() || rayoUltimo() || tormentaPrevis
    media hora ya van dibujados encima del radar; el último a 50 km o menos y los días con rayos del último mes). */
 function tarjetaTormentasAhora(i) {
   const H = horasAhora().slice(0, 48), U = rayoUltimo(), R = rayosRecientes(), D = (E.rayos || {}).dias || {}, dias = Object.keys(D).sort();
-  const barras = H.map(h => `<div title="${h.t}"><i style="height:${Math.max(0, h.tormenta || 0)}%;${(h.tormenta || 0) >= 40 ? "background:var(--rayo)" : ""}"></i>${+h.t.slice(11, 13) % 6 === 0 ? `<span>${+h.t.slice(11, 13)} h</span>` : ""}</div>`).join("");
+  // 4.34 (lo pidió Isa: «indica sobre la tormenta su % de probabilidad»): el % encima de cada tramo (AEMET la da por periodos de 6 horas)
+  const barras = H.map((h, k) => { const v = Math.max(0, h.tormenta || 0), nuevo = v > 0 && (!k || (H[k - 1].tormenta || 0) !== v);
+    return `<div title="${h.t}"><i style="height:${v}%;${v >= 40 ? "background:var(--rayo)" : ""}"></i>${nuevo ? `<b style="bottom:${v}%">${v} %</b>` : ""}${+h.t.slice(11, 13) % 6 === 0 ? `<span>${+h.t.slice(11, 13)} h</span>` : ""}</div>`; }).join("");
   const maxT = Math.max(0, ...H.map(h => h.tormenta || 0)), tm = H.find(h => h.tormenta === maxT);
   const n = R ? (R.puntos || []).length : 0;
   return `<div data-f="prevision rayos" class="tile tor-ah" style="--i:${i}"><div class="tor-ah-p"><div class="k">Tormentas<em>probabilidad · próximas 48 h · AEMET</em></div>
@@ -3216,26 +3186,37 @@ function tarjetaTormentasAhora(i) {
 const hayInundaciones = () => !!(E.inundaciones && E.inundaciones.base && (E.inundaciones.capas || []).length);
 const COLOR_INUND = {FluvialT10: "#0526da", FluvialT100: "#0526da", FluvialT500: "#0526da", MarinaT100: "#189df1", MarinaT500: "#189df1"};   // los del mapa oficial
 function pInundaciones() {
+  if (!hayInundaciones()) return pMaremotos();   // 4.34: sin el mapa de las zonas inundables, el de maremotos solo
   const I = E.inundaciones, C = I.capas, Z = I.zoom && I.zoom.base && (I.zoom.capas || []).length === C.length ? I.zoom : null;
+  /* 4.34 (lo pidió Isa el 7 nov 2026: «redistribuye la información en la menor cantidad de pestañas posible»): Maremotos va aquí: la zona que
+     inundaría el peor maremoto (plan de la Junta), en rojo, encima de los escenarios de inundación, en el mapa y en el zoom, con los puntos de
+     encuentro, y sus niveles de aviso debajo de la leyenda («los que se notaron aquí», fuera: lo pidió Isa) */
+  const M = hayMaremotos() ? E.maremotos : null, adra = E.lugar.ine === "04003";
+  const mz = cz => M ? svgOrto(`<path d="${trazado(M.zona, cz)}" class="mar-z2" vector-effect="non-scaling-stroke"/>`)
+    + (M.encuentro || []).filter(q => q[0] >= cz[0] && q[0] <= cz[2] && q[1] >= cz[1] && q[1] <= cz[3]).map(q => `<i class="mar-pe" style="left:${pcX(q[0], cz)}%;top:${pcY(q[1], cz)}%"></i>`).join("") : "";
   // 4.27 (lo pidió Isa: «haz un zoom en un recuadro con 2 km alrededor del puerto» y «haz el zoom más grande y que se vea el puerto pero no
   // el agua de debajo»): el recuadro en el mapa grande y su zoom al lado, a 820 px de ancho, con la leyenda a dos columnas debajo
   const c = I.caja, pc = (v, a, b) => ((v - a) / (b - a) * 100).toFixed(2);
   const caja = Z ? `<div class="inund-r" style="left:${pc(Z.caja[0], c[0], c[2])}%;right:${(100 - pc(Z.caja[2], c[0], c[2])).toFixed(2)}%;top:${(100 - pc(Z.caja[3], c[1], c[3])).toFixed(2)}%;bottom:${pc(Z.caja[1], c[1], c[3])}%"></div>` : "";
-  const zoom = Z ? `<figure class="inund-z"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1}"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${puntoZoom(Z.caja)}</div>
+  const zoom = Z ? `<figure class="inund-z"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1}"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${mz(Z.caja)}${puntoZoom(Z.caja)}</div>
       <figcaption>${Z.titulo ? esc(Z.titulo) : `${esc(Z.puerto)} y ${coma(Z.interior || 1.5, 1)} km tierra adentro, ${coma(Z.km, 0)} km a cada lado`}</figcaption></figure>` : "";
-  return `<div class="main" style="grid-template-columns:1fr"><div data-f="inundaciones" class="tile inund"><div class="k">Zonas inundables<em>escenarios oficiales · no es una previsión</em></div>
+  const mare = M ? `<div class="mare-c"><div class="k sub">Si llega un maremoto<em>${adra ? "zona de aviso AL01, de Adra a Almería" : "niveles del Plan Estatal"}</em></div>
+      <ul class="mare-niv"><li class="r"><b>Alerta</b><span>ola de más de 0,5 m (o más de 1 m en tierra): inunda la costa</span></li><li class="a"><b>Aviso</b><span>ola de 0,2 a 0,5 m (o de 0,5 a 1 m en tierra)</span></li><li class="v"><b>Información</b><span>sin riesgo, o olas de menos de 0,2 m</span></li></ul>
+      <p class="mare-p">El peor en esta costa, según el Plan Estatal: uno en la falla de Alborán Sur, con <b>más de 5 m en Málaga y Melilla en unos 20 minutos</b>.${M.pga != null ? ` Peligrosidad sísmica en ${esc(E.lugar.nombre)} (IGN, 2015): <b>${coma(M.pga, 2)} g</b>${M.intensidad != null ? `, intensidad <b>${["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][M.intensidad] || M.intensidad}</b>` : ""} cada 475 años.` : ""}</p></div>` : "";
+  const leyM = M ? `<li class="mz"><i class="mz2"></i><span>Lo que inundaría el peor maremoto<small>plan de la Junta</small></span></li>${(M.encuentro || []).length ? `<li class="mz"><i class="pe2"></i><span>Puntos de encuentro<small>propuestos, por verificar</small></span></li>` : ""}` : "";
+  return `<div class="main" style="grid-template-columns:1fr"><div data-f="inundaciones${M ? " maremotos" : ""}" class="tile inund"><div class="k">Zonas inundables${M ? " y maremotos" : ""}<em>escenarios oficiales · no es una previsión</em></div>
     <div class="inund-f"><div class="inund-m"><div class="marco" style="aspect-ratio:${I.ancho || 1400}/${I.alto || 914}"><img class="base" src="${esc(I.base)}" alt="">${C.map((c, k) => `<img class="capa" id="inund${k}" src="${esc(c.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}
-      ${caja}${puntoPueblo(c)}<div class="tag" id="inundTag">${esc(C[0].nombre)}</div></div>
-      <p class="nota">Lo que se inundaría con una crecida del río o un temporal en la costa que de media pasa una vez cada 10, 100 o 500 años (Sistema Nacional de Cartografía de Zonas Inundables, del Ministerio para la Transición Ecológica, por la IDEE). Escenarios de peligrosidad: no dicen que vaya a pasar ahora.</p></div>
-    <div class="inund-l">${zoom}<ul>${C.map((c, k) => `<li data-k="${k}" class="${k ? "" : "on"}"><i style="background:${COLOR_INUND[c.id] || "#4aa3ff"}"></i><span>${esc(c.nombre)}${c.vacia ? "<small>sin zona cartografiada aquí</small>" : ""}</span></li>`).join("")}</ul></div></div></div></div>`;
+      ${mz(c)}${caja}${puntoPueblo(c)}<div class="tag" id="inundTag">${esc(C[0].nombre)}</div></div>
+      <p class="nota">Lo que se inundaría con una crecida del río o un temporal en la costa que de media pasa una vez cada 10, 100 o 500 años (Sistema Nacional de Cartografía de Zonas Inundables, del Ministerio para la Transición Ecológica, por la IDEE). Escenarios de peligrosidad: no dicen que vaya a pasar ahora.</p>${mare}</div>
+    <div class="inund-l">${zoom}<ul>${C.map((c, k) => `<li data-k="${k}" class="${k ? "" : "on"}"><i style="background:${COLOR_INUND[c.id] || "#4aa3ff"}"></i><span>${esc(c.nombre)}${c.vacia ? "<small>sin zona cartografiada aquí</small>" : ""}</span></li>`).join("")}${leyM}</ul></div></div></div></div>`;
 }
 function animarInundaciones() {
   const C = (E.inundaciones || {}).capas || [], tag = document.getElementById("inundTag");
   if (!tag || C.length < 2) return;
   let k = 0, id = null, fijo = false;
   const ver = j => { k = j; C.forEach((c, n) => { ["inund", "inundZ"].forEach(p => { const im = document.getElementById(p + n); if (im) im.style.opacity = n === j ? 1 : 0; }); });
-    tag.textContent = C[j].nombre + (C[j].vacia ? " · sin zona cartografiada aquí" : ""); document.querySelectorAll(".inund-l li").forEach(li => li.classList.toggle("on", +li.dataset.k === j)); };
-  document.querySelectorAll(".inund-l li").forEach(li => li.addEventListener("click", () => { fijo = true; ver(+li.dataset.k); }));   // móvil y ordenador
+    tag.textContent = C[j].nombre + (C[j].vacia ? " · sin zona cartografiada aquí" : ""); document.querySelectorAll(".inund-l li[data-k]").forEach(li => li.classList.toggle("on", +li.dataset.k === j)); };
+  document.querySelectorAll(".inund-l li[data-k]").forEach(li => li.addEventListener("click", () => { fijo = true; ver(+li.dataset.k); }));   // móvil y ordenador
   const paso = () => { if (!tag.isConnected) return; if (!fijo) ver((k + 1) % C.length); id = setTimeout(paso, 5000); };
   paradas.push(() => clearTimeout(id));
   id = setTimeout(paso, 5000);
@@ -3357,6 +3338,11 @@ const pCasa = () => `<div class="main"><div class="col izq" style="grid-template
 const hayAlertas = () => alertasAlimentarias().length > 0 || medicamentosRecientes().length > 0;
 function pAlertas() {
   const med = tarjetaMedicamentos(), n = alertasAlimentarias().length, dos = n > 1 && (!med || n > 5);   // muchas alimentarias: en dos columnas
+  // 4.34 (lo pidió Isa el 7 nov 2026: «la menor cantidad de pestañas posible»): los productos peligrosos, a la derecha (era su pantalla)
+  if (hayProductos()) {   // una columna para cada cosa, a todo lo alto
+    const cs = [n ? tarjetaAlimentarias(1, false) : "", med, tarjetaProductos(false)].filter(Boolean);   // productos: una columna, los más recientes que caben
+    return `<div class="main" style="grid-template-columns:${cs.length === 3 ? "minmax(0,0.9fr) minmax(0,1fr) minmax(0,1.15fr)" : "minmax(0,1fr) minmax(0,1.2fr)"}">${cs.map(c => `<div class="col" style="grid-template-rows:1fr">${c}</div>`).join("")}</div>`;
+  }
   const cols = [[tarjetaAlimentarias(1, dos), dos && med ? "minmax(0,1.3fr)" : "minmax(0,1fr)"], [med, "minmax(0,1fr)"]].filter(c => c[0]);
   return `<div class="main" style="grid-template-columns:${cols.map(c => c[1]).join(" ")}">${cols.map(c => `<div class="col" style="grid-template-rows:1fr">${c[0]}</div>`).join("")}</div>`;
 }
@@ -3893,7 +3879,7 @@ function animarCalor() {
    niveles de aviso y el peor caso del Plan Estatal (BOE-A-2021-8361), la peligrosidad sísmica del IGN y los que se notaron aquí */
 const hayMaremotos = () => !!(E.maremotos && (E.maremotos.zona || []).length);
 function pMaremotos() {
-  const M = E.maremotos, H = M.historia || [], adra = E.lugar.ine === "04003";
+  const M = E.maremotos, adra = E.lugar.ine === "04003";
   const Z = (E.inundaciones || {}).zoom, zc = Z && Z.base && Z.caja;
   const dibujo = c => svgOrto(`<path d="${trazado(M.zona, c)}" class="mar-z" vector-effect="non-scaling-stroke"/>`)
     + (M.encuentro || []).filter(q => q[0] >= c[0] && q[0] <= c[2] && q[1] >= c[1] && q[1] <= c[3]).map(q => `<i class="mar-pe" style="left:${pcX(q[0], c)}%;top:${pcY(q[1], c)}%"></i>`).join("");
@@ -3902,15 +3888,11 @@ function pMaremotos() {
       <div class="orto-z" style="aspect-ratio:${Z.ancho || 1000}/${Z.alto || 578}"><img src="${esc(Z.base)}" alt="">${dibujo(Z.caja)}${puntoZoom(Z.caja)}</div>` : "")
     + `<div class="tag">La zona que inundaría el peor maremoto</div>`;
   const ley = `<p class="leyenda-m"><i class="mz"></i>zona inundable (la envolvente de las simulaciones)${(M.encuentro || []).length ? ` <i class="pe"></i>puntos de encuentro propuestos (aún por verificar por el Ayuntamiento)` : ""}</p>`;
-  const fila = h => `<li><b>${h.anio}</b><span><b>${esc(h.lugar)}${h.km ? ` <small>a ${h.km} km</small>` : ""}:</b> ${esc(h.visto || "")}${h.altura != null ? ` Ola de ${coma(h.altura, 2)} m` : ""}${h.viaje ? `${h.altura != null ? "," : ""} llegó en ${esc(h.viaje)}` : ""}${h.altura != null || h.viaje ? "." : ""}
-      <small>${[esc(h.suceso || "").replace(/\.$/, ""), h.magnitud != null ? `magnitud ${coma(h.magnitud, 1)}` : "", h.fiabilidad && h.fiabilidad <= 2 ? "dudoso, según el IGN" : ""].filter(Boolean).join(" · ")}</small></span></li>`;
   return `<div class="main" style="grid-template-columns:minmax(0,1fr) 700px"><div data-f="maremotos inundaciones" class="tile mare-m" style="--i:1"><div class="k">Riesgo de maremoto<em>Plan de Emergencia ante el Riesgo de Maremotos de Andalucía</em></div>
       ${mapaOrto(M.caja, capas)}${ley}</div>
-    <div class="col" style="grid-template-rows:auto 1fr"><div data-f="maremotos" class="tile mare-n" style="--i:2"><div class="k">Si llega uno<em>${adra ? "zona de aviso AL01, de Adra a Almería" : "niveles del Plan Estatal"}</em></div>
+    <div class="col" style="grid-template-rows:auto"><div data-f="maremotos" class="tile mare-n" style="--i:2"><div class="k">Si llega uno<em>${adra ? "zona de aviso AL01, de Adra a Almería" : "niveles del Plan Estatal"}</em></div>
       <ul class="mare-niv"><li class="r"><b>Alerta</b><span>ola de más de 0,5 m (o más de 1 m en tierra): inunda la costa</span></li><li class="a"><b>Aviso</b><span>ola de 0,2 a 0,5 m (o de 0,5 a 1 m en tierra)</span></li><li class="v"><b>Información</b><span>sin riesgo, o olas de menos de 0,2 m</span></li></ul>
-      <p class="mare-p">El peor en esta costa, según el Plan Estatal: uno en la falla de Alborán Sur, con <b>más de 5 m en Málaga y Melilla en unos 20 minutos</b>.${M.pga != null ? ` Peligrosidad sísmica en ${esc(E.lugar.nombre)} (IGN, 2015): <b>${coma(M.pga, 2)} g</b>${M.intensidad != null ? `, intensidad <b>${["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][M.intensidad] || M.intensidad}</b>` : ""} cada 475 años.` : ""}</p></div>
-    <div data-f="maremotos" class="tile mare-h" style="--i:3"><div class="k">Los que se notaron aquí<em>catálogo de tsunamis del IGN · a 100 km o menos</em></div>
-      ${H.length ? `<ul class="mare-l">${H.map(fila).join("")}</ul>` : `<p class="mut">Ninguno en el catálogo.</p>`}</div></div></div>`;
+      <p class="mare-p">El peor en esta costa, según el Plan Estatal: uno en la falla de Alborán Sur, con <b>más de 5 m en Málaga y Melilla en unos 20 minutos</b>.${M.pga != null ? ` Peligrosidad sísmica en ${esc(E.lugar.nombre)} (IGN, 2015): <b>${coma(M.pga, 2)} g</b>${M.intensidad != null ? `, intensidad <b>${["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][M.intensidad] || M.intensidad}</b>` : ""} cada 475 años.` : ""}</p></div></div></div>`;
 }
 
 /* acuíferos (acuiferos.py en la nube, extras.json): las masas de agua subterránea con su estado (plan 2022-2027) y los puntos de control con su
@@ -3944,11 +3926,11 @@ function tarjetaMundoDetalle(i) {
   if (!L.length) return "";
   return `<div data-f="sismosMundo" class="tile mundo-l" style="--i:${i}"><div class="k">Los más recientes<em>de los más fuertes de la semana</em></div><ul class="lst sismo mundo">${L.slice(0, 3).map((s, j) => filaMundo(s, j + 1)).join("")}</ul></div>`;
 }
-function tarjetaMundoResto(i) {
+function tarjetaMundoResto(i, todos) {   // 4.34: «todos», desde el primero (en Terremotos, con lo de cerca)
   const M = E.sismosMundo, L = mundoLista();
-  if (L.length <= 3) return "";
-  const t = enTurno("mundo", L.slice(3).map((s, j) => ({...s, n: j + 4})), 40);
-  return `<div data-f="sismosMundo" class="tile mundo-r" style="--i:${i}"><div class="k">Y los demás de la semana<em>de magnitud ${coma(M.minimo, 1)} o más · hacia atrás</em></div>
+  if (L.length <= (todos ? 0 : 3)) return "";
+  const d = todos ? 0 : 3, t = enTurno("mundo", L.slice(d).map((s, j) => ({...s, n: j + d + 1})), 40);
+  return `<div data-f="sismosMundo" class="tile mundo-r" style="--i:${i}"><div class="k">${todos ? "En el mundo · los más recientes" : "Y los demás de la semana"}<em>de magnitud ${coma(M.minimo, 1)} o más · hacia atrás</em></div>
     <ul class="mundo2" ${t.attr}>${t.items.map(s => `<li ${claveNuevo("mundo:" + s.id)}><i class="nm">${s.n}</i><span class="mag" style="background:${colorMag(s.mag)}33">${coma(s.mag, 1)}</span><b>${esc(may(s.pais))}${marcaNuevo("mundo:" + s.id)}</b><small>${s.fecha}</small></li>`).join("")}</ul></div>`;
 }
 const pMundo = () => {
@@ -4149,7 +4131,7 @@ function pez(k, p) {
   return svgDibujo(`<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset=".15" stop-color="${p.l}"/><stop offset=".85" stop-color="${p.v}"/></linearGradient><clipPath id="${id}c"><path d="${cuerpo}"/></clipPath></defs>
     <path d="${cola}" fill="${p.l}" ${LINEA}/><path d="${dorsal}" fill="${p.aleta || p.l}" opacity=".9"/><path d="${anal}" fill="${p.aleta || p.v}" ${LINEA}/>
     <path d="${cuerpo}" fill="url(#${id})" ${LINEA}/><g clip-path="url(#${id}c)">${x}${luz(x0 + 22, r1(y - h * .45), 12, r1(h * .15), .22)}</g>${fuera}
-    <path d="M${x0 + 9} ${r1(y - h * .6)} Q${x0 + 12} ${y} ${x0 + 9} ${r1(y + h * .6)}" stroke="rgba(0,0,0,.3)" fill="none"/><circle cx="${x0 + 4.5}" cy="${r1(y - h * .28)}" r="1.9" fill="#fff"/><circle cx="${x0 + 4.3}" cy="${r1(y - h * .28)}" r="1.1" fill="#111"/>`);
+    <path d="M${x0 + 9} ${r1(y - h * .6)} Q${x0 + 12} ${y} ${x0 + 9} ${r1(y + h * .6)}" stroke="rgba(0,0,0,.3)" fill="none"/><circle cx="${x0 + 4.5 + (p.ojo ? 1 : 0)}" cy="${r1(y - h * .28)}" r="${p.ojo || 1.9}" fill="#fff"/><circle cx="${x0 + 4.3 + (p.ojo ? 1 : 0)}" cy="${r1(y - h * .28)}" r="${p.ojo ? r1(p.ojo * .62) : 1.1}" fill="#111"/>`);
 }
 const ojo = (x, y) => `<circle cx="${x}" cy="${y}" r="1.8" fill="#fff"/><circle cx="${x - .2}" cy="${y}" r="1" fill="#111"/>`;
 const FORMAS = {
@@ -4228,6 +4210,10 @@ const PECES = [
   ["lisa|mujol|galupe|capiton", {h: 6, l: "#5e6e7a", v: "#e6eaec", rayas: ["", "#8a98a2", "#8a98a2", "#8a98a2"], dos: 1}],
   ["corvina|corvallo|roncador|burro", {h: 7.5, l: "#8a7a5a", v: "#e0d8c4", dos: 1}],
   ["bodion|tordo|maragota|merlo|galan|romerillo", {h: 6.5, l: "#3f7a4a", v: "#c8d8a0", puntos: "#e8c84a", dorsalLarga: 1}],
+  // 4.34 (lo pidió Isa el 7 nov 2026): el «soldado» de la lonja es Myripristis (rojo, de ojos muy grandes y aletas con el borde blanco) y el
+  // «pez pollo», Cynoscion striatus (alargado, plateado y con rayas oblicuas oscuras en el lomo)
+  ["soldado", {h: 9, l: "#c9281f", v: "#f2876b", ojo: 3.1, aleta: "#d8453a", rayas: ["", "#f6c2b2"], dos: 1}],
+  ["pez pollo", {h: 5.5, l: "#6f7f86", v: "#eef1f2", rayas: ["#3f4c54", "#3f4c54", "#4a575e"], dos: 1}],
   ["pejerrey|sonso|chucla|caramel|pez rata", {h: 4.5, l: "#6a7a8a", v: "#eef0f2"}], ["chaparrudo|gobio", {h: 5, l: "#5a4a38", v: "#b8a888", dos: 1, puntos: "#2a2018"}], ["reloj", {h: 10, l: "#e0603a", v: "#f2a080"}],
 ];
 const PECES_RE = PECES.map(([k, d]) => [new RegExp("\\b(?:" + k + ")"), k, d]);
@@ -4250,9 +4236,11 @@ function listaPrecios(clave, filas, f, txtQr, url, i, k, cols = 3, dib = null, t
      ${qrPie(url, txtQr)}</div>`;
 }
 function pCampo() {
-  const Cp = E.campo, raif = tarjetaRaif();
+  const Cp = E.campo, raif = tarjetaRaif(), lonja = hayLonjaPueblo() ? tarjetaLonjaPueblo(3, true, 2) : "";   // 4.34: con la lonja (era Pescado)
   const campo = Cp ? listaPrecios("campo", Cp.productos, x => x, "Toda la pizarra de precios de las subastas · <b>FHAlmería</b> · euros por kilo",
-    Cp.url || "https://www.fhalmeria.com/es/pizarra-precios.aspx", 1, `Precios del campo<em>${esc(tit(Cp.subasta))} · ${fechaCorta(Cp.fecha)}${Cp.antes ? ` · ▲▼ frente al ${diaFecha(Cp.antes)}` : ""}${Cp.mesAntes ? ` y a ${MESES[+Cp.mesAntes.slice(5) - 1]} de ${Cp.mesAntes.slice(0, 4)}` : ""}</em>`, raif ? 2 : 3, dibujoCampo, tendenciaCampo) : vaciaDe("campo", "Precios del campo no disponibles.", 1);
+    Cp.url || "https://www.fhalmeria.com/es/pizarra-precios.aspx", 1, `Precios del campo<em>${esc(tit(Cp.subasta))} · ${fechaCorta(Cp.fecha)}${Cp.antes ? ` · ▲▼ frente al ${diaFecha(Cp.antes)}` : ""}${Cp.mesAntes ? ` y a ${MESES[+Cp.mesAntes.slice(5) - 1]} de ${Cp.mesAntes.slice(0, 4)}` : ""}</em>`, raif || lonja ? 2 : 3, dibujoCampo, tendenciaCampo) : vaciaDe("campo", "Precios del campo no disponibles.", 1);
+  if (lonja) return `<div class="main" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:${Cp && raif ? "minmax(0,1fr) auto" : "1fr"}">${Cp ? campo : ""}${raif}</div>
+    <div class="col" style="grid-template-rows:1fr">${lonja}</div></div>`;
   return raif ? `<div class="main" style="grid-template-columns:minmax(0,1fr) 700px">${campo}<div class="col" style="grid-template-rows:1fr">${raif}</div></div>`
     : `<div class="main" style="grid-template-columns:1fr">${campo}</div>`;
 }
@@ -4262,10 +4250,10 @@ function pPescado() {   // 4.26 (lo pidió Isa el 5 nov 2026: «deja solo los da
 /* 365 (lo pidió Isa el 4 nov 2026): la lonja del pueblo (Mas.lonjaPueblo: IDAPES, la misma fuente que Pescado): su último día de venta,
    con el total y cada especie (kilos y precio medio por kilo), las que más kilos primero */
 const hayLonjaPueblo = () => !!(E.lonjaPueblo && (E.lonjaPueblo.especies || []).length);
-function tarjetaLonjaPueblo(i, toda) {
+function tarjetaLonjaPueblo(i, toda, maxCols = 3) {
   const P = E.lonjaPueblo;
   if (!P || !(P.especies || []).length) return "";
-  const cols = toda ? Math.min(3, Math.max(1, Math.ceil(P.especies.length / 9))) : 1;
+  const cols = toda ? Math.min(maxCols, Math.max(1, Math.ceil(P.especies.length / 9))) : 1;
   return `<div data-f="lonja" class="tile lonjap${toda ? " toda" : ""}${toda && P.especies.length <= 8 ? " pocas" : ""}" style="--i:${i};--cols:${cols}"><div class="k">Lonja de ${esc(P.pueblo)}<em>${diaFecha(P.dia)}${P.antesDia ? ` · ▲▼ frente al ${diaFecha(P.antesDia)}` : ""}</em></div>
     <p class="lp-tot"><b>${miles(P.kilos)} kg</b> vendidos por ${miles(P.euros)} € · ${P.especies.length} especies</p>
     ${(t => `<ul class="lp" ${t.attr}>${t.items.map(e => `<li>${dibujoPescado(e.nombre) || '<i class="pf"></i>'}<span>${esc(e.nombre)}</span><i>${miles(e.kilos)} kg</i>${tendencia(e.precio, e.antes)}<b>${coma(e.precio, 2)} €</b></li>`).join("")}</ul>`)(enTurno("lonjap", P.especies, toda ? 60 : 14))}
@@ -4388,15 +4376,17 @@ function itemJunta(o) {
   return `<li ${claveNuevo("of:" + o.id)}${claseHoy(o.publicada)}><div><b>${esc(o.puesto)}${marcaNuevo("of:" + o.id)}</b><span>${esc(entidadCorta(o.entidad))} · ${esc(contratoCorto(o.contrato))}${etiquetasOferta(o)}</span>
       <span>${lugarOferta(o)} · ${plazoOferta(o)}</span></div>${qrSvg(o.url, "qr nq", 54)}</li>`;
 }
-function pEmpleo() {
+function pEmpleo(partes) {   // 4.34: «partes», las tarjetas sueltas (una columna cada lista) para la pantalla Empleo
   const O = ofertasVigentes(), S = saeVigentes(), dos = O.length && S.length;
-  const cS = !S.length ? 0 : !dos ? 3 : S.length >= O.length ? 2 : 1, cO = !O.length ? 0 : !dos ? 3 : 3 - cS;
+  let cS = !S.length ? 0 : !dos ? 3 : S.length >= O.length ? 2 : 1, cO = !O.length ? 0 : !dos ? 3 : 3 - cS;
+  if (partes) cS = cO = 1;
   // 4.1: con pocas ofertas, no más columnas que ofertas (con 2 en tres columnas, dos tercios de la tarjeta quedaban vacíos); y la letra crece (LLENAR)
-  const tile = (f, clave, L, cols, k, item, i) => (t => `<div class="col" style="grid-template-rows:1fr"><div data-f="${f}" class="tile emp colsT" style="--i:${i}"><div class="k">${k}</div><ul class="cols${Math.min(cols, Math.max(1, L.length))}"${L.length <= cols ? ' style="column-fill:balance"' : ""} ${t.attr}>
+  const tile = (f, clave, L, cols, k, item, i) => (t => `<div class="col" style="grid-template-rows:1fr"><div data-f="${f}" class="tile emp colsT" style="--i:${i}"><div class="k">${k}</div><ul class="${partes ? "una" : `cols${Math.min(cols, Math.max(1, L.length))}`}"${L.length <= cols ? ' style="column-fill:balance"' : ""} ${t.attr}>
     ${t.items.map(item).join("")}</ul></div></div>`)(enTurno(clave, L, 30));
   const n = (x, a, b) => `${x} ${x === 1 ? a : b}`, am = c => c ? ` · <b class="am">${c} de hoy, en amarillo</b>` : "";
   const sae = S.length ? tile("sae", "sae", S, cS, `Empleo público en el SAE<em>${n(S.length, "oferta", "ofertas")}${am(S.filter(o => deHoy(o.desde)).length)} · Almería (sin el Levante, Níjar ni a 10 km de Serón, Tíjola u Olula) y la costa hasta Motril</em>`, itemSae, 1) : "";
   const junta = O.length ? tile("ofertasEmpleo", "ofertas", O, cO, `Entes de la Junta · ofertas en plazo<em>${n(O.length, "oferta", "ofertas")}${am(O.filter(o => deHoy(o.publicada)).length)} · Almería (sin el Levante ni a 10 km de Serón, Tíjola u Olula), la costa hasta Motril y toda Andalucía</em>`, itemJunta, 2) : "";
+  if (partes) return [sae, junta].filter(Boolean).map(x => x.replace(/^<div class="col" style="grid-template-rows:1fr">/, "").replace(/<\/div>$/, ""));
   return `<div class="main" style="grid-template-columns:${dos ? `minmax(0,${cS}fr) minmax(0,${cO}fr)` : "1fr"}">${sae}${junta}</div>`;
 }
 /* ---------- SAS (3.0): lo del Servicio Andaluz de Salud en el BOJA y el BOE de la última semana, en una lista (primero lo de Almería) ---------- */
@@ -4408,7 +4398,7 @@ function tarjetaBolsa(i, cols = 1) {
   const N = bolsaNovedades();
   if (!N.length) return "";
   const t = enTurno("bolsa", N, 12);
-  return `<div data-f="bolsaSas" class="tile emp bolsa colsT" style="--i:${i}"><div class="k">Bolsa Única del SAS · novedades<em>${N.length} desde el ${fechaCorta(N[N.length - 1].fecha.slice(0, 10))}</em></div><ul class="bo-l cols${cols}" ${t.attr}>
+  return `<div data-f="bolsaSas" class="tile emp bolsa colsT" style="--i:${i}"><div class="k">Bolsa Única del SAS · novedades<em>${N.length} desde el ${fechaCorta(N[N.length - 1].fecha.slice(0, 10))}</em></div><ul class="bo-l${cols ? ` cols${cols}` : ""}" ${t.attr}>
     ${t.items.map(n => `<li ${claveNuevo("bolsa:" + n.enlace)}${deHoy(n.fecha) ? ' class="hoy dehoy"' : diasHasta(n.fecha.slice(0, 10)) >= -1 ? ' class="hoy"' : ""}><div><b>${esc(n.titulo)}${marcaNuevo("bolsa:" + n.enlace)}</b><span>${fechaCorta(n.fecha.slice(0, 10))}</span></div>${qrSvg(n.enlace, "qr nq", 54)}</li>`).join("")}</ul></div>`;
 }
 function chipBolsa() {
@@ -4426,7 +4416,7 @@ function plazoSas(p) {
   if (d < 0) return ` · <span class="pl fin">plazo acabado</span>`;
   return ` · <span class="pl${d <= 2 ? " ya" : ""}">solicitudes hasta el ${diaFecha(p.hasta)} (${cuanto})</span>`;
 }
-function pSas() {
+function pSas(partes) {   // 4.34: «partes», las dos tarjetas sueltas (la lista en una columna) para la pantalla Empleo
   const B = sasBoja(), O = sasBoe(), nB = B.length, nE = O.length;   // 3.9: cada lista, una vez
   const L = B.map(x => ({...x, k: "boja:"})).concat(O.map(x => ({...x, k: "boe:"})))
     .sort((a, b) => (pesoSas(b) - pesoSas(a)) || b.fecha.localeCompare(a.fecha));
@@ -4435,9 +4425,10 @@ function pSas() {
     return (e && ETIQ_SAS[e.tipo] ? ` · <i class="et">${ETIQ_SAS[e.tipo]}</i>` : "") + (p === "almeria" ? ` · <b class="aqui">Almería</b>` : p === "andalucia" ? " · toda Andalucía" : "")
       + (e && e.tipo === "convocatoria" ? plazoSas(e.plazo) : ""); };
   const cuantos = [nB ? `${nB} en el BOJA` : "", nE ? `${nE} en el BOE` : ""].filter(Boolean).join(" y ") + (c => c ? ` (<b class="am">${c} de hoy, en amarillo</b>)` : "")(L.filter(x => deHoy(x.fecha)).length);
-  const bo = tarjetaBolsa(2, L.length ? 1 : 2);   // 4.8 (304): la Bolsa Única, a la derecha
-  const disp = L.length ? `<div class="col" style="grid-template-rows:1fr"><div data-f="boja boe" class="tile emp sas colsT" style="--i:1"><div class="k">Servicio Andaluz de Salud · oposiciones y concursos<em>${cuantos} en 7 días · Almería (sin el Levante ni a 10 km de Serón, Tíjola u Olula), la costa hasta Motril y toda Andalucía</em></div><ul class="${bo ? "cols2" : "cols3"}" ${t.attr}>
+  const bo = tarjetaBolsa(2, partes ? 0 : L.length ? 1 : 2);   // 4.8 (304): la Bolsa Única, a la derecha (4.34: en Empleo, sin columnas)
+  const disp = L.length ? `<div class="col" style="grid-template-rows:1fr"><div data-f="boja boe" class="tile emp sas colsT" style="--i:1"><div class="k">${partes ? "SAS · oposiciones y concursos" : "Servicio Andaluz de Salud · oposiciones y concursos"}<em>${cuantos} en 7 días${partes ? " · Almería sin el Levante, Motril y Andalucía" : " · Almería (sin el Levante ni a 10 km de Serón, Tíjola u Olula), la costa hasta Motril y toda Andalucía"}</em></div><ul class="${partes ? "una" : bo ? "cols2" : "cols3"}" ${t.attr}>
     ${t.items.map(x => `<li ${claveNuevo(x.k + (x.url || x.id))}${claseHoy(x.fecha)}><div><b>${esc(abreviarSas(x.resumen))}${marcaNuevo(x.k + (x.url || x.id))}</b><span>${x.boletin ? esc(x.boletin) : "BOE"} · ${fechaCorta(x.fecha)}${donde(x)}</span></div>${qrSvg(x.url, "qr nq", 54)}</li>`).join("")}</ul></div></div>` : "";
+  if (partes) return [disp.replace(/^<div class="col" style="grid-template-rows:1fr">/, "").replace(/<\/div>$/, ""), bo].filter(Boolean);
   return `<div class="main" style="grid-template-columns:${disp && bo ? "minmax(0,1fr) 600px" : "1fr"}">${disp}${bo ? `<div class="col" style="grid-template-rows:1fr">${bo}</div>` : ""}</div>`;
 }
 
@@ -4793,11 +4784,17 @@ function tiempoSendero(s, fecha) {
   else if (nav === 1 || fuego === 4 || (d && ((d.prob || 0) >= 40 || (d.racha || 0) >= 40 || (d.viento || 0) >= 30 || (d.max ?? 0) >= 32 || (d.uv || 0) >= 8))) c = "a";
   return {d, av, fuego, c};
 }
-function mapaSenderos(L, fecha) {
+function mapaSenderos(L, fecha, asp) {
   cargarMapa();
   // el recuadro de los senderos (con un margen) y Adra
   const lons = L.flatMap(s => s.traza.flat().map(q => q[0])).concat(E.lugar ? [E.lugar.lon] : []), lats = L.flatMap(s => s.traza.flat().map(q => q[1])).concat(E.lugar ? [E.lugar.lat] : []);
-  const lo0 = Math.min(...lons) - .05, lo1 = Math.max(...lons) + .05, la0 = Math.min(...lats) - .05, la1 = Math.max(...lats) + .04, k = Math.cos((la0 + la1) / 2 * Math.PI / 180), W = (lo1 - lo0) * k * 1000, H = (la1 - la0) * 1000;
+  const lo0 = Math.min(...lons) - .05, lo1 = Math.max(...lons) + .05;
+  let la0 = Math.min(...lats) - .05, la1 = Math.max(...lats) + .04;
+  // 4.34 («aprovechando los espacios»): con la forma del sitio que tiene (asp, ancho entre alto), sin franjas vacías: lo que falta de alto, más
+  // tierra por arriba (dos tercios) y mar por abajo
+  const falta = asp ? (lo1 - lo0) * Math.cos((la0 + la1) / 2 * Math.PI / 180) / asp - (la1 - la0) : 0;
+  if (falta > 0) { la1 += falta * 2 / 3; la0 -= falta / 3; }
+  const k = Math.cos((la0 + la1) / 2 * Math.PI / 180), W = (lo1 - lo0) * k * 1000, H = (la1 - la0) * 1000;
   const xy = (lon, lat) => [(lon - lo0) * k * 1000, (la1 - lat) * 1000], pts = P => P.map(([lon, lat]) => xy(lon, lat).map(v => v.toFixed(1)).join(",")).join(" ");
   const clave = [lo0, lo1, la0, la1].join();
   if (mapaSenderos.clave !== clave) mapaSenderos.clave = clave, mapaSenderos.lineas = ["R", "C"].map(t => mapa.filter(l => l.t === t).map(l => {
@@ -4835,16 +4832,17 @@ function filaSendero(s, n, fecha) {
   return `<li class="${t.c}"><i class="n">${n + 1}</i><div><b>${esc(s.nombre)}${s.cerrado ? ` <span class="sd-c">cerrado temporalmente</span>` : ""}</b>
     <span>${datos}${s.tiempoDe ? ` · ${esc(s.tiempoDe)}` : ""} · a ${s.adraKm} km</span><span class="sd-tp">${tiempo}</span>${aviso}</div>${qrSvg(s.ficha, "qr nq", 54)}</li>`;
 }
-function pSenderos() {
-  const L = senderosLista(), f = diaSenderos(), m = mapaSenderos(L, f), t = enTurno("senderos", L.map((s, n) => [s, n]), L.length);
+function pSenderos(partes) {   // 4.34: «partes», las dos tarjetas (el mapa y la lista) para la pantalla Planes
+  const L = senderosLista(), f = diaSenderos(), m = mapaSenderos(L, f, partes ? 1.05 : 1.7), t = enTurno("senderos", L.map((s, n) => [s, n]), L.length);
   const ley = [["v", "buen día"], ["a", "con cuidado"], ["r", "mejor otro día o cerrado"]].map(([c, x]) => `<i class="sd-l ${c}"></i>${x}`).join(" ");
   const fuegoLey = m.niveles.length ? ` · riesgo de incendio (AEMET): ${m.niveles.map(n => `<i style="background:${FUEGO[n][1]}"></i>${FUEGO[n][0].toLowerCase()}`).join(" ")}` : "";
-  return `<div class="main" style="grid-template-columns:minmax(0,1.02fr) minmax(0,1fr)">
-    <div class="col" style="grid-template-rows:1fr"><div data-f="x senderosTiempo incendio" class="tile sd-mapa" style="--i:1"><div class="k">Senderos señalizados entre Almería y Motril<em>${L.length} de la Junta de Andalucía · el tiempo del ${diaFecha(f)}</em></div>
+  const mapa = `<div data-f="x senderosTiempo incendio" class="tile sd-mapa" style="--i:1"><div class="k">Senderos señalizados entre Almería y Motril<em>${L.length} de la Junta de Andalucía · el tiempo del ${diaFecha(f)}</em></div>
       <div class="marco">${m.svg}</div><p class="leyenda-m">${ley}${fuegoLey}</p>
-      <p class="nota">Verde: sin aviso, lluvia por debajo del 40 %, rachas de menos de 40 km/h, máxima de menos de 32° y riesgo de incendio por debajo de alto. Rojo: cerrado, aviso naranja o rojo, lluvia del 70 % o más, rachas de 60 km/h o más, 36° o más o riesgo de incendio muy alto o extremo. Es un criterio de la app, no una norma.${epocaPeligro(f) ? " Época de peligro alto de incendios forestales (del 1 de junio al 15 de octubre): no se puede hacer fuego en el monte." : ""}</p></div></div>
-    <div class="col" style="grid-template-rows:1fr"><div data-f="x senderosTiempo incendio avisos" class="tile emp sd-lista" style="--i:2"><div class="k">El tiempo en cada sendero<em>${diaFecha(f)} · AEMET, en el municipio de cada uno</em></div>
-      <ul ${t.attr}>${t.items.map(([s, n]) => filaSendero(s, n, f)).join("")}</ul></div></div></div>`;
+      <p class="nota">Verde: sin aviso, lluvia por debajo del 40 %, rachas de menos de 40 km/h, máxima de menos de 32° y riesgo de incendio por debajo de alto. Rojo: cerrado, aviso naranja o rojo, lluvia del 70 % o más, rachas de 60 km/h o más, 36° o más o riesgo de incendio muy alto o extremo. Es un criterio de la app, no una norma.${epocaPeligro(f) ? " Época de peligro alto de incendios forestales (del 1 de junio al 15 de octubre): no se puede hacer fuego en el monte." : ""}</p></div>`;
+  const lista = `<div data-f="x senderosTiempo incendio avisos" class="tile emp sd-lista" style="--i:2"><div class="k">El tiempo en cada sendero<em>${diaFecha(f)} · AEMET, en el municipio de cada uno</em></div>
+      <ul ${t.attr}>${t.items.map(([s, n]) => filaSendero(s, n, f)).join("")}</ul></div>`;
+  if (partes) return [mapa, lista];
+  return `<div class="main" style="grid-template-columns:minmax(0,1.02fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${mapa}</div><div class="col" style="grid-template-rows:1fr">${lista}</div></div>`;
 }
 /* 401: planes gratis o al aire libre entre Almería y Motril en los próximos 45 días (actividades.py: Turismo de Almería, Motril Turismo y la
    Diputación de Almería; y la agenda de la Junta, «agendaJunta»); las rutas de senderismo, aunque se paguen */
@@ -4867,18 +4865,30 @@ function itemPlan(p) {
   return `<li ${claveNuevo("pl:" + p.enlace + p.inicio)}${p.inicio <= isoDe(new Date()) ? ' class="hoy"' : ""}><div><b>${esc(p.titulo)}${marcaNuevo("pl:" + p.enlace + p.inicio)}</b><span>${cuando}${p.hora ? ` · ${esc(p.hora)}` : ""} ${et}</span>
     ${p.detalle ? `<span>${esc(p.detalle)}</span>` : ""}<span>${esc(String(donde).slice(0, 110))}${donde ? " · " : ""}${esc(p.fuente)}${p.inscripcion ? ` · ${esc(p.inscripcion)}` : ""}</span></div>${qrSvg(p.enlace, "qr nq", 54)}</li>`;
 }
-function pPlanes() {
+function tarjetaPlanes(i, cols) {
   const L = planesVivos(), t = enTurno("planes", L, 30), n = L.filter(p => p.gratis).length;
-  return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr"><div data-f="x" class="tile emp colsT planes" style="--i:1">
-    <div class="k">Planes gratis o al aire libre entre Almería y Motril<em>${L.length} en los próximos 45 días · ${n} gratis · las rutas de senderismo, aunque se paguen</em></div>
-    <ul class="cols${Math.min(3, Math.max(1, L.length))}"${L.length <= 3 ? ' style="column-fill:balance"' : ""} ${t.attr}>${t.items.map(itemPlan).join("")}</ul></div></div></div>`;
+  return `<div data-f="x" class="tile emp colsT planes" style="--i:${i}">
+    <div class="k">${cols === 1 ? "Planes gratis o al aire libre" : "Planes gratis o al aire libre entre Almería y Motril"}<em>${L.length}${cols === 1 ? " entre Almería y Motril" : ""} en los próximos 45 días · ${n} gratis · las rutas de senderismo, aunque se paguen</em></div>
+    <ul class="cols${Math.min(cols, Math.max(1, L.length))}"${L.length <= cols ? ' style="column-fill:balance"' : ""} ${t.attr}>${t.items.map(itemPlan).join("")}</ul></div>`;
+}
+/* 4.34 (lo pidió Isa el 7 nov 2026: «redistribuye la información en la menor cantidad de pestañas posible»): Planes y Senderos, en una: el
+   mapa de los senderos, el tiempo en cada uno y los planes (sin senderos, los planes a tres columnas; sin planes, los senderos como antes) */
+function pPlanes() {
+  const P = hayPlanes(), S = haySenderos();
+  if (!S) return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${tarjetaPlanes(1, 3)}</div></div>`;
+  const [m, l] = pSenderos(true);
+  if (!P) return pSenderos();
+  return `<div class="main" style="grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) minmax(0,0.95fr)"><div class="col" style="grid-template-rows:1fr">${m}</div>
+    <div class="col" style="grid-template-rows:1fr">${l}</div><div class="col" style="grid-template-rows:1fr">${tarjetaPlanes(3, 1)}</div></div>`;
 }
 /* 406 y 407: ayudas abiertas (BDNS: Ayuntamiento de Adra, Diputación de Almería y Junta, para personas, autónomos y pymes; ayudas.py) y cursos
    gratis de formación para el empleo (el buscador de la Junta: presenciales en la provincia y en línea; cursos.py) */
 const ayudasVivas = () => ((((E.extras || {}).ayudas) || {}).lista || []).filter(a => !a.hasta || diasHasta(a.hasta) >= 0);
 function cursosVivos() {
   const C = (E.extras || {}).cursos || {}, v = c => c.fin ? diasHasta(c.fin) >= 0 : !!c.inicio && diasHasta(c.inicio) >= 0;
-  return {pre: (C.presenciales || []).filter(v), lin: (C.linea || []).filter(v), total: C.lineaTotal || 0};
+  // 4.34 (lo pidió Isa: «muestra solo los cursos presenciales si son en Adra o en Berja»)
+  const aqui = c => /^(adra|berja)$/i.test(String(c.municipio || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim());
+  return {pre: (C.presenciales || []).filter(c => v(c) && aqui(c)), lin: (C.linea || []).filter(v), total: C.lineaTotal || 0};
 }
 const hayAyudas = () => { const c = cursosVivos(); return ayudasVivas().length + c.pre.length + c.lin.length > 0; };
 function itemAyuda(a) {
@@ -4893,14 +4903,15 @@ function itemCurso(c) {
   return `<li ${claveNuevo("cu:" + c.id)}><div><b>${esc(c.nombre)}${marcaNuevo("cu:" + c.id)}</b><span>${lugar}${c.horas ? ` · ${c.horas} h` : ""} · para personas ${esc(c.para)}${c.horario ? ` · ${esc(c.horario)}` : ""}</span>
     <span>${pl}${c.inicio ? ` · empieza el ${diaFecha(c.inicio)}` : ""}</span></div>${qrSvg(c.enlace, "qr nq", 54)}</li>`;
 }
-function pAyudas() {
+function pAyudas(partes) {
   const A = ayudasVivas(), C = cursosVivos(), lista = (clave, L, max) => enTurno(clave, L, max);
   const tA = lista("ayudas", A, 30), tP = lista("cursosP", C.pre, 30), tL = lista("cursosL", C.lin, 30);
-  const ay = A.length ? `<div data-f="x" class="tile emp ay" style="--i:1"><div class="k">Ayudas y subvenciones abiertas<em>${A.length} · Ayuntamiento de Adra, Diputación de Almería y Junta de Andalucía · para personas, autónomos y pymes</em></div>
+  const ay = A.length ? `<div data-f="x" class="tile emp ay" style="--i:1"><div class="k">Ayudas y subvenciones abiertas<em>${A.length} · ${partes ? "Adra, Diputación y Junta" : "Ayuntamiento de Adra, Diputación de Almería y Junta de Andalucía · para personas, autónomos y pymes"}</em></div>
     <ul ${tA.attr}>${tA.items.map(itemAyuda).join("")}</ul></div>` : "";
-  const pre = C.pre.length ? `<div data-f="x" class="tile emp cu" style="--i:2"><div class="k">Cursos gratis · presenciales<em>${C.pre.length} en la provincia, el plazo más cercano primero</em></div><ul ${tP.attr}>${tP.items.map(itemCurso).join("")}</ul></div>` : "";
+  const pre = C.pre.length ? `<div data-f="x" class="tile emp cu" style="--i:2"><div class="k">Cursos gratis · presenciales<em>${C.pre.length} en Adra y Berja</em></div><ul ${tP.attr}>${tP.items.map(itemCurso).join("")}</ul></div>` : "";
   const lin = C.lin.length ? `<div data-f="x" class="tile emp cu" style="--i:3"><div class="k">Cursos gratis · en línea<em>${C.total || C.lin.length} para toda Andalucía</em></div><ul ${tL.attr}>${tL.items.map(itemCurso).join("")}</ul></div>` : "";
   const der = [pre, lin].filter(Boolean);
+  if (partes) return [ay, ...der].filter(Boolean);
   return `<div class="main" style="grid-template-columns:${ay && der.length ? "minmax(0,1.1fr) minmax(0,1fr)" : "1fr"}">${ay ? `<div class="col" style="grid-template-rows:1fr">${ay}</div>` : ""}
     ${der.length ? `<div class="col" style="grid-template-rows:${der.map(() => "minmax(0,1fr)").join(" ")}">${der.join("")}</div>` : ""}</div>`;
 }
@@ -4922,9 +4933,27 @@ function tarjetaPolen(i) {
     <table class="po-c"><tr><th></th>${meses.map(m => `<th>${m}</th>`).join("")}</tr>${(P.calendario || []).slice(0, 6).map(fila).join("")}</table>
     <p class="nota">Lo más alto de su última semana y, mes a mes, lo más alto de cada día (granos por m³; ${Object.entries(NIVEL_POLEN).map(([n, c]) => `<i style="background:${c}"></i>${n}`).join(" ")}, según la SEAIC). SEAIC, Red Española de Aerobiología.</p></div>`;
 }
+/* 4.34 (lo pidió Isa el 7 nov 2026: «redistribuye la información en la menor cantidad de pestañas posible y aprovechando los espacios»):
+   Terremotos con el mundo (la lista de cerca, su mapa y, a la derecha, el mundo: su mapa y los más fuertes) */
+function pSismosMundo() {
+  if (!E.sismosMundo) return pSismos();
+  if (!E.terremotos) return pMundo();
+  const m = tarjetaMapaCerca(2);
+  return `<div class="main" style="grid-template-columns:minmax(0,0.9fr) minmax(0,1fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${tarjetaSismosCerca(!!m)}</div>
+    ${m ? `<div class="col" style="grid-template-rows:1fr">${m}</div>` : ""}<div class="col" style="grid-template-rows:auto minmax(0,1fr)">${tarjetaMundoMapa()}${tarjetaMundoResto(4, true) || tarjetaMundoLista()}</div></div>`;
+}
+/* Empleo con el SAS, las ayudas y los cursos: tres columnas (las ofertas · el SAS y su Bolsa · las ayudas y los cursos), cada lista por turnos */
+function pTrabajo() {
+  const cols = [pEmpleo(true), haySas() ? pSas(true) : [], hayAyudas() ? pAyudas(true) : []].filter(c => c.length);
+  if (!cols.length) return `<div class="main">${vacia("Sin ofertas, oposiciones ni ayudas ahora.")}</div>`;
+  // las listas cortas (1 o 2), a su tamaño; las largas se reparten el resto (si no, una sola larga se queda con una fila)
+  const filas = c => { const r = c.map(t => +((t.match(/data-total="(\d+)"/) || [])[1] || 9) <= 2 ? "auto" : "minmax(0,1fr)");
+    if (!r.includes("minmax(0,1fr)")) r[r.length - 1] = "minmax(0,1fr)"; return r.join(" "); };
+  return `<div class="main trabajo" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(c => `<div class="col" style="grid-template-rows:${filas(c)}">${c.join("")}</div>`).join("")}</div>`;
+}
 const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, calor: pCalor, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
-  alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
-  economia: pEconomia, empleo: pEmpleo, sas: pSas, senderos: pSenderos, planes: pPlanes, ayudas: pAyudas};
+  alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismosMundo, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
+  economia: pEconomia, empleo: pTrabajo, sas: pSas, senderos: pSenderos, planes: pPlanes, ayudas: pAyudas};
 function pintar() {
   if (!E) return;
   E = alDia(EB || E);   // lo desfasado se mira en cada pintado: con el tiempo, lo que valía deja de valer

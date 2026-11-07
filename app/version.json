@@ -1,8 +1,8 @@
 {
-  "versionCode": 64,
-  "versionName": "4.33",
+  "versionCode": 65,
+  "versionName": "4.34",
   "apk": "app/Tiempo.apk",
-  "sha256": "aa02e5d0d90fdcc0a5ffd739fce16f10450a7a2c4933197540cfeb6dbedccd20",
-  "bytes": 1308305,
-  "notas": "4.33: en Planes, las actividades de «Adra en la Senda» del Ayuntamiento (fecha, distancia, dificultad, precio, salida e inscripción)"
+  "sha256": "fd15d735c06265f43c294711353bfa1af098f05278be37b90dab9ac3a6c04d61",
+  "bytes": 1309693,
+  "notas": "4.34: menos pestañas (Inundaciones y maremotos, Planes y senderos, Alertas y productos, Terremotos con el mundo, Campo y lonja, Empleo y ayudas); el zoom de Adra más cerca del Paseo de los Navegantes; el % de cada tramo de tormenta; cursos presenciales solo de Adra y Berja; sin remar ni la historia de maremotos; dibujos del soldado y del pez pollo"
 }
