@@ -1,8 +1,8 @@
 {
-  "versionCode": 61,
-  "versionName": "4.30",
+  "versionCode": 62,
+  "versionName": "4.31",
   "apk": "app/Tiempo.apk",
-  "sha256": "f91cf4f3d71fbc71da96455b3c17e2eb097bcdf35adc25da18e6d7b5a9c999d3",
-  "bytes": 1297097,
-  "notas": "El punto de los zooms de Inundaciones y Maremotos, sin nombre"
+  "sha256": "4633c77b2d27eb1b34bcccfd473a67b7a3064a7a54523b8eae5009e76a03889f",
+  "bytes": 1308469,
+  "notas": "4.31: Senderos (los de la Junta entre Almería y Motril, con el tiempo de AEMET y el riesgo de incendio), Planes gratis o al aire libre, Ayudas y cursos, el polen en Aire y sol y ¿se puede remar? en Mar"
 }
