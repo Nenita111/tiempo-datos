@@ -1,0 +1,257 @@
+{
+"nota": "Respuestas reales del 7 nov 2026 (recortadas): agenda y lugares de Turismo de Almería, enlaces de la portada de Deportes de la Diputación de Almería y cuatro eventos de la agenda de Motril Turismo",
+"turismoEventos": [
+{
+"id": 103666,
+"title": "Exposición «La memoria construida: edificios singulares de nuestra ciudad»",
+"permalink": "https://www.turismodealmeria.org/evento/exposicion-la-memoria-construida-edificios-singulares-de-nuestra-ciudad/",
+"meta": {
+"evcal_srow": "1794182400",
+"evcal_erow": "1799452740",
+"_evo_tz": "Europe/Madrid",
+"evcal_allday": "yes",
+"evo_hide_endtime": "no",
+"evcal_subtitle": "Exposición",
+"evcal_event_color": "4bb5d8",
+"_evcal_exlink_option": "4",
+"evcal_repeat": "no"
+},
+"location": [
+{
+"id": 812,
+"name": "Archivo Municipal &quot;Adela Alcocer Martínez&quot;",
+"slug": "archivo-municipal-adela-alcocer-martinez"
+}
+],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+],
+"content": "<p>El Archivo Municipal de Almería «Adela Alcocer Martínez», en la calle Arráez, 20, acoge del 9 de noviembre de 2026 al 8 de enero de 2027 la exposición «La memoria construida: edificios singulares de nuestra ciudad», un recorrido por la arquitectura singular de Almería a través de los fondos del archivo, como el alzado de la fachada de la Casa Consistorial del arquitecto Eduardo Cirera (1892).</p><p>Horario: de lunes a viernes, de 9:00 a 14:00 h; en periodo vacacional, de 9:00 a 13:00 h. Organiza el Ayuntamiento de Almería.</p>"
+},
+{
+"id": 103664,
+"title": "III Marcha Saludable y Feria de la Salud del Distrito Sanitario Almería",
+"permalink": "https://www.turismodealmeria.org/evento/iii-marcha-saludable-y-feria-de-la-salud-del-distrito-sanitario-almeria/",
+"meta": {
+"evcal_srow": "1794736800",
+"evcal_erow": "1794736800",
+"_evo_tz": "Europe/Madrid",
+"evcal_allday": "no",
+"evo_hide_endtime": "yes",
+"evcal_subtitle": "Marcha saludable",
+"evcal_event_color": "4bb5d8",
+"_evcal_exlink_option": "4",
+"evcal_repeat": "no"
+},
+"location": [
+{
+"id": 1577,
+"name": "Parking de la Bola Azul",
+"slug": "parking-de-la-bola-azul"
+}
+],
+"event_type": [
+{
+"id": 1347,
+"name": "Turismo activo",
+"slug": "turismo-activo"
+}
+],
+"content": "<p>El Distrito Sanitario Almería organiza el domingo 15 de noviembre la III Marcha Saludable y Feria de la Salud, una jornada de convivencia con amigos y familia apta para todas las edades y niveles. Las mascotas son bienvenidas.</p><p>Salida a las 10:00 h desde el aparcamiento de la Bola Azul. Inscripción gratuita en <a href=\"https://marchasaludabledistritoalmeria.es/\" target=\"_blank\">marchasaludabledistritoalmeria.es</a>.</p><p>Organiza la Junta de Andalucía (Distrito Sanitario Almería), con la colaboración del Ayuntamiento de Almería, el Patronato Municipal de Deportes y Uniprosal.</p>"
+},
+{
+"id": 103653,
+"title": "Cata de cervezas El Cabo a bordo del catamarán de Mundo Marino",
+"permalink": "https://www.turismodealmeria.org/evento/cata-de-cervezas-el-cabo-a-bordo-del-catamaran-de-mundo-marino/",
+"meta": {
+"evcal_srow": "1793973600",
+"evcal_erow": "1793984400",
+"_evo_tz": "Europe/Madrid",
+"evcal_allday": "no",
+"evo_hide_endtime": "no",
+"evcal_subtitle": "Cata a bordo",
+"evcal_event_color": "4bb5d8",
+"_evcal_exlink_option": "4",
+"evcal_repeat": "no"
+},
+"location": [
+{
+"id": 1783,
+"name": "Muelle de Levante, Puerto de Almería",
+"slug": "muelle-de-levante-puerto-de-almeria"
+}
+],
+"event_type": [
+{
+"id": 1346,
+"name": "Gastronomía",
+"slug": "gastronomia"
+}
+],
+"content": "<p>Mundo Marino Catamaranes organiza el viernes 6 de noviembre, de 14:00 a 17:00 h, una cata de cervezas El Cabo a bordo de uno de sus catamaranes, con vistas a la bahía y a la Alcazaba de Almería.</p><p>Salida desde el Muelle de Levante del Puerto de Almería. Información, reservas y disponibilidad en <a href=\"https://mundomarino.es/excursiones-en-barco-almeria/\" target=\"_blank\">mundomarino.es</a>.</p>"
+},
+{
+"id": 103643,
+"title": "Coro-Combo de La Guajira: curso con José Azurmendi",
+"permalink": "https://www.turismodealmeria.org/evento/coro-combo-de-la-guajira-curso-con-jose-azurmendi/",
+"meta": {
+"evcal_srow": "1793664000",
+"evcal_erow": "1812585540",
+"_evo_tz": "Europe/Madrid",
+"evcal_allday": "yes",
+"evo_hide_endtime": "no",
+"evcal_subtitle": "Curso de coro",
+"evcal_event_color": "4bb5d8",
+"_evcal_exlink_option": "4",
+"evcal_repeat": "no"
+},
+"location": [
+{
+"id": 1190,
+"name": "La Guajira",
+"slug": "la-guajira"
+}
+],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+],
+"content": "<p>La Guajira, en la calle Cruces Bajas, 1, organiza los martes, de 20:00 a 21:30 h, el Coro-Combo, un curso de coro acompañado por un combo instrumental con dirección musical de José Azurmendi. Las sesiones se celebran hasta el 9 de junio de 2027.</p><p>Está abierto a todas las edades, procedencias y estilos y no hace falta experiencia: se trabaja un repertorio común y, además de los ensayos, habrá conciertos y talleres con artistas invitados.</p><p>Gratis para menores de 18 años y personas desempleadas; el resto de participantes debe ser socio de La Guajira. Información en el 640 330 741 y e"
+},
+{
+"id": 103641,
+"title": "Almería en catamarán: paseo por la bahía y puesta de sol con Mundo Marino",
+"permalink": "https://www.turismodealmeria.org/evento/almeria-en-catamaran-paseo-por-la-bahia-y-puesta-de-sol-con-mundo-marino/",
+"meta": {
+"evcal_srow": "1793491200",
+"evcal_erow": "1796083140",
+"_evo_tz": "Europe/Madrid",
+"evcal_allday": "yes",
+"evo_hide_endtime": "no",
+"evcal_subtitle": "Paseos en barco",
+"evcal_event_color": "4bb5d8",
+"_evcal_exlink_option": "4",
+"evcal_repeat": "no"
+},
+"location": [
+{
+"id": 1783,
+"name": "Muelle de Levante, Puerto de Almería",
+"slug": "muelle-de-levante-puerto-de-almeria"
+}
+],
+"event_type": [
+{
+"id": 1347,
+"name": "Turismo activo",
+"slug": "turismo-activo"
+}
+],
+"content": "<p>Mundo Marino Catamaranes, que celebra su 30 aniversario, propone conocer Almería desde el mar con dos salidas desde el Muelle de Levante del Puerto de Almería.</p><p><strong>Paseo por la bahía:</strong> lunes y jueves, a las 10:30, 12:30 y 16:00 h.</p><p><strong>Sunset, puesta de sol:</strong> lunes, jueves, viernes, sábado y domingo, de 17:30 a 18:30 h.</p><p>Información, reservas y horarios actualizados en <a href=\"https://mundomarino.es/excursiones-en-barco-almeria/\" target=\"_blank\">mundomarino.es</a>.</p>"
+},
+{
+"id": 103107,
+"title": "Almería mira al mar: por qué el futuro de Almería es azul",
+"permalink": "https://www.turismodealmeria.org/evento/almeria-mira-al-mar-por-que-el-futuro-de-almeria-es-azul/",
+"meta": {
+"evcal_srow": "1794657600",
+"evcal_erow": "1794661200",
+"_evo_tz": "Europe/Madrid",
+"evcal_subtitle": "Aula del Pabellón de Historia Natural"
+},
+"location": [
+{
+"id": 1732,
+"name": "Pabellón de Historia Natural, PHN",
+"slug": "pabellon-de-historia-natural-phn"
+}
+],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+],
+"content": "<p>El Pabellón de Historia Natural de la Universidad de Almería acoge el sábado 14 de noviembre a las 12:00 h la charla «Almería mira al mar: por qué el futuro de Almería es azul», a cargo de María Isabel Sáez Casado, con una duración aproximada de una hora.</p>\n<p>Almería es una de las tierras más secas de Europa y, sin embargo, buena parte de su riqueza viene del mar: el agua desalada que riega los invernaderos, el yeso que sale por sus puertos, la gamba roja de Garrucha, la acuicultura y la pesca o las playas de Cabo de Gata forman parte de la economía azul. La charla explica qué es la econ"
+},
+{
+"id": 102965,
+"title": "AlmeriJazz: Banda Municipal de Almería",
+"permalink": "https://www.turismodealmeria.org/evento/almerijazz-banda-municipal-de-almeria/",
+"meta": {
+"evcal_srow": "1794139200",
+"evcal_erow": "1794139200",
+"_evo_tz": "Europe/Madrid",
+"evcal_allday": "no",
+"evo_hide_endtime": "yes",
+"evcal_subtitle": "AlmeriJazz",
+"evcal_event_color": "4bb5d8",
+"_evcal_exlink_option": "4",
+"evcal_repeat": "no"
+},
+"location": [
+{
+"id": 386,
+"name": "Teatro Apolo",
+"slug": "teatro-apolo"
+}
+],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+],
+"content": "<p>La Banda Municipal de Almería se suma al festival AlmeriJazz con un concierto el domingo 8 de noviembre a las 12:00 h en el Teatro Apolo.</p>\n<p>Entrada libre hasta completar aforo.</p>"
+}
+],
+"turismoLugares": [
+{
+"id": 812,
+"name": "Archivo Municipal &quot;Adela Alcocer Martínez&quot;",
+"latitude": 36.839404,
+"longitude": -2.4685944
+},
+{
+"id": 1190,
+"name": "La Guajira",
+"latitude": null,
+"longitude": null
+},
+{
+"id": 1783,
+"name": "Muelle de Levante, Puerto de Almería",
+"latitude": null,
+"longitude": null
+},
+{
+"id": 1732,
+"name": "Pabellón de Historia Natural, PHN",
+"latitude": 36.831601278558956,
+"longitude": -2.400285137767263
+},
+{
+"id": 1577,
+"name": "Parking de la Bola Azul",
+"latitude": 36.84738180467308,
+"longitude": -2.4508371357402834
+},
+{
+"id": 386,
+"name": "Teatro Apolo",
+"latitude": 36.8405586,
+"longitude": -2.4640752
+}
+],
+"dipalme": "<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=AED85DE094F4A998C12589A30029753B\">\n\t\t\t\t\t\t\n\t\t\t\t    \t<img src=\"/Servicios/Fiestas/Fiestas.nsf/xspcmsdipe/AED85DE094F4A998C12589A30029753B/$file/Senderos 2026.jpg\" width=\"100%\" height=\"245\" alt=\"Rutas y Senderos 2026. Senda de la Hidroeléctrica Laujar de Andarax 07-11-26\" />                </a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=AED85DE094F4A998C12589A30029753B\">\n\t\t\t\t\t<div class=\"slider-eventos-resumen\">\n\t\t\t\t\t\tRutas y Senderos 2026. Senda de la Hidroeléctrica Laujar de Andarax 07-11-26\n\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=AED85DE094F4A998C12589A30029753B\">Ver evento</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=A43927535336AF78C12588E6002D3929\">\n\t\t\t\t\t\t\n\t\t\t\t    \t<img src=\"/Servicios/Fiestas/Fiestas.nsf/xspcmsdipe/A43927535336AF78C12588E6002D3929/$file/calar_alto_y_sus_estrellas.jpg\" width=\"100%\" height=\"245\" alt=\"Descubre tu Provincia Activa. Calar Alto y sus estrellas 07 al 08-11-26\" />                </a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=A43927535336AF78C12588E6002D3929\">\n\t\t\t\t\t<div class=\"slider-eventos-resumen\">\n\t\t\t\t\t\tDescubre tu Provincia Activa. Calar Alto y sus estrellas 07 al 08-11-26\n\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=A43927535336AF78C12588E6002D3929\">Ver evento</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=9DBAD9581D0B8381C1258A580029FA3B\">\n\t\t\t\t\t\t\n\t\t\t\t    \t<img src=\"/Servicios/Fiestas/Fiestas.nsf/xspcmsdipe/9DBAD9581D0B8381C1258A580029FA3B/$file/Normativa Encuentros Tenis TieBreak 26_27.jpg\" width=\"100%\" height=\"245\" alt=\"Encuentros Educativos de Promoción del Tenis Tie-Break. Huércal de Almería 08-11-2026\" />                </a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=9DBAD9581D0B8381C1258A580029FA3B\">\n\t\t\t\t\t<div class=\"slider-eventos-resumen\">\n\t\t\t\t\t\tEncuentros Educativos de Promoción del Tenis Tie-Break. Huércal de Almería 08-11-2026\n\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=9DBAD9581D0B8381C1258A580029FA3B\">Ver evento</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=7092F52EB3A24665C1258DA0002DB8BB\">\n\t\t\t\t\t\t\n\t\t\t\t    \t<img src=\"/Servicios/Fiestas/Fiestas.nsf/xspcmsdipe/7092F52EB3A24665C1258DA0002DB8BB/$file/Páginas desdeNormativa_AUTÓCTONO_26_27.jpg\" width=\"100%\" height=\"245\" alt=\"Talleres Educativos de Promoción de Deporte Autóctono o Tradicional. Turrillas 08-11-26\" />                </a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=7092F52EB3A24665C1258DA0002DB8BB\">\n\t\t\t\t\t<div class=\"slider-eventos-resumen\">\n\t\t\t\t\t\tTalleres Educativos de Promoción de Deporte Autóctono o Tradicional. Turrillas 08-11-26\n\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=7092F52EB3A24665C1258DA0002DB8BB\">Ver evento</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=E46D858D3F3AE7B4C1258C350032431E\">\n\t\t\t\t\t\t\n\t\t\t\t    \t<img src=\"/Servicios/Fiestas/Fiestas.nsf/xspcmsdipe/E46D858D3F3AE7B4C1258C350032431E/$file/Normativa-Fronton-26-27.jpg\" width=\"100%\" height=\"245\" alt=\"Encuentros Educativos de Promoción de Frontón. Benahadux 14-10-26\" />                </a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=E46D858D3F3AE7B4C1258C350032431E\">\n\t\t\t\t\t<div class=\"slider-eventos-resumen\">\n\t\t\t\t\t\tEncuentros Educativos de Promoción de Frontón. Benahadux 14-10-26\n\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=E46D858D3F3AE7B4C1258C350032431E\">Ver evento</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=064F6F53C80B1547C1258EA4003D95B8\">\n\t\t\t\t\t\t\n\t\t\t\t    \t<img src=\"/Servicios/Fiestas/Fiestas.nsf/xspcmsdipe/064F6F53C80B1547C1258EA4003D95B8/$file/cine_western.jpg\" width=\"100%\" height=\"245\" alt=\"Descubre tu Provincia Activa. Cine Western y Desierto de Tabernas 14 al 15-11-26\" />                </a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=064F6F53C80B1547C1258EA4003D95B8\">\n\t\t\t\t\t<div class=\"slider-eventos-resumen\">\n\t\t\t\t\t\tDescubre tu Provincia Activa. Cine Western y Desierto de Tabernas 14 al 15-11-26\n\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=064F6F53C80B1547C1258EA4003D95B8\">Ver evento</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=A2F9687A516A0A54C1258EA4003DDF0B\">\n\t\t\t\t\t\t\n\t\t\t\t    \t<img src=\"/Servicios/Fiestas/Fiestas.nsf/xspcmsdipe/A2F9687A516A0A54C1258EA4003DDF0B/$file/Normativa Encuentros Tenis TieBreak 26_27.jpg\" width=\"100%\" height=\"245\" alt=\"Encuentros Educativos de Promoción del Tenis Tie-Break. Aguadulce 14-11-2026\" />                </a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=A2F9687A516A0A54C1258EA4003DDF0B\">\n\t\t\t\t\t<div class=\"slider-eventos-resumen\">\n\t\t\t\t\t\tEncuentros Educativos de Promoción del Tenis Tie-Break. Aguadulce 14-11-2026\n\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=A2F9687A516A0A54C1258EA4003DDF0B\">Ver evento</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=5CAC400E108D9AFCC1258EA500467102\">\n\t\t\t\t\t\t\n\t\t\t\t    \t<img src=\"/Servicios/Fiestas/Fiestas.nsf/xspcmsdipe/5CAC400E108D9AFCC1258EA500467102/$file/Senderos 2026.jpg\" width=\"100%\" height=\"245\" alt=\"Rutas y Senderos 2026. Sendero de la Uva Canjáyar 15-11-26\" />                </a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=5CAC400E108D9AFCC1258EA500467102\">\n\t\t\t\t\t<div class=\"slider-eventos-resumen\">\n\t\t\t\t\t\tRutas y Senderos 2026. Sendero de la Uva Canjáyar 15-11-26\n\t\t\t\t\t</div>\n\t\t\t\t\t</a>\n<a href=\"/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=5CAC400E108D9AFCC1258EA500467102\">Ver evento</a>",
+"motril": "<div class=\"views-row views-row-1 views-row-odd views-row-first evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/exposicion-pintura-arte-flamenco-lienzo\">EXPOSICIÓN DE PINTURA EL ARTE FLAMENCO EN EL LIENZO</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Exposiciones</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">De <span class=\"date-display-start\">Sábado, 24 de Octubre, 2026</span> hasta <span class=\"date-display-end\">Sábado, 07 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">Martes a sábado 10-13 y 16-18 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p>Cante, baile y pasión a través del pincel.</p>\n<p>Sala Almacén del Azúcar, Fábrica del Pilar.</p>\n<p> </p>\n</div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  \n<div class=\"views-row views-row-2 views-row-even evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/fiestas-del-barrio-alamos\">FIESTAS DEL BARRIO LOS ALAMOS</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Actividades</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">De <span class=\"date-display-start\">Jueves, 29 de Octubre, 2026</span> hasta <span class=\"date-display-end\">Lunes, 02 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p>29 · 30 · 31 OCTUBRE  |  1 · 2 NOVIEMBRE</p>\n<p> </p>\n<p><span style=\"text-decoration: underline;\"><strong>JUEVES 29 DE OCTUBRE </strong></span>– “DÍA DEL NIÑO”</p>\n<p> </p>\n<p>18:30 H. APERTURA DE LAS ATRACCIONES DE FERIA SIN RUIDO...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  \n<div class=\"views-row views-row-3 views-row-odd evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/halloween-pasacalles-fiesta-dj-y-pasaje-del-terror\">HALLOWEEN - PASACALLES, FIESTA DJ Y PASAJE DEL TERROR</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Actividades</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Domingo, 01 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p>19:00 h Salida del Pasacalles desde la Plaza de España.  Disfrázate y participa en el pasacalles</p>\n<p>19:40 h Inicio de la Fiesta DJ en la Plaza de las Comunidades Autónomas (junto a la Oficina de Turismo)</p>\n<p>19:40 h Inicio del...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  \n<div class=\"views-row views-row-4 views-row-even evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-copia-perfecta\">CINE: LA COPIA PERFECTA</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Miércoles, 04 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  "
+}

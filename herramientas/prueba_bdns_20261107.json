@@ -1,0 +1,1717 @@
+{
+"nota": "Respuestas reales de la API de la BDNS (7 nov 2026), recortadas: el detalle de 13 convocatorias y los árboles de órganos de Almería y Andalucía",
+"local": [
+{
+"descripcion": "ALMERÍA",
+"id": 19,
+"children": [
+{
+"descripcion": "ADRA",
+"id": 7518,
+"children": [
+{
+"descripcion": "AYUNTAMIENTO DE ADRA",
+"id": 5656
+}
+]
+},
+{
+"descripcion": "BERJA",
+"id": 7543,
+"children": [
+{
+"descripcion": "AYUNTAMIENTO DE BERJA",
+"id": 4813
+}
+]
+},
+{
+"descripcion": "DIPUTACIÓN PROV. DE ALMERÍA",
+"id": 7515,
+"children": [
+{
+"descripcion": "DIPUTACIÓN PROVINCIAL DE ALMERÍA",
+"id": 15
+},
+{
+"descripcion": "INSTITUTO ALMERIENSE DE TUTELA",
+"id": 2608
+},
+{
+"descripcion": "INSTITUTO DE ESTUDIOS ALMERIENSE",
+"id": 2606
+},
+{
+"descripcion": "PATRONATO PARA CENTRO ASOCIADO DE LA UNED EN ALMERIA",
+"id": 2607
+}
+]
+}
+]
+}
+],
+"autonomica": [
+{
+"descripcion": "ANDALUCÍA",
+"id": 4,
+"children": [
+{
+"descripcion": "AGENCIA ANDALUZA DE COOPERACIÓN INTERNACIONAL PARA EL DESARROLLO",
+"id": 1057
+},
+{
+"descripcion": "AGENCIA ANDALUZA DE INSTITUCIONES CULTURALES",
+"id": 932
+},
+{
+"descripcion": "AGENCIA ANDALUZA DE LA ENERGÍA",
+"id": 5907
+},
+{
+"descripcion": "AGENCIA ANDALUZA DE LA ENERGÍA",
+"id": 933
+},
+{
+"descripcion": "AGENCIA ANDALUZA DEL CONOCIMIENTO",
+"id": 5909
+},
+{
+"descripcion": "AGENCIA ANDALUZA DEL CONOCIMIENTO",
+"id": 1056
+},
+{
+"descripcion": "AGENCIA DE DEFENSA DE LA COMPETENCIA DE ANDALUCÍA",
+"id": 993
+},
+{
+"descripcion": "AGENCIA DE EMERGENCIAS DE ANDALUCÍA",
+"id": 7245
+},
+{
+"descripcion": "AGENCIA DE GESTIÓN AGRARIA Y PESQUERA DE ANDALUCÍA",
+"id": 5886
+},
+{
+"descripcion": "AGENCIA DE INNOVACIÓN Y DESARROLLO DE ANDALUCÍA",
+"id": 5908
+},
+{
+"descripcion": "AGENCIA DE INNOVACIÓN Y DESARROLLO DE ANDALUCÍA",
+"id": 931
+},
+{
+"descripcion": "AGENCIA DE LA COMPETENCIA Y DE LA REGULACIÓN ECONÓMICA DE ANDALUCÍA",
+"id": 5915
+},
+{
+"descripcion": "AGENCIA DE VIVIENDA Y REHABILITACIÓN DE ANDALUCÍA",
+"id": 990
+},
+{
+"descripcion": "AGENCIA DIGITAL DE ANDALUCÍA",
+"id": 6468
+},
+{
+"descripcion": "AGENCIA EMPRESARIAL PARA LA TRANSFORMACIÓN Y EL DESARROLLO ECONÓMICO",
+"id": 6667
+},
+{
+"descripcion": "AGENCIA PARA LA CALIDAD CIENTÍFICA Y UNIVERSITARIA DE ANDALUCÍA",
+"id": 6668
+},
+{
+"descripcion": "AGENCIA PÚBLICA ANDALUZA DE EDUCACIÓN",
+"id": 4037
+},
+{
+"descripcion": "AGENCIA TRIBUTARIA DE ANDALUCÍA",
+"id": 5883
+},
+{
+"descripcion": "CENTRO ANDALUZ DE ARTE CONTEMPORÁNEO",
+"id": 5906
+},
+{
+"descripcion": "CENTRO ANDALUZ DE MEDICINA DEL DEPORTE",
+"id": 955
+},
+{
+"descripcion": "CENTRO INFORMÁTICO CIENTÍFICO DE ANDALUCÍA (C.I.C.A.)",
+"id": 5713
+},
+{
+"descripcion": "CONSEJERÍA DE AGRICULTURA, PESCA, AGUA Y DESARROLLO RURAL",
+"id": 5885
+},
+{
+"descripcion": "CONSEJERÍA DE AGRICULTURA, PESCA Y DESARROLLO RURAL",
+"id": 2790
+},
+{
+"descripcion": "CONSEJERÍA DE CULTURA",
+"id": 2986
+},
+{
+"descripcion": "CONSEJERÍA DE CULTURA, PATRIMONIO HISTÓRICO Y DEPORTE",
+"id": 5905
+},
+{
+"descripcion": "CONSEJERÍA DE ECONOMÍA, HACIENDA Y FONDOS EUROPEOS",
+"id": 5882
+},
+{
+"descripcion": "CONSEJERÍA DE ECONOMÍA Y CONOCIMIENTO",
+"id": 2985
+},
+{
+"descripcion": "CONSEJERÍA DE EDUCACIÓN",
+"id": 2980
+},
+{
+"descripcion": "CONSEJERÍA DE EDUCACIÓN",
+"id": 5884
+},
+{
+"descripcion": "CONSEJERÍA DE EMPLEO, EMPRESA Y COMERCIO",
+"id": 2981
+},
+{
+"descripcion": "CONSEJERÍA DE EMPLEO, EMPRESA Y TRABAJO AUTÓNOMO",
+"id": 5881
+},
+{
+"descripcion": "CONSEJERÍA DE FOMENTO Y MOVILIDAD",
+"id": 7432
+},
+{
+"descripcion": "CONSEJERÍA DE FOMENTO Y VIVIENDA",
+"id": 2921
+},
+{
+"descripcion": "CONSEJERÍA DE HACIENDA Y ADMINISTRACIÓN PÚBLICA",
+"id": 946
+},
+{
+"descripcion": "CONSEJERÍA DE IGUALDAD Y POLÍTICAS SOCIALES",
+"id": 2688
+},
+{
+"descripcion": "CONSEJERÍA DE INDUSTRIA, ENERGÍA Y MINAS",
+"id": 6670
+},
+{
+"descripcion": "CONSEJERÍA DE INTELIGENCIA ARTIFICIAL, DESARROLLO DIGITAL Y ADMINISTRACIÓN PÚBLICA",
+"id": 7433
+},
+{
+"descripcion": "CONSEJERÍA DE JUSTICIA, ADMINISTRACIÓN LOCAL Y FUNCIÓN PÚBLICA",
+"id": 5880
+},
+{
+"descripcion": "CONSEJERÍA DE JUSTICIA E INTERIOR",
+"id": 2982
+},
+{
+"descripcion": "CONSEJERÍA DE LA PRESIDENCIA Y ADMINISTRACIÓN LOCAL",
+"id": 2976
+},
+{
+"descripcion": "CONSEJERÍA DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO",
+"id": 2984
+},
+{
+"descripcion": "CONSEJERÍA DE PRESIDENCIA, SANIDAD Y EMERGENCIAS",
+"id": 5878
+},
+{
+"descripcion": "CONSEJERÍA DE SALUD",
+"id": 2983
+},
+{
+"descripcion": "CONSEJERÍA DE SALUD Y CONSUMO",
+"id": 5890
+},
+{
+"descripcion": "CONSEJERÍA DE SERVICIOS SOCIALES, FAMILIAS E IGUALDAD",
+"id": 5893
+},
+{
+"descripcion": "CONSEJERÍA DE SOSTENIBILIDAD Y MEDIO AMBIENTE ",
+"id": 6669
+},
+{
+"descripcion": "CONSEJERÍA DE TURISMO, JUSTICIA, DESREGULACIÓN Y ADMINISTRACIÓN LOCAL",
+"id": 7139
+},
+{
+"descripcion": "CONSEJERÍA DE TURISMO Y DEPORTE",
+"id": 2804
+},
+{
+"descripcion": "CONSEJERÍA DE UNIVERSIDAD, INDUSTRIA, ENERGÍA E INNOVACIÓN",
+"id": 5887
+},
+{
+"descripcion": "CONSEJERÍA DE VIVIENDA, JUVENTUD Y ORDENACIÓN DEL TERRITORIO",
+"id": 5895
+},
+{
+"descripcion": "CONSEJO ANDALUZ DE RELACIONES LABORALES",
+"id": 956
+},
+{
+"descripcion": "CONSEJO AUDIOVISUAL DE ANDALUCÍA",
+"id": 992
+},
+{
+"descripcion": "CONSEJO DE INVERSIÓN FINANCIERA",
+"id": 5995
+},
+{
+"descripcion": "CONSEJO ECONÓMICO Y SOCIAL DE ANDALUCÍA",
+"id": 980
+},
+{
+"descripcion": "CONSORCIO DE TRANSPORTE METROPOLITANO. ÁREA DE SEVILLA",
+"id": 5902
+},
+{
+"descripcion": "CONSORCIO DE TRANSPORTE METROPOLITANO DE LA COSTA DE HUELVA",
+"id": 5896
+},
+{
+"descripcion": "CONSORCIO DE TRANSPORTE METROPOLITANO DEL ÁREA DE ALMERÍA",
+"id": 5897
+},
+{
+"descripcion": "CONSORCIO DE TRANSPORTE METROPOLITANO DEL ÁREA DE CÓRDOBA",
+"id": 5898
+},
+{
+"descripcion": "CONSORCIO DE TRANSPORTE METROPOLITANO DEL ÁREA DE GRANADA",
+"id": 5899
+},
+{
+"descripcion": "CONSORCIO DE TRANSPORTE METROPOLITANO DEL ÁREA DE JAÉN",
+"id": 5900
+},
+{
+"descripcion": "CONSORCIO DE TRANSPORTE METROPOLITANO DEL ÁREA DE MÁLAGA",
+"id": 5901
+},
+{
+"descripcion": "CONSORCIO DE TRANSPORTE METROPOLITANO DEL CAMPO DE GIBRALTAR",
+"id": 5903
+},
+{
+"descripcion": "CONSORCIO FERNANDO DE LOS RÍOS",
+"id": 4948
+},
+{
+"descripcion": "CONSORCIO METROPOLITANO DE TRANSPORTES DE LA BAHÍA DE CÁDIZ",
+"id": 5904
+},
+{
+"descripcion": "CONSORCIO PALACIO EXPOSICIONES Y CONGRESOS GRANADA",
+"id": 5888
+},
+{
+"descripcion": "CONSORCIO PARQUE DE LAS CIENCIAS",
+"id": 5913
+},
+{
+"descripcion": "CONSORCIO PUNTOS VUELA DE ANDALUCÍA",
+"id": 5889
+},
+{
+"descripcion": "CONSORCIO SANITARIO PÚBLICO DEL ALJARAFE",
+"id": 5892
+},
+{
+"descripcion": "D. G.  DE MOVILIDAD",
+"id": 963
+},
+{
+"descripcion": "D. G. DE ACTIVIDADES Y PROMOCIÓN DEL DEPORTE",
+"id": 1046
+},
+{
+"descripcion": "D. G. DE ADMINISTRACIÓN LOCAL",
+"id": 2755
+},
+{
+"descripcion": "D. G. DE AYUDAS DIRECTAS Y DE MERCADOS",
+"id": 2249
+},
+{
+"descripcion": "D. G. DE BIENES CULTURALES Y MUSEOS",
+"id": 1043
+},
+{
+"descripcion": "D. G. DE CALIDAD, INNOVACIÓN Y FOMENTO DEL TURISMO",
+"id": 1027
+},
+{
+"descripcion": "D. G. DE COMERCIO",
+"id": 781
+},
+{
+"descripcion": "D. G. DE COMUNICACIÓN SOCIAL",
+"id": 1058
+},
+{
+"descripcion": "D. G. DE COORDINACIÓN DE POLÍTICAS MIGRATORIAS",
+"id": 941
+},
+{
+"descripcion": "D. G. DE DESARROLLO SOSTENIBLE DEL MEDIO RURAL",
+"id": 965
+},
+{
+"descripcion": "D. G. DE ECONOMÍA SOCIAL Y AUTÓNOMOS",
+"id": 1029
+},
+{
+"descripcion": "D. G. DE FORMACIÓN PROFESIONAL INICIAL Y EDUCACIÓN PERMANENTE",
+"id": 796
+},
+{
+"descripcion": "D. G. DE FORMACIÓN PROFESIONAL PARA EL EMPLEO",
+"id": 1009
+},
+{
+"descripcion": "D. G. DE GESTIÓN DEL MEDIO NATURAL Y ESPACIOS PROTEGIDOS",
+"id": 1028
+},
+{
+"descripcion": "D. G. DE INDUSTRIA, ENERGÍA Y MINAS",
+"id": 909
+},
+{
+"descripcion": "D. G. DE INDUSTRIAS Y CADENA AGROALIMENTARIA",
+"id": 967
+},
+{
+"descripcion": "D. G. DE INFRAESTRUCTURAS",
+"id": 962
+},
+{
+"descripcion": "D. G. DE INFRAESTRUCTURAS Y EXPLOTACIÓN DEL AGUA",
+"id": 1038
+},
+{
+"descripcion": "D. G. DE INNOVACIÓN CULTURAL Y DEL LIBRO",
+"id": 1031
+},
+{
+"descripcion": "D. G. DE INTERIOR, EMERGENCIAS Y PROTECCIÓN CIVIL",
+"id": 1005
+},
+{
+"descripcion": "D. G. DE INVESTIGACIÓN Y TRANSFERENCIA DEL CONOCIMIENTO",
+"id": 1036
+},
+{
+"descripcion": "D. G. DE JUSTICIA JUVENIL Y COOPERACIÓN",
+"id": 1008
+},
+{
+"descripcion": "D. G. DE LA PRODUCCIÓN AGRÍCOLA Y GANADERA",
+"id": 969
+},
+{
+"descripcion": "D. G. DE MEMORIA DEMOCRÁTICA",
+"id": 1055
+},
+{
+"descripcion": "D. G. DE PARTICIPACIÓN CIUDADANA Y VOLUNTARIADO",
+"id": 943
+},
+{
+"descripcion": "D. G. DE PARTICIPACIÓN Y EQUIDAD",
+"id": 800
+},
+{
+"descripcion": "D. G. DE PATRIMONIO",
+"id": 1021
+},
+{
+"descripcion": "D. G. DE PERSONAS CON DISCAPACIDAD",
+"id": 1062
+},
+{
+"descripcion": "D. G. DE PERSONAS CON DISCAPACIDAD",
+"id": 892
+},
+{
+"descripcion": "D. G. DE PESCA Y ACUICULTURA",
+"id": 970
+},
+{
+"descripcion": "D. G. DE PLANIFICACIÓN ECONÓMICA Y ESTADÍSTICA ",
+"id": 3886
+},
+{
+"descripcion": "D. G. DE PLANIFICACIÓN, INSTALACIONES Y EVENTOS DEPORTIVOS",
+"id": 5689
+},
+{
+"descripcion": "D. G. DE PLANIFICACIÓN Y CENTROS",
+"id": 783
+},
+{
+"descripcion": "D. G. DE PLANIFICACIÓN Y GESTIÓN DE DOMINIO PÚBLICO HIDRÁULICO",
+"id": 1016
+},
+{
+"descripcion": "D. G. DE PREVENCIÓN Y CALIDAD AMBIENTAL",
+"id": 1040
+},
+{
+"descripcion": "D. G. DE RELACIONES FINANCIERAS CON LAS CORPORACIONES LOCALES",
+"id": 945
+},
+{
+"descripcion": "D. G. DE RELACIONES LABORALES Y SEGURIDAD Y SALUD LABORAL",
+"id": 1026
+},
+{
+"descripcion": "D. G. DE SALUD PÚBLICA Y ORDENACIÓN FARMACÉUTICA",
+"id": 3417
+},
+{
+"descripcion": "D. G. DE TELECOMUNICACIONES Y SOCIEDAD DE LA INFORMACIÓN",
+"id": 911
+},
+{
+"descripcion": "D. G. DE TESORERÍA Y DEUDA PÚBLICA",
+"id": 948
+},
+{
+"descripcion": "D. G. DE UNIVERSIDADES",
+"id": 910
+},
+{
+"descripcion": "D. G. DE URBANISMO",
+"id": 3915
+},
+{
+"descripcion": "D. G. DE VIOLENCIA DE GÉNERO, IGUALDAD DE TRATO Y DIVERSIDAD",
+"id": 4850
+},
+{
+"descripcion": "DELEGACIÓN DEL GOBIERNO DE LA JUNTA DE ANDALUCÍA EN ALMERÍA",
+"id": 3747
+},
+{
+"descripcion": "DELEGACIÓN DEL GOBIERNO DE LA JUNTA DE ANDALUCÍA EN CÁDIZ",
+"id": 3748
+},
+{
+"descripcion": "DELEGACIÓN DEL GOBIERNO DE LA JUNTA DE ANDALUCÍA EN CÓRDOBA",
+"id": 3749
+},
+{
+"descripcion": "DELEGACIÓN DEL GOBIERNO DE LA JUNTA DE ANDALUCÍA EN GRANADA",
+"id": 3750
+},
+{
+"descripcion": "DELEGACIÓN DEL GOBIERNO DE LA JUNTA DE ANDALUCÍA EN HUELVA",
+"id": 3751
+},
+{
+"descripcion": "DELEGACIÓN DEL GOBIERNO DE LA JUNTA DE ANDALUCÍA EN JAÉN",
+"id": 3752
+},
+{
+"descripcion": "DELEGACIÓN DEL GOBIERNO DE LA JUNTA DE ANDALUCÍA EN MÁLAGA",
+"id": 3753
+},
+{
+"descripcion": "DELEGACIÓN DEL GOBIERNO DE LA JUNTA DE ANDALUCÍA EN SEVILLA",
+"id": 3754
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN ALMERÍA",
+"id": 3755
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN CÁDIZ",
+"id": 3756
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN CÓRDOBA",
+"id": 3757
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN GRANADA",
+"id": 3758
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN HUELVA",
+"id": 3759
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN JAÉN",
+"id": 3760
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN MÁLAGA",
+"id": 3761
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN SEVILLA",
+"id": 3762
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE CULTURA, TURISMO Y DEPORTE EN ALMERÍA",
+"id": 3451
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE CULTURA, TURISMO Y DEPORTE EN CÁDIZ",
+"id": 3452
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE CULTURA, TURISMO Y DEPORTE EN CÓRDOBA",
+"id": 3453
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE CULTURA, TURISMO Y DEPORTE EN GRANADA",
+"id": 3454
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE CULTURA, TURISMO Y DEPORTE EN HUELVA",
+"id": 3455
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE CULTURA, TURISMO Y DEPORTE EN JAÉN",
+"id": 3456
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE CULTURA, TURISMO Y DEPORTE EN MÁLAGA",
+"id": 3457
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE CULTURA, TURISMO Y DEPORTE EN SEVILLA",
+"id": 3458
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE ECONOMÍA, INNOVACIÓN, CIENCIA Y EMPLEO EN ALMERÍA",
+"id": 3460
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE ECONOMÍA, INNOVACIÓN, CIENCIA Y EMPLEO EN CÁDIZ",
+"id": 3461
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE ECONOMÍA, INNOVACIÓN, CIENCIA Y EMPLEO EN CÓRDOBA",
+"id": 3462
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE ECONOMÍA, INNOVACIÓN, CIENCIA Y EMPLEO EN GRANADA",
+"id": 3463
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE ECONOMÍA, INNOVACIÓN, CIENCIA Y EMPLEO EN HUELVA",
+"id": 3464
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE ECONOMÍA, INNOVACIÓN, CIENCIA Y EMPLEO EN JAÉN",
+"id": 3465
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE ECONOMÍA, INNOVACIÓN, CIENCIA Y EMPLEO EN MÁLAGA",
+"id": 3466
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE ECONOMÍA, INNOVACIÓN, CIENCIA Y EMPLEO EN SEVILLA",
+"id": 3467
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE EDUCACIÓN EN ALMERÍA",
+"id": 3763
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE EDUCACIÓN EN CÁDIZ",
+"id": 3764
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE EDUCACIÓN EN CÓRDOBA",
+"id": 3765
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE EDUCACIÓN EN GRANADA",
+"id": 3766
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE EDUCACIÓN EN HUELVA",
+"id": 3767
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE EDUCACIÓN EN JAÉN",
+"id": 3768
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE EDUCACIÓN EN MÁLAGA",
+"id": 3769
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE EDUCACIÓN EN SEVILLA",
+"id": 3770
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE FOMENTO Y VIVIENDA EN ALMERÍA",
+"id": 3771
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE FOMENTO Y VIVIENDA EN CÁDIZ",
+"id": 3772
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE FOMENTO Y VIVIENDA EN CÓRDOBA",
+"id": 3773
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE FOMENTO Y VIVIENDA EN GRANADA",
+"id": 3774
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE FOMENTO Y VIVIENDA EN HUELVA",
+"id": 3775
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE FOMENTO Y VIVIENDA EN JAÉN",
+"id": 3776
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE FOMENTO Y VIVIENDA EN MÁLAGA",
+"id": 3777
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE FOMENTO Y VIVIENDA EN SEVILLA",
+"id": 3778
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE IGUALDAD, SALUD Y POLÍTICAS SOCIALES EN ALMERÍA",
+"id": 1059
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE IGUALDAD, SALUD Y POLÍTICAS SOCIALES EN CÁDIZ",
+"id": 1047
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE IGUALDAD, SALUD Y POLÍTICAS SOCIALES EN CÓRDOBA",
+"id": 1048
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE IGUALDAD, SALUD Y POLÍTICAS SOCIALES EN GRANADA",
+"id": 1049
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE IGUALDAD, SALUD Y POLÍTICAS SOCIALES EN HUELVA",
+"id": 1060
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE IGUALDAD, SALUD Y POLÍTICAS SOCIALES EN JAÉN",
+"id": 1061
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE IGUALDAD, SALUD Y POLÍTICAS SOCIALES EN MÁLAGA",
+"id": 1050
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE IGUALDAD, SALUD Y POLÍTICAS SOCIALES EN SEVILLA",
+"id": 1051
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO EN ALMERÍA",
+"id": 3779
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO EN CÁDIZ",
+"id": 3780
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO EN CÓRDOBA",
+"id": 3781
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO EN GRANADA",
+"id": 3782
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO EN HUELVA",
+"id": 3783
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO EN JAÉN",
+"id": 3784
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO EN MÁLAGA",
+"id": 3785
+},
+{
+"descripcion": "DELEGACIÓN TERRITORIAL DE MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO EN SEVILLA",
+"id": 3786
+},
+{
+"descripcion": "D.G. DE CONSUMO",
+"id": 1023
+},
+{
+"descripcion": "D.G. DE INFANCIA Y FAMILIAS",
+"id": 784
+},
+{
+"descripcion": "D.G. DE INNOVACIÓN",
+"id": 915
+},
+{
+"descripcion": "D.G. DE INVESTIGACIÓN Y GESTIÓN DEL CONOCIMIENTO",
+"id": 3526
+},
+{
+"descripcion": "D.G. DE ORDENACIÓN EDUCATIVA",
+"id": 916
+},
+{
+"descripcion": "D.G. DE PERSONAS MAYORES Y PENSIONES NO CONTRIBUTIVAS",
+"id": 893
+},
+{
+"descripcion": "D.G. DE VIVIENDA, REHABILITACIÓN Y ARQUITECTURA",
+"id": 994
+},
+{
+"descripcion": "D.G. DEL PROFESORADO Y GESTIÓN DE RECURSOS HUMANOS",
+"id": 999
+},
+{
+"descripcion": "DIRECCIÓN GENERAL DE EVALUACIÓN, CONTROL Y CALIDAD",
+"id": 3678
+},
+{
+"descripcion": "DIRECCIÓN GENERAL DE POLÍTICAS ACTIVAS DE EMPLEO",
+"id": 958
+},
+{
+"descripcion": "DIRECCIÓN GERENCIA",
+"id": 1035
+},
+{
+"descripcion": "DIRECCIÓN GERENCIA DEL SERVICIO ANDALUZ DE SALUD",
+"id": 995
+},
+{
+"descripcion": "DIRECCIÓN PROVINCIAL DEL SERVICIO ANDALUZ DE EMPLEO EN ALMERÍA",
+"id": 803
+},
+{
+"descripcion": "DIRECCIÓN PROVINCIAL DEL SERVICIO ANDALUZ DE EMPLEO EN CÁDIZ",
+"id": 813
+},
+{
+"descripcion": "DIRECCIÓN PROVINCIAL DEL SERVICIO ANDALUZ DE EMPLEO EN CÓRDOBA",
+"id": 822
+},
+{
+"descripcion": "DIRECCIÓN PROVINCIAL DEL SERVICIO ANDALUZ DE EMPLEO EN GRANADA",
+"id": 835
+},
+{
+"descripcion": "DIRECCIÓN PROVINCIAL DEL SERVICIO ANDALUZ DE EMPLEO EN HUELVA",
+"id": 848
+},
+{
+"descripcion": "DIRECCIÓN PROVINCIAL DEL SERVICIO ANDALUZ DE EMPLEO EN JAÉN",
+"id": 862
+},
+{
+"descripcion": "DIRECCIÓN PROVINCIAL DEL SERVICIO ANDALUZ DE EMPLEO EN MÁLAGA",
+"id": 876
+},
+{
+"descripcion": "DIRECCIÓN PROVINCIAL DEL SERVICIO ANDALUZ DE EMPLEO EN SEVILLA",
+"id": 894
+},
+{
+"descripcion": "HOSPITAL UNIVERSITARIO PUERTA DEL MAR",
+"id": 821
+},
+{
+"descripcion": "I. A. INVESTIG. Y FORMAC. AGRARIA, PESQUERA, ALIMENTARIA Y PRODUC. ECOLÓGICA",
+"id": 971
+},
+{
+"descripcion": "INSTITUTO ANDALUZ DE ADMINISTRACIÓN PÚBLICA",
+"id": 5879
+},
+{
+"descripcion": "INSTITUTO ANDALUZ DE ADMINISTRACIÓN PÚBLICA",
+"id": 795
+},
+{
+"descripcion": "INSTITUTO ANDALUZ DE LA JUVENTUD",
+"id": 798
+},
+{
+"descripcion": "INSTITUTO ANDALUZ DE LA JUVENTUD",
+"id": 5894
+},
+{
+"descripcion": "INSTITUTO ANDALUZ DE LA MUJER",
+"id": 797
+},
+{
+"descripcion": "INSTITUTO ANDALUZ DE PREVENCIÓN DE RIESGOS LABORALES",
+"id": 1000
+},
+{
+"descripcion": "INSTITUTO ANDALUZ DEL DEPORTE",
+"id": 881
+},
+{
+"descripcion": "INSTITUTO ANDALUZ DEL PATRIMONIO HISTÓRICO",
+"id": 928
+},
+{
+"descripcion": "INSTITUTO DE ESTADÍSTICA Y CARTOGRAFÍA DE ANDALUCÍA",
+"id": 5914
+},
+{
+"descripcion": "INSTITUTO DE ESTADÍSTICA Y CARTOGRAFÍA DE ANDALUCÍA",
+"id": 1015
+},
+{
+"descripcion": "INTERVENCIÓN GENERAL DE LA JUNTA DE ANDALUCIA",
+"id": 776
+},
+{
+"descripcion": "PATRONATO DE LA ALHAMBRA Y EL GENERALIFE",
+"id": 799
+},
+{
+"descripcion": "SECRET.  GRAL.  PROVINC.  DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN ALMERÍA",
+"id": 810
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN CÁDIZ",
+"id": 819
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN CÓRDOBA",
+"id": 828
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN GRANADA",
+"id": 841
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN HUELVA",
+"id": 855
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN JAÉN",
+"id": 869
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN MÁLAGA",
+"id": 884
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE AGRICULTURA, PESCA Y DESARROLLO RURAL EN SEVILLA",
+"id": 923
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EDUCACIÓN EN ALMERÍA",
+"id": 811
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EDUCACIÓN EN CÁDIZ",
+"id": 820
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EDUCACIÓN EN CÓRDOBA",
+"id": 830
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EDUCACIÓN EN GRANADA",
+"id": 843
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EDUCACIÓN EN HUELVA",
+"id": 857
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EDUCACIÓN EN JAÉN",
+"id": 871
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EDUCACIÓN EN SEVILLA",
+"id": 925
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EMPLEO, EMPRESA Y COMERCIO EN ALMERÍA",
+"id": 804
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EMPLEO, EMPRESA Y COMERCIO EN CÁDIZ",
+"id": 814
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EMPLEO, EMPRESA Y COMERCIO EN CÓRDOBA",
+"id": 823
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EMPLEO, EMPRESA Y COMERCIO EN HUELVA",
+"id": 849
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EMPLEO, EMPRESA Y COMERCIO EN JAÉN",
+"id": 863
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EMPLEO, EMPRESA Y COMERCIO EN MÁLAGA",
+"id": 877
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE EMPLEO, EMPRESA Y COMERCIO EN SEVILLA",
+"id": 917
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE FOMENTO Y VIVIENDA EN ALMERÍA",
+"id": 807
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE FOMENTO Y VIVIENDA EN CÁDIZ",
+"id": 818
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE FOMENTO Y VIVIENDA EN CÓRDOBA",
+"id": 827
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE FOMENTO Y VIVIENDA EN GRANADA",
+"id": 840
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE FOMENTO Y VIVIENDA EN HUELVA",
+"id": 854
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE FOMENTO Y VIVIENDA EN JAÉN",
+"id": 868
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE JUSTICIA E INTERIOR. EN CÁDIZ",
+"id": 1022
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE JUSTICIA E INTERIOR. EN MÁLAGA",
+"id": 880
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE PRESIDENCIA Y ADMINISTRACIÓN LOCAL EN ALMERÍA",
+"id": 805
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE PRESIDENCIA Y ADMINISTRACIÓN LOCAL EN CÁDIZ",
+"id": 815
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE PRESIDENCIA Y ADMINISTRACIÓN LOCAL EN CÓRDOBA",
+"id": 824
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE PRESIDENCIA Y ADMINISTRACIÓN LOCAL EN GRANADA",
+"id": 837
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE PRESIDENCIA Y ADMINISTRACIÓN LOCAL EN HUELVA",
+"id": 851
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE PRESIDENCIA Y ADMINISTRACIÓN LOCAL EN JAÉN",
+"id": 865
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE PRESIDENCIA Y ADMINISTRACIÓN LOCAL EN MÁLAGA",
+"id": 879
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE PRESIDENCIA Y ADMINISTRACIÓN LOCAL EN SEVILLA",
+"id": 919
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD EN ALMERÍA",
+"id": 812
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD EN CÓRDOBA",
+"id": 834
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD EN HUELVA",
+"id": 861
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD EN JAÉN",
+"id": 875
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD EN MÁLAGA",
+"id": 891
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD EN SEVILLA",
+"id": 930
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD Y FAMILIAS EN CÓRDOBA",
+"id": 4880
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD Y FAMILIAS EN HUELVA",
+"id": 4882
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD Y FAMILIAS EN JAÉN",
+"id": 4883
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD Y FAMILIAS EN MÁLAGA",
+"id": 4884
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE SALUD Y FAMILIAS EN SEVILLA",
+"id": 4885
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE TURISMO Y DEPORTE EN ALMERÍA",
+"id": 806
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE TURISMO Y DEPORTE EN CÁDIZ",
+"id": 817
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE TURISMO Y DEPORTE EN CÓRDOBA",
+"id": 826
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE TURISMO Y DEPORTE EN GRANADA",
+"id": 839
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE TURISMO Y DEPORTE EN HUELVA",
+"id": 853
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE TURISMO Y DEPORTE EN JAÉN",
+"id": 867
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE TURISMO Y DEPORTE EN MÁLAGA",
+"id": 882
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. DE TURISMO Y DEPORTE EN SEVILLA",
+"id": 921
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. SALUD EN GRANADA",
+"id": 847
+},
+{
+"descripcion": "SECRET. GRAL. PROVINC. SALUD Y FAMILIAS EN GRANADA",
+"id": 4881
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE ACCIÓN EXTERIOR",
+"id": 2599
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE AGRICULTURA Y ALIMENTACIÓN",
+"id": 986
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE CULTURA",
+"id": 1064
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE ECONOMÍA",
+"id": 1024
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE EDUCACIÓN Y FORMACIÓN PROFESIONAL",
+"id": 3490
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE FONDOS EUROPEOS AGRARIOS",
+"id": 982
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE HACIENDA",
+"id": 944
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE LA OFICINA DEL PORTAVOZ DEL GOBIERNO",
+"id": 1063
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE MEDIO AMBIENTE Y CAMBIO CLIMÁTICO",
+"id": 1039
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE ORDENACIÓN DEL TERRITORIO Y SOSTENIBILIDAD URBANA",
+"id": 1037
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE SERVICIOS SOCIALES",
+"id": 1034
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE UNIVERSIDADES, INVESTIGACIÓN Y TECNOLOGÍA",
+"id": 779
+},
+{
+"descripcion": "SECRETARÍA GENERAL DE VIVIENDA",
+"id": 1013
+},
+{
+"descripcion": "SECRETARÍA GENERAL PARA EL DEPORTE",
+"id": 900
+},
+{
+"descripcion": "SECRETARÍA GENERAL PARA EL TURISMO",
+"id": 1012
+},
+{
+"descripcion": "SECRETARÍA GENERAL PARA LA ADMINISTRACIÓN PÚBLICA",
+"id": 4925
+},
+{
+"descripcion": "SECRETARÍA GENERAL PARA LA ADMINISTRACIÓN PÚBLICA",
+"id": 1011
+},
+{
+"descripcion": "SECRETARÍA GENERAL PARA LA JUSTICIA",
+"id": 1019
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (AGRICULTURA, PESCA Y DESARROLLO RURAL)",
+"id": 968
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (CULTURA)",
+"id": 973
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (ECONOMÍA Y CONOCIMIENTO)",
+"id": 908
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (EDUCACIÓN)",
+"id": 984
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (EMPLEO, EMPRESA Y COMERCIO)",
+"id": 778
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (FOMENTO Y VIVIENDA)",
+"id": 960
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (HACIENDA Y ADMINISTRACIÓN PÚBLICA)",
+"id": 3871
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (IGUALDAD Y POLÍTICAS SOCIALES)",
+"id": 985
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (JUSTICIA E INTERIOR)",
+"id": 1002
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO)",
+"id": 1033
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (PRESIDENCIA Y ADMINISTRACIÓN LOCAL)",
+"id": 937
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (SALUD)",
+"id": 934
+},
+{
+"descripcion": "SECRETARÍA GENERAL TÉCNICA (TURISMO Y DEPORTE)",
+"id": 957
+},
+{
+"descripcion": "SERVICIO ANDALUZ DE  SALUD",
+"id": 5891
+},
+{
+"descripcion": "SERVICIO ANDALUZ DE EMPLEO",
+"id": 1001
+},
+{
+"descripcion": "VICECONSEJERÍA (AGRICULTURA, PESCA Y DESARROLLO RURAL)",
+"id": 981
+},
+{
+"descripcion": "VICECONSEJERÍA (CULTURA)",
+"id": 1032
+},
+{
+"descripcion": "VICECONSEJERÍA (MEDIO AMBIENTE Y ORDENACIÓN DEL TERRITORIO)",
+"id": 1054
+}
+]
+}
+],
+"detalles": [
+{
+"codigoBDNS": "550671",
+"descripcion": "BASES REGULADORAS DE LA CONVOCATORIA DE SUBVENCIONES PARA TRABAJADORES AUTÓNOMOS Y MICROEMPRESAS RADICADAS EN EL MUNICIPIO DE ADRA AFECTADAS POR EL CIERRE TEMPORAL DE SU ACTIVIDAD PROVOCADO POR LA CRISIS SANITARIA DEL COVID-19.",
+"tipoConvocatoria": "Concurrencia competitiva - canónica",
+"fechaInicioSolicitud": null,
+"fechaFinSolicitud": null,
+"textInicio": "Al día siguiente a la publicación del extracto de la convocatoria en el BOP de Almería",
+"textFin": "10 naturales desde el día siguiente a la publicación del extracto de la convocatoria en el BOP ",
+"abierto": false,
+"fechaRecepcion": "2021-02-24",
+"organo": {
+"nivel1": "LOCAL",
+"nivel2": "ADRA",
+"nivel3": "AYUNTAMIENTO DE ADRA"
+},
+"presupuestoTotal": 0,
+"tiposBeneficiarios": [
+{
+"descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [],
+"regiones": [
+{
+"descripcion": "ES611 - Almería"
+}
+]
+},
+{
+"codigoBDNS": "932330",
+"descripcion": "AC. URGENTE Nº 10 J.G. DE FECHA  5/10/2026  \"CONVOCATORIA DE SUBVENCIONES PARA APOYO A MUJERES EMPRESARIAS (AUTÓNOMAS Y PROFESIONALES) DE LA PROVINCIA DE ALMERÍA 2026\"",
+"tipoConvocatoria": "Concurrencia competitiva - canónica",
+"fechaInicioSolicitud": null,
+"fechaFinSolicitud": null,
+"textInicio": null,
+"textFin": null,
+"abierto": true,
+"fechaRecepcion": "2026-09-29",
+"organo": {
+"nivel1": "LOCAL",
+"nivel2": "DIPUTACIÓN PROV. DE ALMERÍA",
+"nivel3": "DIPUTACIÓN PROVINCIAL DE ALMERÍA"
+},
+"presupuestoTotal": 100000,
+"tiposBeneficiarios": [
+{
+"descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [],
+"regiones": [
+{
+"descripcion": "ES611 - Almería"
+}
+]
+},
+{
+"codigoBDNS": "911146",
+"descripcion": "CONVOCATORIA DE SUBVENCIONES EN EL AÑO 2026, PARA AYUDAS A LA NATALIDAD Y ADOPCIÓN EN MUNICIPIOS CON POBLACIÓN NO SUPERIOR A 1.000 HABITANTES DE LA PROVINCIA DE ALMERIA",
+"tipoConvocatoria": "Concurrencia competitiva - canónica",
+"fechaInicioSolicitud": "2026-06-30",
+"fechaFinSolicitud": "2026-12-31",
+"textInicio": null,
+"textFin": null,
+"abierto": false,
+"fechaRecepcion": "2026-06-08",
+"organo": {
+"nivel1": "LOCAL",
+"nivel2": "DIPUTACIÓN PROV. DE ALMERÍA",
+"nivel3": "DIPUTACIÓN PROVINCIAL DE ALMERÍA"
+},
+"presupuestoTotal": 100000,
+"tiposBeneficiarios": [
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [],
+"regiones": [
+{
+"descripcion": "ES611 - Almería"
+}
+]
+},
+{
+"codigoBDNS": "938972",
+"descripcion": "PRÁCTICAS PROFESIONALES NO LABORALES",
+"tipoConvocatoria": "Concesión directa - canónica",
+"fechaInicioSolicitud": "2026-11-06",
+"fechaFinSolicitud": "2026-11-19",
+"textInicio": "se iniciará el día siguiente al de publicación",
+"textFin": "19 de noviembre de 2026, inclusive",
+"abierto": false,
+"fechaRecepcion": "2026-10-30",
+"organo": {
+"nivel1": "AUTONOMICA",
+"nivel2": "ANDALUCÍA",
+"nivel3": "CONSEJERÍA DE EMPLEO, EMPRESA Y TRABAJO AUTÓNOMO"
+},
+"presupuestoTotal": 500000,
+"tiposBeneficiarios": [
+{
+"descripcion": "GRAN EMPRESA"
+},
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+},
+{
+"descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+},
+{
+"descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [
+{
+"url": "https://juntadeandalucia.es/boja/2026/214/5",
+"datPublicacion": "2026-11-05"
+}
+],
+"regiones": [
+{
+"descripcion": "ES61 - ANDALUCIA"
+}
+]
+},
+{
+"codigoBDNS": "935159",
+"descripcion": "Resolución de 5 de Octubre de 2026 por la que se modifica la convocatoria de 12 de marzo de 2026, de la AAE por la que se convocan incentivos para la concesión de incentivos del PLAN RENOVE VEHÍCULOS ANDALUCÍA",
+"tipoConvocatoria": "Concesión directa - canónica",
+"fechaInicioSolicitud": null,
+"fechaFinSolicitud": null,
+"textInicio": "9:00 horas del día 7 de octubre  de 2026",
+"textFin": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
+"abierto": false,
+"fechaRecepcion": "2026-10-14",
+"organo": {
+"nivel1": "AUTONOMICA",
+"nivel2": "ANDALUCÍA",
+"nivel3": "AGENCIA ANDALUZA DE LA ENERGÍA"
+},
+"presupuestoTotal": 3000000,
+"tiposBeneficiarios": [
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [
+{
+"url": "https://juntadeandalucia.es/boja/2026/194/c02/1",
+"datPublicacion": "2026-10-06"
+}
+],
+"regiones": [
+{
+"descripcion": "ES61 - ANDALUCIA"
+}
+]
+},
+{
+"codigoBDNS": "931694",
+"descripcion": "Resolución de 25 de Septiembre de 2026, de la Dirección General de Consumo, por la que se convoca la fase autonómica del concurso escolar CONSUMÓPOLIS para el curso académico 2026-2027",
+"tipoConvocatoria": "Concurrencia competitiva - canónica",
+"fechaInicioSolicitud": "2026-10-05",
+"fechaFinSolicitud": "2027-04-12",
+"textInicio": "Desde el 5 de octubre de 2026 o desde el día siguiente a public. BOJA d EXTRACTO si ésta es posterio",
+"textFin": null,
+"abierto": false,
+"fechaRecepcion": "2026-09-25",
+"organo": {
+"nivel1": "AUTONOMICA",
+"nivel2": "ANDALUCÍA",
+"nivel3": "CONSEJERÍA DE SALUD Y CONSUMO"
+},
+"presupuestoTotal": 5610,
+"tiposBeneficiarios": [
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [
+{
+"url": "https://juntadeandalucia.es/boja/2026/191/2",
+"datPublicacion": "2026-10-01"
+}
+],
+"regiones": [
+{
+"descripcion": "ES61 - ANDALUCIA"
+}
+]
+},
+{
+"codigoBDNS": "929244",
+"descripcion": "rden de 7 de septiembre de 2026 por la que se convocan para el año 2026 ayudas por la Parada Temporal de la flota de Arrastre de fondo que faena en el Mediterráneo.",
+"tipoConvocatoria": "Concesión directa - canónica",
+"fechaInicioSolicitud": "2027-01-11",
+"fechaFinSolicitud": "2027-01-25",
+"textInicio": null,
+"textFin": null,
+"abierto": false,
+"fechaRecepcion": "2026-09-14",
+"organo": {
+"nivel1": "AUTONOMICA",
+"nivel2": "ANDALUCÍA",
+"nivel3": "CONSEJERÍA DE AGRICULTURA, PESCA, AGUA Y DESARROLLO RURAL"
+},
+"presupuestoTotal": 3200000,
+"tiposBeneficiarios": [
+{
+"descripcion": "GRAN EMPRESA"
+},
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+},
+{
+"descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [
+{
+"url": "https://juntadeandalucia.es/boja/2026/185/5",
+"datPublicacion": "2026-09-23"
+}
+],
+"regiones": [
+{
+"descripcion": "ES61 - ANDALUCIA"
+}
+]
+},
+{
+"codigoBDNS": "929233",
+"descripcion": "Orden de 7 de  septiembre de 2026, por la que se convoca para 2026 ayuda a la parada temporal de la flota con puerto base en Andalucía de la modalidad Arrastre del Golfo de Cádiz",
+"tipoConvocatoria": "Concesión directa - canónica",
+"fechaInicioSolicitud": null,
+"fechaFinSolicitud": null,
+"textInicio": "Décimo día hábil anterior a la finalización de la parada",
+"textFin": "Último día de la parada",
+"abierto": false,
+"fechaRecepcion": "2026-09-14",
+"organo": {
+"nivel1": "AUTONOMICA",
+"nivel2": "ANDALUCÍA",
+"nivel3": "CONSEJERÍA DE AGRICULTURA, PESCA, AGUA Y DESARROLLO RURAL"
+},
+"presupuestoTotal": 1600000,
+"tiposBeneficiarios": [
+{
+"descripcion": "GRAN EMPRESA"
+},
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+},
+{
+"descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [
+{
+"url": "https://juntadeandalucia.es/boja/2026/185/5",
+"datPublicacion": "2026-09-23"
+}
+],
+"regiones": [
+{
+"descripcion": "ES61 - ANDALUCIA"
+}
+]
+},
+{
+"codigoBDNS": "920309",
+"descripcion": "Resolución de la Dirección General de Formación Profesional para el Empleo, por la que se convocan para el año 2026 las subvenciones públicas previstas en la Orden de 13 de septiembre de 2021, por la que se regula el programa de empleo y formación en la C",
+"tipoConvocatoria": "Concurrencia competitiva - canónica",
+"fechaInicioSolicitud": null,
+"fechaFinSolicitud": null,
+"textInicio": "El día siguiente al de publicación, en el Boletí",
+"textFin": null,
+"abierto": true,
+"fechaRecepcion": "2026-07-20",
+"organo": {
+"nivel1": "AUTONOMICA",
+"nivel2": "ANDALUCÍA",
+"nivel3": "CONSEJERÍA DE EMPLEO, EMPRESA Y TRABAJO AUTÓNOMO"
+},
+"presupuestoTotal": 116506379,
+"tiposBeneficiarios": [
+{
+"descripcion": "GRAN EMPRESA"
+},
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+},
+{
+"descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+},
+{
+"descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [
+{
+"url": "https://juntadeandalucia.es/boja/2026/142/2",
+"datPublicacion": "2026-07-24"
+}
+],
+"regiones": [
+{
+"descripcion": "ES61 - ANDALUCIA"
+}
+]
+},
+{
+"codigoBDNS": "919648",
+"descripcion": "Resolucion de 16 de julio de 2026, destinadas a la financiación de la oferta formativa de Formación Profesional y Formación en el Trabajo en el sector Naval, dirigida a personas trabajadoras desempleadas en la provincia de Cádiz. Linea 2 FP Grado C presen",
+"tipoConvocatoria": "Concurrencia competitiva - canónica",
+"fechaInicioSolicitud": "2026-07-22",
+"fechaFinSolicitud": null,
+"textInicio": "el día siguiente al que se publique el extracto en el BOJA",
+"textFin": "15 días naturales",
+"abierto": true,
+"fechaRecepcion": "2026-07-16",
+"organo": {
+"nivel1": "AUTONOMICA",
+"nivel2": "ANDALUCÍA",
+"nivel3": "CONSEJERÍA DE EMPLEO, EMPRESA Y TRABAJO AUTÓNOMO"
+},
+"presupuestoTotal": 303138.75,
+"tiposBeneficiarios": [
+{
+"descripcion": "GRAN EMPRESA"
+},
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+},
+{
+"descripcion": "PERSONAS JURÍDICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+},
+{
+"descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [
+{
+"url": "https://juntadeandalucia.es/boja/2026/139/2",
+"datPublicacion": "2026-07-21"
+}
+],
+"regiones": [
+{
+"descripcion": "ES61 - ANDALUCIA"
+}
+]
+},
+{
+"codigoBDNS": "896099",
+"descripcion": "Resolución de 30 de marzo de 2026, de la D.G de la Agencia Pública And.de Educación, por la que se convocan ayudas a las familias para fomentar la escolarización de menores de 3 años en centros educat. de primer ciclo de educación infantil curso 2026/27",
+"tipoConvocatoria": "Concurrencia competitiva - canónica",
+"fechaInicioSolicitud": null,
+"fechaFinSolicitud": null,
+"textInicio": "7 de abril, 1de septiembre y 1 de noviembre de 2026,1 enero,1 de marzo y 1 de mayo 2027.",
+"textFin": "6 de mayo y 31 de octubre y 31 diciembre 2026 y  28 febrero,30 de abril y 30 de junio 2027.",
+"abierto": true,
+"fechaRecepcion": "2026-03-30",
+"organo": {
+"nivel1": "AUTONOMICA",
+"nivel2": "ANDALUCÍA",
+"nivel3": "AGENCIA PÚBLICA ANDALUZA DE EDUCACIÓN"
+},
+"presupuestoTotal": 265305130,
+"tiposBeneficiarios": [
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [],
+"regiones": [
+{
+"descripcion": "ES61 - ANDALUCIA"
+}
+]
+},
+{
+"codigoBDNS": "926523",
+"descripcion": "SUBVENCIÓN DIRECTA Y NOMINATIVA MEDIANTE CONVENIO ENTRE LA DIPUTACIÓN DE ALMERÍA Y LA CÁMARA DE COMERCIO, INDUSTRIA Y NAVEGACIÓN DE ALMERÍA. Ac. urg. núm.10 de JG 13/07/26",
+"tipoConvocatoria": "Concesión directa - instrumental",
+"fechaInicioSolicitud": null,
+"fechaFinSolicitud": null,
+"textInicio": "SIN PLAZO PARA PRESENTAR SOLICITUD",
+"textFin": "SIN PLAZO PARA PRESENTAR SOLICITUD",
+"abierto": false,
+"fechaRecepcion": "2026-08-26",
+"organo": {
+"nivel1": "LOCAL",
+"nivel2": "DIPUTACIÓN PROV. DE ALMERÍA",
+"nivel3": "DIPUTACIÓN PROVINCIAL DE ALMERÍA"
+},
+"presupuestoTotal": 100000,
+"tiposBeneficiarios": [
+{
+"descripcion": "PYME Y PERSONAS FÍSICAS QUE DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [],
+"regiones": [
+{
+"descripcion": "ES611 - Almería"
+}
+]
+},
+{
+"codigoBDNS": "924013",
+"descripcion": "SUBVENCION NOMINATIVA AL OBISPADO DE ALMERÍA PARA LA REALIZACIÓN DE OBRAS CONFORME AL CONVENIO SUSCRITO CON LA DIPUTACIÓN PROVINCIAL DE ALMERÍA",
+"tipoConvocatoria": "Concesión directa - instrumental",
+"fechaInicioSolicitud": null,
+"fechaFinSolicitud": null,
+"textInicio": "SIN PLAZO DE SOLICITUD",
+"textFin": "SIN PLAZO DE SOLICITUD",
+"abierto": false,
+"fechaRecepcion": "2026-08-07",
+"organo": {
+"nivel1": "LOCAL",
+"nivel2": "DIPUTACIÓN PROV. DE ALMERÍA",
+"nivel3": "DIPUTACIÓN PROVINCIAL DE ALMERÍA"
+},
+"presupuestoTotal": 240000,
+"tiposBeneficiarios": [
+{
+"descripcion": "PERSONAS FÍSICAS QUE NO DESARROLLAN ACTIVIDAD ECONÓMICA"
+}
+],
+"anuncios": [],
+"regiones": [
+{
+"descripcion": "ES611 - Almería"
+}
+]
+}
+]
+}

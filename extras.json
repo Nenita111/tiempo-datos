@@ -364,7 +364,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-07",
- "actualizado": "2026-11-07T06:08+01:00",
+ "actualizado": "2026-11-07T22:00+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -3897,5 +3897,5346 @@
   "enlace": "https://portalrediam.cica.es/descargas?path=%2F05_CALIDAD_AMBIENTAL%2F02_AGUAS%2F01_CALIDAD_AGUAS%2FDatos_Calidad_Subterraneas",
   "plan": "https://www.juntadeandalucia.es/sites/default/files/2022-03/PH_CMA_Anejo_XII%20y%20sus%20ap%C3%A9ndices_0.pdf",
   "fuente": "MITECO (red de control, por la REDIAM de la Junta de Andalucía) · estado: plan hidrológico 2022-2027 (Junta de Andalucía, AEMA)"
+ },
+ "ayudas": {
+  "lista": [
+   {
+    "num": "935725",
+    "titulo": "XLI edición de los Premios Andalucía de Periodismo correspondientes al año 2026",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Presidencia, Sanidad y Emergencias",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/935725",
+    "desde": "2026-10-20",
+    "hasta": "2026-11-09",
+    "importe": 70000,
+    "para": [
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/203/c01/2",
+    "registrada": "2026-10-16"
+   },
+   {
+    "num": "937101",
+    "titulo": "Orden convocatoria 2027 eficiencia energética",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/937101",
+    "desde": "2026-10-31",
+    "hasta": "2026-11-16",
+    "importe": 80000,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/211/2",
+    "registrada": "2026-10-22"
+   },
+   {
+    "num": "937102",
+    "titulo": "Orden convocatoria 2027 higiene",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/937102",
+    "desde": "2026-10-31",
+    "hasta": "2026-11-16",
+    "importe": 127643,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/211/2",
+    "registrada": "2026-10-22"
+   },
+   {
+    "num": "938972",
+    "titulo": "Prácticas profesionales no laborales",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/938972",
+    "desde": "2026-11-06",
+    "hasta": "2026-11-19",
+    "importe": 500000,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "entidades",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/214/5",
+    "registrada": "2026-10-30"
+   },
+   {
+    "num": "922528",
+    "titulo": "Para la inserción laboral y el fomento de la contratación en el ámbito de la Comunidad Autónoma de Andalucía. Programa Emplea-T (Línea 5). MINIMI GENERAL",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/922528",
+    "desde": "2026-08-06",
+    "hasta": "2026-11-30",
+    "importe": 3500000,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/150/3",
+    "registrada": "2026-07-30"
+   },
+   {
+    "num": "922529",
+    "titulo": "Para la inserción laboral y el fomento de la contratación en el ámbito de la Comunidad Autónoma de Andalucía. Programa Emplea-T (Línea 5). MINIMIS PESCA Y ACUICULTURA",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/922529",
+    "desde": "2026-08-06",
+    "hasta": "2026-11-30",
+    "importe": 500000,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/150/3",
+    "registrada": "2026-07-30"
+   },
+   {
+    "num": "922530",
+    "titulo": "Para la inserción laboral y el fomento de la contratación en el ámbito de la Comunidad Autónoma de Andalucía. Programa Emplea-T (Línea 5). MINIMIS SECTOR AGRÍCOLA",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/922530",
+    "desde": "2026-08-06",
+    "hasta": "2026-11-30",
+    "importe": 1000000,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/150/3",
+    "registrada": "2026-07-30"
+   },
+   {
+    "num": "877024",
+    "titulo": "Ayudas económicas, en régimen de concurrencia no competitiva, Línea 1 Ayudas económicas a víctimas de violencia de género, recuperacion psicosocial 2026",
+    "ambito": "Junta de Andalucía",
+    "organo": "Instituto Andaluz de la Mujer",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/877024",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-31",
+    "importe": 250000,
+    "para": [
+     "personas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2025/250/c02/2",
+    "registrada": "2025-12-22"
+   },
+   {
+    "num": "877025",
+    "titulo": "Ayudas económicas, en régimen de concurrencia no competitiva, Línea 2 yudas económicas a víctimas de violencia de género. para el ejercicio 2026",
+    "ambito": "Junta de Andalucía",
+    "organo": "Instituto Andaluz de la Mujer",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/877025",
+    "desde": "2026-01-01",
+    "hasta": "2026-12-31",
+    "importe": 1500000,
+    "para": [
+     "personas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2025/250/c02/2",
+    "registrada": "2025-12-22"
+   },
+   {
+    "num": "911146",
+    "titulo": "Ayudas a la natalidad y adopción en municipios con población no superior a 1.000 habitantes de la provincia de Almeria",
+    "ambito": "Diputación de Almería",
+    "organo": "Diputación Provincial de Almería",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/911146",
+    "desde": "2026-06-30",
+    "hasta": "2026-12-31",
+    "importe": 100000,
+    "para": [
+     "personas"
+    ],
+    "registrada": "2026-06-08"
+   },
+   {
+    "num": "932953",
+    "titulo": "La edición 2027 del Premio de Investigación del CES de Andalucía",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/932953",
+    "desde": "2026-10-14",
+    "hasta": "2027-01-20",
+    "importe": 15000,
+    "para": [
+     "personas",
+     "autónomos y pymes"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/198/5",
+    "registrada": "2026-10-01"
+   },
+   {
+    "num": "931694",
+    "titulo": "La fase autonómica del concurso escolar CONSUMÓPOLIS para el curso académico 2026-2027",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Salud y Consumo",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/931694",
+    "desde": "2026-10-05",
+    "hasta": "2027-04-12",
+    "importe": 5610,
+    "para": [
+     "personas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/191/2",
+    "registrada": "2026-09-25"
+   },
+   {
+    "num": "896099",
+    "titulo": "Ayudas a las familias para fomentar la escolarización de menores de 3 años en centros educat. de primer ciclo de educación infantil curso 2026/27",
+    "ambito": "Junta de Andalucía",
+    "organo": "Agencia Pública Andaluza de Educación",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/896099",
+    "hasta": "2027-06-30",
+    "plazo": "6 de mayo y 31 de octubre y 31 diciembre 2026 y 28 febrero,30 de abril y 30 de junio 2027.",
+    "importe": 265305130,
+    "para": [
+     "personas"
+    ],
+    "registrada": "2026-03-30"
+   },
+   {
+    "num": "898836",
+    "titulo": "Ayudas para solicitantes que no son Grupos de Desarrollo Rural, previstas en la Orden de 3 de febrero de 2026, ayudas previstas en las Estrategias de Desarrollo Local LEADER Intervención 7119.2",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/898836",
+    "desde": "2026-04-23",
+    "hasta": "2028-12-31",
+    "importe": 69933214,
+    "para": [
+     "autónomos y pymes",
+     "entidades"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/76/2",
+    "registrada": "2026-04-14"
+   },
+   {
+    "num": "898839",
+    "titulo": "Ayudas para solicitantes que no son Grupos de Desarrollo Rural, previstas en la Orden de 3 de febrero de 2026, ayudas previstas en las Estrategias de Desarrollo Local LEADER Intervención 7119.2_MINIMI",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/898839",
+    "desde": "2026-04-23",
+    "hasta": "2028-12-31",
+    "importe": 27656376,
+    "para": [
+     "autónomos y pymes",
+     "entidades"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/76/2",
+    "registrada": "2026-04-14"
+   },
+   {
+    "num": "929233",
+    "titulo": "Ayuda a la parada temporal de la flota con puerto base en Andalucía de la modalidad Arrastre del Golfo de Cádiz",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/929233",
+    "plazo": "Último día de la parada",
+    "importe": 1600000,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/185/5",
+    "registrada": "2026-09-14"
+   },
+   {
+    "num": "929229",
+    "titulo": "Ayuda a la parada temporal de la flota con puerto base en Andalucía de la modalidad de Pulpo del Golfo de Cádiz",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/929229",
+    "plazo": "Último día de la parada",
+    "importe": 950000,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/185/5",
+    "registrada": "2026-09-14"
+   },
+   {
+    "num": "903639",
+    "titulo": "Ayudas a la parada temporal de la actividad pesquera de los pescadores a pie dedicados a la captura de la coquina en el caladero Golfo de Cádiz",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/903639",
+    "plazo": "Último día hábil de la parada",
+    "importe": 250000,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/99/c02/2",
+    "registrada": "2026-05-05"
+   },
+   {
+    "num": "929241",
+    "titulo": "Ayudas a la parada temporal de la flota con puerto base en Andalucía de la modalidad de cerco que faena en el caladero Golfo de Cádiz",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/929241",
+    "plazo": "Último día de la parada",
+    "importe": 1500000,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/185/5",
+    "registrada": "2026-09-14"
+   },
+   {
+    "num": "872439",
+    "titulo": "Ayudas a la parada temporal de la flota con puerto base en Andalucía de la modalidad de cerco que faena en el caladero Golfo de Cádiz",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/872439",
+    "plazo": "Ültimo día hábil de la parada",
+    "importe": 1500000,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2025/245/3",
+    "registrada": "2025-12-02"
+   },
+   {
+    "num": "903636",
+    "titulo": "Ayudas a la parada temporal de la flota de artes menores afectada por el Plan de Gestión para la captura de la chirla en el caladero nacional Golfo de Cádiz",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/903636",
+    "plazo": "Último día hábil de la parada",
+    "importe": 1150000,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/99/c02/2",
+    "registrada": "2026-05-05"
+   },
+   {
+    "num": "903637",
+    "titulo": "Ayudas a la parada temporal de la flota de artes menores afectada por el Plan de Gestión para la pesquería de rastros o dragas mecanizadas en el litoral mediterráneo de Andalucía",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/903637",
+    "plazo": "Último día hábil de la parada",
+    "importe": 255000,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/99/c02/2",
+    "registrada": "2026-05-05"
+   },
+   {
+    "num": "883398",
+    "titulo": "Ayudas contratación Seguros Agrarios Combin.DTO 2026",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/883398",
+    "plazo": "sin fecha de cierre",
+    "importe": 12500000,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/24/2",
+    "registrada": "2026-01-26"
+   },
+   {
+    "num": "899704",
+    "titulo": "Convocatoria Linea 2 Energía del Programa 2 Espacios productivos. Ac. Infraestructura de recarga de Vehículos Electricos",
+    "ambito": "Junta de Andalucía",
+    "organo": "Agencia Andaluza de la Energía",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899704",
+    "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
+    "importe": 6935000,
+    "para": [
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/78/3",
+    "registrada": "2026-04-17"
+   },
+   {
+    "num": "899701",
+    "titulo": "Convocatoria Linea 2 Energía del Programa 2 Espacios productivos. Act. Eficiencia Energética Instalaciones Sector Privado",
+    "ambito": "Junta de Andalucía",
+    "organo": "Agencia Andaluza de la Energía",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899701",
+    "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
+    "importe": 2933000,
+    "para": [
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/78/3",
+    "registrada": "2026-04-17"
+   },
+   {
+    "num": "899700",
+    "titulo": "Convocatoria Linea 2 Energía del Programa 2 Espacios productivos. Act. Eiciencia energética edificios sector privado",
+    "ambito": "Junta de Andalucía",
+    "organo": "Agencia Andaluza de la Energía",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899700",
+    "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
+    "importe": 2000000,
+    "para": [
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/78/3",
+    "registrada": "2026-04-17"
+   },
+   {
+    "num": "899702",
+    "titulo": "Convocatoria Linea 2 Energía del Programa 2 Espacios productivos. Act. Energias Renovables y solcuiones de almacenamiento Sector Privado",
+    "ambito": "Junta de Andalucía",
+    "organo": "Agencia Andaluza de la Energía",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899702",
+    "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
+    "importe": 11380000,
+    "para": [
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/78/3",
+    "registrada": "2026-04-17"
+   },
+   {
+    "num": "899703",
+    "titulo": "Convocatoria Linea 2 Energía del Programa 2 Espacios productivos. Act. Redes Inteligentes y nuevos modelos de mercado energético",
+    "ambito": "Junta de Andalucía",
+    "organo": "Agencia Andaluza de la Energía",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899703",
+    "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
+    "importe": 5850000,
+    "para": [
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/78/3",
+    "registrada": "2026-04-17"
+   },
+   {
+    "num": "935159",
+    "titulo": "Incentivos del plan renove vehículos Andalucía",
+    "ambito": "Junta de Andalucía",
+    "organo": "Agencia Andaluza de la Energía",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/935159",
+    "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
+    "importe": 5000000,
+    "para": [
+     "personas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/194/c02/1",
+    "registrada": "2026-10-14",
+    "lineas": 2
+   },
+   {
+    "num": "932330",
+    "titulo": "Subvenciones para apoyo a mujeres empresarias (autónomas y profesionales) de la provincia de Almería 2026",
+    "ambito": "Diputación de Almería",
+    "organo": "Diputación Provincial de Almería",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/932330",
+    "plazo": "sin fecha de cierre",
+    "importe": 100000,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "registrada": "2026-09-29"
+   },
+   {
+    "num": "920309",
+    "titulo": "Subvenciones públicas previstas en la Orden de 13 de septiembre de 2021, por la que se regula el programa de empleo y formación en la C",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
+    "estado": "abierta",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/920309",
+    "plazo": "sin fecha de cierre",
+    "importe": 116506379,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "entidades",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/142/2",
+    "registrada": "2026-07-20"
+   },
+   {
+    "num": "929244",
+    "titulo": "Ayudas por la Parada Temporal de la flota de Arrastre de fondo que faena en el Mediterráneo",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
+    "estado": "proxima",
+    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/929244",
+    "desde": "2027-01-11",
+    "hasta": "2027-01-25",
+    "importe": 3200000,
+    "para": [
+     "personas",
+     "autónomos y pymes",
+     "empresas"
+    ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/185/5",
+    "registrada": "2026-09-14"
+   }
+  ],
+  "fuente": "Base de Datos Nacional de Subvenciones (BDNS)",
+  "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias",
+  "dia": "2026-11-07"
+ },
+ "ayudasCerradas": [
+  "867637",
+  "867861",
+  "869707",
+  "869748",
+  "869915",
+  "871456",
+  "872067",
+  "872096",
+  "872359",
+  "872437",
+  "874318",
+  "874488",
+  "874728",
+  "875634",
+  "875891",
+  "876111",
+  "876454",
+  "876918",
+  "876919",
+  "876920",
+  "876921",
+  "877908",
+  "877915",
+  "881744",
+  "881759",
+  "883282",
+  "883411",
+  "883835",
+  "884429",
+  "885248",
+  "886458",
+  "887454",
+  "887703",
+  "888694",
+  "888817",
+  "888831",
+  "889355",
+  "889356",
+  "889357",
+  "889363",
+  "891203",
+  "891204",
+  "891793",
+  "892068",
+  "892076",
+  "892256",
+  "892257",
+  "892258",
+  "892474",
+  "892800",
+  "892905",
+  "893184",
+  "893186",
+  "893187",
+  "893188",
+  "893189",
+  "893190",
+  "893191",
+  "893559",
+  "893560",
+  "893561",
+  "894130",
+  "894131",
+  "894132",
+  "894133",
+  "894134",
+  "894135",
+  "896092",
+  "896240",
+  "896326",
+  "896967",
+  "897499",
+  "897791",
+  "897805",
+  "897806",
+  "897807",
+  "897808",
+  "897809",
+  "897810",
+  "897811",
+  "897812",
+  "897813",
+  "897913",
+  "897914",
+  "897915",
+  "897931",
+  "897932",
+  "897933",
+  "897934",
+  "897935",
+  "897936",
+  "898062",
+  "899118",
+  "899238",
+  "899995",
+  "900105",
+  "900106",
+  "903095",
+  "903191",
+  "903567",
+  "903634",
+  "905724",
+  "905964",
+  "906901",
+  "907228",
+  "907234",
+  "907316",
+  "907634",
+  "907635",
+  "907636",
+  "907637",
+  "907638",
+  "907639",
+  "907640",
+  "907807",
+  "907809",
+  "907811",
+  "907812",
+  "907813",
+  "907814",
+  "907815",
+  "907816",
+  "907817",
+  "907818",
+  "908593",
+  "909681",
+  "909842",
+  "910447",
+  "910880",
+  "911284",
+  "911345",
+  "911624",
+  "911625",
+  "911626",
+  "911627",
+  "911628",
+  "911629",
+  "911820",
+  "912892",
+  "913536",
+  "913918",
+  "914181",
+  "914182",
+  "914183",
+  "914197",
+  "914198",
+  "914199",
+  "914218",
+  "915023",
+  "915110",
+  "915400",
+  "915917",
+  "915920",
+  "916399",
+  "916638",
+  "916639",
+  "916640",
+  "917061",
+  "917066",
+  "917072",
+  "917213",
+  "917218",
+  "917221",
+  "917222",
+  "917225",
+  "917629",
+  "917634",
+  "917643",
+  "919622",
+  "919639",
+  "919648",
+  "919652",
+  "920131",
+  "920144",
+  "922095",
+  "922096",
+  "922164",
+  "922234",
+  "923162",
+  "923975",
+  "924013",
+  "925720",
+  "926307",
+  "926523",
+  "929240",
+  "929255",
+  "929265",
+  "930364",
+  "930702",
+  "930703",
+  "930704",
+  "930998",
+  "932334",
+  "932785",
+  "932960",
+  "933807",
+  "934293",
+  "934696",
+  "934766",
+  "934767",
+  "934768",
+  "936465",
+  "936469"
+ ],
+ "cursos": {
+  "presenciales": [
+   {
+    "id": "410",
+    "codigo": "ADGD14",
+    "nombre": "Venta online en la empresa: RRSS y herramientas de comunicación",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/410",
+    "fin": "2026-11-09",
+    "inicio": "2026-12-09",
+    "horas": 50,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Roquetas de Mar",
+    "km": 36
+   },
+   {
+    "id": "2536",
+    "codigo": "COMT0411",
+    "nombre": "Gestión comercial de ventas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2536",
+    "fin": "2026-11-09",
+    "inicio": "2026-12-09",
+    "horas": 610,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Alhama de Almería",
+    "km": 46
+   },
+   {
+    "id": "2537",
+    "codigo": "SSCS0108",
+    "nombre": "Atención sociosanitaria a personas en el domicilio",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2537",
+    "fin": "2026-11-10",
+    "inicio": "2026-12-10",
+    "horas": 600,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Alhama de Almería",
+    "km": 46
+   },
+   {
+    "id": "399",
+    "codigo": "INAD0002",
+    "nombre": "Manipulación de alimentos de alto riesgo",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/399",
+    "fin": "2026-11-12",
+    "inicio": "2026-12-14",
+    "horas": 25,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "El Ejido",
+    "km": 19
+   },
+   {
+    "id": "769",
+    "codigo": "SSCE05",
+    "nombre": "Inglés C1",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/769",
+    "fin": "2026-11-13",
+    "inicio": "2026-11-23",
+    "horas": 240,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Vícar",
+    "km": 35
+   },
+   {
+    "id": "193",
+    "codigo": "INAD01",
+    "nombre": "Seguridad e higiene en la industria alimentaria",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/193",
+    "fin": "2026-11-13",
+    "inicio": "2026-11-30",
+    "horas": 60,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "411",
+    "codigo": "TMVI09",
+    "nombre": "Técnicas de conducción eficiente",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/411",
+    "fin": "2026-11-15",
+    "inicio": "2026-12-15",
+    "horas": 15,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Alhama de Almería",
+    "km": 46
+   },
+   {
+    "id": "542",
+    "codigo": "ADGD122PO",
+    "nombre": "Gestión de la venta y su cobro. atención de quejas y reclamaciones",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/542",
+    "fin": "2026-11-16",
+    "inicio": "2026-12-16",
+    "horas": 30,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "408",
+    "codigo": "COMT09",
+    "nombre": "Psicología aplicada a las ventas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/408",
+    "fin": "2026-11-16",
+    "inicio": "2026-12-15",
+    "horas": 40,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "409",
+    "codigo": "COMT09",
+    "nombre": "Psicología aplicada a las ventas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/409",
+    "fin": "2026-11-16",
+    "inicio": "2026-12-15",
+    "horas": 40,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "362",
+    "codigo": "COML0018",
+    "nombre": "Actividades auxiliares de almacén",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/362",
+    "fin": "2026-11-16",
+    "inicio": "2026-12-16",
+    "horas": 420,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Huércal de Almería",
+    "km": 54
+   },
+   {
+    "id": "400",
+    "codigo": "IFCT0087",
+    "nombre": "Seguridad digital básica",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/400",
+    "fin": "2026-11-17",
+    "inicio": "2026-12-17",
+    "horas": 60,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "396",
+    "codigo": "SSCE20",
+    "nombre": "Competencias digitales para formadores y tutores según el marco de referencia de competencia digital docente",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/396",
+    "fin": "2026-11-18",
+    "inicio": "2026-12-18",
+    "horas": 80,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "403",
+    "codigo": "COMT07",
+    "nombre": "Gestión básica del almacén",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/403",
+    "fin": "2026-11-18",
+    "inicio": "2026-12-18",
+    "horas": 20,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "407",
+    "codigo": "INAD0001",
+    "nombre": "Manipulación en crudo y conservación de alimentos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/407",
+    "fin": "2026-11-18",
+    "inicio": "2026-12-18",
+    "horas": 125,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "2301",
+    "codigo": "AGAO0108",
+    "nombre": "Actividades auxiliares en viveros, jardines y centros de jardinería",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2301",
+    "fin": "2026-11-20",
+    "inicio": "2026-11-30",
+    "horas": 330,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "401",
+    "codigo": "IFCD85",
+    "nombre": "Programación para dispositivos móviles Android",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/401",
+    "fin": "2026-11-20",
+    "inicio": "2026-12-15",
+    "horas": 380,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "456686",
+    "codigo": "IFCD97",
+    "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456686",
+    "fin": "2026-11-24",
+    "inicio": "2027-01-13",
+    "horas": 150,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "192",
+    "codigo": "ADGD359PO",
+    "nombre": "Lean manufacturing",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/192",
+    "fin": "2026-11-25",
+    "inicio": "2026-12-11",
+    "horas": 50,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "2534",
+    "codigo": "COML0309",
+    "nombre": "Organización y gestión de almacenes",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2534",
+    "fin": "2026-11-28",
+    "inicio": "2026-12-28",
+    "horas": 390,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Alhama de Almería",
+    "km": 46
+   },
+   {
+    "id": "398",
+    "codigo": "COMT08",
+    "nombre": "Planificación del aprovisionamiento y gestión de stocks",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/398",
+    "fin": "2026-11-28",
+    "inicio": "2026-12-28",
+    "horas": 60,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "2334",
+    "codigo": "COMT0211",
+    "nombre": "Actividades auxiliares de comercio",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2334",
+    "fin": "2026-11-30",
+    "inicio": "2027-01-07",
+    "horas": 270,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Huércal de Almería",
+    "km": 54
+   },
+   {
+    "id": "353",
+    "codigo": "IMAI0003",
+    "nombre": "Fontanería",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/353",
+    "fin": "2026-12-04",
+    "inicio": "2027-01-21",
+    "horas": 60,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Huércal de Almería",
+    "km": 54
+   },
+   {
+    "id": "2538",
+    "codigo": "SSCS0108",
+    "nombre": "Atención sociosanitaria a personas en el domicilio",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2538",
+    "fin": "2026-12-10",
+    "inicio": "2027-01-12",
+    "horas": 600,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Alhama de Almería",
+    "km": 46
+   },
+   {
+    "id": "755",
+    "codigo": "ADGD180PO",
+    "nombre": "Mejora de procesos: lean y VSM",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/755",
+    "fin": "2026-12-15",
+    "inicio": "2027-01-20",
+    "horas": 12,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "541",
+    "codigo": "COMM0013",
+    "nombre": "Negociación y cierre eficaz de ventas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/541",
+    "fin": "2026-12-15",
+    "inicio": "2027-01-15",
+    "horas": 20,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "548",
+    "codigo": "ADGD359PO",
+    "nombre": "Lean manufacturing",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/548",
+    "fin": "2026-12-16",
+    "inicio": "2027-01-12",
+    "horas": 50,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "día completo",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "756",
+    "codigo": "ADGD181PO",
+    "nombre": "Mejora de procesos: seis sigma",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/756",
+    "fin": "2026-12-16",
+    "inicio": "2027-01-26",
+    "horas": 16,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "2129",
+    "codigo": "ARGI0209",
+    "nombre": "Impresión digital",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2129",
+    "fin": "2026-12-18",
+    "inicio": "2027-01-21",
+    "horas": 440,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "día completo",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "547",
+    "codigo": "ADGD181PO",
+    "nombre": "Mejora de procesos: seis sigma",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/547",
+    "fin": "2026-12-30",
+    "inicio": "2027-02-02",
+    "horas": 16,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "540",
+    "codigo": "COML011PO",
+    "nombre": "Gestion y control de compras y stock en almacen",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/540",
+    "fin": "2026-12-31",
+    "inicio": "2027-01-28",
+    "horas": 30,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "402",
+    "codigo": "COMT08",
+    "nombre": "Planificación del aprovisionamiento y gestión de stocks",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/402",
+    "fin": "2027-01-01",
+    "inicio": "2027-01-22",
+    "horas": 60,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "546",
+    "codigo": "ADGD180PO",
+    "nombre": "Mejora de procesos: lean y VSM",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/546",
+    "fin": "2027-01-15",
+    "inicio": "2027-02-10",
+    "horas": 12,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "539",
+    "codigo": "COML008PO",
+    "nombre": "Gestión básica del almacén",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/539",
+    "fin": "2027-01-19",
+    "inicio": "2027-02-12",
+    "horas": 20,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "536",
+    "codigo": "CTRG0011",
+    "nombre": "Liderazgo, organización del trabajo en equipo y solución de problemas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/536",
+    "fin": "2027-01-22",
+    "inicio": "2027-02-23",
+    "horas": 80,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "456742",
+    "codigo": "IFCD102",
+    "nombre": "Programación realidad virtual y realidad aumentada aplicables en entornos 5G",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456742",
+    "fin": "2027-01-27",
+    "inicio": "2027-03-15",
+    "horas": 150,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "537",
+    "codigo": "ADGD151PO",
+    "nombre": "Habilidades sociales de comunicación y resolución de conflictos en el centro de trabajo",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/537",
+    "fin": "2027-02-23",
+    "inicio": "2027-03-30",
+    "horas": 70,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   }
+  ],
+  "linea": [
+   {
+    "id": "117",
+    "codigo": "ADGD305PO",
+    "nombre": "Gestión de cooperativas de trabajo",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/117",
+    "fin": "2026-11-09",
+    "inicio": "2026-12-10",
+    "horas": 64,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
+    "id": "2891",
+    "codigo": "MF0245",
+    "nombre": "Gestión de quejas y reclamaciones en materia de consumo",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2891",
+    "fin": "2026-11-09",
+    "inicio": "2026-12-01",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2960",
+    "codigo": "MF0973",
+    "nombre": "Grabación de datos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2960",
+    "fin": "2026-11-09",
+    "inicio": "2026-11-30",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2787",
+    "codigo": "MF1017",
+    "nombre": "Intervención en la atención higiénico-alimentaria en instituciones",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2787",
+    "fin": "2026-11-10",
+    "inicio": "2026-11-26",
+    "horas": 70,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "2837",
+    "codigo": "MF1017",
+    "nombre": "Intervención en la atención higiénico-alimentaria en instituciones",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2837",
+    "fin": "2026-11-10",
+    "inicio": "2026-12-09",
+    "horas": 70,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "2760",
+    "codigo": "MF0239",
+    "nombre": "Operaciones de venta",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2760",
+    "fin": "2026-11-10",
+    "inicio": "2026-12-02",
+    "horas": 160,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "2951",
+    "codigo": "MF1442",
+    "nombre": "Programación didáctica de acciones formativas para el empleo",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2951",
+    "fin": "2026-11-10",
+    "inicio": "2026-12-11",
+    "horas": 60,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2888",
+    "codigo": "MF0978",
+    "nombre": "Gestión de archivos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2888",
+    "fin": "2026-11-11",
+    "inicio": "2026-12-03",
+    "horas": 60,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2792",
+    "codigo": "MF1017",
+    "nombre": "Intervención en la atención higiénico-alimentaria en instituciones",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2792",
+    "fin": "2026-11-11",
+    "inicio": "2026-12-01",
+    "horas": 70,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2943",
+    "codigo": "MF1002",
+    "nombre": "Inglés profesional para actividades comerciales",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2943",
+    "fin": "2026-11-12",
+    "inicio": "2026-12-02",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2911",
+    "codigo": "MF1792",
+    "nombre": "Gestión de la prevención de riesgos laborales en pequeños negocios",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2911",
+    "fin": "2026-11-13",
+    "inicio": "2026-12-09",
+    "horas": 60,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2880",
+    "codigo": "MF0239",
+    "nombre": "Operaciones de venta",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2880",
+    "fin": "2026-11-13",
+    "inicio": "2026-12-01",
+    "horas": 160,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2961",
+    "codigo": "MF0975",
+    "nombre": "Técnicas de recepción y comunicación",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2961",
+    "fin": "2026-11-13",
+    "inicio": "2026-12-09",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "86",
+    "codigo": "ADGN12",
+    "nombre": "Fiscalidad cooperativa avanzada",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/86",
+    "fin": "2026-11-16",
+    "inicio": "2026-12-16",
+    "horas": 40,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
+    "id": "2897",
+    "codigo": "MF0973",
+    "nombre": "Grabación de datos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2897",
+    "fin": "2026-11-16",
+    "inicio": "2027-01-04",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "457708",
+    "codigo": "SSCE0110",
+    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457708",
+    "fin": "2026-11-16",
+    "inicio": "2027-01-11",
+    "horas": 380,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Málaga"
+   },
+   {
+    "id": "457701",
+    "codigo": "SSCE0110",
+    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457701",
+    "fin": "2026-11-16",
+    "inicio": "2027-01-11",
+    "horas": 380,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "municipio": "Málaga"
+   },
+   {
+    "id": "2915",
+    "codigo": "MF0976",
+    "nombre": "Operaciones administrativas comerciales",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2915",
+    "fin": "2026-11-16",
+    "inicio": "2026-12-10",
+    "horas": 160,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2970",
+    "codigo": "MF0239",
+    "nombre": "Operaciones de venta",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2970",
+    "fin": "2026-11-16",
+    "inicio": "2026-12-10",
+    "horas": 160,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "456738",
+    "codigo": "IFCD99",
+    "nombre": "Programación en inteligencia artificial y BIG data aplicables en entornos 5G",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456738",
+    "fin": "2026-11-16",
+    "inicio": "2027-01-07",
+    "horas": 150,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Sevilla"
+   },
+   {
+    "id": "2876",
+    "codigo": "MF0970",
+    "nombre": "Operaciones básicas de comunicación",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2876",
+    "fin": "2026-11-17",
+    "inicio": "2026-12-11",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "456764",
+    "codigo": "IFCD102",
+    "nombre": "Programación realidad virtual y realidad aumentada aplicables en entornos 5G",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456764",
+    "fin": "2026-11-17",
+    "inicio": "2027-01-07",
+    "horas": 150,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Sevilla"
+   },
+   {
+    "id": "2887",
+    "codigo": "MF0976",
+    "nombre": "Operaciones administrativas comerciales",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2887",
+    "fin": "2026-11-18",
+    "inicio": "2026-12-14",
+    "horas": 160,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2369",
+    "codigo": "MF1327",
+    "nombre": "Operaciones auxiliares en el punto de venta",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2369",
+    "fin": "2026-11-19",
+    "inicio": "2026-12-17",
+    "horas": 90,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "2939",
+    "codigo": "MF1327",
+    "nombre": "Operaciones auxiliares en el punto de venta",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2939",
+    "fin": "2026-11-19",
+    "inicio": "2026-12-17",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "456717",
+    "codigo": "IFCD99",
+    "nombre": "Programación en inteligencia artificial y BIG data aplicables en entornos 5G",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456717",
+    "fin": "2026-11-19",
+    "inicio": "2027-01-11",
+    "horas": 150,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Jerez de la Frontera"
+   },
+   {
+    "id": "2877",
+    "codigo": "MF0241",
+    "nombre": "Información y atención al cliente/consumidor/usuario",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2877",
+    "fin": "2026-11-20",
+    "inicio": "2026-12-17",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2879",
+    "codigo": "MF0246",
+    "nombre": "Organización de un sistema de información de consumo",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2879",
+    "fin": "2026-11-20",
+    "inicio": "2026-12-18",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "457713",
+    "codigo": "IFCT123",
+    "nombre": "Implantación y gestión de la ciberseguridad",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457713",
+    "fin": "2026-11-23",
+    "inicio": "2027-01-11",
+    "horas": 91,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Málaga"
+   },
+   {
+    "id": "2762",
+    "codigo": "MF1000",
+    "nombre": "Organización comercial",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2762",
+    "fin": "2026-11-23",
+    "inicio": "2026-12-21",
+    "horas": 120,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "456689",
+    "codigo": "IFCD97",
+    "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456689",
+    "fin": "2026-11-23",
+    "inicio": "2027-01-13",
+    "horas": 150,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Algeciras"
+   },
+   {
+    "id": "456686",
+    "codigo": "IFCD97",
+    "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456686",
+    "fin": "2026-11-24",
+    "inicio": "2027-01-13",
+    "horas": 150,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "2898",
+    "codigo": "MF0979",
+    "nombre": "Gestión operativa de tesorería",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2898",
+    "fin": "2026-11-24",
+    "inicio": "2027-01-14",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2881",
+    "codigo": "MF1000",
+    "nombre": "Organización comercial",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2881",
+    "fin": "2026-11-25",
+    "inicio": "2026-12-17",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2818",
+    "codigo": "MF0973",
+    "nombre": "Grabación de datos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2818",
+    "fin": "2026-11-27",
+    "inicio": "2026-12-29",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
+    "id": "2920",
+    "codigo": "MF1001",
+    "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2920",
+    "fin": "2026-12-03",
+    "inicio": "2027-01-07",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "108",
+    "codigo": "ADGD0058",
+    "nombre": "Gestión de secciones de crédito de cooperativas agrarias",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/108",
+    "fin": "2026-12-03",
+    "inicio": "2027-01-25",
+    "horas": 50,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo",
+    "convocado": true
+   },
+   {
+    "id": "2829",
+    "codigo": "MF1328",
+    "nombre": "Manipulación y movimientos con transpalés y carretillas de mano",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2829",
+    "fin": "2026-12-03",
+    "inicio": "2027-01-11",
+    "horas": 50,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2918",
+    "codigo": "MF0970",
+    "nombre": "Operaciones básicas de comunicación",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2918",
+    "fin": "2026-12-03",
+    "inicio": "2027-01-07",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2913",
+    "codigo": "MF0973",
+    "nombre": "Grabación de datos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2913",
+    "fin": "2026-12-04",
+    "inicio": "2027-01-07",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   }
+  ],
+  "lineaTotal": 87,
+  "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
+  "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
+  "dia": "2026-11-07"
+ },
+ "polen": {
+  "estacion": "Almería",
+  "dia": "2026-10-13",
+  "tipos": [
+   {
+    "id": 2,
+    "nombre": "Alternaria (hongo)",
+    "valor": 1
+   },
+   {
+    "id": 13,
+    "nombre": "Palmeras",
+    "valor": 1
+   }
+  ],
+  "semana": [
+   {
+    "id": 9,
+    "nombre": "Gramíneas",
+    "valor": 6,
+    "nivel": "bajo"
+   },
+   {
+    "id": 2,
+    "nombre": "Alternaria (hongo)",
+    "valor": 4
+   },
+   {
+    "id": 7,
+    "nombre": "Cupresáceas",
+    "valor": 1,
+    "nivel": "bajo"
+   },
+   {
+    "id": 12,
+    "nombre": "Olivo",
+    "valor": 1,
+    "nivel": "bajo"
+   },
+   {
+    "id": 13,
+    "nombre": "Palmeras",
+    "valor": 1
+   },
+   {
+    "id": 18,
+    "nombre": "Amarantáceas (salsola)",
+    "valor": 1,
+    "nivel": "bajo"
+   }
+  ],
+  "meses": [
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "calendario": [
+   {
+    "id": 18,
+    "nombre": "Amarantáceas (salsola)",
+    "max": [
+     1,
+     0,
+     1,
+     2,
+     5,
+     8,
+     34,
+     7,
+     5,
+     2,
+     2,
+     1
+    ],
+    "niveles": [
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "alto",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo"
+    ]
+   },
+   {
+    "id": 9,
+    "nombre": "Gramíneas",
+    "max": [
+     1,
+     0,
+     1,
+     3,
+     3,
+     5,
+     80,
+     17,
+     2,
+     1,
+     0,
+     6
+    ],
+    "niveles": [
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "alto",
+     "moderado",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo"
+    ]
+   },
+   {
+    "id": 12,
+    "nombre": "Olivo",
+    "max": [
+     1,
+     0,
+     0,
+     0,
+     0,
+     30,
+     255,
+     44,
+     1,
+     1,
+     0,
+     1
+    ],
+    "niveles": [
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "alto",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo"
+    ]
+   },
+   {
+    "id": 2,
+    "nombre": "Alternaria (hongo)",
+    "max": [
+     7,
+     1,
+     3,
+     1,
+     3,
+     1,
+     33,
+     6,
+     9,
+     3,
+     6,
+     4
+    ],
+    "niveles": null
+   },
+   {
+    "id": 14,
+    "nombre": "Pino",
+    "max": [
+     0,
+     0,
+     1,
+     11,
+     19,
+     15,
+     28,
+     29,
+     2,
+     0,
+     1,
+     0
+    ],
+    "niveles": null
+   },
+   {
+    "id": 22,
+    "nombre": "Urticáceas (parietaria)",
+    "max": [
+     1,
+     1,
+     1,
+     3,
+     6,
+     3,
+     11,
+     2,
+     2,
+     1,
+     0,
+     0
+    ],
+    "niveles": [
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "moderado",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo",
+     "bajo"
+    ]
+   }
+  ],
+  "dias": 371,
+  "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
+  "enlace": "https://www.polenes.com"
+ },
+ "actividades": {
+  "lista": [
+   {
+    "titulo": "Almería en catamarán: paseo por la bahía y puesta de sol con Mundo Marino",
+    "inicio": "2026-11-01",
+    "fin": "2026-11-30",
+    "lugar": "Muelle de Levante, Puerto de Almería",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/almeria-en-catamaran-paseo-por-la-bahia-y-puesta-de-sol-con-mundo-marino/",
+    "fuente": "Turismo de Almería",
+    "aireLibre": true
+   },
+   {
+    "titulo": "Festival Internacional de Jazz AlmeriJazz 2026",
+    "inicio": "2026-11-01",
+    "fin": "2026-11-08",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/festival-internacional-de-jazz-almerijazz-2026/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "Jam de jazz con Las Quintetas en La Guajira",
+    "inicio": "2026-11-06",
+    "fin": "2026-11-07",
+    "hora": "22:30",
+    "lugar": "La Guajira",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/jam-de-jazz-con-las-quintetas-en-la-guajira/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "Senda de la Hidroeléctrica Laujar de Andarax",
+    "inicio": "2026-11-07",
+    "municipio": "Laujar de Andarax",
+    "enlace": "https://www.dipalme.org/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=AED85DE094F4A998C12589A30029753B",
+    "fuente": "Diputación de Almería",
+    "aireLibre": true,
+    "senderismo": true,
+    "programa": "Rutas y Senderos 2026"
+   },
+   {
+    "titulo": "Terraceo con Pike Cavalero DJ en La Guajira",
+    "inicio": "2026-11-07",
+    "hora": "16:00",
+    "lugar": "La Guajira",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/terraceo-con-pike-cavalero-dj-en-la-guajira/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "Fiesta de presentación Dancehall Almería en La Guajira",
+    "inicio": "2026-11-07",
+    "hora": "20:00",
+    "lugar": "La Guajira",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/fiesta-de-presentacion-dancehall-almeria-en-la-guajira/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "AlmeriJazz: Banda Municipal de Almería",
+    "inicio": "2026-11-08",
+    "hora": "12:00",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/almerijazz-banda-municipal-de-almeria/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "Almería mira al mar: por qué el futuro de Almería es azul",
+    "inicio": "2026-11-14",
+    "hora": "12:00",
+    "lugar": "Pabellón de Historia Natural, PHN",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/almeria-mira-al-mar-por-que-el-futuro-de-almeria-es-azul/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "Sendero de la Uva Canjáyar",
+    "inicio": "2026-11-15",
+    "municipio": "Canjáyar",
+    "enlace": "https://www.dipalme.org/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=5CAC400E108D9AFCC1258EA500467102",
+    "fuente": "Diputación de Almería",
+    "aireLibre": true,
+    "senderismo": true,
+    "programa": "Rutas y Senderos 2026"
+   },
+   {
+    "titulo": "III Marcha Saludable y Feria de la Salud del Distrito Sanitario Almería",
+    "inicio": "2026-11-15",
+    "hora": "10:00",
+    "lugar": "Parking de la Bola Azul",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/iii-marcha-saludable-y-feria-de-la-salud-del-distrito-sanitario-almeria/",
+    "fuente": "Turismo de Almería",
+    "gratis": true,
+    "aireLibre": true,
+    "senderismo": true
+   },
+   {
+    "titulo": "Banda Municipal de Almería: Una mirada a nuestros solistas (3)",
+    "inicio": "2026-11-29",
+    "hora": "12:00",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/banda-municipal-de-almeria-una-mirada-a-nuestros-solistas-3/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "Jimena Quirós: Ciencia, Mares y Océanos",
+    "inicio": "2026-12-12",
+    "hora": "12:00",
+    "lugar": "Pabellón de Historia Natural, PHN",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/jimena-quiros-ciencia-mares-y-oceanos/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   }
+  ],
+  "fuentes": [
+   "Diputación de Almería",
+   "Motril Turismo",
+   "Turismo de Almería"
+  ],
+  "dia": "2026-11-07"
+ },
+ "senderos": {
+  "lista": [
+   {
+    "id": "121",
+    "nombre": "Marismas de Punta Entinas",
+    "dificultad": "baja",
+    "km": 6.4,
+    "inicio": [
+     36.69258,
+     -2.77887
+    ],
+    "traza": [
+     [
+      [
+       -2.77898,
+       36.69274
+      ],
+      [
+       -2.77735,
+       36.69423
+      ],
+      [
+       -2.77061,
+       36.6946
+      ]
+     ],
+     [
+      [
+       -2.77062,
+       36.69459
+      ],
+      [
+       -2.76417,
+       36.6934
+      ]
+     ],
+     [
+      [
+       -2.76417,
+       36.69341
+      ],
+      [
+       -2.7593,
+       36.69187
+      ]
+     ],
+     [
+      [
+       -2.75927,
+       36.69184
+      ],
+      [
+       -2.75694,
+       36.69049
+      ]
+     ],
+     [
+      [
+       -2.75696,
+       36.6905
+      ],
+      [
+       -2.75525,
+       36.69001
+      ],
+      [
+       -2.7492,
+       36.69031
+      ]
+     ],
+     [
+      [
+       -2.74922,
+       36.69029
+      ],
+      [
+       -2.74569,
+       36.69057
+      ],
+      [
+       -2.74412,
+       36.6897
+      ],
+      [
+       -2.74201,
+       36.68955
+      ]
+     ],
+     [
+      [
+       -2.74198,
+       36.68955
+      ],
+      [
+       -2.73695,
+       36.68935
+      ]
+     ],
+     [
+      [
+       -2.73691,
+       36.68932
+      ],
+      [
+       -2.72945,
+       36.68912
+      ]
+     ],
+     [
+      [
+       -2.72945,
+       36.68914
+      ],
+      [
+       -2.72075,
+       36.69092
+      ]
+     ],
+     [
+      [
+       -2.72071,
+       36.69092
+      ],
+      [
+       -2.71278,
+       36.6925
+      ]
+     ],
+     [
+      [
+       -2.71278,
+       36.69252
+      ],
+      [
+       -2.71214,
+       36.69265
+      ]
+     ],
+     [
+      [
+       -2.71212,
+       36.69265
+      ],
+      [
+       -2.71117,
+       36.69288
+      ]
+     ]
+    ],
+    "adraKm": 22,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/marismas-de-punta-entinas/255035",
+    "duracion": "1 hora 20 minutos",
+    "municipios": [
+     "Ejido (el)"
+    ],
+    "cerrado": true,
+    "ine": "04902",
+    "tiempoDe": "El Ejido"
+   },
+   {
+    "id": "116",
+    "nombre": "Monterrey",
+    "dificultad": "alta",
+    "km": 9.7,
+    "inicio": [
+     37.00166,
+     -2.89084
+    ],
+    "traza": [
+     [
+      [
+       -2.89009,
+       36.99971
+      ],
+      [
+       -2.89109,
+       37.00146
+      ],
+      [
+       -2.88946,
+       37.0022
+      ],
+      [
+       -2.89122,
+       37.00362
+      ],
+      [
+       -2.89124,
+       37.00446
+      ],
+      [
+       -2.89005,
+       37.00655
+      ],
+      [
+       -2.89,
+       37.00916
+      ],
+      [
+       -2.89171,
+       37.00998
+      ],
+      [
+       -2.89111,
+       37.01229
+      ],
+      [
+       -2.89301,
+       37.01739
+      ],
+      [
+       -2.89705,
+       37.02087
+      ],
+      [
+       -2.89782,
+       37.02226
+      ],
+      [
+       -2.89714,
+       37.0233
+      ],
+      [
+       -2.89878,
+       37.02471
+      ],
+      [
+       -2.89784,
+       37.02556
+      ],
+      [
+       -2.89805,
+       37.02923
+      ],
+      [
+       -2.89677,
+       37.02916
+      ],
+      [
+       -2.89724,
+       37.03058
+      ],
+      [
+       -2.89339,
+       37.02634
+      ],
+      [
+       -2.89301,
+       37.02354
+      ],
+      [
+       -2.89412,
+       37.02143
+      ],
+      [
+       -2.89302,
+       37.01951
+      ],
+      [
+       -2.89243,
+       37.0191
+      ],
+      [
+       -2.89288,
+       37.0207
+      ],
+      [
+       -2.89163,
+       37.02189
+      ],
+      [
+       -2.89191,
+       37.0208
+      ],
+      [
+       -2.89112,
+       37.01952
+      ],
+      [
+       -2.88845,
+       37.0176
+      ],
+      [
+       -2.88834,
+       37.01683
+      ],
+      [
+       -2.88951,
+       37.01584
+      ],
+      [
+       -2.88859,
+       37.0132
+      ],
+      [
+       -2.8895,
+       37.00572
+      ],
+      [
+       -2.88714,
+       37.00105
+      ],
+      [
+       -2.8888,
+       36.99973
+      ],
+      [
+       -2.88938,
+       37.00038
+      ],
+      [
+       -2.89009,
+       36.99971
+      ]
+     ]
+    ],
+    "adraKm": 30,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/monterrey/255035",
+    "duracion": "4 horas",
+    "trazado": "circular",
+    "municipios": [
+     "Laujar De Andarax"
+    ],
+    "ine": "04057",
+    "tiempoDe": "Laujar de Andarax"
+   },
+   {
+    "id": "1135",
+    "nombre": "Río Grande de Bérchules",
+    "dificultad": "media",
+    "km": 14.1,
+    "inicio": [
+     36.97931,
+     -3.1902
+    ],
+    "traza": [
+     [
+      [
+       -3.19017,
+       36.97924
+      ],
+      [
+       -3.19017,
+       36.98063
+      ],
+      [
+       -3.19159,
+       36.98296
+      ],
+      [
+       -3.19103,
+       36.98431
+      ],
+      [
+       -3.19444,
+       36.98698
+      ],
+      [
+       -3.19595,
+       36.98996
+      ],
+      [
+       -3.19765,
+       36.98993
+      ],
+      [
+       -3.19756,
+       36.99127
+      ],
+      [
+       -3.19871,
+       36.99183
+      ],
+      [
+       -3.19751,
+       36.99231
+      ],
+      [
+       -3.19819,
+       36.99342
+      ],
+      [
+       -3.19753,
+       36.99422
+      ],
+      [
+       -3.19774,
+       36.99713
+      ],
+      [
+       -3.19587,
+       36.99879
+      ],
+      [
+       -3.19636,
+       37.00002
+      ],
+      [
+       -3.19521,
+       37.00139
+      ],
+      [
+       -3.19608,
+       37.00229
+      ],
+      [
+       -3.19512,
+       37.00464
+      ],
+      [
+       -3.19356,
+       37.00502
+      ],
+      [
+       -3.19288,
+       37.00699
+      ],
+      [
+       -3.19174,
+       37.00753
+      ],
+      [
+       -3.19138,
+       37.00978
+      ],
+      [
+       -3.18823,
+       37.0119
+      ],
+      [
+       -3.18746,
+       37.01393
+      ],
+      [
+       -3.18524,
+       37.01525
+      ],
+      [
+       -3.1848,
+       37.01655
+      ],
+      [
+       -3.18458,
+       37.01266
+      ],
+      [
+       -3.18581,
+       37.01134
+      ],
+      [
+       -3.18554,
+       37.01058
+      ],
+      [
+       -3.18772,
+       37.00877
+      ],
+      [
+       -3.18568,
+       37.00708
+      ],
+      [
+       -3.18666,
+       37.00569
+      ],
+      [
+       -3.18678,
+       37.00327
+      ],
+      [
+       -3.18822,
+       37.00139
+      ],
+      [
+       -3.18594,
+       36.99846
+      ],
+      [
+       -3.18301,
+       36.99754
+      ],
+      [
+       -3.18206,
+       36.9962
+      ],
+      [
+       -3.18723,
+       36.99536
+      ],
+      [
+       -3.1845,
+       36.99429
+      ],
+      [
+       -3.18372,
+       36.99279
+      ],
+      [
+       -3.18289,
+       36.99283
+      ],
+      [
+       -3.17886,
+       36.99001
+      ],
+      [
+       -3.17873,
+       36.98866
+      ],
+      [
+       -3.17722,
+       36.98734
+      ],
+      [
+       -3.17719,
+       36.98542
+      ],
+      [
+       -3.17756,
+       36.98465
+      ],
+      [
+       -3.17783,
+       36.98568
+      ],
+      [
+       -3.18011,
+       36.98696
+      ],
+      [
+       -3.18056,
+       36.98527
+      ],
+      [
+       -3.18126,
+       36.98571
+      ],
+      [
+       -3.18271,
+       36.98283
+      ],
+      [
+       -3.1845,
+       36.9837
+      ],
+      [
+       -3.18531,
+       36.98336
+      ],
+      [
+       -3.18507,
+       36.98425
+      ],
+      [
+       -3.18675,
+       36.98344
+      ],
+      [
+       -3.18735,
+       36.9839
+      ],
+      [
+       -3.18839,
+       36.98192
+      ],
+      [
+       -3.18773,
+       36.98093
+      ],
+      [
+       -3.18863,
+       36.97916
+      ],
+      [
+       -3.18991,
+       36.97837
+      ]
+     ]
+    ],
+    "adraKm": 30,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/r%C3%ADo-grande-de-b%C3%A9rchules/255035",
+    "duracion": "6 horas",
+    "trazado": "circular",
+    "municipios": [
+     "Berchules"
+    ],
+    "ine": "18030",
+    "tiempoDe": "Bérchules"
+   },
+   {
+    "id": "115",
+    "nombre": "El Aguadero",
+    "dificultad": "alta",
+    "km": 14.0,
+    "inicio": [
+     37.01803,
+     -2.88895
+    ],
+    "traza": [
+     [
+      [
+       -2.88951,
+       37.01826
+      ],
+      [
+       -2.88903,
+       37.01791
+      ],
+      [
+       -2.88846,
+       37.01847
+      ],
+      [
+       -2.88907,
+       37.01885
+      ],
+      [
+       -2.88821,
+       37.02054
+      ],
+      [
+       -2.88902,
+       37.02009
+      ],
+      [
+       -2.88861,
+       37.02054
+      ],
+      [
+       -2.89017,
+       37.02298
+      ],
+      [
+       -2.88978,
+       37.025
+      ],
+      [
+       -2.89012,
+       37.02696
+      ],
+      [
+       -2.89123,
+       37.02825
+      ],
+      [
+       -2.8905,
+       37.03037
+      ],
+      [
+       -2.891,
+       37.03121
+      ],
+      [
+       -2.89055,
+       37.0322
+      ],
+      [
+       -2.88925,
+       37.03229
+      ],
+      [
+       -2.88944,
+       37.03301
+      ],
+      [
+       -2.88843,
+       37.03343
+      ],
+      [
+       -2.88642,
+       37.03665
+      ],
+      [
+       -2.8844,
+       37.03728
+      ],
+      [
+       -2.88387,
+       37.0386
+      ],
+      [
+       -2.88159,
+       37.03932
+      ],
+      [
+       -2.88102,
+       37.04073
+      ],
+      [
+       -2.87824,
+       37.04256
+      ],
+      [
+       -2.87654,
+       37.04286
+      ],
+      [
+       -2.87467,
+       37.04223
+      ],
+      [
+       -2.87348,
+       37.04369
+      ],
+      [
+       -2.87002,
+       37.04436
+      ],
+      [
+       -2.86895,
+       37.04403
+      ],
+      [
+       -2.86809,
+       37.04464
+      ],
+      [
+       -2.86548,
+       37.04442
+      ],
+      [
+       -2.86325,
+       37.04564
+      ],
+      [
+       -2.86129,
+       37.04557
+      ],
+      [
+       -2.86144,
+       37.04625
+      ],
+      [
+       -2.86043,
+       37.04697
+      ],
+      [
+       -2.86159,
+       37.04806
+      ],
+      [
+       -2.86435,
+       37.04801
+      ],
+      [
+       -2.87145,
+       37.05071
+      ],
+      [
+       -2.87212,
+       37.04949
+      ],
+      [
+       -2.87025,
+       37.04826
+      ],
+      [
+       -2.87035,
+       37.04706
+      ],
+      [
+       -2.87431,
+       37.04769
+      ],
+      [
+       -2.87568,
+       37.0495
+      ],
+      [
+       -2.8765,
+       37.04744
+      ],
+      [
+       -2.88179,
+       37.04679
+      ],
+      [
+       -2.88411,
+       37.04758
+      ],
+      [
+       -2.88641,
+       37.04401
+      ],
+      [
+       -2.89204,
+       37.0411
+      ],
+      [
+       -2.89221,
+       37.04003
+      ],
+      [
+       -2.89451,
+       37.03762
+      ],
+      [
+       -2.89563,
+       37.03482
+      ],
+      [
+       -2.89493,
+       37.03464
+      ],
+      [
+       -2.89621,
+       37.03286
+      ],
+      [
+       -2.89738,
+       37.03296
+      ],
+      [
+       -2.89636,
+       37.03177
+      ],
+      [
+       -2.89672,
+       37.02999
+      ],
+      [
+       -2.89333,
+       37.02616
+      ],
+      [
+       -2.89303,
+       37.02359
+      ],
+      [
+       -2.89412,
+       37.02143
+      ],
+      [
+       -2.89326,
+       37.01983
+      ],
+      [
+       -2.89255,
+       37.01911
+      ],
+      [
+       -2.89288,
+       37.0207
+      ],
+      [
+       -2.89165,
+       37.02196
+      ],
+      [
+       -2.89193,
+       37.02078
+      ],
+      [
+       -2.89119,
+       37.01966
+      ],
+      [
+       -2.88899,
+       37.01806
+      ]
+     ]
+    ],
+    "adraKm": 32,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/el-aguadero/255035",
+    "duracion": "5 horas",
+    "trazado": "circular",
+    "municipios": [
+     "Laujar De Andarax"
+    ],
+    "ine": "04057",
+    "tiempoDe": "Laujar de Andarax"
+   },
+   {
+    "id": "452",
+    "nombre": "Río Bermejo",
+    "dificultad": "media",
+    "km": 2.3,
+    "inicio": [
+     36.94322,
+     -3.31281
+    ],
+    "traza": [
+     [
+      [
+       -3.31281,
+       36.94322
+      ],
+      [
+       -3.31432,
+       36.9442
+      ],
+      [
+       -3.31516,
+       36.94582
+      ],
+      [
+       -3.31727,
+       36.94638
+      ],
+      [
+       -3.31755,
+       36.94804
+      ],
+      [
+       -3.32101,
+       36.94912
+      ],
+      [
+       -3.3203,
+       36.95019
+      ],
+      [
+       -3.32453,
+       36.95394
+      ],
+      [
+       -3.32404,
+       36.95465
+      ],
+      [
+       -3.32567,
+       36.95541
+      ]
+     ]
+    ],
+    "adraKm": 34,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/r%C3%ADo-bermejo/255035",
+    "ine": "18042",
+    "tiempoDe": "Capileira"
+   },
+   {
+    "id": "122",
+    "nombre": "Salinas de Cerrillos",
+    "dificultad": "baja",
+    "km": 4.5,
+    "inicio": [
+     36.72692,
+     -2.63822
+    ],
+    "traza": [
+     [
+      [
+       -2.64313,
+       36.71987
+      ],
+      [
+       -2.64502,
+       36.71542
+      ]
+     ],
+     [
+      [
+       -2.64503,
+       36.71541
+      ],
+      [
+       -2.64632,
+       36.71248
+      ]
+     ],
+     [
+      [
+       -2.64632,
+       36.71248
+      ],
+      [
+       -2.64714,
+       36.71035
+      ]
+     ],
+     [
+      [
+       -2.64714,
+       36.71037
+      ],
+      [
+       -2.64793,
+       36.70845
+      ]
+     ],
+     [
+      [
+       -2.64793,
+       36.70845
+      ],
+      [
+       -2.64862,
+       36.70683
+      ],
+      [
+       -2.65067,
+       36.70604
+      ],
+      [
+       -2.65674,
+       36.70433
+      ],
+      [
+       -2.66191,
+       36.70374
+      ]
+     ],
+     [
+      [
+       -2.66192,
+       36.70373
+      ],
+      [
+       -2.6653,
+       36.70335
+      ],
+      [
+       -2.66721,
+       36.70206
+      ]
+     ],
+     [
+      [
+       -2.66723,
+       36.70205
+      ],
+      [
+       -2.6686,
+       36.69986
+      ]
+     ],
+     [
+      [
+       -2.67474,
+       36.69972
+      ],
+      [
+       -2.6751,
+       36.70009
+      ]
+     ],
+     [
+      [
+       -2.67158,
+       36.69759
+      ],
+      [
+       -2.67473,
+       36.69972
+      ]
+     ],
+     [
+      [
+       -2.6716,
+       36.6976
+      ],
+      [
+       -2.67015,
+       36.69762
+      ],
+      [
+       -2.6686,
+       36.69987
+      ]
+     ]
+    ],
+    "adraKm": 34,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/salinas-de-cerrillos/255035",
+    "duracion": "1 hora 30 minutos",
+    "trazado": "lineal",
+    "municipios": [
+     "Ejido (el)"
+    ],
+    "ine": "04902",
+    "tiempoDe": "El Ejido"
+   },
+   {
+    "id": "949",
+    "nombre": "Trevélez - Siete Lagunas",
+    "dificultad": "alta",
+    "km": 8.4,
+    "inicio": [
+     37.00298,
+     -3.26629
+    ],
+    "traza": [
+     [
+      [
+       -3.26628,
+       37.00292
+      ],
+      [
+       -3.2669,
+       37.00719
+      ],
+      [
+       -3.26609,
+       37.00743
+      ],
+      [
+       -3.26578,
+       37.00911
+      ],
+      [
+       -3.26416,
+       37.01064
+      ],
+      [
+       -3.26396,
+       37.01381
+      ],
+      [
+       -3.26198,
+       37.01543
+      ],
+      [
+       -3.26118,
+       37.01791
+      ],
+      [
+       -3.2629,
+       37.01863
+      ],
+      [
+       -3.26334,
+       37.01802
+      ],
+      [
+       -3.26622,
+       37.01808
+      ],
+      [
+       -3.26754,
+       37.01921
+      ],
+      [
+       -3.26535,
+       37.02497
+      ],
+      [
+       -3.2664,
+       37.02811
+      ],
+      [
+       -3.26543,
+       37.03165
+      ],
+      [
+       -3.26945,
+       37.03177
+      ],
+      [
+       -3.27428,
+       37.03309
+      ],
+      [
+       -3.27503,
+       37.03517
+      ],
+      [
+       -3.27923,
+       37.03764
+      ],
+      [
+       -3.28278,
+       37.0417
+      ],
+      [
+       -3.28512,
+       37.04163
+      ],
+      [
+       -3.28623,
+       37.04247
+      ],
+      [
+       -3.28526,
+       37.04299
+      ],
+      [
+       -3.28711,
+       37.04387
+      ],
+      [
+       -3.28981,
+       37.04698
+      ],
+      [
+       -3.29274,
+       37.04772
+      ]
+     ]
+    ],
+    "adraKm": 36,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/trev%C3%A9lez-siete-lagunas/255035",
+    "ine": "18180",
+    "tiempoDe": "Trevélez"
+   },
+   {
+    "id": "948",
+    "nombre": "Hoya del Portillo - Refugio del Poqueira",
+    "dificultad": "media",
+    "km": 8.3,
+    "inicio": [
+     36.96866,
+     -3.33289
+    ],
+    "traza": [
+     [
+      [
+       -3.32358,
+       37.02753
+      ],
+      [
+       -3.32083,
+       37.02593
+      ],
+      [
+       -3.31988,
+       37.0234
+      ],
+      [
+       -3.31771,
+       37.02246
+      ],
+      [
+       -3.31771,
+       37.02028
+      ],
+      [
+       -3.31454,
+       37.01701
+      ],
+      [
+       -3.3128,
+       37.01631
+      ],
+      [
+       -3.31282,
+       37.01563
+      ],
+      [
+       -3.31246,
+       37.01605
+      ],
+      [
+       -3.31238,
+       37.01461
+      ],
+      [
+       -3.31041,
+       37.01325
+      ],
+      [
+       -3.31289,
+       37.00772
+      ],
+      [
+       -3.31303,
+       37.00429
+      ],
+      [
+       -3.31549,
+       37.0017
+      ],
+      [
+       -3.31695,
+       36.99755
+      ],
+      [
+       -3.31905,
+       36.99509
+      ],
+      [
+       -3.32662,
+       36.99009
+      ],
+      [
+       -3.32801,
+       36.98779
+      ],
+      [
+       -3.33162,
+       36.98015
+      ],
+      [
+       -3.33177,
+       36.97814
+      ],
+      [
+       -3.33033,
+       36.97726
+      ],
+      [
+       -3.33259,
+       36.97546
+      ],
+      [
+       -3.33189,
+       36.97502
+      ],
+      [
+       -3.33242,
+       36.97464
+      ],
+      [
+       -3.33193,
+       36.97226
+      ],
+      [
+       -3.3329,
+       36.96866
+      ]
+     ]
+    ],
+    "adraKm": 37,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/hoya-del-portillo-refugio-del-poqueira/255035",
+    "duracion": "3 horas",
+    "trazado": "lineal",
+    "municipios": [
+     "Capileira"
+    ],
+    "ine": "18042",
+    "tiempoDe": "Capileira"
+   },
+   {
+    "id": "442",
+    "nombre": "Pueblos del Poqueira",
+    "dificultad": "alta",
+    "km": 8.9,
+    "inicio": [
+     36.94093,
+     -3.35962
+    ],
+    "traza": [
+     [
+      [
+       -3.35962,
+       36.94094
+      ],
+      [
+       -3.35931,
+       36.94276
+      ],
+      [
+       -3.35776,
+       36.94312
+      ],
+      [
+       -3.35681,
+       36.94449
+      ],
+      [
+       -3.35738,
+       36.94515
+      ],
+      [
+       -3.35647,
+       36.94763
+      ],
+      [
+       -3.35762,
+       36.95026
+      ],
+      [
+       -3.35732,
+       36.9533
+      ],
+      [
+       -3.3555,
+       36.95513
+      ],
+      [
+       -3.35689,
+       36.95616
+      ],
+      [
+       -3.35749,
+       36.95943
+      ],
+      [
+       -3.36138,
+       36.96179
+      ],
+      [
+       -3.36246,
+       36.96444
+      ],
+      [
+       -3.36182,
+       36.96726
+      ],
+      [
+       -3.3636,
+       36.96843
+      ],
+      [
+       -3.36612,
+       36.96338
+      ],
+      [
+       -3.36847,
+       36.96145
+      ],
+      [
+       -3.36802,
+       36.96052
+      ],
+      [
+       -3.36681,
+       36.96094
+      ],
+      [
+       -3.36557,
+       36.95859
+      ],
+      [
+       -3.36613,
+       36.95723
+      ],
+      [
+       -3.36473,
+       36.95761
+      ],
+      [
+       -3.36355,
+       36.9568
+      ],
+      [
+       -3.36279,
+       36.95473
+      ],
+      [
+       -3.36109,
+       36.95385
+      ],
+      [
+       -3.36024,
+       36.95455
+      ],
+      [
+       -3.35858,
+       36.95462
+      ],
+      [
+       -3.3588,
+       36.95226
+      ],
+      [
+       -3.35678,
+       36.94879
+      ],
+      [
+       -3.35651,
+       36.94678
+      ],
+      [
+       -3.35738,
+       36.94515
+      ],
+      [
+       -3.35683,
+       36.94445
+      ],
+      [
+       -3.35776,
+       36.94312
+      ],
+      [
+       -3.35931,
+       36.94276
+      ],
+      [
+       -3.35962,
+       36.94094
+      ]
+     ]
+    ],
+    "adraKm": 37,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/pueblos-del-poqueira/255035",
+    "duracion": "4 horas",
+    "trazado": "circular",
+    "municipios": [
+     "Bubion",
+     "Capileira",
+     "Pampaneira"
+    ],
+    "ine": "18032",
+    "tiempoDe": "Bubión"
+   },
+   {
+    "id": "465",
+    "nombre": "Acequias del Poqueira",
+    "dificultad": "alta",
+    "km": 16.2,
+    "inicio": [
+     36.96327,
+     -3.35889
+    ],
+    "traza": [
+     [
+      [
+       -3.35926,
+       36.96249
+      ],
+      [
+       -3.35874,
+       36.96537
+      ],
+      [
+       -3.35625,
+       36.96798
+      ],
+      [
+       -3.35498,
+       36.97258
+      ],
+      [
+       -3.35575,
+       36.97427
+      ],
+      [
+       -3.35531,
+       36.9768
+      ],
+      [
+       -3.35371,
+       36.97932
+      ],
+      [
+       -3.35417,
+       36.98078
+      ],
+      [
+       -3.35164,
+       36.98355
+      ],
+      [
+       -3.35145,
+       36.98857
+      ],
+      [
+       -3.35088,
+       36.98973
+      ],
+      [
+       -3.35018,
+       36.98967
+      ],
+      [
+       -3.35047,
+       36.99164
+      ],
+      [
+       -3.34879,
+       36.99254
+      ],
+      [
+       -3.35003,
+       36.99443
+      ],
+      [
+       -3.34888,
+       36.99554
+      ],
+      [
+       -3.34847,
+       36.99783
+      ],
+      [
+       -3.34719,
+       36.99853
+      ],
+      [
+       -3.34425,
+       37.00303
+      ],
+      [
+       -3.33968,
+       37.00534
+      ],
+      [
+       -3.33622,
+       37.01229
+      ],
+      [
+       -3.33422,
+       37.01286
+      ],
+      [
+       -3.3332,
+       37.01465
+      ],
+      [
+       -3.3338,
+       37.016
+      ],
+      [
+       -3.3329,
+       37.01593
+      ],
+      [
+       -3.33221,
+       37.01762
+      ],
+      [
+       -3.32916,
+       37.01796
+      ],
+      [
+       -3.32697,
+       37.01291
+      ],
+      [
+       -3.33128,
+       37.00524
+      ],
+      [
+       -3.32993,
+       37.003
+      ],
+      [
+       -3.32948,
+       36.99958
+      ],
+      [
+       -3.33573,
+       36.99461
+      ],
+      [
+       -3.33582,
+       36.98911
+      ],
+      [
+       -3.33804,
+       36.98731
+      ],
+      [
+       -3.34001,
+       36.98419
+      ],
+      [
+       -3.34057,
+       36.98453
+      ],
+      [
+       -3.34172,
+       36.98362
+      ],
+      [
+       -3.34309,
+       36.98116
+      ],
+      [
+       -3.34789,
+       36.97833
+      ],
+      [
+       -3.34985,
+       36.97642
+      ],
+      [
+       -3.3499,
+       36.97421
+      ],
+      [
+       -3.35154,
+       36.97069
+      ],
+      [
+       -3.35564,
+       36.96672
+      ],
+      [
+       -3.35641,
+       36.96708
+      ],
+      [
+       -3.35621,
+       36.96835
+      ],
+      [
+       -3.35865,
+       36.96543
+      ],
+      [
+       -3.3588,
+       36.9633
+      ]
+     ]
+    ],
+    "adraKm": 38,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/acequias-del-poqueira/255035",
+    "duracion": "6 horas",
+    "trazado": "circular",
+    "municipios": [
+     "Capileira"
+    ],
+    "ine": "18042",
+    "tiempoDe": "Capileira"
+   },
+   {
+    "id": "446",
+    "nombre": "La Cebadilla",
+    "dificultad": "media",
+    "km": 7.2,
+    "inicio": [
+     36.96327,
+     -3.35888
+    ],
+    "traza": [
+     [
+      [
+       -3.35889,
+       36.96327
+      ],
+      [
+       -3.35871,
+       36.96534
+      ],
+      [
+       -3.35621,
+       36.96793
+      ],
+      [
+       -3.35498,
+       36.97206
+      ],
+      [
+       -3.35572,
+       36.97428
+      ],
+      [
+       -3.3552,
+       36.97704
+      ],
+      [
+       -3.35372,
+       36.97933
+      ],
+      [
+       -3.35414,
+       36.98076
+      ],
+      [
+       -3.35161,
+       36.98363
+      ],
+      [
+       -3.35149,
+       36.98839
+      ],
+      [
+       -3.35075,
+       36.98971
+      ],
+      [
+       -3.35237,
+       36.9885
+      ],
+      [
+       -3.35358,
+       36.98611
+      ],
+      [
+       -3.35505,
+       36.98569
+      ],
+      [
+       -3.35747,
+       36.98322
+      ],
+      [
+       -3.3584,
+       36.98319
+      ],
+      [
+       -3.36054,
+       36.98074
+      ],
+      [
+       -3.35959,
+       36.97964
+      ],
+      [
+       -3.36059,
+       36.97504
+      ],
+      [
+       -3.36344,
+       36.97078
+      ],
+      [
+       -3.36226,
+       36.96895
+      ],
+      [
+       -3.35977,
+       36.9678
+      ],
+      [
+       -3.36068,
+       36.96352
+      ]
+     ]
+    ],
+    "adraKm": 38,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/la-cebadilla/255035",
+    "trazado": "circular",
+    "municipios": [
+     "Capileira"
+    ],
+    "ine": "18042",
+    "tiempoDe": "Capileira"
+   },
+   {
+    "id": "947",
+    "nombre": "Puente Palo",
+    "dificultad": "alta",
+    "km": 4.0,
+    "inicio": [
+     36.94234,
+     -3.40589
+    ],
+    "traza": [
+     [
+      [
+       -3.41114,
+       36.96703
+      ],
+      [
+       -3.40896,
+       36.96869
+      ],
+      [
+       -3.40771,
+       36.96631
+      ],
+      [
+       -3.40896,
+       36.96296
+      ],
+      [
+       -3.40817,
+       36.96004
+      ],
+      [
+       -3.4085,
+       36.95801
+      ],
+      [
+       -3.41058,
+       36.95291
+      ],
+      [
+       -3.40991,
+       36.95287
+      ],
+      [
+       -3.41028,
+       36.95181
+      ],
+      [
+       -3.40952,
+       36.95043
+      ],
+      [
+       -3.4063,
+       36.94839
+      ],
+      [
+       -3.40642,
+       36.9464
+      ],
+      [
+       -3.40568,
+       36.94549
+      ],
+      [
+       -3.40675,
+       36.94409
+      ],
+      [
+       -3.40582,
+       36.94224
+      ]
+     ]
+    ],
+    "adraKm": 40,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/puente-palo/255035",
+    "duracion": "2 horas 30 minutos",
+    "trazado": "lineal",
+    "municipios": [
+     "Soportujar"
+    ],
+    "ine": "18176",
+    "tiempoDe": "Soportújar"
+   },
+   {
+    "id": "1137",
+    "nombre": "Ragua - Lagunilla Seca",
+    "dificultad": "media",
+    "km": 7.0,
+    "inicio": [
+     37.11346,
+     -3.02902
+    ],
+    "traza": [
+     [
+      [
+       -3.02902,
+       37.11346
+      ],
+      [
+       -3.02692,
+       37.11238
+      ],
+      [
+       -3.02379,
+       37.11493
+      ],
+      [
+       -3.022,
+       37.11434
+      ],
+      [
+       -3.01877,
+       37.1149
+      ],
+      [
+       -3.01722,
+       37.11593
+      ],
+      [
+       -3.01688,
+       37.11763
+      ],
+      [
+       -3.01505,
+       37.11813
+      ],
+      [
+       -3.01236,
+       37.11676
+      ],
+      [
+       -3.0107,
+       37.11436
+      ],
+      [
+       -3.01136,
+       37.1132
+      ],
+      [
+       -3.01045,
+       37.11239
+      ],
+      [
+       -3.00716,
+       37.11184
+      ],
+      [
+       -3.00541,
+       37.10869
+      ],
+      [
+       -3.00391,
+       37.10749
+      ],
+      [
+       -3.00185,
+       37.10698
+      ],
+      [
+       -3.00063,
+       37.10746
+      ],
+      [
+       -2.99946,
+       37.10823
+      ],
+      [
+       -2.99933,
+       37.10929
+      ],
+      [
+       -2.99653,
+       37.11071
+      ],
+      [
+       -2.99492,
+       37.11008
+      ],
+      [
+       -2.99448,
+       37.1086
+      ],
+      [
+       -2.98942,
+       37.10485
+      ],
+      [
+       -2.98736,
+       37.10416
+      ],
+      [
+       -2.98411,
+       37.10115
+      ],
+      [
+       -2.9726,
+       37.09965
+      ]
+     ]
+    ],
+    "adraKm": 40,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/ragua-lagunilla-seca/255035",
+    "duracion": "3 horas",
+    "trazado": "lineal",
+    "municipios": [
+     "Ferreira"
+    ],
+    "ine": "18074",
+    "tiempoDe": "Ferreira"
+   },
+   {
+    "id": "946",
+    "nombre": "Lanjarón - Tello - Ventura",
+    "dificultad": "alta",
+    "km": 12.5,
+    "inicio": [
+     36.92222,
+     -3.47192
+    ],
+    "traza": [
+     [
+      [
+       -3.49,
+       36.94443
+      ],
+      [
+       -3.48958,
+       36.944
+      ],
+      [
+       -3.48722,
+       36.9446
+      ],
+      [
+       -3.48401,
+       36.94355
+      ],
+      [
+       -3.48162,
+       36.94418
+      ],
+      [
+       -3.47776,
+       36.9471
+      ],
+      [
+       -3.47831,
+       36.9475
+      ],
+      [
+       -3.47567,
+       36.94917
+      ],
+      [
+       -3.47391,
+       36.9515
+      ],
+      [
+       -3.46749,
+       36.95338
+      ],
+      [
+       -3.46664,
+       36.95497
+      ],
+      [
+       -3.4614,
+       36.95843
+      ]
+     ],
+     [
+      [
+       -3.47196,
+       36.92226
+      ],
+      [
+       -3.47265,
+       36.92343
+      ],
+      [
+       -3.47214,
+       36.92593
+      ],
+      [
+       -3.47142,
+       36.92562
+      ],
+      [
+       -3.47176,
+       36.92649
+      ],
+      [
+       -3.47038,
+       36.92999
+      ],
+      [
+       -3.47127,
+       36.93123
+      ],
+      [
+       -3.46979,
+       36.93195
+      ],
+      [
+       -3.46888,
+       36.93539
+      ],
+      [
+       -3.46936,
+       36.94025
+      ],
+      [
+       -3.4671,
+       36.94411
+      ],
+      [
+       -3.46707,
+       36.94539
+      ],
+      [
+       -3.46309,
+       36.94912
+      ],
+      [
+       -3.46004,
+       36.95359
+      ],
+      [
+       -3.45977,
+       36.95679
+      ],
+      [
+       -3.46144,
+       36.95664
+      ],
+      [
+       -3.46135,
+       36.95622
+      ],
+      [
+       -3.46231,
+       36.95703
+      ],
+      [
+       -3.4609,
+       36.95892
+      ],
+      [
+       -3.46134,
+       36.96254
+      ],
+      [
+       -3.46349,
+       36.96265
+      ],
+      [
+       -3.46494,
+       36.9616
+      ],
+      [
+       -3.46563,
+       36.96177
+      ],
+      [
+       -3.46657,
+       36.95962
+      ],
+      [
+       -3.46693,
+       36.96049
+      ],
+      [
+       -3.46891,
+       36.96037
+      ],
+      [
+       -3.46734,
+       36.96527
+      ],
+      [
+       -3.46762,
+       36.96864
+      ],
+      [
+       -3.46551,
+       36.97011
+      ],
+      [
+       -3.46476,
+       36.97159
+      ],
+      [
+       -3.46549,
+       36.97134
+      ],
+      [
+       -3.46514,
+       36.97221
+      ],
+      [
+       -3.46583,
+       36.97177
+      ],
+      [
+       -3.4661,
+       36.97268
+      ],
+      [
+       -3.46412,
+       36.97522
+      ],
+      [
+       -3.46485,
+       36.97632
+      ],
+      [
+       -3.464,
+       36.97718
+      ],
+      [
+       -3.46452,
+       36.97703
+      ],
+      [
+       -3.46438,
+       36.97781
+      ],
+      [
+       -3.465,
+       36.97739
+      ],
+      [
+       -3.46565,
+       36.97943
+      ],
+      [
+       -3.46059,
+       36.9863
+      ],
+      [
+       -3.45996,
+       36.98935
+      ],
+      [
+       -3.45668,
+       36.99094
+      ],
+      [
+       -3.45506,
+       36.99348
+      ]
+     ]
+    ],
+    "adraKm": 45,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/lanjar%C3%B3n-tello-ventura/255035",
+    "duracion": "6 horas 30 minutos",
+    "trazado": "lineal",
+    "municipios": [
+     "Lanjaron"
+    ],
+    "ine": "18116",
+    "tiempoDe": "Lanjarón"
+   },
+   {
+    "id": "1568",
+    "nombre": "Ruta de las Lagunas",
+    "dificultad": "baja",
+    "km": 1.7,
+    "inicio": [
+     36.7223,
+     -3.54217
+    ],
+    "traza": [
+     [
+      [
+       -3.54217,
+       36.72231
+      ],
+      [
+       -3.54213,
+       36.72362
+      ],
+      [
+       -3.54347,
+       36.72546
+      ],
+      [
+       -3.53971,
+       36.72642
+      ],
+      [
+       -3.5389,
+       36.7258
+      ],
+      [
+       -3.53896,
+       36.7243
+      ],
+      [
+       -3.54211,
+       36.72232
+      ]
+     ],
+     [
+      [
+       -3.53971,
+       36.72637
+      ],
+      [
+       -3.54,
+       36.72539
+      ]
+     ],
+     [
+      [
+       -3.54021,
+       36.72365
+      ],
+      [
+       -3.54028,
+       36.72457
+      ]
+     ]
+    ],
+    "adraKm": 47,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/ruta-de-las-lagunas/255035",
+    "duracion": "30 minutos",
+    "trazado": "circular",
+    "municipios": [
+     "Motril"
+    ],
+    "ine": "18140",
+    "tiempoDe": "Motril"
+   },
+   {
+    "id": "1261",
+    "nombre": "Sierra del Chaparral",
+    "dificultad": "media",
+    "km": 5.3,
+    "inicio": [
+     36.79012,
+     -3.60702
+    ],
+    "traza": [
+     [
+      [
+       -3.60702,
+       36.79012
+      ],
+      [
+       -3.60802,
+       36.79239
+      ],
+      [
+       -3.60975,
+       36.79373
+      ],
+      [
+       -3.6097,
+       36.79675
+      ],
+      [
+       -3.61064,
+       36.79779
+      ],
+      [
+       -3.60843,
+       36.7993
+      ],
+      [
+       -3.60761,
+       36.80087
+      ],
+      [
+       -3.60813,
+       36.80124
+      ],
+      [
+       -3.60647,
+       36.80302
+      ],
+      [
+       -3.60491,
+       36.80355
+      ],
+      [
+       -3.60508,
+       36.80271
+      ],
+      [
+       -3.60422,
+       36.80234
+      ],
+      [
+       -3.60481,
+       36.80142
+      ],
+      [
+       -3.60444,
+       36.79949
+      ],
+      [
+       -3.60218,
+       36.79873
+      ],
+      [
+       -3.60029,
+       36.80002
+      ],
+      [
+       -3.60064,
+       36.8011
+      ],
+      [
+       -3.59881,
+       36.80097
+      ],
+      [
+       -3.59764,
+       36.80204
+      ],
+      [
+       -3.59765,
+       36.80326
+      ],
+      [
+       -3.59827,
+       36.80339
+      ],
+      [
+       -3.59733,
+       36.80422
+      ],
+      [
+       -3.59412,
+       36.80243
+      ],
+      [
+       -3.59223,
+       36.80282
+      ],
+      [
+       -3.5882,
+       36.80193
+      ],
+      [
+       -3.58881,
+       36.80268
+      ],
+      [
+       -3.58747,
+       36.80285
+      ]
+     ],
+     [
+      [
+       -3.60813,
+       36.80124
+      ],
+      [
+       -3.60897,
+       36.80145
+      ],
+      [
+       -3.60992,
+       36.80049
+      ],
+      [
+       -3.61052,
+       36.80086
+      ],
+      [
+       -3.61295,
+       36.80557
+      ],
+      [
+       -3.61494,
+       36.80292
+      ],
+      [
+       -3.61728,
+       36.80346
+      ]
+     ]
+    ],
+    "adraKm": 52,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/sierra-del-chaparral/255035",
+    "duracion": "2 horas",
+    "trazado": "lineal",
+    "municipios": [
+     "Molvizar"
+    ],
+    "ine": "18133",
+    "tiempoDe": "Molvízar"
+   },
+   {
+    "id": "416",
+    "nombre": "Botánico la Cortijuela",
+    "dificultad": "baja",
+    "km": 2.0,
+    "inicio": [
+     37.08415,
+     -3.46968
+    ],
+    "traza": [
+     [
+      [
+       -3.47155,
+       37.08544
+      ],
+      [
+       -3.4738,
+       37.08602
+      ],
+      [
+       -3.47513,
+       37.08441
+      ],
+      [
+       -3.47248,
+       37.08335
+      ],
+      [
+       -3.47139,
+       37.08425
+      ],
+      [
+       -3.47072,
+       37.08306
+      ],
+      [
+       -3.46912,
+       37.08288
+      ],
+      [
+       -3.46968,
+       37.08415
+      ],
+      [
+       -3.47112,
+       37.08437
+      ],
+      [
+       -3.47155,
+       37.08544
+      ]
+     ]
+    ],
+    "adraKm": 55,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/bot%C3%A1nico-la-cortijuela/255035",
+    "duracion": "45 minutos",
+    "trazado": "circular",
+    "municipios": [
+     "Monachil"
+    ],
+    "ine": "18134",
+    "tiempoDe": "Monachil"
+   },
+   {
+    "id": "1133",
+    "nombre": "Canal de la Espartera - Arenales del Trevenque",
+    "dificultad": "media",
+    "km": 12.4,
+    "inicio": [
+     37.08286,
+     -3.52399
+    ],
+    "traza": [
+     [
+      [
+       -3.52373,
+       37.08286
+      ],
+      [
+       -3.5224,
+       37.08173
+      ],
+      [
+       -3.51917,
+       37.0821
+      ],
+      [
+       -3.5194,
+       37.08064
+      ],
+      [
+       -3.51746,
+       37.0799
+      ],
+      [
+       -3.5172,
+       37.07905
+      ],
+      [
+       -3.51271,
+       37.07755
+      ],
+      [
+       -3.51205,
+       37.07803
+      ],
+      [
+       -3.50572,
+       37.07817
+      ],
+      [
+       -3.499,
+       37.07675
+      ],
+      [
+       -3.49521,
+       37.07724
+      ],
+      [
+       -3.49333,
+       37.07616
+      ],
+      [
+       -3.49255,
+       37.07411
+      ],
+      [
+       -3.49002,
+       37.07122
+      ],
+      [
+       -3.48487,
+       37.07087
+      ],
+      [
+       -3.48405,
+       37.07005
+      ],
+      [
+       -3.48636,
+       37.06905
+      ],
+      [
+       -3.49606,
+       37.07188
+      ],
+      [
+       -3.49386,
+       37.06885
+      ],
+      [
+       -3.49513,
+       37.06922
+      ],
+      [
+       -3.49445,
+       37.06856
+      ],
+      [
+       -3.49451,
+       37.06665
+      ],
+      [
+       -3.49551,
+       37.06801
+      ],
+      [
+       -3.49748,
+       37.06846
+      ],
+      [
+       -3.49774,
+       37.0691
+      ],
+      [
+       -3.49819,
+       37.06805
+      ],
+      [
+       -3.49705,
+       37.06664
+      ],
+      [
+       -3.49935,
+       37.06719
+      ],
+      [
+       -3.49984,
+       37.06849
+      ],
+      [
+       -3.49991,
+       37.06674
+      ],
+      [
+       -3.49879,
+       37.06491
+      ],
+      [
+       -3.49943,
+       37.06479
+      ],
+      [
+       -3.50137,
+       37.06737
+      ],
+      [
+       -3.50464,
+       37.06979
+      ],
+      [
+       -3.50697,
+       37.07033
+      ],
+      [
+       -3.50954,
+       37.06966
+      ],
+      [
+       -3.51127,
+       37.07026
+      ],
+      [
+       -3.51366,
+       37.06963
+      ],
+      [
+       -3.51592,
+       37.07094
+      ],
+      [
+       -3.51506,
+       37.07278
+      ],
+      [
+       -3.5179,
+       37.07281
+      ],
+      [
+       -3.51883,
+       37.07471
+      ],
+      [
+       -3.52207,
+       37.07797
+      ],
+      [
+       -3.52242,
+       37.0795
+      ],
+      [
+       -3.52331,
+       37.07983
+      ],
+      [
+       -3.52386,
+       37.0829
+      ]
+     ]
+    ],
+    "adraKm": 58,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/canal-de-la-espartera-arenales-del-trevenque/255035",
+    "duracion": "4 horas 30 minutos",
+    "municipios": [
+     "Dilar",
+     "Dolar"
+    ],
+    "ine": "18068",
+    "tiempoDe": "Dílar"
+   },
+   {
+    "id": "1132",
+    "nombre": "Cerro Huenes",
+    "dificultad": "alta",
+    "km": 12.3,
+    "inicio": [
+     37.08285,
+     -3.52399
+    ],
+    "traza": [
+     [
+      [
+       -3.52339,
+       37.08282
+      ],
+      [
+       -3.5226,
+       37.08235
+      ],
+      [
+       -3.52064,
+       37.08267
+      ],
+      [
+       -3.5194,
+       37.08424
+      ],
+      [
+       -3.51252,
+       37.08433
+      ],
+      [
+       -3.51376,
+       37.08683
+      ],
+      [
+       -3.5151,
+       37.08674
+      ],
+      [
+       -3.51614,
+       37.08748
+      ],
+      [
+       -3.51899,
+       37.08701
+      ],
+      [
+       -3.52078,
+       37.08933
+      ],
+      [
+       -3.52048,
+       37.09053
+      ],
+      [
+       -3.52219,
+       37.09062
+      ],
+      [
+       -3.52295,
+       37.09167
+      ],
+      [
+       -3.52182,
+       37.09509
+      ],
+      [
+       -3.52265,
+       37.09637
+      ],
+      [
+       -3.52209,
+       37.09718
+      ],
+      [
+       -3.52255,
+       37.10118
+      ],
+      [
+       -3.52346,
+       37.10219
+      ],
+      [
+       -3.52103,
+       37.10247
+      ],
+      [
+       -3.52153,
+       37.10476
+      ],
+      [
+       -3.52081,
+       37.10645
+      ],
+      [
+       -3.52147,
+       37.10742
+      ],
+      [
+       -3.52087,
+       37.1083
+      ],
+      [
+       -3.51777,
+       37.10899
+      ],
+      [
+       -3.51643,
+       37.11068
+      ],
+      [
+       -3.51507,
+       37.11101
+      ],
+      [
+       -3.50393,
+       37.10668
+      ],
+      [
+       -3.50726,
+       37.1032
+      ],
+      [
+       -3.50521,
+       37.09891
+      ],
+      [
+       -3.50633,
+       37.09799
+      ],
+      [
+       -3.50674,
+       37.0962
+      ],
+      [
+       -3.50521,
+       37.09441
+      ],
+      [
+       -3.50645,
+       37.09176
+      ],
+      [
+       -3.50568,
+       37.0909
+      ],
+      [
+       -3.50892,
+       37.08918
+      ],
+      [
+       -3.5108,
+       37.08638
+      ],
+      [
+       -3.50758,
+       37.08491
+      ],
+      [
+       -3.50606,
+       37.0831
+      ],
+      [
+       -3.50954,
+       37.0828
+      ],
+      [
+       -3.51538,
+       37.08452
+      ],
+      [
+       -3.51965,
+       37.08413
+      ],
+      [
+       -3.52063,
+       37.08265
+      ],
+      [
+       -3.52259,
+       37.08233
+      ],
+      [
+       -3.52343,
+       37.08282
+      ]
+     ]
+    ],
+    "adraKm": 58,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/cerro-huenes/255035",
+    "duracion": "4 horas 30 minutos",
+    "trazado": "circular",
+    "municipios": [
+     "Monachil"
+    ],
+    "ine": "18134",
+    "tiempoDe": "Monachil"
+   },
+   {
+    "id": "1382",
+    "nombre": "Haza Larguilla",
+    "dificultad": "baja",
+    "km": 0.9,
+    "inicio": [
+     37.08256,
+     -3.52444
+    ],
+    "traza": [
+     [
+      [
+       -3.52444,
+       37.08256
+      ],
+      [
+       -3.52514,
+       37.08191
+      ]
+     ],
+     [
+      [
+       -3.52514,
+       37.08191
+      ],
+      [
+       -3.52655,
+       37.08134
+      ]
+     ],
+     [
+      [
+       -3.52655,
+       37.08134
+      ],
+      [
+       -3.52766,
+       37.08121
+      ]
+     ],
+     [
+      [
+       -3.52766,
+       37.08121
+      ],
+      [
+       -3.53044,
+       37.08138
+      ]
+     ],
+     [
+      [
+       -3.53044,
+       37.08138
+      ],
+      [
+       -3.53311,
+       37.08128
+      ]
+     ]
+    ],
+    "adraKm": 58,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/haza-larguilla/255035",
+    "duracion": "25 minutos",
+    "trazado": "lineal",
+    "municipios": [
+     "Dilar"
+    ],
+    "ine": "18068",
+    "tiempoDe": "Dílar"
+   },
+   {
+    "id": "448",
+    "nombre": "La Silleta",
+    "dificultad": "alta",
+    "km": 12.0,
+    "inicio": [
+     37.06631,
+     -3.58969
+    ],
+    "traza": [
+     [
+      [
+       -3.58981,
+       37.06631
+      ],
+      [
+       -3.59144,
+       37.06502
+      ],
+      [
+       -3.5902,
+       37.06143
+      ],
+      [
+       -3.59044,
+       37.05801
+      ],
+      [
+       -3.58783,
+       37.05462
+      ],
+      [
+       -3.58764,
+       37.05273
+      ],
+      [
+       -3.58536,
+       37.05034
+      ],
+      [
+       -3.58514,
+       37.04882
+      ],
+      [
+       -3.58632,
+       37.04744
+      ],
+      [
+       -3.59044,
+       37.04671
+      ],
+      [
+       -3.59286,
+       37.04515
+      ],
+      [
+       -3.59073,
+       37.04196
+      ],
+      [
+       -3.5955,
+       37.03875
+      ],
+      [
+       -3.59456,
+       37.03759
+      ],
+      [
+       -3.59466,
+       37.03838
+      ],
+      [
+       -3.58968,
+       37.03899
+      ],
+      [
+       -3.58786,
+       37.04072
+      ],
+      [
+       -3.58543,
+       37.04081
+      ],
+      [
+       -3.58437,
+       37.04184
+      ],
+      [
+       -3.58321,
+       37.04147
+      ],
+      [
+       -3.58046,
+       37.04248
+      ],
+      [
+       -3.57886,
+       37.04203
+      ],
+      [
+       -3.57762,
+       37.04342
+      ],
+      [
+       -3.57683,
+       37.04275
+      ],
+      [
+       -3.57226,
+       37.04394
+      ],
+      [
+       -3.56981,
+       37.04339
+      ],
+      [
+       -3.5668,
+       37.04508
+      ],
+      [
+       -3.56867,
+       37.04512
+      ],
+      [
+       -3.56764,
+       37.04649
+      ],
+      [
+       -3.56899,
+       37.04791
+      ],
+      [
+       -3.57329,
+       37.04903
+      ],
+      [
+       -3.57221,
+       37.0529
+      ],
+      [
+       -3.57255,
+       37.0546
+      ],
+      [
+       -3.57606,
+       37.05722
+      ],
+      [
+       -3.57701,
+       37.05689
+      ],
+      [
+       -3.58263,
+       37.06
+      ],
+      [
+       -3.58239,
+       37.06076
+      ],
+      [
+       -3.58976,
+       37.06492
+      ],
+      [
+       -3.58979,
+       37.06627
+      ]
+     ]
+    ],
+    "adraKm": 62,
+    "ficha": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/la-silleta/255035",
+    "duracion": "4 horas 30 minutos",
+    "trazado": "circular",
+    "municipios": [
+     "Dilar"
+    ],
+    "ine": "18068",
+    "tiempoDe": "Dílar"
+   }
+  ],
+  "fuente": "Junta de Andalucía (REDIAM y Ventana del Visitante)",
+  "enlace": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante",
+  "dia": "2026-11-07"
  }
 }
