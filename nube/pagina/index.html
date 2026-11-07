@@ -830,6 +830,8 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .tor-barras div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative}.tor-barras i{display:block;background:var(--acc);border-radius:3px 3px 0 0}
 .tor-barras span{position:absolute;bottom:-26px;left:0;font-size:15px;color:var(--mu);font-weight:700;white-space:nowrap}.tormentas .k.sub{margin-top:40px}
 .tor-u,.tor-d{font-size:22px;line-height:1.4;margin-top:6px}.tormentas .nota{margin-top:auto}
+.tor-ah{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px}.tor-ah-p{padding-bottom:26px}.tor-ah .tor-barras{height:84px}.tor-ah .tor-max{font-size:21px;margin:2px 0 6px}
+.tor-ah .tor-u,.tor-ah .tor-d{font-size:19px;line-height:1.35;margin-top:4px;text-align:justify;hyphens:auto}
 /* 4.26: Aire y sol, Clima, playas de la Junta */
 .chip.aire{color:#fff}.tend-aire{font-size:21px;font-weight:800;margin:2px 0 4px}.tend-aire.peor{color:var(--mal)}.tend-aire.mejor{color:var(--ok)}
 .uvt,.solt{display:flex;flex-direction:column}.uv-top{display:flex;align-items:center;gap:14px;margin-top:4px}.arco-uv{width:300px;flex:none}
@@ -1507,7 +1509,7 @@ function qrSvg(url, cls, maxN) {
 }
 
 /* ---------- fuentes que llevan horas fallando: se dice en la cabecera de su pantalla, en gris, para no enseñar datos viejos como si fueran de hoy ---------- */
-const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], tormentas: ["rayos", "prevision"], inundaciones: ["inundaciones"], calor: ["islasCalor"], maremotos: ["maremotos"], acuiferos: ["x"], clima: ["climaRia", "clima", "lluvia", "prevision"], naturaleza: ["naturaleza"],
+const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], inundaciones: ["inundaciones"], calor: ["islasCalor"], maremotos: ["maremotos"], acuiferos: ["x"], clima: ["climaRia", "clima", "lluvia", "prevision"], naturaleza: ["naturaleza"],
   get aire() { return ["aire", "radiacion", "radsol", "prevision"].concat(polen() ? ["x"] : []); },
   agua: ["lluvia", "saih", "sequia", "agua"], get mar() { return ["boya", "playas", "oleaje", "maritima", "mareas"].concat(enBano() ? ["aguaBano"] : []); }, cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
   espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
@@ -1656,7 +1658,7 @@ const avisosFuertes = () => (E.avisos || []).filter(a => a.nivel >= 2).sort((a, 
    intentando evitar rotaciones y manteniendo la legibilidad, aumenta el número de pantallas si fuera necesario»): cada pantalla, de un
    tema y con sus listas enteras siempre que quepan a un tamaño que se lea. Las que no tienen nada que enseñar no salen. */
 const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente());
-const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayTormentas() ? ["tormentas"] : [], hayClima() ? ["clima"] : [], hayCalor() ? ["calor"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayAcuiferos() ? ["acuiferos"] : [], hayInundaciones() ? ["inundaciones"] : [], hayMaremotos() ? ["maremotos"] : [], ["mar"], ["cielo"],
+const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayClima() ? ["clima"] : [], hayCalor() ? ["calor"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayAcuiferos() ? ["acuiferos"] : [], hayInundaciones() ? ["inundaciones"] : [], hayMaremotos() ? ["maremotos"] : [], ["mar"], ["cielo"],
   E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayAlertas() ? ["alertas"] : [], hayProductos() ? ["productos"] : [],
   ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.terremotos ? ["sismos"] : [], E.sismosMundo ? ["mundo"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
@@ -1668,7 +1670,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
    el tiempo (ahora, semana, clima), lo que se respira (aire y sol), el agua y el mar, el cielo y el planeta, el día (hoy, casa, alertas,
    productos y noticias), moverse (carretera y trenes), la Tierra (terremotos y mundo) y el trabajo y el dinero (campo, pescado, economía,
    empleo y SAS). ORDEN_V: al cambiar el orden de siempre, el que se había guardado con el mando deja paso al nuevo una vez. */
-const ORDEN_BASE = ["ahora", "semana", "tormentas", "clima", "calor", "aire", "agua", "acuiferos", "inundaciones", "maremotos", "mar", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "senderos", "casa", "alertas", "productos", "noticias",
+const ORDEN_BASE = ["ahora", "semana", "clima", "calor", "aire", "agua", "acuiferos", "inundaciones", "maremotos", "mar", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "senderos", "casa", "alertas", "productos", "noticias",
   "carretera", "trenes", "sismos", "mundo", "campo", "pescado", "economia", "empleo", "sas", "ayudas"];   // 4.31: planes y senderos detrás de Hoy; ayudas y cursos, al final
 const ORDEN_V = 2;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
@@ -1703,12 +1705,12 @@ const paginas = () => {
 };
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
-const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", tormentas: "Tormentas", inundaciones: "Inundaciones", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
+const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
   alertas: "Alertas", productos: "Productos", hoy: "Hoy", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Pescado", noticias: "Noticias",
   economia: "Economía", empleo: "Empleo", sas: "SAS", senderos: "Senderos", planes: "Planes", ayudas: "Ayudas y cursos"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
   clima: "Fuentes: Junta de Andalucía (IFAPA, red RIA: lo normal de los últimos años y la lluvia medida) · AEMET (horas de sol 1981-2010 y récords)",
-  tormentas: "Fuentes: EUMETSAT (rayos, satélite MTG) · AEMET (probabilidad de tormenta)", inundaciones: "Fuentes: MITECO (SNCZI) por la IDEE · IGN (ortofoto PNOA)",
+  inundaciones: "Fuentes: MITECO (SNCZI) por la IDEE · IGN (ortofoto PNOA)",
   calor: "Fuentes: Landsat 8 y 9 (USGS/NASA) por el Planetary Computer de Microsoft · Copernicus (CORINE Land Cover 2018) · IGN (ortofoto PNOA)",
   maremotos: "Fuentes: Junta de Andalucía (Plan de Emergencia ante el Riesgo de Maremotos) · IGN (catálogo de tsunamis, peligrosidad sísmica) · BOE (Plan Estatal)",
   acuiferos: "Fuentes: MITECO (red de control, por la REDIAM de la Junta) · plan hidrológico 2022-2027 (Junta de Andalucía, AEMA) · IGN (ortofoto PNOA)", naturaleza: "Fuente: GBIF (red mundial de información sobre biodiversidad)",
@@ -1824,7 +1826,7 @@ function textoFuentes(p) {
     + (p === "agua" && lluviaRia() ? " · lluvia: Junta de Andalucía (IFAPA)" : "") + (p === "agua" && saihVigente() ? " · lluvia y ríos ahora: Junta de Andalucía (SAIH Hidrosur)" : "")
     + (p === "economia" && ((E.ipc || {}).espana || []).length ? " · INE (IPC)" : "") + (p === "sas" && bolsaNovedades().length ? " · Servicio Andaluz de Salud (Bolsa Única)" : "") + (p === "hoy" && (regatasProximas().some(r => !r.espana) || resultadosRegatas().some(x => !x.espana) || novedadFap(regatasProximas())) ? " · Federación Andaluza de Piragüismo" : "")
     + (p === "hoy" && rfepEnTarjeta() ? " · Federación Española de Piragüismo" : "")
-    + (p === "ahora" && rayosRecientes() ? " · rayos: EUMETSAT (satélite MTG)" : "") + (p === "campo" && raifVigente().length ? " · plagas: RAIF (Junta de Andalucía)" : "")
+    + (p === "ahora" && (rayosRecientes() || rayoUltimo()) ? " · rayos: EUMETSAT (satélite MTG)" : "") + (p === "campo" && raifVigente().length ? " · plagas: RAIF (Junta de Andalucía)" : "")
     + (p === "planeta" && respiratoriasVigente() ? " · virus respiratorios: Junta de Andalucía" : "")
     + (p === "agua" && sequiaDestacadas().length ? " · sequía: Junta de Andalucía (Hidrosur)" : "")
     + (p === "noticias" && agendaProxima().some(a => !a.sangre) ? " · agenda: Ayuntamiento de Adra" : "")
@@ -1925,7 +1927,8 @@ function pAhora() {
   const C = (E.comarca || []).slice(0, 6);
   const comarca = C.length ? `<div data-f="comarca" class="tile" style="--i:3"><div class="k">La comarca ahora</div><div class="cm">${C.map(m =>
       `<div>${icono(m.cod, m.desc, 46)}<p><span>${esc(m.nombre)}</span><b>${m.temp ?? "–"}°</b></p></div>`).join("")}</div></div>` : "";
-  return `<div class="main">${izq}<div class="col" style="grid-template-rows:1fr auto${C.length ? " auto" : ""}">${hero}
+  const tor = hayTormentas() ? tarjetaTormentasAhora(4) : "";   // 4.32: lo de la pantalla Tormentas, debajo del mapa
+  return `<div class="main">${tor ? `<div class="col" style="grid-template-rows:minmax(0,1fr) auto">${izq}${tor}</div>` : izq}<div class="col" style="grid-template-rows:1fr auto${C.length ? " auto" : ""}">${hero}
     <div data-f="prevision" class="tile" style="--i:2"><div class="horas">${prox}</div></div>${comarca}</div></div>`;
 }
 
@@ -3192,33 +3195,21 @@ const pNaturaleza = () => `<div class="main" style="grid-template-columns:minmax
 const rayoUltimo = () => { const U = (E.rayos || {}).ultimo; return U && U.t && Date.now() - U.t < 7 * 864e5 ? U : null; };
 const tormentaPrevista48 = () => horasAhora().slice(0, 48).filter(h => (h.tormenta || 0) >= 20);
 const hayTormentas = () => !!(rayosRecientes() || rayoUltimo() || tormentaPrevista48().length);
-function tarjetaRayosMapa(i) {
-  const R = rayosRecientes(), U = rayoUltimo(), L = E.lugar, d = .9, caja = [L.lon - d / Math.cos(L.lat * Math.PI / 180) * 1.5, L.lat - d, L.lon + d / Math.cos(L.lat * Math.PI / 180) * 1.5, L.lat + d];
-  const P = R ? R.puntos : [], ahora = Date.now();
-  const extra = xy => {
-    const [cx, cy] = xy(L.lon, L.lat), [ex] = xy(L.lon + 50 / (111.32 * Math.cos(L.lat * Math.PI / 180)), L.lat), r50 = ex - cx;
-    const anillos = [25, 50].map(km => `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${(r50 * km / 50).toFixed(1)}" class="mc-r"/><text x="${(cx + r50 * km / 50 * .72 + 6).toFixed(1)}" y="${(cy - r50 * km / 50 * .72).toFixed(1)}" class="mc-t">${km} km</text>`).join("");
-    const pts = P.map(([la, lo, t]) => { const [x, y] = xy(lo, la), m = (ahora - t) / 6e4; return `<path d="M${x - 6},${y + 8} L${x + 2},${y - 2} L${x - 2},${y - 2} L${x + 6},${y - 12}" class="rayo-p" style="opacity:${m < 10 ? 1 : m < 20 ? .7 : .45}"/>`; }).join("");
-    const u = !P.length && U && U.lat != null ? (([x, y]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="12" class="rayo-u"/>`)(xy(U.lon, U.lat)) : "";
-    return anillos + pts + u;
-  };
-  return `<div data-f="rayos" class="tile rayos-mapa" style="--i:${i}"><div class="k">Rayos ${R ? "de la última media hora" : "cerca"}<em>${R ? `${P.length} zonas con rayos · satélite MTG` : U ? `el último, ${diaFecha(isoDe(new Date(U.t)))} a las ${horaMin(U.t)}` : "ninguno ahora"}</em></div>
-    <div class="marco">${mapaCaja(caja, 1000, extra)}</div>
-    <p class="leyenda-m">${R ? "Cada rayo dibujado, una zona de unos 4 km con rayos; más apagados, los de hace más de 10 y 20 minutos. " : ""}La lluvia del radar, con los rayos encima, en la pantalla Ahora.</p></div>`;
-}
-function tarjetaTormentas(i) {
-  const H = horasAhora().slice(0, 48), U = rayoUltimo(), D = (E.rayos || {}).dias || {}, dias = Object.keys(D).sort();
+/* 4.32 (lo pidió Isa el 7 nov 2026: «junta Ahora y Tormentas»): lo que era la pantalla Tormentas va en Ahora, debajo del radar (o del
+   satélite), cuando hay algo que contar: la probabilidad de tormenta de AEMET de las próximas 48 horas y los rayos cerca (los de la última
+   media hora ya van dibujados encima del radar; el último a 50 km o menos y los días con rayos del último mes). */
+function tarjetaTormentasAhora(i) {
+  const H = horasAhora().slice(0, 48), U = rayoUltimo(), R = rayosRecientes(), D = (E.rayos || {}).dias || {}, dias = Object.keys(D).sort();
   const barras = H.map(h => `<div title="${h.t}"><i style="height:${Math.max(0, h.tormenta || 0)}%;${(h.tormenta || 0) >= 40 ? "background:var(--rayo)" : ""}"></i>${+h.t.slice(11, 13) % 6 === 0 ? `<span>${+h.t.slice(11, 13)} h</span>` : ""}</div>`).join("");
-  const maxT = Math.max(0, ...H.map(h => h.tormenta || 0));
-  return `<div data-f="prevision rayos" class="tile tormentas" style="--i:${i}"><div class="k">Probabilidad de tormenta<em>próximas 48 horas · AEMET</em></div>
-    <p class="tor-max">${maxT ? `Hasta el <b>${maxT} %</b>${(t => t ? `, ${diaFecha(t.t.slice(0, 10))} a las ${+t.t.slice(11, 13)} h` : "")(H.find(h => h.tormenta === maxT))}` : "Sin tormentas previstas"}</p>
-    <div class="tor-barras">${barras}</div>
-    <div class="k sub">Rayos cerca</div>
+  const maxT = Math.max(0, ...H.map(h => h.tormenta || 0)), tm = H.find(h => h.tormenta === maxT);
+  const n = R ? (R.puntos || []).length : 0;
+  return `<div data-f="prevision rayos" class="tile tor-ah" style="--i:${i}"><div class="tor-ah-p"><div class="k">Tormentas<em>probabilidad · próximas 48 h · AEMET</em></div>
+    <p class="tor-max">${maxT ? `Hasta el <b>${maxT} %</b>${tm ? `, ${diaFecha(tm.t.slice(0, 10))} a las ${+tm.t.slice(11, 13)} h` : ""}` : "Sin tormentas previstas"}</p><div class="tor-barras">${barras}</div></div>
+    <div class="tor-ah-r"><div class="k">Rayos cerca<em>satélite MTG · EUMETSAT</em></div>
+    ${n ? `<p class="tor-u"><b>${n} ${n === 1 ? "zona" : "zonas"} con rayos</b> en la última media hora: en el radar, encima de la lluvia.</p>` : ""}
     <p class="tor-u">${U ? `El último a menos de 50 km: <b>${diaFecha(isoDe(new Date(U.t)))} a las ${horaMin(U.t)}</b>, a ${coma(U.km, U.km < 10 ? 1 : 0)} km al ${rumboTexto(U.rumbo)}.` : "Ninguno a menos de 50 km en la última semana."}</p>
-    ${dias.length ? `<p class="tor-d">${dias.length === 1 ? "1 día" : `${dias.length} días`} con rayos a menos de 50 km en el último mes: ${dias.slice(-6).map(d => diaFecha(d)).join(", ")}.</p>` : ""}
-    <p class="nota">Rayos del satélite Meteosat de tercera generación (EUMETSAT), los que ha visto la tele mientras estaba encendida.</p></div>`;
+    ${dias.length ? `<p class="tor-d">${dias.length === 1 ? "1 día" : `${dias.length} días`} con rayos a menos de 50 km en el último mes: ${dias.slice(-4).map(d => diaFecha(d)).join(", ")}.</p>` : ""}</div></div>`;
 }
-const pTormentas = () => `<div class="main" style="grid-template-columns:minmax(0,1fr) 700px">${tarjetaRayosMapa(1)}${tarjetaTormentas(2)}</div>`;
 /* ---------- 4.27 (lo pidió Isa el 5 nov 2026: «mapa de peligrosidad por inundaciones»): las zonas inundables oficiales (SNCZI, por la IDEE)
    sobre la ortofoto del PNOA: cada escenario por turno (5 s); en el móvil y en el ordenador, tocando la leyenda se elige uno. Son escenarios
    de peligrosidad, no una previsión. ---------- */
@@ -4930,7 +4921,7 @@ function tarjetaPolen(i) {
     <table class="po-c"><tr><th></th>${meses.map(m => `<th>${m}</th>`).join("")}</tr>${(P.calendario || []).slice(0, 6).map(fila).join("")}</table>
     <p class="nota">Lo más alto de su última semana y, mes a mes, lo más alto de cada día (granos por m³; ${Object.entries(NIVEL_POLEN).map(([n, c]) => `<i style="background:${c}"></i>${n}`).join(" ")}, según la SEAIC). SEAIC, Red Española de Aerobiología.</p></div>`;
 }
-const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, tormentas: pTormentas, inundaciones: pInundaciones, calor: pCalor, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
+const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, calor: pCalor, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
   alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
   economia: pEconomia, empleo: pEmpleo, sas: pSas, senderos: pSenderos, planes: pPlanes, ayudas: pAyudas};
 function pintar() {

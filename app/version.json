@@ -1,8 +1,8 @@
 {
-  "versionCode": 62,
-  "versionName": "4.31",
+  "versionCode": 63,
+  "versionName": "4.32",
   "apk": "app/Tiempo.apk",
-  "sha256": "4633c77b2d27eb1b34bcccfd473a67b7a3064a7a54523b8eae5009e76a03889f",
-  "bytes": 1308469,
-  "notas": "4.31: Senderos (los de la Junta entre Almería y Motril, con el tiempo de AEMET y el riesgo de incendio), Planes gratis o al aire libre, Ayudas y cursos, el polen en Aire y sol y ¿se puede remar? en Mar"
+  "sha256": "471917ae6da00b5150dad88bca5e62ce569fad6aa743c6ff95eafad1b4af8209",
+  "bytes": 1308177,
+  "notas": "4.32: las tormentas (probabilidad de AEMET y rayos cerca) van en Ahora, debajo del radar; ya no hay pantalla Tormentas"
 }
