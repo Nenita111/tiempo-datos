@@ -920,7 +920,7 @@ body.claro .sd-costa{stroke:rgba(20,40,70,.75)}body.claro .sd-prov{stroke:rgba(2
 .sd-lista .sd-tp svg.wi{width:30px;height:30px}.sd-lista i.sd-f{display:inline-block;width:14px;height:14px;border-radius:3px;background:var(--c)}.sd-lista .sd-av{color:#ff8a65;font-weight:800}
 .sd-lista .sd-c{display:inline;font-size:17px;color:#ff6b5b;font-weight:800}.sd-lista svg.nq{width:70px;height:70px}
 .planes i.et,.ay i.et{font-style:normal;font-weight:800;font-size:16px;padding:2px 8px;border-radius:8px;margin-left:6px}.planes i.et.gr{background:#1d5a47;color:#c8f7e6}.planes i.et.sd{background:#5a3d1d;color:#ffe2b8}
-.planes i.et.al{background:#1d3f5a;color:#cfe8ff}.planes i.et.pr{background:var(--tile2);color:var(--tx2)}.planes li.hoy{outline:2px solid var(--acc)}
+.planes li span{text-align:left;hyphens:manual}.planes i.et,.ay i.et{white-space:nowrap}.planes i.et.al{background:#1d3f5a;color:#cfe8ff}.planes i.et.pr{background:var(--tile2);color:var(--tx2)}.planes li.hoy{outline:2px solid var(--acc)}
 .ay li,.cu li{padding:10px 14px;border:0;border-radius:14px;background:var(--tile2)}.ay li:first-child,.cu li:first-child{padding-top:10px}.ay ul,.cu ul{gap:8px}
 .ay b,.cu b{font-size:20px}.ay li span,.cu li span{font-size:17px}.ay svg.nq,.cu svg.nq{width:70px;height:70px}
 .polen .po-s{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:19px;color:var(--tx2)}.polen .po-s b{color:var(--tx)}.polen .po-s i,.polen .nota i{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:-1px}
@@ -1732,7 +1732,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   empleo: "Fuentes: Servicio Andaluz de Empleo (ofertas publicadas) · Junta de Andalucía (Transparencia: ofertas de las entidades instrumentales)",
   sas: "Fuentes: BOJA · BOE (datos abiertos)",
   senderos: "Fuentes: Junta de Andalucía (REDIAM y Ventana del Visitante: senderos señalizados) · AEMET (predicción por municipios, avisos y riesgo de incendio)",
-  planes: "Fuentes: Turismo de Almería (Ayuntamiento de Almería) · Motril Turismo · Diputación de Almería (Deportes) · Junta de Andalucía (agenda de eventos)",
+  planes: "Fuentes: Ayuntamiento de Adra (Adra en la Senda) · Turismo de Almería (Ayuntamiento de Almería) · Motril Turismo · Diputación de Almería (Deportes) · Junta de Andalucía (agenda de eventos)",
   ayudas: "Fuentes: Base de Datos Nacional de Subvenciones (IGAE) · Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
   economia: "Fuentes: SEPE (paro registrado) · Seguridad Social (afiliados) · Banco de España (euríbor y Letras del Tesoro) · Junta de Andalucía (calendario laboral)",
   noticias: "Fuentes: Diario de Almería · La Voz de Almería · Noticias de Almería · Ideal Almería · Adra Digital"};
@@ -4863,8 +4863,9 @@ function itemPlan(p) {
   const cuando = p.fin && p.fin !== p.inicio ? `del ${diaFecha(p.inicio)} al ${diaFecha(p.fin)}` : diaFecha(p.inicio);
   const et = (p.senderismo ? `<i class="et sd">senderismo</i>` : p.aireLibre ? `<i class="et al">al aire libre</i>` : "") + (p.gratis ? `<i class="et gr">gratis</i>` : p.precio ? `<i class="et pr">${esc(p.precio)}</i>` : "");
   const donde = [p.lugar, p.municipio].filter((x, i, A) => x && A.indexOf(x) === i && !(i && String(A[0]).includes(x))).join(", ");
+  // 4.33: las de «Adra en la Senda», con sus datos (distancia, duración, dificultad, desnivel, edad) y dónde apuntarse
   return `<li ${claveNuevo("pl:" + p.enlace + p.inicio)}${p.inicio <= isoDe(new Date()) ? ' class="hoy"' : ""}><div><b>${esc(p.titulo)}${marcaNuevo("pl:" + p.enlace + p.inicio)}</b><span>${cuando}${p.hora ? ` · ${esc(p.hora)}` : ""} ${et}</span>
-    <span>${esc(donde)}${donde ? " · " : ""}${esc(p.fuente)}</span></div>${qrSvg(p.enlace, "qr nq", 54)}</li>`;
+    ${p.detalle ? `<span>${esc(p.detalle)}</span>` : ""}<span>${esc(String(donde).slice(0, 110))}${donde ? " · " : ""}${esc(p.fuente)}${p.inscripcion ? ` · ${esc(p.inscripcion)}` : ""}</span></div>${qrSvg(p.enlace, "qr nq", 54)}</li>`;
 }
 function pPlanes() {
   const L = planesVivos(), t = enTurno("planes", L, 30), n = L.filter(p => p.gratis).length;

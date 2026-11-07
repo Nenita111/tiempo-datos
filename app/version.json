@@ -1,8 +1,8 @@
 {
-  "versionCode": 63,
-  "versionName": "4.32",
+  "versionCode": 64,
+  "versionName": "4.33",
   "apk": "app/Tiempo.apk",
-  "sha256": "471917ae6da00b5150dad88bca5e62ce569fad6aa743c6ff95eafad1b4af8209",
-  "bytes": 1308177,
-  "notas": "4.32: las tormentas (probabilidad de AEMET y rayos cerca) van en Ahora, debajo del radar; ya no hay pantalla Tormentas"
+  "sha256": "aa02e5d0d90fdcc0a5ffd739fce16f10450a7a2c4933197540cfeb6dbedccd20",
+  "bytes": 1308305,
+  "notas": "4.33: en Planes, las actividades de «Adra en la Senda» del Ayuntamiento (fecha, distancia, dificultad, precio, salida e inscripción)"
 }

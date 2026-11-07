@@ -364,7 +364,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-07",
- "actualizado": "2026-11-07T22:00+01:00",
+ "actualizado": "2026-11-07T22:43+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -5951,6 +5951,20 @@
     "gratis": true
    },
    {
+    "titulo": "Sendero de Villanueva del Trabuco",
+    "inicio": "2026-11-08",
+    "lugar": "salida desde Cruz Roja Adra",
+    "enlace": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
+    "fuente": "Ayuntamiento de Adra (Adra en la Senda)",
+    "aireLibre": true,
+    "programa": "Adra en la Senda",
+    "hora": "salida a las 07:30",
+    "precio": "15 €",
+    "detalle": "15 km · 4 h · dificultad media · desnivel 312 m · desde 14 años",
+    "senderismo": true,
+    "inscripcion": "inscripción: 677 942 005 (Juventud)"
+   },
+   {
     "titulo": "Almería mira al mar: por qué el futuro de Almería es azul",
     "inicio": "2026-11-14",
     "hora": "12:00",
@@ -5983,6 +5997,19 @@
     "senderismo": true
    },
    {
+    "titulo": "Descubre las Calas Mágicas de Cabo de Gata en eBike",
+    "inicio": "2026-11-22",
+    "lugar": "salida desde Cruz Roja Adra",
+    "enlace": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
+    "fuente": "Ayuntamiento de Adra (Adra en la Senda)",
+    "aireLibre": true,
+    "programa": "Adra en la Senda",
+    "hora": "salida a las 07:30",
+    "precio": "15 €",
+    "detalle": "4 h · dificultad baja · desde 14 años",
+    "inscripcion": "inscripción: 677 942 005 (Juventud)"
+   },
+   {
     "titulo": "Banda Municipal de Almería: Una mirada a nuestros solistas (3)",
     "inicio": "2026-11-29",
     "hora": "12:00",
@@ -5993,6 +6020,34 @@
     "gratis": true
    },
    {
+    "titulo": "Sendero Rambla de Bolaños. Los 4 Bancos",
+    "inicio": "2026-11-29",
+    "lugar": "salida desde Merendero Rambla de Bolaños",
+    "enlace": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
+    "fuente": "Ayuntamiento de Adra (Adra en la Senda)",
+    "aireLibre": true,
+    "programa": "Adra en la Senda",
+    "hora": "salida a las 09:00",
+    "detalle": "12 km · 4 h · dificultad media-alta · desnivel 390 m · desde 14 años",
+    "gratis": true,
+    "senderismo": true,
+    "inscripcion": "inscripción: 677 942 005 (Juventud)"
+   },
+   {
+    "titulo": "Sendero Urbano en Granada Iluminada",
+    "inicio": "2026-12-06",
+    "lugar": "salida desde Cruz Roja Adra",
+    "enlace": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
+    "fuente": "Ayuntamiento de Adra (Adra en la Senda)",
+    "aireLibre": true,
+    "programa": "Adra en la Senda",
+    "hora": "salida a las 07:30",
+    "precio": "20 €",
+    "detalle": "10 km · Todo el día · dificultad baja · desde 12 años",
+    "senderismo": true,
+    "inscripcion": "inscripción: 677 942 005 (Juventud)"
+   },
+   {
     "titulo": "Jimena Quirós: Ciencia, Mares y Océanos",
     "inicio": "2026-12-12",
     "hora": "12:00",
@@ -6001,9 +6056,24 @@
     "enlace": "https://www.turismodealmeria.org/evento/jimena-quiros-ciencia-mares-y-oceanos/",
     "fuente": "Turismo de Almería",
     "gratis": true
+   },
+   {
+    "titulo": "Sendero Urbano en Malaga Iluminada",
+    "inicio": "2026-12-20",
+    "lugar": "salida desde Cruz Roja Adra",
+    "enlace": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
+    "fuente": "Ayuntamiento de Adra (Adra en la Senda)",
+    "aireLibre": true,
+    "programa": "Adra en la Senda",
+    "hora": "salida a las 07:30",
+    "precio": "20 €",
+    "detalle": "10 km · Todo el día · dificultad baja · desde 12 años",
+    "senderismo": true,
+    "inscripcion": "inscripción: 677 942 005 (Juventud)"
    }
   ],
   "fuentes": [
+   "Ayuntamiento de Adra (Adra en la Senda)",
    "Diputación de Almería",
    "Motril Turismo",
    "Turismo de Almería"
@@ -9238,5 +9308,252 @@
   "fuente": "Junta de Andalucía (REDIAM y Ventana del Visitante)",
   "enlace": "https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante",
   "dia": "2026-11-07"
+ },
+ "sendaAdra": {
+  "pdf": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
+  "temporada": [
+   {
+    "titulo": "Senda Aguamora y Río Guadalfeo",
+    "inicio": "2026-10-11",
+    "ruta": "Cadiar-Narila-Senda Aguamora-Alcutar-Agua Agria-Cadiar",
+    "detalle": "8 km · 3 h · dificultad baja · desnivel 178 m · desde 10 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Actividades de Wakeboarding en Cable, Hinchables, Sup, Kayak",
+    "inicio": "2026-10-18",
+    "ruta": "Experimenta la emoción del wakeboarding en cable en un sistema de 5 poleas de última generación. No necesita barco, solo pura adrenalina y progresión,.",
+    "detalle": "3 h · dificultad baja · desde 8 años",
+    "precio": "30 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": false
+   },
+   {
+    "titulo": "Senda de la Hidroelectrica. Cata de Vinos en Cepa Bosquet y Comida en Laujar",
+    "inicio": "2026-10-25",
+    "ruta": "Nacimiento-Túneles-Puente-Chillo-Acequia-Cascada- Senda-Nacimiento",
+    "detalle": "9 km · 3 h · dificultad media · desde 14 años",
+    "precio": "20 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Sendero de Villanueva del Trabuco",
+    "inicio": "2026-11-08",
+    "ruta": "Fuente de los cien caños, Gran senda de Málaga, Villanueva.",
+    "detalle": "15 km · 4 h · dificultad media · desnivel 312 m · desde 14 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Descubre las Calas Mágicas de Cabo de Gata en eBike",
+    "inicio": "2026-11-22",
+    "ruta": "San José-Vela Blanca-Monsul-Media luna-Cala Carbón-Genoveses + excursión a pie a las Salinas.",
+    "detalle": "4 h · dificultad baja · desde 14 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": false
+   },
+   {
+    "titulo": "Sendero Rambla de Bolaños. Los 4 Bancos",
+    "inicio": "2026-11-29",
+    "ruta": "Subidas a primer, segundo, tercer y cuarto banco con dificultad variable.",
+    "detalle": "12 km · 4 h · dificultad media-alta · desnivel 390 m · desde 14 años",
+    "gratis": true,
+    "hora": "salida a las 09:00",
+    "salida": "Merendero Rambla de Bolaños",
+    "senderismo": true
+   },
+   {
+    "titulo": "Sendero Urbano en Granada Iluminada",
+    "inicio": "2026-12-06",
+    "ruta": "Paseo del Salón-Fuente de Las Granadas-Basílica Virgen de Las AngustiasFuente de Las Batallas-Plaza de Bib Rambla-La Alcaicería-Corral del Carbón- Reyes Católic",
+    "detalle": "10 km · Todo el día · dificultad baja · desde 12 años",
+    "precio": "20 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Sendero Urbano en Malaga Iluminada",
+    "inicio": "2026-12-20",
+    "ruta": "Plaza de La Marina-Puente de Tetuán-Mercado Atarazanas-Calle LariosSta. Iglesia Catedral-Teatro Romano de Málaga-Plaza de La MercedAlcazaba-Castillo de Gibralfa",
+    "detalle": "10 km · Todo el día · dificultad baja · desde 12 años",
+    "precio": "20 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Scape Room Parque Geominero del Cerro del Toro, Motril",
+    "inicio": "2027-01-10",
+    "ruta": "Actividad en los alrededores del cerro del toro así como la mina abandonada del parque geominero. Participación. Grupos de 8",
+    "detalle": "4 h · dificultad baja · desde 10 años",
+    "precio": "Por determinar",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": false
+   },
+   {
+    "titulo": "Sendero Camino Mozárabe de Santiago y Minas de Alquife. Jerez del Marquesado",
+    "inicio": "2027-01-17",
+    "ruta": "Alquife- Barranco de Alcazar- Jerez del Marquesado- Lanteira",
+    "detalle": "12 km · 4 h · dificultad baja · desnivel 176 m · desde 12 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Fin de Semana en la Estaciónde Esquí de Sierra Nevada",
+    "inicio": "2027-01-29",
+    "ruta": "",
+    "fin": "2027-01-31",
+    "detalle": "desde 6 años",
+    "precio": "por confirmar",
+    "hora": "salida a las 16:00",
+    "senderismo": false
+   },
+   {
+    "titulo": "Sendero Acequia de Lízar. Frigiliana",
+    "inicio": "2027-02-07",
+    "ruta": "Frigiliana-Castillo de Lízar-Acequia de Lízar-Río Higuerón-Cascada de Lízar-Poza de Los Batanes-Frigiliana",
+    "detalle": "10 km · 4 h · dificultad media · desnivel 350 m · desde 12 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja de Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Sendero Paso de los Viajeres Románticos. Güejar Sierra",
+    "inicio": "2027-02-14",
+    "ruta": "Embalse de canales-Río Genil-Acequia de La Solana-Ruinas del Castillejo",
+    "detalle": "10 km · 4 h · dificultad media · desnivel 600 m · desde 12 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja de Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Ruta en Buggy por el Desierto de Almería",
+    "inicio": "2027-02-21",
+    "ruta": "Vive la experiencia de conocer uno de los sitios más importantes de la zona del desierto de Almería. En esta ruta podrás descubrir diferentes localizaciones de ",
+    "detalle": "",
+    "precio": "50 €",
+    "hora": "salida a las 08:00",
+    "salida": "Cruz Roja Adra",
+    "senderismo": false
+   },
+   {
+    "titulo": "Sendero Aguamarga Playa de los Muertos",
+    "inicio": "2027-03-14",
+    "ruta": "Aguamarga-Mesa Roldán-Faro Mesa Roldán-Torre vigía del siglo XVIII-Mirador playa de Los Muertos-Playa de Los Muertos. DATOS TÉCNICOS. Sendero Lineal",
+    "detalle": "10 km · 4 h · dificultad media · desnivel 380 m · desde 12 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Chimeneas de las Hadas del Negratín",
+    "inicio": "2027-03-21",
+    "ruta": "Área recreativa mirador del Negratín-Chimeneas de HadaDescenso a los Badlans",
+    "detalle": "8,5 km · 3 h · dificultad media · desnivel 275 m · desde 12 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Fin de Semana en Ronda",
+    "inicio": "2027-04-03",
+    "ruta": "Visita a Setenil de Las Bodegas-Puente Nuevo-Mirador de La Hoya del Tajo-Plaza de Toros de La Real Maestranza-Alameda del Tajo-Paseo Blas Infante-Jardines de Cu",
+    "fin": "2027-04-04",
+    "detalle": "10 km · 2 días · dificultad baja · desde 12 años",
+    "precio": "Por determinar",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Multiaventura en Cazorla",
+    "inicio": "2027-04-17",
+    "ruta": "",
+    "fin": "2027-04-18",
+    "detalle": "desde 12 años",
+    "precio": "Por determinar",
+    "hora": "salida a las 17:00",
+    "salida": "Cruz Roja",
+    "senderismo": false
+   },
+   {
+    "titulo": "Sendero Cahorros de Monachil (Granada)",
+    "inicio": "2027-05-09",
+    "ruta": "Monachil-Puentes colgantes-Desfiladero de los Cahorros-Cueva de las palomasPuente de las chorreras Central de la Vega-Monachil.",
+    "detalle": "9 km · 4 h · dificultad baja · desnivel 195 m · desde 12 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Parque Minero de Macael",
+    "inicio": "2027-05-16",
+    "ruta": "Combina historia, naturaleza, aventura y emociones, ofreciendo a los visitantes una experiencia única. Restauración paisajística de un entorno minero singular, ",
+    "detalle": "desde 12 años",
+    "precio": "por determinar",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": false
+   },
+   {
+    "titulo": "Paseo-ruta en Barco Cabo de Gata",
+    "inicio": "2027-05-30",
+    "ruta": "Visitaremos unas de las calas más famosas del parque natural como Cala de En Medio, Cala del Plomo, Cala del Sol y Cala de San Pedro, perfectas para los amantes",
+    "detalle": "2 horas · desde 10 años",
+    "precio": "40 €",
+    "hora": "salida a las 08:00",
+    "salida": "Cruz Roja Adra",
+    "senderismo": false
+   },
+   {
+    "titulo": "Descenso Genil Raft 2027",
+    "inicio": "2027-06-06",
+    "ruta": "Rafting recorrido completo del río Genil a su paso por el municipio de Benamejí",
+    "detalle": "4 h. · dificultad media · desde 12 años",
+    "precio": "40 €",
+    "hora": "salida a las 07:00",
+    "salida": "Cruz Roja Adra",
+    "senderismo": false
+   },
+   {
+    "titulo": "Sendero Valle del Rio Dílar (Granada)",
+    "inicio": "2027-06-13",
+    "ruta": "Ermita de las Nieves-Acequia alta-Solana Bizcardia-Acequia baja-Cortijo de los Avellanos-Acequia del Castillo-Acequia de Otura-Hoya del Castaño-Boquete-Acequia ",
+    "detalle": "13,7 km · 4 h · dificultad media · desnivel 135 m · desde 12 años",
+    "precio": "15 €",
+    "hora": "salida a las 07:30",
+    "salida": "Cruz Roja Adra",
+    "senderismo": true
+   },
+   {
+    "titulo": "Camino de Santiago (Francés)",
+    "inicio": "2027-06-27",
+    "ruta": "Sarria-Portomarin-Palas de Rei-Arzua-Pedrouzo-Santiago de Compostela 5 etapas",
+    "fin": "2027-07-04",
+    "detalle": "7 días – 6 noches · dificultad media-alta · desde 16 años",
+    "precio": "Por determinar",
+    "senderismo": true
+   }
+  ],
+  "visto": "2026-11-07"
  }
 }
