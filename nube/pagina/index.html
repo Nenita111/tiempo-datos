@@ -157,7 +157,7 @@ footer{height:46px;flex:none;display:flex;justify-content:space-between;align-it
 
 /* ---------- 2. semana ---------- */
 .p-semana .main{grid-template-columns:1fr;grid-template-rows:1fr 392px}
-.semana{grid-column:1/-1;display:flex;flex-direction:column}
+.semana{grid-column:1/-1;display:flex;flex-direction:column}.semana.sola{grid-column:auto}.semana.sola .dia{padding:26px 6px 30px}.semana.sola .dia>b{font-size:30px}.semana.sola .dia small{font-size:22px}
 .dias{flex:1;display:grid;grid-template-columns:repeat(7,1fr);gap:12px;min-height:0}
 .dia{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 6px 16px;border-radius:24px;text-align:center}
 .dia.hoy{background:rgba(244,166,42,.10);box-shadow:inset 0 0 0 2px rgba(244,166,42,.42)}
@@ -371,9 +371,8 @@ svg.qr{display:block;flex:none;background:#fff;border-radius:8px}
 .con-olas .aire{gap:16px}.con-olas .aire h3{font-size:28px}.con-olas .aire p{font-size:16px;margin-top:2px}.con-olas .aire6{gap:4px!important;margin-top:8px}.con-olas .aire6 li{font-size:18px;gap:10px}
 .con-olas .olas-h .olas-c,.con-olas .olas-h .pie,.con-olas .olas-h .ol-ley{max-width:560px;margin-left:auto;margin-right:auto}.con-olas .esc6 i{height:12px}.con-olas .aire6 li.sub{font-size:14px;padding-top:6px}.con-olas .aire6 li.sub em{font-size:16px}.con-olas .aire-t .nota{font-size:15px;margin-top:6px}
 .planeta-t .pl-d{margin-top:4px}
-/* 4.35: Planeta a tres columnas (con los terremotos del mundo): la Tierra encima de la temperatura; el virus, con sus tres cajas debajo */
-.planeta3 .pl-fila{flex-direction:column;align-items:stretch;gap:14px}.planeta3 .planeta-t.grande .pl-fila .pl-d>div{grid-template-columns:auto minmax(0,1fr)}
-.planeta3 .pl-fila>:first-child{align-self:center}.planeta3 .resp-1{flex-wrap:wrap;gap:14px}.planeta3 .resp-1>*{flex-basis:100%}
+
+
 .cielo-t{text-align:left}.cielo-t *{text-align:left}.cielo-t .iss{margin-top:4px;padding:12px 16px;border-radius:14px;background:var(--tile2)}
 .cielo-t .iss b{display:block;font-size:23px;line-height:1.25;font-weight:800;color:var(--tx)}.cielo-t .iss span{display:block;font-size:19px;line-height:1.3;color:var(--tx2);font-weight:600;margin-top:4px}
 .cielo-t ul{list-style:none;margin-top:8px}.cielo-t li{display:flex;gap:16px;align-items:baseline;padding:10px 0 4px;border-top:1px solid var(--linea)}.cielo-t li:first-child{border-top:0}
@@ -385,6 +384,7 @@ svg.mundo{display:block;width:100%;height:300px;margin-top:6px;border-radius:14p
 .mundo .mn{font-size:9px;font-weight:800;fill:#fff;paint-order:stroke;stroke:#0b1522;stroke-width:2px}
 .leyenda-m{margin-top:8px;font-size:17px;color:var(--mu);font-weight:600}.leyenda-m i{display:inline-block;width:12px;height:12px;border-radius:50%;margin:0 6px 0 12px;vertical-align:-1px}
 .leyenda-m i:first-child{margin-left:0}.leyenda-m i.yo{background:#f08a24;box-shadow:0 0 0 2px #fff}
+.es-can{fill:none;stroke:rgba(150,175,205,.6);stroke-width:2;stroke-dasharray:8 6}.es-can-f{fill:#0c1826;stroke:none}.sismos3 .sis .lst.sismo li{font-size:19px}.sismos3 .sis .lst.sismo li small{font-size:15px}
 .pie-m{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:10px}.pie-m .leyenda-m{margin-top:0}
 .qm{display:flex;align-items:center;gap:12px;flex:none}.qm svg{width:70px;height:70px}.qm span{font-size:15px;line-height:1.25;color:var(--mu);font-weight:700;text-align:left}
 .lst.mundo li{align-items:center}.lst.mundo .nm{font-style:normal;font-weight:800;color:var(--mu);min-width:28px;display:inline-block}
@@ -928,12 +928,14 @@ body.claro{--sombra:inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px hsla(var
 .polen .po-c{width:100%;border-collapse:separate;border-spacing:3px;margin-top:10px;font-size:15px;table-layout:fixed}.polen .po-c th{font-weight:700;color:var(--tx2);text-align:center}
 .polen .po-c th:first-child{width:28%}.polen .po-c tr th:first-child{text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.polen .po-c td{height:24px;border-radius:5px;background:var(--tile2);text-align:center;color:#fff;font-weight:800}
 /* 4.35: Inundaciones con los acuíferos (por turno) y los terremotos a la derecha */
-.inund .mar-capa,.inund .acu-capa{position:absolute;inset:0;transition:opacity 1s}.inund3 .inund-f{grid-template-columns:minmax(0,1fr) 600px;gap:20px}
+.inund .mar-capa,.inund .acu-capa{position:absolute;inset:0;transition:opacity 1s}
+/* 4.36: el zoom alargado (2,35 a 1), a lo ancho de la derecha, con la leyenda debajo a tres columnas */
+.inund-f{grid-template-columns:minmax(0,0.68fr) minmax(0,1fr)}.inund-l ul{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 8px}.inund-l li{font-size:18px;padding:4px 10px}
 .inund-l li.acu-li{grid-column:1/-1}.inund-l li.acu-li i{border-radius:50%;width:22px;height:22px;border:3px solid #fff}.inund-l li.acu-li small i{display:inline-block;width:13px;height:13px;border:0;margin:0 4px -1px 8px}
 .inund-l li.acu-li small i.am{border-radius:3px;background:rgba(229,57,53,.22);box-shadow:inset 0 0 0 2px #e53935}.inund .acu-p i{width:16px;height:16px;border-width:2px}.inund .acu-p span{font-size:16px}
 .inund-l ul.acu-c{margin-top:10px;gap:6px 14px}.inund-l .acu-c li{display:block;padding:0 0 0 10px;border-radius:0;cursor:default;font-size:15px;line-height:1.25}.inund-l .acu-c li b{font-size:16px;color:var(--tx)}
-.inund-l .acu-c li span{display:block;font-size:14px;color:var(--tx2);font-weight:600;text-align:left}.inund-l .acu-c li span b{font-size:14px}.inund3 .inund-l li{font-size:18px;padding:4px 10px}.inund3 .inund-l ul{gap:6px}.inund3 .inund-z{margin-bottom:8px}.inund3 .inund-l li small{font-size:14px}
-.inund3 .sis .lst.sismo li{font-size:18px}.inund3 .sis .lst.sismo li small{font-size:15px}.inund3 .sis .lst.sismo .mag{min-width:0}
+.inund-l .acu-c li span{display:block;font-size:14px;color:var(--tx2);font-weight:600;text-align:left}.inund-l .acu-c li span b{font-size:14px}
+
 .mar-z2{fill:rgba(255,45,45,.18);stroke:#ff2d2d;stroke-width:2}.inund-l li.mz{cursor:default}.inund-l li span{text-align:left;hyphens:manual}.inund-l li i.mz2{background:rgba(255,45,45,.25);box-shadow:inset 0 0 0 3px #ff2d2d}
 .inund-l li i.pe2{background:#5fd38d;border-radius:50%;width:18px;height:18px;margin:0 4px;border:2px solid #fff}.mare-c{align-self:stretch}.mare-c .k.sub{margin:0 0 6px}.mare-c .mare-niv{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mare-c .mare-niv li{font-size:16px;line-height:1.25;gap:8px}
 .mare-c .mare-niv b{flex:0 0 auto;font-size:15px;padding:2px 8px}.mare-c .mare-p{font-size:16px;margin-top:6px;text-align:justify;hyphens:auto}
@@ -1524,10 +1526,10 @@ function qrSvg(url, cls, maxN) {
 }
 
 /* ---------- fuentes que llevan horas fallando: se dice en la cabecera de su pantalla, en gris, para no enseñar datos viejos como si fueran de hoy ---------- */
-const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], get inundaciones() { return ["inundaciones", "maremotos"].concat(hayAcuiferos() ? ["x"] : [], E.terremotos ? ["terremotos"] : []); }, maremotos: ["maremotos"], acuiferos: ["x"], get clima() { return ["climaRia", "clima", "lluvia", "prevision"].concat(hayCalor() ? ["islasCalor"] : []); }, naturaleza: ["naturaleza"],
+const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], get inundaciones() { return ["inundaciones", "maremotos"].concat(hayAcuiferos() ? ["x"] : []); }, maremotos: ["maremotos"], acuiferos: ["x"], get clima() { return ["climaRia", "clima", "lluvia", "prevision"].concat(hayCalor() ? ["islasCalor"] : []); }, naturaleza: ["naturaleza"],
   get aire() { return ["aire", "radiacion", "radsol", "prevision"].concat(polen() ? ["x"] : [], olasVigentes() ? ["olas"] : []); },
   agua: ["lluvia", "saih", "sequia", "agua"], get mar() { return ["boya", "playas", "oleaje", "maritima", "mareas"].concat(enBano() ? ["aguaBano"] : []); }, cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
-  espacio: ["mtg", "espacio", "vista", "calar", "sonda"], get planeta() { return ["planeta", "tierra", "polvo"].concat(E.sismosMundo ? ["sismosMundo"] : []); }, casa: ["luz", "gasolina", "renovable", "tele", "internet"],
+  espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
   alertas: ["alimentarias", "medicamentos", "productos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "regatas", "rfep"], carretera: ["camara", "ruta", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
   sismos: ["terremotos", "sismosMundo"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo", "boja", "boe", "bolsaSas", "x"], sas: ["boja", "boe", "bolsaSas"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
   noticias: ["noticias", "cortesAgua", "sangre"], planes: ["x"], ayudas: ["x"]};
@@ -1672,12 +1674,12 @@ const avisosFuertes = () => (E.avisos || []).filter(a => a.nivel >= 2).sort((a, 
 /* 3.0 (lo pidió Isa el 28 oct 2026: «reorganiza la información de la forma más eficiente, intenta mostrar toda la información posible
    intentando evitar rotaciones y manteniendo la legibilidad, aumenta el número de pantallas si fuera necesario»): cada pantalla, de un
    tema y con sus listas enteras siempre que quepan a un tamaño que se lea. Las que no tienen nada que enseñar no salen. */
-const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente() || E.sismosMundo);
-const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayClima() || hayCalor() ? ["clima"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayInundaciones() || hayMaremotos() || hayAcuiferos() || E.terremotos ? ["inundaciones"] : [], ["mar"], ["cielo"],
+const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente());
+const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayClima() || hayCalor() ? ["clima"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayInundaciones() || hayMaremotos() || hayAcuiferos() ? ["inundaciones"] : [], E.terremotos || E.sismosMundo ? ["sismos"] : [], ["mar"], ["cielo"],
   E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayAlertas() || hayProductos() ? ["alertas"] : [],
   ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
-  ofertasVigentes().length || saeVigentes().length || haySas() || hayAyudas() ? ["empleo"] : [], hayPlanes() ? ["planes"] : []);
+  ofertasVigentes().length || saeVigentes().length || haySas() ? ["empleo"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() ? ["planes"] : []);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): ajustes de las pantallas con el mando (≡ en la app): las que no salen, su orden y los
    segundos de cada una. Los guarda la app (Android.ajustes / guardarAjustes, SharedPreferences): los mismos en la app y en el salvapantallas.
    El aviso de AEMET sale siempre, el primero. */
@@ -1687,9 +1689,12 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
    empleo y SAS). ORDEN_V: al cambiar el orden de siempre, el que se había guardado con el mando deja paso al nuevo una vez. */
 // 4.34 (lo pidió Isa: «la menor cantidad de pestañas posible»): Maremotos va en Inundaciones; Senderos, en Planes; Productos, en Alertas; el
 // mundo, en Terremotos; Pescado, en Campo; el SAS, las ayudas y los cursos, en Empleo (un orden guardado con las de antes, las ignora)
-const ORDEN_BASE = ["ahora", "semana", "clima", "aire", "agua", "inundaciones", "mar", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "casa", "alertas", "noticias",
-  "carretera", "trenes", "campo", "pescado", "economia", "empleo"];
-const ORDEN_V = 2;
+// 4.36 (lo pidió Isa el 8 nov 2026: «reorganiza las pestañas de forma lógica»): el tiempo (ahora, semana, clima, aire y sol); el agua y la
+// tierra (agua, mar, inundaciones y acuíferos, terremotos); el cielo y el planeta (cielo, espacio, planeta, naturaleza); el día (hoy, planes,
+// noticias, alertas, casa); moverse (carretera, trenes); y el trabajo y el dinero (campo, lonja, economía, empleo, ayudas y cursos)
+const ORDEN_BASE = ["ahora", "semana", "clima", "aire", "agua", "mar", "inundaciones", "sismos", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "noticias",
+  "alertas", "casa", "carretera", "trenes", "campo", "pescado", "economia", "empleo", "ayudas"];
+const ORDEN_V = 3;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
 function leerAjustes() {
   let s = null, a = {};
@@ -1722,13 +1727,13 @@ const paginas = () => {
 };
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
-const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones, acuíferos y terremotos", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
+const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones y acuíferos", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
   alertas: "Alertas y productos", productos: "Productos", hoy: "Hoy", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Lonja", noticias: "Noticias",
-  economia: "Economía", empleo: "Empleo y ayudas", sas: "SAS", planes: "Planes", ayudas: "Ayudas y cursos"};
+  economia: "Economía", empleo: "Empleo", sas: "SAS", planes: "Planes", ayudas: "Ayudas y cursos gratis"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
   get clima() { return "Fuentes: Junta de Andalucía (IFAPA, red RIA: lo normal de los últimos años y la lluvia medida) · AEMET (horas de sol 1981-2010 y récords)" + (hayCalor() ? " · islas de calor: Landsat 8 y 9 (USGS/NASA) por el Planetary Computer de Microsoft, Copernicus (CORINE Land Cover 2018) e IGN (ortofoto PNOA)" : ""); },
   get inundaciones() { return "Fuentes: MITECO (SNCZI) por la IDEE · IGN (ortofoto PNOA)" + (hayMaremotos() ? " · Junta de Andalucía (Plan de Emergencia ante el Riesgo de Maremotos) · IGN (peligrosidad sísmica) · BOE (Plan Estatal)" : "")
-    + (hayAcuiferos() ? " · acuíferos: MITECO (red de control, por la REDIAM) y plan hidrológico 2022-2027" : "") + (E.terremotos ? " · terremotos: Instituto Geográfico Nacional (IGN)" : ""); },
+    + (hayAcuiferos() ? " · acuíferos: MITECO (red de control, por la REDIAM) y plan hidrológico 2022-2027" : ""); },
   calor: "Fuentes: Landsat 8 y 9 (USGS/NASA) por el Planetary Computer de Microsoft · Copernicus (CORINE Land Cover 2018) · IGN (ortofoto PNOA)",
   maremotos: "Fuentes: Junta de Andalucía (Plan de Emergencia ante el Riesgo de Maremotos) · IGN (catálogo de tsunamis, peligrosidad sísmica) · BOE (Plan Estatal)",
   acuiferos: "Fuentes: MITECO (red de control, por la REDIAM de la Junta) · plan hidrológico 2022-2027 (Junta de Andalucía, AEMA) · IGN (ortofoto PNOA)", naturaleza: "Fuente: GBIF (red mundial de información sobre biodiversidad)",
@@ -1737,7 +1742,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   get mar() { return "Fuentes: Puertos del Estado · AEMET" + (enBano() ? " · Junta de Andalucía y Agencia Europea de Medio Ambiente (agua de baño)" : ""); },
   cielo: "Fuentes: NASA (Luna y Sol) · NOAA · CelesTrak · IGN (Observatorio Astronómico Nacional) · OpenSky · adsbdb",
   espacio: "Fuentes: NASA Worldview · Observatorio de Calar Alto",
-  get planeta() { return "Fuentes: NASA · Copernicus · polvo: CAMS (Copernicus, ECMWF)" + (E.sismosMundo ? " · terremotos: Servicio Geológico de EE. UU. (USGS), mapa: Natural Earth" : ""); },
+  planeta: "Fuentes: NASA · Copernicus · polvo: CAMS (Copernicus, ECMWF)",
   casa: "Fuentes: Red Eléctrica · CNMC (peaje 2.0TD, BOE) · MITECO · Cloudflare",
   get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (hayProductos() ? " · Comisión Europea, Safety Gate (productos que avisa España)" : ""); },
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
@@ -1747,7 +1752,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   get sismos() { return "Fuentes: Instituto Geográfico Nacional (IGN)" + (E.sismosMundo ? " · Servicio Geológico de EE. UU. (USGS) · mapa: Natural Earth" : ""); },
   mundo: "Fuentes: Servicio Geológico de EE. UU. (USGS) · mapa: Natural Earth",
   campo: "Fuente: FHAlmería (pizarra de las subastas)", pescado: "Fuente: Junta de Andalucía (IDAPES, primera venta en lonjas)",
-  empleo: "Fuentes: Servicio Andaluz de Empleo · Junta de Andalucía (Transparencia) · BOJA · BOE · Base de Datos Nacional de Subvenciones (IGAE) · Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
+  empleo: "Fuentes: Servicio Andaluz de Empleo · Junta de Andalucía (Transparencia) · BOJA · BOE",
   sas: "Fuentes: BOJA · BOE (datos abiertos)",
   planes: "Fuentes: Ayuntamiento de Adra (Adra en la Senda) · Turismo de Almería · Motril Turismo · Diputación de Almería · Junta de Andalucía (agenda)",
   ayudas: "Fuentes: Base de Datos Nacional de Subvenciones (IGAE) · Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
@@ -1951,27 +1956,6 @@ function pAhora() {
 }
 
 /* ---------- 2. semana: siete días, 24 horas y comparado con hace un año ---------- */
-function curva(H, W = 1740) {   // 4.25: más estrecha con el mapa del riesgo de incendio al lado
-  const ts = H.map(h => h.temp), lo = Math.min(...ts) - 1, hi = Math.max(...ts) + 1, n = H.length - 1;
-  const X = i => (24 + i / n * (W - 48)).toFixed(0), Y = t => ((hi - t) / (hi - lo) * 118 + 42).toFixed(0);
-  const linea = H.map((h, i) => `${i ? "L" : "M"}${X(i)},${Y(h.temp)}`).join(" ");
-  const gotas = H.map((h, i) => {
-    const t = h.tormenta || 0, dx = t >= 10 ? -11 : -6;
-    return (h.prob ? `<rect x="${+X(i) + dx}" y="${(206 - h.prob * .45).toFixed(0)}" width="11" height="${(h.prob * .45).toFixed(0)}" rx="3" fill="var(--gota)" opacity=".75"/>` : "") +
-      (t >= 10 ? `<rect x="${+X(i) + 1}" y="${(206 - t * .45).toFixed(0)}" width="11" height="${(t * .45).toFixed(0)}" rx="3" fill="var(--rayo)" opacity=".9"/>` : "");
-  }).join("");
-  /* 4.7 (lo pidió Isa el 31 oct 2026: «en la predicción por horas, cuánta lluvia sobre la columna si la hubiera»): los litros de cada hora
-     (AEMET, «precipitacion» por horas; 0,1 l/m² o más), encima de la columna de la probabilidad (sin columna, encima de la base) */
-  const mmH = H.map((h, i) => {
-    if (!(h.mm >= .05)) return "";
-    const t = h.tormenta || 0, x = h.prob ? +X(i) + (t >= 10 ? -11 : -6) + 5.5 : +X(i), y = h.prob ? 206 - h.prob * .45 - 7 : 199;
-    return `<text class="mm" x="${x.toFixed(0)}" y="${y.toFixed(0)}">${h.mm >= 10 ? Math.round(h.mm) : coma(h.mm, 1)}</text>`;
-  }).join("");
-  const et = H.map((h, i) => i % 3 ? "" : `<text x="${X(i)}" y="238">${h.t.slice(11, 13)} h</text><text class="v" x="${X(i)}" y="${Y(h.temp) - 14}">${h.temp}°</text>`).join("");
-  return `<svg width="${W}" height="250" viewBox="0 0 ${W} 250"><defs><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4a62a" stop-opacity=".38"/>
-    <stop offset="1" stop-color="#f4a62a" stop-opacity="0"/></linearGradient></defs><path d="${linea} L${X(n)},206 L${X(0)},206 Z" fill="url(#gc)"/>
-    <path d="${linea}" fill="none" stroke="#f4a62a" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>${gotas}${et}${mmH}</svg>`;
-}
 function pSemana() {
   const D = (E.dias || []).slice(0, 7);
   if (!D.length) return `<div class="main">${vaciaDe("prevision", "Cargando la previsión de AEMET…")}</div>`;
@@ -1990,11 +1974,10 @@ function pSemana() {
       <div class="tt"><b class="num">${x.max ?? "–"}°</b><span>${x.min ?? "–"}°</span></div><div class="rango"><u style="left:${a.toFixed(0)}%;width:${Math.max(6, b - a).toFixed(0)}%"></u></div>
       <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}</div>`;
   }).join("");
-  const H = horasAhora().slice(0, 24).filter(h => h.temp != null), sol = solHoy(), inc = tarjetaIncendio(3);
-  const hayLluvia = H.some(h => h.prob), hayTormenta = H.some(h => (h.tormenta || 0) >= 10), hayMm = H.some(h => h.mm >= .05);
-  const leyenda = hayLluvia || hayTormenta || hayMm ? `<p class="leyenda">${hayLluvia ? `<i style="background:var(--gota)"></i><span>Probabilidad de lluvia</span>` : ""}${hayMm ? `<b class="mm">l/m²</b><span>Lluvia de cada hora, encima de su columna</span>` : ""}${hayTormenta ? `<i style="background:var(--rayo)"></i><span>Probabilidad de tormenta</span>` : ""}</p>` : "";
-  const graf = H.length > 2 ? `<div data-f="prevision" class="tile curva" style="--i:2"><div class="k">Próximas 24 horas${sol ? `<em>Sale el sol a las ${esc(sol.orto)} · se pone a las ${esc(sol.ocaso)}</em>` : ""}</div>${curva(H, inc ? 1740 - 600 - 22 : 1740)}${leyenda}</div>` : vacia("", 2);
-  return `<div class="main"${inc ? ' style="grid-template-columns:minmax(0,1fr) 600px"' : ""}><div data-f="prevision" class="tile semana${aemetMunicipio(false) ? " conqr" : ""}" style="--i:1">${qrEsquina(aemetMunicipio(false), "Los 7 días<br>en AEMET", 80)}<div class="k">Próximos 7 días</div><div class="dias">${cols}</div></div>${graf}${inc}</div>`;
+  // 4.36 (lo pidió Isa el 8 nov 2026: «elimina la predicción de las próximas 24 horas en Semana»): van en Ahora (las 48 horas); la salida y la
+  // puesta del sol, en la cabecera; los 7 días, a lo alto, con el riesgo de incendio al lado
+  const sol = solHoy(), inc = tarjetaIncendio(3);
+  return `<div class="main" style="grid-template-rows:1fr${inc ? ";grid-template-columns:minmax(0,1fr) 760px" : ""}"><div data-f="prevision" class="tile semana sola${aemetMunicipio(false) ? " conqr" : ""}" style="--i:1">${qrEsquina(aemetMunicipio(false), "Los 7 días<br>en AEMET", 80)}<div class="k">Próximos 7 días${sol ? `<em>${diaFecha(isoDe(new Date()))}: sale el sol a las ${esc(sol.orto)} y se pone a las ${esc(sol.ocaso)}</em>` : ""}</div><div class="dias">${cols}</div></div>${inc}</div>`;
 }
 /* 368 (lo pidió Isa el 4 nov 2026): el mapa del riesgo de incendio forestal de AEMET de hoy, mañana y pasado (Mas.incendio: de sus GeoTIFF,
    el píxel del centro de cada celda de 0,02°), con la costa y las provincias, el sitio y los fuegos vistos por satélite (NASA FIRMS); los
@@ -2577,8 +2560,7 @@ function tarjetaPlaneta(grande) {
   return `<div data-f="planeta" class="tile planeta-t${grande ? " grande" : ""}" style="--i:1"><div class="k">El planeta hoy</div>${T ? `<div class="pl-fila">${bloqueTierra(T)}${d}</div>` : d}</div>`;
 }
 /* planeta (3.0): el planeta hoy y los virus respiratorios; el aire y la radiación, en una columna entera */
-// 4.35 (al unir los terremotos con Inundaciones): los del mundo, aquí (su mapa y los más recientes), en una columna entre el planeta y el polvo
-const pPlaneta = () => (r => (pv => (mu => `<div class="main${mu ? " planeta3" : ""}"${mu ? ` style="grid-template-columns:minmax(0,1fr) minmax(0,0.9fr)${pv ? " minmax(0,0.8fr)" : ""}"` : ""}><div class="col" style="grid-template-rows:${r ? "1fr auto" : "1fr"}">${tarjetaPlaneta(true)}${r}</div>${mu}${pv ? `<div class="col" style="grid-template-rows:1fr">${pv}</div>` : ""}</div>`)(E.sismosMundo ? `<div class="col" style="grid-template-rows:auto minmax(0,1fr)">${tarjetaMundoMapa()}${tarjetaMundoResto(3, true) || tarjetaMundoLista()}</div>` : ""))(tarjetaPolvo(4)))(tarjetaRespiratorias(2));
+const pPlaneta = () => (r => (pv => `<div class="main"><div class="col" style="grid-template-rows:${r ? "1fr auto" : "1fr"}">${tarjetaPlaneta(true)}${r}</div>${pv ? `<div class="col" style="grid-template-rows:1fr">${pv}</div>` : ""}</div>`)(tarjetaPolvo(4)))(tarjetaRespiratorias(2));
 /* 354 (lo pidió Isa el 4 nov 2026): la calima prevista: el polvo del Sáhara sobre la península a mediodía (12 UTC) de hoy, mañana y
    pasado, de CAMS (Copernicus, ECMWF; Polvo.kt). Los mapas se pasan solos; debajo, su escala (profundidad óptica del polvo a 550 nm). */
 let polvoFotos = [];
@@ -3224,12 +3206,13 @@ function tarjeta48(i) {
 const hayInundaciones = () => !!(E.inundaciones && E.inundaciones.base && (E.inundaciones.capas || []).length);
 const COLOR_INUND = {FluvialT10: "#0526da", FluvialT100: "#0526da", FluvialT500: "#0526da", MarinaT100: "#189df1", MarinaT500: "#189df1"};   // los del mapa oficial
 function pInundaciones() {
-  // 4.35 (lo pidió Isa el 8 nov 2026: «une acuíferos con inundaciones y terremotos»): una pantalla. Los acuíferos (las masas y los nitratos de
-  // los pozos), por turno en el mismo mapa y en el zoom, detrás de los escenarios de inundación; a la derecha, los terremotos de cerca (el
-  // mapa y la lista; los del mundo, en Planeta). Sin el mapa de las zonas inundables, cada cosa como era
-  if (!hayInundaciones()) return hayMaremotos() ? pMaremotos() : acuiferos() ? pAcuiferos() : pSismos();
+  // 4.35 (lo pidió Isa el 8 nov 2026: «une acuíferos con inundaciones y terremotos»): los acuíferos (las masas y los nitratos de los pozos),
+  // por turno en el mismo mapa y en el zoom, detrás de los escenarios de inundación. 4.36 («reorganiza las pestañas de forma lógica»): los
+  // terremotos, otra vez en su pantalla; el zoom, alargado (lo pidió Isa: «captura alargada rectangularmente»), a lo ancho de la derecha.
+  // Sin el mapa de las zonas inundables, cada cosa como era
+  if (!hayInundaciones()) return hayMaremotos() ? pMaremotos() : pAcuiferos();
   const I = E.inundaciones, C = I.capas, Z = I.zoom && I.zoom.base && (I.zoom.capas || []).length === C.length ? I.zoom : null;
-  const A = acuiferos(), T = E.terremotos, acu = cz => A ? `<div class="acu-capa" id="${cz === I.caja ? "inundA" : "inundZA"}" style="opacity:0">${capasAcu(A, cz)}</div>` : "";
+  const A = acuiferos(), acu = cz => A ? `<div class="acu-capa" id="${cz === I.caja ? "inundA" : "inundZA"}" style="opacity:0">${capasAcu(A, cz)}</div>` : "";
   /* 4.34 (lo pidió Isa el 7 nov 2026: «redistribuye la información en la menor cantidad de pestañas posible»): Maremotos va aquí: la zona que
      inundaría el peor maremoto (plan de la Junta), en rojo, encima de los escenarios de inundación, en el mapa y en el zoom, con los puntos de
      encuentro, y sus niveles de aviso debajo de la leyenda («los que se notaron aquí», fuera: lo pidió Isa) */
@@ -3240,7 +3223,7 @@ function pInundaciones() {
   // el agua de debajo»): el recuadro en el mapa grande y su zoom al lado, a 820 px de ancho, con la leyenda a dos columnas debajo
   const c = I.caja, pc = (v, a, b) => ((v - a) / (b - a) * 100).toFixed(2);
   const caja = Z ? `<div class="inund-r" style="left:${pc(Z.caja[0], c[0], c[2])}%;right:${(100 - pc(Z.caja[2], c[0], c[2])).toFixed(2)}%;top:${(100 - pc(Z.caja[3], c[1], c[3])).toFixed(2)}%;bottom:${pc(Z.caja[1], c[1], c[3])}%"></div>` : "";
-  const zoom = Z ? `<figure class="inund-z"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1}"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${acu(Z.caja)}${mz(Z.caja)}${puntoZoom(Z.caja)}</div>
+  const zoom = Z ? `<figure class="inund-z"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1};width:min(100%, ${Math.round(470 * (Z.ancho || 1) / (Z.alto || 1))}px)"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${acu(Z.caja)}${mz(Z.caja)}${puntoZoom(Z.caja)}</div>
       <figcaption>${Z.titulo ? esc(Z.titulo) : `${esc(Z.puerto)} y ${coma(Z.interior || 1.5, 1)} km tierra adentro, ${coma(Z.km, 0)} km a cada lado`}</figcaption></figure>` : "";
   const mare = M ? `<div class="mare-c"><div class="k sub">Si llega un maremoto<em>${adra ? "zona de aviso AL01, de Adra a Almería" : "niveles del Plan Estatal"}</em></div>
       <ul class="mare-niv"><li class="r"><b>Alerta</b><span>ola de más de 0,5 m (o más de 1 m en tierra): inunda la costa</span></li><li class="a"><b>Aviso</b><span>ola de 0,2 a 0,5 m (o de 0,5 a 1 m en tierra)</span></li><li class="v"><b>Información</b><span>sin riesgo, o olas de menos de 0,2 m</span></li></ul>
@@ -3254,9 +3237,7 @@ function pInundaciones() {
       ${acu(c)}${mz(c)}${caja}${puntoPueblo(c)}<div class="tag" id="inundTag">${esc(C[0].nombre)}</div></div>
       <p class="nota">Lo que se inundaría con una crecida del río o un temporal en la costa que de media pasa una vez cada 10, 100 o 500 años (Sistema Nacional de Cartografía de Zonas Inundables, del Ministerio para la Transición Ecológica, por la IDEE). Escenarios de peligrosidad: no dicen que vaya a pasar ahora.</p>${mare}</div>
     <div class="inund-l">${zoom}<ul>${C.map((c, k) => `<li data-k="${k}" class="${k ? "" : "on"}"><i style="background:${COLOR_INUND[c.id] || "#4aa3ff"}"></i><span>${esc(c.nombre)}${c.vacia ? "<small>sin zona cartografiada aquí</small>" : ""}</span></li>`).join("")}${leyM}${leyA}</ul></div></div></div>`;
-  const mc = T ? tarjetaMapaCerca(5).replace(">En el mapa · 10 días<", ">Terremotos · 10 días<") : "";   // sin puntos en el mapa, el QR va en la lista
-  return T ? `<div class="main inund3" style="grid-template-columns:minmax(0,1fr) 460px"><div class="col" style="grid-template-rows:1fr">${tile}</div><div class="col" style="grid-template-rows:${mc ? "auto " : ""}minmax(0,1fr)">${mc}${tarjetaSismosCerca(!!mc)}</div></div>`
-    : `<div class="main" style="grid-template-columns:1fr">${tile}</div>`;
+  return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${tile}</div></div>`;
 }
 function animarInundaciones() {
   const C = (E.inundaciones || {}).capas || [], tag = document.getElementById("inundTag");
@@ -3828,12 +3809,12 @@ function tarjetaMundoLista() {
 /* terremotos cerca (3.0): la lista y, al lado, el mapa de la zona con todos los de los 10 días (puntos del IGN: latitud, longitud y magnitud) */
 const sismoNuevo = s => s > 0 && Date.now() / 1000 - (s > 1e11 ? s / 1000 : s) < 86400;   // 4.28: de las últimas 24 horas (el USGS da milisegundos)
 const colorMagCerca = m => m >= 4 ? "#ff4d3d" : m >= 3 ? "#ff9a2e" : m >= 2 ? "#f5c542" : "#7cc4ff";
-function mapaCerca(T) {
+function mapaCerca(T, alto) {   // alto: 4.36, a lo alto si el mapa va solo en su columna
   cargarMapa();
-  const L = E.lugar, R = T.radio || 150, W = 1000, H = 640, k = (H / 2 - 22) / R, cx = W / 2, cy = H / 2;
+  const L = E.lugar, R = T.radio || 150, W = 1000, H = alto || 640, k = (Math.min(W, H) / 2 - 22) / R, cx = W / 2, cy = H / 2;
   const kx = 111.32 * Math.cos(L.lat * Math.PI / 180);
   const xy = (lon, lat) => [cx + (lon - L.lon) * kx * k, cy - (lat - L.lat) * 110.57 * k];
-  const clave = `${L.lat},${L.lon},${R}`;
+  const clave = `${L.lat},${L.lon},${R},${H}`;
   if (!mapaCerca.lineas || mapaCerca.lineas.clave !== clave) mapaCerca.lineas = {clave, svg: ["R", "P", "C"].map(t => mapa.filter(l => l.t === t).map(l => {   // provincias, países y costa
     const p = l.p.map(([lon, lat]) => xy(lon, lat)).filter(([x, y]) => x > -60 && x < W + 60 && y > -60 && y < H + 60);
     return p.length > 1 ? `<polyline points="${p.map(q => q.map(v => v.toFixed(0)).join(",")).join(" ")}" class="${{C: "mc-costa", P: "mc-pais", R: "mc-prov"}[t]}"/>` : ""; }).join("")).join("")};
@@ -3846,16 +3827,70 @@ function mapaCerca(T) {
   return `<svg class="mapa-c" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"><rect width="${W}" height="${H}" rx="18" class="mc-mar"/>${mapaCerca.lineas.svg}${anillos}${puntos}
     <circle cx="${cx}" cy="${cy}" r="8" fill="#f08a24" stroke="#fff" stroke-width="3"/><text x="${cx + 14}" y="${cy + 30}" class="mc-yo">${esc(L.nombre)}</text></svg>`;
 }
-function tarjetaMapaCerca(i) {
+function tarjetaMapaCerca(i, alto) {
   const T = E.terremotos;
   if (!T || !(T.puntos || []).length) return "";
   const L = (T.lista || []).filter(s => s.url), m = L.length ? L.reduce((a, b) => (b.mag > a.mag ? b : a)) : null;
-  return `<div data-f="terremotos" class="tile mapa-ct" style="--i:${i}"><div class="k">En el mapa · 10 días<em>${T.puntos.length === T.total ? `los ${T.total}` : `${T.puntos.length} de ${T.total}`}</em></div>${mapaCerca(T)}
+  return `<div data-f="terremotos" class="tile mapa-ct" style="--i:${i}"><div class="k">En el mapa · 10 días<em>${T.puntos.length === T.total ? `los ${T.total}` : `${T.puntos.length} de ${T.total}`}</em></div>${mapaCerca(T, alto)}
     <div class="pie-m"><p class="leyenda-m"><i style="background:${colorMagCerca(1)}"></i>menos de 2 <i style="background:${colorMagCerca(2)}"></i>de 2 a 2,9 <i style="background:${colorMagCerca(3)}"></i>de 3 a 3,9 <i style="background:${colorMagCerca(4)}"></i>4 o más${(T.puntos || []).some(p => sismoNuevo(p[3])) ? ` · <i class="nv"></i>últimas 24 h` : ""} · <i class="yo"></i>${esc(E.lugar.nombre)}</p>
     ${m ? (q => q ? `<div class="qm">${q}<span>Ficha del IGN<br>del más fuerte (${coma(m.mag, 1)})</span></div>` : "")(qrSvg(m.url, "qr", 60)) : ""}</div></div>`;
 }
-const pSismos = () => (m => m ? `<div class="main" style="grid-template-columns:760px minmax(0,1fr)">${tarjetaSismosCerca(true)}<div class="col" style="grid-template-rows:1fr">${m}</div></div>`
-  : `<div class="main" style="grid-template-columns:1fr">${tarjetaSismosCerca()}</div>`)(tarjetaMapaCerca(2));
+/* 4.36 (lo pidió Isa el 8 nov 2026: «no aparecen los terremotos en España»; «reorganiza las pestañas de forma lógica»): Terremotos, otra vez
+   en su pantalla, a tres columnas: cerca (el mapa de 150 km y la lista), España (el mapa de todos los de la tabla del IGN de 10 días, con
+   Canarias en un recuadro, y la lista de los de España) y el mundo (USGS). Sin alguna, las otras se reparten el sitio */
+function mapaEspana(Es) {
+  cargarMapa();   // 4.36: Canarias, añadidas a mapa.txt (Natural Earth 1:10 m, dominio público; simplificadas a unos 400 m)
+  const W = 1000, lo0 = -9.7, lo1 = 4.6, la0 = 35.1, la1 = 44.0, kx = 85.6, ky = 110.57, k = W / ((lo1 - lo0) * kx), H = Math.round((la1 - la0) * ky * k);
+  const xy = (lon, lat) => [(lon - lo0) * kx * k, (la1 - lat) * ky * k];
+  // Canarias, en un recuadro abajo a la derecha (a la misma escala): sobre el mar de Argelia, sin tapar el golfo de Cádiz ni Alborán
+  const c0 = -18.4, c1 = -13.2, d0 = 27.5, d1 = 29.5, cw = (c1 - c0) * 96.4 * k, ch = (d1 - d0) * ky * k, cxo = W - cw - 12, cyo = H - ch - 12;
+  const xyC = (lon, lat) => [cxo + (lon - c0) * 96.4 * k, cyo + (d1 - lat) * ky * k];
+  const dentroC = (lon, lat) => lon < -12.5 && lat < 30.5;
+  // las líneas, partidas donde salen del dibujo o entran en el recuadro de Canarias (sin unir por encima los trozos de fuera)
+  const tramos = (pts, f, ok, fuera) => { const r = []; let cur = [];
+    for (const [lon, lat] of pts) { const q = f(lon, lat);
+      if (!ok(lon, lat) || fuera(q)) { if (cur.length > 1) r.push(cur); cur = []; continue; }
+      if (!cur.length || Math.abs(q[0] - cur[cur.length - 1][0]) + Math.abs(q[1] - cur[cur.length - 1][1]) > 1.5) cur.push(q); }
+    if (cur.length > 1) r.push(cur); return r; };
+  const enRecuadro = q => q[0] > cxo - 4 && q[1] > cyo - 4, nada = () => false;
+  if (!mapaEspana.lineas) mapaEspana.lineas = ["R", "P", "C"].map(t => mapa.filter(l => l.t === t).map(l =>
+    tramos(l.p, xy, (lon, lat) => !dentroC(lon, lat) && lon > lo0 - 1 && lon < lo1 + 1 && lat > la0 - 1 && lat < la1 + 1, enRecuadro).concat(tramos(l.p, xyC, dentroC, nada))
+      .map(p => `<polyline points="${p.map(q => q.map(v => v.toFixed(0)).join(",")).join(" ")}" class="${{C: "mc-costa", P: "mc-pais", R: "mc-prov"}[t]}"/>`).join("")).join("")).join("");
+  const P = (Es.puntos || []).slice().sort((a, b) => a[2] - b[2]);
+  // los de fuera de Canarias que caerían debajo del recuadro (el mar de Argelia), no se pintan
+  const pt = ([lat, lon, m, s]) => { const c = dentroC(lon, lat), [x, y] = c ? xyC(lon, lat) : xy(lon, lat); if (x < 0 || y < 0 || x > W || y > H || (!c && x > cxo && y > cyo)) return "";
+    const r = (4 + Math.max(0, m) * 3).toFixed(1), nuevo = sismoNuevo(s);
+    return `${nuevo ? `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(+r + 6).toFixed(1)}" class="mc-n"/>` : ""}<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${colorMagCerca(m)}" class="mc-p${nuevo ? " nuevo" : ""}"/>`; };
+  const [ax, ay] = xy(E.lugar.lon, E.lugar.lat);
+  return `<svg class="mapa-c mapa-es" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"><rect width="${W}" height="${H}" rx="18" class="mc-mar"/><rect x="${cxo.toFixed(0)}" y="${cyo.toFixed(0)}" width="${cw.toFixed(0)}" height="${ch.toFixed(0)}" rx="10" class="es-can es-can-f"/>${mapaEspana.lineas}
+    <rect x="${cxo.toFixed(0)}" y="${cyo.toFixed(0)}" width="${cw.toFixed(0)}" height="${ch.toFixed(0)}" rx="10" class="es-can"/><text x="${(cxo + 12).toFixed(0)}" y="${(cyo + 30).toFixed(0)}" class="mc-t">Canarias</text>
+    ${P.map(pt).join("")}<circle cx="${ax.toFixed(0)}" cy="${ay.toFixed(0)}" r="9" fill="#f08a24" stroke="#fff" stroke-width="3"/><text x="${(ax + 14).toFixed(0)}" y="${(ay + 30).toFixed(0)}" class="mc-yo">${esc(E.lugar.nombre)}</text></svg>`;
+}
+const sismosEspana = () => (E.terremotos || {}).espana;
+function tarjetaMapaEspana(i) {
+  const Es = sismosEspana();
+  if (!Es || !(Es.puntos || []).length) return "";
+  return `<div data-f="terremotos" class="tile mapa-ct es-t" style="--i:${i}"><div class="k">En España · 10 días<em>${Es.total} ${Es.total === 1 ? "terremoto" : "terremotos"}${Es.total ? `; el más fuerte, de ${coma(Es.max, 1)}` : ""}</em></div>${mapaEspana(Es)}
+    <p class="leyenda-m"><i style="background:${colorMagCerca(1)}"></i>menos de 2 <i style="background:${colorMagCerca(2)}"></i>de 2 a 2,9 <i style="background:${colorMagCerca(3)}"></i>de 3 a 3,9 <i style="background:${colorMagCerca(4)}"></i>4 o más · en el mapa, todos los que da el IGN (también los de Portugal y el norte de África)</p></div>`;
+}
+function tarjetaSismosEspana(i) {
+  const Es = sismosEspana();
+  if (!Es || !(Es.lista || []).length) return "";
+  const t = enTurno("sismosEs", Es.lista, 12);
+  return `<div data-f="terremotos" class="tile sis sis-es" style="--i:${i}"><div class="k">Los últimos en España<em>IGN · del más reciente</em></div>
+    <ul class="lst sismo" ${t.attr}>${t.items.map(s => `<li ${claveNuevo("sismo:" + s.url)}><span><span class="mag">${coma(s.mag, 1)}</span>${esc(lugarSismo(s.lugar))}${marcaNuevo("sismo:" + s.url)}</span><b>${s.km} km <small>${s.fecha}${s.hora ? " · " + s.hora : ""}</small></b></li>`).join("")}</ul></div>`;
+}
+function pSismos() {
+  const em = tarjetaMapaEspana(3), el = tarjetaSismosEspana(4), mm = E.sismosMundo ? tarjetaMundoMapa() : "", ml = E.sismosMundo ? (tarjetaMundoResto(6, true) || tarjetaMundoLista()) : "";
+  // si falta España o el mundo, lo de cerca ocupa dos columnas: la lista en una y el mapa, a lo alto, en otra
+  const otra = [[em, el], [mm, ml]].map(c => c.filter(Boolean)).filter(c => c.length), alto = otra.length === 1 ? 1180 : 0;
+  const cm = tarjetaMapaCerca(1, alto).replace(">En el mapa · 10 días<", ">A 150 km o menos · 10 días<"), cl = E.terremotos ? tarjetaSismosCerca(!!cm) : "";
+  const cols = (alto && cm && cl ? [[cl], [cm]] : [[cm, cl].filter(Boolean)]).concat(otra).filter(c => c.length);
+  if (!cols.length) return `<div class="main">${vaciaDe("terremotos", "Datos del IGN no disponibles ahora mismo.", 1)}</div>`;
+  // una sola parte: su lista y su mapa, uno al lado del otro (como era Terremotos)
+  if (cols.length === 1 && cols[0].length === 2) return `<div class="main" style="grid-template-columns:760px minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${cols[0][1]}</div><div class="col" style="grid-template-rows:1fr">${cols[0][0]}</div></div>`;
+  return `<div class="main sismos3" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(c => `<div class="col" style="grid-template-rows:${c.length > 1 ? "auto minmax(0,1fr)" : "1fr"}">${c.join("")}</div>`).join("")}</div>`;
+}
 
 /* ---------- 4.28 (lo pidió Isa el 6 nov 2026): tres pantallas sobre la ortofoto del PNOA de las zonas inundables (la misma caja): las islas de
    calor (Landsat), el riesgo de maremoto (Junta e IGN) y los acuíferos (MITECO, REDIAM, plan hidrológico) ---------- */
@@ -4888,15 +4923,16 @@ function pSismosMundo() {
 }
 /* Empleo con el SAS, las ayudas y los cursos: tres columnas (las ofertas · el SAS y su Bolsa · las ayudas y los cursos), cada lista por turnos */
 function pTrabajo() {
-  const cols = [pEmpleo(true), haySas() ? pSas(true) : [], hayAyudas() ? pAyudas(true) : []].filter(c => c.length);
-  if (!cols.length) return `<div class="main">${vacia("Sin ofertas, oposiciones ni ayudas ahora.")}</div>`;
+  // 4.36 (lo pidió Isa el 8 nov 2026: «haz una página específica para ayudas y subvenciones y cursos gratis»): aquí, el empleo y el SAS
+  const cols = [pEmpleo(true), haySas() ? pSas(true) : []].filter(c => c.length);
+  if (!cols.length) return `<div class="main">${vacia("Sin ofertas ni oposiciones ahora.")}</div>`;
   // las listas cortas (1 o 2), a su tamaño; las largas se reparten el resto (si no, una sola larga se queda con una fila)
   const filas = c => { const r = c.map(t => +((t.match(/data-total="(\d+)"/) || [])[1] || 9) <= 2 ? "auto" : "minmax(0,1fr)");
     if (!r.includes("minmax(0,1fr)")) r[r.length - 1] = "minmax(0,1fr)"; return r.join(" "); };
   return `<div class="main trabajo" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(c => `<div class="col" style="grid-template-rows:${filas(c)}">${c.join("")}</div>`).join("")}</div>`;
 }
 const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
-  alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismosMundo, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
+  alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
   economia: pEconomia, empleo: pTrabajo, sas: pSas, planes: pPlanes, ayudas: pAyudas};
 function pintar() {
   if (!E) return;

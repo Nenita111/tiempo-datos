@@ -1,8 +1,8 @@
 {
-  "versionCode": 66,
-  "versionName": "4.35",
+  "versionCode": 67,
+  "versionName": "4.36",
   "apk": "app/Tiempo.apk",
-  "sha256": "4559ecd2053e4962a546ea96f73fe1a17fe6c6ba6e780001beaaee4556f9e3f1",
-  "bytes": 1305809,
-  "notas": "4.35: las próximas 48 horas en Ahora; las islas de calor en Clima (sin la tabla del casco urbano); Campo y Lonja, cada una en su pantalla; Inundaciones con los acuíferos y los terremotos; los del mundo, en Planeta; el oleaje en Aire y sol; sin senderos"
+  "sha256": "f2fe384c7d28581f9549d26a9c71f4c3f634d03b640a8e4b9a22d58fdce6eb8c",
+  "bytes": 1308749,
+  "notas": "4.36: Semana sin las 24 horas (van en Ahora); Terremotos otra vez en su pantalla, con los de España (y Canarias) y el mundo; Inundaciones y acuíferos con el zoom alargado del Paseo de los Navegantes; Ayudas y cursos gratis en su pantalla; pestañas por temas"
 }
