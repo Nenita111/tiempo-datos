@@ -55,55 +55,55 @@
  "cuencaPctAnterior": 44.1,
  "espanaPct": 57.2,
  "espanaPctAnterior": 52.1,
- "vuelosFecha": "Buscado el 05/11 · ida y vuelta",
+ "vuelosFecha": "Buscado el 08/11 · ida y vuelta",
  "vuelosOrigen": "Almería",
  "vuelos": [
   {
    "destino": "Sevilla",
-   "fecha": "24/11",
-   "vuelta": "29/11",
-   "precio": "109 €",
-   "compania": "Iberia",
-   "escalas": "directo"
-  },
-  {
-   "destino": "Madrid",
-   "fecha": "05/12",
+   "fecha": "06/12",
    "vuelta": "10/12",
-   "precio": "117 €",
+   "precio": "113 €",
    "compania": "Iberia",
-   "escalas": "directo"
-  },
-  {
-   "destino": "Barcelona",
-   "fecha": "02/12",
-   "vuelta": "04/12",
-   "precio": "129 €",
-   "compania": "Vueling",
    "escalas": "directo"
   },
   {
    "destino": "Bucarest",
-   "fecha": "27/11",
-   "vuelta": "30/11",
-   "precio": "133 €",
+   "fecha": "13/11",
+   "vuelta": "16/11",
+   "precio": "120 €",
    "compania": "Wizz Air",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Barcelona",
+   "fecha": "06/12",
+   "vuelta": "11/12",
+   "precio": "130 €",
+   "compania": "Vueling",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Madrid",
+   "fecha": "10/12",
+   "vuelta": "12/12",
+   "precio": "135 €",
+   "compania": "Iberia",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Londres",
+   "fecha": "12/12",
+   "vuelta": "15/12",
+   "precio": "163 €",
+   "compania": "easyJet",
    "escalas": "directo"
   },
   {
    "destino": "Palma de Mallorca",
    "fecha": "25/11",
    "vuelta": "28/11",
-   "precio": "158 €",
+   "precio": "217 €",
    "compania": "Iberia",
-   "escalas": "directo"
-  },
-  {
-   "destino": "Londres",
-   "fecha": "07/12",
-   "vuelta": "10/12",
-   "precio": "161 €",
-   "compania": "easyJet",
    "escalas": "directo"
   }
  ],
@@ -120,58 +120,58 @@
    "vuelos": [
     {
      "destino": "Sevilla",
-     "ida": "2026-11-24",
-     "vuelta": "2026-11-29",
-     "precio": 109,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/9fp3kx"
-    },
-    {
-     "destino": "Madrid",
-     "ida": "2026-12-05",
+     "ida": "2026-12-06",
      "vuelta": "2026-12-10",
-     "precio": 117,
+     "precio": 113,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/t98cc4"
-    },
-    {
-     "destino": "Barcelona",
-     "ida": "2026-12-02",
-     "vuelta": "2026-12-04",
-     "precio": 129,
-     "compania": "Vueling",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/w4tuxd9"
+     "enlace": "https://kiwi.com/u/phbjft"
     },
     {
      "destino": "Bucarest",
-     "ida": "2026-11-27",
-     "vuelta": "2026-11-30",
-     "precio": 133,
+     "ida": "2026-11-13",
+     "vuelta": "2026-11-16",
+     "precio": 120,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xh63pc3"
+     "enlace": "https://kiwi.com/u/k7zp74w"
+    },
+    {
+     "destino": "Barcelona",
+     "ida": "2026-12-06",
+     "vuelta": "2026-12-11",
+     "precio": 130,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/ysbukx"
+    },
+    {
+     "destino": "Madrid",
+     "ida": "2026-12-10",
+     "vuelta": "2026-12-12",
+     "precio": 135,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/vsv622m"
+    },
+    {
+     "destino": "Londres",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-15",
+     "precio": 163,
+     "compania": "easyJet",
+     "escalas": "directo",
+     "nota": "Gatwick",
+     "enlace": "https://kiwi.com/u/ghk2z8"
     },
     {
      "destino": "Palma de Mallorca",
      "ida": "2026-11-25",
      "vuelta": "2026-11-28",
-     "precio": 158,
+     "precio": 217,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/83rf2v"
-    },
-    {
-     "destino": "Londres",
-     "ida": "2026-12-07",
-     "vuelta": "2026-12-10",
-     "precio": 161,
-     "compania": "easyJet",
-     "escalas": "directo",
-     "nota": "Gatwick",
-     "enlace": "https://kiwi.com/u/qpmkc8"
+     "enlace": "https://kiwi.com/u/g6gpkdb"
     }
    ]
   },
@@ -181,58 +181,58 @@
    "vuelos": [
     {
      "destino": "Oporto",
-     "ida": "2026-11-22",
-     "vuelta": "2026-11-26",
-     "precio": 50,
+     "ida": "2026-11-29",
+     "vuelta": "2026-12-03",
+     "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/wf89xm"
+     "enlace": "https://kiwi.com/u/4ytus2"
+    },
+    {
+     "destino": "Palma de Mallorca",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-13",
+     "precio": 52,
+     "compania": "Vueling / Air Europa",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/rdshp8f"
     },
     {
      "destino": "Gran Canaria",
-     "ida": "2026-12-10",
-     "vuelta": "2026-12-12",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-15",
      "precio": 57,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/mjn872q"
+     "enlace": "https://kiwi.com/u/qcm5pj5"
     },
     {
      "destino": "Nantes",
-     "ida": "2026-11-29",
-     "vuelta": "2026-12-03",
-     "precio": 60,
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-17",
+     "precio": 59,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/yvw9y8"
+     "enlace": "https://kiwi.com/u/kjmxt2"
+    },
+    {
+     "destino": "Barcelona",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-14",
+     "precio": 72,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/xv3nnr"
     },
     {
      "destino": "Londres",
      "ida": "2026-12-01",
      "vuelta": "2026-12-05",
-     "precio": 62,
+     "precio": 72,
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Luton",
-     "enlace": "https://kiwi.com/u/mf7n4z"
-    },
-    {
-     "destino": "Palma de Mallorca",
-     "ida": "2026-11-21",
-     "vuelta": "2026-11-24",
-     "precio": 63,
-     "compania": "Air Europa / Vueling",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/tsc36bp"
-    },
-    {
-     "destino": "Bilbao",
-     "ida": "2026-12-03",
-     "vuelta": "2026-12-06",
-     "precio": 65,
-     "compania": "Vueling",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/36mut3"
+     "enlace": "https://kiwi.com/u/n9mwsm"
     }
    ]
   },
@@ -242,21 +242,21 @@
    "vuelos": [
     {
      "destino": "Ibiza",
-     "ida": "2026-11-28",
-     "vuelta": "2026-11-30",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-14",
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/pb4xhg"
+     "enlace": "https://kiwi.com/u/muu7ng"
     },
     {
      "destino": "Palma de Mallorca",
-     "ida": "2026-11-28",
-     "vuelta": "2026-11-30",
+     "ida": "2026-12-05",
+     "vuelta": "2026-12-07",
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/dmhcf8"
+     "enlace": "https://kiwi.com/u/4gzg3s"
     },
     {
      "destino": "Turín",
@@ -265,34 +265,35 @@
      "precio": 36,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/n5t5md"
-    },
-    {
-     "destino": "Bilbao",
-     "ida": "2026-12-10",
-     "vuelta": "2026-12-14",
-     "precio": 40,
-     "compania": "Vueling",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/bqmfyr"
-    },
-    {
-     "destino": "Venecia",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-12",
-     "precio": 40,
-     "compania": "Wizz Air / Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/jsnzw2y"
+     "enlace": "https://kiwi.com/u/2b8rxx"
     },
     {
      "destino": "Valencia",
-     "ida": "2026-11-26",
-     "vuelta": "2026-11-29",
-     "precio": 44,
+     "ida": "2026-12-03",
+     "vuelta": "2026-12-06",
+     "precio": 40,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xb2x9z"
+     "enlace": "https://kiwi.com/u/hvtgupx"
+    },
+    {
+     "destino": "Bilbao",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-16",
+     "precio": 40,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/v88rd7"
+    },
+    {
+     "destino": "Milán",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-14",
+     "precio": 43,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "nota": "ida a Bérgamo, vuelta desde Malpensa",
+     "enlace": "https://kiwi.com/u/bzsjbxq"
     }
    ]
   },
@@ -301,70 +302,70 @@
    "codigo": "RMU",
    "vuelos": [
     {
-     "destino": "Barcelona",
-     "ida": "2026-12-07",
-     "vuelta": "2026-12-11",
-     "precio": 54,
-     "compania": "Volotea",
+     "destino": "Birmingham",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-13",
+     "precio": 48,
+     "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/87w9xy"
+     "enlace": "https://kiwi.com/u/x9r4nb"
     },
     {
      "destino": "Bilbao",
-     "ida": "2026-11-28",
-     "vuelta": "2026-12-01",
-     "precio": 54,
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-15",
+     "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/srvv7yq"
+     "enlace": "https://kiwi.com/u/4xt849m"
+    },
+    {
+     "destino": "Barcelona",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-13",
+     "precio": 60,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/kmu9vs"
     },
     {
      "destino": "Dublín",
-     "ida": "2026-12-05",
-     "vuelta": "2026-12-07",
-     "precio": 68,
+     "ida": "2026-12-07",
+     "vuelta": "2026-12-12",
+     "precio": 72,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/582w9t"
+     "enlace": "https://kiwi.com/u/t76xmtt"
     },
     {
      "destino": "Mánchester",
-     "ida": "2026-11-26",
-     "vuelta": "2026-11-29",
-     "precio": 70,
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-15",
+     "precio": 73,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/wf7ksb"
-    },
-    {
-     "destino": "Birmingham",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-11",
-     "precio": 79,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/n4dp96"
+     "enlace": "https://kiwi.com/u/ghqdf7"
     },
     {
      "destino": "Londres",
-     "ida": "2026-12-09",
-     "vuelta": "2026-12-11",
-     "precio": 88,
-     "compania": "easyJet / Ryanair",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-14",
+     "precio": 87,
+     "compania": "Ryanair",
      "escalas": "directo",
-     "nota": "ida a Gatwick, vuelta desde Stansted",
-     "enlace": "https://kiwi.com/u/pmgwqq"
+     "nota": "Stansted",
+     "enlace": "https://kiwi.com/u/mpv9r8"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-05",
- "vuelosBusqueda": "ida y vuelta del 08/11 al 10/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-08",
+ "vuelosBusqueda": "ida y vuelta del 11/11 al 13/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-07",
- "actualizado": "2026-11-08T00:12+01:00",
+ "sorteosBuscado": "2026-11-08",
+ "actualizado": "2026-11-08T06:11+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -870,8 +871,8 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-07",
-  "nombre": "Lentejas con verduras",
+  "fecha": "2026-11-08",
+  "nombre": "Ensalada de granada",
   "tiempo": {
    "temperature": "mild",
    "rain": "dry",
@@ -879,10 +880,6 @@
    "sky": "Nubes altas"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-01",
-    "nombre": "Crema de puerros"
-   },
    {
     "fecha": "2026-11-02",
     "nombre": "Ensalada de aguacate y mandarina"
@@ -906,11 +903,15 @@
    {
     "fecha": "2026-11-07",
     "nombre": "Lentejas con verduras"
+   },
+   {
+    "fecha": "2026-11-08",
+    "nombre": "Ensalada de granada"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-07",
+  "fecha": "2026-11-08",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/215/12": {
     "tipo": "lista_provisional",
@@ -1033,10 +1034,6 @@
     "alergeno": "ninguno",
     "producto": "complementos"
    },
-   "https://www.aesan.gob.es/alertas/2026_70": {
-    "alergeno": "ninguno",
-    "producto": "complementos"
-   },
    "https://www.aesan.gob.es/alertas/2026_77": {
     "alergeno": "huevo",
     "producto": "pescado"
@@ -1093,16 +1090,6 @@
    }
   },
   "ofertas": {
-   "692140": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico Gestión Prevención de Riesgos Laborales",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.82,
-    "colectivo": "general"
-   },
    "692134": {
     "zona": false,
     "zv": 4,
@@ -1113,14 +1100,14 @@
     "experiencia": 0.84,
     "colectivo": "general"
    },
-   "691966": {
+   "692140": {
     "zona": false,
     "zv": 4,
-    "puesto": "TÉCNICO/A ELECTRÓNICO",
-    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
-    "hasta": "2026-11-08",
-    "nivel": "grado",
-    "experiencia": 0.1,
+    "puesto": "Técnico Gestión Prevención de Riesgos Laborales",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-11",
+    "nivel": "fp_superior",
+    "experiencia": 0.82,
     "colectivo": "general"
    },
    "691918": {
@@ -1141,6 +1128,16 @@
     "hasta": "2026-11-10",
     "nivel": "grado",
     "experiencia": 0.87,
+    "colectivo": "general"
+   },
+   "691966": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "TÉCNICO/A ELECTRÓNICO",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-11-08",
+    "nivel": "grado",
+    "experiencia": 0.1,
     "colectivo": "general"
    },
    "691687": {
@@ -1183,26 +1180,6 @@
     "experiencia": 0.06,
     "colectivo": "general"
    },
-   "690730": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Enfermero o Enfermera Pepsa",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "grado",
-    "experiencia": 0.82,
-    "colectivo": "general"
-   },
-   "690712": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o monitor sociosanitario",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.83,
-    "colectivo": "general"
-   },
    "690754": {
     "zona": false,
     "zv": 4,
@@ -1223,15 +1200,25 @@
     "experiencia": 0.79,
     "colectivo": "general"
    },
-   "689332": {
-    "nivel": "grado",
-    "experiencia": 0.94,
+   "690730": {
     "zona": false,
-    "puesto": "Gerencia de la Agencia de Vivienda y Rehabilitación de Andalucía",
-    "entidad": "Agencia de Vivienda y Rehabilitación de Andalucía",
-    "hasta": "2026-11-10",
-    "colectivo": "general",
-    "zv": 4
+    "zv": 4,
+    "puesto": "Enfermero o Enfermera Pepsa",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "grado",
+    "experiencia": 0.82,
+    "colectivo": "general"
+   },
+   "690712": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Monitora o monitor sociosanitario",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-11-11",
+    "nivel": "fp_superior",
+    "experiencia": 0.83,
+    "colectivo": "general"
    },
    "690112": {
     "nivel": "grado",
@@ -1239,6 +1226,16 @@
     "zona": false,
     "puesto": "Promoción y Traslado-Técnico/a de Gestión Teatro Alhambra",
     "entidad": "Agencia Andaluza de Instituciones Culturales",
+    "hasta": "2026-11-10",
+    "colectivo": "general",
+    "zv": 4
+   },
+   "689332": {
+    "nivel": "grado",
+    "experiencia": 0.94,
+    "zona": false,
+    "puesto": "Gerencia de la Agencia de Vivienda y Rehabilitación de Andalucía",
+    "entidad": "Agencia de Vivienda y Rehabilitación de Andalucía",
     "hasta": "2026-11-10",
     "colectivo": "general",
     "zv": 4
@@ -1331,10 +1328,10 @@
    }
   },
   "agenda": {},
-  "fecha": "2026-11-07"
+  "fecha": "2026-11-08"
  },
  "fap": {
-  "fecha": "2026-11-07",
+  "fecha": "2026-11-08",
   "novedades": [
    {
     "tipo": "noticia",
@@ -1502,17 +1499,6 @@
  },
  "cruceros": {
   "lista": [
-   {
-    "fecha": "2026-11-07",
-    "dia": "sábado",
-    "entrada": "07:30",
-    "salida": "18:00",
-    "barco": "Le Bougainville",
-    "naviera": "Ponant",
-    "pasajeros": 184,
-    "desde": "Cartagena",
-    "hacia": "Melilla"
-   },
    {
     "fecha": "2026-12-11",
     "dia": "viernes",
@@ -1918,16 +1904,6 @@
   "fuente": "Junta de Andalucía (Consejería de Sanidad)"
  },
  "agendaJunta": [
-  {
-   "titulo": "Posidonia oceánica: un símbolo de conservación en el Mediterráneo",
-   "fecha": "2026-11-07",
-   "lugar": "Almería",
-   "km": 50,
-   "fuente": "Junta de Andalucía",
-   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
-   "horario": "De 08:00h a 14:00h",
-   "precio": "Actividad gratuita"
-  },
   {
    "titulo": "II Jornada de Empleo, Formación y Emprendimiento de Huércal de Almería",
    "fecha": "2026-11-10",
@@ -5874,7 +5850,7 @@
     ]
    }
   ],
-  "dias": 371,
+  "dias": 370,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -5896,47 +5872,6 @@
     "fin": "2026-11-08",
     "municipio": "Almería",
     "enlace": "https://www.turismodealmeria.org/evento/festival-internacional-de-jazz-almerijazz-2026/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Jam de jazz con Las Quintetas en La Guajira",
-    "inicio": "2026-11-06",
-    "fin": "2026-11-07",
-    "hora": "22:30",
-    "lugar": "La Guajira",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/jam-de-jazz-con-las-quintetas-en-la-guajira/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Senda de la Hidroeléctrica Laujar de Andarax",
-    "inicio": "2026-11-07",
-    "municipio": "Laujar de Andarax",
-    "enlace": "https://www.dipalme.org/Servicios/cmsdipro/index.nsf/fiestas.xsp?p=deportes&documentId=AED85DE094F4A998C12589A30029753B",
-    "fuente": "Diputación de Almería",
-    "aireLibre": true,
-    "senderismo": true,
-    "programa": "Rutas y Senderos 2026"
-   },
-   {
-    "titulo": "Terraceo con Pike Cavalero DJ en La Guajira",
-    "inicio": "2026-11-07",
-    "hora": "16:00",
-    "lugar": "La Guajira",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/terraceo-con-pike-cavalero-dj-en-la-guajira/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Fiesta de presentación Dancehall Almería en La Guajira",
-    "inicio": "2026-11-07",
-    "hora": "20:00",
-    "lugar": "La Guajira",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/fiesta-de-presentacion-dancehall-almeria-en-la-guajira/",
     "fuente": "Turismo de Almería",
     "gratis": true
    },
@@ -6078,7 +6013,7 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-07"
+  "dia": "2026-11-08"
  },
  "sendaAdra": {
   "pdf": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
