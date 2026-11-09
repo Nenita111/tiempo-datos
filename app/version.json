@@ -1,8 +1,8 @@
 {
-  "versionCode": 67,
-  "versionName": "4.36",
+  "versionCode": 68,
+  "versionName": "4.37",
   "apk": "app/Tiempo.apk",
-  "sha256": "f2fe384c7d28581f9549d26a9c71f4c3f634d03b640a8e4b9a22d58fdce6eb8c",
-  "bytes": 1308749,
-  "notas": "4.36: Semana sin las 24 horas (van en Ahora); Terremotos otra vez en su pantalla, con los de España (y Canarias) y el mundo; Inundaciones y acuíferos con el zoom alargado del Paseo de los Navegantes; Ayudas y cursos gratis en su pantalla; pestañas por temas"
+  "sha256": "92071fa20fa029005e9152c425ac93d7bf0cf9c182cdc7912ff2a05ae75fc59c",
+  "bytes": 1323129,
+  "notas": "4.37: recomendación oficial del aire; fondos dibujados según la pantalla, el tiempo, los avisos, la estación y las fiestas; cursos agrupados; «Nuevo» de 24 horas y delante; letra mínima de 20 px"
 }
