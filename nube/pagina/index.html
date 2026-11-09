@@ -30,11 +30,14 @@ body{font-family:Atkinson,sans-serif;color:var(--tx);transform-origin:0 0;-webki
 body.claro{background:var(--granoimg,none) 0 0/160px 160px,radial-gradient(1400px 800px at 12% -12%,#fffaf1 0%,rgba(255,250,241,0) 62%),radial-gradient(1100px 700px at 106% 112%,#f3dbbd 0%,rgba(243,219,189,0) 56%),var(--bg)}
 .num{font-weight:500;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.02em}
 
-/* ---------- 4.37: el fondo dibujado de cada pantalla (escena), detrás de todo y muy suave ---------- */
+/* ---------- 4.37 y 4.38: el fondo dibujado de cada pantalla (escena), detrás de todo: un paisaje por capas, suave ---------- */
 #escena{position:absolute;inset:0;pointer-events:none;z-index:0;color:var(--c1)}#escena svg{position:absolute;inset:0;width:100%;height:100%}
-#escena .tema{opacity:.17}#escena .friso{opacity:.42}#escena .margen{opacity:.38}#escena .cielo{opacity:.3}#escena .estacion{opacity:.3}#escena .fiesta{opacity:.55}
-body.claro #escena .tema{opacity:.15}body.claro #escena .friso{opacity:.38}body.claro #escena .margen{opacity:.34}body.claro #escena .cielo{opacity:.28}body.claro #escena .estacion{opacity:.28}
-#escena .rel{fill:currentColor;fill-opacity:.16}#escena .lleno{fill:currentColor;stroke:none}#escena .fondo{opacity:.55}
+#escena .tema{stroke-opacity:.34}#escena .tema *{vector-effect:non-scaling-stroke}#escena .cielo{opacity:.3}#escena .estacion{opacity:.3}#escena .fiesta{opacity:.55}
+body.claro #escena .tema{stroke-opacity:.38}body.claro #escena .cielo{opacity:.28}body.claro #escena .estacion{opacity:.28}
+#escena .m1,#escena .m2,#escena .m3,#escena .m4{fill:currentColor;stroke:none}#escena .m1{fill-opacity:.07}#escena .m2{fill-opacity:.12}#escena .m3{fill-opacity:.19}#escena .m4{fill-opacity:.38}
+body.claro #escena .m1{fill-opacity:.09}body.claro #escena .m2{fill-opacity:.15}body.claro #escena .m3{fill-opacity:.23}
+#escena .c2{color:var(--c2)}#escena .vent{stroke-opacity:.2;stroke-width:9}#escena .tema .lleno{fill-opacity:.5}
+#escena .rel{fill:currentColor;fill-opacity:.2}#escena .lleno{fill:currentColor;stroke:none}#escena .fondo{opacity:.55}
 #escena .fi-l{stroke:#c9a227;fill:none}#escena .fi-l .lleno{fill:#f5c400}#escena .calima{fill:#d9a441;opacity:.10;stroke:none}
 /* ---------- ambiente animado (detrás de todo) ---------- */
 #amb{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
@@ -1604,7 +1607,7 @@ const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "com
   agua: ["lluvia", "saih", "sequia", "agua"], get mar() { return ["boya", "playas", "oleaje", "maritima", "mareas"].concat(enBano() ? ["aguaBano"] : []); }, cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
   espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
   alertas: ["alimentarias", "medicamentos", "productos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "regatas", "rfep"], carretera: ["camara", "ruta", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
-  sismos: ["terremotos", "sismosMundo"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo", "boja", "boe", "bolsaSas", "x"], sas: ["boja", "boe", "bolsaSas"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
+  sismos: ["terremotos", "sismosMundo"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas", "x"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
   noticias: ["noticias", "cortesAgua", "sangre"], planes: ["x"], ayudas: ["x"]};
 const NOMBRE_FUENTE = {islasCalor: "temperatura de la superficie (Landsat)", maremotos: "riesgo de maremoto", inundaciones: "zonas inundables", naturaleza: "biodiversidad (GBIF)", clima: "clima (AEMET)", climaRia: "lo normal en el pueblo (IFAPA)", radsol: "radiación solar (AEMET)", polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
   renovable: "renovables", alimentarias: "alertas AESAN", efemerides: "efemérides", terremotos: "terremotos", futbol: "UD Almería",
@@ -1752,7 +1755,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
   E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayAlertas() || hayProductos() ? ["alertas"] : [],
   ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
-  ofertasVigentes().length || saeVigentes().length || haySas() ? ["empleo"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() ? ["planes"] : []);
+  ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length ? ["sas"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() ? ["planes"] : []);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): ajustes de las pantallas con el mando (≡ en la app): las que no salen, su orden y los
    segundos de cada una. Los guarda la app (Android.ajustes / guardarAjustes, SharedPreferences): los mismos en la app y en el salvapantallas.
    El aviso de AEMET sale siempre, el primero. */
@@ -1766,7 +1769,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
 // tierra (agua, mar, inundaciones y acuíferos, terremotos); el cielo y el planeta (cielo, espacio, planeta, naturaleza); el día (hoy, planes,
 // noticias, alertas, casa); moverse (carretera, trenes); y el trabajo y el dinero (campo, lonja, economía, empleo, ayudas y cursos)
 const ORDEN_BASE = ["ahora", "semana", "clima", "aire", "agua", "mar", "inundaciones", "sismos", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "noticias",
-  "alertas", "casa", "carretera", "trenes", "campo", "pescado", "economia", "empleo", "ayudas"];
+  "alertas", "casa", "carretera", "trenes", "campo", "pescado", "economia", "empleo", "sas", "ayudas"];
 const ORDEN_V = 3;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
 function leerAjustes() {
@@ -1825,8 +1828,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   get sismos() { return "Fuentes: Instituto Geográfico Nacional (IGN)" + (E.sismosMundo ? " · Servicio Geológico de EE. UU. (USGS) · mapa: Natural Earth" : ""); },
   mundo: "Fuentes: Servicio Geológico de EE. UU. (USGS) · mapa: Natural Earth",
   campo: "Fuente: FHAlmería (pizarra de las subastas)", pescado: "Fuente: Junta de Andalucía (IDAPES, primera venta en lonjas)",
-  empleo: "Fuentes: Servicio Andaluz de Empleo · Junta de Andalucía (Transparencia) · BOJA · BOE",
-  sas: "Fuentes: BOJA · BOE (datos abiertos)",
+  empleo: "Fuentes: Servicio Andaluz de Empleo · Junta de Andalucía (Transparencia)", sas: "Fuentes: Servicio Andaluz de Salud · BOJA · BOE",
   planes: "Fuentes: Ayuntamiento de Adra (Adra en la Senda) · Turismo de Almería · Motril Turismo · Diputación de Almería · Junta de Andalucía (agenda)",
   ayudas: "Fuentes: Base de Datos Nacional de Subvenciones (IGAE) · Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
   economia: "Fuentes: SEPE (paro registrado) · Seguridad Social (afiliados) · Banco de España (euríbor y Letras del Tesoro) · Junta de Andalucía (calendario laboral)",
@@ -1919,7 +1921,7 @@ function textoFuentes(p) {
   if (p === "mar" && crucerosProximos().length) base += " · cruceros: Autoridad Portuaria de Almería";
   return (base + (p === "ahora" && fuegosCerca().length ? " · fuegos: NASA FIRMS" : "")
     + (p === "agua" && lluviaRia() ? " · lluvia: Junta de Andalucía (IFAPA)" : "") + (p === "agua" && saihVigente() ? " · lluvia y ríos ahora: Junta de Andalucía (SAIH Hidrosur)" : "")
-    + (p === "economia" && ((E.ipc || {}).espana || []).length ? " · INE (IPC)" : "") + (p === "sas" && bolsaNovedades().length ? " · Servicio Andaluz de Salud (Bolsa Única)" : "") + (p === "hoy" && (regatasProximas().some(r => !r.espana) || resultadosRegatas().some(x => !x.espana) || novedadFap(regatasProximas())) ? " · Federación Andaluza de Piragüismo" : "")
+    + (p === "economia" && ((E.ipc || {}).espana || []).length ? " · INE (IPC)" : "") + (p === "hoy" && (regatasProximas().some(r => !r.espana) || resultadosRegatas().some(x => !x.espana) || novedadFap(regatasProximas())) ? " · Federación Andaluza de Piragüismo" : "")
     + (p === "hoy" && rfepEnTarjeta() ? " · Federación Española de Piragüismo" : "")
     + (p === "ahora" && (rayosRecientes() || rayoUltimo()) ? " · rayos: EUMETSAT (satélite MTG)" : "") + (p === "campo" && raifVigente().length ? " · plagas: RAIF (Junta de Andalucía)" : "")
     + (p === "planeta" && respiratoriasVigente() ? " · virus respiratorios: Junta de Andalucía" : "")
@@ -4187,7 +4189,7 @@ const marcaNuevo = (k, f) => esNuevo(k, f) ? `<i class="nuevo">Nuevo</i>` : "";
 /* cada lista larga: cómo se llama cada fila (la misma clave que en claveNuevo) y su fecha de publicación */
 const NOVEDAD = {
   sae: [o => "sae:" + o.id, o => o.desde], ofertas: [o => "of:" + o.id, o => o.publicada], bolsa: [n => "bolsa:" + n.enlace, n => n.fecha],
-  sas: [x => x.k + (x.url || x.id), x => x.fecha], ayudas: [a => "ay:" + a.num, a => a.registrada],
+  sas: [x => x.k + (x.url || x.id), x => x.fecha], ayudas: [a => "ay:" + a.num, a => a.registrada], sasOfertas: [o => "ooe:" + o.id, o => o.fecha],
   cursosP: [g => g.ed.map(c => "cu:" + c.id)], cursosL: [g => g.ed.map(c => "cu:" + c.id)],
   noticias: [n => "no:" + n.titulo, n => n.s], alimentarias: [a => "al:" + claveAlim(a), a => a.fecha], productos: [x => "sg:" + x.id, x => x.fecha],
   medicamentos: [a => "med:" + a.codigo, a => a.fecha], sorteos: [s => "so:" + s.enlace + s.premio], planes: [p => "pl:" + p.enlace + p.inicio],
@@ -4198,13 +4200,18 @@ function primeroNuevo(clave, L) {
   const [kf] = NOVEDAD[clave], g = "@" + clave;
   if (!vistos[g]) {   // la primera vez que sale esta lista: lo que ya hay no es nuevo
     vistos[g] = Date.now();
-    for (const x of L) for (const k of [].concat(kf(x))) if (vistos[k] == null) vistos[k] = Date.now() - 2 * H24;
+    const [, ff] = NOVEDAD[clave], ayer = isoDe(new Date(Date.now() - H24));
+    for (const x of L) {
+      const t = ff ? msDe(ff(x)) : null;
+      if (t != null && isoDe(new Date(t)) >= ayer) continue;       // 4.38: lo publicado hoy o ayer sí es nuevo
+      for (const k of [].concat(kf(x))) if (vistos[k] == null) vistos[k] = Date.now() - 2 * H24;
+    }
     guardarVistos();
   }
   return L.map((x, i) => [nuevoDe(clave, x) ? 0 : 1, i, x]).sort((a, b) => a[0] - b[0] || a[1] - b[1]).map(x => x[2]);
 }
 /* las partes nuevas de cada versión, «Nuevo» en su cabecera durante 3 días */
-const SECCIONES_NUEVAS = {"aire-rec": "2026-11-09", "sismos-es": "2026-11-08", "ayudas": "2026-11-08", "h48": "2026-11-08", "calor": "2026-11-08"};
+const SECCIONES_NUEVAS = {"sas-ofertas": "2026-11-10", "sas": "2026-11-10", "aire-rec": "2026-11-09", "sismos-es": "2026-11-08", "ayudas": "2026-11-08", "h48": "2026-11-08", "calor": "2026-11-08"};
 const secNueva = k => SECCIONES_NUEVAS[k] && -diasHasta(SECCIONES_NUEVAS[k]) < 3 ? `<i class="nuevo sec">Nuevo</i>` : "";
 function apuntarVistos(raiz) {   // tras ajustar: lo que de verdad ha quedado en pantalla
   let cambia = false;
@@ -5096,18 +5103,52 @@ function pSismosMundo() {
     ${m ? `<div class="col" style="grid-template-rows:1fr">${m}</div>` : ""}<div class="col" style="grid-template-rows:auto minmax(0,1fr)">${tarjetaMundoMapa()}${tarjetaMundoResto(4, true) || tarjetaMundoLista()}</div></div>`;
 }
 /* Empleo con el SAS, las ayudas y los cursos: tres columnas (las ofertas · el SAS y su Bolsa · las ayudas y los cursos), cada lista por turnos */
+/* ---------- 4.38 (lo pidió Isa el 9 nov 2026: «añade las ofertas recientes del sur de Granada, poniente almeriense y Almería capital»): las
+   ofertas de provisión temporal del SAS (puestos base, cargos intermedios y puestos directivos) de los últimos 30 días en esos centros, de la
+   página oficial del SAS (sas_ofertas.py, tarea diaria; extras.json «sasOfertas»). Primero las que siguen en plazo. El SAS vuelve a su
+   pantalla (con 5 listas, Empleo no cabía con letra de 20 px): las ofertas a la izquierda; lo del BOJA y el BOE y la Bolsa, a la derecha. ---------- */
+const TIPO_OOE = {base: "Puesto base", intermedio: "Cargo intermedio", directivo: "Puesto directivo"};
+const centroSas = c => String(c || "").replace(/^Área de gestión sanitaria/i, "AGS").replace(/^Hospital Universitario/i, "Hospital U.").replace(/^Centro de transfusión, tejidos y células/i, "Centro de transfusión");
+const enPlazoOoe = o => !!(o.plazo && o.plazo.hasta && diasHasta(o.plazo.hasta) >= 0 && !["desierta", "resuelta"].includes(o.estado));
+function ofertasSas() {
+  const S = (E.extras || {}).sasOfertas || {}, dias = S.dias || 30;
+  return (S.lista || []).filter(o => o.id && o.fecha && diasHasta(o.fecha) >= -dias && diasHasta(o.fecha) <= 0 && (o.puesto || o.titulo))
+    .map((o, i) => [enPlazoOoe(o) ? 0 : 1, i, o]).sort((a, b) => a[0] - b[0] || a[1] - b[1]).map(x => x[2]);
+}
+function itemOoe(o) {
+  const k = "ooe:" + o.id, abierta = enPlazoOoe(o);
+  const estado = o.estado === "desierta" ? "declarada desierta" : o.estado === "resuelta" ? "ya resuelta" : o.estado ? `ya hay ${o.estado}` : "";
+  return `<li ${claveNuevo(k)}${abierta ? ' class="abierta"' : ""}><div><b>${esc(o.puesto || o.titulo)}${marcaNuevo(k, o.fecha)}</b>
+    <span><i class="et">${TIPO_OOE[o.tipo] || "Oferta"}</i> · <b class="aqui">${esc(centroSas(o.centro))}</b>${o.cod ? ` · cód. ${esc(o.cod)}` : ""}</span>
+    <span>${o.boja ? "BOJA del" : "publicada el"} ${diaFecha(o.fecha)}${plazoSas(o.plazo)}${estado ? ` · ${estado}` : ""}</span></div>${qrSvg(o.enlace, "qr nq", 54)}</li>`;
+}
+function tarjetaOfertasSas(i, cols = 1) {
+  const L = ofertasSas();
+  if (!L.length) return "";
+  const dias = ((E.extras || {}).sasOfertas || {}).dias || 30, ab = L.filter(enPlazoOoe).length, t = enTurno("sasOfertas", L, 30);
+  return `<div data-f="x" class="tile emp ooe colsT" style="--i:${i}"><div class="k">${secNueva("sas-ofertas")}SAS · provisión temporal<em>${L.length} ${L.length === 1 ? "oferta" : "ofertas"} en ${dias} días${ab ? ` · <b class="am">${ab} en plazo</b>` : ""} · Sur de Granada, Poniente y Almería capital</em></div>
+    <ul class="${cols > 1 ? `cols${cols}` : "una"}" ${t.attr}>${t.items.map(itemOoe).join("")}</ul></div>`;
+}
+function pSasPagina() {
+  const of = tarjetaOfertasSas(1), der = haySas() ? pSas(true) : [];
+  if (!of) return der.length ? pSas() : `<div class="main">${vacia("Sin ofertas ni convocatorias del SAS ahora.")}</div>`;
+  if (!der.length) return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${tarjetaOfertasSas(1, 2)}</div></div>`;
+  const filas = der.map(t => +((t.match(/data-total="(\d+)"/) || [])[1] || 9) <= 2 ? "auto" : "minmax(0,1fr)");
+  if (!filas.includes("minmax(0,1fr)")) filas[filas.length - 1] = "minmax(0,1fr)";
+  return `<div class="main trabajo" style="grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${of}</div><div class="col" style="grid-template-rows:${filas.join(" ")}">${der.join("")}</div></div>`;
+}
 function pTrabajo() {
   // 4.36 (lo pidió Isa el 8 nov 2026: «haz una página específica para ayudas y subvenciones y cursos gratis»): aquí, el empleo y el SAS
-  const cols = [pEmpleo(true), haySas() ? pSas(true) : []].filter(c => c.length);
-  if (!cols.length) return `<div class="main">${vacia("Sin ofertas ni oposiciones ahora.")}</div>`;
-  // las listas cortas (1 o 2), a su tamaño; las largas se reparten el resto (si no, una sola larga se queda con una fila)
-  const filas = c => { const r = c.map(t => +((t.match(/data-total="(\d+)"/) || [])[1] || 9) <= 2 ? "auto" : "minmax(0,1fr)");
-    if (!r.includes("minmax(0,1fr)")) r[r.length - 1] = "minmax(0,1fr)"; return r.join(" "); };
-  return `<div class="main trabajo" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(c => `<div class="col" style="grid-template-rows:${filas(c)}">${c.join("")}</div>`).join("")}</div>`;
+  // 4.38: el SAS, en su pantalla; aquí, el SAE y los entes de la Junta, cada lista en su columna. La lista corta (1 o 2 ofertas) se queda
+  // a su tamaño (debajo se ve el fondo de la pantalla); la larga, con toda la altura
+  const cols = pEmpleo(true);
+  if (!cols.length) return `<div class="main">${vacia("Sin ofertas de empleo ahora.")}</div>`;
+  const corta = t => +((t.match(/data-total="(\d+)"/) || [])[1] || 9) <= 2;
+  return `<div class="main trabajo" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(t => `<div class="col" style="grid-template-rows:${corta(t) && cols.length > 1 ? "auto;align-content:start" : "minmax(0,1fr)"}">${t}</div>`).join("")}</div>`;
 }
 const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
   alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
-  economia: pEconomia, empleo: pTrabajo, sas: pSas, planes: pPlanes, ayudas: pAyudas};
+  economia: pEconomia, empleo: pTrabajo, sas: pSasPagina, planes: pPlanes, ayudas: pAyudas};
 /* ---------- 4.37 (lo pidió Isa el 8 nov 2026: «rediseña las pantallas para que su fondo sea adecuado respecto a la temática o situación»):
    detrás de cada pantalla, un dibujo propio y tenue de su tema (en el color de la pantalla) y, encima, la situación: el cielo con el tiempo
    de ahora de AEMET (sol o luna, nubes, lluvia, tormenta, niebla, calima, viento; en Ahora ya lo pinta su animación), un aviso (AEMET,
@@ -5225,61 +5266,142 @@ function capaCielo(p) {
   const tinte = A.calima || A.fCal ? `<rect class="calima" x="0" y="0" width="1920" height="1080"/>` : "";
   return `${tinte}<g class="cielo">${out.join("")}</g>`;
 }
+/* 4.38 (lo pidió Isa el 9 nov 2026: «mejora los fondos temáticos personalizados de cada pantalla»): cada pantalla, con su paisaje: siluetas
+   rellenas por capas en el color de la pantalla (lo lejano, más suave: m1; lo cercano, más fuerte: m3) y unos motivos grandes de su tema.
+   Se ve a través de las tarjetas (que dejan pasar un tercio) y entero en los huecos, en los márgenes y donde una lista corta deja sitio.
+   Arriba (la cabecera) y abajo (las pestañas) se queda suave para no quitar contraste a los textos. Sin los iconos repetidos de los márgenes
+   ni el friso de 4.37. */
 function capaTema(p) {
-  const D = DIB, m = (y, a, s) => D.sierra(y, a, s);
+  const D = DIB;
+  const monte = (y, alto, sem, c = "m2", paso = 120) => { const R = azar(sem), P = []; for (let x = -60; x <= 1980; x += paso) P.push([x, y - alto * (.3 + .7 * R())]);
+    return `<path class="${c}" d="${suave(P)} L1980,1100 L-60,1100 Z"/>`; };
+  const olas = (y, A, L, f = 0, c = "m2") => { let d = `M${-L + f},${y}`; for (let x = -L + f; x < 1920 + L; x += L) d += ` q${L / 4},${-A} ${L / 2},0 t${L / 2},0`;
+    return `<path class="${c}" d="${d} L${1920 + 2 * L},1100 L${-2 * L},1100 Z"/>`; };
+  const suelo = (y, c = "m2") => `<rect class="${c}" x="-10" y="${y}" width="1940" height="${1100 - y}"/>`;
+  const disco = (x, y, r, c = "m2") => `<circle class="${c}" cx="${x}" cy="${y}" r="${r}"/>`;
+  const halo = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#gHalo)" stroke="none"/>`;
+  const rect = (c, x, y, w, h, rx = 0) => `<rect class="${c}" x="${x}" y="${y}" width="${w}" height="${h}"${rx ? ` rx="${rx}"` : ""}/>`;
+  const pol = (c, pts) => `<path class="${c}" d="M${pts} Z"/>`;
+  const estrellas = (n, sem, y0 = 180, y1 = 780) => { const R = azar(sem); let s = ""; for (let i = 0; i < n; i++) s += D.estrella(R() * 1920, y0 + R() * (y1 - y0), 2 + R() * 6); return s; };
+  const g = D.g;
+  // motivos propios de esta versión (siluetas)
+  const torre = (x, y, s) => g(`<path class="rel" d="M-26,0 L-16,-250 H16 L26,0 Z"/><path class="rel" d="M-22,-250 h44 v-26 h-44 z"/><path d="M-22,-276 v-10 h10 v10 m8,0 v-10 h8 v10 m8,0 v-10 h10 v10 M-18,-170 h36 M-21,-90 h42"/>`, s, x, y);
+  const iglesia = (x, y, s) => g(`<path class="rel" d="M-70,0 V-70 L-20,-104 L30,-70 V0 Z"/><path class="rel" d="M30,0 V-150 L52,-190 L74,-150 V0 Z"/><path d="M52,-190 V-216 M43,-205 h18 M-28,0 v-34 a8,8 0 0 1 16,0 v34 M44,-122 h16 v22 h-16 z"/>`, s, x, y);
+  const pino = (x, y, s) => g(`<path class="rel" d="M0,-120 L34,-70 H18 L44,-30 H6 V0 H-6 V-30 H-44 L-18,-70 H-34 Z"/>`, s, x, y);
+  const cupula = (x, y, s) => g(`<path class="rel" d="M-60,0 V-40 A60,60 0 0 1 60,-40 V0 Z"/><path d="M-12,-98 L-6,-40 M16,-96 L10,-40"/><rect class="rel" x="-72" y="0" width="144" height="28"/>`, s, x, y);
+  const tri = (x, y, s) => g(`<path class="rel" d="M0,-110 L64,0 H-64 Z"/><path d="M0,-76 V-38"/><circle class="lleno" cx="0" cy="-20" r="5"/>`, s, x, y);
+  const carrito = (x, y, s) => g(`<path d="M-76,-92 h24 l24,72 h78 l18,-52 h-112"/><circle class="rel" cx="-16" cy="-4" r="10"/><circle class="rel" cx="48" cy="-4" r="10"/>`, s, x, y);
+  const avion = (x, y, s, r = -12) => g(`<path class="rel" d="M-90,0 C-90,-8 -70,-12 -50,-12 H40 L80,-44 H96 L76,-12 C96,-12 110,-6 110,0 C110,6 96,12 76,12 H20 L-20,50 H-40 L-16,12 H-50 C-70,12 -90,8 -90,0 Z"/>`, s, x, y, r);
+  const pesquero = (x, y, s) => g(`<path class="rel" d="M-110,0 L-90,34 H84 L112,0 Z"/><path class="rel" d="M-30,0 V-40 H30 V0 Z"/><path d="M40,0 V-112 M40,-112 L104,-20 M40,-72 L-80,-10 M-18,-24 h14 M4,-24 h14"/>`, s, x, y);
+  const globoAire = (x, y, s) => g(`<path class="rel" d="M0,-90 a70,70 0 0 1 70,70 c0,44 -40,74 -52,96 h-36 c-12,-22 -52,-52 -52,-96 a70,70 0 0 1 70,-70 z"/><rect class="rel" x="-16" y="92" width="32" height="24" rx="4"/><path d="M-18,76 L-12,92 M18,76 L12,92 M0,-90 V76 M-36,-80 C-56,-30 -40,40 -18,76 M36,-80 C56,-30 40,40 18,76"/>`, s, x, y);
+  const corazon = (x, y, s) => g(`<path class="rel" d="M0,40 C-70,-10 -60,-70 -24,-70 C-8,-70 0,-56 0,-48 C0,-56 8,-70 24,-70 C60,-70 70,-10 0,40 Z"/>`, s, x, y);
+  const ventanas = (x, y, w, h, paso = 44) => { let d = ""; for (let yy = y + 34; yy < y + h - 20; yy += paso) d += `M${x + 22},${yy} H${x + w - 22} `; return `<path class="vent" stroke-dasharray="16 20" d="${d}"/>`; };
+  const naves = (y, w, alto, c, f = 0) => { let d = `M${-w + f},${y}`; for (let x = -w + f; x < 1920 + w; x += w) d += ` a${w / 2},${alto} 0 0 1 ${w},0`; return `<path class="${c}" d="${d} L${1920 + 2 * w},1100 L${-2 * w},1100 Z"/><path d="${d}"/>`; };
+  const edificio = (x, w, h, c = "m2", base = 990) => rect(c, x, base - h, w, h, 6) + ventanas(x, base - h, w, h);
   const T = {
-    ahora: () => m(1000, 150, 3) + D.ondas(1050, 8, 120) + D.casa(240, 990, 1) + D.casa(310, 1000, .8),
-    semana: () => m(990, 170, 4) + m(1040, 90, 8) + D.ondas(1062, 6, 110),
-    clima: () => m(1010, 160, 6) + D.termometro(1820, 1000, 1.4) + D.sol(1650, 900, 26),
-    aire: () => [0, 1, 2, 3].map(i => `<path d="M${-20 + i * 30},${900 + i * 40} C400,${850 + i * 40} 700,${960 + i * 40} 1100,${900 + i * 40} S1700,${860 + i * 40} 1940,${910 + i * 40}"/>`).join("")
-      + [[300, 880, 20], [820, 960, -30], [1400, 900, 40], [1700, 990, 10]].map(([x, y, a]) => D.hoja(x, y, a, 1.4)).join(""),
-    agua: () => m(980, 200, 9) + `<path d="M520,1080 L600,860 H1320 L1400,1080"/>` + D.ondas(940, 6, 90) + D.ondas(990, 6, 90, 40) + [200, 1720].map(x => D.gota(x, 960, 1.6)).join(""),
-    mar: () => D.ondas(930, 14, 160) + D.ondas(985, 12, 140, 50) + D.ondas(1040, 10, 120, 20) + D.barco(1500, 905, 1.2) + D.faro(120, 1000, 1.4) + D.gaviota(1180, 840, 1.4) + D.gaviota(1260, 810, 1),
-    inundaciones: () => `<path d="M-20,940 C300,900 520,1010 820,960 S1350,880 1600,960 1940,1000"/><path d="M-20,1000 C300,960 520,1070 820,1020 S1350,940 1600,1020 1940,1060"/>` + D.ondas(1062, 6, 100),
-    sismos: () => D.sismograma(940) + [0, 1, 2].map(i => `<path d="M-20,${1000 + i * 26} C400,${985 + i * 26} 900,${1015 + i * 26} 1940,${995 + i * 26}"/>`).join(""),
-    cielo: () => { const R = azar(21); let s = ""; for (let i = 0; i < 70; i++) s += D.estrella(R() * 1920, R() * 1080, 2 + R() * 5);
-      return s + `<polyline points="1480,240 1560,200 1640,230 1700,300 1660,360"/>` + D.luna(1300, 110, 38) + D.telescopio(1780, 1040, 1.2); },
-    espacio: () => { const R = azar(31); let s = ""; for (let i = 0; i < 60; i++) s += D.estrella(R() * 1920, R() * 1080, 1.5 + R() * 4);
-      return s + `<ellipse cx="1500" cy="980" rx="560" ry="120"/>` + D.planeta(1500, 980, 60, 1.8) + D.planeta(980, 1000, 16) + D.satelite(1300, 110, 1.4); },
-    planeta: () => D.globo(1760, 1000, 170) + `<ellipse cx="1760" cy="1000" rx="260" ry="70" transform="rotate(-14 1760 1000)"/>`,
-    naturaleza: () => [[120, 1060], [420, 1070], [760, 1062], [1120, 1072], [1480, 1060], [1800, 1070]].map(([x, y], i) => D.hierba(x, y, 1.3 + (i % 2) * .3)).join("") + D.mariposa(1300, 880, 1.2) + D.flor(600, 1000, 1.4) + D.gaviota(900, 860, 1.2),
-    hoy: () => m(1020, 120, 12) + [180, 250, 330, 420, 1540, 1630, 1720].map((x, i) => D.casa(x, 1040 - (i % 3) * 14, .9 + (i % 2) * .2)).join("") + D.sol(1820, 1000, 30),
-    planes: () => m(990, 200, 14) + `<path stroke-dasharray="12 12" d="M200,1080 C500,1000 700,1040 960,960 S1400,900 1600,840"/>` + `<path class="rel" d="M1600,840 V780 L1650,795 L1600,810"/>`,
-    noticias: () => D.periodico(1780, 1060, 1.3) + [0, 1, 2, 3, 4].map(i => `<path d="M-20,${960 + i * 22} H${600 - i * 60}"/>`).join(""),
-    alertas: () => D.escudo(1800, 1040, 1.4) + [[220, 1050], [380, 1030]].map(([x, y]) => `<path class="rel" d="M${x},${y - 60} L${x + 34},${y} H${x - 34} Z"/><line x1="${x}" y1="${y - 40}" x2="${x}" y2="${y - 20}"/>`).join(""),
-    casa: () => [260, 360, 1500, 1610, 1720].map((x, i) => D.casa(x, 1050, 1.3 + (i % 2) * .3)).join("") + D.bombilla(960, 1040, 1.4) + D.gota(1100, 1030, 1.6),
-    carretera: () => D.carretera() + D.coche(240, 1040, 1.3) + D.senal(1700, 1060, 1.2),
-    trenes: () => D.vias(1050) + D.tren(1300, 1040, 1.4),
-    campo: () => D.invernadero(-20, 1010, 900, 9) + D.invernadero(980, 1020, 960, 10) + D.olivo(930, 1060, 1.4) + m(960, 120, 18).replace("rel", "rel fondo"),
-    pescado: () => D.ondas(1000, 10, 140) + D.ondas(1050, 8, 120, 30) + D.pez(180, 1000, 1.4) + D.pez(1700, 1040, 1.2, 180) + D.barco(1300, 980, 1) + `<path d="M520,1080 L700,920 L880,1080 M560,1040 H840 M600,1000 H800 M640,960 H760"/>`,
-    economia: () => D.grafica(80, 1060, 1760, 230) + D.moneda(1780, 900, 34) + D.moneda(1720, 940, 28),
-    empleo: () => D.maletin(1760, 1050, 1.5) + D.grafica(60, 1070, 1500, 90).replace(/<rect[^>]*>/g, "") + [0, 1, 2].map(i => D.casa(300 + i * 80, 1060, .8)).join(""),
-    ayudas: () => D.birrete(1760, 1040, 1.4) + D.libro(1560, 1060, 1.4) + D.libro(220, 1060, 1.1) + [0, 1, 2].map(i => `<path d="M${460 + i * 40},1080 V${1000 - i * 30}"/>`).join(""),
-    aviso: () => ""
+    // Adra desde el mar: la sierra, el pueblo con la Torre de los Perdigones, el faro y el mar
+    ahora: () => halo(1420, 430, 380) + monte(640, 230, 3, "m1") + monte(740, 150, 13, "m2")
+      + [300, 392, 486, 584, 1180, 1276, 1372].map((x, i) => D.casa(x, 800 - (i % 3) * 14, 1.5 + (i % 2) * .5)).join("") + torre(900, 806, 1.5) + D.faro(1640, 824, 3.3)
+      + olas(826, 12, 220, 0, "m2") + olas(910, 14, 180, 40, "m3") + olas(1000, 12, 150, 10, "m3"),
+    // los siete días: siete soles en su arco sobre los montes
+    semana: () => monte(700, 200, 4, "m1") + monte(810, 140, 8, "m2") + monte(920, 110, 21, "m3") + `<path stroke-dasharray="6 18" d="M150,650 Q960,90 1770,650"/>`
+      + Array.from({length: 7}, (_, i) => { const t = i / 6, x = (1 - t) * (1 - t) * 150 + 2 * t * (1 - t) * 960 + t * t * 1770, y = (1 - t) * (1 - t) * 650 + 2 * t * (1 - t) * 90 + t * t * 650;
+        return (i === 0 ? halo(x, y, 150) : "") + disco(E2(x), E2(y), i === 0 ? 46 : 30, i === 0 ? "m3 c2" : "m2"); }).join(""),
+    // lo normal del año: el sol, la nieve, la lluvia y el termómetro
+    clima: () => halo(380, 380, 340) + disco(380, 380, 120, "m2 c2") + monte(770, 180, 6, "m1") + monte(890, 130, 16, "m2") + suelo(990, "m3")
+      + D.termometro(1540, 920, 6) + D.copo(1760, 400, 44) + D.copo(1690, 560, 26) + D.gota(1180, 560, 3.4) + D.gota(1090, 660, 2.4),
+    // el aire: cintas de viento, hojas y el sol
+    aire: () => halo(1560, 330, 320) + disco(1560, 330, 96, "m2 c2")
+      + `<path class="m1" d="M-40,560 C380,400 760,660 1200,490 S1760,380 1960,470 L1960,560 C1700,470 1500,590 1200,590 S500,500 -40,660 Z"/>`
+      + `<path class="m2" d="M-40,800 C300,700 640,900 1040,780 S1640,680 1960,790 L1960,880 C1640,780 1300,900 1040,880 S360,800 -40,900 Z"/>`
+      + `<path stroke-width="5" d="M260,760 c120,-90 300,-70 330,40 c24,90 -90,130 -130,70 c-28,-44 20,-84 56,-58 M1280,620 c100,-76 250,-60 276,34 c20,76 -76,110 -110,58 c-22,-36 16,-70 46,-48"/>`
+      + [[420, 300, -20, 5], [980, 640, 15, 4], [1700, 480, -40, 5.4], [1480, 880, 30, 4.4], [200, 940, 10, 3.6]].map(([x, y, a, s]) => D.hoja(x, y, a, s)).join("") + suelo(1000, "m2"),
+    // el agua: el embalse entre montes, con su presa
+    agua: () => monte(560, 260, 9, "m1") + monte(700, 210, 19, "m2") + olas(700, 8, 170, 0, "m2")
+      + pol("m3", "620,1100 710,650 1210,650 1300,1100") + `<path d="M710,650 H1210 M800,650 L765,1100 M880,650 L860,1100 M960,650 V1100 M1040,650 L1060,1100 M1120,650 L1155,1100"/>`
+      + D.gota(250, 440, 5.4) + D.gota(1640, 400, 4.4) + D.gota(1500, 580, 2.8) + olas(970, 10, 150, 30, "m3"),
+    // el mar: el faro con su haz, un velero, gaviotas y el sol en el horizonte
+    mar: () => halo(1480, 650, 430) + disco(1480, 670, 120, "m2 c2") + olas(700, 16, 260, 0, "m1") + olas(800, 18, 210, 70, "m2") + olas(910, 16, 180, 20, "m3") + olas(1015, 12, 150, 60, "m3")
+      + pol("m1", "262,318 1040,190 1040,420") + D.faro(230, 730, 4.2) + D.barco(1130, 780, 2.8) + D.gaviota(820, 340, 3) + D.gaviota(960, 410, 2.2) + D.gaviota(700, 450, 1.8),
+    // el río que se sale: la lluvia, la vega, el cauce y la regla del nivel
+    inundaciones: () => monte(600, 200, 23, "m1") + (() => { const R = azar(17); let s = ""; for (let i = 0; i < 34; i++) { const x = 80 + R() * 1760, y = 200 + R() * 330; s += `<line x1="${E2(x)}" y1="${E2(y)}" x2="${E2(x - 14)}" y2="${E2(y + 44)}"/>`; } return s; })()
+      + suelo(760, "m1") + D.casa(340, 716, 2.2) + D.casa(452, 728, 1.7) + D.casa(1560, 720, 2)
+      + `<path class="m3" d="M-40,770 C300,650 520,910 900,810 S1500,650 1960,770 L1960,910 C1500,810 1300,970 900,970 S300,830 -40,930 Z"/>`
+      + `<path stroke-width="5" d="M1180,960 V600 M1180,640 h34 M1180,700 h22 M1180,760 h34 M1180,820 h22 M1180,880 h34"/>` + olas(1005, 10, 140, 0, "m3"),
+    // la tierra por dentro: las capas con su falla, las ondas y el sismograma
+    sismos: () => { const fx = y => E2(1040 + (y - 560) * .2778);   // la falla: los estratos de la derecha, hundidos medio escalón
+      return monte(600, 130, 31, "m1") + [0, 1, 2, 3].map(i => { const y = 640 + i * 112, z = y + 54;
+        return `<path class="m1" d="M-10,${y} C300,${y - 24} 700,${y + 20} ${fx(y)},${y} L${fx(1100)},1100 L-10,1100 Z"/><path class="m1" d="M${fx(z)},${z} C1400,${z - 24} 1700,${z + 22} 1930,${z} L1930,1100 L${fx(1100)},1100 Z"/>`; }).join("")
+      + `<path stroke-dasharray="16 14" stroke-width="5" d="M1040,560 L1190,1100"/>` + [90, 180, 290, 420].map(r => `<circle cx="1100" cy="776" r="${r}"/>`).join("") + disco(1100, 776, 20, "m4")
+      + D.sismograma(360, 150); },
+    // la noche: la Luna, las estrellas, una constelación y la cúpula de un observatorio
+    cielo: () => estrellas(90, 21) + halo(1500, 320, 300) + D.luna(1500, 320, 120)
+      + `<polyline points="300,320 420,270 540,320 650,430 590,530 470,510 430,410 540,320"/>` + [[300, 320], [420, 270], [540, 320], [650, 430], [590, 530], [470, 510], [430, 410]].map(([x, y]) => disco(x, y, 8, "m4")).join("")
+      + monte(870, 170, 41, "m2") + cupula(420, 806, 3) + cupula(640, 836, 1.8) + monte(970, 90, 43, "m3"),
+    // el espacio: un planeta con anillos, otros mundos, órbitas y un satélite
+    espacio: () => estrellas(70, 31, 180, 1000) + `<ellipse cx="960" cy="1280" rx="1150" ry="600"/><ellipse cx="960" cy="1280" rx="820" ry="430"/>`
+      + disco(1560, 870, 300, "m2") + `<ellipse cx="1560" cy="870" rx="520" ry="112" transform="rotate(-16 1560 870)" stroke-width="12"/>`
+      + halo(420, 400, 230) + disco(420, 400, 72, "m3") + disco(250, 720, 34, "m2") + disco(1120, 560, 22, "m2") + D.satelite(940, 330, 3),
+    // el planeta: la Tierra desde fuera, con su atmósfera
+    planeta: () => estrellas(46, 51, 180, 560) + disco(1640, 340, 46, "m2") + disco(960, 1950, 1340, "m2") + `<circle cx="960" cy="1950" r="1372" stroke-width="10"/>`
+      + `<ellipse cx="960" cy="1950" rx="560" ry="1340"/><ellipse cx="960" cy="1950" rx="1010" ry="1340"/><path d="M-20,910 Q960,720 1940,910 M-20,1020 Q960,850 1940,1020"/>`
+      + `<path class="m2" d="M380,760 c60,-40 150,-30 190,10 c30,30 90,20 120,50 c20,30 -30,60 -90,60 c-70,0 -110,40 -180,20 c-60,-18 -90,-100 -40,-140 Z M1180,720 c80,-30 170,-10 200,40 c20,40 80,40 70,90 c-10,40 -90,50 -150,30 c-70,-20 -150,-40 -160,-90 c-6,-30 10,-58 40,-70 Z"/>`,
+    // la naturaleza: hojas, hierba, flores y mariposas
+    naturaleza: () => monte(700, 160, 61, "m1") + monte(850, 110, 63, "m2") + D.hoja(40, 1010, -52, 15) + D.hoja(1890, 990, -128, 14) + suelo(968, "m3")
+      + Array.from({length: 13}, (_, i) => D.hierba(70 + i * 150, 972, 2.6 + (i % 3) * .5)).join("") + D.mariposa(1380, 540, 4) + D.mariposa(520, 440, 2.6)
+      + D.flor(300, 900, 5) + D.flor(1610, 912, 4.2) + D.flor(985, 930, 3.4) + D.gaviota(1100, 320, 3),
+    // el día: el sol que sale detrás del pueblo
+    hoy: () => halo(960, 770, 560) + `<path class="m3" d="M760,806 A200,200 0 0 1 1160,806 Z"/>` + Array.from({length: 9}, (_, i) => { const a = Math.PI * (1 + (i + 1) / 10), c = Math.cos(a), s = Math.sin(a);
+        return `<line x1="${E2(960 + c * 250)}" y1="${E2(806 + s * 250)}" x2="${E2(960 + c * 340)}" y2="${E2(806 + s * 340)}" stroke-width="5"/>`; }).join("")
+      + monte(770, 160, 12, "m1") + suelo(806, "m2") + [200, 300, 410, 520, 640, 1500, 1610, 1730].map((x, i) => D.casa(x, 810 + (i % 2) * 8, 1.6 + (i % 3) * .4)).join("") + iglesia(1290, 812, 2.6) + suelo(930, "m3"),
+    // los planes: un camino hasta la cumbre, pinos y un globo
+    planes: () => monte(640, 260, 14, "m1") + monte(790, 180, 34, "m2") + suelo(910, "m3")
+      + `<path stroke-dasharray="20 20" stroke-width="6" d="M240,1080 C520,950 700,985 960,870 S1380,770 1560,560"/><path class="rel" d="M1560,560 V440 L1654,470 L1560,500"/>`
+      + pino(300, 912, 3) + pino(424, 920, 2.2) + pino(1700, 912, 3.4) + pino(1822, 924, 2.4) + globoAire(1160, 360, 1.9),
+    // las noticias: los periódicos, la antena y sus ondas
+    noticias: () => halo(930, 600, 420) + monte(830, 130, 55, "m1") + suelo(968, "m2") + suelo(1024, "m3") + D.periodico(1500, 930, 5.2) + D.periodico(360, 900, 3.6)
+      + g(`<path d="M0,0 L-52,170 M0,0 L52,170 M-34,110 H34 M-17,55 H17"/><path d="M-60,-40 a80,80 0 0 1 120,0 M-104,-84 a148,148 0 0 1 208,0 M-150,-130 a212,212 0 0 1 300,0"/><circle class="lleno" r="9"/>`, 2, 930, 600),
+    // las alertas: el escudo, las señales de peligro y la cesta de la compra
+    alertas: () => halo(1520, 580, 370) + monte(820, 140, 65, "m1") + suelo(968, "m2") + suelo(1024, "m3") + D.escudo(1520, 840, 6) + tri(350, 930, 3.4) + tri(610, 944, 2.2) + carrito(980, 950, 3.2),
+    // la casa: la luz, el agua y la conexión
+    casa: () => monte(770, 120, 71, "m1") + suelo(906, "m2") + suelo(1012, "m3") + D.casa(520, 910, 6.5) + D.casa(930, 910, 3.2) + D.casa(1100, 910, 2.4)
+      + g(`<path d="M-40,0 a56,56 0 0 1 80,0 M-72,-30 a102,102 0 0 1 144,0 M-104,-60 a148,148 0 0 1 208,0"/><circle class="lleno" cx="0" cy="18" r="9"/>`, 1.3, 520, 420)
+      + halo(1440, 560, 300) + D.bombilla(1440, 770, 5) + D.gota(1710, 730, 5),
+    // la carretera: hacia los montes, con sus señales, un coche y un avión que despega
+    carretera: () => halo(960, 580, 380) + monte(630, 200, 81, "m1") + monte(730, 130, 83, "m2") + suelo(770, "m2") + pol("m3", "600,1100 890,770 1030,770 1320,1100")
+      + `<path stroke-dasharray="44 36" stroke-width="7" d="M960,1080 V780"/>` + D.coche(1010, 1006, 2.1) + D.senal(300, 940, 2.8) + D.senal(1640, 930, 2.3) + avion(1470, 340, 2.6),
+    // los trenes: un tren por el viaducto
+    trenes: () => monte(600, 220, 91, "m1") + monte(770, 140, 93, "m2") + rect("m3", -10, 780, 1940, 30)
+      + Array.from({length: 9}, (_, i) => rect("m3", i * 240 - 20, 810, 40, 300) + `<path d="M${i * 240 + 20},940 a100,130 0 0 1 200,0"/>`).join("") + D.tren(520, 752, 3.4) + suelo(1010, "m3"),
+    // el campo: el mar de plástico bajo la sierra, el sol y un olivo
+    campo: () => halo(1560, 340, 320) + disco(1560, 340, 100, "m2 c2") + monte(600, 240, 18, "m1") + monte(710, 150, 28, "m2")
+      + naves(800, 150, 40, "m1") + naves(880, 200, 54, "m1", 60) + naves(978, 264, 70, "m2", 20) + D.olivo(236, 806, 4.2),
+    // la lonja: el puerto, un pesquero, los peces y las gaviotas
+    pescado: () => halo(420, 620, 380) + olas(770, 12, 220, 0, "m1") + olas(868, 14, 180, 50, "m2") + olas(968, 12, 150, 20, "m3")
+      + rect("m3", 1260, 716, 700, 400) + [1300, 1400, 1500].map(x => rect("rel", x, 660, 84, 56, 4)).join("") + `<path d="M1260,716 H1940 M1640,716 V640 M1760,716 V640"/>`
+      + pesquero(700, 812, 3.2) + D.pez(240, 990, 3.4) + D.pez(1120, 1016, 2.6, 180) + D.gaviota(1000, 420, 3) + D.gaviota(1180, 500, 2.2) + D.gaviota(380, 380, 1.8),
+    // la economía: las barras que suben, la línea y las monedas
+    economia: () => { const R = azar(7), P = []; let s = "";
+      for (let i = 0; i < 11; i++) { const h = 150 + i * 46 + R() * 60, x = 150 + i * 140; s += rect(i > 7 ? "m3" : "m2", x, 1000 - h, 92, h, 6); P.push([x + 46, 1000 - h - 70 - R() * 30]); }
+      return s + `<polyline stroke-width="6" points="${P.map(p => p.map(E2).join(",")).join(" ")}"/>` + P.map(p => disco(E2(p[0]), E2(p[1]), 10, "m4")).join("")
+        + [0, 1, 2, 3, 4].map(i => `<ellipse class="rel" cx="1760" cy="${960 - i * 26}" rx="76" ry="20"/>`).join("") + g(`<path stroke-width="16" d="M44,-62 a64,64 0 1 0 0,124 M-48,-14 h74 M-48,14 h66"/>`, 1.5, 330, 430) + suelo(1000, "m3"); },
+    // el empleo: los edificios de oficinas, la escalera que sube y el maletín
+    empleo: () => halo(1560, 640, 380) + edificio(120, 190, 400) + edificio(330, 160, 560, "m3") + edificio(510, 210, 320) + edificio(1050, 170, 470) + edificio(1240, 150, 350, "m3")
+      + `<path stroke-width="8" d="M748,960 h64 v-66 h64 v-66 h64 v-66 h50"/><path class="rel" d="M1024,762 l-34,-26 v52 z"/>` + D.maletin(1650, 968, 5.2) + suelo(990, "m3"),
+    // el SAS: el hospital con su cruz, el latido y el corazón
+    sas: () => halo(1470, 430, 390) + rect("m3", 1220, 480, 480, 520, 10) + rect("m2", 1010, 640, 210, 360, 8) + rect("m2", 1700, 700, 170, 300, 8)
+      + ventanas(1220, 560, 480, 400, 52) + ventanas(1010, 640, 210, 360, 52) + rect("m4", 1436, 300, 48, 150, 8) + rect("m4", 1385, 351, 150, 48, 8) + rect("m1", 1420, 880, 80, 120, 6)
+      + `<path stroke-width="7" d="M60,540 H330 l30,-22 l30,22 h44 l26,-160 l46,300 l32,-140 h46 l34,-36 l34,36 H960"/>` + corazon(240, 800, 3) + suelo(996, "m3"),
+    // las ayudas y los cursos: el birrete, los libros y el lápiz
+    ayudas: () => halo(520, 500, 360) + D.birrete(520, 640, 6) + rect("m3", 1240, 912, 440, 76, 10) + rect("m2", 1280, 838, 380, 74, 10) + rect("m3", 1230, 764, 450, 74, 10)
+      + D.libro(1455, 760, 4.6) + g(`<path class="rel" d="M0,0 L18,-58 L176,-216 L216,-176 L58,-18 Z"/><path d="M18,-58 L58,-18 M150,-190 L190,-150"/>`, 1.3, 860, 980) + suelo(990, "m3"),
+    aviso: () => halo(960, 620, 520) + monte(760, 180, 75, "m1") + monte(880, 120, 77, "m2") + tri(960, 900, 6.4) + suelo(990, "m3")
   };
-  /* lo que se ve aunque las tarjetas lo tapen: un friso abajo (bajo las pestañas) y unos iconos en los márgenes de los lados */
-  const so = (y, a, s) => D.sierra(y, a, s), ol = () => D.ondas(1058, 6, 90) + D.ondas(1072, 6, 90, 40);
-  const fila = (f, paso, y, x0 = 40) => Array.from({length: Math.ceil(1880 / paso)}, (_, i) => f(x0 + i * paso, y, i)).join("");
-  const FR = {
-    ahora: () => so(1080, 30, 3), semana: () => so(1080, 34, 4), clima: () => so(1080, 30, 6), hoy: () => so(1080, 26, 12) + fila((x, y) => D.casa(x, y, .35), 160, 1078, 900),
-    planes: () => so(1080, 34, 14), aire: () => [0, 1].map(i => `<path d="M-20,${1056 + i * 14} C400,${1046 + i * 14} 800,${1066 + i * 14} 1200,${1054 + i * 14} S1700,${1046 + i * 14} 1940,${1058 + i * 14}"/>`).join(""),
-    agua: ol, mar: ol, pescado: ol, inundaciones: ol, sismos: () => D.sismograma(1064, 14), cielo: () => fila((x, y, i) => D.estrella(x, y - (i % 3) * 8, 3 + i % 3), 70, 1070),
-    espacio: () => fila((x, y, i) => D.estrella(x, y - (i % 4) * 6, 2 + i % 3), 60, 1072), planeta: () => [0, 1, 2].map(i => `<path d="M-20,${1052 + i * 12} Q960,${1030 + i * 12} 1940,${1052 + i * 12}"/>`).join(""),
-    naturaleza: () => fila((x, y) => D.hierba(x, y, .45), 90, 1080), campo: () => D.invernadero(-10, 1060, 1940, 44), trenes: () => D.vias(1058),
-    carretera: () => `<path d="M-20,1052 H1940 M-20,1078 H1940"/><path stroke-dasharray="40 30" d="M-20,1065 H1940"/>`, economia: () => D.grafica(0, 1080, 1920, 40).replace(/<rect[^>]*>/g, ""),
-    noticias: () => [0, 1, 2].map(i => `<path d="M-20,${1054 + i * 10} H1940"/>`).join(""), alertas: () => fila((x, y) => `<path class="rel" d="M${x},${y - 20} L${x + 12},${y} H${x - 12} Z"/>`, 120, 1074),
-    casa: () => fila((x, y) => D.casa(x, y, .4), 110, 1078), empleo: () => fila((x, y) => D.maletin(x, y, .35), 140, 1076), ayudas: () => fila((x, y, i) => i % 2 ? D.libro(x, y, .4) : D.birrete(x, y, .4), 140, 1076)};
-  const IC = {
-    ahora: (x, y) => DIB.nube(x - 30, y + 8, .5), semana: (x, y) => DIB.sol(x, y, 9), clima: (x, y) => DIB.termometro(x, y + 34, .45), hoy: (x, y) => DIB.sol(x, y, 9),
-    aire: (x, y, i) => DIB.hoja(x - 15, y, i * 40, 1), agua: (x, y) => DIB.gota(x, y, 1.2), inundaciones: (x, y) => DIB.gota(x, y, 1.2), mar: (x, y, i) => i % 2 ? DIB.gaviota(x, y, 1) : DIB.pez(x - 22, y, .6),
-    pescado: (x, y, i) => DIB.pez(x - 22, y, .6, i % 2 ? 0 : 0), sismos: (x, y) => `<polyline points="${x - 18},${y} ${x - 10},${y} ${x - 6},${y - 14} ${x},${y + 14} ${x + 6},${y - 8} ${x + 10},${y} ${x + 18},${y}"/>`,
-    cielo: (x, y, i) => DIB.estrella(x, y, 6 + i % 3 * 2), espacio: (x, y) => DIB.planeta(x, y, 8, 2), planeta: (x, y) => DIB.globo(x, y, 14), naturaleza: (x, y, i) => i % 2 ? DIB.mariposa(x, y, .5) : DIB.flor(x, y - 10, .7),
-    planes: (x, y) => DIB.flor(x, y - 10, .7), noticias: (x, y) => DIB.periodico(x, y + 18, .3), alertas: (x, y) => DIB.escudo(x, y + 20, .4), casa: (x, y, i) => i % 2 ? DIB.bombilla(x, y + 16, .6) : DIB.casa(x, y + 16, .55),
-    carretera: (x, y) => DIB.senal(x, y + 34, .45), trenes: (x, y) => DIB.tren(x - 20, y + 6, .2), campo: (x, y) => DIB.olivo(x - 4, y + 28, .5), economia: (x, y) => DIB.moneda(x, y, 12),
-    empleo: (x, y) => DIB.maletin(x, y + 16, .42), ayudas: (x, y, i) => i % 2 ? DIB.libro(x, y + 18, .55) : DIB.birrete(x, y + 16, .5)};
-  const ic = IC[p], fr = FR[p];
-  const margen = ic ? [26, 1894].map(x => Array.from({length: 6}, (_, i) => ic(x, 230 + i * 140, i + (x > 900 ? 1 : 0))).join("")).join("") : "";
-  return `<g class="tema">${(T[p] || T.ahora)()}</g>${fr ? `<g class="friso">${fr()}</g>` : ""}${margen ? `<g class="margen">${margen}</g>` : ""}`;
+  // abajo, un velo del color del fondo: las pestañas se leen igual sobre cualquier paisaje
+  const velo = `<rect x="0" y="960" width="1920" height="120" fill="url(#gPie)" stroke="none"/>`;
+  return `<defs><radialGradient id="gHalo"><stop offset="0" stop-color="currentColor" stop-opacity=".30"/><stop offset=".55" stop-color="currentColor" stop-opacity=".10"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gPie" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--bg);stop-opacity:0"/><stop offset=".5" style="stop-color:var(--bg);stop-opacity:.6"/><stop offset="1" style="stop-color:var(--bg);stop-opacity:.72"/></linearGradient></defs>
+    <g class="tema">${(T[p] || T.ahora)()}</g>${velo}`;
 }
 function capaEstacion(e) {
   const R = azar(e.length * 13), out = [], X = () => { const x = 880 + R() * 640; return x > 1190 && x < 1310 ? x + 140 : x; }, Y = () => 24 + R() * 110;

@@ -1,8 +1,8 @@
 {
-  "versionCode": 68,
-  "versionName": "4.37",
+  "versionCode": 69,
+  "versionName": "4.38",
   "apk": "app/Tiempo.apk",
-  "sha256": "92071fa20fa029005e9152c425ac93d7bf0cf9c182cdc7912ff2a05ae75fc59c",
-  "bytes": 1323129,
-  "notas": "4.37: recomendación oficial del aire; fondos dibujados según la pantalla, el tiempo, los avisos, la estación y las fiestas; cursos agrupados; «Nuevo» de 24 horas y delante; letra mínima de 20 px"
+  "sha256": "a703484c3f09830f84545faaba8064c7dd3d1b283ff58a83e00f4d7c9e295387",
+  "bytes": 1328137,
+  "notas": "4.38: ofertas de provisión temporal del SAS (Sur de Granada, Poniente y Almería capital) en la pantalla SAS, con su plazo; fondos de cada pantalla: un paisaje por capas"
 }
