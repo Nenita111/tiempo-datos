@@ -55,31 +55,23 @@
  "cuencaPctAnterior": 44.1,
  "espanaPct": 57.2,
  "espanaPctAnterior": 52.1,
- "vuelosFecha": "Buscado el 08/11 · ida y vuelta",
+ "vuelosFecha": "Buscado el 09/11 · ida y vuelta",
  "vuelosOrigen": "Almería",
  "vuelos": [
   {
-   "destino": "Sevilla",
-   "fecha": "06/12",
-   "vuelta": "10/12",
-   "precio": "113 €",
-   "compania": "Iberia",
-   "escalas": "directo"
-  },
-  {
    "destino": "Bucarest",
-   "fecha": "13/11",
-   "vuelta": "16/11",
-   "precio": "120 €",
+   "fecha": "16/11",
+   "vuelta": "20/11",
+   "precio": "96 €",
    "compania": "Wizz Air",
    "escalas": "directo"
   },
   {
-   "destino": "Barcelona",
-   "fecha": "06/12",
-   "vuelta": "11/12",
-   "precio": "130 €",
-   "compania": "Vueling",
+   "destino": "Sevilla",
+   "fecha": "11/12",
+   "vuelta": "14/12",
+   "precio": "112 €",
+   "compania": "Iberia",
    "escalas": "directo"
   },
   {
@@ -88,6 +80,14 @@
    "vuelta": "12/12",
    "precio": "135 €",
    "compania": "Iberia",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Barcelona",
+   "fecha": "03/12",
+   "vuelta": "06/12",
+   "precio": "140 €",
+   "compania": "Vueling",
    "escalas": "directo"
   },
   {
@@ -102,7 +102,7 @@
    "destino": "Palma de Mallorca",
    "fecha": "25/11",
    "vuelta": "28/11",
-   "precio": "217 €",
+   "precio": "238 €",
    "compania": "Iberia",
    "escalas": "directo"
   }
@@ -119,31 +119,22 @@
    "codigo": "LEI",
    "vuelos": [
     {
-     "destino": "Sevilla",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-10",
-     "precio": 113,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/phbjft"
-    },
-    {
      "destino": "Bucarest",
-     "ida": "2026-11-13",
-     "vuelta": "2026-11-16",
-     "precio": 120,
+     "ida": "2026-11-16",
+     "vuelta": "2026-11-20",
+     "precio": 96,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/k7zp74w"
+     "enlace": "https://kiwi.com/u/npjjq7w"
     },
     {
-     "destino": "Barcelona",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-11",
-     "precio": 130,
-     "compania": "Vueling",
+     "destino": "Sevilla",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-14",
+     "precio": 112,
+     "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/ysbukx"
+     "enlace": "https://kiwi.com/u/prhw2s"
     },
     {
      "destino": "Madrid",
@@ -152,7 +143,16 @@
      "precio": 135,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/vsv622m"
+     "enlace": "https://kiwi.com/u/x8xk49"
+    },
+    {
+     "destino": "Barcelona",
+     "ida": "2026-12-03",
+     "vuelta": "2026-12-06",
+     "precio": 140,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/dcg5k6"
     },
     {
      "destino": "Londres",
@@ -162,16 +162,16 @@
      "compania": "easyJet",
      "escalas": "directo",
      "nota": "Gatwick",
-     "enlace": "https://kiwi.com/u/ghk2z8"
+     "enlace": "https://kiwi.com/u/7j5579"
     },
     {
      "destino": "Palma de Mallorca",
      "ida": "2026-11-25",
      "vuelta": "2026-11-28",
-     "precio": 217,
+     "precio": 238,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/g6gpkdb"
+     "enlace": "https://kiwi.com/u/m55b4n"
     }
    ]
   },
@@ -181,58 +181,59 @@
    "vuelos": [
     {
      "destino": "Oporto",
-     "ida": "2026-11-29",
-     "vuelta": "2026-12-03",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-17",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/4ytus2"
+     "enlace": "https://kiwi.com/u/uqrzpp"
+    },
+    {
+     "destino": "Tenerife",
+     "ida": "2026-11-26",
+     "vuelta": "2026-11-28",
+     "precio": 54,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "nota": "Tenerife Norte",
+     "enlace": "https://kiwi.com/u/g53myds"
     },
     {
      "destino": "Palma de Mallorca",
      "ida": "2026-12-11",
      "vuelta": "2026-12-13",
-     "precio": 52,
+     "precio": 57,
      "compania": "Vueling / Air Europa",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/rdshp8f"
+     "enlace": "https://kiwi.com/u/t6bukqs"
     },
     {
      "destino": "Gran Canaria",
-     "ida": "2026-12-12",
+     "ida": "2026-12-10",
      "vuelta": "2026-12-15",
      "precio": 57,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/qcm5pj5"
+     "enlace": "https://kiwi.com/u/m2ff38"
     },
     {
      "destino": "Nantes",
-     "ida": "2026-12-13",
-     "vuelta": "2026-12-17",
-     "precio": 59,
+     "ida": "2026-12-10",
+     "vuelta": "2026-12-13",
+     "precio": 60,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/kjmxt2"
-    },
-    {
-     "destino": "Barcelona",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-14",
-     "precio": 72,
-     "compania": "Vueling",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xv3nnr"
+     "enlace": "https://kiwi.com/u/v3c27w7"
     },
     {
      "destino": "Londres",
      "ida": "2026-12-01",
      "vuelta": "2026-12-05",
-     "precio": 72,
+     "precio": 61,
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Luton",
-     "enlace": "https://kiwi.com/u/n9mwsm"
+     "enlace": "https://kiwi.com/u/hf2ght"
     }
    ]
   },
@@ -247,53 +248,52 @@
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/muu7ng"
+     "enlace": "https://kiwi.com/u/ugz4c7p"
     },
     {
      "destino": "Palma de Mallorca",
-     "ida": "2026-12-05",
+     "ida": "2026-12-03",
      "vuelta": "2026-12-07",
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/4gzg3s"
-    },
-    {
-     "destino": "Turín",
-     "ida": "2026-12-10",
-     "vuelta": "2026-12-14",
-     "precio": 36,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/2b8rxx"
-    },
-    {
-     "destino": "Valencia",
-     "ida": "2026-12-03",
-     "vuelta": "2026-12-06",
-     "precio": 40,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/hvtgupx"
+     "enlace": "https://kiwi.com/u/sbjqnj9"
     },
     {
      "destino": "Bilbao",
      "ida": "2026-12-13",
      "vuelta": "2026-12-16",
-     "precio": 40,
-     "compania": "Vueling",
+     "precio": 37,
+     "compania": "Vueling / Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/v88rd7"
+     "enlace": "https://kiwi.com/u/3yygmyc"
     },
     {
-     "destino": "Milán",
-     "ida": "2026-12-11",
+     "destino": "Turín",
+     "ida": "2026-12-10",
      "vuelta": "2026-12-14",
-     "precio": 43,
+     "precio": 39,
      "compania": "Ryanair",
      "escalas": "directo",
-     "nota": "ida a Bérgamo, vuelta desde Malpensa",
-     "enlace": "https://kiwi.com/u/bzsjbxq"
+     "enlace": "https://kiwi.com/u/qmpckxz"
+    },
+    {
+     "destino": "Oporto",
+     "ida": "2026-12-14",
+     "vuelta": "2026-12-19",
+     "precio": 40,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/9uv3vz4"
+    },
+    {
+     "destino": "Venecia",
+     "ida": "2026-12-06",
+     "vuelta": "2026-12-12",
+     "precio": 40,
+     "compania": "Wizz Air / Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/4k3rd8q"
     }
    ]
   },
@@ -302,49 +302,49 @@
    "codigo": "RMU",
    "vuelos": [
     {
-     "destino": "Birmingham",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-13",
-     "precio": 48,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/x9r4nb"
-    },
-    {
      "destino": "Bilbao",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/4xt849m"
+     "enlace": "https://kiwi.com/u/zpsvyd"
+    },
+    {
+     "destino": "Birmingham",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-13",
+     "precio": 49,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/jwpvh52"
     },
     {
      "destino": "Barcelona",
      "ida": "2026-12-11",
-     "vuelta": "2026-12-13",
-     "precio": 60,
+     "vuelta": "2026-12-14",
+     "precio": 57,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/kmu9vs"
-    },
-    {
-     "destino": "Dublín",
-     "ida": "2026-12-07",
-     "vuelta": "2026-12-12",
-     "precio": 72,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/t76xmtt"
+     "enlace": "https://kiwi.com/u/js9c4z2"
     },
     {
      "destino": "Mánchester",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
+     "precio": 71,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/jf5zzb"
+    },
+    {
+     "destino": "Dublín",
+     "ida": "2026-12-07",
+     "vuelta": "2026-12-12",
      "precio": 73,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/ghqdf7"
+     "enlace": "https://kiwi.com/u/7bbbpp"
     },
     {
      "destino": "Londres",
@@ -354,18 +354,18 @@
      "compania": "Ryanair",
      "escalas": "directo",
      "nota": "Stansted",
-     "enlace": "https://kiwi.com/u/mpv9r8"
+     "enlace": "https://kiwi.com/u/sr8j64"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-08",
- "vuelosBusqueda": "ida y vuelta del 11/11 al 13/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-09",
+ "vuelosBusqueda": "ida y vuelta del 12/11 al 14/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-08",
- "actualizado": "2026-11-08T06:11+01:00",
+ "sorteosBuscado": "2026-11-09",
+ "actualizado": "2026-11-09T06:10+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -871,19 +871,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-08",
-  "nombre": "Ensalada de granada",
+  "fecha": "2026-11-09",
+  "nombre": "Crema de puerros",
   "tiempo": {
    "temperature": "mild",
-   "rain": "dry",
+   "rain": "rain likely",
    "wind": "light wind",
-   "sky": "Nubes altas"
+   "sky": "Cubierto con lluvia"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-02",
-    "nombre": "Ensalada de aguacate y mandarina"
-   },
    {
     "fecha": "2026-11-03",
     "nombre": "Sopa de ajo"
@@ -907,12 +903,71 @@
    {
     "fecha": "2026-11-08",
     "nombre": "Ensalada de granada"
+   },
+   {
+    "fecha": "2026-11-09",
+    "nombre": "Crema de puerros"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-08",
+  "fecha": "2026-11-09",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/216/16": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/17": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/18": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/19": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/20": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/21": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/22": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/23": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/24": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "costa_granada",
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-23"
+    }
+   },
+   "https://www.juntadeandalucia.es/boja/2026/216/25": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
    "https://www.juntadeandalucia.es/boja/2026/215/12": {
     "tipo": "lista_provisional",
     "provincia": "andalucia",
@@ -1014,7 +1069,15 @@
     "zona": "otra"
    }
   },
-  "avisar": []
+  "avisar": [
+   {
+    "url": "https://www.juntadeandalucia.es/boja/2026/216/24",
+    "fecha": "2026-11-09",
+    "boletin": "BOJA",
+    "resumen": "Convoca mediante el sistema de concurso de méritos la cobertura de un puesto de Jefe/a de Equipo de Gestión y Servicios como encargo complementario de funciones para la Unidad de Gestión Clínica de Almuñécar en el Área de Gestión Sanitaria Sur de Granada",
+    "hasta": "2026-11-23"
+   }
+  ]
  },
  "etiquetas": {
   "alim": {
@@ -1027,10 +1090,6 @@
     "producto": "carne"
    },
    "https://www.aesan.gob.es/alertas/2026_78": {
-    "alergeno": "ninguno",
-    "producto": "complementos"
-   },
-   "https://www.aesan.gob.es/alertas/2026_71": {
     "alergeno": "ninguno",
     "producto": "complementos"
    },
@@ -1090,16 +1149,6 @@
    }
   },
   "ofertas": {
-   "692134": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico Facultativo Laboratorio Medioambiental",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-11",
-    "nivel": "grado",
-    "experiencia": 0.84,
-    "colectivo": "general"
-   },
    "692140": {
     "zona": false,
     "zv": 4,
@@ -1108,6 +1157,16 @@
     "hasta": "2026-11-11",
     "nivel": "fp_superior",
     "experiencia": 0.82,
+    "colectivo": "general"
+   },
+   "692134": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico Facultativo Laboratorio Medioambiental",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-11",
+    "nivel": "grado",
+    "experiencia": 0.84,
     "colectivo": "general"
    },
    "691918": {
@@ -1128,16 +1187,6 @@
     "hasta": "2026-11-10",
     "nivel": "grado",
     "experiencia": 0.87,
-    "colectivo": "general"
-   },
-   "691966": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "TÉCNICO/A ELECTRÓNICO",
-    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
-    "hasta": "2026-11-08",
-    "nivel": "grado",
-    "experiencia": 0.1,
     "colectivo": "general"
    },
    "691687": {
@@ -1302,12 +1351,6 @@
    }
   },
   "sae": {
-   "01-2026-49263": {
-    "nivel": "fp_medio",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
    "01-2026-49200": {
     "nivel": "no_consta",
     "entidad": "junta",
@@ -1328,10 +1371,10 @@
    }
   },
   "agenda": {},
-  "fecha": "2026-11-08"
+  "fecha": "2026-11-09"
  },
  "fap": {
-  "fecha": "2026-11-08",
+  "fecha": "2026-11-09",
   "novedades": [
    {
     "tipo": "noticia",
@@ -1379,6 +1422,11 @@
     "anuncia": 0.06,
     "cambio": 0.1,
     "persona": 0.0
+   },
+   "4af4481d358c": {
+    "anuncia": 0.02,
+    "cambio": 0.02,
+    "persona": 0.03
    },
    "7e554cb63c1b": {
     "anuncia": 0.61,
@@ -5619,24 +5667,25 @@
  },
  "polen": {
   "estacion": "Almería",
-  "dia": "2026-10-13",
+  "dia": "2026-11-03",
   "tipos": [
    {
     "id": 2,
     "nombre": "Alternaria (hongo)",
     "valor": 1
-   },
-   {
-    "id": 13,
-    "nombre": "Palmeras",
-    "valor": 1
    }
   ],
   "semana": [
    {
-    "id": 9,
-    "nombre": "Gramíneas",
-    "valor": 6,
+    "id": 7,
+    "nombre": "Cupresáceas",
+    "valor": 7,
+    "nivel": "bajo"
+   },
+   {
+    "id": 22,
+    "nombre": "Urticáceas (parietaria)",
+    "valor": 7,
     "nivel": "bajo"
    },
    {
@@ -5645,21 +5694,10 @@
     "valor": 4
    },
    {
-    "id": 7,
-    "nombre": "Cupresáceas",
+    "id": 9,
+    "nombre": "Gramíneas",
     "valor": 1,
     "nivel": "bajo"
-   },
-   {
-    "id": 12,
-    "nombre": "Olivo",
-    "valor": 1,
-    "nivel": "bajo"
-   },
-   {
-    "id": 13,
-    "nombre": "Palmeras",
-    "valor": 1
    },
    {
     "id": 18,
@@ -5669,7 +5707,6 @@
    }
   ],
   "meses": [
-   "2025-11",
    "2025-12",
    "2026-01",
    "2026-02",
@@ -5680,14 +5717,14 @@
    "2026-07",
    "2026-08",
    "2026-09",
-   "2026-10"
+   "2026-10",
+   "2026-11"
   ],
   "calendario": [
    {
     "id": 18,
     "nombre": "Amarantáceas (salsola)",
     "max": [
-     1,
      0,
      1,
      2,
@@ -5698,7 +5735,8 @@
      5,
      2,
      2,
-     1
+     1,
+     0
     ],
     "niveles": [
      "bajo",
@@ -5706,8 +5744,8 @@
      "bajo",
      "bajo",
      "bajo",
-     "bajo",
      "alto",
+     "bajo",
      "bajo",
      "bajo",
      "bajo",
@@ -5719,7 +5757,6 @@
     "id": 9,
     "nombre": "Gramíneas",
     "max": [
-     1,
      0,
      1,
      3,
@@ -5730,10 +5767,10 @@
      2,
      1,
      0,
-     6
+     6,
+     0
     ],
     "niveles": [
-     "bajo",
      "bajo",
      "bajo",
      "bajo",
@@ -5744,6 +5781,7 @@
      "bajo",
      "bajo",
      "bajo",
+     "bajo",
      "bajo"
     ]
    },
@@ -5751,7 +5789,6 @@
     "id": 12,
     "nombre": "Olivo",
     "max": [
-     1,
      0,
      0,
      0,
@@ -5762,7 +5799,8 @@
      1,
      1,
      0,
-     1
+     1,
+     0
     ],
     "niveles": [
      "bajo",
@@ -5770,8 +5808,8 @@
      "bajo",
      "bajo",
      "bajo",
-     "bajo",
      "alto",
+     "bajo",
      "bajo",
      "bajo",
      "bajo",
@@ -5783,7 +5821,6 @@
     "id": 2,
     "nombre": "Alternaria (hongo)",
     "max": [
-     7,
      1,
      3,
      1,
@@ -5794,6 +5831,7 @@
      9,
      3,
      6,
+     4,
      4
     ],
     "niveles": null
@@ -5803,7 +5841,6 @@
     "nombre": "Pino",
     "max": [
      0,
-     0,
      1,
      11,
      19,
@@ -5812,6 +5849,7 @@
      29,
      2,
      0,
+     1,
      1,
      0
     ],
@@ -5823,7 +5861,6 @@
     "max": [
      1,
      1,
-     1,
      3,
      6,
      3,
@@ -5832,10 +5869,10 @@
      2,
      1,
      0,
+     7,
      0
     ],
     "niveles": [
-     "bajo",
      "bajo",
      "bajo",
      "bajo",
@@ -5846,59 +5883,17 @@
      "bajo",
      "bajo",
      "bajo",
+     "bajo",
      "bajo"
     ]
    }
   ],
-  "dias": 370,
+  "dias": 390,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
  "actividades": {
   "lista": [
-   {
-    "titulo": "Almería en catamarán: paseo por la bahía y puesta de sol con Mundo Marino",
-    "inicio": "2026-11-01",
-    "fin": "2026-11-30",
-    "lugar": "Muelle de Levante, Puerto de Almería",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/almeria-en-catamaran-paseo-por-la-bahia-y-puesta-de-sol-con-mundo-marino/",
-    "fuente": "Turismo de Almería",
-    "aireLibre": true
-   },
-   {
-    "titulo": "Festival Internacional de Jazz AlmeriJazz 2026",
-    "inicio": "2026-11-01",
-    "fin": "2026-11-08",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/festival-internacional-de-jazz-almerijazz-2026/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "AlmeriJazz: Banda Municipal de Almería",
-    "inicio": "2026-11-08",
-    "hora": "12:00",
-    "lugar": "Teatro Apolo",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/almerijazz-banda-municipal-de-almeria/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Sendero de Villanueva del Trabuco",
-    "inicio": "2026-11-08",
-    "lugar": "salida desde Cruz Roja Adra",
-    "enlace": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
-    "fuente": "Ayuntamiento de Adra (Adra en la Senda)",
-    "aireLibre": true,
-    "programa": "Adra en la Senda",
-    "hora": "salida a las 07:30",
-    "precio": "15 €",
-    "detalle": "15 km · 4 h · dificultad media · desnivel 312 m · desde 14 años",
-    "senderismo": true,
-    "inscripcion": "inscripción: 677 942 005 (Juventud)"
-   },
    {
     "titulo": "Almería mira al mar: por qué el futuro de Almería es azul",
     "inicio": "2026-11-14",
@@ -6013,7 +6008,7 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-08"
+  "dia": "2026-11-09"
  },
  "sendaAdra": {
   "pdf": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
@@ -6260,6 +6255,6 @@
     "senderismo": true
    }
   ],
-  "visto": "2026-11-07"
+  "visto": "2026-11-09"
  }
 }
