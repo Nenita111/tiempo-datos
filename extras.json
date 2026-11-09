@@ -365,7 +365,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-09",
- "actualizado": "2026-11-09T06:10+01:00",
+ "actualizado": "2026-11-09T21:40+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -6256,5 +6256,183 @@
    }
   ],
   "visto": "2026-11-09"
+ },
+ "sasOfertas": {
+  "lista": [
+   {
+    "id": "401108",
+    "cod": "10464",
+    "tipo": "intermedio",
+    "fecha": "2026-11-09",
+    "boja": true,
+    "centro": "Área de gestión sanitaria Sur de Granada",
+    "area": "sur_granada",
+    "titulo": "Resolución de 4 de noviembre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca mediante el sistema de concurso de méritos la cobertura de un puesto de Jefe/a de Equipo de Gestión y Servicios como encargo complementario de funciones para la Unidad de Gestión Clínica de Almuñécar en el Área de Gestión Sanitaria Sur de Granada.",
+    "puesto": "Jefe/a de Equipo de Gestión y Servicios como encargo complementario de funciones para la Unidad de Gestión Clínica de Almuñécar",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/401108/87776/106741",
+    "docs": 1,
+    "estado": null,
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-23"
+    }
+   },
+   {
+    "id": "400173",
+    "cod": "11819",
+    "tipo": "base",
+    "fecha": "2026-10-27",
+    "boja": false,
+    "centro": "Hospital Universitario Torrecárdenas",
+    "area": "almeria",
+    "titulo": "Convocatoria Pública para la Provisión Temporal de un puesto de Técnico Función Administrativa opción Administración General para el Hospital Universitario Torrecárdenas",
+    "puesto": "Técnico Función Administrativa opción Administración General",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400173/87363/106313",
+    "docs": 1,
+    "estado": null,
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-11"
+    }
+   },
+   {
+    "id": "400149",
+    "cod": "10431",
+    "tipo": "intermedio",
+    "fecha": "2026-10-27",
+    "boja": true,
+    "centro": "Distrito Almería",
+    "area": "almeria",
+    "titulo": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones, en el Distrito Sanitario de Atención Primaria de Almería .",
+    "puesto": "Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400149/87317/106265",
+    "docs": 1,
+    "estado": null,
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-11"
+    }
+   },
+   {
+    "id": "400148",
+    "cod": "10430",
+    "tipo": "intermedio",
+    "fecha": "2026-10-27",
+    "boja": true,
+    "centro": "Distrito Almería",
+    "area": "almeria",
+    "titulo": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos en el Distrito Sanitario de Atención Primaria de Almería.",
+    "puesto": "Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400148/87316/106264",
+    "docs": 1,
+    "estado": null,
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-11"
+    }
+   },
+   {
+    "id": "400147",
+    "cod": "10429",
+    "tipo": "intermedio",
+    "fecha": "2026-10-27",
+    "boja": true,
+    "centro": "Distrito Poniente de Almería",
+    "area": "poniente",
+    "titulo": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante , de Coordinador/a de Cuidados de Enfermería de la Unidad de Gestión Clínica de Ejido Norte en el Distrito Sanitario de Atención Primaria Poniente de Almería.",
+    "puesto": "Coordinador/a de Cuidados de Enfermería de la Unidad de Gestión Clínica de Ejido Norte",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400147/87315/106263",
+    "docs": 1,
+    "estado": null,
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-11"
+    }
+   },
+   {
+    "id": "399863",
+    "cod": "10418",
+    "tipo": "intermedio",
+    "fecha": "2026-10-21",
+    "boja": true,
+    "centro": "Hospital de Poniente",
+    "area": "poniente",
+    "titulo": "Ref. 9572 Resolución de 16 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios en el Hospital Universitario Poniente de Almería.",
+    "puesto": "Jefe/a de Grupo de Gestión y Servicios",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/399863/87086/106029",
+    "docs": 1,
+    "estado": null,
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-05"
+    }
+   },
+   {
+    "id": "399780",
+    "cod": "10414",
+    "tipo": "intermedio",
+    "fecha": "2026-10-19",
+    "boja": true,
+    "centro": "Hospital Universitario Torrecárdenas",
+    "area": "almeria",
+    "titulo": "Resolución de 14 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca mediante el sistema de concurso de méritos la cobertura de cuatro puestos de cargo intermedio de Jefe/a de Equipo de Celadores en el Hospital Universitario Torrecárdenas de Almería",
+    "puesto": "Jefe/a de Equipo de Celadores (cuatro puestos)",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/399780/86971/105917",
+    "docs": 1,
+    "estado": null,
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-11-03"
+    }
+   },
+   {
+    "id": "399651",
+    "cod": "510",
+    "tipo": "directivo",
+    "fecha": "2026-10-15",
+    "boja": true,
+    "centro": "Área de gestión sanitaria Sur de Granada",
+    "area": "sur_granada",
+    "titulo": "Resolución de 9 de Octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se anuncia convocatoria pública para cubrir puesto de trabajo de carácter directivo próximo a quedar vacante de Gerencia de Área del Área de Gestión Sanitaria Sur de Granada",
+    "puesto": "Gerencia de Área del Área de Gestión Sanitaria Sur de Granada",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/399651/86877/105821",
+    "docs": 1,
+    "estado": null,
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-10-29"
+    }
+   },
+   {
+    "id": "399043",
+    "cod": "11792",
+    "tipo": "base",
+    "fecha": "2026-10-14",
+    "boja": false,
+    "centro": "Área de gestión sanitaria Sur de Granada",
+    "area": "sur_granada",
+    "titulo": "Convocatoria Pública para la Provisión Temporal de un puesto de Facultativo Especialista de Área en Radiodiagnóstico para el AGS Sur de Granada",
+    "puesto": "Facultativo Especialista de Área en Radiodiagnóstico",
+    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/399043/86860/105804",
+    "docs": 2,
+    "estado": "desierta",
+    "plazo": {
+     "n": 5,
+     "unidad": "habiles",
+     "hasta": "2026-10-21"
+    }
+   }
+  ],
+  "dias": 30,
+  "fuente": "Servicio Andaluz de Salud",
+  "url": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/profesionales/ofertas-de-empleo/provision-temporal-de-puestos-base-cargos-intermedios-y-puestos-directivos/ooe"
  }
 }
