@@ -36,6 +36,7 @@ body.claro{background:var(--granoimg,none) 0 0/160px 160px,radial-gradient(1400p
 body.claro #escena .tema{stroke-opacity:.38}body.claro #escena .cielo{opacity:.28}body.claro #escena .estacion{opacity:.28}
 #escena .m1,#escena .m2,#escena .m3,#escena .m4{fill:currentColor;stroke:none}#escena .m1{fill-opacity:.07}#escena .m2{fill-opacity:.12}#escena .m3{fill-opacity:.19}#escena .m4{fill-opacity:.38}
 body.claro #escena .m1{fill-opacity:.09}body.claro #escena .m2{fill-opacity:.15}body.claro #escena .m3{fill-opacity:.23}
+#escena .tema .sol-e{opacity:.5}body.claro #escena .tema .sol-e{opacity:.62}#escena .cielo-sol{opacity:.38}body.claro #escena .cielo-sol{opacity:.46}
 #escena .c2{color:var(--c2)}#escena .vent{stroke-opacity:.2;stroke-width:9}#escena .tema .lleno{fill-opacity:.5}
 #escena .rel{fill:currentColor;fill-opacity:.2}#escena .lleno{fill:currentColor;stroke:none}#escena .fondo{opacity:.55}
 #escena .fi-l{stroke:#c9a227;fill:none}#escena .fi-l .lleno{fill:#f5c400}#escena .calima{fill:#d9a441;opacity:.10;stroke:none}
@@ -43,11 +44,17 @@ body.claro #escena .m1{fill-opacity:.09}body.claro #escena .m2{fill-opacity:.15}
 #amb{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 body:not(.p-ahora):not(.p-mar) #amb{display:none}body.p-mar #amb>div:not(.a-olas){display:none}   /* la animación del tiempo, solo en la pantalla Ahora (lo pidió Isa el 27 oct 2026) */
 #amb>div{position:absolute;opacity:0;transition:opacity 2.5s ease}
-.a-sol{right:-420px;top:-560px;width:1320px;height:1320px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,190,80,.34),rgba(255,170,60,.10) 48%,rgba(255,170,60,0))}
+/* 4.39 (lo pidió Isa el 10 nov 2026: «mejora la apariencia del sol para que sea más realista»): el sol, con su disco (centro casi blanco,
+   limbo dorado), la corona pegada y el resplandor que se apaga lejos; al salir y al ponerse (.bajo), anaranjado. A la izquierda del reloj
+   (antes, solo un resplandor detrás de él). El disco, 48 px de radio. */
+.a-sol{right:-270px;top:-638px;width:1400px;height:1400px;border-radius:50%;background:radial-gradient(circle closest-side,#fff 0,#fffbe0 4.2%,#ffe680 6.2%,#ffc93d 6.86%,rgba(255,200,84,.78) 7.1%,rgba(255,190,80,.46) 9.5%,rgba(255,180,70,.24) 16%,rgba(255,170,60,.10) 34%,rgba(255,170,60,.035) 62%,rgba(255,170,60,0))}
+.a-sol.bajo{background:radial-gradient(circle closest-side,#fff6dc 0,#ffd98a 4%,#ffac4a 6.2%,#f97b2c 6.86%,rgba(250,128,60,.74) 7.1%,rgba(248,120,56,.44) 9.5%,rgba(244,110,52,.24) 16%,rgba(240,104,50,.11) 34%,rgba(236,100,50,.04) 62%,rgba(236,100,50,0))}
+body.claro .a-sol{background:radial-gradient(circle closest-side,#fffdf0 0,#fff0a8 4%,#ffd24a 6.1%,#f5a51f 6.86%,rgba(250,176,52,.7) 7.1%,rgba(252,184,66,.42) 9.5%,rgba(255,186,74,.22) 16%,rgba(255,180,66,.10) 34%,rgba(255,174,62,.035) 62%,rgba(255,170,60,0))}
+body.claro .a-sol.bajo{background:radial-gradient(circle closest-side,#fff0cc 0,#ffcb78 4%,#ff9d3e 6.1%,#ee6a22 6.86%,rgba(240,112,48,.7) 7.1%,rgba(242,118,54,.42) 9.5%,rgba(244,122,58,.22) 16%,rgba(244,120,56,.10) 34%,rgba(240,110,54,.035) 62%,rgba(240,110,54,0))}
 /* 4.26 (lo pidió Isa el 5 nov 2026: «la animación del sol la veo mucho mejor y realista en el PC que en la tele»): los rayos eran un degradado
    cónico con máscara de 1760 px que la tele repintaba a saltos y la calidad automática quitaba (calidad 1); ahora son una imagen hecha una
    vez (rayosSol, con la máscara dentro) que la tarjeta gráfica gira sola, sin repintar: suave en la tele y en todas las calidades (en la 0, quieta) */
-.a-rayos{right:-640px;top:-780px;width:1760px;height:1760px;border-radius:50%;background:center/100% 100% no-repeat;will-change:transform;
+.a-rayos{right:-450px;top:-818px;width:1760px;height:1760px;border-radius:50%;background:center/100% 100% no-repeat;will-change:transform;
   animation:gira 150s linear infinite}
 @keyframes gira{to{transform:rotate(360deg)}}
 .a-luna{right:-260px;top:-320px;width:920px;height:920px;border-radius:50%;background:radial-gradient(closest-side,rgba(200,215,255,.16),rgba(200,215,255,0))}
@@ -129,7 +136,7 @@ footer{height:46px;flex:none;display:flex;justify-content:space-between;align-it
 
 /* iconos del tiempo (dibujados, no emoji) */
 .wi{display:block;overflow:visible;flex:none}
-.w-sol circle{fill:var(--sol)}.w-sol line{stroke:var(--sol);stroke-width:4;stroke-linecap:round}
+.w-sol .w-rayos{fill:var(--sol);opacity:.9}
 .w-nube{fill:var(--nube)}.w-nube2{fill:var(--nube2)}.w-nubeo{fill:var(--nubeo)}.w-luna{fill:var(--luna)}
 .w-gota{stroke:var(--gota);stroke-width:4;stroke-linecap:round}.w-rayo{fill:var(--rayo)}.w-copo{fill:var(--tx2)}
 .w-niebla{stroke:var(--nube2);stroke-width:4.5;stroke-linecap:round}
@@ -484,7 +491,7 @@ i.eds{display:inline-block;font-style:normal;font-size:20px;font-weight:800;colo
 .p-empleo .der .emp b{font-size:21px}.emp span b.aqui,.emp b.aqui{display:inline;font-size:inherit;color:#6fd8b4}.emp .pl{display:inline;font-weight:800;color:var(--tx2)}.emp i.et{font-style:normal;font-weight:800;color:var(--acc)}
 .pp-m em.et,.sorteos i.et{font-style:normal;font-weight:800;color:var(--acc)}
 .emp i.et.cl,.sorteos i.et.rq{color:var(--mar)}.emp .pl.fin{font-weight:400;color:var(--mu)}
-.alims .pp-m em.pa{font-style:normal;font-size:20px;font-weight:800;padding:1px 10px 1px 7px;border-radius:99px;margin-right:8px;white-space:nowrap;
+:is(.alims,.juntas) .pp-m em.pa{font-style:normal;font-size:20px;font-weight:800;padding:1px 10px 1px 7px;border-radius:99px;margin-right:8px;white-space:nowrap;
   background:var(--tile2);border:1px solid var(--linea);color:var(--tx)}
 .ic-al{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;vertical-align:-6px;margin-right:5px}
 .pp-foto .ic-big{display:none;width:54px;height:54px;color:var(--mu);margin:0;vertical-align:0}.pp-foto.sin .ic-big{display:block}
@@ -655,9 +662,22 @@ footer.ap1 .tabs .tab.on{margin:0 6px}footer.ap1 .tabs .tab.on::before{left:-8px
 .p-aire .aire-t{display:flex;flex-direction:column}.p-aire .aire6 li:not(.sub){grid-template-columns:1fr auto;row-gap:4px}.p-aire .aire6 li:not(.sub) .esc6{grid-column:1/-1;grid-row:2}
 .p-aire .aire6 li.rad span{white-space:nowrap}.p-planeta .aire-t{display:flex;flex-direction:column}.p-planeta .aire-t .aire6{gap:14px;margin-top:22px}
 /* alertas y productos */
-.alims .pp-m em.al-tipo{font-style:normal;font-size:20px;font-weight:800;padding:2px 10px;border-radius:99px;margin-right:8px;white-space:nowrap}
+:is(.alims,.juntas) .pp-m em.al-tipo{font-style:normal;font-size:20px;font-weight:800;padding:2px 10px;border-radius:99px;margin-right:8px;white-space:nowrap}
 .al-tipo.al-general{background:#e53935;color:#fff}.al-tipo.al-complementos{background:#8e44ad;color:#fff}
 .colsT{display:flex;flex-direction:column}.colsT>ul{flex:1;min-height:0;column-fill:auto}
+/* 4.39: dos tarjetas en una (juntar): la sección de abajo, con lo que sobra */
+.tile.junta{display:flex;flex-direction:column}.tile.junta>.sec{flex:0 0 auto;min-width:0}.tile.junta>.sec+.sec{margin-top:4px}
+.tile.junta>.sec>.k.sub{margin:0 0 10px;padding-top:10px;border-top:1px solid var(--linea)}.tile.junta .nr-foto{width:128px;height:78px}.tile.junta .nlist svg.nq{width:84px;height:84px}.p-noticias .tile.junta .nlist li{padding:7px 0}
+.tile.junta>.sec.mapa-ct>svg.mapa-c{flex:0 0 236px}
+/* 4.39: las tres listas de Alertas, juntas en una a tres columnas (.juntas): cada fila con su raya debajo y su tipo (.tp) */
+.cons ul:is(.cols1,.cols2,.cols3){display:block;column-count:3;column-gap:44px;column-rule:1px solid var(--linea)}.cons ul.cols2{column-count:2}.cons ul.cols1{column-count:1}
+.cons ul:is(.cols1,.cols2,.cols3) li{break-inside:avoid;border-top:0;border-bottom:1px solid var(--linea);padding:0 0 12px;margin:0 0 12px;gap:14px}.cons ul:is(.cols1,.cols2,.cols3) li:first-child{padding-top:0}
+.cons .tp{font-style:normal;font-weight:800;font-size:20px;border-radius:8px;padding:0 9px;margin-right:8px;white-space:nowrap}.tp-a{background:rgba(232,90,60,.18);color:var(--mal)}.tp-m{background:rgba(70,140,230,.2);color:var(--acc)}.tp-p{background:rgba(245,180,40,.24);color:var(--tx)}
+.cons .md-t .pp-m{display:block;margin-top:4px}.cons.juntas .pp-m :is(.tp,.al-tipo,.pa){display:inline-block;margin-bottom:4px;line-height:1.3}.cons.juntas .pp-foto{width:84px;height:84px}.cons.juntas svg.nq{width:76px;height:76px}.cons.juntas .k em{white-space:normal;text-align:right}
+/* cada fila: a la izquierda la foto (o el día) y debajo su QR; a la derecha, el texto a todo lo ancho que queda (menos líneas: caben más filas) */
+.cons.juntas ul li{display:grid;grid-template-columns:84px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:16px;row-gap:6px;align-items:start}
+.cons.juntas li>:nth-child(1){grid-column:1;grid-row:1;justify-self:center}.cons.juntas li>:nth-child(2){grid-column:2;grid-row:1/3}.cons.juntas li>:nth-child(3){grid-column:1;grid-row:2;justify-self:center}
+.cons.juntas .md-c{display:flex;flex-direction:column;align-items:center;gap:6px}.cons.juntas .md-c i{white-space:nowrap}
 .cons ul.g2{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}.cons ul.g2 li:nth-child(2){border-top:0;padding-top:0}
 /* hoy */
 .ev{display:flex;flex-direction:column}.ev .ev-l{flex:1}.ev .santos{margin-top:auto}
@@ -849,7 +869,10 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .nat-r{list-style:none}.nat-r li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--linea);font-size:20px}
 .nat-r li span{min-width:0;overflow:hidden;white-space:nowrap}.nat-r em{color:var(--mu);font-size:20px}.nat-r small{font-size:20px;color:var(--mu);font-weight:700;white-space:nowrap}
 .nat-r small.amen{color:var(--mal)}
-.nat-f{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}.nat-f figure{position:relative;border-radius:12px;overflow:hidden;height:150px;background:var(--tile2)}
+.nat-f{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 10px;margin-top:6px}.nat-f figure{min-width:0}.nat-f .nf-i{position:relative;border-radius:12px;overflow:hidden;height:136px;background:var(--tile2)}
+/* 4.39 (lo pidió Isa el 10 nov 2026: «en fotos de lo visto pon los créditos más pequeños debajo de la foto»): el autor y la licencia, debajo y
+   en letra pequeña (.cred: lo único por debajo de los 20 px, porque es la firma de la foto y no un dato) */
+.nat-f .cred{display:block;font-size:14px;line-height:1.25;color:var(--mu);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
 .nat-f img{width:100%;height:100%;object-fit:cover;display:block}.nat-f figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 5px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;text-align:left}
 .nat-f figcaption b{display:block;font-size:20px;line-height:1.15;white-space:nowrap;overflow:hidden}.nat-f figcaption span{display:block;font-size:20px;opacity:.85;white-space:nowrap;overflow:hidden}.nat-datos .nota{margin-top:auto;padding-top:10px}
 .tor-max{font-size:24px;margin:4px 0 8px}.tor-barras{display:flex;align-items:flex-end;gap:2px;height:150px;border-bottom:2px solid var(--linea)}
@@ -967,6 +990,11 @@ body.claro{--sombra:inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px hsla(var
 </head>
 <body>
 <div id="escena" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <radialGradient id="gSolD"><stop offset="0" stop-color="#fffdf0"/><stop offset=".4" stop-color="#ffec94"/><stop offset=".8" stop-color="#ffc93c"/><stop offset="1" stop-color="#f0961a"/></radialGradient>
+  <radialGradient id="gSolP"><stop offset="0" stop-color="#fff3cf"/><stop offset=".4" stop-color="#ffcf74"/><stop offset=".8" stop-color="#ff9a3c"/><stop offset="1" stop-color="#ea6424"/></radialGradient>
+  <radialGradient id="gSolH"><stop offset=".42" stop-color="#ffcb52" stop-opacity=".6"/><stop offset=".62" stop-color="#ffbe46" stop-opacity=".22"/><stop offset="1" stop-color="#ffb43c" stop-opacity="0"/></radialGradient>
+</defs></svg>
 <div id="amb">
   <div class="a-sol"></div><div class="a-rayos"></div><div class="a-luna"></div>
   <div class="a-est"><canvas id="est1" width="1920" height="1080"></canvas><canvas id="est2" width="1920" height="1080"></canvas></div>
@@ -1172,9 +1200,11 @@ function cortada(t, soloAlto) {   // soloAlto: solo lo que se sale por abajo (lo
   return false;
 }
 /* la marca «1–5 de 20» se pone antes de ajustar nada, para que su sitio en la cabecera ya cuente (luego se corrige el número) */
+/* 4.39: la cabecera de una lista es la de su sección (.sec, en las tarjetas que juntan dos) si la tiene; si no, la de su tarjeta */
+const cabeceraDe = c => { const s = c.closest(".sec"); return (s && s.querySelector(".k")) || (c.closest(".tile") || c).querySelector(".k"); };
 function marcarTurnos(raiz) {
   for (const c of raiz.querySelectorAll("[data-turno]")) {
-    const k = (c.closest(".tile") || c).querySelector(".k"), total = +c.dataset.total, d = +c.dataset.desde;
+    const k = cabeceraDe(c), total = +c.dataset.total, d = +c.dataset.desde;
     if (k && !k.querySelector(".turno") && total > c.children.length) k.insertAdjacentHTML("beforeend", `<span class="turno" data-lista="${c.dataset.turno}">${d + 1}–${d + c.children.length} de ${total}</span>`);
   }
 }
@@ -1207,7 +1237,7 @@ function ajustarTurnos(raiz) {
   quitar();
   // 4.37: la marca «1–4 de 12» que ahora hace falta, ya en la cabecera (con letra de 20 px puede bajar a otra línea y empujar la lista)
   let marcas = 0;
-  for (const c of listas) { const k = tarjeta(c).querySelector(".k"), n = c.children.length, total = +c.dataset.total;
+  for (const c of listas) { const k = cabeceraDe(c), n = c.children.length, total = +c.dataset.total;
     if (k && n < total && !k.querySelector(".turno")) { k.insertAdjacentHTML("beforeend", `<span class="turno" data-lista="${c.dataset.turno}">${+c.dataset.desde + 1}–${+c.dataset.desde + n} de ${total}</span>`); marcas++; } }
   if (marcas) quitar();
   for (const c of listas) {
@@ -1215,7 +1245,7 @@ function ajustarTurnos(raiz) {
     turnos.siguiente[clave] = d + n >= total ? 0 : d + n;
     if (n < pintadas.get(c)) turnos.cabe[clave] = n;                              // cupieron estas
     else if (pintadas.get(c) < Math.min(max, total - d)) delete turnos.cabe[clave];  // cupieron todas las pintadas: quizá quepan más
-    const k = tarjeta(c).querySelector(".k"), m = tarjeta(c).querySelector(`.k .turno[data-lista="${clave}"]`);
+    const k = cabeceraDe(c), m = tarjeta(c).querySelector(`.k .turno[data-lista="${clave}"]`);
     if (m) m.textContent = marcaTurno(d, n, total).replace(/<[^>]+>/g, "");
     else if (k && n < total && !k.querySelector(".turno")) k.insertAdjacentHTML("beforeend", marcaTurno(d, n, total));
   }
@@ -1226,7 +1256,7 @@ const LETRA_MIN = 20;
 function letraMenor(t) {   // la letra más pequeña de la tarjeta (sin los dibujos)
   let m = Infinity;
   for (const el of t.querySelectorAll("*")) {
-    if (el instanceof SVGElement || !el.offsetParent || ![...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
+    if (el instanceof SVGElement || !el.offsetParent || el.classList.contains("cred") || ![...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim())) continue;
     m = Math.min(m, parseFloat(getComputedStyle(el).fontSize) || m);
   }
   return m;
@@ -1270,7 +1300,7 @@ function holgura(t) {   // lo que sobra en la tarjeta, en px: su alto por dentro
 }
 function agrandarTarjetas(raiz) {
   for (const t of raiz.querySelectorAll(LLENAR)) {
-    if (t.style.zoom || t.querySelector(".turno") || holgura(t) < 60) continue;
+    if (t.classList.contains("sec") || t.style.zoom || t.querySelector(".turno") || holgura(t) < 60) continue;   // 4.39: las secciones de una tarjeta junta no crecen solas
     const cuerpo = [...t.children].filter(h => !h.classList.contains("k") && !h.classList.contains("act")), col = t.closest(".col");
     const poner = z => cuerpo.forEach(h => { h.style.zoom = z > 1 ? z.toFixed(2) : ""; });
     let z = 1;
@@ -1398,9 +1428,11 @@ const vaciaDe = (k, t, i = 0) => { const ms = (E.desfasadas || {})[k];
   return ms == null ? vacia(t, i) : vacia(`${may(NOMBRE_FUENTE[k] || k)}: sin datos al día${ms ? `. Lo último que llegó es ${cuandoFue(ms)} y ya no vale` : ""}.`, i); };
 
 /* ---------- iconos del tiempo ---------- */
-const RAYOS = (cx, cy, r) => [0, 45, 90, 135, 180, 225, 270, 315].map(a => { const t = a * Math.PI / 180;
-  return `<line x1="${(cx + Math.cos(t) * (r + 5)).toFixed(1)}" y1="${(cy + Math.sin(t) * (r + 5)).toFixed(1)}" x2="${(cx + Math.cos(t) * (r + 10)).toFixed(1)}" y2="${(cy + Math.sin(t) * (r + 10)).toFixed(1)}"/>`; }).join("");
-const G_SOL = (cx, cy, r) => `<g class="w-sol"><circle cx="${cx}" cy="${cy}" r="${r}"/>${RAYOS(cx, cy, r)}</g>`;
+/* 4.39 (lo pidió Isa: «mejora la apariencia del sol para que sea más realista»): el sol, un disco con su degradado (centro casi blanco,
+   limbo anaranjado: gSolD), el halo alrededor (gSolH) y doce rayos finos que se afilan, largos y cortos (antes, un círculo liso y 8 palitos) */
+const RAYOS = (cx, cy, r) => { let d = ""; for (let i = 0; i < 12; i++) { const t = i * Math.PI / 6, c = Math.cos(t), s = Math.sin(t), a = r * 1.24, b = r * (i % 2 ? 1.62 : 1.98), w = r * .12;
+  d += `M${(cx + c * a - s * w).toFixed(1)} ${(cy + s * a + c * w).toFixed(1)}L${(cx + c * b).toFixed(1)} ${(cy + s * b).toFixed(1)}L${(cx + c * a + s * w).toFixed(1)} ${(cy + s * a - c * w).toFixed(1)}Z`; } return `<path class="w-rayos" d="${d}"/>`; };
+const G_SOL = (cx, cy, r) => `<g class="w-sol"><circle cx="${cx}" cy="${cy}" r="${(r * 2.1).toFixed(1)}" fill="url(#gSolH)"/>${RAYOS(cx, cy, r)}<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#gSolD)"/></g>`;
 const G_NUBE = (dx, dy, k, c = "w-nube") => `<g class="${c}" transform="translate(${dx} ${dy}) scale(${k})"><circle cx="22" cy="36" r="10"/><circle cx="34" cy="28" r="13"/><circle cx="46" cy="37" r="9"/><rect x="12" y="35" width="43" height="12" rx="6"/></g>`;
 const G_LUNA = (dx, dy, k) => `<path class="w-luna" transform="translate(${dx} ${dy}) scale(${k})" d="M38 10a22 22 0 1 0 18 34A18 18 0 0 1 38 10z"/>`;
 const G_GOTAS = `<g class="w-gota"><line x1="23" y1="50" x2="19" y2="59"/><line x1="34" y1="50" x2="30" y2="59"/><line x1="45" y1="50" x2="41" y2="59"/></g>`;
@@ -1443,6 +1475,12 @@ function esDeDia(f = new Date(), margen = 0) {   // margen: minutos que siguen c
   return ahora >= orto && ahora < ocaso + margen;
 }
 
+/* 4.39: el sol está bajo (a menos de 70 minutos de salir o de ponerse): se pinta anaranjado */
+function solBajo(f = new Date()) {
+  const s = (E && E.soles || []).find(x => x.fecha === isoDe(f)), hm2 = t => { const m = String(t || "").match(/(\d{1,2}):?(\d{2})/); return m ? (+m[1]) * 60 + (+m[2]) : null; };
+  const orto = s && hm2(s.orto), ocaso = s && hm2(s.ocaso), ahora = f.getHours() * 60 + f.getMinutes();
+  return orto != null && ocaso != null && ahora >= orto && ahora < ocaso && Math.min(ahora - orto, ocaso - ahora) < 70;
+}
 /* ---------- ambiente animado según los datos ---------- */
 const TEX = {};
 function textura(tipo, claro, ang = 0) {   // ang: inclinación en grados (lluvia: hacia la derecha si es positiva)
@@ -1559,6 +1597,7 @@ function ambiente() {
   if (A.dataset.texl !== texL) { A.dataset.texl = texL; A.style.setProperty("--tex-lluvia", textura("lluvia", claro, angL)); }
   if (A.dataset.texv !== texV) { A.dataset.texv = texV; A.style.setProperty("--tex-viento", textura("viento", claro, sentido === "der" ? angV : -angV)); }
   const despejado = cielo === "despejado", nubes = cielo === "nubes";
+  A.querySelector(".a-sol").classList.toggle("bajo", solBajo());
   capa("sol", !noche && (despejado || nubes) ? +Math.min(1, (1 - cubre * .75) * (.8 + .2 * fCalor + (temp === "calor" ? .15 : 0))).toFixed(2) : 0);
   capa("rayos", !noche && cubre < .6 ? +c01((1 - cubre * 1.6) * (.65 + .35 * fCalor)).toFixed(2) : 0);
   capa("luna", noche && (despejado || nubes) ? +(1 - cubre * .6).toFixed(2) : 0);
@@ -3227,6 +3266,19 @@ function tarjetaPlayasJunta(i) {
     <p class="pj-res${malas ? " mal" : ""}">${malas ? `${malas} no aptas` : `Todas aptas para el baño`} en la última inspección de la Junta, el ${diaFecha(fecha)}</p>
     <ul class="pj">${P.playas.map(fila).join("")}</ul><p class="nota">Cada punto, una inspección de la temporada (de la Consejería de Sanidad, cada quince días del 1 de junio al 30 de septiembre); en rojo, no apta. Junto al nombre, su calificación del año.</p></div>`;
 }
+/* 4.39 (lo pidió Isa el 10 nov 2026: «junta las secciones si con ello puedes mostrar una mayor cantidad de información»): dos tarjetas en
+   una, cada una en su sección (.sec, con las clases que tenía su tarjeta); la segunda, sin su cabecera (sinK) o con ella de subtítulo. Se
+   ahorran el hueco entre las dos, sus rellenos, una cabecera y una fecha «Act.», y ese sitio es para más filas de sus listas (que se
+   reparten el alto: ajustarTurnos quita filas a la que más tiene hasta que todo cabe). */
+function juntar(a, b, sinK = true) {
+  if (!a || !b) return a || b || "";
+  const P = t => { const m = /^\s*<div data-f="([^"]*)" class="tile([^"]*)"([^>]*)>([\s\S]*)<\/div>\s*$/.exec(t); return m && {f: m[1], c: m[2].trim(), r: m[3], d: m[4]}; };
+  const A = P(a), B = P(b);
+  if (!A || !B) return a + b;
+  const f = [...new Set((A.f + " " + B.f).split(/\s+/).filter(Boolean))].join(" ");
+  const cuerpo = sinK ? B.d.replace(/<div class="k">[\s\S]*?<\/div>/, "") : B.d.replace('<div class="k">', '<div class="k sub">');
+  return `<div data-f="${f}" class="tile junta"${A.r}><div class="sec ${A.c}">${A.d}</div><div class="sec ${B.c}">${cuerpo}</div></div>`;
+}
 /* ---------- 4.26 (lo pidió Isa el 5 nov 2026: «mapa de biodiversidad de Adra»): los registros de GBIF del entorno (Naturaleza.entorno): el mapa
    del último mes, cuántos hay de cada grupo y de cada año y lo último visto. «Los registros no deben interpretarse como censos completos ni
    como presencia actual confirmada» (Isa). ---------- */
@@ -3260,8 +3312,8 @@ function tarjetaNatDatos(i) {
   const R = (N.recientes || []).slice(0, 6).map(r => `<li><span><b>${esc(r.nombre || r.especie)}</b>${r.nombre ? ` <em>${esc(r.especie)}</em>` : ""}${r.amenaza ? ` <small class="amen">${{VU: "vulnerable", EN: "en peligro", CR: "en peligro crítico"}[r.amenaza]}</small>` : ""}</span><small>${esc(r.grupo)} · ${diaFecha(r.fecha)}</small></li>`).join("");
   return `<div data-f="naturaleza" class="tile nat-datos" style="--i:${i}"><div class="k">Especies registradas en el entorno<em>${miles(N.total)} registros</em></div>
     <ul class="nat-g">${barras}</ul><div class="nat-a">${anios}</div><p class="nat-at">Registros de cada año (los de iNaturalist y otros crecen desde 2017)</p>
-    ${F.length >= 3 ? `<div class="nat-fb"><div class="k sub">Fotos de lo visto<em>los dos últimos meses</em></div><div class="nat-f">${F.map(f => `<figure><img src="${esc(f.url)}" alt="" onerror="fotoFalla(this)">
-      <figcaption><b>${esc(f.nombre || f.especie)}</b><span>${diaFecha(f.fecha)} · © ${esc(f.autor)} · ${esc(f.licencia)}</span></figcaption></figure>`).join("")}</div></div>
+    ${F.length >= 3 ? `<div class="nat-fb"><div class="k sub">Fotos de lo visto<em>los dos últimos meses</em></div><div class="nat-f">${F.map(f => `<figure><div class="nf-i"><img src="${esc(f.url)}" alt="" onerror="fotoFalla(this)">
+      <figcaption><b>${esc(f.nombre || f.especie)}</b><span>${diaFecha(f.fecha)}</span></figcaption></div><small class="cred">© ${esc(f.autor)} · ${esc(f.licencia)}</small></figure>`).join("")}</div></div>
       <div class="nat-rb" hidden><div class="k sub">Lo último visto</div><ul class="nat-r">${R}</ul></div>`
       : `<div class="k sub">Lo último visto</div><ul class="nat-r">${R}</ul>`}
     <p class="nota">Unos 27 × 22 km alrededor de ${esc(E.lugar.nombre)}, con el mar. Los registros no deben interpretarse como censos completos ni como presencia actual confirmada: es lo que alguien vio y apuntó (museos, herbarios, censos y observaciones de aficionados). «Vulnerable» y «en peligro», de la lista roja de la UICN.${F.length >= 3 ? " Fotos de quienes las vieron (iNaturalist y otros, por GBIF), con su licencia." : ""}</p></div>`;
@@ -3455,17 +3507,17 @@ function etiquetasAlim(a) {
   const e = etiqueta("alim", a.enlace) || {}, p = PRODUCTO_ALIM[e.producto];
   return p && !(e.producto === "complementos" && a.tipo === "complementos") ? `<em class="pa">${iconoAlim(e.producto)}${p[0]}</em>` : "";
 }
-function tarjetaAlimentarias(i, dos) {   // dos: en dos columnas (muchas, o sin medicamentos al lado)
-  const A = alertasAlimentarias();
-  if (!A.length) return "";
-  const t = enTurno("alimentarias", A, 12);
-  const fila = a => {
+const filaAlim = (a, tipo = "") => {
     const k = "al:" + claveAlim(a), nombre = [a.producto, a.marca].filter(Boolean).map(x => esc(x)).join(" · ") || esc(a.titulo);
     const datos = [a.lote && `lote ${esc(a.lote)}`, a.caducidad && `caduca ${esc(a.caducidad)}`, a.andalucia && "llegó a Andalucía"].filter(Boolean).join(" · ");
     return `<li ${claveNuevo(k)}><div class="pp-foto${a.imagen ? "" : " sin"}">${a.imagen ? `<img src="${esc(a.imagen)}" alt="" onerror="this.parentNode.classList.add('sin');this.remove()">` : ""}${iconoAlim((etiqueta("alim", a.enlace) || {}).producto, "ic-al ic-big")}</div>
       <div class="pp-t"><b>${nombre}${marcaNuevo(k, a.fecha)}</b>${a.peligro ? `<span class="pp-r"><b>${esc(may(a.peligro))}</b></span>` : ""}${datos ? `<span>${datos}</span>` : ""}
-        <span class="pp-m"><em class="al-tipo al-${esc(a.tipo || "general")}">${TIPO_ALIM[a.tipo] || TIPO_ALIM.general}</em>${etiquetasAlim(a)}${fechaCorta(a.fecha)}</span></div>${qrSvg(a.enlace, "qr nq", 64)}</li>`;
+        <span class="pp-m">${tipo}<em class="al-tipo al-${esc(a.tipo || "general")}">${TIPO_ALIM[a.tipo] || TIPO_ALIM.general}</em>${etiquetasAlim(a)}${fechaCorta(a.fecha)}</span></div>${qrSvg(a.enlace, "qr nq", 64)}</li>`;
   };
+function tarjetaAlimentarias(i, dos) {   // dos: en dos columnas (muchas, o sin medicamentos al lado)
+  const A = alertasAlimentarias();
+  if (!A.length) return "";
+  const t = enTurno("alimentarias", A, 12), fila = a => filaAlim(a);
   return `<div data-f="alimentarias" class="tile cons alims" style="--i:${i}"><div class="k">Alertas alimentarias · AESAN<em>${A.length} ${A.length === 1 ? "alerta" : "alertas"}</em></div>
     <ul${dos ? ' class="g2"' : ""} ${t.attr}>${t.items.map(fila).join("")}</ul><p class="nota">Si lo tienes en casa, no lo consumas. En el QR, la ficha de la AESAN.</p></div>`;
 }
@@ -3490,7 +3542,31 @@ const requisitosSorteo = s => { const r = s.requisitos || {};
 const pCasa = () => `<div class="main"><div class="col izq" style="grid-template-rows:1fr">${tarjetaLuz()}</div><div class="col" style="grid-template-rows:auto 1fr">${tarjetaGas()}<div class="duo">${tarjetaTele()}${tarjetaInternet()}</div></div></div>`;
 /* ---------- alertas (3.0): las alimentarias de la AESAN y los medicamentos retirados, todas a la vez ---------- */
 const hayAlertas = () => alertasAlimentarias().length > 0 || medicamentosRecientes().length > 0;
+/* 4.39 (lo pidió Isa el 10 nov 2026: «junta las secciones si con ello puedes mostrar una mayor cantidad de información (por ejemplo en
+   alertas y productos…)»): las alertas alimentarias, los medicamentos retirados y los productos peligrosos, en una sola tarjeta y una sola
+   lista a tres columnas (cada fila dice de qué es): el sitio que le sobraba a una columna lo aprovechan las demás. Primero los alimentos
+   y luego los medicamentos (entre los dos, como mucho 6 en una vuelta: si hay más, van rotando de 3 en 3) y después los productos,
+   siempre los más recientes que quepan (4.26: «los más recientes, máximo todo en 1 pantalla»): así ninguna de las tres tapa a las otras. */
+function tarjetaAlertasJunta() {
+  const A = primeroNuevo("alimentarias", alertasAlimentarias()), M = E.medicamentos ? primeroNuevo("medicamentos", medicamentosRecientes()) : [];
+  const P = E.productos ? primeroNuevo("productos", productosRecientes().slice().sort((a, b) => String(b.fecha || "").localeCompare(String(a.fecha || "")))) : [];
+  if (!A.length && !M.length && !P.length) return "";
+  const TOPE = 6, na = A.length + M.length <= TOPE ? A.length : Math.max(3, TOPE - M.length), nm = A.length + M.length <= TOPE ? M.length : Math.max(3, TOPE - A.length);
+  const ta = turnoFijo("alertasA", A, na || 1), tm = turnoFijo("alertasM", M, nm || 1);
+  const L = [...ta.items.map(x => ["a", x]), ...tm.items.map(x => ["m", x]), ...P.map(x => ["p", x])];
+  turnos.siguiente.alertas = turnos.desde.alertas = 0;
+  const t = enTurno("alertas", L, 24), cols = Math.min(3, L.length), n = (k, uno, varios) => `${k} ${k === 1 ? uno : varios}`, rota = (k, q) => k > q ? `; ${q} por vuelta` : "";
+  const T = {a: `<em class="tp tp-a">Alimento</em>`, m: `<em class="tp tp-m">Medicamento</em>`, p: `<em class="tp tp-p">Producto</em>`};
+  const cuenta = [A.length && `${n(A.length, "alimento", "alimentos")} (AESAN${rota(A.length, na)})`, M.length ? `${n(M.length, "medicamento", "medicamentos")} del último mes (AEMPS${rota(M.length, nm)})` : E.medicamentos && "ningún medicamento retirado en el último mes (AEMPS)",
+    P.length ? `${n(P.length, "producto avisado", "productos avisados")} por España (Safety Gate)` : E.productos && "ningún producto peligroso avisado por España en 3 meses"].filter(Boolean).join(" · ");
+  const sinFoto = E.productos && E.productos.fotosSin ? ` Sin foto ${E.productos.fotosSin}: Safety Gate no la dio (${esc(E.productos.fotosFallo || "sin respuesta")}).` : "";
+  return `<div data-f="${[A.length && "alimentarias", E.medicamentos && "medicamentos", E.productos && "productos"].filter(Boolean).join(" ")}" class="tile cons juntas colsT" style="--i:1"><div class="k">Alertas y productos retirados<em>${cuenta}</em></div>
+    <ul class="cols${cols}" ${t.attr}>${t.items.map(([k, x]) => k === "a" ? filaAlim(x, T.a) : k === "m" ? filaMed(x, T.m) : filaProd(x, T.p)).join("")}</ul>
+    <p class="nota">Alimentos: si lo tienes en casa, no lo consumas. Medicamentos: mira el lote en la caja y, ante la duda, pregunta en tu farmacia (clase 1, el riesgo más alto). Productos: si tienes alguno, deja de usarlo. En cada QR, su ficha oficial.${sinFoto}</p></div>`;
+}
 function pAlertas() {
+  const junta = tarjetaAlertasJunta();
+  if (junta) return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${junta}</div></div>`;
   const med = tarjetaMedicamentos(), n = alertasAlimentarias().length, dos = n > 1 && (!med || n > 5);   // muchas alimentarias: en dos columnas
   // 4.34 (lo pidió Isa el 7 nov 2026: «la menor cantidad de pestañas posible»): los productos peligrosos, a la derecha (era su pantalla)
   if (hayProductos()) {   // una columna para cada cosa, a todo lo alto
@@ -4011,7 +4087,8 @@ function pSismos() {
   // una sola parte: su lista y su mapa, uno al lado del otro (como era Terremotos)
   if (cols.length === 1 && cols[0].length === 2) return `<div class="main" style="grid-template-columns:760px minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${cols[0][1]}</div><div class="col" style="grid-template-rows:1fr">${cols[0][0]}</div></div>`;
   // 4.37 (letra mínima de 20 px): con su mapa encima, cada lista con casi la mitad de la columna (con el mapa entero, 1 o 2 filas por turno)
-  return `<div class="main sismos3" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(c => `<div class="col" style="grid-template-rows:${c.length < 2 ? "1fr" : c[0] === mm ? "auto minmax(0,1fr)" : "minmax(0,1.15fr) minmax(0,1fr)"}">${c.join("")}</div>`).join("")}</div>`;
+  // 4.39 (lo pidió Isa: «junta las secciones…»): cada mapa y su lista, en una sola tarjeta: caben el doble de terremotos en cada lista
+  return `<div class="main sismos3" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(c => `<div class="col" style="grid-template-rows:1fr">${c.length < 2 ? c[0] : juntar(c[0], c[1]).replace("los números, como en la lista", "debajo, los más recientes").replace("en el mapa, todos los que da el IGN (también los de Portugal y el norte de África)", "en el mapa, todos los del IGN (con Portugal y el norte de África); debajo, los últimos")}</div>`).join("")}</div>`;
 }
 
 /* ---------- 4.28 (lo pidió Isa el 6 nov 2026): tres pantallas sobre la ortofoto del PNOA de las zonas inundables (la misma caja): las islas de
@@ -4368,7 +4445,10 @@ function pez(k, p) {
   if (p.puntos) for (let i = 0; i < 14; i++) x += `<circle cx="${x0 + 6 + (i * 37) % 42}" cy="${r1(y - h * .6 + ((i * 5) % 10) / 10 * h * 1.2)}" r=".9" fill="${p.puntos}"/>`;
   if (p.escudos) x += `<path d="M${x0 + 12} ${r1(y - h * .3)} C28 ${r1(y - h * .5)} 36 ${r1(y + h * .1)} 51 ${y}" stroke="#2c3a40" stroke-width="1.4" stroke-dasharray="1.6 1" fill="none"/>`;
   if (p.mancha) x += `<circle cx="${p.mancha[0]}" cy="${r1(y + p.mancha[1] * h)}" r="${p.mancha[2]}" fill="${p.mancha[3] || "#222"}"/>`;
-  const fuera = (p.pico ? `<path d="M${x0 + 1} ${y} L${p.picoFino ? 1 : 2} ${y + .3}" stroke="${p.l}" stroke-width="${p.picoFino ? 1.3 : 2}" stroke-linecap="round"/>` : "")
+  if (p.mejilla) x += `<ellipse cx="${x0 + 6.5}" cy="${r1(y + h * .2)}" rx="3.4" ry="${r1(h * .34)}" fill="${p.mejilla}" opacity=".55"/>`;
+  if (p.frente) x += `<path d="M${x0} ${y} C${x0 + 2} ${r1(y - h * .75)} ${x0 + 9} ${r1(y - h * .98)} ${x0 + 16} ${r1(y - h)}" stroke="rgba(20,30,50,.35)" stroke-width="1.6" fill="none"/>`;
+  const fuera = (p.dientes ? `<path d="M${x0 + .2} ${y + 1.4} h3.6" stroke="rgba(0,0,0,.55)" stroke-width=".5"/><path d="M${x0 + .5} ${y + 1.5} l.7 1.9 l.7 -1.9Z M${x0 + 2.1} ${y + 1.5} l.6 1.5 l.6 -1.5Z M${x0 + 1.2} ${y + 1.3} l.55 -1.6 l.55 1.6Z" fill="#fff" stroke="rgba(0,0,0,.5)" stroke-width=".22"/>` : "")
+    + (p.pico ? `<path d="M${x0 + 1} ${y} L${p.picoFino ? 1 : 2} ${y + .3}" stroke="${p.l}" stroke-width="${p.picoFino ? 1.3 : 2}" stroke-linecap="round"/>` : "")
     + (p.barbillas ? `<path d="M${x0 + 3} ${y + 2} q1 4 3 5 M${x0 + 5} ${y + 2} q1 4 3 5" stroke="${p.l}" stroke-width=".9" fill="none"/>` : "")
     + (p.aletillas ? [40, 43.5, 47].map(a => `<path d="M${a} ${r1(y - h * .5)} l1.5 -1.6 l.6 1.4Z M${a} ${r1(y + h * .5)} l1.5 1.6 l.6 -1.4Z" fill="${p.aletillas}"/>`).join("") : "")
     + (p.oro ? `<path d="M${x0 + 4} ${r1(y - h * .55)} q3 -1 6 0" stroke="#f0c43a" stroke-width="1.8" fill="none" stroke-linecap="round"/>` : "")
@@ -4450,7 +4530,11 @@ const PECES = [
   ["lenguado|acedia|tapaculo|podas|peluda|rodaballo|gallo", (k) => ["plano", /rodaballo/.test(k) ? "#8a7a5a" : /gallo/.test(k) ? "#c8b496" : "#9a7a58", /rodaballo/.test(k) ? "rodaballo" : ""]],
   ["congrio|zafio", ["anguila", "#4a5560", "#c9cfd4"]], ["morena", ["anguila", "#6a4a2a", "#a8885a", "#e8c84a"]], ["pez cinto|sable", ["anguila", "#c8d2da", "#ffffff"]],
   ["pez cinta", ["anguila", "#d0504a", "#f2a090"]], ["pez ballesta", ["ballesta", "#8a8a7a"]],
-  ["denton|sama", {h: 8, l: "#b48a8a", v: "#efe2df", puntos: "#4a7ac0"}], ["llampuga|lampuga|dorado", {h: 8, l: "#2f8e7a", v: "#e8d24a", dorsalLarga: 1, aleta: "#2a6ab0"}],
+  // 4.39 (lo pidió Isa el 10 nov 2026: «añade la imagen del pescado sabia (Dentex dentex)»): la «sabia» de la lonja de Adra es el dentón:
+  // cuerpo alto y ovalado, lomo gris azulado con puntitos azules, flancos plateados algo rosados, mejilla amarillenta, una sola dorsal
+  // larga y los colmillos que le dan nombre
+  ["sabia|denton|dentex", {h: 9.5, l: "#6c84a4", v: "#f3e1dc", puntos: "#2c5cae", dorsalLarga: 1, aleta: "#8093ad", pectoral: 11, dientes: 1, mejilla: "#ecc85e", frente: 1}],
+  ["sama", {h: 8, l: "#b48a8a", v: "#efe2df", puntos: "#4a7ac0"}], ["llampuga|lampuga|dorado", {h: 8, l: "#2f8e7a", v: "#e8d24a", dorsalLarga: 1, aleta: "#2a6ab0"}],
   ["palometa", {h: 11, l: "#4a4f56", v: "#9aa0a6"}], ["espeton", {h: 4, l: "#586872", v: "#e6eaec", pico: 3, dos: 1}],
   ["lisa|mujol|galupe|capiton", {h: 6, l: "#5e6e7a", v: "#e6eaec", rayas: ["", "#8a98a2", "#8a98a2", "#8a98a2"], dos: 1}],
   ["corvina|corvallo|roncador|burro", {h: 7.5, l: "#8a7a5a", v: "#e0d8c4", dos: 1}],
@@ -4741,7 +4825,7 @@ function tarjetaCortes(C, i) {
 }
 function pNoticias() {
   const N = noticiasRecientes(), S = sorteosActivos(), C = cortesVigentes(), lugar = esc((E.noticias || {}).lugar || E.lugar.nombre);
-  const ag = tarjetaAgenda(4, N.length ? 2 : 8);   // 4.13 (lo pidió Isa el 1 nov 2026: «agenda de Adra aparece cortada y debería salir en las noticias»)
+  const ag = tarjetaAgenda(4, N.length ? 3 : 8);   // 4.39: hasta 3 (va en la misma tarjeta que las demás noticias y se reparten el sitio); 4.13 (lo pidió Isa el 1 nov 2026: «agenda de Adra aparece cortada y debería salir en las noticias»)
   if (!N.length) {   // 4.18: sin noticias, la agenda (o lo último) se queda con lo que sobra, sin hueco abajo
     const L = [C.length ? tarjetaCortes(C, 1) : "", ag, S.length ? tarjetaSorteos(S, 2, C.length ? 2 : 4) : ""].filter(Boolean), g = ag || L[L.length - 1];
     return `<div class="main solo"><div class="col" style="grid-template-rows:${L.map(x => x === g ? "1fr" : "auto").join(" ")}">${L.join("")}</div></div>`;
@@ -4761,8 +4845,10 @@ function pNoticias() {
     ${resto.map(n => `<li ${claveNuevo("no:" + n.titulo)}>${foto(n, "nr-foto")}<div><b>${esc(n.titulo)}${marcaNuevo("no:" + n.titulo, n.s)}</b><span>${esc(n.fuente)} · ${haceCuanto(n.s)}${otros(n)}</span></div>${qrSvg(n.enlace, "qr nq", 54)}</li>`).join("")}</ul></div>`;
   // 4.13: la agenda, en la columna de la derecha (arriba, tras los cortes); las noticias de la lista se ajustan a lo que quede (por turnos)
   if (S.length || C.length || ag) {
-    const filas = [C.length && "auto", ag && "auto", resto.length && "1fr", S.length && "auto"].filter(Boolean).join(" ");
-    return `<div class="main">${grande}<div class="col der" style="grid-template-rows:${filas}">${C.length ? tarjetaCortes(C, 2) : ""}${ag}${resto.length ? lista : ""}${S.length ? tarjetaSorteos(S, 3, 2) : ""}</div></div>`;
+    // 4.39 (lo pidió Isa: «junta las secciones…»): la agenda y las demás noticias, en una tarjeta: el sitio de una es de la otra
+    const junta = ag && resto.length ? juntar(ag, lista, false) : "";
+    const filas = [C.length && "auto", junta ? "1fr" : [ag && "auto", resto.length && "1fr"].filter(Boolean).join(" "), S.length && "auto"].filter(Boolean).join(" ");
+    return `<div class="main">${grande}<div class="col der" style="grid-template-rows:${filas}">${C.length ? tarjetaCortes(C, 2) : ""}${junta || ag + (resto.length ? lista : "")}${S.length ? tarjetaSorteos(S, 3, 2) : ""}</div></div>`;
   }
   return `<div class="main">${grande}${resto.length ? lista : ""}</div>`;
 }
@@ -4924,27 +5010,37 @@ function lotesMed(p) {
   const n = L.slice(0, 2).map(x => `${esc(x.lote)}${x.caduca ? ` <small>(cad. ${mesAnio(x.caduca)})</small>` : ""}`), r = L.length - n.length;
   return `Lotes ${n.join(", ")}${r ? ` y ${r} más` : ""}`;
 }
-function tarjetaMedicamentos() {
-  const M = medicamentosRecientes();
-  if (!E.medicamentos) return "";
-  if (!M.length) return `<div data-f="medicamentos" class="tile cons med" style="--i:1"><div class="k">Medicamentos retirados · AEMPS<em>último mes</em></div>
-    <p class="mut" style="font-size:24px">Ninguna retirada de medicamentos de las farmacias en el último mes.</p></div>`;
-  const t = enTurno("medicamentos", M, 10);
-  const fila = a => {
+const filaMed = (a, tipo = "") => {
     const P = a.productos || [], p = P[0] || {}, d = new Date(a.fecha + "T12:00"), k = "med:" + a.codigo, e = etiqueta("med", a.codigo) || {};
     const devolver = typeof e.devolver === "number" ? e.devolver >= 0.7 : a.paciente;
     const otros = P.length > 1 ? ` <small>y ${P.length - 1} ${P.length === 2 ? "presentación" : "presentaciones"} más</small>` : "";
     const dci = a.dci && !nombreMed(p.nombre).toLowerCase().includes(a.dci.toLowerCase()) ? ` · ${esc(a.dci.toLowerCase())}` : "";
     return `<li ${claveNuevo(k)}><div class="md-dia"><b>${d.getDate()}</b><span>${MES3[d.getMonth()]}</span></div>
       <div class="md-t"><b>${esc(nombreMed(p.nombre || a.dci))}${otros}${marcaNuevo(k, a.fecha)}</b><span>${lotesMed(p)}${dci}</span>
-        <span class="md-def">${esc(may(a.defecto))}</span>${devolver ? `<span class="md-pac">Retirada también en casa: si tienes ese lote, llévalo a tu farmacia</span>` : ""}</div>
+        <span class="md-def">${esc(may(a.defecto))}</span>${devolver ? `<span class="md-pac">Retirada también en casa: si tienes ese lote, llévalo a tu farmacia</span>` : ""}${tipo ? `<span class="pp-m">${tipo}</span>` : ""}</div>
       <div class="md-c">${a.clase ? `<i class="cl${a.clase}">Clase ${a.clase}</i>` : ""}${e.sinReceta === true ? `<i class="sr">Sin receta</i>` : ""}${qrSvg(a.enlace, "qr nq", 64)}</div></li>`;
   };
+function tarjetaMedicamentos() {
+  const M = medicamentosRecientes();
+  if (!E.medicamentos) return "";
+  if (!M.length) return `<div data-f="medicamentos" class="tile cons med" style="--i:1"><div class="k">Medicamentos retirados · AEMPS<em>último mes</em></div>
+    <p class="mut" style="font-size:24px">Ninguna retirada de medicamentos de las farmacias en el último mes.</p></div>`;
+  const t = enTurno("medicamentos", M, 10), fila = a => filaMed(a);
   return `<div data-f="medicamentos" class="tile cons med" style="--i:1"><div class="k">Medicamentos retirados · AEMPS<em>último mes · ${M.length}</em></div>
     <ul ${t.attr}>${t.items.map(fila).join("")}</ul>
     <p class="nota">Por defectos de calidad. Si tomas alguno, mira el lote en la caja y, ante la duda, pregunta en tu farmacia. Clase 1: el riesgo más alto.</p></div>`;
 }
 const origenCorto = o => String(o || "").replace(/^República Popular (de )?/, "");
+const filaProd = (x, tipo = "") => {
+    const k = "sg:" + x.id, mod = (x.modelos || []).slice(0, 2);
+    const datos = [(x.marcas || []).map(esc).join(", "), mod.length ? `modelo ${mod.map(esc).join(", ")}` : "", x.origen ? `hecho en ${esc(origenCorto(x.origen))}` : ""].filter(Boolean).join(" · ");
+    const medida = (x.medidas || [])[0];
+    return `<li ${claveNuevo(k)}><div class="pp-foto${x.foto ? "" : " sin"}">${x.foto ? `<img src="${esc(x.foto)}" alt="" onerror="this.parentNode.classList.add('sin');this.remove()">` : ""}</div>
+      <div class="pp-t"><b>${esc(may(x.producto))}${x.nombre ? ` · ${esc(x.nombre)}` : ""}${marcaNuevo(k, x.fecha)}</b>${datos ? `<span>${datos}</span>` : ""}
+        <span class="pp-r"><b>${(x.riesgos || []).map(esc).join(", ")}</b>${x.riesgo ? `: ${esc(x.riesgo)}` : ""}</span>
+        <span class="pp-m">${tipo}${(e => e && e.ninos >= 0.7 ? `<em class="et">Para niños</em> ` : "")(etiqueta("prod", String(x.id)))}${fechaCorta(x.fecha)}${medida ? ` · ${esc(medida)}` : ""}</span></div>${qrSvg(x.enlace, "qr nq", 64)}</li>`;
+  };
+
 function tarjetaProductos(todo) {   // todo: en su pantalla, en dos columnas
   const L = productosRecientes();
   if (!E.productos) return "";
@@ -4953,16 +5049,7 @@ function tarjetaProductos(todo) {   // todo: en su pantalla, en dos columnas
   // 4.26 (lo pidió Isa el 5 nov 2026: «muestra los productos peligrosos más recientes, máximo todo en 1 pantalla»): siempre desde el más
   // reciente y solo los que caben (sin pasar a los siguientes en otra vuelta)
   turnos.siguiente.productos = turnos.desde.productos = 0;
-  const t = enTurno("productos", L.slice().sort((a, b) => String(b.fecha || "").localeCompare(String(a.fecha || ""))), todo ? 16 : 4);
-  const fila = x => {
-    const k = "sg:" + x.id, mod = (x.modelos || []).slice(0, 2);
-    const datos = [(x.marcas || []).map(esc).join(", "), mod.length ? `modelo ${mod.map(esc).join(", ")}` : "", x.origen ? `hecho en ${esc(origenCorto(x.origen))}` : ""].filter(Boolean).join(" · ");
-    const medida = (x.medidas || [])[0];
-    return `<li ${claveNuevo(k)}><div class="pp-foto${x.foto ? "" : " sin"}">${x.foto ? `<img src="${esc(x.foto)}" alt="" onerror="this.parentNode.classList.add('sin');this.remove()">` : ""}</div>
-      <div class="pp-t"><b>${esc(may(x.producto))}${x.nombre ? ` · ${esc(x.nombre)}` : ""}${marcaNuevo(k, x.fecha)}</b>${datos ? `<span>${datos}</span>` : ""}
-        <span class="pp-r"><b>${(x.riesgos || []).map(esc).join(", ")}</b>${x.riesgo ? `: ${esc(x.riesgo)}` : ""}</span>
-        <span class="pp-m">${(e => e && e.ninos >= 0.7 ? `<em class="et">Para niños</em> ` : "")(etiqueta("prod", String(x.id)))}${fechaCorta(x.fecha)}${medida ? ` · ${esc(medida)}` : ""}</span></div>${qrSvg(x.enlace, "qr nq", 64)}</li>`;
-  };
+  const t = enTurno("productos", L.slice().sort((a, b) => String(b.fecha || "").localeCompare(String(a.fecha || ""))), todo ? 16 : 4), fila = x => filaProd(x);
   return `<div data-f="productos" class="tile cons prod" style="--i:2"><div class="k">Productos peligrosos · Safety Gate (UE)<em>avisados por España · ${L.length}</em></div>
     <ul${todo ? ' class="g2"' : ""} ${t.attr}>${t.items.map(fila).join("")}</ul>
     <p class="nota">Avisados por España a la red de alerta de la Unión Europea (3 meses). Si tienes alguno, deja de usarlo.${E.productos.fotosSin ? ` Sin foto ${E.productos.fotosSin === 1 ? "1" : E.productos.fotosSin}: Safety Gate no la dio (${esc(E.productos.fotosFallo || "sin respuesta")}).` : ""}</p></div>`;   // 4.14: por qué falta la foto
@@ -5133,9 +5220,8 @@ function pSasPagina() {
   const of = tarjetaOfertasSas(1), der = haySas() ? pSas(true) : [];
   if (!of) return der.length ? pSas() : `<div class="main">${vacia("Sin ofertas ni convocatorias del SAS ahora.")}</div>`;
   if (!der.length) return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${tarjetaOfertasSas(1, 2)}</div></div>`;
-  const filas = der.map(t => +((t.match(/data-total="(\d+)"/) || [])[1] || 9) <= 2 ? "auto" : "minmax(0,1fr)");
-  if (!filas.includes("minmax(0,1fr)")) filas[filas.length - 1] = "minmax(0,1fr)";
-  return `<div class="main trabajo" style="grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${of}</div><div class="col" style="grid-template-rows:${filas.join(" ")}">${der.join("")}</div></div>`;
+  // 4.39 (lo pidió Isa: «junta las secciones…»): las oposiciones y la Bolsa, en una tarjeta
+  return `<div class="main trabajo" style="grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${of}</div><div class="col" style="grid-template-rows:1fr">${der.length === 2 ? juntar(der[0], der[1], false) : der.join("")}</div></div>`;
 }
 function pTrabajo() {
   // 4.36 (lo pidió Isa el 8 nov 2026: «haz una página específica para ayudas y subvenciones y cursos gratis»): aquí, el empleo y el SAS
@@ -5168,8 +5254,8 @@ const DIB = {
   },
   ondas(y, A, L, f = 0) { let d = `M${-L + f},${y}`; for (let x = -L + f; x < 1920 + L; x += L) d += ` q${L / 4},${-A} ${L / 2},0 t${L / 2},0`; return `<path d="${d}"/>`; },
   nube: (x, y, s) => DIB.g(`<path class="rel" d="M0,0 h120 a22,22 0 0 0 -14,-38 a30,30 0 0 0 -52,-14 a26,26 0 0 0 -46,12 a20,20 0 0 0 -8,40 z"/>`, s, x, y),
-  sol: (x, y, r) => `<circle class="rel" cx="${x}" cy="${y}" r="${r}"/>` + Array.from({length: 12}, (_, i) => { const a = i * Math.PI / 6, c = Math.cos(a), s = Math.sin(a);
-    return `<line x1="${E2(x + c * (r + 14))}" y1="${E2(y + s * (r + 14))}" x2="${E2(x + c * (r + 36))}" y2="${E2(y + s * (r + 36))}"/>`; }).join(""),
+  // 4.39: el sol, con su disco de verdad (degradado) y su halo; bajo = el del horizonte, anaranjado
+  sol: (x, y, r, bajo) => `<g class="sol-e"><circle cx="${x}" cy="${y}" r="${E2(r * 2.5)}" fill="url(#gSolH)" stroke="none"/><circle cx="${x}" cy="${y}" r="${r}" fill="url(#gSol${bajo ? "P" : "D"})" stroke="none"/></g>`,
   luna: (x, y, r) => `<path class="rel" d="M${x},${y - r} A${r},${r} 0 1 0 ${x},${y + r} A${E2(r * .72)},${r} 0 1 1 ${x},${y - r} Z"/>`,
   estrella: (x, y, r) => `<path class="lleno" d="M${E2(x)},${E2(y - r)} Q${E2(x)},${E2(y)} ${E2(x + r)},${E2(y)} Q${E2(x)},${E2(y)} ${E2(x)},${E2(y + r)} Q${E2(x)},${E2(y)} ${E2(x - r)},${E2(y)} Q${E2(x)},${E2(y)} ${E2(x)},${E2(y - r)} Z"/>`,
   copo: (x, y, r) => [0, 60, 120].map(a => DIB.g(`<line x1="${-r}" y1="0" x2="${r}" y2="0"/><line x1="${E2(r * .55)}" y1="0" x2="${E2(r * .8)}" y2="${E2(-r * .22)}"/><line x1="${E2(-r * .55)}" y1="0" x2="${E2(-r * .8)}" y2="${E2(r * .22)}"/>`, 1, x, y, a)).join(""),
@@ -5255,8 +5341,8 @@ function capaCielo(p) {
   if (p === "ahora" || p === "cielo" || p === "espacio") return "";   // Ahora: su animación; Cielo y Espacio: su noche
   const x = 1250, y = 92;
   if (A.noche) { out.push(DIB.luna(x, y, 40)); const R = azar(5); for (let i = 0; i < 18; i++) out.push(DIB.estrella(880 + R() * 780, 20 + R() * 130, 3 + R() * 5)); }
-  else if (c === "despejado" || c === "nubes") out.push(DIB.sol(x, y, 40));
-  if (c === "nubes") out.push(DIB.nube(1300, 120, .9));
+  const sol = !A.noche && (c === "despejado" || c === "nubes") ? `<g class="cielo-sol">${DIB.sol(1530, 70, 34, typeof solBajo === "function" && solBajo())}</g>` : "";
+  if (c === "nubes") out.push(DIB.nube(1560, 96, .9));
   if (c === "cubierto" || c === "lluvia" || c === "tormenta" || c === "nieve") { out.push(DIB.nube(1080, 118, 1.1), DIB.nube(1260, 96, 1.3), DIB.nube(1460, 128, 1)); }
   if (c === "lluvia" || c === "tormenta") { const R = azar(3); for (let i = 0; i < 26; i++) { const x0 = 1060 + R() * 520, y0 = 140 + R() * 40; out.push(`<line x1="${E2(x0)}" y1="${E2(y0)}" x2="${E2(x0 - 10)}" y2="${E2(y0 + 30)}"/>`); } }
   if (c === "tormenta") out.push(`<path class="rel" d="M1300,128 L1278,176 L1296,176 L1282,222 L1324,160 L1304,160 L1318,128 Z"/>`);
@@ -5264,7 +5350,7 @@ function capaCielo(p) {
   if (c === "niebla") for (let i = 0; i < 5; i++) out.push(`<path d="M${880 + (i % 2) * 40},${40 + i * 24} h${640 - i * 30}"/>`);
   if (A.fV >= .3 || A.viento >= 2) for (let i = 0; i < 4; i++) out.push(`<path d="M${900 + i * 30},${50 + i * 26} h${420 - i * 40} q40,0 40,-20 q0,-20 -20,-20"/>`);
   const tinte = A.calima || A.fCal ? `<rect class="calima" x="0" y="0" width="1920" height="1080"/>` : "";
-  return `${tinte}<g class="cielo">${out.join("")}</g>`;
+  return `${tinte}${sol}<g class="cielo">${out.join("")}</g>`;
 }
 /* 4.38 (lo pidió Isa el 9 nov 2026: «mejora los fondos temáticos personalizados de cada pantalla»): cada pantalla, con su paisaje: siluetas
    rellenas por capas en el color de la pantalla (lo lejano, más suave: m1; lo cercano, más fuerte: m3) y unos motivos grandes de su tema.
@@ -5306,12 +5392,12 @@ function capaTema(p) {
     // los siete días: siete soles en su arco sobre los montes
     semana: () => monte(700, 200, 4, "m1") + monte(810, 140, 8, "m2") + monte(920, 110, 21, "m3") + `<path stroke-dasharray="6 18" d="M150,650 Q960,90 1770,650"/>`
       + Array.from({length: 7}, (_, i) => { const t = i / 6, x = (1 - t) * (1 - t) * 150 + 2 * t * (1 - t) * 960 + t * t * 1770, y = (1 - t) * (1 - t) * 650 + 2 * t * (1 - t) * 90 + t * t * 650;
-        return (i === 0 ? halo(x, y, 150) : "") + disco(E2(x), E2(y), i === 0 ? 46 : 30, i === 0 ? "m3 c2" : "m2"); }).join(""),
+        return D.sol(E2(x), E2(y), i === 0 ? 44 : 28); }).join(""),
     // lo normal del año: el sol, la nieve, la lluvia y el termómetro
-    clima: () => halo(380, 380, 340) + disco(380, 380, 120, "m2 c2") + monte(770, 180, 6, "m1") + monte(890, 130, 16, "m2") + suelo(990, "m3")
+    clima: () => D.sol(380, 380, 110) + monte(770, 180, 6, "m1") + monte(890, 130, 16, "m2") + suelo(990, "m3")
       + D.termometro(1540, 920, 6) + D.copo(1760, 400, 44) + D.copo(1690, 560, 26) + D.gota(1180, 560, 3.4) + D.gota(1090, 660, 2.4),
     // el aire: cintas de viento, hojas y el sol
-    aire: () => halo(1560, 330, 320) + disco(1560, 330, 96, "m2 c2")
+    aire: () => D.sol(1560, 330, 90)
       + `<path class="m1" d="M-40,560 C380,400 760,660 1200,490 S1760,380 1960,470 L1960,560 C1700,470 1500,590 1200,590 S500,500 -40,660 Z"/>`
       + `<path class="m2" d="M-40,800 C300,700 640,900 1040,780 S1640,680 1960,790 L1960,880 C1640,780 1300,900 1040,880 S360,800 -40,900 Z"/>`
       + `<path stroke-width="5" d="M260,760 c120,-90 300,-70 330,40 c24,90 -90,130 -130,70 c-28,-44 20,-84 56,-58 M1280,620 c100,-76 250,-60 276,34 c20,76 -76,110 -110,58 c-22,-36 16,-70 46,-48"/>`
@@ -5321,7 +5407,7 @@ function capaTema(p) {
       + pol("m3", "620,1100 710,650 1210,650 1300,1100") + `<path d="M710,650 H1210 M800,650 L765,1100 M880,650 L860,1100 M960,650 V1100 M1040,650 L1060,1100 M1120,650 L1155,1100"/>`
       + D.gota(250, 440, 5.4) + D.gota(1640, 400, 4.4) + D.gota(1500, 580, 2.8) + olas(970, 10, 150, 30, "m3"),
     // el mar: el faro con su haz, un velero, gaviotas y el sol en el horizonte
-    mar: () => halo(1480, 650, 430) + disco(1480, 670, 120, "m2 c2") + olas(700, 16, 260, 0, "m1") + olas(800, 18, 210, 70, "m2") + olas(910, 16, 180, 20, "m3") + olas(1015, 12, 150, 60, "m3")
+    mar: () => D.sol(1480, 672, 116, 1) + olas(700, 16, 260, 0, "m1") + olas(800, 18, 210, 70, "m2") + olas(910, 16, 180, 20, "m3") + olas(1015, 12, 150, 60, "m3")
       + pol("m1", "262,318 1040,190 1040,420") + D.faro(230, 730, 4.2) + D.barco(1130, 780, 2.8) + D.gaviota(820, 340, 3) + D.gaviota(960, 410, 2.2) + D.gaviota(700, 450, 1.8),
     // el río que se sale: la lluvia, la vega, el cauce y la regla del nivel
     inundaciones: () => monte(600, 200, 23, "m1") + (() => { const R = azar(17); let s = ""; for (let i = 0; i < 34; i++) { const x = 80 + R() * 1760, y = 200 + R() * 330; s += `<line x1="${E2(x)}" y1="${E2(y)}" x2="${E2(x - 14)}" y2="${E2(y + 44)}"/>`; } return s; })()
@@ -5351,7 +5437,7 @@ function capaTema(p) {
       + Array.from({length: 13}, (_, i) => D.hierba(70 + i * 150, 972, 2.6 + (i % 3) * .5)).join("") + D.mariposa(1380, 540, 4) + D.mariposa(520, 440, 2.6)
       + D.flor(300, 900, 5) + D.flor(1610, 912, 4.2) + D.flor(985, 930, 3.4) + D.gaviota(1100, 320, 3),
     // el día: el sol que sale detrás del pueblo
-    hoy: () => halo(960, 770, 560) + `<path class="m3" d="M760,806 A200,200 0 0 1 1160,806 Z"/>` + Array.from({length: 9}, (_, i) => { const a = Math.PI * (1 + (i + 1) / 10), c = Math.cos(a), s = Math.sin(a);
+    hoy: () => `<clipPath id="cHoy"><rect x="0" y="0" width="1920" height="806"/></clipPath><g clip-path="url(#cHoy)">${D.sol(960, 806, 190, 1)}</g>` + Array.from({length: 9}, (_, i) => { const a = Math.PI * (1 + (i + 1) / 10), c = Math.cos(a), s = Math.sin(a);
         return `<line x1="${E2(960 + c * 250)}" y1="${E2(806 + s * 250)}" x2="${E2(960 + c * 340)}" y2="${E2(806 + s * 340)}" stroke-width="5"/>`; }).join("")
       + monte(770, 160, 12, "m1") + suelo(806, "m2") + [200, 300, 410, 520, 640, 1500, 1610, 1730].map((x, i) => D.casa(x, 810 + (i % 2) * 8, 1.6 + (i % 3) * .4)).join("") + iglesia(1290, 812, 2.6) + suelo(930, "m3"),
     // los planes: un camino hasta la cumbre, pinos y un globo
@@ -5374,7 +5460,7 @@ function capaTema(p) {
     trenes: () => monte(600, 220, 91, "m1") + monte(770, 140, 93, "m2") + rect("m3", -10, 780, 1940, 30)
       + Array.from({length: 9}, (_, i) => rect("m3", i * 240 - 20, 810, 40, 300) + `<path d="M${i * 240 + 20},940 a100,130 0 0 1 200,0"/>`).join("") + D.tren(520, 752, 3.4) + suelo(1010, "m3"),
     // el campo: el mar de plástico bajo la sierra, el sol y un olivo
-    campo: () => halo(1560, 340, 320) + disco(1560, 340, 100, "m2 c2") + monte(600, 240, 18, "m1") + monte(710, 150, 28, "m2")
+    campo: () => D.sol(1560, 340, 94) + monte(600, 240, 18, "m1") + monte(710, 150, 28, "m2")
       + naves(800, 150, 40, "m1") + naves(880, 200, 54, "m1", 60) + naves(978, 264, 70, "m2", 20) + D.olivo(236, 806, 4.2),
     // la lonja: el puerto, un pesquero, los peces y las gaviotas
     pescado: () => halo(420, 620, 380) + olas(770, 12, 220, 0, "m1") + olas(868, 14, 180, 50, "m2") + olas(968, 12, 150, 20, "m3")

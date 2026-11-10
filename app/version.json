@@ -1,8 +1,8 @@
 {
-  "versionCode": 69,
-  "versionName": "4.38",
+  "versionCode": 70,
+  "versionName": "4.39",
   "apk": "app/Tiempo.apk",
-  "sha256": "a703484c3f09830f84545faaba8064c7dd3d1b283ff58a83e00f4d7c9e295387",
-  "bytes": 1328137,
-  "notas": "4.38: ofertas de provisión temporal del SAS (Sur de Granada, Poniente y Almería capital) en la pantalla SAS, con su plazo; fondos de cada pantalla: un paisaje por capas"
+  "sha256": "7558af9ee70cfa035d1fc9671b6faf85778eb3d3ca2eb8481e5964083fe88ea9",
+  "bytes": 1332393,
+  "notas": "4.39: la sabia (dentón) en la lonja, el zoom del Paseo de los Navegantes más de cerca, el sol más realista, los créditos de las fotos debajo y secciones juntas (Alertas, Terremotos, Noticias, SAS)"
 }
