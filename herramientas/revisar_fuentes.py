@@ -439,6 +439,9 @@ def cortesAgua(L):
     if "error" in x: raise ValueError(f"la capa responde con error: {x['error'].get('message')}")
     if "features" not in x: raise ValueError("la respuesta no trae «features»")
     campos = {c["name"] for c in x.get("fields", [])}
+    if not campos and not x["features"]:
+        # sin cierres en el pueblo, la consulta ya no trae «fields»: los campos se miran en la definición de la capa
+        campos = {c["name"] for c in json.loads(texto(u.split("/query?")[0] + "?f=json")).get("fields", [])}
     falta = {"CI_ID", "CI_FH_INI_PREV", "CI_FH_FIN_PREV", "CI_DIRECCION", "CI_ESTADO"} - campos
     if falta: raise ValueError(f"faltan campos: {', '.join(sorted(falta))}")
     return f"{len(x['features'])} cierres planificados o en curso en el visor"
