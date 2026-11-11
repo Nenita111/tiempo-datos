@@ -363,7 +363,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-11",
- "actualizado": "2026-11-11T06:11+01:00",
+ "actualizado": "2026-11-11T12:52+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -6514,5 +6514,37 @@
   "dias": 30,
   "fuente": "Servicio Andaluz de Salud",
   "url": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/profesionales/ofertas-de-empleo/provision-temporal-de-puestos-base-cargos-intermedios-y-puestos-directivos/ooe"
+ },
+ "dragon": {
+  "campeonatos": [
+   {
+    "titulo": "18.º Mundial de Barco Dragón de selecciones",
+    "original": "18th IDBF World Dragon Boat Racing Championships",
+    "lugar": "Kwun Tong Promenade, Hong Kong, China",
+    "anio": 2027,
+    "organiza": "IDBF",
+    "enlace": "https://www.dragonboat.sport/events/idbf-championships-ccwc-wdbrc/",
+    "desde": "2027-10-17",
+    "hasta": "2027-10-24"
+   },
+   {
+    "titulo": "16.º Mundial de Clubes de Barco Dragón",
+    "original": "16th IDBF Club Crew World Championships",
+    "lugar": "Castelldefels, Barcelona (España)",
+    "anio": 2028,
+    "organiza": "IDBF",
+    "enlace": "https://www.dragonboat.sport/events/idbf-championships-ccwc-wdbrc/"
+   }
+  ],
+  "fuentes": [
+   {
+    "nombre": "Federación Internacional de Barco Dragón (IDBF)",
+    "enlace": "https://www.dragonboat.sport/events/idbf-championships-ccwc-wdbrc/"
+   },
+   {
+    "nombre": "Paddle Europe",
+    "enlace": "https://paddle-europe.eu/calendar"
+   }
+  ]
  }
 }
