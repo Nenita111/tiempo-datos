@@ -1,8 +1,8 @@
 {
-  "versionCode": 70,
-  "versionName": "4.39",
+  "versionCode": 71,
+  "versionName": "4.40",
   "apk": "app/Tiempo.apk",
-  "sha256": "7558af9ee70cfa035d1fc9671b6faf85778eb3d3ca2eb8481e5964083fe88ea9",
-  "bytes": 1332393,
-  "notas": "4.39: la sabia (dentón) en la lonja, el zoom del Paseo de los Navegantes más de cerca, el sol más realista, los créditos de las fotos debajo y secciones juntas (Alertas, Terremotos, Noticias, SAS)"
+  "sha256": "b31edb6079eb714c0925f55148ca82ecf3883c7fa49012ebfeaf873804908e88",
+  "bytes": 1337225,
+  "notas": "4.40: viento por horas en Ahora, acuíferos más cercanos en el recuadro del paseo, Terremotos sin repeticiones y en carrusel, pie de foto transparente, el pez pollo, el horóscopo del día y el polen solo del mes"
 }
