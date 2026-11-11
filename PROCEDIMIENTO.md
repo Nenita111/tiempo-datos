@@ -117,6 +117,11 @@ nuevo no toca nada; si falla, sale con código 2 y deja el que había. Lo ejecut
 relación oficial de la Autoridad Portuaria (el PDF «Cruceros AAAA» de apalmeria.com/pasajeros/cruceros/); los de hoy en adelante, en
 «cruceros». Los ferris no (su pantalla de llegadas y salidas no se puede leer desde la nube).
 
+`python3 -I herramientas/dragon.py extras.json [--siempre]` (4.41; va dentro de diario.py): los campeonatos internacionales de barco dragón
+que vienen, en «dragon»: los mundiales de la Federación Internacional de Barco Dragón (dragonboat.sport, «Upcoming Championships») y lo de
+barco dragón del calendario de Paddle Europe (paddle-europe.eu/calendar, categoría 6). Solo mira lunes y jueves (los demás días quita lo
+pasado); si nada cambia no toca el fichero. No se usa paddleworldwide.com (su robots.txt cierra el paso a Claude).
+
 ## 2g. Sequía y escasez de agua (pantalla Semana)
 
 `python3 -I herramientas/sequia.py extras.json`: del «Informe de escasez y sequía» mensual de la Junta (SAIH Hidrosur) para

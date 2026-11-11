@@ -33,6 +33,8 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     ("ayudas", "ayudas.py", 900), ("cursos", "cursos.py", 180), ("polen", "polen.py", 180), ("actividades", "actividades.py", 240),
     # 4.38: las ofertas de provisión temporal del SAS de la zona (unas 20 páginas de su web, con pausa: 2 o 3 minutos)
     ("sasOfertas", "sas_ofertas.py", 600),
+    # 4.41: los próximos campeonatos internacionales de barco dragón (IDBF y Paddle Europe; solo mira lunes y jueves)
+    ("dragon", "dragon.py", 120),
     ("sequia", "sequia.py", 900),
 ]
 # el sandbox de Composio (composio_jev.py) repite estos, en este orden, para que Jev vea lo mismo: los que quitan lo pasado (cambian lo que
