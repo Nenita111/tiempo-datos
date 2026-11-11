@@ -1,8 +1,8 @@
 {
-  "versionCode": 72,
-  "versionName": "4.41",
+  "versionCode": 73,
+  "versionName": "4.42",
   "apk": "app/Tiempo.apk",
-  "sha256": "604417f29bd6cf855156d0d02545db724bf3052bcb823899a2ffa7b621c3f8e0",
-  "bytes": 1345609,
-  "notas": "Cámaras de la DGT más cercanas que dan imagen (las de Almería mandan «imagen no disponible» desde el 9 nov), con las fotos de la última hora en bucle y con fundido; próximos campeonatos de barco dragón; fondos con aire modernista y movimiento suave de cada tema; en las fotos de Naturaleza, texto más pequeño y el color de su punto del mapa."
+  "sha256": "560769f7c4a4ba0d2ec8ce845af71a446a269735a2fe14f485fbe11333dd8a3a",
+  "bytes": 1375261,
+  "notas": "Luz de casa (Datadis): escribe la cuenta en el menú ≡ de la tele y sale «Mi luz» (el consumo hora a hora, el mes, mes a mes y la potencia) y «Luz por suministro» (cada CUPS con su dirección: día, semana, mes y año, y lo que se sale de lo habitual). Todo se guarda en la tele."
 }

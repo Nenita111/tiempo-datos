@@ -329,6 +329,30 @@ footer{height:46px;flex:none;display:flex;justify-content:space-between;align-it
 .dia-l{font-size:20px;color:var(--mu);margin-top:16px;font-weight:600}.dia-l b{color:var(--tx);font-weight:800;margin-right:10px}
 .ley-tr{font-size:20px;color:var(--mu);font-weight:600;margin-top:2px;display:flex;align-items:center;gap:6px}.ley-tr i{display:inline-block;width:18px;height:6px;border-radius:3px;margin-left:10px}
 .luz.dos .barras{min-height:150px}.luz.dos .barras.manana .b{opacity:.92}
+/* 4.42: Mi luz (el consumo de casa que mide el contador, de Datadis) */
+.p-consumo .main{grid-template-columns:1000px 1fr}.consumo-d .falta b{color:var(--tx);font-size:56px}
+.cons-t{flex-wrap:wrap;gap:6px 30px;margin-top:8px;font-size:22px}.cons-t span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}.cons-t i{margin-left:0;width:20px;height:8px}.cons-t b{color:var(--tx);font-weight:800}
+.cons-m{display:flex;flex-direction:column}.cons-m .barras{flex:1;height:auto;min-height:96px;gap:4px;margin-top:14px}.cons-m .b{background:var(--acc)}.cons-m .b.fs{opacity:.55}.cons-m .b.otro{background:var(--mu)}
+.cons-n{font-size:22px;line-height:1.35;color:var(--tx2);margin-top:8px;font-weight:500;text-align:left}.cons-n b{color:var(--tx);font-weight:800}.cons-n .sube{color:var(--mal)}.cons-n .baja{color:var(--ok)}
+.cons-g{font-size:44px;line-height:1.05;margin-top:4px}.cons-g small{font-size:22px;color:var(--mu);font-weight:700;margin-left:8px}
+.cons-y .barras{height:176px;gap:8px;margin-top:38px;padding-bottom:60px}.cons-y .barras .b span{bottom:-56px;line-height:1.25;text-align:center}.cons-y .b span small{display:block;font-size:20px;color:var(--mu)}.cons-y .b{background:var(--acc)}.cons-y .b.inc{background:repeating-linear-gradient(135deg,var(--acc) 0 7px,transparent 7px 13px);box-shadow:0 0 0 2px var(--acc) inset}.cons-y .b.inc em{color:var(--tx2)}
+.cons-y .b em{position:absolute;top:-28px;left:50%;transform:translateX(-50%);font-style:normal;font-size:20px;font-weight:800;color:var(--tx);white-space:nowrap}.cons-y .barras .b span{white-space:nowrap}
+.cons-dir{display:flex;gap:8px;align-items:baseline;font-size:22px;line-height:1.3;color:var(--tx);font-weight:700;margin-top:2px;text-align:left}
+.cons-dir svg{flex:none;width:15px;height:20px;fill:var(--acc);align-self:center}.cons-dir small{font-size:20px;color:var(--mu);font-weight:600;white-space:nowrap;margin-left:auto}
+/* 4.42: Luz por suministro: las estadísticas de cada CUPS (día, semana, mes y año) y lo destacable */
+.p-suministros .est{display:flex;flex-direction:column}
+.est-t{margin-top:6px}.est-f{padding:9px 0 8px;border-top:1px solid var(--linea)}.est-f:first-child{border-top:0}
+.est-f .e-1{display:flex;align-items:baseline;gap:12px;text-align:left}.est-f .e-1 b{font-size:25px;font-weight:800;color:var(--tx)}.est-f .e-1>span{font-size:21px;color:var(--mu);font-weight:600}
+.est-f .e-k{margin-left:auto;font-style:normal;font-size:34px;font-weight:500;white-space:nowrap;color:var(--tx)}.est-f .e-d{font-style:normal;font-size:23px;font-weight:600;color:var(--tx2);white-space:nowrap;min-width:138px;text-align:right}
+.est-f small{font-size:20px;color:var(--mu);font-weight:700}
+.est-f .e-c{font-size:20px;line-height:1.32;color:var(--tx2);text-align:left;margin-top:1px}.est-f .e-c b{font-weight:800;color:var(--tx)}.est-f .e-c b.sube{color:var(--mal)}.est-f .e-c b.baja{color:var(--ok)}
+.est .k2{font-size:20px;font-weight:800;color:var(--mu);margin-top:12px;text-align:left}.est .barras{flex:1;height:auto;min-height:110px;gap:10px;margin-top:34px}.est .b{background:var(--acc)}
+.est .b em{position:absolute;top:-28px;left:50%;transform:translateX(-50%);font-style:normal;font-size:20px;font-weight:800;color:var(--tx);white-space:nowrap}.est .barras .b span{white-space:nowrap}
+.dest{list-style:none;display:grid;gap:10px;margin-top:10px}.dest li{display:flex;gap:12px;align-items:baseline;font-size:22px;line-height:1.35;color:var(--tx2)}
+.dest li i{flex:none;width:14px;height:14px;border-radius:50%;background:var(--mu);transform:translateY(-1px)}.dest li>span{text-align:left;min-width:0}.dest li.alto i{background:var(--mal)}.dest li.bajo i{background:var(--ok)}.dest li.ojo i{background:#f5a623}
+.dest li b{color:var(--tx);font-weight:800}.dest-n{font-size:22px;line-height:1.35;color:var(--tx2);margin-top:10px}
+.pot .barras{height:150px;position:relative;gap:8px;margin-top:34px}.pot .b{background:var(--tile2);box-shadow:0 0 0 1px var(--linea) inset}.pot .b.tope{background:var(--acc);box-shadow:none}
+.pot .raya{position:absolute;left:0;right:0;height:0;margin-bottom:-1.5px;border-top:3px dashed var(--mal)}.pot .raya span{position:absolute;right:0;bottom:4px;font-size:20px;font-weight:800;color:var(--mal);white-space:nowrap}
 .mix{margin-top:22px}.mixbar{display:flex;height:16px;border-radius:8px;overflow:hidden;gap:2px}.mixbar i{display:block;height:100%}
 .mix p{font-size:21px;color:var(--tx2);margin-top:12px;line-height:1.45;font-weight:500}.mix p b{color:var(--ok);font-weight:800}
 .aire{display:flex;align-items:center;gap:22px}
@@ -777,7 +801,7 @@ footer.ap1 .tabs .tab.on{margin:0 6px}footer.ap1 .tabs .tab.on::before{left:-8px
    igual). */
 body{--h:212;--h2:262}
 body.p-ahora{--h:205;--h2:250}body.p-semana{--h:198;--h2:168}body.p-agua{--h:200;--h2:228}body.p-mar{--h:190;--h2:166}
-body.p-cielo{--h:246;--h2:286}body.p-espacio{--h:266;--h2:308}body.p-planeta{--h:150;--h2:192}body.p-casa{--h:36;--h2:12}body.p-alertas{--h:4;--h2:338}
+body.p-cielo{--h:246;--h2:286}body.p-espacio{--h:266;--h2:308}body.p-planeta{--h:150;--h2:192}body.p-casa{--h:36;--h2:12}body.p-consumo,body.p-suministros{--h:44;--h2:22}body.p-alertas{--h:4;--h2:338}
 body.p-productos{--h:328;--h2:282}body.p-hoy{--h:44;--h2:196}body.p-carretera{--h:26;--h2:48}body.p-sismos{--h:12;--h2:36}body.p-mundo{--h:206;--h2:150}
 body.p-campo{--h:96;--h2:142}body.p-pescado{--h:196;--h2:232}body.p-noticias{--h:222;--h2:10}body.p-economia{--h:158;--h2:44}body.p-empleo{--h:262;--h2:212}
 body.p-sas{--h:172;--h2:204}body.p-clima{--h:14;--h2:44}body.p-aire{--h:168;--h2:48}body.p-tormentas{--h:262;--h2:46}body.p-inundaciones{--h:214;--h2:190}body.p-calor{--h:18;--h2:350}body.p-maremotos{--h:200;--h2:230}body.p-acuiferos{--h:190;--h2:160}body.p-senderos{--h:110;--h2:30}body.p-planes{--h:38;--h2:330}body.p-ayudas{--h:226;--h2:150}body.p-naturaleza{--h:120;--h2:84}body.p-aviso{--h:24;--h2:2}
@@ -1728,7 +1752,7 @@ function qrSvg(url, cls, maxN) {
 const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "comarca", "fuegos", "rayos"], semana: ["prevision", "incendio"], get inundaciones() { return ["inundaciones", "maremotos"].concat(hayAcuiferos() ? ["x"] : []); }, maremotos: ["maremotos"], acuiferos: ["x"], get clima() { return ["climaRia", "clima", "lluvia", "prevision"].concat(hayCalor() ? ["islasCalor"] : []); }, naturaleza: ["naturaleza"],
   get aire() { return ["aire", "radiacion", "radsol", "prevision"].concat(polen() ? ["x"] : [], olasVigentes() ? ["olas"] : []); },
   agua: ["lluvia", "saih", "sequia", "agua"], get mar() { return ["boya", "playas", "oleaje", "maritima", "mareas"].concat(enBano() ? ["aguaBano"] : []); }, cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
-  espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"],
+  espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"], consumo: ["datadis"], suministros: ["datadis"],
   alertas: ["alimentarias", "medicamentos", "productos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "regatas", "rfep"], carretera: ["camara", "ruta", "camaras", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
   sismos: ["terremotos", "sismosMundo"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas", "x"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
   noticias: ["noticias", "cortesAgua", "sangre"], planes: ["x"], ayudas: ["x"]};
@@ -1739,7 +1763,7 @@ const NOMBRE_FUENTE = {islasCalor: "temperatura de la superficie (Landsat)", mar
   sismosMundo: "terremotos del mundo", paro: "paro (SEPE)", afiliados: "afiliados", euribor: "euríbor", festivos: "festivos", rayos: "rayos (EUMETSAT)",
   vuelos: "vuelos baratos", aviones: "aviones", sonda: "globo sonda", tele: "uso de la tele", internet: "internet", medicamentos: "medicamentos (AEMPS)",
   productos: "productos (Safety Gate)", agua: "agua del grifo (SINAC)",
-  radiacion: "radiación (CSN)", sequia: "sequía (Junta)", camara: "cámara de la DGT", ruta: "cámaras del trayecto (DGT)", camaras: "cámaras cercanas (DGT)", olas: "mapa del oleaje", sangre: "colectas de sangre (SAS)", cortesAgua: "cortes de agua (Hidralia)",
+  radiacion: "radiación (CSN)", sequia: "sequía (Junta)", camara: "cámara de la DGT", ruta: "cámaras del trayecto (DGT)", camaras: "cámaras cercanas (DGT)", datadis: "consumo de casa (Datadis)", olas: "mapa del oleaje", sangre: "colectas de sangre (SAS)", cortesAgua: "cortes de agua (Hidralia)",
   mtg: "satélite MTG", tierra: "la Tierra (NASA EPIC)", solVideo: "vídeo del Sol", luna: "foto de la Luna (NASA)",
   ipc: "IPC (INE)", saih: "lluvia ahora (SAIH)", rfep: "Federación Española", bolsaSas: "Bolsa del SAS"};
 // caída = la última vez falló y lo último bueno es de hace más del doble de lo normal (o de su periodo más una hora), o no hay nada
@@ -1775,7 +1799,7 @@ const esperandoHoy = (B = E) => deAyer(B).length > 0 && Date.now() - (B.arranque
      la DGT (45 min), la radiación (la última hora de la REA, 6 h) y el informe de sequía (50 días después de acabar su mes).
    Su tarjeta sale vacía o no sale, y arriba se dice qué falta y desde cuándo («⚠ Sin actualizar desde…»).
    Los avisos de AEMET no se quitan (cada uno dice hasta cuándo vale), pero sin datos al día no se dice «Sin avisos». */
-const VALE_H = {islasCalor: 24 * 30, maremotos: 24 * 120, climaRia: 24 * 400, inundaciones: 24 * 120, naturaleza: 24 * 7, clima: 24 * 40, radsol: 36, polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, camaras: .75, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
+const VALE_H = {islasCalor: 24 * 30, maremotos: 24 * 120, climaRia: 24 * 400, inundaciones: 24 * 120, naturaleza: 24 * 7, clima: 24 * 40, radsol: 36, polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, camaras: .75, datadis: 24 * 45, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
   comarca: 3, terremotos: 3, aire: 4,
   sol: 6, renovable: 6, sismosMundo: 6, boya: 6, prevision: 12, playas: 12, maritima: 12, oleaje: 12, noticias: 12, futbol: 12,
   lluvia: 12, mareas: 24, incendio: 24, alimentarias: 24, campo: 24, ofertasEmpleo: 24, sae: 24, boja: 24, boe: 24, planeta: 36, efemerides: 36,   farmacias: 36, gasolina: 48, medicamentos: 48, euribor: 48, espacio: 48, bolsaSas: 48, lonja: 72, productos: 72, regatas: 72, rfep: 72, paro: 72, afiliados: 72, ipc: 168,
@@ -1875,7 +1899,7 @@ const avisosFuertes = () => (E.avisos || []).filter(a => a.nivel >= 2).sort((a, 
    tema y con sus listas enteras siempre que quepan a un tamaño que se lea. Las que no tienen nada que enseñar no salen. */
 const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente());
 const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayClima() || hayCalor() ? ["clima"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayInundaciones() || hayMaremotos() || hayAcuiferos() ? ["inundaciones"] : [], E.terremotos || E.sismosMundo ? ["sismos"] : [], ["mar"], ["cielo"],
-  E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayAlertas() || hayProductos() ? ["alertas"] : [],
+  E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayConsumo() ? ["consumo", "suministros"] : [], hayAlertas() || hayProductos() ? ["alertas"] : [],
   ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
   ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length ? ["sas"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() ? ["planes"] : []);
@@ -1892,7 +1916,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
 // tierra (agua, mar, inundaciones y acuíferos, terremotos); el cielo y el planeta (cielo, espacio, planeta, naturaleza); el día (hoy, planes,
 // noticias, alertas, casa); moverse (carretera, trenes); y el trabajo y el dinero (campo, lonja, economía, empleo, ayudas y cursos)
 const ORDEN_BASE = ["ahora", "semana", "clima", "aire", "agua", "mar", "inundaciones", "sismos", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "noticias",
-  "alertas", "casa", "carretera", "trenes", "campo", "pescado", "economia", "empleo", "sas", "ayudas"];
+  "alertas", "casa", "consumo", "suministros", "carretera", "trenes", "campo", "pescado", "economia", "empleo", "sas", "ayudas"];
 const ORDEN_V = 3;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
 function leerAjustes() {
@@ -1926,7 +1950,7 @@ const paginas = () => {
 };
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
-const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones y acuíferos", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa",
+const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones y acuíferos", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa", consumo: "Mi luz", suministros: "Luz por suministro",
   alertas: "Alertas y productos", productos: "Productos", hoy: "Hoy", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Lonja", noticias: "Noticias",
   economia: "Economía", empleo: "Empleo", sas: "SAS", planes: "Planes", ayudas: "Ayudas y cursos gratis"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
@@ -1943,6 +1967,8 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   espacio: "Fuentes: NASA Worldview · Observatorio de Calar Alto",
   planeta: "Fuentes: NASA · Copernicus · polvo: CAMS (Copernicus, ECMWF)",
   casa: "Fuentes: Red Eléctrica · CNMC (peaje 2.0TD, BOE) · MITECO · Cloudflare",
+  consumo: "Fuente: Datadis (las distribuidoras eléctricas): lo que mide el contador de casa · tramos del peaje 2.0TD (CNMC, BOE)",
+  suministros: "Fuente: Datadis (las distribuidoras eléctricas): lo que mide el contador de cada suministro, guardado en esta tele",
   get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (hayProductos() ? " · Comisión Europea, Safety Gate (productos que avisa España)" : ""); },
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
   hoy: "Fuentes: Wikipedia · Colegio de Farmacéuticos · ESPN",
@@ -3669,6 +3695,186 @@ const colectivo = e => e && COLECTIVO[e.colectivo] ? `<i class="et cl">${COLECTI
 /* 3.8: los requisitos de cada sorteo (Jev): mayor de edad, vivir en un sitio */
 const requisitosSorteo = s => { const r = s.requisitos || {};
   return [r.mayor >= 0.8 ? "+18" : "", r.residente >= 0.8 ? "solo residentes" : ""].filter(Boolean).map(x => ` · <i class="et rq">${x}</i>`).join(""); };
+/* ---------- 4.42 (lo pidió Isa el 11 nov 2026: «ya tengo alta en Datadis, dime lo que tengo que hacer para ver los datos en mi tv»): Mi luz, el
+   consumo de casa que mide el contador (Datadis, la plataforma de las distribuidoras; `E.datadis`, de Datadis.kt, solo en la tele: la
+   cuenta se escribe en el menú ≡ y nada de esto va a la página de internet). El último día entero que publica (con dos o tres días de
+   retraso), hora a hora y por tramos del peaje; el mes hasta ese día, con los mismos días del mes pasado si están todos; y la potencia
+   contratada con la más alta de cada mes. Solo lo que da Datadis: sin euros (el precio de cada hora depende del contrato).
+   Lo pidió también ese día: «quiero que los datos de datadis se guarden de forma persistente»: la tele guarda para siempre cada día que
+   Datadis da (Datadis.Historia) y con ello salen «Mes a mes» (`meses`: hasta 13, también los que Datadis ya no sirva) y la comparación
+   con los mismos días de hace un año (`anioPasado`); lo guardado no caduca a los 3 días (`VALE_H.datadis`: 45 días) ---------- */
+const diaEntero = d => (d.n || 0) >= 23;
+const diasLuz = s => ((s || {}).dias || []).filter(d => d.f && d.kwh >= 0);
+/* cada suministro (CUPS), por separado (lo pidió Isa: «diferencia por cups, indicando dirección de suministro»): los que tienen algún día entero */
+const suministrosLuz = () => ((E.datadis || {}).suministros || []).filter(s => diasLuz(s).some(diaEntero));
+const hayConsumo = () => suministrosLuz().length > 0;
+/* la dirección como la da Datadis («C/ MORIONES, 23, 1ºG 03182-TORREVIEJA - ALICANTE»), en corto: la calle y el pueblo */
+function dirLuz(s) {
+  const d = String(s.direccion || "").trim(), m = d.match(/^(.*?)[\s,]*\b(\d{4,5})\s*-\s*(.+?)(?:\s+-\s+[^-]+)?$/);
+  const calle = m ? m[1] : d, pueblo = m ? m[3] : s.municipio || "";
+  const bien = x => tit(x).replace(/\bC\/\s*/i, "C/ ").replace(/([ºª])\s?([a-zñ])(?![a-zñáéíóú])/g, (m, a, b) => a + b.toUpperCase());   // «3ºB», no «3ºb»
+  return [bien(calle), bien(pueblo)].filter(Boolean).join(" · ") || "Suministro";
+}
+const kwLuz = v => coma(v, 3).replace(/0+$/, "").replace(/,$/, "");
+const PIN = `<svg viewBox="0 0 12 16"><path d="M6 0a6 6 0 0 0-6 6c0 4.5 6 10 6 10s6-5.5 6-10a6 6 0 0 0-6-6zm0 8.5A2.5 2.5 0 1 1 6 3.5a2.5 2.5 0 0 1 0 5z"/></svg>`;
+const lineaDir = s => `<p class="cons-dir">${PIN}<span>${esc(dirLuz(s))}</span>${s.cupsFin ? `<small>CUPS ···${esc(s.cupsFin)}</small>` : ""}</p>`;
+const conAnio = f => diaFecha(f) + (String(f).slice(0, 4) !== String(new Date().getFullYear()) ? " " + String(f).slice(0, 4) : "");
+function tarjetaConsumoDia(s, marca = "") {
+  const D = diasLuz(s).filter(d => diaEntero(d) && d.h), d = D[D.length - 1];   // el último día entero, con sus horas
+  if (!d) return "";
+  const H = d.h.map(v => (v == null ? null : +v)), hay = H.filter(v => v != null), max = Math.max(...hay, .001), pico = H.indexOf(Math.max(...hay));
+  const cuando = k => new Date(`${d.f}T${dosd(k)}:30`), T = {punta: 0, llano: 0, valle: 0};
+  H.forEach((v, k) => { if (v != null) T[tramoLuz(cuando(k))] += v; });
+  const barras = H.map((v, k) => `<div class="b" style="height:${v == null ? 0 : (3 + v / max * 97).toFixed(0)}%;background:${TRAMOS[tramoLuz(cuando(k))][1]}"><span>${dosd(k)}</span></div>`).join("");
+  const ant = diasLuz(s).filter(x => diaEntero(x) && x.f < d.f).pop(), dif = ant ? d.kwh - ant.kwh : 0;
+  const partes = ["punta", "llano", "valle"].filter(x => T[x] > 0).map(x => `<span><i style="background:${TRAMOS[x][1]}"></i>${x} <b>${coma(T[x], 1)} kWh</b> · ${Math.round(T[x] / d.kwh * 100)} %</span>`).join("");
+  return `<div data-f="datadis" class="tile luz consumo-d" style="--i:1"><div class="k">Consumo · ${diaFecha(d.f)}<em>el último día que publica Datadis</em>${marca}</div>${lineaDir(s)}
+    <div class="cuenta"><div><small>En todo el día</small><h2 class="num">${coma(d.kwh, 1)} kWh</h2></div>
+      <div class="falta"><b class="num">${dosd(pico)}–${dosd(pico + 1)} h</b><small>la hora de más consumo: ${coma(H[pico], 2)} kWh</small></div></div>
+    ${ant ? `<p class="lav">El día anterior con datos (${diaFecha(ant.f)}): <b>${coma(ant.kwh, 1)} kWh</b>${Math.abs(dif) >= .05 ? ` · este, ${coma(Math.abs(dif), 1)} kWh ${dif > 0 ? "más" : "menos"}` : ""}</p>` : ""}
+    <div class="barras">${barras}</div>
+    <p class="ley-tr cons-t">${partes}</p>${d.est ? `<p class="nota">${d.est === 1 ? "Una de las horas es estimada" : `${d.est} de las horas son estimadas`} por la distribuidora (no leída del contador).</p>` : ""}</div>`;
+}
+function tarjetaConsumoMes(s) {
+  const D = diasLuz(s).filter(diaEntero);
+  if (!D.length) return "";
+  const u = D[D.length - 1], mes = u.f.slice(0, 7), M = D.filter(d => d.f.startsWith(mes)), suma = L => L.reduce((s, d) => s + d.kwh, 0), nMes = k => MESES[+k.slice(5, 7) - 1];
+  const f0 = new Date(u.f + "T12:00"); f0.setDate(1); f0.setMonth(f0.getMonth() - 1); const antes = isoDe(f0).slice(0, 7);
+  // los mismos días del mes pasado (los que tienen dato este mes), solo si están todos: si no, no se compara
+  const A = D.filter(d => d.f.startsWith(antes) && M.some(m => m.f.slice(8) === d.f.slice(8))), cmp = A.length === M.length && suma(A) > 0;
+  // y los mismos días de hace un año, de lo que la tele tiene guardado (si están todos)
+  const Y = (s.anioPasado || []).filter(d => M.some(m => m.f.slice(8) === d.f.slice(8))), cmpY = Y.length === M.length && suma(Y) > 0;
+  const linea = (de, kwh) => { const pct = (suma(M) / kwh - 1) * 100;
+    return `<p class="cons-n">Mismos días de ${de}: <b>${coma(kwh, 1)} kWh</b> · ahora, <b class="${pct > 0 ? "sube" : "baja"}">${Math.abs(pct) < .5 ? "lo mismo" : `${pct > 0 ? "+" : "−"}${coma(Math.abs(pct), 0)} %`}</b></p>`; };
+  const rango = M.length === 1 ? `el ${+M[0].f.slice(8)}` : `del ${+M[0].f.slice(8)} al ${+u.f.slice(8)}`, salteado = M.length !== +u.f.slice(8) - +M[0].f.slice(8) + 1;
+  const U = D.slice(-31), max = Math.max(...U.map(d => d.kwh), .001);
+  const barras = U.map((d, i) => { const x = new Date(d.f + "T12:00"), dia = x.getDate();
+    return `<div class="b${x.getDay() === 0 || x.getDay() === 6 ? " fs" : ""}${d.f.startsWith(mes) ? "" : " otro"}" style="height:${(3 + d.kwh / max * 97).toFixed(0)}%">${dia === 1 || dia % 5 === 0 || i === U.length - 1 && dia % 5 > 1 ? `<span>${dia}</span>` : ""}</div>`; }).join("");
+  return `<div data-f="datadis" class="tile cons-m" style="--i:2"><div class="k">${may(nMes(mes))} · ${rango}<em>${M.length === 1 ? "1 día" : `${M.length} días`} con datos${salteado ? " (falta alguno)" : ""}</em></div>
+    <p class="cons-g num">${coma(suma(M), 1)} kWh<small>${coma(suma(M) / M.length, 1)} kWh al día</small></p>
+    ${cmp ? linea(`${nMes(antes)}`, suma(A)) : ""}${cmpY ? linea(`${nMes(mes)} de ${+mes.slice(0, 4) - 1}`, suma(Y)) : ""}
+    <div class="barras">${barras}</div>
+    <p class="ley-tr">Cada barra, un día${U.some(d => !d.f.startsWith(mes)) ? `; en gris, ${nMes(U[0].f)}` : ""}; más claros, sábados y domingos</p></div>`;
+}
+/* lo guardado en la tele, mes a mes (los 13 últimos: hasta el mismo mes de hace un año); los meses sin todos sus días, más claros y con sus días */
+function tarjetaMeses(X) {
+  const M = (X.meses || []).filter(m => m.kwh > 0).slice(-13);
+  if (M.length < 2) return "";
+  const max = Math.max(...M.map(m => m.kwh), .001);
+  const barras = M.map((m, i) => { const k = +m.mes.slice(5, 7) - 1, entero = m.dias >= m.de;
+    return `<div class="b${entero ? "" : " inc"}" style="height:${(3 + m.kwh / max * 97).toFixed(0)}%"><em>${coma(m.kwh, 0)}</em><span>${MES3[k]}<small>${[k === 0 || i === 0 ? m.mes.slice(0, 4) : "", entero ? "" : `${m.dias} d`].filter(Boolean).join(" · ") || "&nbsp;"}</small></span></div>`; }).join("");
+  return `<div data-f="datadis" class="tile cons-y" style="--i:4"><div class="k">Mes a mes · kWh<em>guardado en la tele${X.desde ? ` desde el ${conAnio(X.desde)}` : ""}</em></div>
+    <div class="barras">${barras}</div>${M.some(m => m.dias < m.de) ? `<p class="ley-tr">Más claros, los meses a los que les faltan días (debajo, los que hay)</p>` : ""}</div>`;
+}
+function tarjetaPotencia(X) {
+  const P = (X.potencia || []).map(Number).filter(v => v > 0), M = (X.maximas || []).filter(m => m.kw > 0).slice(-12);
+  if (!P.length && !M.length) return "";
+  const c = P.length ? Math.max(...P) : null, tope = M.length ? M.reduce((a, b) => (b.kw > a.kw ? b : a)) : null, alto = Math.max(c || 0, ...M.map(m => m.kw), .1) * 1.08;
+  const contratada = !P.length ? "" : P.length === 2 && /2\.0/.test(X.tarifa || "2.0") ? (P[0] === P[1] ? `<b>${kwLuz(P[0])} kW</b> (todo el día)` : `<b>${kwLuz(P[0])} kW</b> en punta y llano · <b>${kwLuz(P[1])} kW</b> en valle`)
+    : P.map((v, i) => `P${i + 1} <b>${kwLuz(v)} kW</b>`).join(" · ");
+  const barras = M.map(m => `<div class="b${m === tope ? " tope" : ""}" style="height:${(m.kw / alto * 100).toFixed(0)}%"><span>${MES3[+m.mes.slice(5, 7) - 1]}</span></div>`).join("");
+  return `<div data-f="datadis" class="tile pot" style="--i:3"><div class="k">Potencia<em>${X.tarifa ? `peaje ${esc(X.tarifa)}` : "lo contratado y lo más que se ha pedido"}</em></div>
+    ${contratada ? `<p class="cons-n">Contratada: ${contratada}</p>` : ""}
+    ${tope ? `<p class="cons-n">La más alta de ${M.length === 1 ? "este mes" : `los últimos ${M.length} meses`}: <b>${coma(tope.kw, 2)} kW</b> · ${conAnio(tope.f)}${tope.hora ? `, ${esc(tope.hora)}` : ""}${c ? ` · el ${Math.round(tope.kw / c * 100)} % de la contratada` : ""}</p>
+    <div class="barras">${barras}${c ? `<div class="raya" style="bottom:calc(34px + (100% - 34px) * ${(c / alto).toFixed(4)})"><span>contratada ${kwLuz(c)} kW</span></div>` : ""}</div>
+    <p class="ley-tr">La potencia más alta de cada mes (kW)</p>` : ""}
+    <p class="nota">Datadis publica lo del contador con dos o tres días de retraso. Consultado el ${conAnio((E.datadis || {}).consultado || X.consultado || isoDe(new Date()))}.${X.guardados ? ` La tele guarda ya ${X.guardados === 1 ? "1 día" : `${miles(X.guardados)} días`}.` : ""}</p></div>`;
+}
+/* con varios suministros, uno cada vez que sale la pantalla (con su dirección) */
+function pConsumo() {
+  const tS = turnoFijo("miLuz", suministrosLuz(), 1), s = tS.items[0];
+  if (!s) return `<div class="main"></div>`;
+  return `<div class="main"><div class="col izq" style="grid-template-rows:1fr auto">${tarjetaConsumoDia(s, tS.marca)}${tarjetaMeses(s)}</div><div class="col" style="grid-template-rows:1fr auto">${tarjetaConsumoMes(s)}${tarjetaPotencia(s)}</div></div>`;
+}
+/* ---------- 4.42 (lo pidió Isa el 11 nov 2026: «diferencia por cups (indicando dirección de suministro), con estadísticas de consumo diario,
+   semanal, mensual y anual. Si hay valores significativos infórmalos. Crea una pantalla específica para esta información»): Luz por
+   suministro. De cada CUPS, con su dirección: el último día (frente a un día normal: la mediana de los 28 anteriores), los últimos 7 días
+   (frente a los 7 anteriores), el mes hasta ese día (frente a los mismos días del mes pasado y de hace un año) y los últimos 12 meses
+   (frente a los 12 anteriores, por día), con las semanas de lunes a domingo; y «Lo destacable»: lo que se sale de lo habitual, con su
+   regla a la vista (un día un 50 % por encima o por debajo de lo normal, una semana un 25 %, un mes un 20 %, un año un 10 %, el día de
+   más consumo de lo guardado si es reciente, la potencia máxima al 90 % de la contratada o por encima —o que no pasa del 60 %—, horas
+   estimadas y días sin consumo). Todo sale de los días guardados en la tele (`todos`); nada se estima ---------- */
+const masDias = (f, k) => { const d = new Date(f + "T12:00"); d.setDate(d.getDate() + k); return isoDe(d); };
+function estadisticasLuz(s) {
+  const T = (s.todos || diasLuz(s).filter(diaEntero).map(d => [d.f, d.kwh])).map(([f, k]) => ({f, kwh: +k})).filter(d => d.f && d.kwh >= 0).sort((a, b) => a.f.localeCompare(b.f));
+  if (!T.length) return null;
+  const u = T[T.length - 1], suma = L => L.reduce((a, d) => a + d.kwh, 0), entre = (a, b) => T.filter(d => d.f >= a && d.f <= b);
+  const mediana = L => { const v = L.map(d => d.kwh).sort((a, b) => a - b), n = v.length; return n ? (n % 2 ? v[(n - 1) / 2] : (v[n / 2 - 1] + v[n / 2]) / 2) : null; };
+  const prev = entre(masDias(u.f, -28), masDias(u.f, -1)), sem = entre(masDias(u.f, -6), u.f), semA = entre(masDias(u.f, -13), masDias(u.f, -7));
+  const mes = u.f.slice(0, 7), M = T.filter(d => d.f.startsWith(mes)), f0 = new Date(u.f + "T12:00"); f0.setDate(1); f0.setMonth(f0.getMonth() - 1);
+  const mesA = isoDe(f0).slice(0, 7), mesY = `${+mes.slice(0, 4) - 1}${mes.slice(4)}`;
+  const mismos = pref => { const L = T.filter(d => d.f.startsWith(pref) && M.some(m => m.f.slice(8) === d.f.slice(8))); return L.length === M.length ? suma(L) : null; };
+  const an = entre(masDias(u.f, -364), u.f), anA = entre(masDias(u.f, -729), masDias(u.f, -365));
+  // las semanas enteras, de lunes a domingo (las 8 últimas)
+  const W = []; let lunes = masDias(u.f, -((new Date(u.f + "T12:00").getDay() + 6) % 7));
+  if (masDias(lunes, 6) > u.f) lunes = masDias(lunes, -7);
+  for (let i = 0; i < 8; i++, lunes = masDias(lunes, -7)) { const L = entre(lunes, masDias(lunes, 6)); if (L.length === 7) W.unshift({lunes, kwh: suma(L)}); }
+  return {T, u, suma, normal: prev.length >= 14 ? mediana(prev) : null, sem, semA: sem.length === 7 && semA.length === 7 ? suma(semA) : null, mes, M, mesA, mesY, mesAnt: mismos(mesA), mesAnio: mismos(mesY),
+    an, anA: an.length >= 350 && anA.length >= 350 ? suma(anA) / anA.length : null, semanas: W, record: T.reduce((a, d) => (d.kwh > a.kwh ? d : a))};
+}
+const pctLuz = (a, b) => (a / b - 1) * 100;
+const signoLuz = p => Math.abs(p) < .5 ? `<b>igual</b>` : `<b class="${p > 0 ? "sube" : "baja"}">${p > 0 ? "+" : "−"}${coma(Math.abs(p), 0)} %</b>`;
+function tarjetaEstadisticas(s, st, i, marca, varios, semanas) {
+  const nMes = k => MESES[+k.slice(5, 7) - 1], kwh = (v, n = 1) => `${v >= 1000 ? miles(Math.round(v)) : coma(v, n)}<small> kWh</small>`, d = f => `${+f.slice(8)} ${MES3[+f.slice(5, 7) - 1]}`;
+  const fila = (et, que, total, dias, cmp) => `<div class="est-f"><p class="e-1"><b>${et}</b><span>${que}</span><em class="e-k num">${kwh(total)}</em><em class="e-d num">${dias > 1 ? `${coma(total / dias, 1)}<small> al día</small>` : ""}</em></p>
+    ${(cmp.filter(Boolean).length ? cmp.filter(Boolean) : ["Sin con qué comparar todavía."]).map(c => `<p class="e-c">${c}</p>`).join("")}</div>`;
+  const sS = st.suma(st.sem), sM = st.suma(st.M), sA = st.suma(st.an), anio = st.an.length >= 350;
+  const filas = [
+    fila("Día", diaFecha(st.u.f), st.u.kwh, 1, [st.normal != null && st.normal > 0 ? `${signoLuz(pctLuz(st.u.kwh, st.normal))} que un día normal (${coma(st.normal, 1)} kWh, la mediana de los 28 anteriores)` : ""]),
+    fila("Semana", st.sem.length === 7 ? `del ${d(st.sem[0].f)} al ${d(st.u.f)}` : `${st.sem.length} de los últimos 7 días`, sS, st.sem.length, [st.semA ? `${signoLuz(pctLuz(sS, st.semA))} que los 7 días anteriores (${coma(st.semA, 1)} kWh)` : ""]),
+    fila("Mes", `${nMes(st.mes)}, ${st.M.length === 1 ? `el ${+st.M[0].f.slice(8)}` : `del ${+st.M[0].f.slice(8)} al ${+st.u.f.slice(8)}`}`, sM, st.M.length,
+      [st.mesAnt ? `${signoLuz(pctLuz(sM, st.mesAnt))} que los mismos días de ${nMes(st.mesA)} (${coma(st.mesAnt, 1)} kWh)` : "", st.mesAnio ? `${signoLuz(pctLuz(sM, st.mesAnio))} que los mismos días de ${nMes(st.mesY)} de ${st.mesY.slice(0, 4)} (${coma(st.mesAnio, 1)} kWh)` : ""]),
+    fila("Año", anio ? `los últimos 12 meses (${st.an.length} días con datos)` : `lo guardado: ${st.an.length === 1 ? "1 día" : `${st.an.length} días`}, desde el ${conAnio(st.an[0].f)}`, sA, st.an.length,
+      [anio && st.anA ? `${signoLuz(pctLuz(sA / st.an.length, st.anA))} al día que los 12 meses anteriores (${coma(st.anA, 1)} kWh al día)` : anio ? "" : "Aún no hay un año entero guardado en la tele."])];
+  const W = st.semanas, max = Math.max(...W.map(w => w.kwh), .001);
+  const barras = semanas && W.length >= 2 ? `<p class="k2">Semana a semana (de lunes a domingo) · kWh</p><div class="barras">${W.map(w => `<div class="b" style="height:${(3 + w.kwh / max * 97).toFixed(0)}%"><em>${coma(w.kwh, 0)}</em><span>${d(w.lunes)}</span></div>`).join("")}</div>` : "";
+  const P = (s.potencia || []).map(Number).filter(v => v > 0);
+  return `<div data-f="datadis" class="tile est" style="--i:${i * 2 + 1}"><div class="k">Suministro${varios ? ` ${i + 1}` : ""}<em>${[s.tarifa ? `peaje ${esc(s.tarifa)}` : "", P.length ? `${kwLuz(Math.max(...P))} kW contratados` : ""].filter(Boolean).join(" · ")}</em>${marca}</div>${lineaDir(s)}
+    <div class="est-t">${filas.join("")}</div>${barras}</div>`;
+}
+/* lo que se sale de lo habitual en un suministro (cada regla, dicha en su frase) */
+function destacablesLuz(s, st) {
+  const D = [], u = st.u, pc = p => `${coma(Math.abs(p), 0)} %`, mas = p => (p > 0 ? "más" : "menos"), niv = p => (p > 0 ? "alto" : "bajo"), nMes = k => MESES[+k.slice(5, 7) - 1];
+  const llega = (p, tope) => Math.abs(p) >= tope - 1e-6;   // un 20 % justo cuenta (96 frente a 80 da 19,999… con decimales binarios)
+  if (s.fallo) D.push(["ojo", `Hoy no ha llegado lo nuevo de este suministro («${esc(s.fallo)}»): se enseña lo guardado en la tele.`]);
+  // el día de más consumo de todo lo guardado (con 60 días o más), si es de los últimos 30; si es el último día y además se sale de lo normal, en una sola frase
+  const record = st.T.length >= 60 && st.record.f >= masDias(u.f, -30) ? st.record : null, deRecord = `el día de más consumo de los ${miles(st.T.length)} guardados`;
+  if (st.normal > 0 && llega(pctLuz(u.kwh, st.normal), 50)) { const p = pctLuz(u.kwh, st.normal);
+    D.push([niv(p), `El ${diaFecha(u.f)} se gastaron <b>${coma(u.kwh, 1)} kWh</b>: un ${pc(p)} ${mas(p)} que un día normal (${coma(st.normal, 1)} kWh)${record && record.f === u.f ? `; es ${deRecord}` : ""}.`]);
+    if (record && record.f !== u.f) D.push(["alto", `El ${conAnio(record.f)} fue ${deRecord}: <b>${coma(record.kwh, 1)} kWh</b>.`]); }
+  else if (record) D.push(["alto", `El ${conAnio(record.f)} fue ${deRecord}: <b>${coma(record.kwh, 1)} kWh</b>.`]);
+  const sS = st.suma(st.sem), sM = st.suma(st.M);
+  if (st.semA) { const p = pctLuz(sS, st.semA); if (llega(p, 25)) D.push([niv(p), `Los últimos 7 días, <b>${coma(sS, 1)} kWh</b>: un ${pc(p)} ${mas(p)} que los 7 anteriores.`]); }
+  if (st.mesAnt) { const p = pctLuz(sM, st.mesAnt); if (llega(p, 20)) D.push([niv(p), `En lo que va de ${nMes(st.mes)}, <b>${coma(sM, 1)} kWh</b>: un ${pc(p)} ${mas(p)} que en los mismos días de ${nMes(st.mesA)}.`]); }
+  if (st.mesAnio) { const p = pctLuz(sM, st.mesAnio); if (llega(p, 20)) D.push([niv(p), `En lo que va de ${nMes(st.mes)}, un ${pc(p)} ${mas(p)} que en los mismos días de ${nMes(st.mesY)} de ${st.mesY.slice(0, 4)} (${coma(st.mesAnio, 1)} kWh).`]); }
+  if (st.anA) { const p = pctLuz(st.suma(st.an) / st.an.length, st.anA); if (llega(p, 10)) D.push([niv(p), `Los últimos 12 meses, <b>${coma(st.suma(st.an) / st.an.length, 1)} kWh al día</b>: un ${pc(p)} ${mas(p)} que los 12 anteriores.`]); }
+  const P = (s.potencia || []).map(Number).filter(v => v > 0), c = P.length ? Math.max(...P) : null, MX = (s.maximas || []).filter(m => m.kw > 0).slice(-12), tope = MX.length ? MX.reduce((a, b) => (b.kw > a.kw ? b : a)) : null;
+  if (c && tope) { const r = tope.kw / c, cuando = `${conAnio(tope.f)}${tope.hora ? `, a las ${esc(tope.hora)}` : ""}`;
+    if (r > 1 + 1e-9) D.push(["ojo", `Se pasó de la potencia contratada: <b>${coma(tope.kw, 2)} kW</b> el ${cuando} (contratados, ${kwLuz(c)} kW).`]);
+    else if (r >= .9 - 1e-9) D.push(["ojo", `La potencia llegó al <b>${Math.round(r * 100)} %</b> de la contratada: ${coma(tope.kw, 2)} kW el ${cuando} (contratados, ${kwLuz(c)} kW).`]);
+    else if (r <= .6 + 1e-9) D.push(["info", `La potencia más alta de ${MX.length === 1 ? "este mes" : `los últimos ${MX.length} meses`} (${coma(tope.kw, 2)} kW, el ${cuando}) no pasa del <b>${Math.round(r * 100)} %</b> de la contratada (${kwLuz(c)} kW).`]); }
+  const est = diasLuz(s).slice(-8).reduce((a, d) => a + (d.est || 0), 0);
+  if (est) D.push(["info", `${est === 1 ? "Una hora" : `${est} horas`} de los últimos 8 días ${est === 1 ? "es estimada" : "son estimadas"} por la distribuidora (no leídas del contador).`]);
+  const cero = st.T.filter(d => d.f >= masDias(u.f, -29) && d.kwh < .05).length;
+  if (cero) D.push(["info", `${cero === 1 ? "Un día" : `${cero} días`} sin consumo en los últimos 30.`]);
+  return D;
+}
+function tarjetaDestacable(s, st, i, varios, nota) {
+  const ORDEN = {ojo: 0, alto: 1, bajo: 2, info: 3}, D = destacablesLuz(s, st).sort((a, b) => ORDEN[a[0]] - ORDEN[b[0]]), tD = enTurno("dest-" + (s.id || i), D, 8);
+  return `<div data-f="datadis" class="tile" style="--i:${i * 2 + 2}"><div class="k">Lo destacable<em>${varios ? esc(dirLuz(s)) : `hasta el ${diaFecha(st.u.f)}`}</em></div>
+    ${D.length ? `<ul class="dest" ${tD.attr}>${tD.items.map(([n, x]) => `<li class="${n}"><i></i><span>${x}</span></li>`).join("")}</ul>`
+      : `<p class="dest-n">Nada se sale de lo habitual: ni el último día, ni la semana, ni el mes, ni el año, ni la potencia.</p>`}
+    ${nota ? `<p class="nota">Se avisa de un día un 50 % por encima o por debajo de lo normal, de una semana un 25 %, de un mes un 20 %, de un año un 10 %, y de la potencia cuando llega al 90 % de la contratada o no pasa del 60 %.</p>` : ""}</div>`;
+}
+/* una columna por suministro (dos cada vez; si hay más, por turnos); con uno solo, sus estadísticas a un lado y lo destacable al otro */
+function pSuministros() {
+  const S = suministrosLuz(), tS = turnoFijo("suministros", S, 2), L = tS.items.map(s => [s, estadisticasLuz(s), S.indexOf(s)]).filter(x => x[1]), varios = S.length > 1;
+  if (!L.length) return `<div class="main"></div>`;
+  if (L.length === 1) { const [s, st, i] = L[0];
+    return `<div class="main" style="grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${tarjetaEstadisticas(s, st, i, tS.marca, varios, true)}</div><div class="col" style="grid-template-rows:1fr">${tarjetaDestacable(s, st, i, varios, true)}</div></div>`; }
+  return `<div class="main" style="grid-template-columns:repeat(2,minmax(0,1fr))">${L.map(([s, st, i], k) => `<div class="col" style="grid-template-rows:auto 1fr">${tarjetaEstadisticas(s, st, i, k === 0 ? tS.marca : "", varios, false)}${tarjetaDestacable(s, st, i, varios, false)}</div>`).join("")}</div>`;
+}
+
 /* ---------- casa (3.0): la luz en una columna entera (hoy y mañana, con los tramos); carburantes, tele e internet ---------- */
 const pCasa = () => `<div class="main"><div class="col izq" style="grid-template-rows:1fr">${tarjetaLuz()}</div><div class="col" style="grid-template-rows:auto 1fr">${tarjetaGas()}<div class="duo">${tarjetaTele()}${tarjetaInternet()}</div></div></div>`;
 /* ---------- alertas (3.0): las alimentarias de la AESAN y los medicamentos retirados, todas a la vez ---------- */
@@ -5450,7 +5656,7 @@ function pTrabajo() {
   const corta = t => +((t.match(/data-total="(\d+)"/) || [])[1] || 9) <= 2;
   return `<div class="main trabajo" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(t => `<div class="col" style="grid-template-rows:${corta(t) && cols.length > 1 ? "auto;align-content:start" : "minmax(0,1fr)"}">${t}</div>`).join("")}</div>`;
 }
-const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa,
+const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa, consumo: pConsumo, suministros: pSuministros,
   alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
   economia: pEconomia, empleo: pTrabajo, sas: pSasPagina, planes: pPlanes, ayudas: pAyudas};
 /* ---------- 4.37 (lo pidió Isa el 8 nov 2026: «rediseña las pantallas para que su fondo sea adecuado respecto a la temática o situación»):
@@ -5701,6 +5907,15 @@ function capaTema(p) {
     casa: () => monte(770, 120, 71, "m1") + suelo(906, "m2") + suelo(1012, "m3") + D.casa(520, 910, 6.5) + D.casa(930, 910, 3.2) + D.casa(1100, 910, 2.4)
       + ["M-40,0 a56,56 0 0 1 80,0", "M-72,-30 a102,102 0 0 1 144,0", "M-104,-60 a148,148 0 0 1 208,0"].map((d, i) => parpadea(520, 443, g(`<path d="${d}"/>`, 1.3, 520, 420), 2.7, E2(i * .9 - 2.7), .12)).join("") + g(`<circle class="lleno" cx="0" cy="18" r="9"/>`, 1.3, 520, 420)
       + parpadea(1440, 560, halo(1440, 560, 300), 5, 0, .45) + D.bombilla(1440, 770, 5) + flota(1710, 730, D.gota(1710, 730, 5), 4, 12, 0),
+    // mi luz: la casa, el contador (su aguja se mece) y la bombilla, que respira
+    consumo: () => monte(770, 120, 73, "m1") + suelo(906, "m2") + suelo(1012, "m3") + D.casa(430, 910, 6.2) + D.casa(820, 910, 2.8)
+      + g(`<circle class="rel" r="120"/><circle r="96"/><path d="M-84,0 h18 M66,0 h18 M0,-84 v18 M-60,-60 l12,12 M60,-60 l-12,12"/><circle class="lleno" r="10"/>`, 1.4, 1430, 560)
+      + mece(1430, 560, g(`<path stroke-width="7" d="M0,0 V-78"/>`, 1.4, 1430, 560), 3.5, 28) + parpadea(1750, 620, halo(1750, 620, 200), 5, 0, .45) + D.bombilla(1750, 800, 4),
+    // luz por suministro: el tendido, de poste a poste hasta cada casa, y la corriente que pasa (tres luces que se encienden una tras otra)
+    suministros: () => halo(955, 500, 320) + monte(770, 110, 77, "m1") + suelo(906, "m2") + suelo(1012, "m3") + D.casa(330, 910, 4.8) + D.casa(1560, 910, 5.6)
+      + [760, 1150].map(x => `<path stroke-width="7" d="M${x},910 V560"/><path stroke-width="5" d="M${x - 50},590 H${x + 50} M${x - 36},590 v-18 M${x + 36},590 v-18"/>`).join("")
+      + `<path d="M474,737 Q640,720 760,590 Q955,690 1150,590 Q1290,720 1392,708"/><path class="eco" d="M474,757 Q640,744 760,612 Q955,712 1150,612 Q1290,742 1392,728"/>`
+      + [[628, 692], [955, 640], [1280, 685]].map(([x, y], i) => parpadea(x, y, `<circle class="lleno" cx="${x}" cy="${y}" r="12"/>`, 2.7, E2(i * .9 - 2.7), .1)).join(""),
     // la carretera: hacia los montes, con sus señales, un coche, las rayas que pasan y un avión que despega
     carretera: () => halo(960, 580, 380) + monte(630, 200, 81, "m1") + monte(730, 130, 83, "m2") + suelo(770, "m2") + pol("m3", "600,1100 890,770 1030,770 1320,1100")
       + `<path stroke-dasharray="44 36" stroke-width="7" d="M960,1080 V962"/>` + mueveEn(950, 782, 20, 178, 960, 782, `<path stroke-dasharray="44 36" stroke-width="7" d="M960,960 V620"/>`, "mvPasa", 2.6, 0, "--y1:80px;--tm:linear")
@@ -6112,7 +6327,9 @@ setInterval(medirFluidez, 5 * 60000);
 
 /* ---------- 4.3: el menú de ajustes de las pantallas (≡ en el mando, solo en la app) ----------
    ▲▼ elige · OK quita o pone la pantalla · ◀ ▶ cambia sus segundos (de 5 en 5) · « » la mueve · Atrás o ≡ cierra. Cada cambio se guarda. */
-function filasMenu() { return [{t: "sitio"}].concat(ordenPantallas().map(p => ({t: "p", p})), [{t: "reset"}]); }
+/* 4.42: «Luz de casa (Datadis)», debajo del sitio: abre en la tele el diálogo para escribir la cuenta (Android.datadis; fuera de la app no sale) */
+const menuDatadis = () => { try { return !!(window.Android && Android.datadis); } catch (e) { return false; } };
+function filasMenu() { return [{t: "sitio"}].concat(menuDatadis() ? [{t: "datadis"}] : [], ordenPantallas().map(p => ({t: "p", p})), [{t: "reset"}]); }
 function pintarMenu() {
   let m = document.getElementById("menu");
   if (!menu) { if (m) m.remove(); return; }
@@ -6122,6 +6339,7 @@ function pintarMenu() {
     const sel = k === i ? " sel" : "";
     if (f.t === "sitio") return `<li class="mn-x${sel}"><b>Cambiar el sitio</b><span>${esc(E && E.lugar ? E.lugar.nombre : "")}</span></li>`;
     if (f.t === "reset") return `<li class="mn-x${sel}"><b>Volver a como venía</b><span>todas, en su orden, 15 s</span></li>`;
+    if (f.t === "datadis") return `<li class="mn-x${sel}"><b>Luz de casa (Datadis)</b><span>${esc((() => { try { return Android.datadisEstado() || ""; } catch (e) { return ""; } })())}</span></li>`;
     const off = AJ.ocultas.includes(f.p), s = segundosDe(f.p);
     return `<li class="${off ? "off" : "on"}${sel}"><i class="mn-n">${k}</i><b>${TITULOS[f.p]}</b>${hay.has(f.p) ? "" : `<em>sin datos ahora</em>`}`
       + `<span class="mn-v">${off ? "no sale" : "sale"}</span><span class="mn-s">${off ? "" : `◀ ${s} s ▶`}</span></li>`;
@@ -6158,6 +6376,10 @@ function accionMenu(a) {
   else if (a === "ok" && f.t === "sitio") {
     menu = null; pintarMenu();
     try { Android.cambiarSitio(); } catch (e) {}
+    return;
+  } else if (a === "ok" && f.t === "datadis") {
+    menu = null; pintarMenu();
+    try { Android.datadis(); } catch (e) {}
     return;
   } else if (a === "ok" && f.t === "reset") { AJ = {orden: [], ocultas: [], seg: {}, ordenV: ORDEN_V}; guardarAjustes(); }
   else if (a === "ok" && f.t === "p") {
