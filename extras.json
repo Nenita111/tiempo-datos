@@ -362,8 +362,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-11",
- "actualizado": "2026-11-11T12:52+01:00",
+ "sorteosBuscado": "2026-11-12",
+ "actualizado": "2026-11-12T06:10+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -536,7 +536,18 @@
   ],
   "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"
  },
- "agenda": [],
+ "agenda": [
+  {
+   "titulo": "Gran Outlet de Adra",
+   "fecha": "2026-11-19",
+   "fuente": "Noticias de Almería (presentado por el Ayuntamiento de Adra)",
+   "ine": "04003",
+   "hora": "10:00",
+   "hasta": "2026-11-21",
+   "lugar": "Auditorio Ciudad de Adra",
+   "enlace": "https://www.noticiasdealmeria.com/adra-presenta-una-nueva-edicion-del-gran-outlet"
+  }
+ ],
  "raif": {
   "provincia": "Almería",
   "cultivos": [
@@ -869,19 +880,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-11",
-  "nombre": "Sopa de ajo",
+  "fecha": "2026-11-12",
+  "nombre": "Potaje de acelgas",
   "tiempo": {
    "temperature": "mild",
    "rain": "rain likely",
-   "wind": "light wind",
-   "sky": "Cubierto con lluvia"
+   "wind": "windy",
+   "sky": "Intervalos nubosos con lluvia escasa"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-05",
-    "nombre": "Olla de trigo"
-   },
    {
     "fecha": "2026-11-06",
     "nombre": "Crema de calabaza"
@@ -905,11 +912,15 @@
    {
     "fecha": "2026-11-11",
     "nombre": "Sopa de ajo"
+   },
+   {
+    "fecha": "2026-11-12",
+    "nombre": "Potaje de acelgas"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-11",
+  "fecha": "2026-11-12",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/218/13": {
     "tipo": "convocatoria",
@@ -1050,11 +1061,6 @@
     "tipo": "lista_provisional",
     "provincia": "andalucia",
     "zona": "andalucia"
-   },
-   "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-23185": {
-    "tipo": "nombramiento",
-    "provincia": "andalucia",
-    "zona": "otra"
    }
   },
   "avisar": [
@@ -1087,17 +1093,13 @@
     "alergeno": "ninguno",
     "producto": "lacteos"
    },
-   "https://www.aesan.gob.es/alertas/2026_79": {
-    "alergeno": "ninguno",
-    "producto": "lacteos"
-   },
-   "https://www.aesan.gob.es/alertas/2026_80": {
-    "alergeno": "ninguno",
-    "producto": "carne"
-   },
    "https://www.aesan.gob.es/alertas/2026_78": {
     "alergeno": "ninguno",
     "producto": "complementos"
+   },
+   "https://www.aesan.gob.es/alertas/2026_82": {
+    "alergeno": "sulfitos",
+    "producto": "pescado"
    },
    "https://www.aesan.gob.es/alertas/2026_77": {
     "alergeno": "huevo",
@@ -1155,6 +1157,16 @@
    }
   },
   "ofertas": {
+   "692230": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular -2487",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-20",
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
    "692227": {
     "zona": false,
     "zv": 4,
@@ -1195,26 +1207,6 @@
     "experiencia": 0.97,
     "colectivo": "general"
    },
-   "692230": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular -2487",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-20",
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "692134": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico Facultativo Laboratorio Medioambiental",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-11",
-    "nivel": "grado",
-    "experiencia": 0.84,
-    "colectivo": "general"
-   },
    "692356": {
     "zona": false,
     "zv": 4,
@@ -1233,16 +1225,6 @@
     "hasta": "2026-11-26",
     "nivel": "grado",
     "experiencia": 0.93,
-    "colectivo": "general"
-   },
-   "692140": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico Gestión Prevención de Riesgos Laborales",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.82,
     "colectivo": "general"
    },
    "691918": {
@@ -1265,16 +1247,6 @@
     "experiencia": 0.93,
     "colectivo": "general"
    },
-   "691267": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Especialista de Apoyo a la Investigación -2485",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-16",
-    "nivel": "grado",
-    "experiencia": 0.95,
-    "colectivo": "general"
-   },
    "691333": {
     "zona": false,
     "zv": 4,
@@ -1285,44 +1257,14 @@
     "experiencia": 0.95,
     "colectivo": "general"
    },
-   "690754": {
+   "691267": {
     "zona": false,
     "zv": 4,
-    "puesto": "Monitora o Monitor de Cocina para la Comunidad Terapéutica de Los Palacios",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.86,
-    "colectivo": "general"
-   },
-   "690745": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o monitor de Limpieza para la Comunidad Terapéutica de Cartaya",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_medio",
-    "experiencia": 0.79,
-    "colectivo": "general"
-   },
-   "690730": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Enfermero o Enfermera Pepsa",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
+    "puesto": "Técnico/a Especialista de Apoyo a la Investigación -2485",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-16",
     "nivel": "grado",
-    "experiencia": 0.82,
-    "colectivo": "general"
-   },
-   "690712": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Monitora o monitor sociosanitario",
-    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
-    "hasta": "2026-11-11",
-    "nivel": "fp_superior",
-    "experiencia": 0.83,
+    "experiencia": 0.95,
     "colectivo": "general"
    },
    "689719": {
@@ -1332,16 +1274,6 @@
     "puesto": "Técnico/a Especialista en Evaluación de Tecnologías Sanitarias -32-2026",
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
     "hasta": "2026-11-12",
-    "colectivo": "general",
-    "zv": 4
-   },
-   "689338": {
-    "nivel": "fp_medio",
-    "experiencia": 0.05,
-    "zona": true,
-    "puesto": "INSPECTOR/A DE ITV",
-    "entidad": "Verificaciones Industriales de Andalucía S.A.",
-    "hasta": "2026-11-11",
     "colectivo": "general",
     "zv": 4
    }
@@ -1385,10 +1317,10 @@
    }
   },
   "agenda": {},
-  "fecha": "2026-11-11"
+  "fecha": "2026-11-12"
  },
  "fap": {
-  "fecha": "2026-11-11",
+  "fecha": "2026-11-12",
   "novedades": [
    {
     "tipo": "noticia",
@@ -5168,54 +5100,6 @@
   ],
   "linea": [
    {
-    "id": "2888",
-    "codigo": "MF0978",
-    "nombre": "Gestión de archivos",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2888",
-    "fin": "2026-11-11",
-    "inicio": "2026-12-03",
-    "horas": 60,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
-    "id": "117",
-    "codigo": "ADGD305PO",
-    "nombre": "Gestión de cooperativas de trabajo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/117",
-    "fin": "2026-11-11",
-    "inicio": "2026-12-14",
-    "horas": 64,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "día completo"
-   },
-   {
-    "id": "7",
-    "codigo": "EOCO0029",
-    "nombre": "Interpretación de planos",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/7",
-    "fin": "2026-11-11",
-    "inicio": "2026-11-19",
-    "horas": 20,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "día completo"
-   },
-   {
-    "id": "2792",
-    "codigo": "MF1017",
-    "nombre": "Intervención en la atención higiénico-alimentaria en instituciones",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2792",
-    "fin": "2026-11-11",
-    "inicio": "2026-12-01",
-    "horas": 70,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
     "id": "2943",
     "codigo": "MF1002",
     "nombre": "Inglés profesional para actividades comerciales",
@@ -5235,6 +5119,18 @@
     "fin": "2026-11-13",
     "inicio": "2026-12-09",
     "horas": 60,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2792",
+    "codigo": "MF1017",
+    "nombre": "Intervención en la atención higiénico-alimentaria en instituciones",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2792",
+    "fin": "2026-11-13",
+    "inicio": "2026-12-01",
+    "horas": 70,
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "tarde"
@@ -5405,8 +5301,7 @@
     "horas": 20,
     "para": "ocupadas",
     "modalidad": "en línea",
-    "horario": "día completo",
-    "convocado": true
+    "horario": "día completo"
    },
    {
     "id": "93",
@@ -5418,8 +5313,7 @@
     "horas": 80,
     "para": "ocupadas",
     "modalidad": "en línea",
-    "horario": "día completo",
-    "convocado": true
+    "horario": "día completo"
    },
    {
     "id": "94",
@@ -5446,18 +5340,6 @@
     "horario": "tarde"
    },
    {
-    "id": "2939",
-    "codigo": "MF1327",
-    "nombre": "Operaciones auxiliares en el punto de venta",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2939",
-    "fin": "2026-11-19",
-    "inicio": "2026-12-17",
-    "horas": 90,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
     "id": "2369",
     "codigo": "MF1327",
     "nombre": "Operaciones auxiliares en el punto de venta",
@@ -5468,6 +5350,18 @@
     "para": "desempleadas",
     "modalidad": "en línea",
     "horario": "mañana"
+   },
+   {
+    "id": "2939",
+    "codigo": "MF1327",
+    "nombre": "Operaciones auxiliares en el punto de venta",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2939",
+    "fin": "2026-11-19",
+    "inicio": "2026-12-17",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    },
    {
     "id": "456717",
@@ -5650,12 +5544,48 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "tarde"
+   },
+   {
+    "id": "456732",
+    "codigo": "IFCD99",
+    "nombre": "Programación en inteligencia artificial y BIG data aplicables en entornos 5G",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456732",
+    "fin": "2026-12-03",
+    "inicio": "2027-01-25",
+    "horas": 150,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Málaga"
+   },
+   {
+    "id": "2913",
+    "codigo": "MF0973",
+    "nombre": "Grabación de datos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2913",
+    "fin": "2026-12-04",
+    "inicio": "2027-01-07",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2832",
+    "codigo": "MF0976",
+    "nombre": "Operaciones administrativas comerciales",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2832",
+    "fin": "2026-12-04",
+    "inicio": "2027-01-12",
+    "horas": 160,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
    }
   ],
-  "lineaTotal": 94,
+  "lineaTotal": 92,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-11"
+  "dia": "2026-11-12"
  },
  "polen": {
   "estacion": "Almería",
@@ -5880,7 +5810,7 @@
     ]
    }
   ],
-  "dias": 388,
+  "dias": 387,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
