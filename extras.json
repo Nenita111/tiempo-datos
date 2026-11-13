@@ -362,8 +362,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-12",
- "actualizado": "2026-11-12T06:10+01:00",
+ "sorteosBuscado": "2026-11-13",
+ "actualizado": "2026-11-13T06:11+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -880,19 +880,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-12",
-  "nombre": "Potaje de acelgas",
+  "fecha": "2026-11-13",
+  "nombre": "Caldo de pimentón",
   "tiempo": {
    "temperature": "mild",
    "rain": "rain likely",
-   "wind": "windy",
+   "wind": "light wind",
    "sky": "Intervalos nubosos con lluvia escasa"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-06",
-    "nombre": "Crema de calabaza"
-   },
    {
     "fecha": "2026-11-07",
     "nombre": "Lentejas con verduras"
@@ -916,12 +912,56 @@
    {
     "fecha": "2026-11-12",
     "nombre": "Potaje de acelgas"
+   },
+   {
+    "fecha": "2026-11-13",
+    "nombre": "Caldo de pimentón"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-12",
+  "fecha": "2026-11-13",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/220/14": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/220/15": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/220/16": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/220/17": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/220/18": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/220/19": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/220/20": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/220/21": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
    "https://www.juntadeandalucia.es/boja/2026/218/13": {
     "tipo": "convocatoria",
     "provincia": "otra",
@@ -1056,11 +1096,6 @@
     "tipo": "convocatoria",
     "provincia": "otra",
     "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/215/12": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
    }
   },
   "avisar": [
@@ -1157,6 +1192,46 @@
    }
   },
   "ofertas": {
+   "692707": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "SECRETARIO/A DE REDACCIÓN",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-15",
+    "nivel": "bachillerato",
+    "experiencia": 0.98,
+    "colectivo": "general"
+   },
+   "692710": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "AYUDANTE TÉCNICO/A ELECTRÓNICO",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-15",
+    "nivel": "fp_superior",
+    "experiencia": 0.08,
+    "colectivo": "general"
+   },
+   "692221": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular- 2487",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-20",
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "692362": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico Facultativo Consultoría (Residuos)",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-14",
+    "nivel": "grado",
+    "experiencia": 0.87,
+    "colectivo": "general"
+   },
    "692230": {
     "zona": false,
     "zv": 4,
@@ -1177,27 +1252,7 @@
     "experiencia": 0.97,
     "colectivo": "general"
    },
-   "692362": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico Facultativo Consultoría (Residuos)",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-14",
-    "nivel": "grado",
-    "experiencia": 0.87,
-    "colectivo": "general"
-   },
    "692224": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular- 2487",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-20",
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "692221": {
     "zona": false,
     "zv": 4,
     "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular- 2487",
@@ -1266,31 +1321,9 @@
     "nivel": "grado",
     "experiencia": 0.95,
     "colectivo": "general"
-   },
-   "689719": {
-    "nivel": "grado",
-    "experiencia": 0.94,
-    "zona": false,
-    "puesto": "Técnico/a Especialista en Evaluación de Tecnologías Sanitarias -32-2026",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-12",
-    "colectivo": "general",
-    "zv": 4
    }
   },
   "sae": {
-   "01-2026-49890": {
-    "nivel": "no_consta",
-    "entidad": "otra",
-    "colectivo": "programa_empleo",
-    "experiencia": 0.07
-   },
-   "01-2026-50808": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
    "01-2026-49544": {
     "nivel": "no_consta",
     "entidad": "junta",
@@ -1314,13 +1347,55 @@
     "entidad": "otra",
     "colectivo": "general",
     "experiencia": 0.07
+   },
+   "01-2026-50371": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.06
+   },
+   "01-2026-51075": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.06
+   },
+   "01-2026-51076": {
+    "nivel": "no_consta",
+    "entidad": "junta",
+    "colectivo": "general",
+    "experiencia": 0.06
+   },
+   "01-2026-51077": {
+    "nivel": "no_consta",
+    "entidad": "junta",
+    "colectivo": "general",
+    "experiencia": 0.06
+   },
+   "01-2026-51271": {
+    "nivel": "no_consta",
+    "entidad": "junta",
+    "colectivo": "general",
+    "experiencia": 0.07
+   },
+   "01-2026-51355": {
+    "nivel": "fp_medio",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.06
    }
   },
-  "agenda": {},
-  "fecha": "2026-11-12"
+  "agenda": {
+   "2026-11-19|Gran Outlet de Adra": {
+    "gratis": 0.03,
+    "familias": 0.27,
+    "inscripcion": 0.03
+   }
+  },
+  "fecha": "2026-11-13"
  },
  "fap": {
-  "fecha": "2026-11-12",
+  "fecha": "2026-11-13",
   "novedades": [
    {
     "tipo": "noticia",
@@ -4624,20 +4699,6 @@
  "cursos": {
   "presenciales": [
    {
-    "id": "399",
-    "codigo": "INAD0002",
-    "nombre": "Manipulación de alimentos de alto riesgo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/399",
-    "fin": "2026-11-12",
-    "inicio": "2026-12-14",
-    "horas": 25,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "El Ejido",
-    "km": 19
-   },
-   {
     "id": "769",
     "codigo": "SSCE05",
     "nombre": "Inglés C1",
@@ -4673,6 +4734,20 @@
     "fin": "2026-11-15",
     "inicio": "2026-12-15",
     "horas": 15,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Alhama de Almería",
+    "km": 46
+   },
+   {
+    "id": "2536",
+    "codigo": "COMT0411",
+    "nombre": "Gestión comercial de ventas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2536",
+    "fin": "2026-11-16",
+    "inicio": "2026-12-16",
+    "horas": 610,
     "para": "desempleadas",
     "modalidad": "presencial",
     "horario": "tarde",
@@ -4818,6 +4893,20 @@
     "horario": "mañana",
     "municipio": "Almería",
     "km": 50
+   },
+   {
+    "id": "2535",
+    "codigo": "COMT0411",
+    "nombre": "Gestión comercial de ventas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2535",
+    "fin": "2026-11-21",
+    "inicio": "2026-12-21",
+    "horas": 610,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Alhama de Almería",
+    "km": 46
    },
    {
     "id": "456686",
@@ -5100,18 +5189,6 @@
   ],
   "linea": [
    {
-    "id": "2943",
-    "codigo": "MF1002",
-    "nombre": "Inglés profesional para actividades comerciales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2943",
-    "fin": "2026-11-12",
-    "inicio": "2026-12-02",
-    "horas": 90,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
     "id": "2911",
     "codigo": "MF1792",
     "nombre": "Gestión de la prevención de riesgos laborales en pequeños negocios",
@@ -5196,18 +5273,6 @@
     "horario": "tarde"
    },
    {
-    "id": "457708",
-    "codigo": "SSCE0110",
-    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457708",
-    "fin": "2026-11-16",
-    "inicio": "2027-01-11",
-    "horas": 380,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "municipio": "Málaga"
-   },
-   {
     "id": "457701",
     "codigo": "SSCE0110",
     "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
@@ -5216,6 +5281,18 @@
     "inicio": "2027-01-11",
     "horas": 380,
     "para": "ocupadas",
+    "modalidad": "en línea",
+    "municipio": "Málaga"
+   },
+   {
+    "id": "457708",
+    "codigo": "SSCE0110",
+    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457708",
+    "fin": "2026-11-16",
+    "inicio": "2027-01-11",
+    "horas": 380,
+    "para": "desempleadas",
     "modalidad": "en línea",
     "municipio": "Málaga"
    },
@@ -5254,6 +5331,18 @@
     "para": "desempleadas",
     "modalidad": "en línea",
     "municipio": "Sevilla"
+   },
+   {
+    "id": "2787",
+    "codigo": "MF1017",
+    "nombre": "Intervención en la atención higiénico-alimentaria en instituciones",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2787",
+    "fin": "2026-11-17",
+    "inicio": "2026-12-03",
+    "horas": 70,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    },
    {
     "id": "2876",
@@ -5582,10 +5671,10 @@
     "horario": "mañana"
    }
   ],
-  "lineaTotal": 92,
+  "lineaTotal": 97,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-12"
+  "dia": "2026-11-13"
  },
  "polen": {
   "estacion": "Almería",
@@ -5810,7 +5899,7 @@
     ]
    }
   ],
-  "dias": 387,
+  "dias": 386,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
