@@ -362,8 +362,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-13",
- "actualizado": "2026-11-13T06:11+01:00",
+ "sorteosBuscado": "2026-11-14",
+ "actualizado": "2026-11-14T06:12+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -553,15 +553,15 @@
   "cultivos": [
    {
     "cultivo": "Tomate",
-    "desde": "2026-11-02",
-    "hasta": "2026-11-06",
+    "desde": "2026-11-09",
+    "hasta": "2026-11-13",
     "destacados": "Mosca blanca y Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Tomate.pdf"
    },
    {
     "cultivo": "Pimiento",
-    "desde": "2026-11-02",
-    "hasta": "2026-11-06",
+    "desde": "2026-11-09",
+    "hasta": "2026-11-13",
     "destacados": "Mosca blanca, Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Pimiento.pdf"
    },
@@ -581,8 +581,8 @@
    },
    {
     "cultivo": "Berenjena",
-    "desde": "2026-11-02",
-    "hasta": "2026-11-06",
+    "desde": "2026-11-09",
+    "hasta": "2026-11-13",
     "destacados": "Mosca blanca, Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Berenjena.pdf"
    },
@@ -598,38 +598,38 @@
   "fuente": "Red de Alerta e Información Fitosanitaria de Andalucía (RAIF, Junta de Andalucía)"
  },
  "respiratorias": {
-  "semana": "44/2026",
+  "semana": "45/2026",
   "iras": {
-   "tasa": 279.3,
-   "previa": 248.7
+   "tasa": 233.3,
+   "previa": 279.3
   },
   "gripal": {
-   "tasa": 2.5,
-   "previa": 2.2
+   "tasa": 2.2,
+   "previa": 2.5
   },
   "covid": {
-   "tasa": 2.0,
-   "previa": 2.4
+   "tasa": 1.3,
+   "previa": 2.0
   },
   "bronquiolitis": {
-   "tasa": 126.0,
-   "previa": 117.7
+   "tasa": 112.1,
+   "previa": 126.0
   },
   "irag": {
-   "tasa": 8.9,
-   "previa": 7.5
+   "tasa": 8.4,
+   "previa": 9.1
   },
   "positividad": {
-   "gripe": 5.0,
-   "gripePrevia": 1.4,
-   "covid": 17.5,
-   "covidPrevia": 17.1,
+   "gripe": 6.9,
+   "gripePrevia": 4.3,
+   "covid": 3.4,
+   "covidPrevia": 18.8,
    "vrs": 0.0,
    "vrsPrevia": 0.0
   },
-  "desde": "2026-10-26",
-  "hasta": "2026-11-01",
-  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/11/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202644.pdf",
+  "desde": "2026-11-02",
+  "hasta": "2026-11-08",
+  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/11/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202645.pdf",
   "pagina": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/areas/sanidad/salud-vida/vigilancia/paginas/temporada2627.html",
   "fuente": "Junta de Andalucía (vigilancia centinela de la infección respiratoria aguda)"
  },
@@ -880,19 +880,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-13",
-  "nombre": "Caldo de pimentón",
+  "fecha": "2026-11-14",
+  "nombre": "Crema de calabaza",
   "tiempo": {
    "temperature": "mild",
-   "rain": "rain likely",
+   "rain": "some chance of rain",
    "wind": "light wind",
-   "sky": "Intervalos nubosos con lluvia escasa"
+   "sky": "Intervalos nubosos"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-07",
-    "nombre": "Lentejas con verduras"
-   },
    {
     "fecha": "2026-11-08",
     "nombre": "Ensalada de granada"
@@ -916,11 +912,15 @@
    {
     "fecha": "2026-11-13",
     "nombre": "Caldo de pimentón"
+   },
+   {
+    "fecha": "2026-11-14",
+    "nombre": "Crema de calabaza"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-13",
+  "fecha": "2026-11-14",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/220/14": {
     "tipo": "lista_definitiva",
@@ -1132,7 +1132,7 @@
     "alergeno": "ninguno",
     "producto": "complementos"
    },
-   "https://www.aesan.gob.es/alertas/2026_82": {
+   "https://www.aesan.gob.es/alertas/2026_83": {
     "alergeno": "sulfitos",
     "producto": "pescado"
    },
@@ -1192,16 +1192,6 @@
    }
   },
   "ofertas": {
-   "692707": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "SECRETARIO/A DE REDACCIÓN",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-11-15",
-    "nivel": "bachillerato",
-    "experiencia": 0.98,
-    "colectivo": "general"
-   },
    "692710": {
     "zona": false,
     "zv": 4,
@@ -1212,14 +1202,14 @@
     "experiencia": 0.08,
     "colectivo": "general"
    },
-   "692221": {
+   "692707": {
     "zona": false,
     "zv": 4,
-    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular- 2487",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-20",
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
+    "puesto": "SECRETARIO/A DE REDACCIÓN",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-15",
+    "nivel": "bachillerato",
+    "experiencia": 0.98,
     "colectivo": "general"
    },
    "692362": {
@@ -1262,14 +1252,14 @@
     "experiencia": 0.97,
     "colectivo": "general"
    },
-   "692356": {
+   "692221": {
     "zona": false,
     "zv": 4,
-    "puesto": "Técnico/a en el Departamento de Consultoría.",
-    "entidad": "Sociedad Andaluza para el Desarrollo de las Telecomunicaciones, S.A.M.P. (SANDETEL)",
-    "hasta": "2026-11-27",
-    "nivel": "grado",
-    "experiencia": 0.1,
+    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular- 2487",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-20",
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
     "colectivo": "general"
    },
    "692029": {
@@ -1280,6 +1270,16 @@
     "hasta": "2026-11-26",
     "nivel": "grado",
     "experiencia": 0.93,
+    "colectivo": "general"
+   },
+   "692356": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a en el Departamento de Consultoría.",
+    "entidad": "Sociedad Andaluza para el Desarrollo de las Telecomunicaciones, S.A.M.P. (SANDETEL)",
+    "hasta": "2026-11-27",
+    "nivel": "grado",
+    "experiencia": 0.1,
     "colectivo": "general"
    },
    "691918": {
@@ -1383,6 +1383,24 @@
     "entidad": "otra",
     "colectivo": "general",
     "experiencia": 0.06
+   },
+   "01-2026-49596": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.07
+   },
+   "01-2026-51364": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.06
+   },
+   "01-2026-51377": {
+    "nivel": "no_consta",
+    "entidad": "junta",
+    "colectivo": "general",
+    "experiencia": 0.06
    }
   },
   "agenda": {
@@ -1392,18 +1410,11 @@
     "inscripcion": 0.03
    }
   },
-  "fecha": "2026-11-13"
+  "fecha": "2026-11-14"
  },
  "fap": {
-  "fecha": "2026-11-13",
+  "fecha": "2026-11-14",
   "novedades": [
-   {
-    "tipo": "noticia",
-    "titulo": "9 clubes y 239 palistas protagonizan el cierre de la III Liga Andaluza de Barco Dragón",
-    "enlace": "https://fapira.com/index.php/noticias-2/noticias-2026/1930-9-clubes-y-239-palistas-protagonizan-el-cierre-de-la-iii-liga-andaluza-de-barco-dragon",
-    "fecha": "2026-10-30",
-    "cambio": false
-   },
    {
     "tipo": "circular",
     "titulo": "Normativa Campeonato de Andalucía de Barco Dragón 500 m",
@@ -1443,126 +1454,6 @@
     "anuncia": 0.06,
     "cambio": 0.1,
     "persona": 0.0
-   },
-   "4af4481d358c": {
-    "anuncia": 0.02,
-    "cambio": 0.02,
-    "persona": 0.03
-   },
-   "7e554cb63c1b": {
-    "anuncia": 0.61,
-    "cambio": 0.04,
-    "persona": 0.02
-   },
-   "cb07881418ec": {
-    "anuncia": 0.02,
-    "cambio": 0.02,
-    "persona": 0.02
-   },
-   "fd70594d471d": {
-    "anuncia": 0.02,
-    "cambio": 0.02,
-    "persona": 0.07
-   },
-   "59207901b32a": {
-    "anuncia": 0.91,
-    "cambio": 0.03,
-    "persona": 0.02
-   },
-   "4a8bef2681ac": {
-    "anuncia": 0.01,
-    "cambio": 0.02,
-    "persona": 0.02
-   },
-   "50a44be0462f": {
-    "anuncia": 0.01,
-    "cambio": 0.02,
-    "persona": 0.99
-   },
-   "74411c0ed00f": {
-    "anuncia": 0.25,
-    "cambio": 0.02,
-    "persona": 0.99
-   },
-   "aea465a28cf7": {
-    "anuncia": 0.02,
-    "cambio": 0.02,
-    "persona": 0.04
-   },
-   "b7adc71720e1": {
-    "anuncia": 0.14,
-    "cambio": 0.02,
-    "persona": 0.01
-   },
-   "0bc464a3129b": {
-    "anuncia": 0.02,
-    "cambio": 0.18,
-    "persona": 0.02
-   },
-   "22aad3d3b725": {
-    "anuncia": 0.01,
-    "cambio": 0.01,
-    "persona": 0.03
-   },
-   "923ccf95c737": {
-    "anuncia": 0.02,
-    "cambio": 0.02,
-    "persona": 0.04
-   },
-   "4f2c334dcb4d": {
-    "anuncia": 0.18,
-    "cambio": 0.02,
-    "persona": 0.03
-   },
-   "552febc8c41a": {
-    "anuncia": 0.03,
-    "cambio": 0.02,
-    "persona": 0.08
-   },
-   "28486fb1d746": {
-    "anuncia": 0.42,
-    "cambio": 0.03,
-    "persona": 0.02
-   },
-   "28d4f468ae00": {
-    "anuncia": 0.02,
-    "cambio": 0.02,
-    "persona": 0.99
-   },
-   "2e422ffe2265": {
-    "anuncia": 0.01,
-    "cambio": 0.02,
-    "persona": 0.02
-   },
-   "8611cae68187": {
-    "anuncia": 0.02,
-    "cambio": 0.02,
-    "persona": 0.02
-   },
-   "e7615d0d6e28": {
-    "anuncia": 0.02,
-    "cambio": 0.02,
-    "persona": 0.09
-   },
-   "6c5fb8a0b0c2": {
-    "anuncia": 0.29,
-    "cambio": 0.12,
-    "persona": 0.04
-   },
-   "bb88ac5de28f": {
-    "anuncia": 0.29,
-    "cambio": 0.03,
-    "persona": 0.04
-   },
-   "90b70a876727": {
-    "anuncia": 0.01,
-    "cambio": 0.02,
-    "persona": 0.02
-   },
-   "9c0c590b2f84": {
-    "anuncia": 0.01,
-    "cambio": 0.03,
-    "persona": 0.02
    }
   }
  },
@@ -4699,34 +4590,6 @@
  "cursos": {
   "presenciales": [
    {
-    "id": "769",
-    "codigo": "SSCE05",
-    "nombre": "Inglés C1",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/769",
-    "fin": "2026-11-13",
-    "inicio": "2026-11-23",
-    "horas": 240,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Vícar",
-    "km": 35
-   },
-   {
-    "id": "193",
-    "codigo": "INAD01",
-    "nombre": "Seguridad e higiene en la industria alimentaria",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/193",
-    "fin": "2026-11-13",
-    "inicio": "2026-11-30",
-    "horas": 60,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Almería",
-    "km": 50
-   },
-   {
     "id": "411",
     "codigo": "TMVI09",
     "nombre": "Técnicas de conducción eficiente",
@@ -4823,6 +4686,20 @@
     "horario": "tarde",
     "municipio": "Almería",
     "km": 50
+   },
+   {
+    "id": "769",
+    "codigo": "SSCE05",
+    "nombre": "Inglés C1",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/769",
+    "fin": "2026-11-18",
+    "inicio": "2026-11-23",
+    "horas": 240,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Vícar",
+    "km": 35
    },
    {
     "id": "396",
@@ -4990,6 +4867,20 @@
     "horario": "tarde",
     "municipio": "Huércal de Almería",
     "km": 54
+   },
+   {
+    "id": "395",
+    "codigo": "SSCE20",
+    "nombre": "Competencias digitales para formadores y tutores según el marco de referencia de competencia digital docente",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/395",
+    "fin": "2026-12-09",
+    "inicio": "2027-01-08",
+    "horas": 80,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
    },
    {
     "id": "2538",
@@ -5189,66 +5080,6 @@
   ],
   "linea": [
    {
-    "id": "2911",
-    "codigo": "MF1792",
-    "nombre": "Gestión de la prevención de riesgos laborales en pequeños negocios",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2911",
-    "fin": "2026-11-13",
-    "inicio": "2026-12-09",
-    "horas": 60,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
-    "id": "2792",
-    "codigo": "MF1017",
-    "nombre": "Intervención en la atención higiénico-alimentaria en instituciones",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2792",
-    "fin": "2026-11-13",
-    "inicio": "2026-12-01",
-    "horas": 70,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
-    "id": "2880",
-    "codigo": "MF0239",
-    "nombre": "Operaciones de venta",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2880",
-    "fin": "2026-11-13",
-    "inicio": "2026-12-01",
-    "horas": 160,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
-    "id": "2872",
-    "codigo": "MF0969",
-    "nombre": "Técnicas administrativas básicas de oficina",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2872",
-    "fin": "2026-11-13",
-    "inicio": "2026-11-23",
-    "horas": 150,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
-    "id": "2961",
-    "codigo": "MF0975",
-    "nombre": "Técnicas de recepción y comunicación",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2961",
-    "fin": "2026-11-13",
-    "inicio": "2026-12-09",
-    "horas": 90,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
     "id": "86",
     "codigo": "ADGN12",
     "nombre": "Fiscalidad cooperativa avanzada",
@@ -5273,18 +5104,6 @@
     "horario": "tarde"
    },
    {
-    "id": "457701",
-    "codigo": "SSCE0110",
-    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457701",
-    "fin": "2026-11-16",
-    "inicio": "2027-01-11",
-    "horas": 380,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "municipio": "Málaga"
-   },
-   {
     "id": "457708",
     "codigo": "SSCE0110",
     "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
@@ -5293,6 +5112,18 @@
     "inicio": "2027-01-11",
     "horas": 380,
     "para": "desempleadas",
+    "modalidad": "en línea",
+    "municipio": "Málaga"
+   },
+   {
+    "id": "457701",
+    "codigo": "SSCE0110",
+    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457701",
+    "fin": "2026-11-16",
+    "inicio": "2027-01-11",
+    "horas": 380,
+    "para": "ocupadas",
     "modalidad": "en línea",
     "municipio": "Málaga"
    },
@@ -5659,6 +5490,19 @@
     "horario": "tarde"
    },
    {
+    "id": "79",
+    "codigo": "COMM0012",
+    "nombre": "Marketing para empresas de economía social",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/79",
+    "fin": "2026-12-04",
+    "inicio": "2027-01-13",
+    "horas": 40,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo",
+    "convocado": true
+   },
+   {
     "id": "2832",
     "codigo": "MF0976",
     "nombre": "Operaciones administrativas comerciales",
@@ -5669,12 +5513,60 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "mañana"
+   },
+   {
+    "id": "2960",
+    "codigo": "MF0973",
+    "nombre": "Grabación de datos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2960",
+    "fin": "2026-12-09",
+    "inicio": "2027-01-07",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "2763",
+    "codigo": "MF1001",
+    "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2763",
+    "fin": "2026-12-10",
+    "inicio": "2027-01-07",
+    "horas": 90,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "117",
+    "codigo": "ADGD305PO",
+    "nombre": "Gestión de cooperativas de trabajo",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/117",
+    "fin": "2026-12-11",
+    "inicio": "2027-01-14",
+    "horas": 64,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
+    "id": "2878",
+    "codigo": "MF0245",
+    "nombre": "Gestión de quejas y reclamaciones en materia de consumo",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2878",
+    "fin": "2026-12-11",
+    "inicio": "2027-01-11",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    }
   ],
-  "lineaTotal": 97,
+  "lineaTotal": 94,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-13"
+  "dia": "2026-11-14"
  },
  "polen": {
   "estacion": "Almería",
@@ -5899,7 +5791,7 @@
     ]
    }
   ],
-  "dias": 386,
+  "dias": 385,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -6508,25 +6400,6 @@
      "n": 10,
      "unidad": "habiles",
      "hasta": "2026-10-29"
-    }
-   },
-   {
-    "id": "399043",
-    "cod": "11792",
-    "tipo": "base",
-    "fecha": "2026-10-14",
-    "boja": false,
-    "centro": "Área de gestión sanitaria Sur de Granada",
-    "area": "sur_granada",
-    "titulo": "Convocatoria Pública para la Provisión Temporal de un puesto de Facultativo Especialista de Área en Radiodiagnóstico para el AGS Sur de Granada",
-    "puesto": "Facultativo Especialista de Área en Radiodiagnóstico",
-    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/399043/86860/105804",
-    "docs": 2,
-    "estado": "desierta",
-    "plazo": {
-     "n": 5,
-     "unidad": "habiles",
-     "hasta": "2026-10-21"
     }
    }
   ],
