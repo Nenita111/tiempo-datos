@@ -17,10 +17,11 @@ class Vuelos(unittest.TestCase):
                 f.write(json.dumps({"x": json.dumps(viejo)}) + "\n" + json.dumps(linea) + "\n" + '{"otra": "cosa con itineraries"}\n')
             r = vuelos.de_la_sesion(raiz=d)
         self.assertEqual(list(r), ["LEI"]); self.assertEqual(len(r["LEI"]), 6)
-        x = vuelos.actualizar({}, r, "2026-10-29", "prueba")
+        x = vuelos.actualizar({"vuelos": [{"destino": "PRUEBA"}], "vuelosOrigen": "Almería", "vuelosFecha": "Buscado el 28/10", "cortes": []}, r, "2026-10-29", "prueba")
         v = x["aeropuertos"][0]["vuelos"][0]
         self.assertEqual((v["destino"], v["ida"], v["vuelta"], v["precio"], v["compania"]), ("Bucarest", "2026-11-11", "2026-11-13", 97, "Wizz Air"))
-        self.assertEqual(x["vuelos"][0]["precio"], "97 €")
+        # los campos antiguos (lo de Almería repetido con otro formato) se quitan; lo demás, ni se toca
+        self.assertEqual(sorted(x), ["actualizado", "aeropuertos", "antelacionMinimaDias", "cortes", "vuelosBuscado", "vuelosBusqueda"])
 
     def test_nada_en_la_sesion(self):
         with tempfile.TemporaryDirectory() as d:

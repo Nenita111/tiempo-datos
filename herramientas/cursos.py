@@ -117,6 +117,8 @@ def main():
         pre, lin = leer(bruto["presenciales"], bruto["linea"], hoy)
     except Exception as e:
         comun.fallar(e)
+    if comun.extras_v(ruta, hoy) >= 2:                  # la página ya deduce el enlace de cada curso (el del buscador más su número)
+        for l in (pre, lin): comun.sin_enlaces_deducibles(l, BUSCADOR, "id")
     nuevo = {"presenciales": pre, "linea": lin[:MAX_LINEA], "lineaTotal": len(lin), "enlace": BUSCADOR,
              "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía"}
     viejo = dict(x.get("cursos") or {}); viejo.pop("dia", None)

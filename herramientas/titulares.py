@@ -67,7 +67,9 @@ def main():
     o = a.parse_args()
     ahora = comun.ahora()
     piezas = []
-    for u in A.NDA: piezas += A.piezas_rss(A.pedir(u), o.lugar, ahora - dt.timedelta(days=10))
+    try:
+        for u in A.NDA: piezas += A.piezas_rss(A.pedir(u), o.lugar, ahora - dt.timedelta(days=10))
+    except Exception as e: comun.fallar(e)          # sin los titulares no hay nada que juzgar: lo dice en su línea (antes, una traza)
     try: cortes, no, cand, sin = juzgar(piezas, o.lugar, o.ine)
     except jev.SinJev as e:
         comun.decir({"titulares": len(piezas), "juez": f"sin Jev ({e})"}); return

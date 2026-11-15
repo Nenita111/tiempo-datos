@@ -141,6 +141,43 @@ class Extras(unittest.TestCase):
         g = comun.leer(self.ruta)
         self.assertEqual(g["polen"], {"dia": "2026-11-02"}); self.assertNotEqual(g["actualizado"], "antes")
 
+    def test_recordar_fuera_de_extras(self):
+        estado = os.path.join(self.d, comun.ESTADO)
+        x = {"ayudas": {"lista": []}, "ayudasCerradas": ["1", "2"]}                    # como iba hasta el 15 nov 2026: dentro de extras.json
+        self.assertEqual(comun.recuerdo(self.ruta, x, "ayudasCerradas"), ["1", "2"])    # sin estado todavía, vale el de extras.json
+        self.assertIsNone(comun.recuerdo(self.ruta, x, "sendaAdra"))
+        self.assertTrue(comun.recordar(self.ruta, x, "ayudasCerradas", ["1", "2", "3"]))   # lo quita de extras.json: hay que publicarlo
+        self.assertEqual(x, {"ayudas": {"lista": []}}); self.assertEqual(comun.leer(estado), {"ayudasCerradas": ["1", "2", "3"]})
+        self.assertEqual(comun.recuerdo(self.ruta, x, "ayudasCerradas"), ["1", "2", "3"])
+        antes = os.stat(estado).st_mtime_ns
+        self.assertFalse(comun.recordar(self.ruta, x, "ayudasCerradas", ["1", "2", "3"]))  # lo mismo: no se toca nada
+        self.assertEqual(os.stat(estado).st_mtime_ns, antes)
+        self.assertFalse(comun.recordar(self.ruta, x, "sendaAdra", {"pdf": "p"}))          # otra clave: se añade a la que había
+        self.assertEqual(comun.leer(estado), {"ayudasCerradas": ["1", "2", "3"], "sendaAdra": {"pdf": "p"}})
+        with open(estado, "w") as f: f.write("{roto")                                   # un estado ilegible es como no tenerlo
+        self.assertIsNone(comun.recuerdo(self.ruta, {}, "sendaAdra"))
+
+    def test_extras_v_lo_dice_la_pagina_y_espera(self):
+        pag = os.path.join(self.d, "index.html")
+        d = lambda n: dt.date(2026, 11, n)
+        self.assertEqual(comun.extras_v(self.ruta, d(15), pag), 1)                      # sin página (o sin la marca): como siempre
+        with open(pag, "w", encoding="utf-8") as f: f.write("<script>\nconst ORDEN_V = 3;\n</script>")
+        self.assertEqual(comun.extras_v(self.ruta, d(15), pag), 1)
+        self.assertFalse(os.path.exists(os.path.join(self.d, comun.ESTADO)))            # y sin apuntar nada
+        with open(pag, "w", encoding="utf-8") as f: f.write("<script>\nconst EXTRAS_V = 2;   // lo que entiende\n</script>")
+        self.assertEqual(comun.extras_v(self.ruta, d(16), pag), 1)                      # recién publicada: la tele aún puede ir con la de antes
+        self.assertEqual(comun.extras_v(self.ruta, d(22), pag), 1)
+        self.assertEqual(comun.extras_v(self.ruta, d(23), pag), 2)                      # a la semana, sí
+        self.assertEqual(comun.leer(os.path.join(self.d, comun.ESTADO)), {"extrasV": {"v": 2, "antes": 1, "vale": "2026-11-23"}})
+        with open(pag, "w", encoding="utf-8") as f: f.write("const EXTRAS_V = 3;")
+        self.assertEqual(comun.extras_v(self.ruta, d(25), pag), 2)                      # otra más nueva: mientras espera, la que ya valía
+        self.assertEqual(comun.extras_v(self.ruta, dt.date(2026, 12, 2), pag), 3)
+
+    def test_sin_enlaces_deducibles(self):
+        base = "https://www.prueba.invalid/cursos"
+        L = [{"id": "411", "enlace": base + "/411"}, {"id": "86", "enlace": "https://otra.invalid/86"}, {"id": "7"}, {"id": "9", "enlace": base}]
+        self.assertEqual(comun.sin_enlaces_deducibles(L, base, "id"), [{"id": "411"}, {"id": "86", "enlace": "https://otra.invalid/86"}, {"id": "7"}, {"id": "9", "enlace": base}])
+
     def test_decir_una_linea(self):
         s = io.StringIO()
         with contextlib.redirect_stdout(s): comun.decir({"cursos": 3, "fuente": "Formación"})

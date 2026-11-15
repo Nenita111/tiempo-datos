@@ -11,10 +11,11 @@ Cómo se busca está en CLAUDE.md. Cada búsqueda (una por aeropuerto) se guarda
 Con --sesion no hace falta copiar nada: las respuestas del conector de Kiwi quedan en el registro de la sesión de Claude Code
 (~/.claude/projects/**/*.jsonl, o en …/tool-results/ si son grandes) y se toma la última de cada aeropuerto de las últimas 12 horas.
 
-Guarda hasta 6 por aeropuerto (del más barato al más caro) con su enlace de Kiwi (la tele dibuja el QR del más barato)
-y rellena también los campos antiguos («vuelos», solo Almería) para la versión vieja de la app.
+Guarda hasta 6 por aeropuerto (del más barato al más caro) con su enlace de Kiwi (la tele dibuja el QR del más barato).
+Los campos antiguos («vuelos», «vuelosOrigen» y «vuelosFecha»: solo Almería, lo mismo que «aeropuertos» con otro formato) ya no se
+escriben y se quitan si siguen: la app los lee solo de un extras.json sin «aeropuertos», que ya no hay.
 """
-import argparse, datetime as dt, glob, json, os, sys, time
+import argparse, glob, json, os, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
@@ -27,6 +28,7 @@ AEROPUERTO = {"LGW": "Gatwick", "STN": "Stansted", "LTN": "Luton", "LHR": "Heath
               "BRU": "Zaventem", "CRL": "Charleroi", "TSF": "Treviso", "EIN": "Eindhoven",
               "NYO": "Skavsta", "ARN": "Arlanda", "TRF": "Torp", "OSL": "Gardermoen", "SXF": "Schönefeld", "BER": "Brandeburgo"}
 CIUDAD = {"Las Palmas de Gran Canaria": "Gran Canaria"}
+ANTIGUOS = ("vuelos", "vuelosOrigen", "vuelosFecha")      # lo de Almería repetido para la app de antes de «aeropuertos»: fuera
 
 
 def compania(n):
@@ -122,15 +124,7 @@ def actualizar(x, busquedas, buscado, busqueda):
     x["vuelosBusqueda"] = busqueda
     x["antelacionMinimaDias"] = 3
     x["actualizado"] = comun.ahora().isoformat(timespec="minutes")   # la tele se queda con el más nuevo
-    # campos antiguos (solo Almería) para la versión vieja de la app
-    alm = next((a for a in aeropuertos if a["codigo"] == "LEI"), None)
-    if alm:
-        f = lambda d: f"{d[8:10]}/{d[5:7]}"
-        x["vuelosOrigen"] = "Almería"
-        x["vuelos"] = [{"destino": v["destino"], "fecha": f(v["ida"]), "vuelta": f(v["vuelta"]), "precio": f"{v['precio']} €",
-                        "compania": v["compania"], "escalas": v["escalas"]} for v in alm["vuelos"]]
-        d = dt.date.fromisoformat(buscado)
-        x["vuelosFecha"] = f"Buscado el {d.day:02d}/{d.month:02d} · ida y vuelta"
+    for antiguo in ANTIGUOS: x.pop(antiguo, None)
     return x
 
 

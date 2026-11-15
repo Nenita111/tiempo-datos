@@ -14,7 +14,8 @@ las novedades de barco dragón de la Federación Andaluza de Piragüismo (fap.py
 Imprime una línea JSON: {"bien": N (los pasos que fueron bien, sin contarlos uno a uno), "pasos": {solo los que fallaron o fueron sin
 Jev: "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulares": […],
 "sangre_titulares": […], "agenda": N, "sangre": N,
-"sorteos": N, "cortes": N, "toca": {"vuelos": …, "web": …}, "jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …]}.
+"sorteos": N, "cortes": N, "toca": {"vuelos": …, "web": …}, "subir": ["extras.json", "estado_diario.json"] (lo que se sube si ha cambiado),
+"jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …]}.
 «toca» (4.10, menos tokens): los vuelos, una vez al día (4.13, lo pidió Isa: antes, un día sí y otro no); las búsquedas web de sorteos,
 agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días). Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
@@ -91,7 +92,8 @@ def main():
     res = {"bien": len(bien), "pasos": pasos, "sortea2": [{"enlace": c["enlace"], "pueblos": c["pueblos"], "texto": c["texto"][:400]} for c in s2["candidatos"]],
            "agenda_titulares": titulares.get("agenda", []), "sangre_titulares": titulares.get("colectas", []),
            "agenda": len(x.get("agenda") or []), "sangre": len((x.get("sangre") or {}).get("colectas") or []),
-           "sorteos": len(x.get("sorteos") or []), "cortes": len(x.get("cortes") or []), "toca": toca(x)}
+           "sorteos": len(x.get("sorteos") or []), "cortes": len(x.get("cortes") or []), "toca": toca(x),
+           "subir": ["extras.json", comun.ESTADO]}          # lo que hay que subir si ha cambiado: los datos y lo que recuerdan los scripts
     if cache:
         try: n = len(comun.leer(cache))
         except (OSError, ValueError): n = 0

@@ -1,7 +1,7 @@
 """Pruebas de cursos.py con tarjetas reales del buscador de cursos de la Junta del 7 nov 2026 (prueba_cursos_20261107.html, recortadas)."""
 import datetime as dt, os, sys, unittest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import cursos
+import comun, cursos
 
 HTML = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "prueba_cursos_20261107.html"), encoding="utf-8").read()
 HOY = dt.date(2026, 11, 7)
@@ -31,6 +31,13 @@ class Cursos(unittest.TestCase):
         t = cursos.tarjetas(HTML)
         pre, _ = cursos.leer([d for d in t if d.get("province")], [], dt.date(2026, 11, 14))
         self.assertEqual([c["id"] for c in pre], ["401"])
+
+    def test_el_enlace_se_deduce(self):
+        """El enlace de cada curso es el del buscador más su número: cuando la página lo deduce (EXTRAS_V 2), no se guarda."""
+        todos = self.pre + self.lin
+        self.assertTrue(todos and all(c["enlace"] == f"{cursos.BUSCADOR}/{c['id']}" for c in todos))
+        comun.sin_enlaces_deducibles(todos, cursos.BUSCADOR, "id")
+        self.assertFalse(any("enlace" in c for c in todos))
 
     def test_nombres(self):
         self.assertEqual(cursos.nombre("IFCD97 - PROGRAMACIÓN PARA SOLUCIONES DE IOT Y SMART CITY APLICABLES EN ENTORNOS 5G"),

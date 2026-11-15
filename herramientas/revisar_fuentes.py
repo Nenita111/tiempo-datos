@@ -10,7 +10,7 @@ Sale con código 1 si alguna fuente está ROTA. «NO COMPROBABLE» = la web bloq
 (p. ej. Red Eléctrica): desde casa funciona.
 """
 import argparse, datetime as dt, email.utils, gzip, io, json, math, os, re, ssl, subprocess, sys, tarfile, threading
-import urllib.error, urllib.parse, urllib.request
+import urllib.error, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, jev.py y fap.py, al lado (con -I no se mira la carpeta del script)
 import comun
@@ -22,11 +22,15 @@ TZ, MESES = comun.TZ, comun.MESES
 ADRA = dict(nombre=comun.LUGAR, provincia="Almería", ine=comun.INE, cp="04770", lat=comun.ADRA[0], lon=comun.ADRA[1])
 
 
+def abrir(url, metodo=None, tiempo=45, hasta=None, cuerpo=None, tipo=None, agente=UA):
+    """(cuerpo, cabeceras) de una petición como las de la app (su agente) y de una vez: la revisión no insiste (comun.respuesta sin
+    reintentos). metodo="HEAD": solo las cabeceras (ficheros grandes); hasta=N: solo los primeros N bytes."""
+    return comun.respuesta(url, agente, cuerpo, tipo, timeout=tiempo, intentos=1, metodo=metodo, hasta=hasta)
+
+
 def pedir(url, cuerpo=None, tipo=None, agente=UA, tiempo=45):
-    r = urllib.request.Request(url, data=cuerpo, headers={"User-Agent": agente, **({"Content-Type": tipo} if tipo else {})})
     try:
-        with urllib.request.urlopen(r, timeout=tiempo) as f:
-            ULTIMA.b = f.read(); return ULTIMA.b
+        ULTIMA.b = abrir(url, tiempo=tiempo, cuerpo=cuerpo, tipo=tipo, agente=agente)[0]; return ULTIMA.b
     except urllib.error.URLError as e:
         # algunas webs de la Administración negocian TLS de forma que Python no acepta y curl sí (como la tele): se reintenta con curl
         if not isinstance(e.reason, ssl.SSLError) or cuerpo is not None: raise
@@ -293,9 +297,8 @@ def paro(L):
     y = comun.hoy().year
     for año in (y, y - 1):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(f"https://sede.sepe.gob.es/es/portaltrabaja/resources/sede/datos_abiertos/datos/Paro_por_municipios_{año}_csv.csv",
-                                                              headers={"User-Agent": UA}, method="HEAD"), timeout=45)
-            return f"CSV de {año}, {r.headers.get('Last-Modified', 'sin fecha')}"
+            _, cab = abrir(f"https://sede.sepe.gob.es/es/portaltrabaja/resources/sede/datos_abiertos/datos/Paro_por_municipios_{año}_csv.csv", "HEAD")
+            return f"CSV de {año}, {cab.get('Last-Modified', 'sin fecha')}"
         except urllib.error.HTTPError as e:
             if e.code != 404: raise
     raise ValueError("no está el CSV de paro por municipios")
@@ -384,8 +387,7 @@ def camara(L):
         if km <= 25: cerca.append((km, m.group(1), u.group(1)))
     if not cerca: raise ValueError("el fichero de la DGT no trae cámaras a menos de 25 km")
     km, cid, url = min(cerca)
-    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=45) as f:
-        jpg, mod = f.read(), f.headers.get("Last-Modified")
+    jpg, cab = abrir(url); mod = cab.get("Last-Modified")
     if jpg[:2] != b"\xff\xd8": raise ValueError(f"la cámara {cid} no manda un JPEG")
     if mod:
         edad = dt.datetime.now(dt.timezone.utc) - email.utils.parsedate_to_datetime(mod)
@@ -406,9 +408,8 @@ def radiacion(L):
 
 def sequia(L):
     # sequia.py (tarea diaria): el informe de escasez y sequía de Hidrosur, solo la cabecera (pesa 14 MB)
-    with urllib.request.urlopen(urllib.request.Request("https://www.redhidrosurmedioambiente.es/saih/assets/pdf/InformeSequia.pdf",
-                                                       headers={"User-Agent": UA}, method="HEAD"), timeout=45) as f:
-        tipo, mod = f.headers.get("Content-Type", ""), f.headers.get("Last-Modified")
+    _, cab = abrir("https://www.redhidrosurmedioambiente.es/saih/assets/pdf/InformeSequia.pdf", "HEAD")
+    tipo, mod = cab.get("Content-Type", ""), cab.get("Last-Modified")
     if "pdf" not in tipo: raise ValueError(f"el informe no es un PDF ({tipo})")
     if mod:
         edad = dt.datetime.now(dt.timezone.utc) - email.utils.parsedate_to_datetime(mod)
@@ -466,9 +467,8 @@ def tierra(L):
 
 def solVideo(L):
     # Espacio.solVideo: el vídeo de las últimas 48 horas del Sol (NASA SDO, AIA 171)
-    r = urllib.request.Request("https://sdo.gsfc.nasa.gov/assets/img/latest/mpeg/latest_512_0171.mp4", method="HEAD", headers={"User-Agent": UA})
-    with urllib.request.urlopen(r, timeout=45) as f:
-        mod, n = f.headers.get("Last-Modified"), int(f.headers.get("Content-Length") or 0)
+    _, cab = abrir("https://sdo.gsfc.nasa.gov/assets/img/latest/mpeg/latest_512_0171.mp4", "HEAD")
+    mod, n = cab.get("Last-Modified"), int(cab.get("Content-Length") or 0)
     if n < 100_000: raise ValueError(f"el vídeo pesa {n} bytes")
     return f"{n // 1_000_000} MB, {mod}"
 
@@ -478,8 +478,7 @@ def ruta(L):
     if L["ine"] != comun.INE: return "NO COMPROBABLE: solo hay trayecto para Adra"
     horas = []
     for cid in ("516", "519", "521", "526"):
-        with urllib.request.urlopen(urllib.request.Request(f"https://etraffic.dgt.es/camarasEtraffic/{cid}.jpg", headers={"User-Agent": UA}), timeout=45) as f:
-            jpg, mod = f.read(), f.headers.get("Last-Modified")
+        jpg, cab = abrir(f"https://etraffic.dgt.es/camarasEtraffic/{cid}.jpg"); mod = cab.get("Last-Modified")
         if len(jpg) < 2000 or jpg[:2] != b"\xff\xd8": raise ValueError(f"la cámara {cid} no manda una foto")
         horas.append(f"{cid} {email.utils.parsedate_to_datetime(mod).astimezone(TZ):%H:%M}" if mod else cid)
     return "fotos de " + ", ".join(horas)
@@ -506,8 +505,7 @@ def olas(L):
     lista = json.loads(texto("https://portus.puertos.es/portussvr/api/mapStaticResources/VHM0Med?locale=es"))
     if not any(d.get("url", "").endswith("/wave_5") for d in lista): raise ValueError("la lista de mapas ya no trae el dominio wave_5 (Mar de Alborán)")
     hoy = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%d00")
-    r = urllib.request.urlopen(urllib.request.Request(f"https://portus.puertos.es/Portus/pathmaps/wave/wave_5/{hoy}/map_re.png", headers={"User-Agent": UA}), timeout=45)
-    png, mod = r.read(), r.headers.get("Last-Modified")
+    png, cab = abrir(f"https://portus.puertos.es/Portus/pathmaps/wave/wave_5/{hoy}/map_re.png"); mod = cab.get("Last-Modified")
     if png[:4] != b"\x89PNG": raise ValueError("el mapa no es una imagen PNG")
     m = email.utils.parsedate_to_datetime(mod) if mod else None
     if not m or dt.datetime.now(dt.timezone.utc) - m > dt.timedelta(hours=36): raise ValueError(f"el mapa de hoy es de una pasada vieja ({mod})")
@@ -515,10 +513,8 @@ def olas(L):
 
 def calarVivo(L):
     # CalarVivo: el vídeo MJPEG de la cámara de Calar Alto (solo las cabeceras y la primera imagen)
-    r = urllib.request.Request("https://neteye-3.caha.es/WEBCAMs/EYE56", headers={"User-Agent": UA})
-    with urllib.request.urlopen(r, timeout=30) as f:
-        tipo = f.headers.get("Content-Type", "")
-        cab = f.read(300)
+    cab, cabeceras = abrir("https://neteye-3.caha.es/WEBCAMs/EYE56", tiempo=30, hasta=300)
+    tipo = cabeceras.get("Content-Type", "")
     if "multipart/x-mixed-replace" not in tipo: raise ValueError(f"ya no es vídeo MJPEG ({tipo})")
     if not re.search(rb"Content-Length: \d+", cab): raise ValueError("las imágenes no traen Content-Length")
     return "vídeo MJPEG"

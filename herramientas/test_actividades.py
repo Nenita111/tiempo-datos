@@ -1,7 +1,7 @@
 """Pruebas de actividades.py con respuestas reales del 7 nov 2026 (prueba_actividades_20261107.json, recortadas)."""
-import datetime as dt, json, os, sys, unittest
+import contextlib, datetime as dt, io, json, os, shutil, sys, tempfile, unittest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import actividades as A
+import actividades as A, comun
 
 F = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "prueba_actividades_20261107.json"), encoding="utf-8"))
 HOY = dt.date(2026, 11, 7)
@@ -61,6 +61,33 @@ class Actividades(unittest.TestCase):
         self.assertTrue(A.ventana(dt.date(2026, 11, 15), dt.date(2026, 11, 15), HOY))
         self.assertFalse(A.ventana(dt.date(2026, 12, 30), dt.date(2026, 12, 30), HOY))   # más de 45 días
         self.assertFalse(A.ventana(dt.date(2026, 11, 6), dt.date(2026, 11, 6), HOY))      # ya pasó
+
+
+class Paso(unittest.TestCase):
+    """El paso entero sin red: el programa ya leído de «Adra en la Senda» pasa de extras.json a estado_diario.json (la tele no lo lee)."""
+    def test_el_programa_fuera_de_extras(self):
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "prueba_senda_20261107.json"), encoding="utf-8") as f: S = json.load(f)
+        senda = {"pdf": S["pdf"], "temporada": A.senda_programa(S["texto"]), "visto": "2026-11-06"}
+        d = tempfile.mkdtemp(); self.addCleanup(shutil.rmtree, d)
+        ruta, estado = os.path.join(d, "extras.json"), os.path.join(d, comun.ESTADO)
+        comun.guardar(ruta, {"sendaAdra": senda, "cortes": []})
+
+        def sin_red(*a, **k): raise OSError("sin red (PRUEBA)")
+        def pasada():
+            orig = (comun.pedir, comun.hoy, sys.argv, A.time.sleep)
+            comun.pedir, comun.hoy, sys.argv, A.time.sleep = sin_red, lambda: HOY, ["actividades.py", ruta], lambda s: None
+            s = io.StringIO()
+            try:
+                with contextlib.redirect_stdout(s): A.main()
+            finally: comun.pedir, comun.hoy, sys.argv, A.time.sleep = orig
+            return comun.leer(ruta), json.loads(s.getvalue())
+        x, r = pasada()                                                                 # sábado: de la senda vale lo ya leído (sin red)
+        self.assertEqual(r["fuentes"], {"Ayuntamiento de Adra (Adra en la Senda)": 1}); self.assertEqual(len(r["fallos"]), 3)
+        self.assertNotIn("sendaAdra", x); self.assertEqual(comun.leer(estado), {"sendaAdra": senda})
+        self.assertEqual([p["titulo"] for p in x["actividades"]["lista"]], ["Sendero Rambla de Bolaños. Los 4 Bancos"])
+        self.assertEqual(x["cortes"], [])
+        x2, r2 = pasada()                                                               # otra igual: extras.json ni se toca
+        self.assertEqual(x2, x); self.assertEqual(r2["actividades"], 1)
 
 
 if __name__ == "__main__":

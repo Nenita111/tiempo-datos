@@ -230,7 +230,8 @@ def etiquetar(disps, ya=None, pedir_jev=None):
 def main():
     a = argparse.ArgumentParser(); a.add_argument("extras"); a.add_argument("--dias", type=int, default=7); o = a.parse_args()
     x = comun.leer(o.extras)
-    disps = todas(o.dias)
+    try: disps = todas(o.dias)
+    except Exception as e: comun.fallar(e)          # ni el BOJA ni el BOE: lo dice en su línea (antes, una traza)
     try: et = etiquetar(disps, ((x.get("sas") or {}).get("etiquetas") or {}))
     except jev.SinJev as e:
         comun.decir({"disposiciones": len(disps), "juez": f"sin Jev ({e})"}); return

@@ -1,7 +1,7 @@
 """Pruebas de ayudas.py con respuestas reales de la API de la BDNS del 7 nov 2026 (prueba_bdns_20261107.json, recortadas)."""
-import datetime as dt, json, os, sys, unittest
+import contextlib, datetime as dt, io, json, os, shutil, sys, tempfile, unittest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import ayudas
+import ayudas, comun
 
 FIJO = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "prueba_bdns_20261107.json"), encoding="utf-8"))
 HOY = dt.date(2026, 11, 7)
@@ -57,6 +57,69 @@ class Ayudas(unittest.TestCase):
     def test_orden(self):
         L = sorted((a for a in (self.f(n) for n in DET) if a["estado"] in ("abierta", "proxima")), key=ayudas.orden)
         self.assertEqual(L[0]["num"], "938972"); self.assertEqual(L[-1]["num"], "929244")
+
+
+class Paso(unittest.TestCase):
+    """El paso entero con la BDNS de mentira (las respuestas reales del 7 nov 2026): las cerradas, a estado_diario.json."""
+    def setUp(self):
+        self.d = tempfile.mkdtemp(); self.addCleanup(shutil.rmtree, self.d)
+        self.ruta, self.estado = os.path.join(self.d, "extras.json"), os.path.join(self.d, comun.ESTADO)
+
+    def pasada(self):
+        """Una pasada de ayudas.py: (extras.json, el resumen que imprime, las convocatorias cuya ficha ha pedido)."""
+        pedidas, buscada = [], []
+
+        def pedir(r, **q):
+            if r == "/organos": return FIJO["local"] if q["idAdmon"] == "L" else FIJO["autonomica"]
+            if r == "/convocatorias":
+                pedidas.append(q["numConv"]); return DET[q["numConv"]]
+            todas = "tiposBeneficiario" in q and not buscada          # todas, en la primera búsqueda que no es la de Adra
+            if todas: buscada.append(1)
+            return {"content": [{"numeroConvocatoria": n, "fechaRecepcion": "2026-11-01"} for n in DET] if todas else [], "last": True}
+        orig = (ayudas.pedir, comun.hoy, sys.argv)
+        ayudas.pedir, comun.hoy, sys.argv = pedir, lambda: HOY, ["ayudas.py", self.ruta]
+        s = io.StringIO()
+        try:
+            with contextlib.redirect_stdout(s): ayudas.main()
+        finally: ayudas.pedir, comun.hoy, sys.argv = orig
+        return comun.leer(self.ruta), json.loads(s.getvalue()), pedidas
+
+    def test_las_cerradas_fuera_de_extras(self):
+        comun.guardar(self.ruta, {"embalses": [], "actualizado": "antes"})
+        x, r, pedidas = self.pasada()
+        self.assertEqual(sorted(pedidas), sorted(DET)); self.assertEqual(r["pedidas"], len(DET))
+        self.assertNotIn("ayudasCerradas", x)                                           # la tele no las lee: no van en extras.json
+        cerradas = comun.leer(self.estado)["ayudasCerradas"]
+        self.assertIn("926523", cerradas); self.assertEqual(r["cerradas"], len(cerradas))
+        self.assertIn("938972", [a["num"] for a in x["ayudas"]["lista"]]); self.assertEqual(x["ayudas"]["dia"], "2026-11-07")
+        self.assertEqual(x["embalses"], []); self.assertNotEqual(x["actualizado"], "antes")
+
+    def test_lo_que_iba_en_extras_se_muda(self):
+        """Hasta el 15 nov 2026 iban en extras.json: la primera vez valen esas, pasan al estado y salen de extras.json."""
+        comun.guardar(self.ruta, {"ayudasCerradas": ["926523", "924013"]})
+        x, _, pedidas = self.pasada()
+        self.assertTrue(pedidas); self.assertFalse({"926523", "924013"} & set(pedidas))    # las ya cerradas no se vuelven a pedir
+        cerradas = set(comun.leer(self.estado)["ayudasCerradas"])
+        self.assertNotIn("ayudasCerradas", x); self.assertLessEqual({"926523", "924013"}, cerradas)
+        # otra pasada igual: solo se piden las abiertas y extras.json ni se toca (la tele no lo vuelve a bajar)
+        x2, _, pedidas2 = self.pasada()
+        self.assertTrue(pedidas2); self.assertFalse(set(pedidas2) & cerradas)
+        self.assertEqual(x2, x)
+        self.assertEqual(sorted(os.listdir(self.d)), [comun.ESTADO, "extras.json"])
+        self.assertTrue(all(a["enlace"] == ayudas.FICHA + a["num"] for a in x["ayudas"]["lista"]))   # con la página de ahora, cada una con su enlace
+
+    def test_sin_enlaces_cuando_la_pagina_los_deduce(self):
+        """Con una página publicada que dice EXTRAS_V = 2 (y pasada la semana de espera), el enlace de cada ayuda no se guarda: lo deduce."""
+        pag = os.path.join(self.d, "pagina.html")
+        with open(pag, "w", encoding="utf-8") as f: f.write("const EXTRAS_V = 2;")
+        orig = comun.PAGINA; comun.PAGINA = pag; self.addCleanup(setattr, comun, "PAGINA", orig)
+        comun.guardar(self.ruta, {})
+        x, _, _ = self.pasada()
+        self.assertTrue(x["ayudas"]["lista"] and all("enlace" in a for a in x["ayudas"]["lista"]))        # recién publicada: todavía con enlace
+        e = comun.leer(self.estado); e["extrasV"]["vale"] = "2026-11-07"; comun.guardar(self.estado, e)      # PRUEBA: como si ya hubiera pasado la semana
+        x, _, _ = self.pasada()
+        self.assertTrue(x["ayudas"]["lista"] and not any("enlace" in a for a in x["ayudas"]["lista"]))
+        self.assertEqual(x["ayudas"]["enlace"], "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias")   # el de la lista, del que se deduce
 
 
 if __name__ == "__main__":
