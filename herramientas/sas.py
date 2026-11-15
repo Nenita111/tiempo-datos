@@ -136,17 +136,23 @@ def desde_publicacion(frase, boletin):
     return not (boletin == "BOJA" and DESDE_BOE.search(frase))
 
 
-def inhabiles(anios, red=pedir, municipio=MUNICIPIO):
-    """Los días inhábiles (festivos de Andalucía y del pueblo) del calendario oficial de la Junta; los fines de semana, en fin_plazo."""
-    out = set()
+def festivos(anios, red=pedir, municipio=MUNICIPIO):
+    """{día: nombre} de los festivos (de Andalucía y del pueblo) del calendario oficial de la Junta, con el nombre como lo da (en mayúsculas).
+    Un año que no contesta (el siguiente, aún sin publicar) no cuenta."""
+    out = {}
     for y in anios:
         try: r = json.loads(red(CALENDARIO.format(m=urllib.parse.quote(municipio), y=y))).get("results") or []
         except Exception: continue               # el año siguiente aún sin publicar: solo los fines de semana
         for x in r:
             if x.get("type") in ("LABORAL", "LOCAL"):
                 d = str(x.get("date"))
-                if len(d) == 8: out.add(dt.date(int(d[:4]), int(d[4:6]), int(d[6:])))
+                if len(d) == 8: out[dt.date(int(d[:4]), int(d[4:6]), int(d[6:]))] = x.get("description") or ""
     return out
+
+
+def inhabiles(anios, red=pedir, municipio=MUNICIPIO):
+    """Los días inhábiles (festivos de Andalucía y del pueblo) del calendario oficial de la Junta; los fines de semana, en fin_plazo."""
+    return set(festivos(anios, red, municipio))
 
 
 def fin_plazo(pub, n, unidad, inh):

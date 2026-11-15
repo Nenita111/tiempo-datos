@@ -9,7 +9,8 @@ Cómo se busca está en CLAUDE.md. Cada búsqueda (una por aeropuerto) se guarda
   python3 vuelos.py extras.json --sesion --busqueda "…"   # sin ficheros: las respuestas de Kiwi de la sesión de hoy
 
 Con --sesion no hace falta copiar nada: las respuestas del conector de Kiwi quedan en el registro de la sesión de Claude Code
-(~/.claude/projects/**/*.jsonl, o en …/tool-results/ si son grandes) y se toma la última de cada aeropuerto de las últimas 12 horas.
+(~/.claude/projects/**/*.jsonl, o en …/tool-results/ si son grandes) y se toma la última de cada aeropuerto de las últimas 12 horas
+(las búsquedas del puente, con la vuelta en días fijos, son de puente.py y aquí no cuentan).
 
 Guarda hasta 6 por aeropuerto (del más barato al más caro) con su enlace de Kiwi (la tele dibuja el QR del más barato).
 Si el más barato desde un aeropuerto cuesta al menos un 10 % menos que lo más barato de los 14 días anteriores, imprime además una
@@ -78,15 +79,15 @@ def cadenas(o):
 RAIZ_SESION = os.path.join(os.path.expanduser(os.environ.get("CLAUDE_CONFIG_DIR", "~/.claude")), "projects")
 
 
-def de_la_sesion(raiz=RAIZ_SESION, horas=12):
-    """{aeropuerto: vuelos} con la última respuesta de Kiwi de cada aeropuerto de origen en el registro de la sesión."""
+def respuestas(raiz=RAIZ_SESION, horas=12):
+    """Las respuestas de Kiwi del registro de la sesión (las de las últimas «horas»), de la más vieja a la más nueva."""
     limite = time.time() - horas * 3600
     fich = [f for f in glob.glob(os.path.join(raiz, "**", "*.jsonl"), recursive=True) + glob.glob(os.path.join(raiz, "**", "tool-results", "*"), recursive=True)
             if os.path.getmtime(f) >= limite]
-    fich.sort(key=os.path.getmtime)                       # de la más vieja a la más nueva: la última respuesta manda
-    res = {}
+    fich.sort(key=os.path.getmtime)
     for f in fich:
-        try: crudo = open(f, encoding="utf-8", errors="replace").read()
+        try:
+            with open(f, encoding="utf-8", errors="replace") as fich_: crudo = fich_.read()
         except OSError: continue
         if "itineraries" not in crudo: continue
         for l in (crudo.splitlines() if f.endswith(".jsonl") else [crudo]):
@@ -94,10 +95,27 @@ def de_la_sesion(raiz=RAIZ_SESION, horas=12):
             try: o = json.loads(l)
             except ValueError: continue
             for d in cadenas(o):
-                if isinstance(d, dict) and d.get("itineraries"):
-                    origen = d["itineraries"][0]["outbound"]["from"]
-                    res[origen] = [de_kiwi(i) for i in d["itineraries"] if i["outbound"]["from"] == origen]
+                if isinstance(d, dict) and d.get("itineraries"): yield d
+
+
+def de_la_sesion(raiz=RAIZ_SESION, horas=12):
+    """{aeropuerto: vuelos} con la última respuesta de Kiwi de cada aeropuerto de origen en el registro de la sesión (la última manda).
+    Las búsquedas con la vuelta en días fijos («returning», las del puente: puente.py) no cuentan."""
+    res = {}
+    for d in respuestas(raiz, horas):
+        if "returning" in str(d.get("query") or ""): continue
+        origen = d["itineraries"][0]["outbound"]["from"]
+        res[origen] = [de_kiwi(i) for i in d["itineraries"] if i["outbound"]["from"] == origen]
     return res
+
+
+def aeropuertos(busquedas, n=6):
+    """[{origen, codigo, vuelos}] de {código: vuelos leídos}: los n más baratos de cada aeropuerto, en el orden de siempre."""
+    out = []
+    for cod in sorted(busquedas, key=lambda c: ORDEN.index(c) if c in ORDEN else 99):
+        lista = sorted((vuelo(r) for r in busquedas[cod]), key=lambda v: v["precio"])[:n]
+        if lista: out.append({"origen": ORIGEN.get(cod, cod), "codigo": cod, "vuelos": lista})
+    return out
 
 
 def vuelo(r):
@@ -116,12 +134,7 @@ def vuelo(r):
 
 
 def actualizar(x, busquedas, buscado, busqueda):
-    aeropuertos = []
-    for cod in sorted(busquedas, key=lambda c: ORDEN.index(c) if c in ORDEN else 99):
-        lista = sorted((vuelo(r) for r in busquedas[cod]), key=lambda v: v["precio"])[:6]
-        if lista:
-            aeropuertos.append({"origen": ORIGEN.get(cod, cod), "codigo": cod, "vuelos": lista})
-    x["aeropuertos"] = aeropuertos
+    x["aeropuertos"] = aeropuertos(busquedas)
     x["vuelosBuscado"] = buscado
     x["vuelosBusqueda"] = busqueda
     x["antelacionMinimaDias"] = 3
