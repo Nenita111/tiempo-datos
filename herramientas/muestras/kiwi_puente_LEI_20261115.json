@@ -1,0 +1,560 @@
+{
+"query": "LEI → Europe on 04/12/2026–05/12/2026, returning 07/12/2026–08/12/2026, 1 adult [≤0 stops/sector; one per city]",
+"currency": "EUR",
+"passengers": {
+"adults": 1,
+"children": 0,
+"infants": 0
+},
+"resultsCount": 7,
+"itineraries": [
+{
+"id": "21a004b85137513acde7c036_0|21a004b85137513acde7c036_1",
+"tripType": "return",
+"price": 133,
+"priceFormatted": "133 EUR",
+"totalDurationSeconds": 9000,
+"bookingUrl": "https://kiwi.com/u/x46xmb",
+"imageId": "seville_es",
+"baggage": {
+"personalItem": 1,
+"cabinBag": 1,
+"checkedBag": 0
+},
+"outbound": {
+"from": "LEI",
+"to": "SVQ",
+"departureTime": "2026-12-04T07:15:00",
+"arrivalTime": "2026-12-04T08:30:00",
+"durationSeconds": 4500,
+"stops": 0,
+"route": [
+"LEI",
+"SVQ"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LEI",
+"to": "SVQ",
+"fromCity": "Almería",
+"toCity": "Sevilla",
+"fromName": "Aeropuerto de Almería",
+"toName": "Aeropuerto de Sevilla",
+"fromCountry": "España",
+"toCountry": "España",
+"departureTime": "2026-12-04T07:15:00",
+"arrivalTime": "2026-12-04T08:30:00",
+"durationSeconds": 4500,
+"carrier": "IB",
+"carrierName": "Iberia Airlines",
+"flightNumber": "IB2300",
+"cabinClass": "Economy"
+}
+]
+},
+"inbound": {
+"from": "SVQ",
+"to": "LEI",
+"departureTime": "2026-12-07T09:00:00",
+"arrivalTime": "2026-12-07T10:15:00",
+"durationSeconds": 4500,
+"stops": 0,
+"route": [
+"SVQ",
+"LEI"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "SVQ",
+"to": "LEI",
+"fromCity": "Sevilla",
+"toCity": "Almería",
+"fromName": "Aeropuerto de Sevilla",
+"toName": "Aeropuerto de Almería",
+"fromCountry": "España",
+"toCountry": "España",
+"departureTime": "2026-12-07T09:00:00",
+"arrivalTime": "2026-12-07T10:15:00",
+"durationSeconds": 4500,
+"carrier": "IB",
+"carrierName": "Iberia Airlines",
+"flightNumber": "IB2301",
+"cabinClass": "Economy"
+}
+]
+}
+},
+{
+"id": "21a00a225138513a996c6ea9_0|21a00a225138513a996c6ea9_1",
+"tripType": "return",
+"price": 172,
+"priceFormatted": "172 EUR",
+"totalDurationSeconds": 9000,
+"bookingUrl": "https://kiwi.com/u/q7vnht",
+"imageId": "madrid_es",
+"baggage": {
+"personalItem": 1,
+"cabinBag": 1,
+"checkedBag": 0
+},
+"outbound": {
+"from": "LEI",
+"to": "MAD",
+"departureTime": "2026-12-05T21:40:00",
+"arrivalTime": "2026-12-05T22:55:00",
+"durationSeconds": 4500,
+"stops": 0,
+"route": [
+"LEI",
+"MAD"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LEI",
+"to": "MAD",
+"fromCity": "Almería",
+"toCity": "Madrid",
+"fromName": "Aeropuerto de Almería",
+"toName": "Aeropuerto de Madrid-Barajas",
+"fromCountry": "España",
+"toCountry": "España",
+"departureTime": "2026-12-05T21:40:00",
+"arrivalTime": "2026-12-05T22:55:00",
+"durationSeconds": 4500,
+"carrier": "IB",
+"carrierName": "Iberia Airlines",
+"flightNumber": "IB1038",
+"cabinClass": "Economy"
+}
+]
+},
+"inbound": {
+"from": "MAD",
+"to": "LEI",
+"departureTime": "2026-12-07T14:25:00",
+"arrivalTime": "2026-12-07T15:40:00",
+"durationSeconds": 4500,
+"stops": 0,
+"route": [
+"MAD",
+"LEI"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "MAD",
+"to": "LEI",
+"fromCity": "Madrid",
+"toCity": "Almería",
+"fromName": "Aeropuerto de Madrid-Barajas",
+"toName": "Aeropuerto de Almería",
+"fromCountry": "España",
+"toCountry": "España",
+"departureTime": "2026-12-07T14:25:00",
+"arrivalTime": "2026-12-07T15:40:00",
+"durationSeconds": 4500,
+"carrier": "IB",
+"carrierName": "Iberia Airlines",
+"flightNumber": "IB1229",
+"cabinClass": "Economy"
+}
+]
+}
+},
+{
+"id": "21a0065b51370000bd1095bd_0|065b21a0513a00008b49902e_0",
+"tripType": "return",
+"price": 181,
+"priceFormatted": "181 EUR",
+"totalDurationSeconds": 27600,
+"bookingUrl": "https://kiwi.com/u/rwktng",
+"imageId": "bucharest_ro",
+"baggage": {
+"personalItem": 1,
+"cabinBag": 0,
+"checkedBag": 0
+},
+"outbound": {
+"from": "LEI",
+"to": "OTP",
+"departureTime": "2026-12-04T09:50:00",
+"arrivalTime": "2026-12-04T14:35:00",
+"durationSeconds": 13500,
+"stops": 0,
+"route": [
+"LEI",
+"OTP"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LEI",
+"to": "OTP",
+"fromCity": "Almería",
+"toCity": "Bucarest",
+"fromName": "Aeropuerto de Almería",
+"toName": "Aeropuerto Internacional de Bucarest-Henri Coandă",
+"fromCountry": "España",
+"toCountry": "Rumanía",
+"departureTime": "2026-12-04T09:50:00",
+"arrivalTime": "2026-12-04T14:35:00",
+"durationSeconds": 13500,
+"carrier": "W4",
+"carrierName": "Wizz Air Malta",
+"flightNumber": "W43206",
+"cabinClass": "Economy"
+}
+]
+},
+"inbound": {
+"from": "OTP",
+"to": "LEI",
+"departureTime": "2026-12-07T06:15:00",
+"arrivalTime": "2026-12-07T09:10:00",
+"durationSeconds": 14100,
+"stops": 0,
+"route": [
+"OTP",
+"LEI"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "OTP",
+"to": "LEI",
+"fromCity": "Bucarest",
+"toCity": "Almería",
+"fromName": "Aeropuerto Internacional de Bucarest-Henri Coandă",
+"toName": "Aeropuerto de Almería",
+"fromCountry": "Rumanía",
+"toCountry": "España",
+"departureTime": "2026-12-07T06:15:00",
+"arrivalTime": "2026-12-07T09:10:00",
+"durationSeconds": 14100,
+"carrier": "W4",
+"carrierName": "Wizz Air Malta",
+"flightNumber": "W43205",
+"cabinClass": "Economy"
+}
+]
+}
+},
+{
+"id": "21a0023d5138513b90f5131a_0|21a0023d5138513b90f5131a_1",
+"tripType": "return",
+"price": 201,
+"priceFormatted": "201 EUR",
+"totalDurationSeconds": 6300,
+"bookingUrl": "https://kiwi.com/u/3zr55uu",
+"imageId": "melilla_es",
+"baggage": {
+"personalItem": 1,
+"cabinBag": 1,
+"checkedBag": 0
+},
+"outbound": {
+"from": "LEI",
+"to": "MLN",
+"departureTime": "2026-12-05T07:15:00",
+"arrivalTime": "2026-12-05T08:05:00",
+"durationSeconds": 3000,
+"stops": 0,
+"route": [
+"LEI",
+"MLN"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LEI",
+"to": "MLN",
+"fromCity": "Almería",
+"toCity": "Melilla",
+"fromName": "Aeropuerto de Almería",
+"toName": "Aeropuerto de Melilla",
+"fromCountry": "España",
+"toCountry": "España",
+"departureTime": "2026-12-05T07:15:00",
+"arrivalTime": "2026-12-05T08:05:00",
+"durationSeconds": 3000,
+"carrier": "IB",
+"carrierName": "Iberia Airlines",
+"flightNumber": "IB2254",
+"cabinClass": "Economy"
+}
+]
+},
+"inbound": {
+"from": "MLN",
+"to": "LEI",
+"departureTime": "2026-12-08T21:00:00",
+"arrivalTime": "2026-12-08T21:55:00",
+"durationSeconds": 3300,
+"stops": 0,
+"route": [
+"MLN",
+"LEI"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "MLN",
+"to": "LEI",
+"fromCity": "Melilla",
+"toCity": "Almería",
+"fromName": "Aeropuerto de Melilla",
+"toName": "Aeropuerto de Almería",
+"fromCountry": "España",
+"toCountry": "España",
+"departureTime": "2026-12-08T21:00:00",
+"arrivalTime": "2026-12-08T21:55:00",
+"durationSeconds": 3300,
+"carrier": "IB",
+"carrierName": "Iberia Airlines",
+"flightNumber": "IB2015",
+"cabinClass": "Economy"
+}
+]
+}
+},
+{
+"id": "21a001af513700008ba3116b_0|01af21a0513a0000fd8e2750_0",
+"tripType": "return",
+"price": 207,
+"priceFormatted": "207 EUR",
+"totalDurationSeconds": 10500,
+"bookingUrl": "https://kiwi.com/u/3zdhnz",
+"imageId": "barcelona_es",
+"baggage": {
+"personalItem": 1,
+"cabinBag": 0,
+"checkedBag": 0
+},
+"outbound": {
+"from": "LEI",
+"to": "BCN",
+"departureTime": "2026-12-04T09:35:00",
+"arrivalTime": "2026-12-04T11:00:00",
+"durationSeconds": 5100,
+"stops": 0,
+"route": [
+"LEI",
+"BCN"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LEI",
+"to": "BCN",
+"fromCity": "Almería",
+"toCity": "Barcelona",
+"fromName": "Aeropuerto de Almería",
+"toName": "Aeropuerto de Barcelona-El Prat",
+"fromCountry": "España",
+"toCountry": "España",
+"departureTime": "2026-12-04T09:35:00",
+"arrivalTime": "2026-12-04T11:00:00",
+"durationSeconds": 5100,
+"carrier": "VY",
+"carrierName": "Vueling",
+"flightNumber": "VY1141",
+"cabinClass": "Economy"
+}
+]
+},
+"inbound": {
+"from": "BCN",
+"to": "LEI",
+"departureTime": "2026-12-07T12:35:00",
+"arrivalTime": "2026-12-07T14:05:00",
+"durationSeconds": 5400,
+"stops": 0,
+"route": [
+"BCN",
+"LEI"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "BCN",
+"to": "LEI",
+"fromCity": "Barcelona",
+"toCity": "Almería",
+"fromName": "Aeropuerto de Barcelona-El Prat",
+"toName": "Aeropuerto de Almería",
+"fromCountry": "España",
+"toCountry": "España",
+"departureTime": "2026-12-07T12:35:00",
+"arrivalTime": "2026-12-07T14:05:00",
+"durationSeconds": 5400,
+"carrier": "VY",
+"carrierName": "Vueling",
+"flightNumber": "VY1140",
+"cabinClass": "Economy"
+}
+]
+}
+},
+{
+"id": "21a01b9a51380000f4b857f8_0|1b9a21a0513b0000eaec29d6_0",
+"tripType": "return",
+"price": 241,
+"priceFormatted": "241 EUR",
+"totalDurationSeconds": 21000,
+"bookingUrl": "https://kiwi.com/u/jc5bc9",
+"imageId": "liverpool_gb",
+"baggage": {
+"personalItem": 1,
+"cabinBag": 0,
+"checkedBag": 0
+},
+"outbound": {
+"from": "LEI",
+"to": "LPL",
+"departureTime": "2026-12-05T11:20:00",
+"arrivalTime": "2026-12-05T13:20:00",
+"durationSeconds": 10800,
+"stops": 0,
+"route": [
+"LEI",
+"LPL"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LEI",
+"to": "LPL",
+"fromCity": "Almería",
+"toCity": "Liverpool",
+"fromName": "Aeropuerto de Almería",
+"toName": "Aeropuerto de Liverpool-John Lennon",
+"fromCountry": "España",
+"toCountry": "Reino Unido",
+"departureTime": "2026-12-05T11:20:00",
+"arrivalTime": "2026-12-05T13:20:00",
+"durationSeconds": 10800,
+"carrier": "U2",
+"carrierName": "easyJet",
+"flightNumber": "U23384",
+"cabinClass": "Economy"
+}
+]
+},
+"inbound": {
+"from": "LPL",
+"to": "LEI",
+"departureTime": "2026-12-08T06:20:00",
+"arrivalTime": "2026-12-08T10:10:00",
+"durationSeconds": 10200,
+"stops": 0,
+"route": [
+"LPL",
+"LEI"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LPL",
+"to": "LEI",
+"fromCity": "Liverpool",
+"toCity": "Almería",
+"fromName": "Aeropuerto de Liverpool-John Lennon",
+"toName": "Aeropuerto de Almería",
+"fromCountry": "Reino Unido",
+"toCountry": "España",
+"departureTime": "2026-12-08T06:20:00",
+"arrivalTime": "2026-12-08T10:10:00",
+"durationSeconds": 10200,
+"carrier": "U2",
+"carrierName": "easyJet",
+"flightNumber": "U23383",
+"cabinClass": "Economy"
+}
+]
+}
+},
+{
+"id": "21a022f55138000006c59642_0|22f521a0513a00005f79531d_0",
+"tripType": "return",
+"price": 281,
+"priceFormatted": "281 EUR",
+"totalDurationSeconds": 20400,
+"bookingUrl": "https://kiwi.com/u/vfkqkp",
+"imageId": "london_gb",
+"baggage": {
+"personalItem": 1,
+"cabinBag": 0,
+"checkedBag": 0
+},
+"outbound": {
+"from": "LEI",
+"to": "LGW",
+"departureTime": "2026-12-05T11:35:00",
+"arrivalTime": "2026-12-05T13:25:00",
+"durationSeconds": 10200,
+"stops": 0,
+"route": [
+"LEI",
+"LGW"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LEI",
+"to": "LGW",
+"fromCity": "Almería",
+"toCity": "Londres",
+"fromName": "Aeropuerto de Almería",
+"toName": "Aeropuerto de Londres-Gatwick",
+"fromCountry": "España",
+"toCountry": "Reino Unido",
+"departureTime": "2026-12-05T11:35:00",
+"arrivalTime": "2026-12-05T13:25:00",
+"durationSeconds": 10200,
+"carrier": "U2",
+"carrierName": "easyJet",
+"flightNumber": "U28004",
+"cabinClass": "Economy"
+}
+]
+},
+"inbound": {
+"from": "LGW",
+"to": "LEI",
+"departureTime": "2026-12-07T14:20:00",
+"arrivalTime": "2026-12-07T18:10:00",
+"durationSeconds": 10200,
+"stops": 0,
+"route": [
+"LGW",
+"LEI"
+],
+"cabinClass": "Economy",
+"segments": [
+{
+"from": "LGW",
+"to": "LEI",
+"fromCity": "Londres",
+"toCity": "Almería",
+"fromName": "Aeropuerto de Londres-Gatwick",
+"toName": "Aeropuerto de Almería",
+"fromCountry": "Reino Unido",
+"toCountry": "España",
+"departureTime": "2026-12-07T14:20:00",
+"arrivalTime": "2026-12-07T18:10:00",
+"durationSeconds": 10200,
+"carrier": "U2",
+"carrierName": "easyJet",
+"flightNumber": "U28003",
+"cabinClass": "Economy"
+}
+]
+}
+}
+],
+"searchTimeMs": 655,
+"error": null
+}

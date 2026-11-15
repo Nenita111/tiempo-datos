@@ -36,6 +36,17 @@ Una búsqueda por aeropuerto, todas el mismo día, con el conector de Kiwi.com:
   (`precio|bookingUrl|destino IATA|ciudad destino|ida AAAA-MM-DD|origen vuelta IATA|vuelta AAAA-MM-DD|compañía ida|compañía vuelta`)
   y `python3 herramientas/vuelos.py extras.json LEI=lei.txt GRX=grx.txt AGP=agp.txt RMU=rmu.txt --buscado AAAA-MM-DD --busqueda "…"`.
 
+## 1a. Vuelos del próximo puente (15 nov 2026)
+- `herramientas/puente.py` (paso diario): el próximo puente con el calendario laboral de la Junta para el pueblo (`sas.festivos`): tres días
+  libres seguidos o más, o dos ratos libres más cortos con un solo laborable en medio que sumen cuatro; siempre con algún festivo. Se toma el
+  primero que empieza dentro de 4 días o más (y de 120 como mucho) y se apunta en `extras.puente` (`desde`, `hasta`, `festivos`, `laborables`).
+- Sus vuelos se buscan una vez a la semana: `diario.py` lo dice en «toca».puente con las fechas ya escritas para Kiwi. Cuatro búsquedas
+  (LEI, GRX, AGP y RMU) como las del punto 1, pero sin noches y con `departureDate` = ida[0], `departureDateTo` = ida[1], `returnDate` =
+  vuelta[0] y `returnDateTo` = vuelta[1] (ida la víspera o el primer día; vuelta, el último día o el de antes). Luego
+  `python3 -I herramientas/puente.py extras.json --sesion`: se queda con los directos que caen en esos días, con 2 noches al menos, los 6
+  más baratos de cada aeropuerto (`puente.aeropuertos`, `puente.buscado`). Al cambiar de puente, los vuelos del anterior se van.
+- `vuelos.py --sesion` no cuenta las búsquedas del puente (las reconoce por la vuelta en días fijos: «returning» en su «query»).
+
 ## 2. Sorteos de Instagram (de Motril a Almería capital)
 
 Zona: Motril, Torrenueva, Calahonda, Castell de Ferro, La Mamola, Albuñol, La Rábita, Adra, Berja, Dalías,

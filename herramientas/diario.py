@@ -14,16 +14,17 @@ las novedades de barco dragón de la Federación Andaluza de Piragüismo (fap.py
 Imprime una línea JSON: {"bien": N (los pasos que fueron bien, sin contarlos uno a uno), "pasos": {solo los que fallaron o fueron sin
 Jev: "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulares": […],
 "sangre_titulares": […], "agenda": N, "sangre": N,
-"sorteos": N, "cortes": N, "toca": {"vuelos": …, "web": …}, "subir": ["extras.json", "estado_diario.json"] (lo que se sube si ha cambiado),
+"sorteos": N, "cortes": N, "toca": {"vuelos": …, "web": …, "puente": {"ida": […], "vuelta": […]} (solo si toca)}, "subir": ["extras.json", "estado_diario.json"] (lo que se sube si ha cambiado),
 "jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …], "avisar": ["⚠️ Tele: «vuelos» falla desde el 11 nov: …", …]
 (solo si hay algo que lleva 2 días o más fallando: la tarea lo manda al móvil; se repite cada 7 días mientras siga)}.
 «toca» (4.10, menos tokens): los vuelos, una vez al día (4.13, lo pidió Isa: antes, un día sí y otro no); las búsquedas web de sorteos,
-agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días). Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
+agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días); los vuelos del próximo
+puente (puente.py), una vez a la semana, con las fechas de ida y de vuelta ya escritas para Kiwi. Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
 """
 import datetime as dt, json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
-import comun
+import comun, puente
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
@@ -41,6 +42,8 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     ("dragon", "dragon.py", 120),
     # 15 nov 2026: las estafas en circulación (avisos del INCIBE para la ciudadanía, de su RSS)
     ("estafas", "incibe.py", 120),
+    # 15 nov 2026: el próximo puente (calendario laboral de la Junta); sus vuelos los busca la tarea una vez a la semana («toca».puente)
+    ("puente", "puente.py", 120),
     ("sequia", "sequia.py", 900),
 ]
 # el sandbox de Composio (composio_jev.py) repite estos, en este orden, para que Jev vea lo mismo: los que quitan lo pasado (cambian lo que
@@ -61,9 +64,12 @@ def correr(args, tiempo):
 
 def toca(x, hoy=None):
     """Lo que la tarea tiene que buscar hoy: los vuelos (4 búsquedas de Kiwi), si aún no se han buscado hoy; las búsquedas web, los
-    lunes y los jueves."""
+    lunes y los jueves; y, una vez a la semana, los vuelos del próximo puente («puente»: las fechas de ida y de vuelta para Kiwi)."""
     hoy = hoy or comun.hoy()
-    return {"vuelos": (x.get("vuelosBuscado") or "") < hoy.isoformat(), "web": hoy.weekday() in (0, 3)}
+    t = {"vuelos": (x.get("vuelosBuscado") or "") < hoy.isoformat(), "web": hoy.weekday() in (0, 3)}
+    p = puente.toca(x, hoy)
+    if p: t["puente"] = p
+    return t
 
 
 AVISO_DIAS, AVISO_CADA = 2, 7        # se avisa al móvil de lo que lleva 2 días fallando, y luego cada 7
