@@ -1,5 +1,5 @@
 """Tarea diaria, la parte que no hace falta buscar: quita lo pasado (cortes, agenda, colectas de sangre, sorteos), pone al día el
-calendario del cielo, las plagas, los virus respiratorios, los cruceros del puerto de Almería (4.16), las inspecciones de las playas (4.26), la agenda cultural de la Junta (4.27), las aguas subterráneas (4.28), las ayudas abiertas, los cursos gratis, el polen, los planes gratis o al aire libre (4.31), las ofertas de provisión temporal del SAS de la zona (4.38) y la sequía y revisa las fuentes de la app. Todo de una vez y con un
+calendario del cielo, las plagas, los virus respiratorios, los cruceros del puerto de Almería (4.16), las inspecciones de las playas (4.26), la agenda cultural de la Junta (4.27), las aguas subterráneas (4.28), las ayudas abiertas, los cursos gratis, el polen, los planes gratis o al aire libre (4.31), las ofertas de provisión temporal del SAS de la zona (4.38), las estafas en circulación (avisos del INCIBE, 15 nov 2026) y la sequía y revisa las fuentes de la app. Todo de una vez y con un
 resumen de una línea, para que la tarea programada gaste pocos tokens (antes leía la salida de cada script).
 
   python3 -I herramientas/diario.py extras.json [--sin-revision]
@@ -15,12 +15,13 @@ Imprime una línea JSON: {"bien": N (los pasos que fueron bien, sin contarlos un
 Jev: "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulares": […],
 "sangre_titulares": […], "agenda": N, "sangre": N,
 "sorteos": N, "cortes": N, "toca": {"vuelos": …, "web": …}, "subir": ["extras.json", "estado_diario.json"] (lo que se sube si ha cambiado),
-"jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …]}.
+"jev": "N respuestas por Composio, M sin respuesta", "rotas": ["fuente: fallo", …], "avisar": ["⚠️ Tele: «vuelos» falla desde el 11 nov: …", …]
+(solo si hay algo que lleva 2 días o más fallando: la tarea lo manda al móvil; se repite cada 7 días mientras siga)}.
 «toca» (4.10, menos tokens): los vuelos, una vez al día (4.13, lo pidió Isa: antes, un día sí y otro no); las búsquedas web de sorteos,
 agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días). Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
 """
-import json, os, re, subprocess, sys
+import datetime as dt, json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
@@ -38,6 +39,8 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     ("sasOfertas", "sas_ofertas.py", 600),
     # 4.41: los próximos campeonatos internacionales de barco dragón (IDBF y Paddle Europe; solo mira lunes y jueves)
     ("dragon", "dragon.py", 120),
+    # 15 nov 2026: las estafas en circulación (avisos del INCIBE para la ciudadanía, de su RSS)
+    ("estafas", "incibe.py", 120),
     ("sequia", "sequia.py", 900),
 ]
 # el sandbox de Composio (composio_jev.py) repite estos, en este orden, para que Jev vea lo mismo: los que quitan lo pasado (cambian lo que
@@ -63,9 +66,48 @@ def toca(x, hoy=None):
     return {"vuelos": (x.get("vuelosBuscado") or "") < hoy.isoformat(), "web": hoy.weekday() in (0, 3)}
 
 
+AVISO_DIAS, AVISO_CADA = 2, 7        # se avisa al móvil de lo que lleva 2 días fallando, y luego cada 7
+
+
+def dia_corto(d):
+    return f"{d.day} {comun.MESES[d.month - 1][:3]}"
+
+
+def parado(extras, problemas, dia):
+    """Lo que hay que avisar al móvil: lo que lleva AVISO_DIAS días o más fallando (15 nov 2026, lo pidió Isa: los vuelos estuvieron cinco
+    días sin actualizarse y solo lo decía el informe de la tarea). problemas: {nombre: (qué pasa hoy, desde qué día si lo dicen los datos o
+    None)}. Desde cuándo falla cada cosa se recuerda en estado_diario.json («fallos»); lo que hoy va bien se olvida. Se avisa el día que
+    cumple AVISO_DIAS y luego cada AVISO_CADA: una línea por cosa."""
+    antes = comun.recuerdo(extras, {}, "fallos") or {}
+    ahora, avisos = {}, []
+    for nombre, (texto, desde) in problemas.items():
+        desde = desde or (antes.get(nombre) or {}).get("desde") or dia.isoformat()
+        ahora[nombre] = {"desde": desde}
+        dias = (dia - dt.date.fromisoformat(desde)).days
+        if dias >= AVISO_DIAS and (dias - AVISO_DIAS) % AVISO_CADA == 0:
+            avisos.append(f"⚠️ Tele: «{nombre}» falla desde el {dia_corto(dt.date.fromisoformat(desde))}" + (f": {texto}" if texto else ""))
+    comun.recordar(extras, {}, "fallos", ahora)
+    return avisos
+
+
+def problemas(x, pasos, codigos, res, dia):
+    """Lo que hoy no ha ido: los pasos que han fallado (no los que solo fueron sin Jev), Jev si no estaba, las fuentes rotas de la revisión y
+    los vuelos si ayer no se buscaron (hoy aún no toca: se buscan después de este script)."""
+    p = {n: (t[:120], None) for n, t in pasos.items() if codigos.get(n, 0) != 0}
+    if re.search(r"sin Jev|¿falló el sandbox", res.get("jev", "")): p["Jev"] = (res["jev"][:120], None)
+    for r in res.get("rotas") or []:
+        n, _, detalle = r.partition(": ")
+        if n != "extras": p["fuente " + n if detalle else "revisión de fuentes"] = ((detalle or n)[:120], None)   # «extras» es lo de los vuelos
+    b = x.get("vuelosBuscado")
+    if b and (dia - dt.date.fromisoformat(b)).days >= 2:
+        p["vuelos"] = (f"sin búsqueda de Kiwi desde el {dia_corto(dt.date.fromisoformat(b))} (¿el conector?)", (dt.date.fromisoformat(b) + dt.timedelta(days=1)).isoformat())
+    return p
+
+
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     extras = os.path.abspath(sys.argv[1]); revisar = "--sin-revision" not in sys.argv
+    codigos = {}
     pasos, titulares, bien = {}, {}, []
     cache = os.environ.get("JEV_CACHE", "").strip()
     if cache:                                    # cada script apunta ahí las preguntas que no estaban en la caché
@@ -77,7 +119,7 @@ def main():
         if nombre == "titulares" and cod == 0:
             try: titulares = json.loads(ultima); ultima = json.dumps({k: v for k, v in titulares.items() if k not in ("agenda", "colectas")}, ensure_ascii=False)
             except ValueError: pass
-        ultima = ultima[:240]
+        ultima = ultima[:240]; codigos[nombre] = cod
         if cod == 0 and not AVISA.search(ultima): bien.append(nombre); continue      # 3.9: lo que fue bien no se cuenta (menos tokens)
         pasos[nombre] = ("ok" if cod == 0 else f"código {cod}" if cod is not None else "fallo") + (f": {ultima}" if ultima else "")
     # sorteos de la zona en sortea2.com, ya filtrados (con Jev, si lo hay): Claude solo mira estos
@@ -87,7 +129,7 @@ def main():
         if s2["juez"] == "Jev": bien.append("sortea2")
         else: pasos["sortea2"] = f"ok: {s2['vistos']} vistos, {len(s2['candidatos'])} candidatos ({s2['juez']})"
     except Exception as e:
-        s2 = {"candidatos": []}; pasos["sortea2"] = f"fallo: {e}"[:240]
+        s2 = {"candidatos": []}; pasos["sortea2"] = f"fallo: {e}"[:240]; codigos["sortea2"] = 1
     x = comun.leer(extras)
     res = {"bien": len(bien), "pasos": pasos, "sortea2": [{"enlace": c["enlace"], "pueblos": c["pueblos"], "texto": c["texto"][:400]} for c in s2["candidatos"]],
            "agenda_titulares": titulares.get("agenda", []), "sangre_titulares": titulares.get("colectas", []),
@@ -111,6 +153,8 @@ def main():
             res["faltan_claves"] = [y["detalle"] for y in f if "falta la variable" in y.get("detalle", "")]   # ESIOS: la pone Isa en el entorno (Jev va por Composio)
         except (OSError, ValueError, KeyError):
             res["rotas"] = [f"revisar_fuentes.py no acabó ({ultima or cod})"]
+    avisar = comun.recoger_avisos(extras) + parado(extras, problemas(x, pasos, codigos, res, comun.hoy()), comun.hoy())
+    if avisar: res["avisar"] = avisar            # al móvil: lo que han dejado los scripts (estafas nuevas…) y lo que lleva días fallando
     comun.decir(res)
 
 

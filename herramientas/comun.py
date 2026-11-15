@@ -206,6 +206,22 @@ def sin_enlaces_deducibles(lista, base, clave):
     return lista
 
 
+def apuntar_aviso(ruta, texto):
+    """Deja un aviso para el móvil de Isa (una línea): diario.py los recoge al acabar («avisar») y la tarea diaria los manda."""
+    e = _estado(ruta)
+    if texto not in e.setdefault("avisos", []):
+        e["avisos"].append(texto)
+        guardar(_ruta_estado(ruta), e, sort_keys=True)
+
+
+def recoger_avisos(ruta):
+    """Los avisos que han dejado los scripts (apuntar_aviso), que dejan de estar pendientes."""
+    e = _estado(ruta)
+    avisos = e.pop("avisos", [])
+    if avisos: guardar(_ruta_estado(ruta), e, sort_keys=True)
+    return avisos
+
+
 def decir(o):
     """El resumen de un paso: una línea JSON (diario.py se queda con la última)."""
     print(json.dumps(o, ensure_ascii=False))

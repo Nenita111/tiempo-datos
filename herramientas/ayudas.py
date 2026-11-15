@@ -220,9 +220,9 @@ def main():
     vivas = {"lista": abiertas, "fuente": "Base de Datos Nacional de Subvenciones (BDNS)", "enlace": FICHA.rstrip("/")}
     # las cerradas, a estado_diario.json (la tele no las lee): extras.json solo cambia si cambia la lista
     quitadas = comun.recordar(ruta, x, "ayudasCerradas", sorted(cerradas, key=lambda s: (len(s), s)))
-    if x.get("ayudas", {}).get("lista") != abiertas or quitadas:
-        x["ayudas"] = dict(vivas, dia=hoy.isoformat())
-        comun.publicar(ruta, x)
+    cambia = x.get("ayudas", {}).get("lista") != abiertas
+    if cambia: x["ayudas"] = dict(vivas, dia=hoy.isoformat())           # «dia»: el día en que cambió la lista
+    if cambia or quitadas: comun.publicar(ruta, x)
     comun.decir({"ayudas": len(abiertas), "vistas": vistas, "pedidas": nuevas, "cerradas": len(cerradas), "fallos": fallos[:3]})
 
 

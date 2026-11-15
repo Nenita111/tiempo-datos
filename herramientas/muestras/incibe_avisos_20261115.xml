@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xml:base="https://www.incibe.es/">
+  <channel>
+    <title>Avisos </title>
+    <link>https://www.incibe.es/</link>
+    <description/>
+    <language>es</language>
+    
+    <item>
+  <title>Un falso concurso de baile permite a los ciberdelincuentes utilizar tu cuenta de WhatsApp</title>
+  <link>https://www.incibe.es/ciudadania/avisos/un-falso-concurso-de-baile-permite-los-ciberdelincuentes-utilizar-tu-cuenta-de</link>
+  <description>&lt;span class="field field--name-title field--type-string field--label-hidden"&gt;Un falso concurso de baile permite a los ciberdelincuentes utilizar tu cuenta de WhatsApp&lt;/span&gt;
+&lt;span class="field field--name-created field--type-created field--label-hidden"&gt;&lt;time class="datetime" datetime="2026-10-21"&gt;Mié, 21/10/2026 - 17:02&lt;/time&gt;
+&lt;/span&gt;
+
+            &lt;div class="field field--name-field-tipos-de-avisos field--type-entity-reference field--label-hidden field__item"&gt;&lt;a href="https://www.incibe.es/ciudadania/avisos/aviso" hreflang="es"&gt;Aviso&lt;/a&gt;&lt;/div&gt;
+      
+  &lt;div class="clearfix text-formatted field field--name-field-recursos-afectados field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Recursos Afectados&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Personas que hayan recibido un mensaje de WhatsApp solicitando su voto en un supuesto concurso de baile y hayan seguido las instrucciones para vincular un dispositivo a su cuenta.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Descripción&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Desde INCIBE hemos recibido consultas sobre un nuevo fraude. Mensajes de WhatsApp que solicitan votar por un familiar o conocido en un supuesto concurso de baile. Los mensajes llegan desde cuentas de contactos y contienen un enlace a una página fraudulenta. El objetivo es vincular un dispositivo externo a la cuenta de la víctima y así, escribir a sus contactos sin autorización.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-identificador field--type-text field--label-above"&gt;
+    &lt;div class="field__label"&gt;Identificador&lt;/div&gt;
+              &lt;div class="field__item"&gt;INCIBE-2026-764&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-solucion field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Solución&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;&lt;strong&gt;Si has recibido el mensaje y no has seguido sus instrucciones:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li data-list-item-id="e4a30d46919889c6c99b7d0ff77f877fe"&gt;No accedas al enlace ni facilites tu número de teléfono u otros datos en la página.&lt;/li&gt;&lt;li data-list-item-id="e2ba3723c34f055f77b4546fe987de453"&gt;Comprueba la petición llamando a la persona que te ha enviado el mensaje. Que proceda de su número habitual no garantiza que lo haya escrito ella.&lt;/li&gt;&lt;li data-list-item-id="ea9516dd92fe4006fc281313b6fff87b9"&gt;No reenvíes el mensaje ni el enlace. Si tu contacto lo está difundiendo sin saber que es fraudulento, avísale por otro canal.&lt;/li&gt;&lt;li data-list-item-id="eeddd4d6961e976bd07fae059ebc90cd7"&gt;Comunícanoslo mediante el &lt;a href="https://www.incibe.es/ciudadania/ayuda/reporte-de-fraude" title="Servicio de reporte de fraude de INCIBE"&gt;servicio de reporte de fraude de INCIBE&lt;/a&gt;. Conserva una captura del mensaje y, después, elimínalo.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;Si has abierto el enlace o facilitado tu número de teléfono:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Cierra la página y no continúes con sus instrucciones. Haber abierto el enlace o escrito tu número no equivale, por sí solo, a haber autorizado la vinculación, pero conviene revisar los dispositivos vinculados y estar atento a nuevas solicitudes o mensajes sospechosos.&lt;/p&gt;&lt;p&gt;Mantén actualizados el sistema operativo y WhatsApp. Si has descargado archivos, instalado aplicaciones o detectas un comportamiento extraño, revisa el dispositivo y utiliza una herramienta de seguridad adecuada para tu sistema.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Si has vinculado un dispositivo o están enviando mensajes desde tu cuenta&lt;/strong&gt;&lt;/p&gt;&lt;ol&gt;&lt;li data-list-item-id="e87b1334f67058d41154ea1ec285da80f"&gt;&lt;strong&gt;Cierra las sesiones que no reconozcas.&lt;/strong&gt; En Android, abre WhatsApp y entra en el menú de los tres puntos &amp;gt; Dispositivos vinculados. En iPhone, accede a Configuración &amp;gt; Dispositivos vinculados. Selecciona cada dispositivo desconocido y pulsa «Cerrar sesión». Si puedes hacerlo sin retrasar la desconexión, guarda antes una captura de la información de esa sesión.&lt;/li&gt;&lt;li data-list-item-id="e6ef1ad463d6618a1cff1d7d288f0669d"&gt;&lt;strong&gt;Avisa a tus contactos por otro canal.&lt;/strong&gt; Explica que pueden haber recibido mensajes que no has enviado y que no deben abrir el enlace, seguir sus instrucciones ni realizar pagos. No reenvíes el enlace fraudulento para advertirles.&lt;/li&gt;&lt;li data-list-item-id="e8708fe4e7e24e7b76235b75aaa097b5e"&gt;&lt;strong&gt;Conserva las pruebas y reporta el fraude.&lt;/strong&gt; Guarda las conversaciones, las capturas, la dirección de la página y las fechas. Pide a tus contactos que conserven los mensajes recibidos y comunícanoslo a través del &lt;a href="https://www.incibe.es/ciudadania/ayuda/reporte-de-fraude" title="Servicio de reporte de fraude de INCIBE"&gt;servicio de reporte de fraude&lt;/a&gt;.&lt;/li&gt;&lt;li data-list-item-id="ec00f92861970e18836c3b14e8e21292c"&gt;&lt;strong&gt;Activa la verificación en dos pasos.&lt;/strong&gt; En los ajustes o la configuración de WhatsApp, entra en Cuenta &amp;gt; Verificación en dos pasos. Establece un PIN y añade un correo electrónico de recuperación al que solo tú tengas acceso. No compartas el PIN ni los códigos de registro. Esta protección no sustituye al cierre de las sesiones desconocidas.&lt;/li&gt;&lt;li data-list-item-id="e9e6f1c74ea62074ff76e89515a63279a"&gt;&lt;strong&gt;Comprueba que ha cesado la actividad.&lt;/strong&gt; Revisa de nuevo los dispositivos vinculados. Si aparecen nuevas sesiones desconocidas, se siguen enviando mensajes sin tu autorización o has perdido el acceso, contacta con el soporte oficial de WhatsApp.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;strong&gt;Si tú o alguno de tus contactos habéis enviado dinero&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li data-list-item-id="e6848be96c2979c31d4a4ab7e43f9fd8b"&gt;Contacta inmediatamente con la entidad bancaria por sus canales oficiales. Explica lo ocurrido y solicita que intente detener o recuperar el pago. La devolución no está garantizada.&lt;/li&gt;&lt;li data-list-item-id="e4113161f8bffe5620632924cb57614ec"&gt;Conserva los mensajes y los justificantes de las operaciones.&lt;/li&gt;&lt;li data-list-item-id="e238ad536b58417eb92938fc5e5af4134"&gt;Presenta una denuncia ante las &lt;a href="https://www.incibe.es/ciudadania/ayuda/denuncia" title="Cómo denunciar un incidente ante las Fuerzas y Cuerpos de Seguridad del Estado"&gt;Fuerzas y Cuerpos de Seguridad del Estado&lt;/a&gt;, aportando todas las pruebas disponibles. También puedes denunciar el uso no autorizado de tu cuenta.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Si necesitas orientación, contacta con la &lt;a href="https://www.incibe.es/linea-de-ayuda-en-ciberseguridad" title="017: Línea de Ayuda en Ciberseguridad de INCIBE"&gt;Línea de Ayuda en Ciberseguridad de INCIBE&lt;/a&gt; a través del &lt;strong&gt;017&lt;/strong&gt;, un servicio gratuito y confidencial. Si eres menor de edad, pide ayuda a una persona adulta de confianza.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-detalle field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Detalle&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;El fraude comienza con un mensaje enviado desde la cuenta de WhatsApp de una persona conocida. En él se pide ayuda para que un familiar o conocido gane un supuesto concurso de baile y se facilita un enlace para votar.&lt;/p&gt;&lt;p&gt;En la captura facilitada se solicita el voto para una niña llamada Sophie, presentada como la hija de unos amigos. El mensaje indica que el premio incluye una beca y un lugar en el escenario. Este reclamo busca que la persona destinataria acceda al enlace confiando en quien aparentemente le pide ayuda. Los nombres, los premios y las direcciones utilizadas pueden variar.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20261021_voto/mensaje_whataspp.png" data-entity-uuid="61ba31ad-f5dd-40b2-9e69-d7a650d0dbd2" data-entity-type="file" alt width="1920" height="642" loading="lazy"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Al abrir el enlace, la persona llega a una página que simula gestionar la votación. Allí se le pide su número de teléfono y se le muestra un código acompañado de instrucciones para introducirlo en WhatsApp mediante la opción de vincular un dispositivo con el número de teléfono.&lt;/p&gt;&lt;p&gt;Ese código no sirve para registrar un voto: autoriza la vinculación de un dispositivo externo a la cuenta.&lt;/p&gt;&lt;p&gt;Los ciberdelincuentes aprovechan así una función legítima de WhatsApp para utilizar la cuenta desde un dispositivo que controlan.&lt;/p&gt;&lt;p&gt;La persona afectada puede seguir utilizando WhatsApp en su teléfono mientras los ciberdelincuentes envían mensajes desde la sesión vinculada. Por tanto, conservar el acceso a la aplicación no significa que nadie más esté utilizando la cuenta.&lt;/p&gt;&lt;p&gt;Una vez vinculados, los ciberdelincuentes pueden hacerse pasar por la víctima para pedir dinero a sus contactos o enviarles el mismo reclamo del concurso. De esta forma, el fraude se propaga aprovechando la confianza entre personas conocidas.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+            &lt;div class="field field--name-field-importancia field--type-entity-reference field--label-hidden field__item"&gt;4 - Alta&lt;/div&gt;
+      
+      &lt;div class="field field--name-field-listado-de-referencias field--type-tablefield field--label-above"&gt;
+      &lt;div class="field__label"&gt;Listado de referencias&lt;/div&gt;
+                                    &lt;div class="field__item"&gt;
+              &lt;a href="https://about.fb.com/news/2026/03/fighting-scammers-protecting-people-with-new-technology-and-partnerships/" rel="external" target="_blank" hreflang="en" lang="en" xml:lang="en" title="Meta — Fighting Scammers and Protecting People With New Technology and Partnerships"&gt;Meta — Fighting Scammers and Protecting People With New Technology and Partnerships&lt;/a&gt;
+            &lt;/div&gt;
+                                        &lt;div class="field__item"&gt;
+              &lt;a href="https://faq.whatsapp.com/1428782138011916/?locale=es_LA" rel="external" target="_blank" hreflang="es" lang="es" xml:lang="es" title="WhatsApp — Cómo revisar los dispositivos vinculados a tu cuenta y desvincular un dispositivo que no reconoces"&gt;WhatsApp — Cómo revisar los dispositivos vinculados a tu cuenta y desvincular un dispositivo que no reconoces&lt;/a&gt;
+            &lt;/div&gt;
+                                                                &lt;/div&gt;
+  
+
+&lt;div class="field clearfix field--name-field-tax-etiquetas field--type-entity-reference field--label-hidden"&gt;
+	&lt;div style="margin-bottom: 0.5rem;font-size: 1.5rem;"&gt;Etiquetas&lt;/div&gt;
+	&lt;ul class="default_tag_clouds" style="list-style: none; padding: 0;"&gt;
+
+			&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/fraude" hreflang="es"&gt;Fraude&lt;/a&gt;&lt;/li&gt;
+			&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/mensajer%C3%ADa%20instant%C3%A1nea" hreflang="es"&gt;Mensajería instantánea&lt;/a&gt;&lt;/li&gt;
+			&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/whatsapp" hreflang="es"&gt;WhatsApp&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/div&gt;
+
+            &lt;div class="field field--name-field-enlaces-redes-sociales field--type-social-media field--label-hidden field__item"&gt;&lt;div class="block block-social-media block-social-sharing-block"&gt;
+  
+    
+      
+
+&lt;div class="social-media-sharing"&gt;
+  &lt;ul class&gt;
+                    &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="facebook-share share" href="http://www.facebook.com/share.php?u=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;title=Avisos%20" title="Compartir en Facebook"&gt;
+                      &lt;img alt="Compartir en Facebook" src="https://www.incibe.es/sites/default/files/public/rrss/FB_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="linkedin share" href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;title=Avisos%20&amp;amp;source=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Linkedin"&gt;
+                      &lt;img alt="Compartir en Linkedin" src="https://www.incibe.es/sites/default/files/public/rrss/LI_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="noopener noreffer" class="twitter share" href="https://twitter.com/intent/tweet?url=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Twitter"&gt;
+                      &lt;img alt="Compartir en Twitter" src="https://www.incibe.es/sites/default/files/public/rrss/TW_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="pinterest share" href="http://pinterest.com/pin/create/link/?url=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;text=Avisos%20" title="Compartir en Pinterest"&gt;
+                      &lt;img alt="Compartir en Pinterest" src="https://www.incibe.es/sites/default/files/public/rrss/Pinterest_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" class="whatsapp show-for-small-only share" href="https://wa.me/?text=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Whatsapp"&gt;
+                      &lt;img alt="Compartir en Whatsapp" src="https://www.incibe.es/sites/default/files/public/rrss/WhatsApp_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a class="email share" href="mailto:?subject=Avisos%20&amp;amp;body=Check%20out%20this%20site%20https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Email"&gt;
+                      &lt;img alt="Compartir en Email" src="https://www.incibe.es/sites/default/files/public/rrss/Mail_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+      &lt;/ul&gt;
+&lt;/div&gt;
+
+
+  &lt;/div&gt;
+&lt;/div&gt;
+      
+  &lt;div class="field field--name-field-cve-table field--type-tablefield field--label-above"&gt;
+    &lt;div class="field__label"&gt;CVE&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;div id="tablefield-wrapper-node-676546-field_cve_table-0" class="tablefield-wrapper"&gt;&lt;table id="tablefield-node-676546-field_cve_table-0" class="tablefield table" data-striping="1"&gt;
+  
+  
+      &lt;thead&gt;
+      &lt;tr&gt;
+                            &lt;th class="row_0 col_0"&gt;Identificador CVE&lt;/th&gt;
+                            &lt;th class="row_0 col_1"&gt;Severidad&lt;/th&gt;
+                            &lt;th class="row_0 col_2"&gt;Explotación&lt;/th&gt;
+                            &lt;th class="row_0 col_3"&gt;Fabricante&lt;/th&gt;
+              &lt;/tr&gt;
+    &lt;/thead&gt;
+  
+    &lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;
+          &lt;/div&gt;
+</description>
+    <pubDate>Wed, 21 Oct 2026 15:02:18 +0000</pubDate>
+        <guid isPermaLink="false">676546 at https://www.incibe.es</guid>
+      </item>
+<item>
+  <title>Los ciberdelincuentes están utilizando cuentas de WhatsApp en iPhone sin actualizar para pedir dinero a sus contactos</title>
+  <link>https://www.incibe.es/ciudadania/avisos/los-ciberdelincuentes-estan-utilizando-cuentas-de-whatsapp-en-iphone-sin</link>
+  <description>&lt;span class="field field--name-title field--type-string field--label-hidden"&gt;Los ciberdelincuentes están utilizando cuentas de WhatsApp en iPhone sin actualizar para pedir dinero a sus contactos&lt;/span&gt;
+&lt;span class="field field--name-created field--type-created field--label-hidden"&gt;&lt;time class="datetime" datetime="2026-10-14"&gt;Mié, 14/10/2026 - 13:07&lt;/time&gt;
+&lt;/span&gt;
+
+            &lt;div class="field field--name-field-tipos-de-avisos field--type-entity-reference field--label-hidden field__item"&gt;&lt;a href="https://www.incibe.es/ciudadania/avisos/aviso" hreflang="es"&gt;Aviso&lt;/a&gt;&lt;/div&gt;
+      
+  &lt;div class="clearfix text-formatted field field--name-field-recursos-afectados field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Recursos Afectados&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Personas que utilizan WhatsApp en un iPhone y cuyos contactos reciben mensajes enviados desde su cuenta que ellas no han escrito.&lt;/p&gt;&lt;p&gt;En las consultas atendidas por INCIBE sobre este incidente predominan los dispositivos con versiones anteriores a iOS 18. También se han recibido algunas consultas de personas con iOS 26, concretamente con versiones anteriores a iOS 26.7. Estos datos corresponden a los casos atendidos y no implican que todas las personas que utilicen esas versiones estén afectadas.&lt;/p&gt;&lt;p&gt;También pueden verse afectados los familiares, amigos y otros contactos que reciban las peticiones de dinero y realicen los pagos solicitados, independientemente del teléfono que utilicen.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Descripción&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Desde INCIBE hemos identificado una oleada de consultas de usuarios cuyos contactos están recibiendo mensajes enviados desde sus cuentas de WhatsApp que ellos no han escrito. Los mensajes solicitan dinero para resolver una supuesta urgencia y facilitan una cuenta bancaria para realizar el pago.&lt;/p&gt;&lt;p&gt;En los casos comunicados, las personas afectadas siguen teniendo acceso a WhatsApp y no ven esos mensajes en su historial.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-identificador field--type-text field--label-above"&gt;
+    &lt;div class="field__label"&gt;Identificador&lt;/div&gt;
+              &lt;div class="field__item"&gt;INCIBE-2026-743&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-solucion field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Solución&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Mantén actualizados el iPhone y WhatsApp. Si sospechas que alguien utiliza tu cuenta, avisa a tus contactos por otro canal y conserva las pruebas. Si ya has enviado dinero, contacta inmediatamente con tu banco. A continuación, te explicamos cómo actuar en cada situación.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Para proteger tu cuenta&lt;/strong&gt;&lt;/p&gt;&lt;ol&gt;&lt;li data-list-item-id="e71e0709fef3315ea26855e9d8a6e8a3d"&gt;&lt;p&gt;&lt;strong&gt;Comprueba y actualiza iOS.&lt;/strong&gt; Puedes consultar la versión instalada en “Ajustes &amp;gt; General &amp;gt; Información &amp;gt; Versión de iOS”. Para actualizar, es recomendable realizar una copia de seguridad previa y, a continuación, entra en “Ajustes &amp;gt; General &amp;gt; Actualización de software”. Si hay una actualización disponible, pulsa la opción de descargar e instalar y sigue las indicaciones. Instala la versión más reciente compatible con tu modelo.&lt;/p&gt;&lt;p&gt;Que no aparezca una actualización no demuestra que tu teléfono haya quedado sin soporte. Consulta las instrucciones de Apple o su soporte para comprobar la compatibilidad y resolver posibles problemas. Si se confirma que el dispositivo ya no recibe correcciones de seguridad, valora utilizar uno con soporte para tus aplicaciones y datos sensibles.&lt;/p&gt;&lt;/li&gt;&lt;li data-list-item-id="ed99bc84d36494a571758660af7c7e2a8"&gt;&lt;strong&gt;Actualiza WhatsApp.&lt;/strong&gt; Abre la App Store, toca tu foto o el botón de tu cuenta y busca las actualizaciones disponibles. Si aparece WhatsApp, pulsa “Actualizar”. También puedes abrir su ficha en la App Store. Activa las actualizaciones automáticas de las aplicaciones y del sistema para facilitar su mantenimiento.&lt;/li&gt;&lt;li data-list-item-id="e61e088aac240175bac75b71dce2c9a90"&gt;&lt;strong&gt;Activa la &lt;/strong&gt;&lt;a href="https://faq.whatsapp.com/1920866721452534/?locale=es_LA" rel="external" target="_blank" title="Cómo administrar los ajustes de la verificación en dos pasos"&gt;&lt;strong&gt;verificación en dos pasos&lt;/strong&gt;&lt;/a&gt;&lt;strong&gt;.&lt;/strong&gt; En WhatsApp, entra en “Configuración” o “Ajustes &amp;gt; Cuenta &amp;gt; Verificación en dos pasos”. Actívala, establece un PIN y añade un correo electrónico de recuperación al que solo tú tengas acceso. No compartas el PIN ni los códigos de registro que recibas por SMS o llamada. WhatsApp puede pedirte periódicamente el PIN dentro de la aplicación; no es el mismo código que se utiliza para registrar tu número.&lt;/li&gt;&lt;li data-list-item-id="e59157cb429ac693d9d5c91b6c44f4ca5"&gt;&lt;strong&gt;Revisa los dispositivos vinculados.&lt;/strong&gt; En WhatsApp, entra en “Configuración” o “Ajustes &amp;gt; Dispositivos vinculados”. Selecciona las sesiones que no reconozcas y pulsa “Cerrar sesión”. No encontrar dispositivos desconocidos no descarta por sí solo un uso no autorizado.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;WhatsApp dispone de una &lt;a href="https://faq.whatsapp.com/1313491802751163/" rel="external" target="_blank" title="Cómo resguardar tu seguridad en WhatsApp"&gt;guía general&lt;/a&gt; con las herramientas para decidir ante mensajes de desconocidos.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Si sospechas que están utilizando tu cuenta&lt;/strong&gt;&lt;/p&gt;&lt;ol&gt;&lt;li data-list-item-id="e90f60c957f3d5b9d355026e08e65d76c"&gt;&lt;strong&gt;Avisa a tus contactos por otro canal.&lt;/strong&gt; Llámales o envíales un SMS para explicarles que no has enviado esas peticiones y que no deben pagar. Si eres menor de edad, pide ayuda a una persona adulta de confianza.&lt;/li&gt;&lt;li data-list-item-id="e91c39088e2d739e5a635cbb0ea8b9ebd"&gt;&lt;strong&gt;Conserva las pruebas.&lt;/strong&gt; Pide a quienes hayan recibido los mensajes que guarden las conversaciones y realicen capturas de pantalla. Recopila fechas, números de teléfono y datos de los pagos, si los hubiera. Hazlo antes de borrar mensajes o reinstalar la aplicación.&lt;/li&gt;&lt;li data-list-item-id="e186ee64dd0cb306b5845abbcf414064d"&gt;&lt;strong&gt;Actualiza primero el sistema operativo del iPhone.&lt;/strong&gt; Entra en “Ajustes &amp;gt; General &amp;gt; Actualización de software” e instala la versión más reciente compatible con tu modelo. Completa este proceso antes de desinstalar y volver a instalar WhatsApp.&lt;/li&gt;&lt;li data-list-item-id="ead0566a3edf1e26ee601948e89fa69f8"&gt;&lt;p&gt;&lt;strong&gt;Elimina WhatsApp y vuelve a instalarlo para recuperar el control de la cuenta.&lt;/strong&gt; Una vez actualizado iOS, conserva las pruebas del incidente y realiza una copia de seguridad de tus conversaciones. Comprueba que la copia se haya completado antes de continuar para evitar perder información.&lt;/p&gt;&lt;p&gt;Después, elimina por completo la aplicación de WhatsApp del iPhone; no basta con quitar su icono de la pantalla de inicio. Descárgala de nuevo desde la App Store y registra tu número de teléfono introduciendo el código de verificación de seis dígitos que recibas. No compartas este código con nadie. Si tienes activada la verificación en dos pasos, también puede solicitarte tu PIN. Restaura la copia de seguridad cuando la aplicación te lo permita.&lt;/p&gt;&lt;p&gt;En las consultas atendidas por INCIBE sobre este incidente, esta secuencia ha permitido resolver el uso no autorizado de la cuenta. Actualizar únicamente iOS o reinstalar WhatsApp antes de actualizar el sistema no ha sido suficiente en algunos de los casos atendidos. Al descargar WhatsApp de nuevo desde la App Store, también instalarás la versión más reciente disponible para tu dispositivo.&lt;/p&gt;&lt;p&gt;Revisa después los dispositivos vinculados y cierra las sesiones que no reconozcas. Si no consigues recuperar el acceso o tus contactos siguen recibiendo mensajes que no has enviado, contacta con el soporte de WhatsApp y con la Línea de Ayuda en Ciberseguridad de INCIBE, en el 017.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;strong&gt;Si recibes una petición de dinero o ya has pagado&lt;/strong&gt;&lt;/p&gt;&lt;ol&gt;&lt;li data-list-item-id="eb10669696af6aaec773ab8fdc088369f"&gt;&lt;strong&gt;Comprueba la petición antes de pagar.&lt;/strong&gt; Llama a la persona por la red telefónica o contacta con ella por otro medio. No preguntes en la misma conversación de WhatsApp. Desconfía de las prisas: su nombre, foto o número habitual no garantizan que esté escribiendo esa persona.&lt;/li&gt;&lt;li data-list-item-id="efa8bbcf1eba5eafba6c779ff810c2c35"&gt;&lt;strong&gt;Si has enviado dinero, llama inmediatamente a tu banco.&lt;/strong&gt; Utiliza sus canales oficiales, explica que se trata de un fraude y solicita que intente detener o recuperar la transferencia. La devolución no está garantizada.&lt;/li&gt;&lt;li data-list-item-id="ea1303b520ea26a95d8a4c0953ecf3219"&gt;&lt;strong&gt;Guarda las pruebas y denuncia.&lt;/strong&gt; Conserva los mensajes y el justificante del pago. Presenta una denuncia ante las &lt;a href="https://www.incibe.es/ciudadania/ayuda/denuncia" title="Denuncia el fraude"&gt;Fuerzas y Cuerpos de Seguridad del Estado&lt;/a&gt;, aportando las evidencias. También puedes denunciar el uso fraudulento de tu cuenta.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;Si necesitas orientación, contacta con la &lt;a href="https://www.incibe.es/linea-de-ayuda-en-ciberseguridad" title="Línea de ayuda en ciberseguridad de INCIBE"&gt;Línea de Ayuda en Ciberseguridad de INCIBE&lt;/a&gt; a través del &lt;strong&gt;017&lt;/strong&gt;, un servicio gratuito y confidencial.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-detalle field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Detalle&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Los mensajes aprovechan la confianza en una persona conocida. Las personas afectadas explican que sus familiares o amigos reciben mensajes desde sus cuentas de WhatsApp solicitando dinero. Sin embargo, ellas no han enviado esas peticiones y los mensajes no aparecen en su historial, aunque siguen teniendo acceso a la aplicación.&lt;/p&gt;&lt;p&gt;En las siguientes imágenes se solicita una transferencia de 980 euros, se promete devolver el dinero al día siguiente y se pide un justificante del pago. La urgencia y la confianza en el supuesto remitente buscan que el destinatario pague sin comprobar la petición.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20261014_whatsapp_apple/conversacion1.png" alt="Conversación falsa" width="1157" height="1080" class="align-center" loading="lazy"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;En otro de los ejemplos se utiliza como excusa haber superado el límite de transferencias y se solicitan 970 euros. De nuevo se insiste en la inmediatez del pago y se promete devolver el dinero al día siguiente. Los importes y las excusas pueden variar.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20261014_whatsapp_apple/conversacion2.png" alt="Conversación solicitud de dinero" width="364" height="520" class="align-center" loading="lazy"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Ante una petición inesperada de dinero, confirma siempre la identidad de quien te escribe por otro canal antes de realizar cualquier pago.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+            &lt;div class="field field--name-field-importancia field--type-entity-reference field--label-hidden field__item"&gt;4 - Alta&lt;/div&gt;
+      
+      &lt;div class="field field--name-field-listado-de-referencias field--type-tablefield field--label-above"&gt;
+      &lt;div class="field__label"&gt;Listado de referencias&lt;/div&gt;
+                                    &lt;div class="field__item"&gt;
+              &lt;a href="https://www.incibe.es/incibe-cert/publicaciones/bitacora-de-seguridad/ataques-sin-interaccion-contra-cuentas-de-whatsapp-en-iphone-con-ios-16" rel="external" target="_blank" hreflang="en" lang="en" xml:lang="en" title="INCIBE-CERT — Ataques sin interacción contra cuentas de WhatsApp en iPhone con iOS 16"&gt;INCIBE-CERT — Ataques sin interacción contra cuentas de WhatsApp en iPhone con iOS 16&lt;/a&gt;
+            &lt;/div&gt;
+                                        &lt;div class="field__item"&gt;
+              &lt;a href="https://support.apple.com/es-es/118575" rel="external" target="_blank" hreflang="en" lang="en" xml:lang="en" title="Apple — Actualizar el iPhone o iPad"&gt;Apple — Actualizar el iPhone o iPad&lt;/a&gt;
+            &lt;/div&gt;
+                                        &lt;div class="field__item"&gt;
+              &lt;a href="https://support.apple.com/es-es/125141" rel="external" target="_blank" hreflang="en" lang="en" xml:lang="en" title="Apple — Contenido de seguridad de iOS 16.7.12 y iPadOS 16.7.12"&gt;Apple — Contenido de seguridad de iOS 16.7.12 y iPadOS 16.7.12&lt;/a&gt;
+            &lt;/div&gt;
+                                        &lt;div class="field__item"&gt;
+              &lt;a href="https://www.whatsapp.com/security/advisories/2025/" rel="external" target="_blank" hreflang="en" lang="en" xml:lang="en" title="WhatsApp — Security Advisories 2025 (CVE-2025-55177)"&gt;WhatsApp — Security Advisories 2025 (CVE-2025-55177)&lt;/a&gt;
+            &lt;/div&gt;
+                                                                                  &lt;/div&gt;
+  
+
+&lt;div class="field clearfix field--name-field-tax-etiquetas field--type-entity-reference field--label-hidden"&gt;
+	&lt;div style="margin-bottom: 0.5rem;font-size: 1.5rem;"&gt;Etiquetas&lt;/div&gt;
+	&lt;ul class="default_tag_clouds" style="list-style: none; padding: 0;"&gt;
+
+							&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/acceso%20no%20autorizado" hreflang="es"&gt;Acceso no autorizado&lt;/a&gt;&lt;/li&gt;
+										&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/actualizaci%C3%B3n" hreflang="es"&gt;Actualización&lt;/a&gt;&lt;/li&gt;
+										&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/apple" hreflang="es"&gt;Apple&lt;/a&gt;&lt;/li&gt;
+														&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/fraude" hreflang="es"&gt;Fraude&lt;/a&gt;&lt;/li&gt;
+				&lt;li class style="display: flex;"&gt;&lt;button class="btn-tags" onclick="openTags(this);"&gt;+&lt;/button&gt;&lt;/li&gt;
+													&lt;li class="tag_clouds_term term_width_6" style="display: none;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/suplantaci%C3%B3n" hreflang="es"&gt;Suplantación&lt;/a&gt;&lt;/li&gt;
+										&lt;li class="tag_clouds_term term_width_6" style="display: none;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/whatsapp" hreflang="es"&gt;WhatsApp&lt;/a&gt;&lt;/li&gt;
+							&lt;li style="display: none;"&gt;&lt;button class="btn-tags" onclick="closeTags(this, 4);"&gt;-&lt;/button&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+
+            &lt;div class="field field--name-field-enlaces-redes-sociales field--type-social-media field--label-hidden field__item"&gt;&lt;div class="block block-social-media block-social-sharing-block"&gt;
+  
+    
+      
+
+&lt;div class="social-media-sharing"&gt;
+  &lt;ul class&gt;
+                    &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="facebook-share share" href="http://www.facebook.com/share.php?u=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;title=Avisos%20" title="Compartir en Facebook"&gt;
+                      &lt;img alt="Compartir en Facebook" src="https://www.incibe.es/sites/default/files/public/rrss/FB_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="linkedin share" href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;title=Avisos%20&amp;amp;source=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Linkedin"&gt;
+                      &lt;img alt="Compartir en Linkedin" src="https://www.incibe.es/sites/default/files/public/rrss/LI_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="noopener noreffer" class="twitter share" href="https://twitter.com/intent/tweet?url=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Twitter"&gt;
+                      &lt;img alt="Compartir en Twitter" src="https://www.incibe.es/sites/default/files/public/rrss/TW_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="pinterest share" href="http://pinterest.com/pin/create/link/?url=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;text=Avisos%20" title="Compartir en Pinterest"&gt;
+                      &lt;img alt="Compartir en Pinterest" src="https://www.incibe.es/sites/default/files/public/rrss/Pinterest_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" class="whatsapp show-for-small-only share" href="https://wa.me/?text=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Whatsapp"&gt;
+                      &lt;img alt="Compartir en Whatsapp" src="https://www.incibe.es/sites/default/files/public/rrss/WhatsApp_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a class="email share" href="mailto:?subject=Avisos%20&amp;amp;body=Check%20out%20this%20site%20https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Email"&gt;
+                      &lt;img alt="Compartir en Email" src="https://www.incibe.es/sites/default/files/public/rrss/Mail_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+      &lt;/ul&gt;
+&lt;/div&gt;
+
+
+  &lt;/div&gt;
+&lt;/div&gt;
+      
+  &lt;div class="field field--name-field-cve-table field--type-tablefield field--label-above"&gt;
+    &lt;div class="field__label"&gt;CVE&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;div id="tablefield-wrapper-node-673825-field_cve_table-0" class="tablefield-wrapper"&gt;&lt;table id="tablefield-node-673825-field_cve_table-0" class="tablefield table" data-striping="1"&gt;
+  
+  
+      &lt;thead&gt;
+      &lt;tr&gt;
+                            &lt;th class="row_0 col_0"&gt;Identificador CVE&lt;/th&gt;
+                            &lt;th class="row_0 col_1"&gt;Severidad&lt;/th&gt;
+                            &lt;th class="row_0 col_2"&gt;Explotación&lt;/th&gt;
+                            &lt;th class="row_0 col_3"&gt;Fabricante&lt;/th&gt;
+              &lt;/tr&gt;
+    &lt;/thead&gt;
+  
+    &lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;
+          &lt;/div&gt;
+</description>
+    <pubDate>Wed, 14 Oct 2026 11:07:54 +0000</pubDate>
+        <guid isPermaLink="false">673825 at https://www.incibe.es</guid>
+      </item>
+<item>
+  <title>Correos y SMS suplantan a la DGT para robar tus datos con falsas multas</title>
+  <link>https://www.incibe.es/ciudadania/avisos/correos-y-sms-suplantan-la-dgt-para-robar-tus-datos-con-falsas-multas</link>
+  <description>&lt;span class="field field--name-title field--type-string field--label-hidden"&gt;Correos y SMS suplantan a la DGT para robar tus datos con falsas multas&lt;/span&gt;
+&lt;span class="field field--name-created field--type-created field--label-hidden"&gt;&lt;time class="datetime" datetime="2026-09-28"&gt;Lun, 28/09/2026 - 12:09&lt;/time&gt;
+&lt;/span&gt;
+
+            &lt;div class="field field--name-field-tipos-de-avisos field--type-entity-reference field--label-hidden field__item"&gt;&lt;a href="https://www.incibe.es/ciudadania/avisos/aviso" hreflang="es"&gt;Aviso&lt;/a&gt;&lt;/div&gt;
+      
+  &lt;div class="clearfix text-formatted field field--name-field-recursos-afectados field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Recursos Afectados&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Personas que hayan recibido estas comunicaciones, especialmente quienes hayan accedido al enlace y facilitado información personal o bancaria.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Descripción&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Se han identificado correos electrónicos y mensajes de texto que se hacen pasar por la Dirección General de Tráfico (DGT). Utilizan una supuesta multa pendiente o la revisión de un expediente para que accedas a un enlace.&lt;/p&gt;&lt;p&gt;Las páginas falsas imitan la imagen del organismo oficial y, en el recorrido del fraude en la web falsa, solicitan tu nombre, matrícula y datos de la tarjeta bancaria con el pretexto de pagar la sanción.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-identificador field--type-text field--label-above"&gt;
+    &lt;div class="field__label"&gt;Identificador&lt;/div&gt;
+              &lt;div class="field__item"&gt;INCIBE-2026-666&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-solucion field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Solución&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Si has recibido el mensaje y no has facilitado datos, no respondas ni pulses sus enlaces. Comunícalo al servicio de reporte de &lt;a href="https://www.incibe.es/ciudadania/ayuda/reporte-de-fraude"&gt;fraude de INCIBE&lt;/a&gt;; después, bloquea al remitente y elimina el mensaje. Si solo has abierto la web, ciérrala sin completar los formularios.&lt;/p&gt;&lt;p&gt;En el caso de haber accedido al enlace y haber facilitado información personal y/o bancaria, te recomendamos que realices las siguientes recomendaciones:&lt;/p&gt;&lt;ul&gt;&lt;li data-list-item-id="efef19ccba6728c3ecf212f2dd4ab1943"&gt;Ponte en contacto con la &lt;a href="https://www.incibe.es/linea-de-ayuda-en-ciberseguridad" title="Línea de Ayuda en Ciberseguiridad"&gt;Línea de Ayuda en Ciberseguridad&lt;/a&gt; para que te asesoremos de forma especializada.&lt;/li&gt;&lt;li data-list-item-id="e8821c68eef2ecd95177e1380a0b432a5"&gt;Si has introducido los datos de tu tarjeta, contacta cuanto antes con tu entidad bancaria por sus canales oficiales. Explica lo ocurrido, solicita el bloqueo de la tarjeta y revisa los movimientos para comunicar cualquier operación que no reconozcas. No esperes a detectar un cargo para actuar.&lt;/li&gt;&lt;li data-list-item-id="e0e9fedf41470da6ffb41491df562de26"&gt;Reúne y guarda todas las evidencias disponibles sobre el fraude, como capturas de pantalla o enlaces maliciosos. Puedes utilizar servicios de &lt;a href="https://www.incibe.es/ciudadania/blog/testigos-online-y-obtencion-de-pruebas-te-explicamos-su-utilidad" title="testigo online"&gt;testigos online&lt;/a&gt; para validar la recopilación de pruebas, especialmente en este caso de &lt;em&gt;smishing&lt;/em&gt; y &lt;em&gt;phishing&lt;/em&gt;.&lt;/li&gt;&lt;li data-list-item-id="e33b470960d9a38e15e4c27178c4f74cc"&gt;Presenta una denuncia ante las &lt;a href="https://www.incibe.es/ciudadania/ayuda/denuncia" title="Reporta el fraude"&gt;Fuerzas y Cuerpos de Seguridad del Estado&lt;/a&gt;, aportando todas las pruebas recopiladas durante el proceso.&lt;/li&gt;&lt;li data-list-item-id="eb8a54223466891b9280fa95d768c92fb"&gt;Busca periódicamente tu nombre en Internet para comprobar si tus datos se están publicando sin permiso. Esta práctica se conoce como &lt;a href="https://www.incibe.es/ciudadania/blog/egosurfing-que-informacion-hay-sobre-mi-en-internet" title="Qué es el egosurfing"&gt;&lt;em&gt;egosurfing&lt;/em&gt;&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Comprueba la multa en los &lt;a href="https://sede.dgt.gob.es/es/multas/direccion-electronica-vial/" title="Canales oficiales de la DGT" rel="external" target="_blank"&gt;canales oficiales de la DGT&lt;/a&gt;, entrando por tu cuenta, por ejemplo a través de la app de la DGT, y no desde el mensaje. Las sanciones se &lt;a href="https://www.dgt.es/comunicacion/noticias/La-DGT-nunca-notifica-multas-a-traves-de-correo-electronico" rel="external" target="_blank" title="Notificaciones"&gt;notifican&lt;/a&gt; por correo postal o mediante la Dirección Electrónica Vial (DEV). Si estás dado de alta en la DEV, sí puedes recibir un correo o SMS que avise de una notificación pendiente: no lo confundas con una solicitud de pago en una web ajena al organismo.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+  &lt;div class="clearfix text-formatted field field--name-field-detalle field--type-text-with-summary field--label-above"&gt;
+    &lt;div class="field__label"&gt;Detalle&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;p&gt;Desde INCIBE hemos detectado una campaña que suplanta a la DGT a través de SMS y correos electrónicos. Las evidencias identificadas utilizan el mismo reclamo: una multa o un expediente pendiente que requiere atención urgente.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Correos que reclaman una respuesta o un pago urgente&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Correo que utiliza el asunto “El proceso de gestión de su expediente sigue en curso,» y el enlace «Revisar el expediente” bajo logotipos institucionales.&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20260928_DGT/01_correo_expediente_pendiente.png" alt="Primer ejemplo de correo electrónico fraudulento" class="align-center"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Correo con el asunto: “Ultimo recordatorio antes del recargo de su multa – Expediente n,º XXXXXXX” con el pretexto de que existe una multa que ha pasado de 100 a 200 euros y que aumentará a 400 euros en 24 horas. También promete devolver el incremento si se paga de inmediato. Estas amenazas y promesas forman parte del engaño.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20260928_DGT/02_correo_recargo_multa.png" alt="Segundo ejemplo de correo electrónico fraudulento" class="align-center"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;SMS que utilizan el mismo reclamo&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Los mensajes de texto anuncian una multa pendiente y ofrecen un enlace para consultar el expediente o evitar un recargo. En la imagen aparecen agrupados bajo el nombre «DGT», aunque su contenido es fraudulento.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20260928_DGT/03_sms_fraudulentos.png" alt="Ejemplo de SMS fraudulento" class="align-center"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Algunas señales que se repiten en las evidencias son las prisa y amenazas. Se anuncian recargos y plazos muy cortos para que actúes sin comprobar el mensaje. También simulan la apariencia oficial, se usan el nombre y los logotipos de la DGT.&lt;/p&gt;&lt;p&gt;Las direcciones desde donde se remiten los correos no utilizan el dominio oficial de la DGT, pero suplantan el nombre, haciendo creer que es legítimo.&lt;/p&gt;&lt;p&gt;Si se accede a la web fraudulenta esta nos llevara a una pantalla que presenta la casilla «Acceso seguro: haga clic para confirmar». Esta comprobación no acredita que la web pertenezca a la DGT.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20260928_DGT/04_verificacion_acceso.png" alt="Check de verificación de acceso" class="align-center"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;La siguiente pantalla reproduce logotipos y menús del organismo. Bajo “Sanción pendiente de regularización”, pide apellidos, nombre y matrícula para consultar una supuesta sanción. También amenaza con consecuencias si no se regulariza.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20260928_DGT/05_formulario_nombre_matricula.png" alt="Web fraudulenta para añadir el nombre y la matrícula" class="align-center"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Tras introducir los datos solicitados, la página muestra una supuesta infracción por exceso de velocidad con número de expediente, código de barras y referencias a normas. Reclama 140 euros, ofrece una reducción a 70 euros y destaca que es el último día para aprovecharla. Estos elementos buscan dar credibilidad al cobro. Que una página muestre un nombre o una matrícula no demuestra que exista una multa real.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20260928_DGT/06_falsa_notificacion_sancion.png" alt="Notificación de sanción" class="align-center"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Si continuamos con el pago, aparecerá otro formulario. El formulario titulado “Pago seguro” mantiene el importe de 70 euros y pide el nombre del titular, el número de tarjeta, la fecha de caducidad y el código de seguridad (CVV). También incorpora logotipos de medios de pago y un texto que asegura que los datos están protegidos.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;img src="https://www.incibe.es/sites/default/files/Avisos/ciu/20260928_DGT/07_formulario_pago_tarjeta.png" alt="Formulario para meter la tarjeta" class="align-center"&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;El uso de la expresión “Pago seguro” y de logotipos conocidos no convierte esta página en un canal oficial. La solicitud de información bancaria es el objetivo del engaño: no completes el formulario ni facilites los datos de tu tarjeta.&lt;/p&gt;&lt;p&gt;Si ya has facilitado esos datos, contacta con tu banco cuanto antes, incluso aunque no hayas visto un cargo o no hayas llegado a completar el supuesto pago.&lt;/p&gt;&lt;/div&gt;
+          &lt;/div&gt;
+
+            &lt;div class="field field--name-field-importancia field--type-entity-reference field--label-hidden field__item"&gt;4 - Alta&lt;/div&gt;
+      
+  
+
+&lt;div class="field clearfix field--name-field-tax-etiquetas field--type-entity-reference field--label-hidden"&gt;
+	&lt;div style="margin-bottom: 0.5rem;font-size: 1.5rem;"&gt;Etiquetas&lt;/div&gt;
+	&lt;ul class="default_tag_clouds" style="list-style: none; padding: 0;"&gt;
+
+			&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/fraude" hreflang="es"&gt;Fraude&lt;/a&gt;&lt;/li&gt;
+			&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/phishing" hreflang="es"&gt;Phishing&lt;/a&gt;&lt;/li&gt;
+			&lt;li class="tag_clouds_term term_width_6" style="display: flex;"&gt;&lt;a href="https://www.incibe.es/ciudadania/tags/smishing" hreflang="es"&gt;Smishing&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/div&gt;
+
+            &lt;div class="field field--name-field-enlaces-redes-sociales field--type-social-media field--label-hidden field__item"&gt;&lt;div class="block block-social-media block-social-sharing-block"&gt;
+  
+    
+      
+
+&lt;div class="social-media-sharing"&gt;
+  &lt;ul class&gt;
+                    &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="facebook-share share" href="http://www.facebook.com/share.php?u=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;title=Avisos%20" title="Compartir en Facebook"&gt;
+                      &lt;img alt="Compartir en Facebook" src="https://www.incibe.es/sites/default/files/public/rrss/FB_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="linkedin share" href="http://www.linkedin.com/shareArticle?mini=true&amp;amp;url=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;title=Avisos%20&amp;amp;source=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Linkedin"&gt;
+                      &lt;img alt="Compartir en Linkedin" src="https://www.incibe.es/sites/default/files/public/rrss/LI_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="noopener noreffer" class="twitter share" href="https://twitter.com/intent/tweet?url=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Twitter"&gt;
+                      &lt;img alt="Compartir en Twitter" src="https://www.incibe.es/sites/default/files/public/rrss/TW_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" rel="nooopener noreffer" class="pinterest share" href="http://pinterest.com/pin/create/link/?url=https://www.incibe.es/ciudadania/avisos/feed&amp;amp;text=Avisos%20" title="Compartir en Pinterest"&gt;
+                      &lt;img alt="Compartir en Pinterest" src="https://www.incibe.es/sites/default/files/public/rrss/Pinterest_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a target="_blank" class="whatsapp show-for-small-only share" href="https://wa.me/?text=https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Whatsapp"&gt;
+                      &lt;img alt="Compartir en Whatsapp" src="https://www.incibe.es/sites/default/files/public/rrss/WhatsApp_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+                &lt;li&gt;
+        &lt;a class="email share" href="mailto:?subject=Avisos%20&amp;amp;body=Check%20out%20this%20site%20https://www.incibe.es/ciudadania/avisos/feed" title="Compartir en Email"&gt;
+                      &lt;img alt="Compartir en Email" src="https://www.incibe.es/sites/default/files/public/rrss/Mail_compartir.png"&gt;
+                  &lt;/a&gt;
+
+      &lt;/li&gt;
+      &lt;/ul&gt;
+&lt;/div&gt;
+
+
+  &lt;/div&gt;
+&lt;/div&gt;
+      
+  &lt;div class="field field--name-field-cve-table field--type-tablefield field--label-above"&gt;
+    &lt;div class="field__label"&gt;CVE&lt;/div&gt;
+              &lt;div class="field__item"&gt;&lt;div id="tablefield-wrapper-node-667441-field_cve_table-0" class="tablefield-wrapper"&gt;&lt;table id="tablefield-node-667441-field_cve_table-0" class="tablefield table" data-striping="1"&gt;
+  
+  
+      &lt;thead&gt;
+      &lt;tr&gt;
+                            &lt;th class="row_0 col_0"&gt;Identificador CVE&lt;/th&gt;
+                            &lt;th class="row_0 col_1"&gt;Severidad&lt;/th&gt;
+                            &lt;th class="row_0 col_2"&gt;Explotación&lt;/th&gt;
+                            &lt;th class="row_0 col_3"&gt;Fabricante&lt;/th&gt;
+              &lt;/tr&gt;
+    &lt;/thead&gt;
+  
+    &lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;
+          &lt;/div&gt;
+</description>
+    <pubDate>Mon, 28 Sep 2026 10:09:11 +0000</pubDate>
+        <guid isPermaLink="false">667441 at https://www.incibe.es</guid>
+      </item>
+
+
+  </channel>
+</rss>
