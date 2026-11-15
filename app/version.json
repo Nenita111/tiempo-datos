@@ -1,8 +1,8 @@
 {
-  "versionCode": 74,
-  "versionName": "4.43",
+  "versionCode": 75,
+  "versionName": "4.44",
   "apk": "app/Tiempo.apk",
-  "sha256": "3d8431e0b7b0363d31127aa9dab7cdfcd49f066e9d7c4eda00b6d2a745441c85",
-  "bytes": 1377361,
-  "notas": "Estafas en circulación (avisos del INCIBE) en Alertas y productos; vuelos del próximo puente en Carretera; los eventos que ya han pasado dejan de salir (por hora, no solo por día); datos más ligeros (la página deduce los enlaces de cursos y ayudas)."
+  "sha256": "af5c9d75dacbe66daa8db10d50fe2da18b441b3d740ade4966c31f67585fc84a",
+  "bytes": 1379737,
+  "notas": "Terremotos: las listas, del más reciente (arriba) al más antiguo, empezando siempre por el último. Inundaciones: si falta la imagen ampliada del Paseo de los Navegantes se vuelve a pedir a las 2 horas, y las zonas inundables ya no se bajan de más."
 }

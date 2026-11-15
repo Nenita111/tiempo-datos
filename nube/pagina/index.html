@@ -1188,19 +1188,28 @@ function desdeTurno(clave, total) {
 /* lista que se ajusta a su tarjeta: atributos para la etiqueta que contiene las filas y las filas de esta vuelta (como mucho max) */
 /* 3.9: se pintan las que cupieron la vez anterior y 3 más (antes, todas hasta «max», con su QR, para luego quitarlas de una en una:
    unas 30 medidas de la página en cada pintado de SAS en la tele) */
-function enTurno(clave, lista, max) {
+function enTurno(clave, lista, max, arriba) {   // arriba (4.44, las listas en carrusel): siempre desde la primera fila
   if (NOVEDAD[clave]) lista = primeroNuevo(clave, lista);   // 4.37 (lo pidió Isa: «prioriza si es novedad»): lo nuevo, delante
-  const d = desdeTurno(clave, lista.length), c = turnos.cabe[clave], n = Math.min(max, c != null ? c + 3 : max);
+  const d = arriba ? 0 : desdeTurno(clave, lista.length), c = turnos.cabe[clave], n = Math.min(max, c != null ? c + 3 : max);
   return {attr: `data-turno="${clave}" data-desde="${d}" data-total="${lista.length}" data-max="${max}"`, items: lista.slice(d, d + n), desde: d, todas: lista};
 }
 /* 4.40 (lo pidió Isa el 11 nov 2026: en Terremotos, «haz carrusel de los bloques en sentido ascendente»): una lista en carrusel. Se pinta
-   como las demás (las filas que caben, desde su turno) y, con la pantalla a la vista, cada 3 segundos sube una fila: entra la siguiente
-   por abajo y sale la primera por arriba, hasta dar la vuelta a todas. CARRUSEL guarda todas las filas de cada lista (ya en HTML). */
+   como las demás (las filas que caben) y, con la pantalla a la vista, cada 3 segundos sube una fila: entra la siguiente por abajo y sale
+   la primera por arriba. CARRUSEL guarda todas las filas de cada lista (ya en HTML).
+   4.44 (lo pidió Isa el 15 nov 2026: «ordena los sismos del más reciente arriba hacia abajo»): cada vez que sale la pantalla empieza por
+   la primera fila (el más reciente, arriba) y baja hasta la última (el más antiguo); al llegar, vuelve al principio de una vez (con un
+   fundido). Antes seguía por donde iba la vuelta anterior y daba la vuelta sin parar: tras el más antiguo venía el más reciente, y arriba
+   quedaba cualquiera. Para que dé tiempo a verlas todas en lo que dura la pantalla (15 s si no se cambia), cada paso sube las filas que
+   hagan falta (`filasPorPaso`: nunca más de las que se ven, para no saltarse ninguna). La lista se pide con `enTurno(clave, lista, max, true)`. */
+/* los pasos que caben en lo que dura la pantalla (el primero a los 3 s; cada uno, 3 s más los 0,75 de subir; el último, con 2,5 s para leerlo) */
+const SUBE_CARRUSEL = 750, pasosCarrusel = ms => Math.max(1, Math.floor((ms - PASO_CARRUSEL - SUBE_CARRUSEL - 2500) / (PASO_CARRUSEL + SUBE_CARRUSEL)) + 1);
+const filasPorPaso = (ocultas, visibles, ms) => Math.max(1, Math.min(visibles, Math.ceil(ocultas / pasosCarrusel(ms))));
 const CARRUSEL = {}, PASO_CARRUSEL = 3000;
 const enCarrusel = (t, clave, fila) => { CARRUSEL[clave] = t.todas.map(fila); return `${t.attr} data-carrusel="1"`; };
 function animarCarruseles() {
   for (const ul of document.querySelectorAll("#wrap ul[data-carrusel]")) {
     const clave = ul.dataset.turno, todo = CARRUSEL[clave] || [], total = todo.length, tile = ul.closest(".tile");
+    turnos.siguiente[clave] = 0;   // 4.44: la vuelta siguiente, otra vez desde el más reciente
     if (!tile || !ul.children.length || total <= ul.children.length) continue;   // todas a la vista: no hace falta
     const paso = getComputedStyle(ul).display === "grid" ? Math.max(1, getComputedStyle(ul).gridTemplateColumns.split(" ").length) : 1;
     // la caja que recorta: desde donde empieza la lista hasta el final útil de su tarjeta
@@ -1209,27 +1218,51 @@ function animarCarruseles() {
     caja.style.height = Math.max(ul.offsetHeight, Math.floor((tile.getBoundingClientRect().bottom - ul.getBoundingClientRect().top) / k - (parseFloat(getComputedStyle(tile).paddingBottom) || 0))) + "px";
     ul.parentNode.insertBefore(caja, ul); caja.appendChild(ul);
     let desde = +ul.dataset.desde || 0, id = null;
-    const marca = () => { const m = tile.querySelector(`.k .turno[data-lista="${clave}"]`), n = ul.children.length; turnos.siguiente[clave] = desde;
-      if (m) m.textContent = desde + n <= total ? `${desde + 1}–${desde + n} de ${total}` : `${desde + 1}–${total} y 1${desde + n - total > 1 ? "–" + (desde + n - total) : ""} de ${total}`; };
+    const marca = () => { const m = tile.querySelector(`.k .turno[data-lista="${clave}"]`), n = ul.children.length;
+      if (m) m.textContent = `${desde + 1}–${Math.min(total, desde + n)} de ${total}`; };
     const cabe = () => ul.scrollHeight <= caja.clientHeight + 1;
+    const quitar = () => { for (let j = 0; j < paso && ul.children.length; j++) ul.lastElementChild.remove(); };
+    // las filas que caben enteras a partir de «desde» (la que no cabe vuelve en su turno; si sobra sitio, otra más)
+    const llenar = () => {
+      while (ul.children.length > paso && !cabe()) quitar();
+      for (let k = 0; k < 6 && desde + ul.children.length < total; k++) {
+        const antes = ul.children.length;
+        for (let j = 0; j < paso && desde + ul.children.length < total; j++) ul.insertAdjacentHTML("beforeend", todo[desde + ul.children.length]);
+        if (!cabe()) { while (ul.children.length > antes) ul.lastElementChild.remove(); break; }
+      }
+      try { remarcarNuevos(ul); } catch (e) {}
+      marca();
+    };
+    // cuántas filas sube cada paso: las justas para llegar a la última antes de que la pantalla cambie (si no rota sola, de una en una)
+    const n0 = ul.children.length, visibles = Math.max(1, Math.floor(n0 / paso));
+    const porPaso = rotando() ? filasPorPaso(Math.ceil((total - n0) / paso), visibles, rota(actual)) : 1;
+    let alFinal = 0;
     const dar = () => {
       if (!ul.isConnected) return;
       const n = ul.children.length;
-      for (let j = 0; j < paso; j++) ul.insertAdjacentHTML("beforeend", todo[(desde + n + j) % total]);
-      const sube = ul.children[paso].offsetTop - ul.children[0].offsetTop;
+      if (desde + n >= total) {   // ya se ve la última (la más antigua): se queda un paso más y vuelve a la primera, sin mezclar el final con el principio
+        // si la pantalla va a cambiar antes de que dé tiempo a otra vuelta entera, se queda en el final (la vuelta siguiente empieza arriba)
+        const queda = rotando() ? rota(actual) - (Date.now() - paginaDesde) : Infinity, otra = (Math.ceil((total - n0) / paso / porPaso) + 2) * (PASO_CARRUSEL + SUBE_CARRUSEL);
+        if (queda < otra) { alFinal = 0; id = setTimeout(dar, PASO_CARRUSEL); return; }
+        if (++alFinal < 2) { id = setTimeout(dar, PASO_CARRUSEL); return; }
+        alFinal = 0; ul.style.transition = "opacity .45s ease"; ul.style.opacity = "0";
+        id = setTimeout(() => {
+          if (!ul.isConnected) return;
+          desde = 0; ul.innerHTML = todo.slice(0, Math.max(paso, n)).join(""); llenar();
+          ul.style.opacity = "1"; id = setTimeout(dar, PASO_CARRUSEL);
+        }, 500);
+        return;
+      }
+      const entran = Math.min(porPaso * paso, total - desde - n), quita = Math.ceil(entran / paso) * paso;
+      for (let j = 0; j < entran; j++) ul.insertAdjacentHTML("beforeend", todo[desde + n + j]);
+      const sube = (ul.children[quita] || ul.lastElementChild).offsetTop - ul.children[0].offsetTop;
       ul.style.transition = "transform .7s ease"; ul.style.transform = `translateY(${-sube}px)`;
       id = setTimeout(() => {
         if (!ul.isConnected) return;
-        for (let j = 0; j < paso; j++) ul.firstElementChild.remove();
-        ul.style.transition = "none"; ul.style.transform = ""; desde = (desde + paso) % total;
-        while (ul.children.length > paso && !cabe()) for (let j = 0; j < paso; j++) ul.lastElementChild.remove();   // la que no cabe entera vuelve en su turno
-        for (let k = 0; k < 6 && ul.children.length + paso <= total; k++) {   // y si sobra sitio, otra fila más
-          for (let j = 0; j < paso; j++) ul.insertAdjacentHTML("beforeend", todo[(desde + ul.children.length) % total]);
-          if (!cabe()) { for (let j = 0; j < paso; j++) ul.lastElementChild.remove(); break; }
-        }
-        try { remarcarNuevos(ul); } catch (e) {}
-        marca(); id = setTimeout(dar, PASO_CARRUSEL);
-      }, 750);
+        for (let j = 0; j < quita && ul.children.length > 1; j++) ul.firstElementChild.remove();
+        ul.style.transition = "none"; ul.style.transform = ""; desde += quita;
+        llenar(); id = setTimeout(dar, PASO_CARRUSEL);
+      }, SUBE_CARRUSEL);
     };
     id = setTimeout(dar, PASO_CARRUSEL);
     paradas.push(() => clearTimeout(id));
@@ -4385,12 +4418,14 @@ function dibujarTrenes() {
 
 /* ---------- terremotos (pantalla propia, lo pidió Isa el 28 oct 2026): cerca (IGN, 10 días) y los más fuertes de la semana en
    otros países (USGS, magnitud 4,5 o más), con un mapa del mundo (Natural Earth) ---------- */
+/* 4.44 (lo pidió Isa: «ordena los sismos del más reciente arriba hacia abajo»): por su hora (`s`), venga como venga la lista */
+const recientes = L => (L || []).slice().sort((a, b) => (b.s || 0) - (a.s || 0));
 function tarjetaSismosCerca(sinQr) {   // sinQr: el QR va en el mapa
   const T = E.terremotos;
   if (!T) return vaciaDe("terremotos", "Datos del IGN no disponibles ahora mismo.", 1);
-  const t = enTurno("terremotos", T.lista, 12);
+  const t = enTurno("terremotos", recientes(T.lista), 12, true);
   const fila = s => `<li ${claveNuevo("sismo:" + (s.evid || s.lugar + s.fecha + s.hora))}><span><span class="mag">${coma(s.mag, 1)}</span>${esc(lugarSismo(s.lugar))}${marcaNuevo("sismo:" + (s.evid || s.lugar + s.fecha + s.hora), s.s)}</span><b>${s.km} km <small>${s.fecha}${s.hora ? " · " + s.hora : ""}</small></b></li>`;
-  return `<div data-f="terremotos" class="tile sis" style="--i:1"><div class="k">Cerca de ${esc(E.lugar.nombre)} · 10 días<em>${T.total} a menos de ${T.radio} km</em></div>
+  return `<div data-f="terremotos" class="tile sis" style="--i:1"><div class="k">Cerca de ${esc(E.lugar.nombre)} · 10 días<em>${T.total} a menos de ${T.radio} km · del más reciente</em></div>
     ${T.lista.length ? `<ul class="lst sismo" ${enCarrusel(t, "terremotos", fila)}>${t.items.map(fila).join("")}</ul>` + (sinQr ? "" : qrSismo(T))
       : `<p class="mut" style="font-size:23px;font-weight:600">Ningún terremoto registrado cerca.</p>`}</div>`;
 }
@@ -4499,9 +4534,9 @@ function tarjetaMapaEspana(i) {
 function tarjetaSismosEspana(i) {
   const Es = sismosEspana(), T = E.terremotos;
   // 4.40 (lo pidió Isa: «no muestres la misma información varias veces»): sin los de cerca, que ya salen en su lista
-  const L = ((Es && Es.lista) || []).filter(s => !(T && (T.lista || []).length && s.km <= T.radio));
+  const L = recientes(((Es && Es.lista) || []).filter(s => !(T && (T.lista || []).length && s.km <= T.radio)));
   if (!L.length) return "";
-  const t = enTurno("sismosEs", L, 12);
+  const t = enTurno("sismosEs", L, 12, true);
   const fila = s => `<li ${claveNuevo("sismo:" + s.url)}><span><span class="mag">${coma(s.mag, 1)}</span>${esc(lugarSismo(s.lugar))}${marcaNuevo("sismo:" + s.url, s.s)}</span><b>${s.km} km <small>${s.fecha}${s.hora ? " · " + s.hora : ""}</small></b></li>`;
   return `<div data-f="terremotos" class="tile sis sis-es" style="--i:${i}"><div class="k">Los últimos en España<em>IGN · del más reciente</em></div>
     <ul class="lst sismo" ${enCarrusel(t, "sismosEs", fila)}>${t.items.map(fila).join("")}</ul></div>`;
@@ -4660,7 +4695,7 @@ function tarjetaMundoDetalle(i) {
 function tarjetaMundoResto(i, todos) {   // 4.34: «todos», desde el primero (en Terremotos, con lo de cerca)
   const M = E.sismosMundo, L = mundoLista();
   if (L.length <= (todos ? 0 : 3)) return "";
-  const d = todos ? 0 : 3, t = enTurno("mundo", L.slice(d).map((s, j) => ({...s, n: j + d + 1})), 40);
+  const d = todos ? 0 : 3, t = enTurno("mundo", L.slice(d).map((s, j) => ({...s, n: j + d + 1})), 40, !!todos);
   const fila = s => `<li ${claveNuevo("mundo:" + s.id)}><i class="nm">${s.n}</i><span class="mag" style="background:${colorMag(s.mag)}33">${coma(s.mag, 1)}</span><b>${esc(may(s.pais))}${marcaNuevo("mundo:" + s.id, s.s)}</b><small>${s.fecha}</small></li>`;
   return `<div data-f="sismosMundo" class="tile mundo-r" style="--i:${i}"><div class="k">${todos ? "En el mundo · los más recientes" : "Y los demás de la semana"}<em>de magnitud ${coma(M.minimo, 1)} o más · hacia atrás</em></div>
     <ul class="mundo2" ${todos ? enCarrusel(t, "mundo", fila) : t.attr}>${t.items.map(fila).join("")}</ul></div>`;
