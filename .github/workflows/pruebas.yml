@@ -1,0 +1,26 @@
+# Las pruebas de herramientas/ (15 nov 2026, lo pidió Isa: «aplica todas las mejoras»): no salen a internet y tardan segundos. Solo al
+# cambiar un script o una prueba, no con los datos de cada día. Gratis: el repositorio es público.
+name: Pruebas
+on:
+  push:
+    paths: ["herramientas/**", ".github/workflows/pruebas.yml"]
+  pull_request:
+    paths: ["herramientas/**", ".github/workflows/pruebas.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pruebas-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: herramientas       # sin el APK ni la página
+      - name: pdftotext (poppler) y Pillow, los del sistema
+        run: sudo apt-get install -y -q --no-install-recommends poppler-utils python3-pil
+      - name: Pruebas
+        run: python3 -I -m unittest discover -s herramientas -p 'test_*.py'
