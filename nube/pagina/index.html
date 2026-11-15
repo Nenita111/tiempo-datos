@@ -565,7 +565,7 @@ i.eds{display:inline-block;font-style:normal;font-size:20px;font-weight:800;colo
 .receta{font-size:21px;line-height:1.42;color:var(--tx2);font-weight:500}.receta b{color:var(--tx);font-weight:800}
 .precios{list-style:none}.precios li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:22px;padding:6px 0;border-top:1px solid var(--linea);font-weight:600;color:var(--tx2)}
 .precios li:first-child{border-top:0;padding-top:0}
-.vu{list-style:none}.vu li{display:grid;grid-template-columns:76px minmax(0,1fr) minmax(0,1fr);align-items:baseline;gap:14px;padding:3px 0;border-top:1px solid var(--linea)}.vuelos .k{margin-bottom:8px}
+.vu{list-style:none}.vu li{display:grid;grid-template-columns:92px minmax(0,1fr) minmax(0,1fr);align-items:baseline;gap:14px;padding:3px 0;border-top:1px solid var(--linea)}.vuelos .k{margin-bottom:8px}.vu-p{font-size:20px;font-weight:700;color:var(--tx2);margin:-2px 0 8px}
 .vu li:first-child{border-top:0;padding-top:0}.vu i{font-style:normal;font-size:20px;font-weight:800;color:var(--acc)}
 .vu .of{display:flex;align-items:baseline;gap:6px;min-width:0;white-space:nowrap}
 .vu .of b{font-size:20px;color:var(--tx);font-weight:700;overflow:hidden;text-overflow:ellipsis;min-width:0}.vu .of small{font-size:20px;color:var(--mu);font-weight:600;flex:none}.vu .of.ya{opacity:.45}
@@ -724,7 +724,7 @@ footer.ap1 .tabs .tab.on{margin:0 6px}footer.ap1 .tabs .tab.on::before{left:-8px
 /* 4.39: las tres listas de Alertas, juntas en una a tres columnas (.juntas): cada fila con su raya debajo y su tipo (.tp) */
 .cons ul:is(.cols1,.cols2,.cols3){display:block;column-count:3;column-gap:44px;column-rule:1px solid var(--linea)}.cons ul.cols2{column-count:2}.cons ul.cols1{column-count:1}
 .cons ul:is(.cols1,.cols2,.cols3) li{break-inside:avoid;border-top:0;border-bottom:1px solid var(--linea);padding:0 0 12px;margin:0 0 12px;gap:14px}.cons ul:is(.cols1,.cols2,.cols3) li:first-child{padding-top:0}
-.cons .tp{font-style:normal;font-weight:800;font-size:20px;border-radius:8px;padding:0 9px;margin-right:8px;white-space:nowrap}.tp-a{background:rgba(232,90,60,.18);color:var(--mal)}.tp-m{background:rgba(70,140,230,.2);color:var(--acc)}.tp-p{background:rgba(245,180,40,.24);color:var(--tx)}
+.cons .tp{font-style:normal;font-weight:800;font-size:20px;border-radius:8px;padding:0 9px;margin-right:8px;white-space:nowrap}.tp-a{background:rgba(232,90,60,.18);color:var(--mal)}.tp-m{background:rgba(70,140,230,.2);color:var(--acc)}.tp-p{background:rgba(245,180,40,.24);color:var(--tx)}.tp-e{background:rgba(150,95,225,.22);color:var(--tx)}
 .cons .md-t .pp-m{display:block;margin-top:4px}.cons.juntas .pp-m :is(.tp,.al-tipo,.pa){display:inline-block;margin-bottom:4px;line-height:1.3}.cons.juntas .pp-foto{width:84px;height:84px}.cons.juntas svg.nq{width:76px;height:76px}.cons.juntas .k em{white-space:normal;text-align:right}
 /* cada fila: a la izquierda la foto (o el día) y debajo su QR; a la derecha, el texto a todo lo ancho que queda (menos líneas: caben más filas) */
 .cons.juntas ul li{display:grid;grid-template-columns:84px minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:16px;row-gap:6px;align-items:start}
@@ -1491,6 +1491,23 @@ const dosd = n => String(n).padStart(2, "0");
 const may = s => String(s || "").replace(/^./, c => c.toUpperCase());
 const fechaCorta = f => { const d = new Date(f + "T12:00"); return `${d.getDate()} ${MES3[d.getMonth()]}`; };
 /* 4.13 (lo pidió Isa el 1 nov 2026): los plazos, siempre con su fecha («hasta el lunes 3 nov»), nunca «hoy» o «mañana» */
+/* 15 nov 2026 (lo pidió Isa: «en los eventos, si ya ha transcurrido en el momento de la visualización, elimínalo»): lo que ya ha pasado
+   no sale. El de varios días sigue hasta su último día. El de hoy (o el que acaba hoy) con su hora deja de salir cuando ha acabado: a su
+   hora de fin si la dice («de 10:00 a 14:00», «10:00–14:00») y, si solo dice cuándo empieza, DURA_EVENTO horas después (no dice cuánto
+   dura: se le da ese rato). Sin hora, todo su día. En uno de varios días la hora de empezar es la del primero: el último día solo cuenta
+   si dice hasta qué hora. Lo que acaba pasada la medianoche sigue hasta que acaba el día. */
+const DURA_EVENTO = 2;
+// el minuto del día en que acaba lo que dice un texto de horas («18:00», «de 10:00 a 14:00 y de 17:00 a 20:00», «salida a las 07:30»); sin horas, null
+const finEvento = (t, soloRango) => { const s = String(t || "");
+  const m = [...s.matchAll(/\b(\d{1,2})[:.](\d{2})\b/g)].filter(x => +x[1] < 24 && +x[2] < 60).map(x => +x[1] * 60 + +x[2]);
+  if (!m.length) return null;
+  if (/\d{1,2}[:.]\d{2}\s*(?:h\.?|horas)?\s*(?:a|hasta|–|—|-)\s*(?:las?\s+)?\d{1,2}[:.]\d{2}/i.test(s)) return m[m.length - 1] < m[0] ? null : Math.max(...m);
+  return soloRango ? null : Math.max(...m) + DURA_EVENTO * 60; };
+const eventoPasado = (inicio, fin, hora) => { const d = new Date(), hoy = isoDe(d), ult = fin && fin > inicio ? fin : inicio;
+  if (!ult || ult > hoy) return false;
+  if (ult < hoy) return true;
+  const f = finEvento(hora, ult !== inicio);
+  return f != null && d.getHours() * 60 + d.getMinutes() >= f; };
 const diaFecha = f => { const d = new Date(String(f).slice(0, 10) + "T12:00"); return `${DIAS[d.getDay()]} ${d.getDate()} ${MES3[d.getMonth()]}`; };
 /* ayer, hoy, mañana o el día de la semana, según la fecha de hoy de verdad (no según el orden de la lista: la previsión de
    AEMET puede empezar el día que se elaboró, que a primera hora aún es ayer) */
@@ -1753,7 +1770,7 @@ const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "com
   get aire() { return ["aire", "radiacion", "radsol", "prevision"].concat(polen() ? ["x"] : [], olasVigentes() ? ["olas"] : []); },
   agua: ["lluvia", "saih", "sequia", "agua"], get mar() { return ["boya", "playas", "oleaje", "maritima", "mareas"].concat(enBano() ? ["aguaBano"] : []); }, cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
   espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"], consumo: ["datadis"], suministros: ["datadis"],
-  alertas: ["alimentarias", "medicamentos", "productos"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "regatas", "rfep"], carretera: ["camara", "ruta", "camaras", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
+  alertas: ["alimentarias", "medicamentos", "productos", "x"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "regatas", "rfep"], carretera: ["camara", "ruta", "camaras", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
   sismos: ["terremotos", "sismosMundo"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas", "x"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
   noticias: ["noticias", "cortesAgua", "sangre"], planes: ["x"], ayudas: ["x"]};
 const NOMBRE_FUENTE = {islasCalor: "temperatura de la superficie (Landsat)", maremotos: "riesgo de maremoto", inundaciones: "zonas inundables", naturaleza: "biodiversidad (GBIF)", clima: "clima (AEMET)", climaRia: "lo normal en el pueblo (IFAPA)", radsol: "radiación solar (AEMET)", polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
@@ -1806,7 +1823,12 @@ const VALE_H = {islasCalor: 24 * 30, maremotos: 24 * 120, climaRia: 24 * 400, in
   agua: 168, festivos: 168, aguaBano: 168, iss: 168, autobus: 168};
 const SIN_EDAD = new Set(["avisos", "luz", "internet", "extras", "actualizacion"]);   // valen por su propia fecha
 const CLAVES_FUENTE = {prevision: ["horas", "dias", "soles", "elaborado", "aemet"], aviones: ["aviones", "aeropuerto"], lonja: ["lonjaPueblo"], incendio: ["incendio", "incendioMapa"]};   // 4.17: los del aeropuerto, con los de encima   // la previsión llega en varias claves
-const EN_EXTRAS = {vuelos: ["vuelos", "aeropuertos", "vuelosOrigen", "vuelosFecha", "vuelosBuscado", "vuelosBusqueda"], sequia: ["sequia"]};
+const EN_EXTRAS = {vuelos: ["aeropuertos", "vuelosBuscado", "vuelosBusqueda"], sequia: ["sequia"]};
+// 15 nov 2026 (lo pidió Isa: «evita datos duplicados»): lo que esta página entiende de extras.json. La nube lo lee de aquí (tiempo-datos,
+// comun.extras_v) y, una semana después de publicarse la página, deja de guardar lo que ella sabe deducir.
+//   2: el enlace de un curso o de una ayuda, si no viene, es el de su lista más su número (enlaceDe)
+const EXTRAS_V = 2;
+const enlaceDe = (o, lista, k) => o.enlace || (lista && lista.enlace && o[k] != null ? `${lista.enlace}/${o[k]}` : "");
 // 4.23: en la página de internet los datos se ponen al día cada media hora (GitHub): lo que vale menos de hora y cuarto (radar,
 // satélite, cámaras…) vale hasta entonces (cada tarjeta dice de cuándo es)
 const valeH = (k, f) => (v => window.NUBE ? Math.max(v, k === "camara" || k === "ruta" || k === "camaras" ? 2 : 1.25) : v)(VALE_H[k] ?? Math.max(2, 3 * ((f && f.cada) || 60) / 60));   // 4.29: las cámaras, 2 h en internet
@@ -1969,7 +1991,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   casa: "Fuentes: Red Eléctrica · CNMC (peaje 2.0TD, BOE) · MITECO · Cloudflare",
   consumo: "Fuente: Datadis (las distribuidoras eléctricas): lo que mide el contador de casa · tramos del peaje 2.0TD (CNMC, BOE)",
   suministros: "Fuente: Datadis (las distribuidoras eléctricas): lo que mide el contador de cada suministro, guardado en esta tele",
-  get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (hayProductos() ? " · Comisión Europea, Safety Gate (productos que avisa España)" : ""); },
+  get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (hayProductos() ? " · Comisión Europea, Safety Gate (productos que avisa España)" : "") + (estafasRecientes().length ? " · INCIBE (estafas)" : ""); },
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
   hoy: "Fuentes: Wikipedia · Colegio de Farmacéuticos · ESPN",
   carretera: "Fuentes: DGT (cámaras e incidencias) · Consorcio de Transporte del Área de Almería (autobús) · Kiwi.com (vuelos) · OpenSky (aeropuerto)",
@@ -2586,7 +2608,7 @@ function tarjetaAviones(n = 3, alta = false) {   // alta: en una columna entera 
 /* 4.16 (335, lo pidió Isa el 2 nov 2026): los cruceros previstos en el puerto de Almería (relación oficial de la Autoridad Portuaria; la lee
    la nube, cruceros.py, en extras.json): los de los próximos 30 días, siempre con su fecha */
 const crucerosProximos = () => { const C = (E.extras || {}).cruceros, hoy = isoDe(new Date()), tope = isoDe(new Date(Date.now() + 30 * 864e5));
-  return C && C.lista ? C.lista.filter(c => (c.hasta || c.fecha) >= hoy && c.fecha <= tope) : []; };
+  return C && C.lista ? C.lista.filter(c => (c.hasta || c.fecha) >= hoy && c.fecha <= tope && !eventoPasado(c.fecha, c.hasta, c.salida ? `${c.entrada || "00:00"}–${c.salida}` : "")) : []; };
 function tarjetaCruceros(i) {
   const L = crucerosProximos(), C = (E.extras || {}).cruceros;
   if (!L.length) return "";
@@ -2925,7 +2947,7 @@ const filaISS = () => filaEstacion("iss") + filaEstacion("css");
 /* calendario: lo que viene en los próximos 4 meses (y, si es poco, al menos lo próximo 3) */
 function eventosCielo(dias = 120) {
   const hoy = isoDe(new Date()), tope = isoDe(new Date(Date.now() + dias * 864e5));
-  const l = (((E.extras || {}).cielo || {}).eventos || []).filter(e => e.titulo && e.fecha && e.fecha >= hoy)
+  const l = (((E.extras || {}).cielo || {}).eventos || []).filter(e => e.titulo && e.fecha && e.fecha >= hoy && !eventoPasado(e.fecha, null, e.hora))
     .sort((a, b) => (a.fecha + (a.hora || "")).localeCompare(b.fecha + (b.hora || "")));
   const pronto = l.filter(e => e.fecha <= tope);
   return pronto.length >= 3 ? pronto : l.slice(0, 3);
@@ -3878,7 +3900,16 @@ function pSuministros() {
 /* ---------- casa (3.0): la luz en una columna entera (hoy y mañana, con los tramos); carburantes, tele e internet ---------- */
 const pCasa = () => `<div class="main"><div class="col izq" style="grid-template-rows:1fr">${tarjetaLuz()}</div><div class="col" style="grid-template-rows:auto 1fr">${tarjetaGas()}<div class="duo">${tarjetaTele()}${tarjetaInternet()}</div></div></div>`;
 /* ---------- alertas (3.0): las alimentarias de la AESAN y los medicamentos retirados, todas a la vez ---------- */
-const hayAlertas = () => alertasAlimentarias().length > 0 || medicamentosRecientes().length > 0;
+/* 15 nov 2026 (lo pidió Isa: «estafas en circulación (avisos del INCIBE) en Alertas y productos»): los avisos de seguridad para la ciudadanía del
+   INCIBE (extras.estafas, de su RSS: tiempo-datos, incibe.py), los de los últimos 60 días y como mucho 3 (una por vuelta, rotando): su título, a quién afecta y su QR */
+const estafasRecientes = () => (((E.extras || {}).estafas || {}).lista || []).filter(a => a && a.titulo && a.fecha && diasHasta(a.fecha) <= 0 && diasHasta(a.fecha) >= -60).slice(0, 3);
+const filaEstafa = (a, tipo = "") => {
+    const d = new Date(a.fecha + "T12:00"), k = "es:" + a.enlace;
+    return `<li ${claveNuevo(k)}><div class="md-dia"><b>${d.getDate()}</b><span>${MES3[d.getMonth()]}</span></div>
+      <div class="md-t"><b>${esc(a.titulo)}${marcaNuevo(k, a.fecha)}</b>${a.afecta ? `<span class="md-def">${esc(a.afecta)}</span>` : ""}${tipo ? `<span class="pp-m">${tipo}</span>` : ""}</div>
+      <div class="md-c">${qrSvg(a.enlace, "qr nq", 64)}</div></li>`;
+  };
+const hayAlertas = () => alertasAlimentarias().length > 0 || medicamentosRecientes().length > 0 || estafasRecientes().length > 0;
 /* 4.39 (lo pidió Isa el 10 nov 2026: «junta las secciones si con ello puedes mostrar una mayor cantidad de información (por ejemplo en
    alertas y productos…)»): las alertas alimentarias, los medicamentos retirados y los productos peligrosos, en una sola tarjeta y una sola
    lista a tres columnas (cada fila dice de qué es): el sitio que le sobraba a una columna lo aprovechan las demás. Primero los alimentos
@@ -3887,19 +3918,22 @@ const hayAlertas = () => alertasAlimentarias().length > 0 || medicamentosRecient
 function tarjetaAlertasJunta() {
   const A = primeroNuevo("alimentarias", alertasAlimentarias()), M = E.medicamentos ? primeroNuevo("medicamentos", medicamentosRecientes()) : [];
   const P = E.productos ? primeroNuevo("productos", productosRecientes().slice().sort((a, b) => String(b.fecha || "").localeCompare(String(a.fecha || "")))) : [];
-  if (!A.length && !M.length && !P.length) return "";
+  const S = primeroNuevo("estafas", estafasRecientes());
+  if (!A.length && !M.length && !P.length && !S.length) return "";
   const TOPE = 6, na = A.length + M.length <= TOPE ? A.length : Math.max(3, TOPE - M.length), nm = A.length + M.length <= TOPE ? M.length : Math.max(3, TOPE - A.length);
   const ta = turnoFijo("alertasA", A, na || 1), tm = turnoFijo("alertasM", M, nm || 1);
-  const L = [...ta.items.map(x => ["a", x]), ...tm.items.map(x => ["m", x]), ...P.map(x => ["p", x])];
+  const ts = turnoFijo("alertasE", S, 1);       // las estafas, una por vuelta (van rotando): así no quitan el sitio a los productos
+  const L = [...ta.items.map(x => ["a", x]), ...tm.items.map(x => ["m", x]), ...ts.items.map(x => ["e", x]), ...P.map(x => ["p", x])];
   turnos.siguiente.alertas = turnos.desde.alertas = 0;
   const t = enTurno("alertas", L, 24), cols = Math.min(3, L.length), n = (k, uno, varios) => `${k} ${k === 1 ? uno : varios}`, rota = (k, q) => k > q ? `; ${q} por vuelta` : "";
-  const T = {a: `<em class="tp tp-a">Alimento</em>`, m: `<em class="tp tp-m">Medicamento</em>`, p: `<em class="tp tp-p">Producto</em>`};
+  const T = {a: `<em class="tp tp-a">Alimento</em>`, m: `<em class="tp tp-m">Medicamento</em>`, p: `<em class="tp tp-p">Producto</em>`, e: `<em class="tp tp-e">Estafa</em>`};
   const cuenta = [A.length && `${n(A.length, "alimento", "alimentos")} (AESAN${rota(A.length, na)})`, M.length ? `${n(M.length, "medicamento", "medicamentos")} del último mes (AEMPS${rota(M.length, nm)})` : E.medicamentos && "ningún medicamento retirado en el último mes (AEMPS)",
+    S.length && `${n(S.length, "estafa", "estafas")} en circulación (INCIBE${rota(S.length, 1)})`,
     P.length ? `${n(P.length, "producto avisado", "productos avisados")} por España (Safety Gate)` : E.productos && "ningún producto peligroso avisado por España en 3 meses"].filter(Boolean).join(" · ");
   const sinFoto = E.productos && E.productos.fotosSin ? ` Sin foto ${E.productos.fotosSin}: Safety Gate no la dio (${esc(E.productos.fotosFallo || "sin respuesta")}).` : "";
-  return `<div data-f="${[A.length && "alimentarias", E.medicamentos && "medicamentos", E.productos && "productos"].filter(Boolean).join(" ")}" class="tile cons juntas colsT" style="--i:1"><div class="k">Alertas y productos retirados<em>${cuenta}</em></div>
-    <ul class="cols${cols}" ${t.attr}>${t.items.map(([k, x]) => k === "a" ? filaAlim(x, T.a) : k === "m" ? filaMed(x, T.m) : filaProd(x, T.p)).join("")}</ul>
-    <p class="nota">Alimentos: si lo tienes en casa, no lo consumas. Medicamentos: mira el lote en la caja y, ante la duda, pregunta en tu farmacia (clase 1, el riesgo más alto). Productos: si tienes alguno, deja de usarlo. En cada QR, su ficha oficial.${sinFoto}</p></div>`;
+  return `<div data-f="${[A.length && "alimentarias", E.medicamentos && "medicamentos", E.productos && "productos", S.length && "x"].filter(Boolean).join(" ")}" class="tile cons juntas colsT" style="--i:1"><div class="k">Alertas y productos retirados<em>${cuenta}</em></div>
+    <ul class="cols${cols}" ${t.attr}>${t.items.map(([k, x]) => k === "a" ? filaAlim(x, T.a) : k === "m" ? filaMed(x, T.m) : k === "e" ? filaEstafa(x, T.e) : filaProd(x, T.p)).join("")}</ul>
+    <p class="nota">Alimentos: si lo tienes en casa, no lo consumas. Medicamentos: mira el lote en la caja y, ante la duda, pregunta en tu farmacia (clase 1, el riesgo más alto). Productos: si tienes alguno, deja de usarlo.${S.length ? " Estafas: no abras el enlace del mensaje ni des tus datos." : ""} En cada QR, su ficha oficial.${sinFoto}</p></div>`;
 }
 function pAlertas() {
   const junta = tarjetaAlertasJunta();
@@ -3954,19 +3988,31 @@ const ANTELACION_VUELOS = 3;   // días como mínimo entre hoy y la salida del v
 // «24–28 nov» o «29 nov–3 dic» (también para otros rangos de fechas, como los de la lonja)
 const fechaVuelo = (a, b) => { const x = new Date(a + "T12:00"), y = new Date(b + "T12:00");
   return x.getMonth() === y.getMonth() ? `${x.getDate()}–${y.getDate()} ${MES3[x.getMonth()]}` : `${x.getDate()} ${MES3[x.getMonth()]}–${y.getDate()} ${MES3[y.getMonth()]}`; };
-function tarjetaVuelos(X) {
-  if (!X.aeropuertos) return null;   // extras.json antiguo: solo Almería, como antes
+/* 15 nov 2026 (lo pidió Isa): los vuelos del próximo puente (extras.puente, de tiempo-datos/herramientas/puente.py: el puente, del
+   calendario laboral de la Junta para el pueblo; sus vuelos, de Kiwi una vez a la semana: ida la víspera o el primer día y vuelta el
+   último o el de antes). En la tarjeta de los vuelos, una vuelta los de siempre y otra los del puente (`tarjetaVuelosTodo`). Deja de
+   salir cuando el puente empieza o si su búsqueda tiene más de PUENTE_VALE días. */
+const PUENTE_VALE = 9;
+const puenteVivo = () => { const P = (E.extras || {}).puente;
+  return P && P.desde && P.hasta && diasHasta(P.desde) > 0 && P.buscado && diasHasta(P.buscado) >= -PUENTE_VALE && (P.aeropuertos || []).some(a => (a.vuelos || []).length) ? P : null; };
+// «Del sábado 5 al martes 8 dic · festivos: lunes 7 y martes 8» (y, si hay que pedir un día, «· laborable: viernes 2»)
+const lineaPuente = P => { const D = f => new Date(f + "T12:00"), dn = f => `${DIAS[D(f).getDay()]} ${D(f).getDate()}`;
+  const varios = l => l.length > 1 ? `${l.slice(0, -1).join(", ")} y ${l[l.length - 1]}` : l[0] || "";
+  const a = D(P.desde), b = D(P.hasta), F = (P.festivos || []).map(f => dn(f.fecha)), L = (P.laborables || []).map(dn);
+  return `Del ${dn(P.desde)}${a.getMonth() === b.getMonth() ? "" : " " + MES3[a.getMonth()]} al ${dn(P.hasta)} ${MES3[b.getMonth()]}` +
+    (F.length ? ` · festivo${F.length > 1 ? "s" : ""}: ${varios(F)}` : "") + (L.length ? ` · laborable: ${varios(L)}` : ""); };
+function tarjetaVuelos(X, P) {      // P: el puente (sus vuelos en vez de los de cada día)
   const iso = f => `${f.getFullYear()}-${dosd(f.getMonth() + 1)}-${dosd(f.getDate())}`, d = new Date();
   const dias = Number.isInteger(X.antelacionMinimaDias) ? X.antelacionMinimaDias : ANTELACION_VUELOS;   // se puede cambiar desde extras.json
   const hoy = iso(d), limite = iso(new Date(d.getFullYear(), d.getMonth(), d.getDate() + dias));
   const vale = v => v.ida >= limite, barato = (p, q) => p.precio - q.precio;
-  const filas = (X.aeropuertos || []).map(a => {
+  const filas = ((P || X).aeropuertos || []).map(a => {
     const l = (a.vuelos || []).filter(v => v.precio != null && v.ida);
     const buenos = l.filter(vale).sort(barato).slice(0, 2);
     return [a, buenos.concat(l.filter(v => !vale(v)).sort(barato).slice(0, 2 - buenos.length))];
   }).filter(([, l]) => l.length).sort((p, q) => (vale(p[1][0]) ? 0 : 1) - (vale(q[1][0]) ? 0 : 1) || p[1][0].precio - q[1][0].precio);
   if (!filas.length) return "";
-  const b = X.vuelosBuscado ? new Date(X.vuelosBuscado + "T12:00") : null;
+  const bus = P ? P.buscado : X.vuelosBuscado, b = bus ? new Date(bus + "T12:00") : null;
   const corto = n => ({"Palma de Mallorca": "Palma", "Las Palmas de Gran Canaria": "Gran Canaria"}[n] || n);
   // ida y vuelta sin escalas; la fecha de la búsqueda va arriba porque los precios cambian; la compañía queda en extras.json (no cabe)
   const oferta = v => `<span class="of${vale(v) ? "" : " ya"}"><b>${esc(corto(v.destino))}</b><small>${vale(v) ? fechaVuelo(v.ida, v.vuelta) : `${v.ida < hoy ? "salió" : "sale"} ${fechaCorta(v.ida)}`}</small><em>${v.precio} €</em></span>`;
@@ -3974,7 +4020,7 @@ function tarjetaVuelos(X) {
   const [ab, lb] = filas[0], mb = lb[0], qr = vale(mb) ? qrSvg(mb.enlace, "qr", 48) : "";
   const pie = qr ? `<div class="vu-qr">${qr}<p><b>El más barato: ${esc(ab.origen)} → ${esc(mb.destino)} · ${mb.precio} €</b>
     <span>${fechaVuelo(mb.ida, mb.vuelta)}${mb.compania ? " · " + esc(mb.compania) : ""}</span><small>Escanéalo para verlo en Kiwi.com</small></p></div>` : "";
-  return `<div data-f="x" class="tile vuelos" style="--i:4"><div class="k">Vuelos baratos · ida y vuelta<em>${b ? `buscado el ${b.getDate()}/${b.getMonth() + 1}` : ""}</em></div><ul class="vu">
+  return `<div data-f="x" class="tile vuelos" style="--i:4"><div class="k">${P ? "Vuelos del puente" : "Vuelos baratos"} · ida y vuelta<em>${b ? `buscado el ${b.getDate()}/${b.getMonth() + 1}` : ""}</em></div>${P ? `<p class="vu-p">${esc(lineaPuente(P))}</p>` : ""}<ul class="vu">
     ${filas.map(([a, l]) => `<li><i>${esc(a.origen)}</i>${oferta(l[0])}${l[1] ? oferta(l[1]) : "<span></span>"}</li>`).join("")}</ul>${pie}</div>`;
 }
 /* farmacia de guardia de hoy en el municipio (Colegio de Farmacéuticos de Almería), con el horario tal como lo publica; y la de mañana si cambia */
@@ -4039,7 +4085,7 @@ function tarjetaFutbol(i) {
   const hora = iso => { const d = new Date(iso); return `${may(DIAS[d.getDay()])} ${d.getDate()} de ${MESES[d.getMonth()]} · ${dosd(d.getHours())}:${dosd(d.getMinutes())}`; };
   return `<div data-f="futbol" class="tile" style="--i:${i}"><div class="k">UD Almería<em>${U.puesto ? `${U.puesto}º · ${U.puntos} puntos` : esc(U.liga)}</em></div>
      ${U.ultimo ? `<div class="marcador"><span>${esc(U.ultimo.local)}</span><b class="num">${esc(U.ultimo.gl)}–${esc(U.ultimo.gv)}</b><span>${esc(U.ultimo.visitante)}</span></div>` : ""}
-     ${U.proximo ? `<p class="prox">Próximo: <b>${esc(U.proximo.local)} – ${esc(U.proximo.visitante)}</b><br>${hora(U.proximo.fecha)}</p>` : ""}</div>`;
+     ${U.proximo && !(Date.parse(U.proximo.fecha) + DURA_EVENTO * 36e5 <= Date.now()) ? `<p class="prox">Próximo: <b>${esc(U.proximo.local)} – ${esc(U.proximo.visitante)}</b><br>${hora(U.proximo.fecha)}</p>` : ""}</div>`;
 }
 function tarjetaTemporada(i) {
   const mes = new Date().getMonth(), prod = TEMPORADA[mes], [, rec, txt] = recetaDeHoy();
@@ -4074,12 +4120,9 @@ function tarjetaTrafico(i) {
      ${r.items.map(t => `<li><p><b>${esc(t.titulo)}${t.gestion ? ` · <i>${esc(t.gestion)}</i>` : ""}</b>
        <span>${esc(t.carretera)}${t.km != null ? " km " + coma(t.km, t.km % 1 ? 1 : 0) : ""}${t.municipio ? " · " + esc(t.municipio) : ""} · ${desde(t)}${t.sentido ? " · " + esc(t.sentido) : ""}${t.carril ? " · " + esc(t.carril) : ""}</span></p><em>${t.dist} km</em></li>`).join("")}</ul>`)(enTurno("trafico", T.lista, 12))}${nota}</div>`;
 }
-function tarjetaVuelosTodo(i) {
-  const X = E.extras || {};
-  return tarjetaVuelos(X) ?? ((X.vuelos || []).length ? `<div data-f="x" class="tile" style="--i:${i}"><div class="k">Vuelos baratos desde ${esc(X.vuelosOrigen || "Almería")}</div><ul class="precios">
-     ${X.vuelos.slice(0, 4).map(v => `<li><span>${esc(v.destino)} <span class="mut" style="font-size:20px">${esc(v.fecha)}${v.vuelta ? "–" + esc(v.vuelta) : ""} · ${esc(v.compania)}</span></span><b>${esc(v.precio)}</b></li>`).join("")}</ul>
-     <p class="nota">${esc(X.vuelosFecha || "Precios de la última búsqueda")}: pueden haber cambiado.</p></div>` : "");
-}
+// los vuelos de cada día y, si hay puente a la vista con sus vuelos, una vuelta unos y otra los otros
+function tarjetaVuelosTodo() { const X = E.extras || {}, P = puenteVivo();
+  return P && (!hayVuelosDia() || turnoFijo("vuelosP", [0, 1], 1).items[0]) ? tarjetaVuelos(X, P) : tarjetaVuelos(X); }
 /* 4.17 (lo pidió Isa el 2 nov 2026: «sí», a cambio de los horarios de AENA, que no tiene datos abiertos): lo que despega, aterriza o está en
    el aeropuerto de Almería ahora (OpenSky, en la misma petición que los aviones de encima: Mas.avionesYAeropuerto). No son horarios ni
    retrasos: lo que se ve en el aire en este momento */
@@ -4094,7 +4137,8 @@ function tarjetaAeropuerto(i) {
     ${vuelan.length ? `<ul>${vuelan.slice(0, 3).map(fila).join("")}</ul>` : `<p class="mut ae-n">Ahora no despega ni aterriza ninguno.</p>`}
     ${tierra ? `<p class="ae-t">En tierra: ${tierra === 1 ? "1 avión" : `${tierra} aviones`}.</p>` : ""}</div>`;
 }
-const hayVuelos = () => { const X = E.extras || {}; return (X.aeropuertos || []).some(a => (a.vuelos || []).length) || (X.vuelos || []).length > 0; };
+const hayVuelosDia = () => ((E.extras || {}).aeropuertos || []).some(a => (a.vuelos || []).length);
+const hayVuelos = () => hayVuelosDia() || !!puenteVivo();
 const hayCarretera = () => !!(camaraVigente() || rutaVigente().length || cercanasVigentes().length || E.trafico || hayVuelos() || autobusVigente() || E.aeropuerto);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): el autobús del pueblo a la capital y de vuelta (Red de Consorcios de Transporte de
    Andalucía, Autobuses.kt): los próximos de hoy según sus días («L-V», «S-D-F»…). Un festivo (de la Junta: nacionales, de Andalucía y locales)
@@ -4190,7 +4234,9 @@ function pCarretera() {
   const izq = [cam, cam && ae && ruta ? ruta.replace('class="tile ruta', 'class="tile ruta baja') : ruta, cam || ruta ? ae : ""].filter(Boolean);
   // 4.37 (letra mínima de 20 px): con los vuelos debajo, 2 autobuses por sentido (con 3, al tráfico no le quedaba sitio)
   // 4.41: con cámaras, si el tráfico no cabe entero en su columna, fuera el recuadro del vuelo más barato (prescindible: los vuelos siguen)
-  const der = [tarjetaTrafico(3), tarjetaAutobus(4, izq.length ? (hayVuelos() ? 2 : 3) : 4), hayVuelos() ? (v => izq.length ? v.replace('class="vu-qr"', 'class="vu-qr prescindible"') : v)(tarjetaVuelosTodo(5)) : ""].filter(Boolean);
+  // 15 nov 2026: sin cámaras (la DGT manda su cartel gris desde el 9 nov) y con tráfico, el autobús con 4 por sentido dejaba a los vuelos sin
+  // sitio y el recuadro del más barato salía cortado: con vuelos, 3 autobuses por sentido, y el recuadro, prescindible también ahí
+  const der = [tarjetaTrafico(3), tarjetaAutobus(4, (izq.length ? 3 : 4) - (hayVuelos() ? 1 : 0)), hayVuelos() ? tarjetaVuelosTodo(5).replace('class="vu-qr"', 'class="vu-qr prescindible"') : ""].filter(Boolean);
   const col = (l, filas) => `<div class="col" style="grid-template-rows:${filas}">${l.join("")}</div>`;
   const filasIzq = ["1fr"].concat(izq.slice(1).map(() => "auto")).join(" ");
   // 4.3: sin cámaras, el tráfico a un lado y el autobús y los vuelos, uno encima de otro, al otro
@@ -4678,7 +4724,7 @@ const NOVEDAD = {
   sas: [x => x.k + (x.url || x.id), x => x.fecha], ayudas: [a => "ay:" + a.num, a => a.registrada], sasOfertas: [o => "ooe:" + o.id, o => o.fecha],
   cursosP: [g => g.ed.map(c => "cu:" + c.id)], cursosL: [g => g.ed.map(c => "cu:" + c.id)],
   noticias: [n => "no:" + n.titulo, n => n.s], alimentarias: [a => "al:" + claveAlim(a), a => a.fecha], productos: [x => "sg:" + x.id, x => x.fecha],
-  medicamentos: [a => "med:" + a.codigo, a => a.fecha], sorteos: [s => "so:" + s.enlace + s.premio], planes: [p => "pl:" + p.enlace + p.inicio],
+  medicamentos: [a => "med:" + a.codigo, a => a.fecha], estafas: [a => "es:" + a.enlace, a => a.fecha], sorteos: [s => "so:" + s.enlace + s.premio], planes: [p => "pl:" + p.enlace + p.inicio],
   raif: [c => "raif:" + c.cultivo + c.hasta], cortes: [c => c.oficial ? "ca:" + c.id : "co:" + c.titulo]};
 const nuevoDe = (clave, x) => { const [kf, ff] = NOVEDAD[clave], K = [].concat(kf(x)), f = ff ? ff(x) : null; return K.some(k => esNuevo(k, f)); };
 function primeroNuevo(clave, L) {
@@ -4723,9 +4769,9 @@ function guardarVistos() {
 function agendaProxima() {
   const hoy = isoDe(new Date()), tope = isoDe(new Date(Date.now() + 8 * 864e5));
   const sangre = colectasSangre().map(c => ({titulo: "Donación de sangre", fecha: c.fecha, hora: horasColecta(c), lugar: c.oficial ? tit(c.lugar) : c.lugar, enlace: c.enlace, sangre: true}));
-  return ((E.extras || {}).agenda || []).filter(a => a.titulo && a.fecha && (a.hasta || a.fecha) >= hoy && a.fecha <= tope
+  return ((E.extras || {}).agenda || []).filter(a => a.titulo && a.fecha && (a.hasta || a.fecha) >= hoy && a.fecha <= tope && !eventoPasado(a.fecha, a.hasta, a.hora)
       && (!a.ine || !E.lugar.ine || a.ine === E.lugar.ine)).concat(sangre)   // 3.9: solo las del pueblo (como los cortes y las colectas)
-    .concat(((E.extras || {}).agendaJunta || []).filter(a => a.titulo && a.fecha && (a.hasta || a.fecha) >= hoy && a.fecha <= isoDe(new Date(Date.now() + 30 * 864e5)))
+    .concat(((E.extras || {}).agendaJunta || []).filter(a => a.titulo && a.fecha && (a.hasta || a.fecha) >= hoy && a.fecha <= isoDe(new Date(Date.now() + 30 * 864e5)) && !eventoPasado(a.fecha, a.hasta, a.horario))
       .map(a => ({...a, hora: a.horario ? (a.horario.match(/\d{1,2}[:.]\d{2}/) || [""])[0].replace(".", ":") : "", lugar: `${a.lugar} · Junta de Andalucía`, junta: true})))   // 4.27
     .sort((a, b) => (a.fecha + (a.hora || "")).localeCompare(b.fecha + (b.hora || "")));
 }
@@ -5511,7 +5557,7 @@ function planesVivos() {
     .map(a => ({titulo: a.titulo, inicio: a.fecha, fin: a.hasta, hora: a.horario, lugar: a.lugar, gratis: RX_GRATIS.test(a.precio || ""), aireLibre: RX_AIRE.test(a.titulo),
       senderismo: /\bsender|\bsenda\b|\brutas?\b|\bmarcha\b/i.test(a.titulo), enlace: a.enlace, fuente: "Junta de Andalucía"}));
   const desde = p => p.inicio < hoy ? hoy : p.inicio;
-  return (((X.actividades || {}).lista) || []).concat(J).filter(p => (p.fin || p.inicio) >= hoy && p.inicio <= lim)
+  return (((X.actividades || {}).lista) || []).concat(J).filter(p => (p.fin || p.inicio) >= hoy && p.inicio <= lim && !eventoPasado(p.inicio, p.fin, p.hora))
     .sort((a, b) => desde(a).localeCompare(desde(b)) || String(a.hora || "").localeCompare(String(b.hora || "")));
 }
 const hayPlanes = () => planesVivos().length > 0;
@@ -5550,7 +5596,7 @@ function itemAyuda(a) {
   const pl = a.estado === "proxima" ? `<span class="pl">se abre el ${diaFecha(a.desde)}${a.hasta ? `, hasta el ${diaFecha(a.hasta)}` : ""}</span>`
     : a.hasta ? `<span class="pl${diasHasta(a.hasta) <= 3 ? " ya" : ""}">solicitudes hasta el ${diaFecha(a.hasta)}</span>${a.plazo ? ` · ${esc(a.plazo)}` : ""}` : `<span class="pl">plazo: ${esc(a.plazo || "sin fecha de cierre")}</span>`;
   const quien = [a.organo, a.importe ? `${miles(a.importe)} €` : "", a.para ? `para ${a.para.join(", ")}` : ""].filter(Boolean).join(" · ");
-  return `<li ${claveNuevo("ay:" + a.num)}${claseHoy(a.registrada)}><div><b>${esc(a.titulo)}${a.lineas > 1 ? ` (${a.lineas} líneas)` : ""}${marcaNuevo("ay:" + a.num, a.registrada)}</b><span>${esc(quien)}</span><span>${pl}</span></div>${qrSvg(a.enlace, "qr nq", 54)}</li>`;
+  return `<li ${claveNuevo("ay:" + a.num)}${claseHoy(a.registrada)}><div><b>${esc(a.titulo)}${a.lineas > 1 ? ` (${a.lineas} líneas)` : ""}${marcaNuevo("ay:" + a.num, a.registrada)}</b><span>${esc(quien)}</span><span>${pl}</span></div>${qrSvg(enlaceDe(a, (E.extras || {}).ayudas, "num"), "qr nq", 54)}</li>`;
 }
 function itemCurso(g) {
   const ed = g.ed, c = ed[0], K = ed.map(x => "cu:" + x.id), nuevo = K.some(k => esNuevo(k));
@@ -5562,10 +5608,10 @@ function itemCurso(g) {
   const lugares = unico(lugarDe), para = unico(x => x.para), horario = unico(x => x.horario);
   const comun = `${lugares.length === 1 ? lugares[0] : ""}${g.horas ? `${lugares.length === 1 ? " · " : ""}${g.horas} h` : ""}${para.length ? ` · para personas ${esc(para.join(" o "))}` : ""}${horario.length === 1 ? ` · ${esc(turno(horario[0]))}` : ""}`;
   if (ed.length === 1) return `<li ${claveNuevo(K[0])}><div><b>${esc(g.nombre)}${nuevo ? `<i class="nuevo">Nuevo</i>` : ""}</b><span>${comun.replace(/^ · /, "")}</span>
-    <span>${pl(c)}${c.inicio ? ` · empieza el ${diaFecha(c.inicio)}` : ""}</span></div>${qrSvg(c.enlace, "qr nq", 54)}</li>`;
+    <span>${pl(c)}${c.inicio ? ` · empieza el ${diaFecha(c.inicio)}` : ""}</span></div>${qrSvg(enlaceDe(c, (E.extras || {}).cursos, "id"), "qr nq", 54)}</li>`;
   const edicion = x => `${x.fin ? `<span class="pl${diasHasta(x.fin) <= 3 ? " ya" : ""}">${x.convocado ? "se abre pronto, " : ""}hasta el ${diaFecha(x.fin)}</span>` : `<span class="pl">se abre pronto</span>`}${x.inicio ? ` (empieza el ${diaFecha(x.inicio)}${horario.length > 1 && x.horario ? `, ${esc(turno(x.horario))}` : ""}${lugares.length > 1 ? `, ${lugarDe(x)}` : ""})` : ""}`;
   return `<li ${claveNuevo(K.join("\u001f"))}><div><b>${esc(g.nombre)} <i class="eds">${ed.length} ediciones</i>${nuevo ? `<i class="nuevo">Nuevo</i>` : ""}</b><span>${comun.replace(/^ · /, "")}</span>
-    <span>Solicitudes: ${ed.map(edicion).join(" · ")}</span></div>${qrSvg(c.enlace, "qr nq", 54)}</li>`;
+    <span>Solicitudes: ${ed.map(edicion).join(" · ")}</span></div>${qrSvg(enlaceDe(c, (E.extras || {}).cursos, "id"), "qr nq", 54)}</li>`;
 }
 function pAyudas(partes) {
   const A = ayudasVivas(), C = cursosVivos(), lista = (clave, L, max) => enTurno(clave, L, max);

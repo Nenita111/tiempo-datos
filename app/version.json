@@ -1,8 +1,8 @@
 {
-  "versionCode": 73,
-  "versionName": "4.42",
+  "versionCode": 74,
+  "versionName": "4.43",
   "apk": "app/Tiempo.apk",
-  "sha256": "560769f7c4a4ba0d2ec8ce845af71a446a269735a2fe14f485fbe11333dd8a3a",
-  "bytes": 1375261,
-  "notas": "Luz de casa (Datadis): escribe la cuenta en el menú ≡ de la tele y sale «Mi luz» (el consumo hora a hora, el mes, mes a mes y la potencia) y «Luz por suministro» (cada CUPS con su dirección: día, semana, mes y año, y lo que se sale de lo habitual). Todo se guarda en la tele."
+  "sha256": "3d8431e0b7b0363d31127aa9dab7cdfcd49f066e9d7c4eda00b6d2a745441c85",
+  "bytes": 1377361,
+  "notas": "Estafas en circulación (avisos del INCIBE) en Alertas y productos; vuelos del próximo puente en Carretera; los eventos que ya han pasado dejan de salir (por hora, no solo por día); datos más ligeros (la página deduce los enlaces de cursos y ayudas)."
 }
