@@ -363,7 +363,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-15",
- "actualizado": "2026-11-15T20:33+01:00",
+ "actualizado": "2026-11-15T23:02+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -6648,5 +6648,32 @@
     ]
    }
   ]
+ },
+ "estafas": {
+  "lista": [
+   {
+    "titulo": "Un falso concurso de baile permite a los ciberdelincuentes utilizar tu cuenta de WhatsApp",
+    "fecha": "2026-10-21",
+    "enlace": "https://www.incibe.es/ciudadania/avisos/un-falso-concurso-de-baile-permite-los-ciberdelincuentes-utilizar-tu-cuenta-de",
+    "afecta": "Personas que hayan recibido un mensaje de WhatsApp solicitando su voto en un supuesto concurso de baile y hayan seguido las instrucciones para vincular un dispositivo a su cuenta.",
+    "resumen": "Desde INCIBE hemos recibido consultas sobre un nuevo fraude. Mensajes de WhatsApp que solicitan votar por un familiar o conocido en un supuesto concurso de baile. Los mensajes llegan desde cuentas de contactos y contienen un enlace a una página fraudulenta. El objetivo es vincular un dispositivo externo a la cuenta de la víctima y así, escribir a sus contactos sin autorización."
+   },
+   {
+    "titulo": "Los ciberdelincuentes están utilizando cuentas de WhatsApp en iPhone sin actualizar para pedir dinero a sus contactos",
+    "fecha": "2026-10-14",
+    "enlace": "https://www.incibe.es/ciudadania/avisos/los-ciberdelincuentes-estan-utilizando-cuentas-de-whatsapp-en-iphone-sin",
+    "afecta": "Personas que utilizan WhatsApp en un iPhone y cuyos contactos reciben mensajes enviados desde su cuenta que ellas no han escrito.",
+    "resumen": "Desde INCIBE hemos identificado una oleada de consultas de usuarios cuyos contactos están recibiendo mensajes enviados desde sus cuentas de WhatsApp que ellos no han escrito. Los mensajes solicitan dinero para resolver una supuesta urgencia y facilitan una cuenta bancaria para realizar el pago."
+   },
+   {
+    "titulo": "Correos y SMS suplantan a la DGT para robar tus datos con falsas multas",
+    "fecha": "2026-09-28",
+    "enlace": "https://www.incibe.es/ciudadania/avisos/correos-y-sms-suplantan-la-dgt-para-robar-tus-datos-con-falsas-multas",
+    "afecta": "Personas que hayan recibido estas comunicaciones, especialmente quienes hayan accedido al enlace y facilitado información personal o bancaria.",
+    "resumen": "Se han identificado correos electrónicos y mensajes de texto que se hacen pasar por la Dirección General de Tráfico (DGT). Utilizan una supuesta multa pendiente o la revisión de un expediente para que accedas a un enlace."
+   }
+  ],
+  "fuente": "INCIBE (Instituto Nacional de Ciberseguridad)",
+  "url": "https://www.incibe.es/ciudadania/avisos"
  }
 }
