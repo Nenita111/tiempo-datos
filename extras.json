@@ -362,8 +362,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-14",
- "actualizado": "2026-11-14T06:12+01:00",
+ "sorteosBuscado": "2026-11-15",
+ "actualizado": "2026-11-15T06:16+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -880,19 +880,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-14",
-  "nombre": "Crema de calabaza",
+  "fecha": "2026-11-15",
+  "nombre": "Lentejas con verduras",
   "tiempo": {
    "temperature": "mild",
-   "rain": "some chance of rain",
+   "rain": "dry",
    "wind": "light wind",
-   "sky": "Intervalos nubosos"
+   "sky": "Poco nuboso"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-08",
-    "nombre": "Ensalada de granada"
-   },
    {
     "fecha": "2026-11-09",
     "nombre": "Crema de puerros"
@@ -916,11 +912,15 @@
    {
     "fecha": "2026-11-14",
     "nombre": "Crema de calabaza"
+   },
+   {
+    "fecha": "2026-11-15",
+    "nombre": "Lentejas con verduras"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-14",
+  "fecha": "2026-11-15",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/220/14": {
     "tipo": "lista_definitiva",
@@ -1212,16 +1212,6 @@
     "experiencia": 0.98,
     "colectivo": "general"
    },
-   "692362": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico Facultativo Consultoría (Residuos)",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-14",
-    "nivel": "grado",
-    "experiencia": 0.87,
-    "colectivo": "general"
-   },
    "692230": {
     "zona": false,
     "zv": 4,
@@ -1262,16 +1252,6 @@
     "experiencia": 0.97,
     "colectivo": "general"
    },
-   "692029": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar Fomento de la Investigación -46-2026",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-26",
-    "nivel": "grado",
-    "experiencia": 0.93,
-    "colectivo": "general"
-   },
    "692356": {
     "zona": false,
     "zv": 4,
@@ -1282,6 +1262,16 @@
     "experiencia": 0.1,
     "colectivo": "general"
    },
+   "692029": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a Auxiliar Fomento de la Investigación -46-2026",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-26",
+    "nivel": "grado",
+    "experiencia": 0.93,
+    "colectivo": "general"
+   },
    "691918": {
     "zona": false,
     "zv": 4,
@@ -1290,16 +1280,6 @@
     "hasta": "2026-11-19",
     "nivel": "grado",
     "experiencia": 0.03,
-    "colectivo": "general"
-   },
-   "691687": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "AUDITOR/A",
-    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
-    "hasta": "2026-11-14",
-    "nivel": "master",
-    "experiencia": 0.93,
     "colectivo": "general"
    },
    "691333": {
@@ -1410,10 +1390,10 @@
     "inscripcion": 0.03
    }
   },
-  "fecha": "2026-11-14"
+  "fecha": "2026-11-15"
  },
  "fap": {
-  "fecha": "2026-11-14",
+  "fecha": "2026-11-15",
   "novedades": [
    {
     "tipo": "circular",
@@ -5104,18 +5084,6 @@
     "horario": "tarde"
    },
    {
-    "id": "457708",
-    "codigo": "SSCE0110",
-    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457708",
-    "fin": "2026-11-16",
-    "inicio": "2027-01-11",
-    "horas": 380,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "municipio": "Málaga"
-   },
-   {
     "id": "457701",
     "codigo": "SSCE0110",
     "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
@@ -5124,6 +5092,18 @@
     "inicio": "2027-01-11",
     "horas": 380,
     "para": "ocupadas",
+    "modalidad": "en línea",
+    "municipio": "Málaga"
+   },
+   {
+    "id": "457708",
+    "codigo": "SSCE0110",
+    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457708",
+    "fin": "2026-11-16",
+    "inicio": "2027-01-11",
+    "horas": 380,
+    "para": "desempleadas",
     "modalidad": "en línea",
     "municipio": "Málaga"
    },
@@ -5417,6 +5397,18 @@
     "horario": "día completo"
    },
    {
+    "id": "112",
+    "codigo": "SEAD097PO",
+    "nombre": "Gestión de la PRL en PYMES y micropymes",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/112",
+    "fin": "2026-11-30",
+    "inicio": "2026-12-09",
+    "horas": 30,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
     "id": "2920",
     "codigo": "MF1001",
     "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
@@ -5549,24 +5541,12 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "día completo"
-   },
-   {
-    "id": "2878",
-    "codigo": "MF0245",
-    "nombre": "Gestión de quejas y reclamaciones en materia de consumo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2878",
-    "fin": "2026-12-11",
-    "inicio": "2027-01-11",
-    "horas": 90,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
    }
   ],
-  "lineaTotal": 94,
+  "lineaTotal": 95,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-14"
+  "dia": "2026-11-15"
  },
  "polen": {
   "estacion": "Almería",
@@ -5791,7 +5771,7 @@
     ]
    }
   ],
-  "dias": 385,
+  "dias": 384,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -5804,16 +5784,6 @@
     "lugar": "Centro Fundación Unicaja de Almería",
     "municipio": "Almería",
     "enlace": "https://www.turismodealmeria.org/evento/ciclo-360o-en-almeria/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Almería mira al mar: por qué el futuro de Almería es azul",
-    "inicio": "2026-11-14",
-    "hora": "12:00",
-    "lugar": "Pabellón de Historia Natural, PHN",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/almeria-mira-al-mar-por-que-el-futuro-de-almeria-es-azul/",
     "fuente": "Turismo de Almería",
     "gratis": true
    },
@@ -5957,11 +5927,10 @@
   ],
   "fuentes": [
    "Ayuntamiento de Adra (Adra en la Senda)",
-   "Diputación de Almería",
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-11"
+  "dia": "2026-11-15"
  },
  "sendaAdra": {
   "pdf": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
@@ -6381,25 +6350,6 @@
      "n": 10,
      "unidad": "habiles",
      "hasta": "2026-11-03"
-    }
-   },
-   {
-    "id": "399651",
-    "cod": "510",
-    "tipo": "directivo",
-    "fecha": "2026-10-15",
-    "boja": true,
-    "centro": "Área de gestión sanitaria Sur de Granada",
-    "area": "sur_granada",
-    "titulo": "Resolución de 9 de Octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se anuncia convocatoria pública para cubrir puesto de trabajo de carácter directivo próximo a quedar vacante de Gerencia de Área del Área de Gestión Sanitaria Sur de Granada",
-    "puesto": "Gerencia de Área del Área de Gestión Sanitaria Sur de Granada",
-    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/399651/86877/105821",
-    "docs": 1,
-    "estado": null,
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-10-29"
     }
    }
   ],
