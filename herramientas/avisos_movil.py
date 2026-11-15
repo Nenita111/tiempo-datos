@@ -19,21 +19,20 @@
     nueva, o un cambio de fecha o de sede, una suspensión o un aplazamiento. La primera vez solo se apuntan.
   - (3.8) En las convocatorias del SAS, el último día del plazo de solicitudes si se sabe (sas.py lo calcula con el calendario de la Junta).
 
-  python3 avisos_movil.py --estado avisos_enviados.json [--extras extras.json] [--lugar Adra --ine 04003 --lat 36.7489 --lon -3.0206]
+  python3 avisos_movil.py --estado avisos_enviados.json [--extras extras.json] [--lugar Adra --ine 04003 --lat 36.7480 --lon -3.0213]
 
 Imprime una línea JSON: {"nuevos": [{"tipo", "texto", "enlace", "clave"}], "fallos": […], "guardar": bool} y apunta en --estado lo enviado
 (se olvida a los 30 días), para no repetirlo; «guardar» dice si --estado ha cambiado (también sin nada nuevo: lo que se olvida y las ofertas
 que se apuntan la primera vez), para subirlo. Sale con 0 aunque falle alguna fuente; con 2 si fallan todas.
 """
-import argparse, datetime as dt, gzip, io, json, math, os, re, sys, tarfile, unicodedata, urllib.parse, urllib.request
+import argparse, datetime as dt, io, json, os, re, sys, tarfile, urllib.parse, urllib.request
 from html import unescape
 from xml.etree import ElementTree as ET
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # jev.py, al lado (con -I no se mira la carpeta del script)
 import comun, jev, zona
-from zoneinfo import ZoneInfo
 
-TZ = ZoneInfo("Europe/Madrid")
-LUGAR = "Adra"                       # el pueblo de la tele (también el del sandbox de Composio, composio_jev.py)
+TZ = comun.TZ
+LUGAR = comun.LUGAR                  # el pueblo de la tele (también el del sandbox de Composio, composio_jev.py)
 UA = "TiempoYRadar/1.0 (avisos personales al movil)"
 AEMET = "https://www.aemet.es"
 IGN = "https://www.ign.es/web/ign/portal/ultimos-terremotos/-/ultimos-terremotos/get10dias"
@@ -42,7 +41,7 @@ CIERRES = "https://services3.arcgis.com/5VitVYyVLQYnzXCo/arcgis/rest/services/Ci
 FENOMENOS = {"PR": "lluvias", "TO": "tormentas", "VI": "viento", "CO": "fenómenos costeros", "NE": "nevadas", "AT": "temperaturas máximas",
              "TA": "temperaturas máximas", "BT": "temperaturas mínimas", "TI": "temperaturas mínimas", "NI": "nieblas", "PO": "polvo en suspensión",
              "RM": "rachas de viento", "GL": "galernas", "AL": "aludes"}
-DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+DIAS = comun.DIAS
 
 
 def pedir(url, timeout=40):
@@ -50,8 +49,7 @@ def pedir(url, timeout=40):
     return comun.pedir(url, UA, timeout=timeout)
 
 
-def sin_tildes(s):
-    return unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode().lower()
+sin_tildes = comun.solo_ascii
 
 
 # ------------------------------------------------------------------ AEMET
@@ -122,7 +120,7 @@ FILA = re.compile(r'<td>(es\w+)</td>\s*<td>([\d/]+)</td>\s*<td>([\d:]+)</td>\s*<
 
 
 def km(lat0, lon0, lat, lon):
-    return math.hypot((lon - lon0) * 111.32 * math.cos(math.radians(lat0)), (lat - lat0) * 110.57)
+    return comun.km((lat0, lon0), (lat, lon))
 
 
 def se_nota(mag, d):
@@ -204,7 +202,7 @@ def es_urgente(r, p, ahora):
 
 def cortes_rss(xml, lugar, desde, juez=None, ahora=None):
     """Sin juez, solo la regla de texto."""
-    res, ahora = [], ahora or dt.datetime.now(TZ)
+    res, ahora = [], ahora or comun.ahora()
     for p in piezas_rss(xml, lugar, desde):
         tipo, r = juez.corte(lugar, p) if juez else (tipo_corte(p["titulo"]), None)
         if tipo: res.append({"tipo": tipo, "titulo": p["titulo"], "enlace": p["enlace"], "fuente": "Noticias de Almería"})
@@ -394,12 +392,12 @@ def ofertas(estado, sae, x, ahora, vivas=None, bolsa=()):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--estado", required=True); p.add_argument("--extras", default="extras.json")
-    p.add_argument("--lugar", default=LUGAR); p.add_argument("--ine", default="04003")
-    p.add_argument("--lat", type=float, default=36.7489); p.add_argument("--lon", type=float, default=-3.0206)
+    p.add_argument("--lugar", default=LUGAR); p.add_argument("--ine", default=comun.INE)
+    p.add_argument("--lat", type=float, default=comun.ADRA[0]); p.add_argument("--lon", type=float, default=comun.ADRA[1])
     p.add_argument("--titulares-jev", default=None, help="lo que dijo Jev de los titulares de ahora (por defecto, jev_titulares.json junto a --estado)")
     p.add_argument("--hace-falta-jev", action="store_true", help="solo dice cuántos titulares de ahora no tienen respuesta de Jev guardada")
     o = p.parse_args()
-    ahora = dt.datetime.now(TZ)
+    ahora = comun.ahora()
     tj = o.titulares_jev or os.path.join(os.path.dirname(os.path.abspath(o.estado)), "jev_titulares.json")
     if os.path.exists(tj) and tj not in os.environ.get("JEV_CACHE", "").split(os.pathsep):
         os.environ["JEV_CACHE"] = os.pathsep.join(f for f in (os.environ.get("JEV_CACHE", "").strip(), tj) if f)
@@ -413,9 +411,9 @@ def main():
                               "model": jev.MODELO, "questions": jev.preguntas_titular()}
                     faltan += jev.clave(cuerpo) not in jev.cache()
             except Exception as e: fallos.append(f"Noticias de Almería: {e}"[:160])
-        print(json.dumps({"titulares": n, "faltan": faltan, "fallos": fallos}, ensure_ascii=False)); return
+        comun.decir({"titulares": n, "faltan": faltan, "fallos": fallos}); return
     try:
-        with open(o.estado, encoding="utf-8") as f: estado = json.load(f)
+        estado = comun.leer(o.estado)
     except FileNotFoundError:
         estado = {}
     antes = json.dumps(estado, sort_keys=True)
@@ -425,7 +423,7 @@ def main():
     try: sismos = terremotos(pedir(IGN).decode("utf-8", "replace"), o.lat, o.lon); bien += 1
     except Exception as e: fallos.append(f"IGN: {e}")
     try:
-        with open(o.extras, encoding="utf-8") as f: x = json.load(f)
+        x = comun.leer(o.extras)
         hoy = ahora.date().isoformat()
         cortes += [{"tipo": c["tipo"], "titulo": c["titulo"], "enlace": c.get("enlace", ""), "fuente": c.get("fuente", "Ayuntamiento")}
                    for c in x.get("cortes", []) if c.get("tipo") in ("agua", "luz") and c.get("ine", o.ine) == o.ine and c.get("hasta", hoy) >= hoy]
@@ -452,18 +450,17 @@ def main():
     for a in n: estado[a["clave"]] = ahora.isoformat(timespec="minutes")
     limite = (ahora - dt.timedelta(days=30)).isoformat()
     estado = {k: v for k, v in estado.items() if v >= limite or k in vivas}      # 3.9: lo que sigue ahí no se olvida (no se repite)
-    with open(o.estado, "w", encoding="utf-8") as f: json.dump(estado, f, ensure_ascii=False, indent=1, sort_keys=True)
+    comun.guardar(o.estado, estado, sort_keys=True)
     guardar = json.dumps(estado, sort_keys=True) != antes
     # 3.9: lo que dijo Jev de los titulares de ahora, para la próxima pasada (si no hay titulares nuevos, no hace falta el sandbox)
     pre = jev.preguntas_titular()
     usadas = {k: v for k, v in jev.USADAS.items() if isinstance(v, dict) and set((v.get("answers") or {})) >= set(pre)}
     try:
-        with open(tj, encoding="utf-8") as f: viejas = json.load(f)
+        viejas = comun.leer(tj)
     except (OSError, ValueError): viejas = None
     if usadas != viejas:                                     # (la primera vez se crea aunque esté vacío: la tarea lo sube siempre)
         comun.guardar(tj, usadas); guardar = True
-    print(json.dumps({"nuevos": n, "fallos": fallos, "titulares": juez.usado + (f" ({juez.motivo})" if juez.motivo else ""),
-                      "guardar": guardar}, ensure_ascii=False))
+    comun.decir({"nuevos": n, "fallos": fallos, "titulares": juez.usado + (f" ({juez.motivo})" if juez.motivo else ""), "guardar": guardar})
     sys.exit(0 if bien else 2)
 
 

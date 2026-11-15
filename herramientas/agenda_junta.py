@@ -9,15 +9,13 @@ municipios_almeria.json: INE e IGN, Nomenclátor Geográfico Básico; los de fue
 
 Imprime una línea JSON: {"agendaJunta": N, "total": M} o {"error": …} (sale con 1; deja lo que había).
 """
-import datetime as dt, html, json, math, os, re, sys
-from zoneinfo import ZoneInfo
+import json, math, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 URL = "https://datos.juntadeandalucia.es/api/v0/schedule/all?format=json"
 FICHA = "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia"
-ADRA = (36.7480, -3.0213)
+ADRA, km, texto = comun.ADRA, comun.km, comun.limpio
 RADIO_KM = 60
 
 
@@ -41,21 +39,10 @@ def utm30_a_latlon(x, y):
 
 
 def sin_tildes(s):
-    import unicodedata
-    return "".join(c for c in unicodedata.normalize("NFD", s or "") if unicodedata.category(c) != "Mn").lower().strip()
+    return comun.sin_tildes(s).strip()
 
 
-def municipios():
-    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "municipios_almeria.json")
-    return {sin_tildes(m[0]): (m[2], m[3]) for m in json.load(open(p, encoding="utf-8"))["municipios"]}
-
-
-def km(a, b):
-    return math.hypot((a[1] - b[1]) * 111.32 * math.cos(math.radians(a[0])), (a[0] - b[0]) * 110.57)
-
-
-def texto(s):
-    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
+municipios = comun.coordenadas
 
 
 def leer(eventos, hoy, munis=None):
@@ -87,19 +74,16 @@ def leer(eventos, hoy, munis=None):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    x = json.load(open(ruta, encoding="utf-8"))
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(ruta)
+    hoy = comun.hoy()
     try:
         L = json.loads(comun.pedir(URL, timeout=120).decode("utf-8"))
         if not isinstance(L, list) or not L: raise ValueError("la agenda de la Junta ha llegado vacía")
         cerca = leer(L, hoy)
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
-    if x.get("agendaJunta") != cerca:
-        x["agendaJunta"] = cerca
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"agendaJunta": len(cerca), "total": len(L)}, ensure_ascii=False))
+        comun.fallar(e)
+    comun.poner(ruta, x, "agendaJunta", cerca)
+    comun.decir({"agendaJunta": len(cerca), "total": len(L)})
 
 
 if __name__ == "__main__":

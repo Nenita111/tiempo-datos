@@ -7,12 +7,12 @@ Fuente: Red Eléctrica. Primero ESIOS (indicador 1001, península), con la clave
 una sola vez. Precios en €/kWh del término de energía del PVPC 2.0TD (con peajes y cargos, sin impuestos).
 Sale con código 4 si los precios de ese día aún no están publicados (y no dibuja nada).
 """
-import argparse, asyncio, datetime as dt, json, os, subprocess, sys, tempfile, time, zipfile, zoneinfo
+import argparse, asyncio, datetime as dt, json, os, subprocess, sys, tempfile, time, zipfile
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
-TZ = zoneinfo.ZoneInfo("Europe/Madrid")
+TZ, DIAS, MESES = comun.TZ, comun.DIAS, comun.MESES
 UA = "TiempoYRadar/1.0 (precio de la luz para el movil; https://github.com/Nenita111/tiempo-datos)"
-DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
-MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
 SIN_PRECIOS = 4
 
 
@@ -179,7 +179,7 @@ def main():
     a.add_argument("--esperar", type=int, default=0, help="minutos que se espera a que se publiquen (solo con ESIOS; mira cada 4 min)")
     a.add_argument("--apk", help="APK de la app, para usar su misma letra")
     o = a.parse_args()
-    hoy = dt.datetime.now(TZ).date()
+    hoy = comun.hoy()
     dia = dt.date.fromisoformat(o.dia) if o.dia else hoy + dt.timedelta(days=1)
     fin = time.time() + o.esperar * 60
     while True:

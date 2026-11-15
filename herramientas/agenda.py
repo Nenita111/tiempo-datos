@@ -9,23 +9,21 @@ las capturas del buzón de Drive o la búsqueda web de la tarea diaria.
 Solo se apunta lo que se ha leído en la fuente: qué, el día (y la hora si la dice) y dónde. Nada deducido: sin día, no se apunta.
 Se quitan solas al pasar el último día.
 """
-import argparse, datetime as dt, json, re, sys
-from zoneinfo import ZoneInfo
-import os
+import argparse, datetime as dt, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
+FUENTE = "Ayuntamiento de Adra"
 
 
 def podar(x, hoy=None):
-    hoy = hoy or dt.datetime.now(TZ).date()
+    hoy = hoy or comun.hoy()
     x["agenda"] = sorted((a for a in x.get("agenda", []) if dt.date.fromisoformat(a.get("hasta") or a["fecha"]) >= hoy),
                          key=lambda a: (a["fecha"], a.get("hora") or ""))
     return x
 
 
-def anadir(x, titulo, fecha, hora=None, hasta=None, lugar=None, enlace=None, fuente="Ayuntamiento de Adra", ine="04003"):
+def anadir(x, titulo, fecha, hora=None, hasta=None, lugar=None, enlace=None, fuente=FUENTE, ine=comun.INE):
     titulo = re.sub(r"\s+", " ", (titulo or "")).strip()
     if not titulo: raise ValueError("falta el título")
     f = dt.date.fromisoformat(fecha)
@@ -35,7 +33,7 @@ def anadir(x, titulo, fecha, hora=None, hasta=None, lugar=None, enlace=None, fue
     if hora: a["hora"] = hora
     if hasta and hasta != fecha: a["hasta"] = hasta
     if lugar: a["lugar"] = re.sub(r"\s+", " ", lugar).strip()
-    if enlace: a["enlace"] = re.sub(r"\?.*$", "", enlace.strip()) if "instagram.com" in enlace else enlace.strip()
+    if enlace: a["enlace"] = comun.enlace_limpio(enlace)
     mismo = lambda o: o["fecha"] == a["fecha"] and (o["titulo"].lower() == titulo.lower() or (enlace and o.get("enlace") == a.get("enlace")))
     x["agenda"] = [o for o in x.get("agenda", []) if not mismo(o)] + [a]
     return x
@@ -44,15 +42,14 @@ def anadir(x, titulo, fecha, hora=None, hasta=None, lugar=None, enlace=None, fue
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("extras"); p.add_argument("--titulo"); p.add_argument("--fecha"); p.add_argument("--hora"); p.add_argument("--hasta")
-    p.add_argument("--lugar"); p.add_argument("--enlace"); p.add_argument("--fuente", default="Ayuntamiento de Adra"); p.add_argument("--ine", default="04003")
+    p.add_argument("--lugar"); p.add_argument("--enlace"); p.add_argument("--fuente", default=FUENTE); p.add_argument("--ine", default=comun.INE)
     o = p.parse_args()
-    with open(o.extras, encoding="utf-8") as f: x = json.load(f)
+    x = comun.leer(o.extras)
     if o.titulo or o.fecha:
         if not (o.titulo and o.fecha): sys.exit("Falta --titulo o --fecha")
         anadir(x, o.titulo, o.fecha, o.hora, o.hasta, o.lugar, o.enlace, o.fuente, o.ine)
     podar(x)
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(o.extras, x)
+    comun.publicar(o.extras, x)
     print(f"{len(x['agenda'])} actividades en la agenda de {o.extras}")
 
 

@@ -15,11 +15,9 @@ cerrado se apuntan en «ayudasCerradas» para no volver a pedirlas.
 Imprime una línea JSON: {"ayudas": N abiertas, "vistas": M, ...} o {"error": …} (sale con 1; deja lo que había).
 """
 import datetime as dt, json, os, re, sys, time, urllib.parse
-from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 API = "https://www.infosubvenciones.es/bdnstrans/api"
 FICHA = "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/"
 TIPOS = "1,3"          # personas físicas sin actividad económica; pymes y personas físicas con actividad (autónomos)
@@ -179,8 +177,8 @@ def orden(a):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    x = json.load(open(ruta, encoding="utf-8"))
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(ruta)
+    hoy = comun.hoy()
     cerradas = set(x.get("ayudasCerradas") or [])
     vistas, nuevas, abiertas, fallos = 0, 0, [], []
     try:
@@ -208,9 +206,9 @@ def main():
                 elif a["estado"]: abiertas.append(a)
                 elif (c.get("fechaRecepcion") or "9999")[:10] < (hoy - dt.timedelta(days=60)).isoformat(): cerradas.add(num)   # sin plazo
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
+        comun.fallar(e)
     if len(fallos) > max(5, nuevas // 4):
-        print(json.dumps({"error": f"{len(fallos)} fallos", "fallos": fallos[:5]}, ensure_ascii=False)); sys.exit(1)
+        comun.decir({"error": f"{len(fallos)} fallos", "fallos": fallos[:5]}); sys.exit(1)
     # las líneas de una misma convocatoria (mismo título, plazo y órgano), una vez
     vistos = {}
     for a in sorted(abiertas, key=orden):
@@ -222,9 +220,8 @@ def main():
     if x.get("ayudas", {}).get("lista") != abiertas or set(x.get("ayudasCerradas") or []) != cerradas:
         x["ayudas"] = dict(vivas, dia=hoy.isoformat())
         x["ayudasCerradas"] = sorted(cerradas, key=lambda s: (len(s), s))
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"ayudas": len(abiertas), "vistas": vistas, "pedidas": nuevas, "cerradas": len(cerradas), "fallos": fallos[:3]}, ensure_ascii=False))
+        comun.publicar(ruta, x)
+    comun.decir({"ayudas": len(abiertas), "vistas": vistas, "pedidas": nuevas, "cerradas": len(cerradas), "fallos": fallos[:3]})
 
 
 if __name__ == "__main__":

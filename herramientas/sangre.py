@@ -11,17 +11,13 @@ del Centro de Transfusión, una nota del Ayuntamiento o un cartel del buzón de 
 Solo se apunta lo que se ha leído: el día, el lugar y el horario, con el enlace a la fuente. Nada deducido: sin día o sin lugar, no se
 apunta (sin horario, sí: la tele lo enseña sin hora). Se quitan solas al pasar el día. Guarda en extras.json «sangre».
 """
-import argparse, datetime as dt, json, re, sys
-from zoneinfo import ZoneInfo
-import os
+import argparse, datetime as dt, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
-
 
 def podar(x, hoy=None):
-    hoy = hoy or dt.datetime.now(TZ).date()
+    hoy = hoy or comun.hoy()
     s = x.setdefault("sangre", {})
     s["colectas"] = sorted((c for c in s.get("colectas", []) if dt.date.fromisoformat(c["fecha"]) >= hoy),
                            key=lambda c: (c["fecha"], (c.get("horas") or [[""]])[0][0]))
@@ -36,14 +32,14 @@ def horario(t):
     return [a, b]
 
 
-def anadir(x, fecha, lugar, enlace, fuente, horarios=(), pueblo="Adra", ine="04003"):
+def anadir(x, fecha, lugar, enlace, fuente, horarios=(), pueblo=comun.LUGAR, ine=comun.INE):
     f = dt.date.fromisoformat(fecha)
     lugar = re.sub(r"\s+", " ", lugar or "").strip()
     if not lugar: raise ValueError("falta el lugar")
     if not (enlace or "").startswith("http"): raise ValueError("falta el enlace a la fuente")
     if not (fuente or "").strip(): raise ValueError("falta la fuente")
     c = {"fecha": f.isoformat(), "lugar": lugar, "pueblo": pueblo, "ine": ine, "horas": [horario(h) for h in horarios],
-         "enlace": re.sub(r"\?.*$", "", enlace.strip()) if "instagram.com" in enlace else enlace.strip(), "fuente": fuente.strip()}
+         "enlace": comun.enlace_limpio(enlace), "fuente": fuente.strip()}
     s = x.setdefault("sangre", {})
     s["colectas"] = [o for o in s.get("colectas", []) if not (o["fecha"] == c["fecha"] and o.get("ine") == ine)] + [c]
     return x
@@ -52,15 +48,14 @@ def anadir(x, fecha, lugar, enlace, fuente, horarios=(), pueblo="Adra", ine="040
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("extras"); p.add_argument("--fecha"); p.add_argument("--horario", action="append", default=[]); p.add_argument("--lugar")
-    p.add_argument("--enlace"); p.add_argument("--fuente"); p.add_argument("--pueblo", default="Adra"); p.add_argument("--ine", default="04003")
+    p.add_argument("--enlace"); p.add_argument("--fuente"); p.add_argument("--pueblo", default=comun.LUGAR); p.add_argument("--ine", default=comun.INE)
     o = p.parse_args()
-    with open(o.extras, encoding="utf-8") as f: x = json.load(f)
+    x = comun.leer(o.extras)
     if o.fecha or o.lugar:
         try: anadir(x, o.fecha, o.lugar, o.enlace, o.fuente, o.horario, o.pueblo, o.ine)
         except (ValueError, TypeError) as e: sys.exit(f"No se apunta: {e}")
     podar(x)
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(o.extras, x)
+    comun.publicar(o.extras, x)
     print(f"{len(x['sangre']['colectas'])} colectas de sangre anunciadas en {o.extras}")
 
 

@@ -19,7 +19,9 @@ Jev: "sequia": "código 2: …", …}, "sortea2": [candidatos], "agenda_titulare
 agenda y colectas, los lunes y los jueves (los candidatos de sortea2 y de los titulares, todos los días). Sale con código 0 aunque falle un paso (lo dice el resumen; un paso que falla
 deja lo que había). La revisión de fuentes deja su informe en revision.json (no se sube: está en .gitignore).
 """
-import datetime as dt, json, os, re, subprocess, sys
+import json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
@@ -56,7 +58,7 @@ def correr(args, tiempo):
 def toca(x, hoy=None):
     """Lo que la tarea tiene que buscar hoy: los vuelos (4 búsquedas de Kiwi), si aún no se han buscado hoy; las búsquedas web, los
     lunes y los jueves."""
-    hoy = hoy or dt.date.today()
+    hoy = hoy or comun.hoy()
     return {"vuelos": (x.get("vuelosBuscado") or "") < hoy.isoformat(), "web": hoy.weekday() in (0, 3)}
 
 
@@ -85,13 +87,13 @@ def main():
         else: pasos["sortea2"] = f"ok: {s2['vistos']} vistos, {len(s2['candidatos'])} candidatos ({s2['juez']})"
     except Exception as e:
         s2 = {"candidatos": []}; pasos["sortea2"] = f"fallo: {e}"[:240]
-    x = json.load(open(extras, encoding="utf-8"))
+    x = comun.leer(extras)
     res = {"bien": len(bien), "pasos": pasos, "sortea2": [{"enlace": c["enlace"], "pueblos": c["pueblos"], "texto": c["texto"][:400]} for c in s2["candidatos"]],
            "agenda_titulares": titulares.get("agenda", []), "sangre_titulares": titulares.get("colectas", []),
            "agenda": len(x.get("agenda") or []), "sangre": len((x.get("sangre") or {}).get("colectas") or []),
            "sorteos": len(x.get("sorteos") or []), "cortes": len(x.get("cortes") or []), "toca": toca(x)}
     if cache:
-        try: n = len(json.load(open(cache, encoding="utf-8")))
+        try: n = len(comun.leer(cache))
         except (OSError, ValueError): n = 0
         m = len(set(open(faltan).read().split()))
         res["jev"] = f"{n} respuestas por Composio, {m} sin respuesta" + (" (¿falló el sandbox?)" if not n else "")
@@ -101,13 +103,13 @@ def main():
         inf = os.path.join(RAIZ, "revision.json")
         cod, ultima = correr([os.path.join(RAIZ, "herramientas", "revisar_fuentes.py"), "--json", inf], 900)
         try:
-            f = json.load(open(inf, encoding="utf-8"))["fuentes"]
+            f = comun.leer(inf)["fuentes"]
             res["rotas"] = [f"{y['fuente']}: {y['detalle']}"[:200] for y in f if y["estado"] == "ROTA"]
             res["fuentes"] = f"{sum(y['estado'] != 'ROTA' for y in f)}/{len(f)} bien"
             res["faltan_claves"] = [y["detalle"] for y in f if "falta la variable" in y.get("detalle", "")]   # ESIOS: la pone Isa en el entorno (Jev va por Composio)
         except (OSError, ValueError, KeyError):
             res["rotas"] = [f"revisar_fuentes.py no acabó ({ultima or cod})"]
-    print(json.dumps(res, ensure_ascii=False))
+    comun.decir(res)
 
 
 if __name__ == "__main__":

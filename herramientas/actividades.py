@@ -15,11 +15,9 @@ Los robots.txt de las tres dejan esas páginas. La agenda de la Junta ya está e
 Imprime una línea JSON: {"actividades": N, "fuentes": {…}, "fallos": […]} o {"error": …} (sale con 1 si fallan todas; deja lo que había).
 """
 import datetime as dt, html, json, os, re, sys, time
-from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 DIAS = 45
 TURALM = "https://www.turismodealmeria.org/wp-json"
 MOTRIL = "https://motrilturismo.com"
@@ -33,8 +31,7 @@ AIRE = re.compile(r"\bsender|\bsenda\b|\brutas?\b|\bmarcha\b|excursi|\bpaseo|\bp
 MESES = {m: i for i, m in enumerate(comun.MESES, 1)}
 
 
-def texto(h):
-    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", h or "")).split())
+texto = comun.limpio
 
 
 def ventana(ini, fin, hoy):
@@ -127,8 +124,7 @@ def motril(pag, hoy):
 
 # ---- Diputación de Almería, Deportes
 def municipios():
-    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "municipios_almeria.json")
-    return {comun.sin_tildes(m[0]): (m[0], m[2], m[3]) for m in comun.leer(p)["municipios"]}
+    return {comun.sin_tildes(m[0]): (m[0], m[2], m[3]) for m in comun.municipios()}
 
 
 def dipalme(pag, hoy, munis=None):
@@ -262,17 +258,14 @@ def pedir_senda(x, pedir, hoy, pdftotexto=None):
 
 
 def _pdftotexto(datos):
-    import subprocess, tempfile
-    with tempfile.NamedTemporaryFile(suffix=".pdf") as f:
-        f.write(datos); f.flush()
-        return subprocess.run(["pdftotext", f.name, "-"], capture_output=True, text=True, timeout=120, check=True).stdout
+    return comun.texto_pdf(datos, tiempo=120)
 
 
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    x = json.load(open(ruta, encoding="utf-8"))
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(ruta)
+    hoy = comun.hoy()
     lista, fuentes, fallos = [], {}, []
     pedir = lambda u, **k: comun.pedir(u, **k)
     try:
@@ -296,7 +289,7 @@ def main():
         l = adra_senda(S["temporada"], S["pdf"], hoy); fuentes["Ayuntamiento de Adra (Adra en la Senda)"] = len(l); lista += l
     except Exception as e: fallos.append(f"Adra en la Senda: {str(e)[:80]}")
     if not fuentes:
-        print(json.dumps({"error": "fallan todas", "fallos": fallos}, ensure_ascii=False)); sys.exit(1)
+        comun.decir({"error": "fallan todas", "fallos": fallos}); sys.exit(1)
     viejo = {p.get("fuente") for p in (x.get("actividades") or {}).get("lista") or []}
     # lo de una fuente que hoy ha fallado se deja como estaba (lo que no ha pasado)
     for f in viejo - set(fuentes):
@@ -304,11 +297,10 @@ def main():
     lista.sort(key=lambda p: (p["inicio"], p.get("hora") or "", p["titulo"]))
     nuevo = {"lista": lista, "fuentes": sorted(fuentes)}
     viejo_x = dict(x.get("actividades") or {}); viejo_x.pop("dia", None)
-    if viejo_x != nuevo or x.get("sendaAdra") != json.load(open(ruta, encoding="utf-8")).get("sendaAdra"):
+    if viejo_x != nuevo or x.get("sendaAdra") != comun.leer(ruta).get("sendaAdra"):
         x["actividades"] = dict(nuevo, dia=hoy.isoformat())
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"actividades": len(lista), "fuentes": fuentes, "fallos": fallos}, ensure_ascii=False))
+        comun.publicar(ruta, x)
+    comun.decir({"actividades": len(lista), "fuentes": fuentes, "fallos": fallos})
 
 
 if __name__ == "__main__":

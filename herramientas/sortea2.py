@@ -8,9 +8,9 @@ vista. Sin Jev, los candidatos son todos los que nombran la zona. Nunca se entra
 
   python3 -I herramientas/sortea2.py [--rss fichero]
 """
-import argparse, html, json, os, re, sys, unicodedata, urllib.request
+import argparse, html, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import jev
+import comun, jev
 
 RSS = "https://www.sortea2.com/rss.xml"
 UA = "TiempoYRadar/1.0 (sorteos locales para una tele)"
@@ -18,7 +18,7 @@ ZONA = ["Motril", "Torrenueva", "Calahonda", "Castell de Ferro", "La Mamola", "A
         "Almerimar", "Balanegra", "Vícar", "La Mojonera", "Roquetas", "Aguadulce", "Almería"]
 
 
-def plano(s): return unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode().lower()
+plano = comun.solo_ascii
 
 
 def items(xml):
@@ -58,8 +58,8 @@ def candidatos(xml, pedir=None):
 
 def main():
     a = argparse.ArgumentParser(); a.add_argument("--rss"); o = a.parse_args()
-    xml = (open(o.rss, "rb").read() if o.rss else urllib.request.urlopen(urllib.request.Request(RSS, headers={"User-Agent": UA}), timeout=40).read())
-    print(json.dumps(candidatos(xml.decode("utf-8", "replace")), ensure_ascii=False))
+    xml = open(o.rss, "rb").read() if o.rss else comun.pedir(RSS, UA, timeout=40)
+    comun.decir(candidatos(xml.decode("utf-8", "replace")))
 
 
 if __name__ == "__main__":

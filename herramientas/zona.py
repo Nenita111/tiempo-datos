@@ -4,10 +4,11 @@ la costa de Granada de Motril hacia Almería y lo que es para toda Andalucía. Y
 Empleo.ofertasSae), para las etiquetas de Jev (etiquetas.py) y los avisos al móvil (avisos_movil.py).
 """
 import datetime as dt, html, json, re, unicodedata, urllib.parse, urllib.request
+import comun      # al lado: quien importa zona ya tiene esta carpeta en su camino
 
 SAE = "https://saempleo.es/ags/api/MS-HERMES/hermes/ofertas/ofertaspublicadas"     # la lista que pide su página «Ofertas de empleo»; sin robots.txt
 SAE_FICHA = "https://saempleo.es/ags/candidaturas/lista-ofertas-publicas/detalle-oferta?origin=portal&ofertaId="
-UA = "TiempoYRadar/1.0 (tareas de la tele)"
+UA = comun.UA_TAREAS
 
 # comarca Levante Almeriense: Orden de 14 de marzo de 2003, mapa de comarcas de Andalucía (BOJA 59, de 27/03/2003)
 LEVANTE = {"ANTAS", "BEDAR", "CARBONERAS", "CUEVAS DEL ALMANZORA", "LOS GALLARDOS", "GARRUCHA", "HUERCAL OVERA", "LUBRIN", "MOJACAR", "PULPI",
@@ -25,28 +26,10 @@ FUERA = LEVANTE | set(ALMANZORA.values())
 # lo del SAS que es solo de esos pueblos o del Alto Almanzora (con mayúscula: «fines» es también una palabra), como soloFueraSas de la tele
 ALMANZORA_SAS = re.compile(r"\b(?:Ser[oó]n|T[ií]jola|Olula del R[ií]o|Bayarque|Armuña de Almanzora|Macael|Fines|Sufl[ií]|Sierro|Purchena|L[uú]car|"
                            r"Somont[ií]n|Laroya|Urr[aá]cal|Alc[oó]ntar|Partaloa|Cantoria|Bacares|L[ií]jar|Alto Almanzora)(?![A-Za-zÁÉÍÓÚáéíóúÑñ])")
-# los nombres con tildes, por su código INE (INE, «Relación de municipios y códigos ... a 1 de enero de 2026»)
-NOMBRES = {
-    "04001": "Abla", "04002": "Abrucena", "04003": "Adra", "04004": "Albanchez", "04005": "Alboloduy", "04006": "Albox",
-    "04007": "Alcolea", "04008": "Alcóntar", "04009": "Alcudia de Monteagud", "04010": "Alhabia", "04011": "Alhama de Almería",
-    "04012": "Alicún", "04013": "Almería", "04014": "Almócita", "04015": "Alsodux", "04016": "Antas", "04017": "Arboleas",
-    "04018": "Armuña de Almanzora", "04019": "Bacares", "04020": "Bayárcal", "04021": "Bayarque", "04022": "Bédar",
-    "04023": "Beires", "04024": "Benahadux", "04026": "Benitagla", "04027": "Benizalón", "04028": "Bentarique", "04029": "Berja",
-    "04030": "Canjáyar", "04031": "Cantoria", "04032": "Carboneras", "04033": "Castro de Filabres", "04034": "Cóbdar",
-    "04035": "Cuevas del Almanzora", "04036": "Chercos", "04037": "Chirivel", "04038": "Dalías", "04041": "Enix", "04043": "Felix",
-    "04044": "Fines", "04045": "Fiñana", "04046": "Fondón", "04047": "Gádor", "04048": "Los Gallardos", "04049": "Garrucha",
-    "04050": "Gérgal", "04051": "Huécija", "04052": "Huércal de Almería", "04053": "Huércal-Overa", "04054": "Íllar",
-    "04055": "Instinción", "04056": "Laroya", "04057": "Laujar de Andarax", "04058": "Líjar", "04059": "Lubrín",
-    "04060": "Lucainena de las Torres", "04061": "Lúcar", "04062": "Macael", "04063": "María", "04064": "Mojácar",
-    "04065": "Nacimiento", "04066": "Níjar", "04067": "Ohanes", "04068": "Olula de Castro", "04069": "Olula del Río",
-    "04070": "Oria", "04071": "Padules", "04072": "Partaloa", "04073": "Paterna del Río", "04074": "Pechina", "04075": "Pulpí",
-    "04076": "Purchena", "04077": "Rágol", "04078": "Rioja", "04079": "Roquetas de Mar", "04080": "Santa Cruz de Marchena",
-    "04081": "Santa Fe de Mondújar", "04082": "Senés", "04083": "Serón", "04084": "Sierro", "04085": "Somontín", "04086": "Sorbas",
-    "04087": "Suflí", "04088": "Tabernas", "04089": "Taberno", "04090": "Tahal", "04091": "Terque", "04092": "Tíjola",
-    "04093": "Turre", "04094": "Turrillas", "04095": "Uleila del Campo", "04096": "Urrácal", "04097": "Velefique",
-    "04098": "Vélez-Blanco", "04099": "Vélez-Rubio", "04100": "Vera", "04101": "Viator", "04102": "Vícar", "04103": "Zurgena",
-    "04901": "Las Tres Villas", "04902": "El Ejido", "04903": "La Mojonera", "04904": "Balanegra", "18006": "Albuñol",
-    "18093": "Gualchos", "18140": "Motril", "18162": "Polopos", "18170": "Rubite", "18177": "Sorvilán", "18916": "Torrenueva Costa"}
+# los nombres con tildes, por su código INE: los de la provincia, de municipios_almeria.json (INE, «Relación de municipios y códigos ... a 1 de
+# enero de 2026»), y los de la costa de Granada, aquí
+NOMBRES = {ine: n for n, ine, *_ in comun.municipios()} | {
+    "18006": "Albuñol", "18093": "Gualchos", "18140": "Motril", "18162": "Polopos", "18170": "Rubite", "18177": "Sorvilán", "18916": "Torrenueva Costa"}
 
 
 def aplica(ine): return (ine or "")[:2] == "04"            # la zona, con el pueblo en la provincia de Almería

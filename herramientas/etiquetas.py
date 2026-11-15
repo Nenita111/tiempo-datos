@@ -19,17 +19,16 @@ Lo ya etiquetado no se vuelve a preguntar; lo que la tele ya no enseña se olvid
 
   python3 -I herramientas/etiquetas.py extras.json
 """
-import datetime as dt, html, json, os, re, sys, urllib.error, urllib.request
-from zoneinfo import ZoneInfo
+import datetime as dt, html, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 import jev, zona
 
-TZ = ZoneInfo("Europe/Madrid")
+TZ = comun.TZ
 ZONA_V = 4          # la regla de zona de las ofertas de la Junta (2: la del SAE, sin el Levante, 4.0; 3: y las que no dicen provincia, 4.1;
                     # 4: sin lo de alrededor de Serón, Tíjola y Olula del Río, 4.2)
-UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"       # el de la app
-MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+UA = comun.UA_APP       # el de la app
+MESES = comun.MESES
 
 
 def pedir(url, cuerpo=None, tipo=None, timeout=60, intentos=3):
@@ -37,7 +36,7 @@ def pedir(url, cuerpo=None, tipo=None, timeout=60, intentos=3):
     return comun.pedir(url, UA, cuerpo, tipo, timeout=timeout, intentos=intentos).decode("utf-8", "replace")
 
 
-def limpio(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
+limpio = comun.limpio
 
 
 # ------------------------------------------------------------------ AESAN (como Alimentarias.kt)
@@ -250,7 +249,7 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
     except Exception as e: fallos.append(f"ofertas de la Junta: {e}"[:160]); nuevas["ofertas"] = E.get("ofertas") or {}
     # 3.7: las de empleo público del SAE de la zona
     try:
-        for o in zona.ofertas_sae(json.loads(red(zona.SAE, b"{}", "application/json")), dt.datetime.now(TZ)):
+        for o in zona.ofertas_sae(json.loads(red(zona.SAE, b"{}", "application/json")), comun.ahora()):
             ya = dict((E.get("sae") or {}).get(o["id"]) or {})
             if "nivel" in ya and "colectivo" in ya: nuevas["sae"][o["id"]] = ya; continue
             estado = {"oferta": {"puesto": o["puesto"], "ocupacion": o["ocupacion"], "texto": o["texto"]}}
@@ -294,11 +293,10 @@ def etiquetar(x, hoy, red=pedir, pedir_jev=None):
 
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
-    x = json.load(open(sys.argv[1], encoding="utf-8"))
-    r = etiquetar(x, dt.datetime.now(TZ).date())
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(sys.argv[1], x)
-    print(json.dumps(r, ensure_ascii=False))
+    x = comun.leer(sys.argv[1])
+    r = etiquetar(x, comun.hoy())
+    comun.publicar(sys.argv[1], x)
+    comun.decir(r)
 
 
 if __name__ == "__main__":

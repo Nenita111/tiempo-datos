@@ -11,38 +11,22 @@ Campo de Dalías), UTE 14 (Campo de Dalías) y UTE 15 (cabecera del río Grande 
 Guarda en extras.json «sequia». El PDF pesa unos 14 MB: solo se baja si su fecha de modificación ha cambiado. Si falla, sale con
 código 2 y deja lo que había. Necesita pdftotext (poppler).
 """
-import argparse, datetime as dt, email.utils, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.request
-from zoneinfo import ZoneInfo
+import argparse, datetime as dt, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 PDF = "https://www.redhidrosurmedioambiente.es/saih/assets/pdf/InformeSequia.pdf"
 PAGINA = "https://www.redhidrosurmedioambiente.es/saih/"
-MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-UA = {"User-Agent": "TiempoYRadar/1.0"}
+MESES = comun.MESES
 ESCENARIOS = ["Normalidad", "Prealerta", "Alerta", "Emergencia"]
 ESTADOS = ["Ausencia", "Sequía prolongada"]
 
 
-def pedir(u, metodo="GET"):
-    for i in range(3):
-        try:
-            return urllib.request.urlopen(urllib.request.Request(u, headers=UA, method=metodo), timeout=120)
-        except (ConnectionError, urllib.error.URLError) as e:
-            if i == 2 or getattr(e, "code", None) in (403, 404): raise
-            time.sleep(5 * (i + 1))
-
-
 def texto_pdf(datos):
-    with tempfile.TemporaryDirectory() as d:
-        p = os.path.join(d, "a.pdf")
-        with open(p, "wb") as f: f.write(datos)
-        return subprocess.run(["pdftotext", "-layout", "-l", "10", p, "-"], capture_output=True, text=True, check=True).stdout
+    return comun.texto_pdf(datos, "-layout", "-l", "10")
 
 
-def num(s):
-    return float(s.replace(".", "").replace(",", "."))
+num = comun.num
 
 
 def mes(t):
@@ -106,26 +90,25 @@ def informe(t):
 def main():
     a = argparse.ArgumentParser(); a.add_argument("extras"); a.add_argument("--unidades", default="UTS 12,UTE 14,UTE 15")
     p = a.parse_args()
-    with open(p.extras, encoding="utf-8") as f: x = json.load(f)
+    x = comun.leer(p.extras)
     viejo = x.get("sequia") or {}
     destacadas = [u.strip() for u in p.unidades.split(",") if u.strip()]
     try:
-        r = pedir(PDF, "HEAD")
-        mod = r.headers.get("Last-Modified", "")
+        red = dict(ua=comun.UA_CORTO, timeout=120, pausa=5)          # el servidor corta a veces la conexión: hasta 3 intentos
+        mod = comun.cabeceras(PDF, **red).get("Last-Modified", "")
         if viejo.get("modificado") == mod and viejo.get("destacadas") == destacadas:
-            print(json.dumps({"mes": viejo.get("mes"), "nuevo": False}, ensure_ascii=False)); return
-        o = informe(texto_pdf(pedir(PDF).read()))
+            comun.decir({"mes": viejo.get("mes"), "nuevo": False}); return
+        o = informe(texto_pdf(comun.pedir(PDF, **red)))
         cod = {u["codigo"] for u in o["escasez"] + o["sequia"]}
         falta = [u for u in destacadas if u not in cod]
         if falta: raise ValueError(f"el informe no trae {', '.join(falta)}")
         o.update({"destacadas": destacadas, "modificado": mod, "enlace": PDF, "pagina": PAGINA,
                   "fuente": "Junta de Andalucía (SAIH Hidrosur, informe de escasez y sequía)"})
     except Exception as e:
-        print(json.dumps({"fallo": str(e)}, ensure_ascii=False)); sys.exit(2)
+        comun.decir({"fallo": str(e)}); sys.exit(2)
     x["sequia"] = o
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(p.extras, x)
-    print(json.dumps({"mes": o["mes"], "nuevo": True}, ensure_ascii=False))
+    comun.publicar(p.extras, x)
+    comun.decir({"mes": o["mes"], "nuevo": True})
 
 
 if __name__ == "__main__":
