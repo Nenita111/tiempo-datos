@@ -154,7 +154,7 @@ def dipalme(pag, hoy, munis=None):
 # ---- Ayuntamiento de Adra: «Adra en la Senda» (4.33, lo pidió Isa el 7 nov 2026: «añade actividades de Adra en la Senda»). El programa de la
 # temporada (Concejalía de Juventud) es un PDF enlazado en la portada de adra.es (su robots.txt no cierra nada): una página por actividad con
 # su fecha, ruta, distancia, duración, dificultad, desnivel, edad mínima, precio y salida. Se lee con pdftotext; el PDF solo se baja si su
-# enlace cambia (lo leído se guarda en «sendaAdra»). Todas salen (senderismo y aventura), aunque se paguen.
+# enlace cambia (lo leído se guarda en «sendaAdra», en estado_diario.json). Todas salen (senderismo y aventura), aunque se paguen.
 ADRA = "https://www.adra.es"
 SENDA_PDF = re.compile(r'href="((?:https://www\.adra\.es)?/documents/[^"]*?adra\+en\+la\+senda[^"]*?\.pdf[^"]*)"', re.I)
 FECHA_RANGO = re.compile(r"(\d{1,2})(?:\s+DE\s+([A-ZÁÉÍÓÚ]+))?\s*(?:\bAL\b|\bY\b|-)\s*(\d{1,2})\s+DE\s+([A-ZÁÉÍÓÚ]+)\s+DE\s+(\d{4})", re.I)
@@ -283,9 +283,9 @@ def main():
     try:
         l = dipalme(pedir(DIPALME_DEPORTES, timeout=60).decode("utf-8", "replace"), hoy); fuentes["Diputación de Almería"] = len(l); lista += l
     except Exception as e: fallos.append(f"Diputación de Almería: {str(e)[:80]}")
+    S = comun.recuerdo(ruta, x, "sendaAdra")       # el programa ya leído (en estado_diario.json: la tele no lo lee)
     try:
-        S = pedir_senda(x, pedir, hoy)
-        if S != x.get("sendaAdra"): x["sendaAdra"] = S
+        S = pedir_senda({"sendaAdra": S}, pedir, hoy)
         l = adra_senda(S["temporada"], S["pdf"], hoy); fuentes["Ayuntamiento de Adra (Adra en la Senda)"] = len(l); lista += l
     except Exception as e: fallos.append(f"Adra en la Senda: {str(e)[:80]}")
     if not fuentes:
@@ -297,8 +297,9 @@ def main():
     lista.sort(key=lambda p: (p["inicio"], p.get("hora") or "", p["titulo"]))
     nuevo = {"lista": lista, "fuentes": sorted(fuentes)}
     viejo_x = dict(x.get("actividades") or {}); viejo_x.pop("dia", None)
-    if viejo_x != nuevo or x.get("sendaAdra") != comun.leer(ruta).get("sendaAdra"):
-        x["actividades"] = dict(nuevo, dia=hoy.isoformat())
+    quitado = S is not None and comun.recordar(ruta, x, "sendaAdra", S)
+    if viejo_x != nuevo or quitado:
+        if viejo_x != nuevo: x["actividades"] = dict(nuevo, dia=hoy.isoformat())
         comun.publicar(ruta, x)
     comun.decir({"actividades": len(lista), "fuentes": fuentes, "fallos": fallos})
 

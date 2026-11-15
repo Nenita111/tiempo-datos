@@ -150,7 +150,13 @@ de la que depende. Si alguna sale **ROTA**, avisar con el nombre de la fuente y 
 ## 4. Guardar
 
 Comprobar que `extras.json` es JSON válido y que conserva `embalses`, `butano` y los demás campos; hacer commit
-(«Datos del AAAA-MM-DD») y push a `main`.
+(«Datos del AAAA-MM-DD») y push a `main` de lo que haya cambiado de `extras.json` y de `estado_diario.json` (`git add extras.json
+estado_diario.json`; `diario.py` lo recuerda en «subir»).
+
+`estado_diario.json` (15 nov 2026) es lo que los scripts recuerdan de un día para otro y la tele no lee: las ayudas ya cerradas
+(`ayudasCerradas`), el programa leído de «Adra en la Senda» (`sendaAdra`) y desde cuándo la página entiende un extras.json más corto
+(`extrasV`). Antes iba dentro de extras.json (un 13 % de lo que baja la tele). Si no se sube no se rompe nada, pero al día siguiente
+`ayudas.py` vuelve a pedir una a una las convocatorias cerradas y `actividades.py` vuelve a bajar el programa.
 
 ## 5. Precio de la luz de mañana en el móvil (tarea aparte, cada tarde)
 
@@ -259,4 +265,11 @@ municipios de la provincia (`municipios`, `coordenadas`: de `municipios_almeria.
 (`km`), las peticiones con reintentos (`pedir`, y `cabeceras` para saber si un fichero grande ha cambiado), el texto de una página o de un PDF
 (`limpio`, `texto_pdf`), y leer y guardar extras.json (`leer`, `publicar`: con su hora; `poner`: solo si cambia; `decir`: el resumen de una
 línea). Un script nuevo usa eso en vez de repetirlo. Todas las pruebas, sin salir a internet y en menos de un segundo:
-`python3 -I -m unittest discover -s herramientas -p 'test_*.py'` (con el clon completo: necesitan `herramientas/muestras/`).
+`python3 -I -m unittest discover -s herramientas -p 'test_*.py'` (con el clon completo: necesitan `herramientas/muestras/`). GitHub las
+pasa solo (`.github/workflows/pruebas.yml`) cada vez que cambia algo de `herramientas/`; con los datos de cada día, no.
+
+**extras.json más corto (15 nov 2026).** Lo que la tele no lee ya no va en él: el estado de los scripts (arriba, `estado_diario.json`) y
+los campos antiguos de vuelos (`vuelos`, `vuelosOrigen`, `vuelosFecha`: `vuelos.py` los quita en su siguiente pasada). Y el enlace de cada
+curso y de cada ayuda (son el de su lista más su número) deja de guardarse cuando la página publicada dice que sabe deducirlo
+(`const EXTRAS_V = 2` en `nube/pagina/index.html`, que es la página de la tele) y ha pasado una semana desde que se vio por primera vez
+(`comun.extras_v`): la tele instala la versión nueva cuando Isa la acepta con el mando, y hasta entonces sigue con la de antes.

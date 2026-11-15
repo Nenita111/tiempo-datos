@@ -28,16 +28,16 @@ def hoy():
 
 
 # ------------------------------------------------------------------ peticiones
-def _responder(url, ua, cuerpo, tipo, aceptar, timeout, intentos, pausa, dormir, metodo=None):
+def respuesta(url, ua=UA_APP, cuerpo=None, tipo=None, aceptar=None, timeout=60, intentos=3, pausa=3, dormir=time.sleep, metodo=None, hasta=None):
     """(bytes, cabeceras) de la respuesta. Reintenta los cortes de conexión, los 429 y los 5xx (con espera creciente); un 4xx, no (no va
-    a cambiar)."""
+    a cambiar). Con intentos=1 no insiste. metodo="HEAD": solo las cabeceras; hasta=N: solo los primeros N bytes (un vídeo que no acaba)."""
     cab = {"User-Agent": ua}
     if tipo: cab["Content-Type"] = tipo
     if aceptar: cab["Accept"] = aceptar
     for n in range(intentos):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, data=cuerpo, headers=cab, method=metodo), timeout=timeout) as r:
-                return r.read(), getattr(r, "headers", {})
+                return (r.read() if hasta is None else r.read(hasta)), getattr(r, "headers", {})
         except urllib.error.HTTPError as e:
             if (e.code < 500 and e.code != 429) or n == intentos - 1: raise
         except (urllib.error.URLError, ConnectionError, TimeoutError):
@@ -46,14 +46,14 @@ def _responder(url, ua, cuerpo, tipo, aceptar, timeout, intentos, pausa, dormir,
 
 
 def pedir(url, ua=UA_APP, cuerpo=None, tipo=None, aceptar=None, timeout=60, intentos=3, pausa=3, dormir=time.sleep):
-    """Los bytes de la respuesta. Reintenta los cortes de conexión, los 429 y los 5xx (con espera creciente); un 4xx, no (no va a cambiar)."""
-    return _responder(url, ua, cuerpo, tipo, aceptar, timeout, intentos, pausa, dormir)[0]
+    """Los bytes de la respuesta, con los reintentos de respuesta()."""
+    return respuesta(url, ua, cuerpo, tipo, aceptar, timeout, intentos, pausa, dormir)[0]
 
 
 def cabeceras(url, ua=UA_APP, timeout=60, intentos=3, pausa=3, dormir=time.sleep):
     """Las cabeceras de la respuesta a un HEAD, con los mismos reintentos: para saber si un fichero grande ha cambiado («Last-Modified»)
     sin bajarlo."""
-    return _responder(url, ua, None, None, None, timeout, intentos, pausa, dormir, metodo="HEAD")[1]
+    return respuesta(url, ua, timeout=timeout, intentos=intentos, pausa=pausa, dormir=dormir, metodo="HEAD")[1]
 
 
 # ------------------------------------------------------------------ textos
@@ -139,6 +139,71 @@ def poner(ruta, x, clave, nuevo):
     x[clave] = nuevo
     publicar(ruta, x)
     return True
+
+
+# ------------------------------------------------------------------ lo que los scripts recuerdan y la tele no lee
+ESTADO = "estado_diario.json"       # al lado de extras.json; se sube con él
+
+
+def _ruta_estado(ruta):
+    return os.path.join(os.path.dirname(os.path.abspath(ruta)), ESTADO)
+
+
+def _estado(ruta):
+    try: e = leer(_ruta_estado(ruta))
+    except (OSError, ValueError): return {}
+    return e if isinstance(e, dict) else {}
+
+
+def recuerdo(ruta, x, clave):
+    """Lo que un script recuerda de un día para otro y la tele no lee (las ayudas ya cerradas, el programa leído de «Adra en la Senda»…):
+    de estado_diario.json, al lado de extras.json (ruta). Hasta el 15 nov 2026 iba dentro de extras.json: si sigue allí y el estado no lo
+    tiene, vale ese. Sin nada, None (el script empieza de cero: solo tarda más)."""
+    e = _estado(ruta)
+    return e[clave] if clave in e else x.get(clave)
+
+
+def recordar(ruta, x, clave, valor):
+    """Lo apunta en estado_diario.json (solo si ha cambiado) y lo quita de extras.json si seguía allí. Dice si lo ha quitado: entonces hay que
+    publicar extras.json."""
+    e = _estado(ruta)
+    if clave not in e or e[clave] != valor:
+        e[clave] = valor
+        guardar(_ruta_estado(ruta), e, sort_keys=True)
+    return x.pop(clave, None) is not None
+
+
+# ------------------------------------------------------------------ lo que la página entiende de extras.json
+PAGINA = os.path.join(AQUI, "..", "nube", "pagina", "index.html")      # la página publicada: la misma de la tele (la pone publicar_nube.py)
+ESPERA_V = 7        # días desde que se publica una página que entiende un extras.json más corto hasta que se le da
+
+
+def extras_v(ruta, dia=None, pagina=None):
+    """La versión de extras.json que ya se puede escribir. La dice la página publicada («const EXTRAS_V = N»; sin eso, 1), pero solo vale
+    ESPERA_V días después de verla por primera vez (se apunta en estado_diario.json): la tele instala la versión nueva cuando Isa la acepta
+    con el mando, y hasta entonces sigue con la de antes.
+      2: el «enlace» de un curso o de una ayuda no se guarda si es el de su lista más su número (sin_enlaces_deducibles)."""
+    try:
+        with open(pagina or PAGINA, encoding="utf-8") as f: m = re.search(r"\bconst EXTRAS_V = (\d+)\b", f.read())
+    except OSError: m = None
+    v = int(m.group(1)) if m else 1
+    if v <= 1: return 1
+    dia = dia or hoy()
+    e = _estado(ruta)
+    visto = e.get("extrasV") or {}
+    if visto.get("v") != v:
+        ya = visto.get("v", 1) if dia.isoformat() >= visto.get("vale", "9999") else visto.get("antes", 1)
+        visto = e["extrasV"] = {"v": v, "antes": ya, "vale": (dia + dt.timedelta(days=ESPERA_V)).isoformat()}
+        guardar(_ruta_estado(ruta), e, sort_keys=True)
+    return v if dia.isoformat() >= visto["vale"] else visto["antes"]
+
+
+def sin_enlaces_deducibles(lista, base, clave):
+    """Quita de cada elemento de la lista el «enlace» que es el de la lista más su número (base + "/" + elemento[clave]): son todos y pesan
+    más que el resto de la ficha; la página lo deduce (EXTRAS_V 2)."""
+    for o in lista:
+        if o.get("enlace") == f"{base}/{o.get(clave)}": del o["enlace"]
+    return lista
 
 
 def decir(o):

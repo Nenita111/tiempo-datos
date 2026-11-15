@@ -8,7 +8,7 @@ no trae reglas). Las convocatorias registradas en el último año de:
 para personas físicas (1) y para pymes y autónomos (3). La API no dice cuáles están abiertas (pregunta 203 de su ayuda): se mira el detalle
 de cada una y su plazo (las fechas de inicio y fin de solicitud o, si no las trae, el texto del plazo: «19 de noviembre de 2026»,
 «15 días naturales» desde el inicio). Las de concesión directa instrumental no se pueden pedir (pregunta 204): fuera. Las que ya han
-cerrado se apuntan en «ayudasCerradas» para no volver a pedirlas.
+cerrado se apuntan en «ayudasCerradas» (en estado_diario.json: la tele no las lee) para no volver a pedirlas.
 
   python3 -I herramientas/ayudas.py extras.json
 
@@ -179,7 +179,7 @@ def main():
     ruta = sys.argv[1]
     x = comun.leer(ruta)
     hoy = comun.hoy()
-    cerradas = set(x.get("ayudasCerradas") or [])
+    cerradas = set(comun.recuerdo(ruta, x, "ayudasCerradas") or [])
     vistas, nuevas, abiertas, fallos = 0, 0, [], []
     try:
         org = organos(pedir("/organos", vpd="GE", idAdmon="L"), pedir("/organos", vpd="GE", idAdmon="A"))
@@ -216,10 +216,12 @@ def main():
         if k in vistos: vistos[k]["lineas"] = vistos[k].get("lineas", 1) + 1; vistos[k]["importe"] = vistos[k].get("importe", 0) + a.get("importe", 0)
         else: vistos[k] = a
     abiertas = list(vistos.values())
-    vivas = {"lista": abiertas, "fuente": "Base de Datos Nacional de Subvenciones (BDNS)", "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias"}
-    if x.get("ayudas", {}).get("lista") != abiertas or set(x.get("ayudasCerradas") or []) != cerradas:
+    if comun.extras_v(ruta, hoy) >= 2: comun.sin_enlaces_deducibles(abiertas, FICHA.rstrip("/"), "num")   # la página ya deduce el de cada ayuda
+    vivas = {"lista": abiertas, "fuente": "Base de Datos Nacional de Subvenciones (BDNS)", "enlace": FICHA.rstrip("/")}
+    # las cerradas, a estado_diario.json (la tele no las lee): extras.json solo cambia si cambia la lista
+    quitadas = comun.recordar(ruta, x, "ayudasCerradas", sorted(cerradas, key=lambda s: (len(s), s)))
+    if x.get("ayudas", {}).get("lista") != abiertas or quitadas:
         x["ayudas"] = dict(vivas, dia=hoy.isoformat())
-        x["ayudasCerradas"] = sorted(cerradas, key=lambda s: (len(s), s))
         comun.publicar(ruta, x)
     comun.decir({"ayudas": len(abiertas), "vistas": vistas, "pedidas": nuevas, "cerradas": len(cerradas), "fallos": fallos[:3]})
 
