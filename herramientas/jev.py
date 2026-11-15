@@ -441,7 +441,7 @@ TIPOS_CAPTURA = {
 
 def preguntas_captura(datos, tipo=None):
     """datos: {campo: valor}; cada uno, una pregunta «¿lo dice el texto?». Con tipo (3.7), además «¿qué es?» (TIPOS_CAPTURA)."""
-    q = {c: noul(f"Does `texto` (the transcription of a social media post) say that " + CAMPOS_CAPTURA.get(c, c + " is {v}").format(v=v) + "?",
+    q = {c: noul("Does `texto` (the transcription of a social media post) say that " + CAMPOS_CAPTURA.get(c, c + " is {v}").format(v=v) + "?",
                  si="The text states it (same meaning, maybe other words or date format)", no="The text does not say it, or says something else")
          for c, v in datos.items()}
     if tipo: q["_tipo"] = choice("What does `texto` (the transcription of a social media post) announce?", TIPOS_CAPTURA)

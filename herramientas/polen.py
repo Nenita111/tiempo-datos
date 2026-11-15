@@ -11,11 +11,9 @@ Nada de previsión: la web no da ninguna.
 Imprime una línea JSON: {"polen": "AAAA-MM-DD" (último día), "dias": N} o {"error": …} (sale con 1; deja lo que había).
 """
 import datetime as dt, json, os, random, string, sys, time, urllib.request
-from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 WEB = "https://www.polenes.com"
 ESTACION = 4          # Almería
 TIPOS = {1: "Alnus (aliso)", 2: "Alternaria (hongo)", 3: "Artemisa", 4: "Betula (abedul)", 5: "Carex", 6: "Castanea (castaño)",
@@ -103,17 +101,14 @@ def resumen(f, hoy):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    x = json.load(open(ruta, encoding="utf-8"))
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(ruta)
+    hoy = comun.hoy()
     try:
         r = resumen(filas(pedir_dias(hoy - dt.timedelta(days=400), hoy)), hoy)
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
-    if x.get("polen") != r:
-        x["polen"] = r
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"polen": r["dia"], "dias": r["dias"], "tipos": len(r["tipos"])}, ensure_ascii=False))
+        comun.fallar(e)
+    comun.poner(ruta, x, "polen", r)
+    comun.decir({"polen": r["dia"], "dias": r["dias"], "tipos": len(r["tipos"])})
 
 
 if __name__ == "__main__":

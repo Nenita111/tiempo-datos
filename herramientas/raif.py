@@ -7,34 +7,23 @@ semanales oficiales de la Red de Alerta e Información Fitosanitaria de Andaluc�
 Guarda en extras.json «raif»: {"provincia", "cultivos": [{cultivo, desde, hasta, destacados, enlace}], "pagina", "fuente"}.
 Si no puede leer un cultivo, deja el que había. Necesita pdftotext (poppler).
 """
-import datetime as dt, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.parse, urllib.request
-from zoneinfo import ZoneInfo
+import datetime as dt, os, re, sys, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 PAGINA = "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/boletin-provincial/informe-semanal/informe-semanal-almeria/"
 # los cultivos de invernadero de la comarca, en este orden
 CULTIVOS = ["Tomate", "Pimiento", "Pepino", "Calabacín", "Berenjena", "Sandía"]
-MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-UA = {"User-Agent": "TiempoYRadar/1.0"}
+MESES = comun.MESES
 
 
 def bajar(u):
-    """El servidor de la Junta corta a veces la conexión: hasta 3 intentos, con una pausa."""
-    for i in range(3):
-        try:
-            return urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=60).read()
-        except (ConnectionError, urllib.error.URLError) as e:
-            if i == 2 or getattr(e, "code", None) in (403, 404): raise
-            time.sleep(5 * (i + 1))
+    """El servidor de la Junta corta a veces la conexión: hasta 3 intentos, con una pausa (comun.pedir)."""
+    return comun.pedir(u, comun.UA_CORTO, pausa=5)
 
 
 def texto_pdf(datos):
-    with tempfile.TemporaryDirectory() as d:
-        p = os.path.join(d, "a.pdf")
-        with open(p, "wb") as f: f.write(datos)
-        return subprocess.run(["pdftotext", "-layout", p, "-"], capture_output=True, text=True, check=True).stdout
+    return comun.texto_pdf(datos, "-layout")
 
 
 def enlaces(html):
@@ -76,7 +65,7 @@ def boletin(t):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    with open(ruta, encoding="utf-8") as f: x = json.load(f)
+    x = comun.leer(ruta)
     viejos = {c["cultivo"]: c for c in (x.get("raif") or {}).get("cultivos", [])}
     fallos = []
     try:
@@ -96,9 +85,8 @@ def main():
     if cultivos:
         x["raif"] = {"provincia": "Almería", "cultivos": cultivos, "pagina": PAGINA,
                      "fuente": "Red de Alerta e Información Fitosanitaria de Andalucía (RAIF, Junta de Andalucía)"}
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"cultivos": len(cultivos), "fallos": fallos}, ensure_ascii=False))
+        comun.publicar(ruta, x)
+    comun.decir({"cultivos": len(cultivos), "fallos": fallos})
     if not cultivos: sys.exit(2)
 
 

@@ -8,32 +8,21 @@ Guarda en extras.json «respiratorias»: {semana, desde, hasta, iras, gripal, co
 fuente}; cada tasa es {"tasa", "previa"} en casos por 100.000 habitantes. Si no hay informe nuevo, deja el que había.
 Necesita pdftotext (poppler).
 """
-import datetime as dt, json, os, re, subprocess, sys, tempfile, time, urllib.error, urllib.parse, urllib.request
-from zoneinfo import ZoneInfo
+import datetime as dt, os, re, sys, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 BASE = "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/areas/sanidad/salud-vida/vigilancia/paginas/"
-MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
-UA = {"User-Agent": "TiempoYRadar/1.0"}
+MESES = comun.MESES
 
 
 def bajar(u):
-    """El servidor de la Junta corta a veces la conexión: hasta 3 intentos, con una pausa."""
-    for i in range(3):
-        try:
-            return urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=90).read()
-        except (ConnectionError, urllib.error.URLError) as e:
-            if i == 2 or getattr(e, "code", None) in (403, 404): raise
-            time.sleep(5 * (i + 1))
+    """El servidor de la Junta corta a veces la conexión: hasta 3 intentos, con una pausa (comun.pedir)."""
+    return comun.pedir(u, comun.UA_CORTO, timeout=90, pausa=5)
 
 
 def texto_pdf(datos):
-    with tempfile.TemporaryDirectory() as d:
-        p = os.path.join(d, "a.pdf")
-        with open(p, "wb") as f: f.write(datos)
-        return subprocess.run(["pdftotext", "-l", "4", p, "-"], capture_output=True, text=True, check=True).stdout
+    return comun.texto_pdf(datos, "-l", "4")
 
 
 def temporada(hoy):
@@ -52,8 +41,7 @@ def informes(html, pagina):
     return [(f"{s}/{y}", t, u) for y, s, t, u in sorted(res, reverse=True)]
 
 
-def num(s):
-    return float(s.replace(".", "").replace(",", "."))
+num = comun.num
 
 
 def resumen(t):
@@ -102,25 +90,24 @@ def fechas(texto_enlace):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    with open(ruta, encoding="utf-8") as f: x = json.load(f)
+    x = comun.leer(ruta)
     viejo = x.get("respiratorias") or {}
-    pagina = BASE + f"temporada{temporada(dt.datetime.now(TZ).date())}.html"
+    pagina = BASE + f"temporada{temporada(comun.hoy())}.html"
     try:
         lista = informes(bajar(pagina).decode("utf-8", "replace"), pagina)
         if not lista: raise ValueError("la página de la temporada no tiene informes")
         semana, txt, url = lista[0]
         if viejo.get("semana") == semana and viejo.get("enlace") == url:
-            print(json.dumps({"semana": semana, "nuevo": False}, ensure_ascii=False)); return
+            comun.decir({"semana": semana, "nuevo": False}); return
         o = resumen(texto_pdf(bajar(url)))
         if o["semana"] != semana: raise ValueError(f"el informe dice la semana {o['semana']} y el enlace la {semana}")
         o["desde"], o["hasta"] = fechas(txt)
         o.update({"enlace": url, "pagina": pagina, "fuente": "Junta de Andalucía (vigilancia centinela de la infección respiratoria aguda)"})
     except Exception as e:
-        print(json.dumps({"fallo": str(e)}, ensure_ascii=False)); sys.exit(2)
+        comun.decir({"fallo": str(e)}); sys.exit(2)
     x["respiratorias"] = o
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(ruta, x)
-    print(json.dumps({"semana": o["semana"], "nuevo": True}, ensure_ascii=False))
+    comun.publicar(ruta, x)
+    comun.decir({"semana": o["semana"], "nuevo": True})
 
 
 if __name__ == "__main__":

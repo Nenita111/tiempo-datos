@@ -5,7 +5,7 @@ Datos siempre reales: nada inventado ni estimado. Si algo no se puede comprobar,
 Para gastar pocos tokens, la tarea diaria hace de una vez todo lo que no hay que buscar con
 `python3 -I herramientas/diario.py extras.json` (puntos 2b, 2c y 2h sin argumentos, 2d, 2e, 2f, 2g y 3; quita también los sorteos
 acabados): imprime una sola línea JSON con lo que ha ido mal (solo eso: «bien» dice cuántos pasos fueron bien), las fuentes ROTAS y
-cuántas actividades, colectas, sorteos y cortes hay. Los scripts guardan extras.json de golpe (`comun.guardar`): un paso que se corta a
+cuántas actividades, colectas, sorteos y cortes hay. Los scripts guardan extras.json de golpe (`comun.publicar`): un paso que se corta a
 medias deja el de antes entero. Lo único que hace a mano es buscar (vuelos, sorteos, agenda y colectas de sangre) y apuntar lo que encuentre.
 Con Jev (sección 7) también deja en extras.json los cortes de los titulares, la receta del día y las etiquetas del SAS, y trae en
 «sortea2» los sorteos de la zona de sortea2.com ya filtrados: son los primeros que se miran para el punto 2.
@@ -252,3 +252,11 @@ Nunca se imprime ni se escribe ninguna clave.
   sale ROTA porque falta su marca, Jev mira lo último que bajó y dice si el dato parece seguir en la página (¿cambio de formato?).
 Pruebas: `herramientas/test_jev.py` (respuestas de mentira con la forma de la API y de Composio; los RSS, el XML de AEMET y los boletines,
 reales), con la ida y vuelta sandbox → caché → tarea.
+
+**Lo común y las pruebas (15 nov 2026, lo pidió Isa: «optimiza y factoriza, evita datos duplicados»).** Lo que comparten los scripts está
+una sola vez en `herramientas/comun.py`: el día y la hora de España (`hoy`, `ahora`), el pueblo (`LUGAR`, `INE`, `ADRA`: su centro), los
+municipios de la provincia (`municipios`, `coordenadas`: de `municipios_almeria.json`, también para los nombres de `zona.py`), la distancia
+(`km`), las peticiones con reintentos (`pedir`, y `cabeceras` para saber si un fichero grande ha cambiado), el texto de una página o de un PDF
+(`limpio`, `texto_pdf`), y leer y guardar extras.json (`leer`, `publicar`: con su hora; `poner`: solo si cambia; `decir`: el resumen de una
+línea). Un script nuevo usa eso en vez de repetirlo. Todas las pruebas, sin salir a internet y en menos de un segundo:
+`python3 -I -m unittest discover -s herramientas -p 'test_*.py'` (con el clon completo: necesitan `herramientas/muestras/`).

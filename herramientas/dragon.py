@@ -10,7 +10,7 @@ Solo mira los lunes y los jueves (o si aún no hay nada, o con --siempre): estos
 extras.json («dragon») los que no han pasado; si nada cambia, no toca el fichero. Lo que no se lee bien no se apunta. Imprime una línea
 JSON: {"dragon": N, "idbf": N, "europa": N} o {"error": …} (sale con 1 y deja lo que había).
 """
-import datetime as dt, html, json, os, re, sys
+import datetime as dt, html, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
@@ -105,29 +105,26 @@ def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
     x = comun.leer(ruta)
-    hoy = dt.datetime.now(comun.TZ).date()
+    hoy = comun.hoy()
     if "--siempre" not in sys.argv and x.get("dragon") and hoy.weekday() not in (0, 3):
         # los demás días solo se quita lo que ya ha pasado
         antes = x["dragon"]; quedan = proximos(antes.get("campeonatos") or [], hoy)
         if quedan != (antes.get("campeonatos") or []):
             x["dragon"] = {**antes, "campeonatos": quedan}
-            x["actualizado"] = dt.datetime.now(comun.TZ).isoformat(timespec="minutes"); comun.guardar(ruta, x)
-        print(json.dumps({"dragon": len(quedan), "sin_mirar": "solo lunes y jueves"}, ensure_ascii=False)); return
+            comun.publicar(ruta, x)
+        comun.decir({"dragon": len(quedan), "sin_mirar": "solo lunes y jueves"}); return
     try:
         idbf = leer_idbf(comun.pedir(IDBF).decode("utf-8", "replace"))
         europa = []
         for anio in (hoy.year, hoy.year + 1):
             europa += leer_europa(comun.pedir(EUROPA.format(anio)).decode("utf-8", "replace"))
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
+        comun.fallar(e)
     nuevo = {"campeonatos": proximos(idbf + europa, hoy),
              "fuentes": [{"nombre": "Federación Internacional de Barco Dragón (IDBF)", "enlace": IDBF},
                          {"nombre": "Paddle Europe", "enlace": "https://paddle-europe.eu/calendar"}]}
-    if x.get("dragon") != nuevo:
-        x["dragon"] = nuevo
-        x["actualizado"] = dt.datetime.now(comun.TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"dragon": len(nuevo["campeonatos"]), "idbf": len(idbf), "europa": len(europa)}, ensure_ascii=False))
+    comun.poner(ruta, x, "dragon", nuevo)
+    comun.decir({"dragon": len(nuevo["campeonatos"]), "idbf": len(idbf), "europa": len(europa)})
 
 
 if __name__ == "__main__":

@@ -7,12 +7,10 @@ observaciones (las incidencias). Se guarda en extras.json («playas»); fuera de
 
 Imprime una línea JSON: {"playas": N, "informes": N, "ultimo": "2026-09-30"} o {"error": …} (sale con 1; deja lo que había).
 """
-import datetime as dt, json, os, re, subprocess, sys, tempfile
-from zoneinfo import ZoneInfo
+import datetime as dt, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 PAGINA = "https://www.juntadeandalucia.es/organismos/saludyconsumo/areas/entornos-saludables/salud-ambiental/paginas/zonas-bano.html"
 PROVINCIA, MUNICIPIO = "almeria", "ADRA"
 
@@ -28,10 +26,7 @@ def informes(html, anio):
 
 
 def texto_pdf(datos):
-    with tempfile.TemporaryDirectory() as d:
-        p = os.path.join(d, "a.pdf")
-        with open(p, "wb") as f: f.write(datos)
-        return subprocess.run(["pdftotext", "-layout", p, "-"], capture_output=True, text=True, check=True).stdout
+    return comun.texto_pdf(datos, "-layout")
 
 
 def leer(texto, municipio=MUNICIPIO):
@@ -64,8 +59,8 @@ def nombre(z):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    x = json.load(open(ruta, encoding="utf-8"))
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(ruta)
+    hoy = comun.hoy()
     try:
         html = comun.pedir(PAGINA).decode("utf-8", "replace")
         lista = informes(html, hoy.year) or informes(html, hoy.year - 1)
@@ -82,16 +77,13 @@ def main():
                     z["inspecciones"][f["fecha"]] = dict(ins, fecha=f["fecha"])
         if not zonas: raise ValueError(f"ningún informe trae las zonas de baño de {MUNICIPIO}")
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
+        comun.fallar(e)
     playas = [{"nombre": z["nombre"], "calificacion": z["calificacion"], "inspecciones": [z["inspecciones"][k] for k in sorted(z["inspecciones"])]}
               for z in sorted(zonas.values(), key=lambda z: z["nombre"])]
     nuevo = {"temporada": lista[-1][0].year, "playas": playas, "informes": [f.isoformat() for f, _ in lista], "pdf": lista[-1][1],
              "url": PAGINA, "fuente": "Junta de Andalucía (Consejería de Sanidad)"}
-    if x.get("playas") != nuevo:
-        x["playas"] = nuevo
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"playas": len(playas), "informes": len(lista), "ultimo": lista[-1][0].isoformat()}, ensure_ascii=False))
+    comun.poner(ruta, x, "playas", nuevo)
+    comun.decir({"playas": len(playas), "informes": len(lista), "ultimo": lista[-1][0].isoformat()})
 
 
 if __name__ == "__main__":

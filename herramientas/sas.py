@@ -14,16 +14,14 @@ nada (la tele sigue con su regla).
 
   python3 -I herramientas/sas.py extras.json [--dias 7]
 """
-import argparse, datetime as dt, html, json, os, re, sys, urllib.error, urllib.parse, urllib.request
-from zoneinfo import ZoneInfo
+import argparse, datetime as dt, json, os, re, sys, urllib.error, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 import jev
 import zona
 
-TZ = ZoneInfo("Europe/Madrid")
 JUNTA = "https://www.juntadeandalucia.es"
-UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"       # el de la app (la Junta y el BOE lo aceptan así)
+UA = comun.UA_APP       # el de la app (la Junta y el BOE lo aceptan así)
 
 
 def pedir(url, aceptar=None, timeout=40):
@@ -31,7 +29,7 @@ def pedir(url, aceptar=None, timeout=40):
     return comun.pedir(url, UA, aceptar=aceptar, timeout=timeout).decode("utf-8", "replace")
 
 
-def limpio(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s))).strip()
+limpio = comun.limpio
 
 
 # ------------------------------------------------------------------ como Empleo.kt de la app
@@ -77,7 +75,7 @@ def todas(dias=7, hoy=None, red=None):
     """Las disposiciones de los últimos días del BOJA (sección 2.2) y del BOE. Un día que no llega no tira los demás (3.9); si no llega
     ninguno, el error."""
     red = red or pedir
-    hoy = hoy or dt.datetime.now(TZ).date(); out, error, bien = [], None, 0
+    hoy = hoy or comun.hoy(); out, error, bien = [], None, 0
     try: dias_boja = boletines(red(f"{JUNTA}/ssdigitales/datasets/contentapi/boja/calendario?fechaDesde=now-{dias}d&fechaHasta=now"))
     except Exception as e: dias_boja, error = [], e
     for ruta, fecha in dias_boja:
@@ -208,7 +206,7 @@ def resumen(t):
 
 def avisar(disps, et, hoy=None):
     """Las convocatorias de la zona, con su plazo si se sabe, para los avisos al móvil (las de plazo ya acabado, no)."""
-    hoy = (hoy or dt.datetime.now(TZ).date()).isoformat()
+    hoy = (hoy or comun.hoy()).isoformat()
     return [{"url": d["url"], "fecha": d.get("fecha"), "boletin": d.get("boletin"), "resumen": resumen(d["texto"])[:400],
              "hasta": (et[d["url"]].get("plazo") or {}).get("hasta")}
             for d in disps if d.get("url") in et and et[d["url"]].get("tipo") == "convocatoria" and et[d["url"]].get("zona") in ZONA_TELE
@@ -231,17 +229,16 @@ def etiquetar(disps, ya=None, pedir_jev=None):
 
 def main():
     a = argparse.ArgumentParser(); a.add_argument("extras"); a.add_argument("--dias", type=int, default=7); o = a.parse_args()
-    x = json.load(open(o.extras, encoding="utf-8"))
+    x = comun.leer(o.extras)
     disps = todas(o.dias)
     try: et = etiquetar(disps, ((x.get("sas") or {}).get("etiquetas") or {}))
     except jev.SinJev as e:
-        print(json.dumps({"disposiciones": len(disps), "juez": f"sin Jev ({e})"}, ensure_ascii=False)); return
+        comun.decir({"disposiciones": len(disps), "juez": f"sin Jev ({e})"}); return
     try: n = plazos(disps, et)
     except jev.SinJev: n = 0
-    x["sas"] = {"fecha": dt.datetime.now(TZ).date().isoformat(), "etiquetas": et, "avisar": avisar(disps, et)}
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(o.extras, x)
-    print(json.dumps({"disposiciones": len(disps), "etiquetas": len(et), "plazos": n, "juez": "Jev"}, ensure_ascii=False))
+    x["sas"] = {"fecha": comun.hoy().isoformat(), "etiquetas": et, "avisar": avisar(disps, et)}
+    comun.publicar(o.extras, x)
+    comun.decir({"disposiciones": len(disps), "etiquetas": len(et), "plazos": n, "juez": "Jev"})
 
 
 if __name__ == "__main__":

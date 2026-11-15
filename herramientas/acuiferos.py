@@ -17,14 +17,12 @@ El fichero es de toda Andalucía (unos 40 MB): solo se baja si cambia (Last-Modi
 
 Imprime una línea JSON: {"acuiferos": N puntos, "anio": AAAA, ...} o {"error": …} (sale con 1; deja lo que había).
 """
-import csv, datetime as dt, io, json, math, os, sys, urllib.request
-from zoneinfo import ZoneInfo
+import csv, datetime as dt, io, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 from agenda_junta import utm30_a_latlon
 
-TZ = ZoneInfo("Europe/Madrid")
-ADRA = (36.7480, -3.0213)
+ADRA, km = comun.ADRA, comun.km
 RADIO_KM = 15
 CARPETA = "https://portalrediam.cica.es/repositorio/05_CALIDAD_AMBIENTAL/02_AGUAS/01_CALIDAD_AGUAS/Datos_Calidad_Subterraneas/InfGeografica/InfAlfanum/"
 FICHA = "https://portalrediam.cica.es/descargas?path=%2F05_CALIDAD_AMBIENTAL%2F02_AGUAS%2F01_CALIDAD_AGUAS%2FDatos_Calidad_Subterraneas"
@@ -48,10 +46,6 @@ ESTADO = {"2": "bueno", "3": "malo"}
 # los metales y los iones (también en µg/l) no van con lo detectado: de ellos se dice la salinidad (cloruros) aparte
 INORGANICOS = {"AG", "AL", "AS", "B", "BA", "BE", "CD", "CN", "CO", "CR", "CU", "F", "FE", "HG", "LI", "MN", "MO", "NI", "PB", "SB", "SE", "SN", "SR", "TI",
                "TL", "U", "V", "ZN"}
-
-
-def km(a, b):
-    return math.hypot((a[1] - b[1]) * 111.32 * math.cos(math.radians(a[0])), (a[0] - b[0]) * 110.57)
 
 
 def num(s):
@@ -128,20 +122,17 @@ def ultimo_fichero(hoy):
     """El fichero anual más reciente que haya (el de un año sale en febrero del siguiente) y su fecha de modificación."""
     for y in range(hoy.year, 2023, -1):
         url = f"{CARPETA}SUB_FQ_{y}.csv"
-        try:
-            with urllib.request.urlopen(urllib.request.Request(url, method="HEAD", headers={"User-Agent": comun.UA_APP}), timeout=60) as r:
-                return y, url, r.headers.get("Last-Modified", "")
-        except Exception:
-            continue
+        try: return y, url, comun.cabeceras(url).get("Last-Modified", "")
+        except Exception: continue
     raise ValueError("no encuentro el fichero de calidad de aguas subterráneas de la REDIAM")
 
 
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]; local = sys.argv[2] if len(sys.argv) > 2 else None
-    x = json.load(open(ruta, encoding="utf-8"))
+    x = comun.leer(ruta)
     antes = x.get("acuiferos") or {}
-    hoy = dt.datetime.now(TZ).date()
+    hoy = comun.hoy()
     try:
         if local:
             anio, url, mod = int("".join(c for c in os.path.basename(local) if c.isdigit())[:4]), CARPETA + os.path.basename(local), "local"
@@ -149,7 +140,7 @@ def main():
         else:
             anio, url, mod = ultimo_fichero(hoy)
             if antes.get("fichero") == url and antes.get("modificado") == mod and antes.get("revisado", "") >= (hoy - dt.timedelta(days=30)).isoformat():
-                print(json.dumps({"acuiferos": len(antes.get("puntos") or []), "anio": antes.get("anio"), "sin cambios": True}, ensure_ascii=False)); return
+                comun.decir({"acuiferos": len(antes.get("puntos") or []), "anio": antes.get("anio"), "sin cambios": True}); return
             lineas = io.TextIOWrapper(io.BytesIO(comun.pedir(url, timeout=600)), encoding="utf-8", newline="")
         puntos = [resumen(p) for p in leer(lineas).values()]
         if not puntos: raise ValueError(f"ningún punto de control a {RADIO_KM} km de Adra en {url}")
@@ -162,15 +153,12 @@ def main():
             for c in masas((ADRA[1] - 0.25, ADRA[0] - 0.15, ADRA[1] + 0.25, ADRA[0] + 0.15)):
                 if c["codigo"] in faltan: cuerpos.append({**c, "anillos": []})
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
+        comun.fallar(e)
     nuevo = {"anio": anio, "puntos": puntos, "masas": cuerpos, "radio": RADIO_KM, "caja": list(CAJA), "fichero": url, "modificado": mod,
              "revisado": hoy.isoformat(), "enlace": FICHA, "plan": PLAN,
              "fuente": "MITECO (red de control, por la REDIAM de la Junta de Andalucía) · estado: plan hidrológico 2022-2027 (Junta de Andalucía, AEMA)"}
-    if {k: v for k, v in (x.get("acuiferos") or {}).items() if k != "revisado"} != {k: v for k, v in nuevo.items() if k != "revisado"} or antes.get("revisado") != nuevo["revisado"]:
-        x["acuiferos"] = nuevo
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"acuiferos": len(puntos), "anio": anio, "masas": len(cuerpos)}, ensure_ascii=False))
+    comun.poner(ruta, x, "acuiferos", nuevo)
+    comun.decir({"acuiferos": len(puntos), "anio": anio, "masas": len(cuerpos)})
 
 
 if __name__ == "__main__":

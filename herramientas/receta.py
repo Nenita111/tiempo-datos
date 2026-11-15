@@ -8,16 +8,14 @@ sin red o sin AEMET), la de su rotación de siempre.
 
   python3 -I herramientas/receta.py extras.json [--ine 04003]
 """
-import argparse, datetime as dt, json, os, sys, urllib.request
+import argparse, datetime as dt, json, os, sys
 from xml.etree import ElementTree as ET
-from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 import jev
 
-TZ = ZoneInfo("Europe/Madrid")
 AQUI = os.path.dirname(os.path.abspath(__file__))
-UA = "TiempoYRadar/1.0 (tareas de la tele)"
+UA = comun.UA_TAREAS
 
 
 def recetas():
@@ -62,26 +60,25 @@ def elegir(R, hoy, tiempo, recientes, pedir=None):
 
 
 def main():
-    a = argparse.ArgumentParser(); a.add_argument("extras"); a.add_argument("--ine", default="04003"); o = a.parse_args()
-    hoy = dt.datetime.now(TZ).date()
-    x = json.load(open(o.extras, encoding="utf-8"))
+    a = argparse.ArgumentParser(); a.add_argument("extras"); a.add_argument("--ine", default=comun.INE); o = a.parse_args()
+    hoy = comun.hoy()
+    x = comun.leer(o.extras)
     viejo = x.get("receta") or {}
     if viejo.get("fecha") == hoy.isoformat():
-        print(json.dumps({"receta": viejo["nombre"], "ya": True}, ensure_ascii=False)); return
+        comun.decir({"receta": viejo["nombre"], "ya": True}); return
     R = recetas()
     try:
         xml = comun.pedir(f"https://www.aemet.es/xml/municipios/localidad_{o.ine}.xml", UA, timeout=40)
         tiempo = tiempo_de(xml, hoy)
         nombre = elegir(R, hoy, tiempo, viejo.get("recientes", []))
     except (jev.SinJev, ValueError) as e:
-        print(json.dumps({"receta": None, "motivo": str(e)[:200]}, ensure_ascii=False)); return
+        comun.decir({"receta": None, "motivo": str(e)[:200]}); return
     if not nombre:
-        print(json.dumps({"receta": None, "motivo": "pocas recetas para elegir"}, ensure_ascii=False)); return
+        comun.decir({"receta": None, "motivo": "pocas recetas para elegir"}); return
     recientes = [r for r in viejo.get("recientes", []) if (hoy - dt.date.fromisoformat(r["fecha"])).days < 7] + [{"fecha": hoy.isoformat(), "nombre": nombre}]
     x["receta"] = {"fecha": hoy.isoformat(), "nombre": nombre, "tiempo": tiempo, "recientes": recientes}
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(o.extras, x)
-    print(json.dumps({"receta": nombre, "tiempo": tiempo}, ensure_ascii=False))
+    comun.publicar(o.extras, x)
+    comun.decir({"receta": nombre, "tiempo": tiempo})
 
 
 if __name__ == "__main__":

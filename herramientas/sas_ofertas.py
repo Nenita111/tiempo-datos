@@ -20,7 +20,7 @@ BOJA (cargos intermedios y directivos, que es la fecha que da la página). Sin J
 Imprime una línea JSON: {"ofertas": N, "nuevas": N, "con_plazo": N, "peticiones": N, "fallos": [...]} o {"error": …} (sale con 1; deja
 lo que había). Si falla un centro, se quedan sus ofertas de la vez anterior que sigan dentro de los días.
 """
-import argparse, datetime as dt, html, json, os, re, subprocess, sys, tempfile, time, urllib.parse
+import argparse, datetime as dt, os, re, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 import sas
@@ -145,10 +145,7 @@ def plazo_de(texto):
 
 
 def texto_pdf(datos):
-    with tempfile.TemporaryDirectory() as d:
-        p = os.path.join(d, "a.pdf")
-        with open(p, "wb") as f: f.write(datos)
-        return subprocess.run(["pdftotext", p, "-"], capture_output=True, text=True, timeout=120).stdout
+    return comun.texto_pdf(datos, tiempo=120, comprobar=False)
 
 
 def recoger(pedir, hoy, dias=30, antes=None, pausa=time.sleep, pdf=texto_pdf, inhabiles=None):
@@ -205,19 +202,16 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument("extras"); ap.add_argument("--dias", type=int, default=30)
     a = ap.parse_args()
     x = comun.leer(a.extras)
-    hoy = dt.datetime.now(comun.TZ).date()
+    hoy = comun.hoy()
     viejo = x.get("sasOfertas") or {}
     try:
         lista, res = recoger(lambda u: comun.pedir(u, timeout=90), hoy, a.dias, viejo.get("lista"))
         if len(res["fallos"]) >= 3 and not lista: raise ValueError("; ".join(res["fallos"])[:200])
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
+        comun.fallar(e)
     nuevo = {"lista": lista, "dias": a.dias, "fuente": "Servicio Andaluz de Salud", "url": PAGINA}
-    if viejo != nuevo:
-        x["sasOfertas"] = nuevo
-        x["actualizado"] = dt.datetime.now(comun.TZ).isoformat(timespec="minutes")
-        comun.guardar(a.extras, x)
-    print(json.dumps(res, ensure_ascii=False))
+    comun.poner(a.extras, x, "sasOfertas", nuevo)
+    comun.decir(res)
 
 
 if __name__ == "__main__":

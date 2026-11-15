@@ -8,16 +8,14 @@ Guarda en extras.json «cielo»: {"eventos": [{fecha, hora?, tipo, titulo, detal
 venir. Necesita pdftotext (poppler). Si no puede bajar una agenda, usa la copia del PDF oficial de herramientas/muestras;
 si tampoco la hay, deja lo que había de ese año.
 """
-import datetime as dt, json, os, re, subprocess, sys, tempfile, urllib.request
-from zoneinfo import ZoneInfo
+import datetime as dt, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 AGENDA = "https://astronomia.ign.es/o/main-theme/images/webAstro/paginas/documentos/Agendas_Astronomicas/Agenda_astronomica_{}.pdf"
 LLUVIAS_URL = "https://astronomia.ign.es/web/guest/lluvias-de-meteoros"
 ECLIPSES_URL = "https://eclipses.ign.es/"
-MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+MESES = comun.MESES
 MES_RE = "(" + "|".join(MESES + ["setiembre"]) + ")"
 # Tabla «Principales lluvias de meteoros» del Observatorio Astronómico Nacional (IGN), copiada de su web:
 # nombre, día y mes del máximo, visibilidad (desde, hasta) y ritmo cenital habitual por hora.
@@ -32,11 +30,7 @@ def mes(n):
     return 9 if n == "setiembre" else MESES.index(n) + 1
 
 
-def texto_pdf(datos):
-    with tempfile.TemporaryDirectory() as d:
-        p = os.path.join(d, "a.pdf")
-        with open(p, "wb") as f: f.write(datos)
-        return subprocess.run(["pdftotext", p, "-"], capture_output=True, text=True, check=True).stdout
+texto_pdf = comun.texto_pdf
 
 
 def estaciones(t, año, url):
@@ -83,7 +77,7 @@ def lluvias(año):
 
 def agenda(año, bajar=None):
     url = AGENDA.format(año)
-    t = texto_pdf((bajar or (lambda u: urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "TiempoYRadar/1.0"}), timeout=60).read()))(url))
+    t = texto_pdf((bajar or (lambda u: comun.pedir(u, comun.UA_CORTO, intentos=1)))(url))
     if "Agenda Astron" not in t: raise IOError(f"No es la agenda astronómica de {año}")
     return estaciones(t, año, url) + eclipses(t, año, url) + cambio_hora(t, año, url)
 
@@ -91,8 +85,8 @@ def agenda(año, bajar=None):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    with open(ruta, encoding="utf-8") as f: x = json.load(f)
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(ruta)
+    hoy = comun.hoy()
     viejos = (x.get("cielo") or {}).get("eventos", [])
     eventos, fallos = [], []
     for año in (hoy.year, hoy.year + 1):
@@ -109,9 +103,8 @@ def main():
         eventos += lluvias(año)
     eventos = sorted({(e["fecha"], e["titulo"]): e for e in eventos if e["fecha"] >= hoy.isoformat()}.values(), key=lambda e: (e["fecha"], e.get("hora", "")))
     x["cielo"] = {"eventos": eventos, "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"}
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(ruta, x)
-    print(json.dumps({"eventos": len(eventos), "fallos": fallos}, ensure_ascii=False))
+    comun.publicar(ruta, x)
+    comun.decir({"eventos": len(eventos), "fallos": fallos})
 
 
 if __name__ == "__main__":

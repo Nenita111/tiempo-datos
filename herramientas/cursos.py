@@ -9,29 +9,18 @@ buscador a veces está mal) o que se convocan para más adelante. El SEPE (sepe.
 
 Imprime una línea JSON: {"cursos": N presenciales, "linea": M, ...} o {"error": …} (sale con 1; deja lo que había).
 """
-import datetime as dt, html, json, math, os, re, sys, time
-from zoneinfo import ZoneInfo
+import datetime as dt, os, re, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 WEB = "https://www.juntadeandalucia.es"
 BUSCADOR = WEB + "/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos"
 BUSQUEDAS = {"presenciales": "provincias=63", "linea": "modalidad-de-imparticion=923"}
 POR_PAGINA = 36
-ADRA = (36.7480, -3.0213)
+ADRA, municipios, texto = comun.ADRA, comun.coordenadas, comun.limpio
 MAX_LINEA = 40
 SIGLAS = {"RRSS", "IOT", "TIC", "TICS", "PRL", "SAP", "BIM", "CAD", "SEO", "SEM", "ERP", "CRM", "VSM", "IA", "UE", "PYMES", "ONG"}
 MINUS = {"de", "del", "la", "las", "el", "los", "y", "e", "en", "para", "a", "al", "por", "con", "o", "u", "sus", "su", "un", "una", "lo", "que"}
-
-
-def municipios():
-    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), "municipios_almeria.json")
-    return {comun.sin_tildes(m[0]): (m[2], m[3]) for m in comun.leer(p)["municipios"]}
-
-
-def texto(s):
-    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", s or "")).split())
 
 
 def tarjetas(pag):
@@ -93,7 +82,7 @@ def curso(d, hoy, munis):
     if " - " in lugar:
         c["municipio"] = lugar.split(" - ", 1)[1].strip()
         p = munis.get(comun.sin_tildes(c["municipio"]))
-        if p: c["km"] = round(math.hypot((p[1] - ADRA[1]) * 111.32 * math.cos(math.radians(ADRA[0])), (p[0] - ADRA[0]) * 110.57))
+        if p: c["km"] = round(comun.km(ADRA, p))
     return c
 
 
@@ -120,22 +109,21 @@ def leer(presenciales, linea, hoy, munis=None):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    x = json.load(open(ruta, encoding="utf-8"))
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(ruta)
+    hoy = comun.hoy()
     try:
         bruto = {k: buscar(f) for k, f in BUSQUEDAS.items()}
         if not bruto["presenciales"] and not bruto["linea"]: raise ValueError("el buscador no ha dado ningún curso")
         pre, lin = leer(bruto["presenciales"], bruto["linea"], hoy)
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
+        comun.fallar(e)
     nuevo = {"presenciales": pre, "linea": lin[:MAX_LINEA], "lineaTotal": len(lin), "enlace": BUSCADOR,
              "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía"}
     viejo = dict(x.get("cursos") or {}); viejo.pop("dia", None)
     if viejo != nuevo:
         x["cursos"] = dict(nuevo, dia=hoy.isoformat())
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"cursos": len(pre), "linea": len(lin), "vistos": sum(map(len, bruto.values()))}, ensure_ascii=False))
+        comun.publicar(ruta, x)
+    comun.decir({"cursos": len(pre), "linea": len(lin), "vistos": sum(map(len, bruto.values()))})
 
 
 if __name__ == "__main__":

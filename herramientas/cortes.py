@@ -6,28 +6,26 @@
 
 Solo se apunta lo que se ha visto en la publicación: qué se corta, cuándo (último día) y dónde. Se quitan solos al pasar el día.
 """
-import argparse, datetime as dt, json, re, sys
-from zoneinfo import ZoneInfo
-import os
+import argparse, datetime as dt, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 TIPOS = ("agua", "luz", "trafico")
+FUENTE = "Instagram del Ayuntamiento de Adra"
 
 
 def podar(x, hoy=None):
-    hoy = hoy or dt.datetime.now(TZ).date()
+    hoy = hoy or comun.hoy()
     x["cortes"] = [c for c in x.get("cortes", []) if dt.date.fromisoformat(c["hasta"]) >= hoy]
     return x
 
 
-def anadir(x, tipo, titulo, hasta, enlace=None, fuente="Instagram del Ayuntamiento de Adra", ine="04003", publicado=None):
+def anadir(x, tipo, titulo, hasta, enlace=None, fuente=FUENTE, ine=comun.INE, publicado=None):
     if tipo not in TIPOS: raise ValueError(f"tipo: {', '.join(TIPOS)}")
     dt.date.fromisoformat(hasta)
     c = {"tipo": tipo, "titulo": titulo.strip(), "fuente": fuente, "hasta": hasta, "ine": ine,
-         "s": int((publicado or dt.datetime.now(TZ)).timestamp())}
-    if enlace: c["enlace"] = re.sub(r"\?.*$", "", enlace.strip()) if "instagram.com" in enlace else enlace.strip()
+         "s": int((publicado or comun.ahora()).timestamp())}
+    if enlace: c["enlace"] = comun.enlace_limpio(enlace)
     x["cortes"] = [o for o in x.get("cortes", []) if not (enlace and o.get("enlace") == c.get("enlace"))] + [c]
     return x
 
@@ -35,15 +33,14 @@ def anadir(x, tipo, titulo, hasta, enlace=None, fuente="Instagram del Ayuntamien
 def main():
     a = argparse.ArgumentParser()
     a.add_argument("extras"); a.add_argument("--tipo", choices=TIPOS); a.add_argument("--titulo"); a.add_argument("--hasta")
-    a.add_argument("--enlace"); a.add_argument("--fuente", default="Instagram del Ayuntamiento de Adra"); a.add_argument("--ine", default="04003")
+    a.add_argument("--enlace"); a.add_argument("--fuente", default=FUENTE); a.add_argument("--ine", default=comun.INE)
     o = a.parse_args()
-    x = json.load(open(o.extras, encoding="utf-8"))
+    x = comun.leer(o.extras)
     if o.tipo:
         if not (o.titulo and o.hasta): sys.exit("Falta --titulo o --hasta")
         anadir(x, o.tipo, o.titulo, o.hasta, o.enlace, o.fuente, o.ine)
     podar(x)
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(o.extras, x)
+    comun.publicar(o.extras, x)
     print(f"{len(x['cortes'])} cortes en {o.extras}")
 
 

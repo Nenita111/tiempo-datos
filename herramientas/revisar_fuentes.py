@@ -9,17 +9,17 @@ Para cada fuente pide lo mismo que la app (con su mismo agente) y comprueba la m
 Sale con código 1 si alguna fuente está ROTA. «NO COMPROBABLE» = la web bloquea a los servidores en la nube
 (p. ej. Red Eléctrica): desde casa funciona.
 """
-import argparse, datetime as dt, email.utils, gzip, io, json, math, re, ssl, subprocess, sys, tarfile, urllib.error, urllib.parse, urllib.request
-import threading
+import argparse, datetime as dt, email.utils, gzip, io, json, math, os, re, ssl, subprocess, sys, tarfile, threading
+import urllib.error, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
-ULTIMA = threading.local()      # lo último que bajó cada hilo: si una fuente sale ROTA, Jev mira si el dato sigue en la página
-from zoneinfo import ZoneInfo
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, jev.py y fap.py, al lado (con -I no se mira la carpeta del script)
+import comun
 
-UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"      # el de la app (Red.kt)
+ULTIMA = threading.local()      # lo último que bajó cada hilo: si una fuente sale ROTA, Jev mira si el dato sigue en la página
+UA = comun.UA_APP               # el de la app (Red.kt)
 UA_WIKI = "TiempoYRadar/1.0 (aplicacion personal de television)"
-TZ = ZoneInfo("Europe/Madrid")
-ADRA = dict(nombre="Adra", provincia="Almería", ine="04003", cp="04770", lat=36.7480, lon=-3.0213)
-MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+TZ, MESES = comun.TZ, comun.MESES
+ADRA = dict(nombre=comun.LUGAR, provincia="Almería", ine=comun.INE, cp="04770", lat=comun.ADRA[0], lon=comun.ADRA[1])
 
 
 def pedir(url, cuerpo=None, tipo=None, agente=UA, tiempo=45):
@@ -119,7 +119,7 @@ def terremotos(L):
     return f"{n} terremotos"
 
 def efemerides(L):
-    h = dt.datetime.now(TZ).date()
+    h = comun.hoy()
     t = texto(f"https://es.wikipedia.org/wiki/{h.day}_de_{MESES[h.month - 1]}?action=raw", agente=UA_WIKI)
     busca(r"==\s*Acontecimientos\s*==", t, "la sección Acontecimientos"); return "ok"
 
@@ -136,7 +136,7 @@ def campo(L):
     return f"{n} subastas"
 
 def lonja(L):
-    h = dt.datetime.now(TZ).date(); fin = h - dt.timedelta(days=1); ini = fin - dt.timedelta(days=6)
+    h = comun.hoy(); fin = h - dt.timedelta(days=1); ini = fin - dt.timedelta(days=6)
     q = urllib.parse.urlencode(dict(filters=json.dumps({"listaFiltro": [{"campo": "fechaVenta", "value": [str(ini), str(fin)]}, {"campo": "provincia", "value": ["4"]}]}),
                                     agrupaciones=json.dumps({"campos": ["nombreEspecie"]}), page=0, size=200,
                                     columnasMostrar=json.dumps({"campos": ["nombreEspecie", "totalKilos", "totalEuros"]}), codigoPantalla=21))
@@ -154,7 +154,7 @@ def gasolina(L):
     return f"{len(j['ListaEESSPrecio'])} estaciones"
 
 def luz(L):
-    d = dt.datetime.now(TZ).date()
+    d = comun.hoy()
     try: j = json.loads(texto(f"https://apidatos.ree.es/es/datos/mercados/precios-mercados-tiempo-real?start_date={d}T00:00&end_date={d}T23:59&time_trunc=hour"))
     except urllib.error.HTTPError as e:
         if e.code == 403: raise PermissionError("Red Eléctrica no deja entrar a servidores en la nube")
@@ -164,10 +164,9 @@ def luz(L):
 
 def esios(L):
     """La API de ESIOS con la clave de Isa (variable ESIOS_API_KEY del entorno), la que usa la tarea del precio de la luz al móvil."""
-    import os
     clave = os.environ.get("ESIOS_API_KEY", "").strip()
     if not clave: raise PermissionError("falta la variable ESIOS_API_KEY en el entorno")
-    d = dt.datetime.now(TZ).date()
+    d = comun.hoy()
     r = subprocess.run(["curl", "-sS", "-f", "--max-time", "40", "-A", UA, "-H", "Accept: application/json; application/vnd.esios-api-v1+json", "-H", "@-",
                         f"https://api.esios.ree.es/indicators/1001?start_date={d}T00:00&end_date={d}T23:59&geo_ids[]=8741"],
                        input=f"x-api-key: {clave}\n".encode(), capture_output=True)
@@ -184,7 +183,7 @@ def iss(L):
 
 def luna(L):
     # la foto de la Luna de cada año de la NASA (Cielo.lunaSvs): la búsqueda responde y la de este año está
-    y = dt.date.today().year
+    y = comun.hoy().year
     j = json.loads(texto(f"https://svs.gsfc.nasa.gov/api/search/?search=Moon%20Phase%20and%20Libration%2C%20{y}&limit=10"))
     if not any(r.get("title", "").strip() == f"Moon Phase and Libration, {y}" for r in j.get("results", [])): raise ValueError(f"sin la página de {y}")
     return f"la de {y}" + (f" y la de {y + 1}" if any(r.get("title", "").strip() == f"Moon Phase and Libration, {y + 1}" for r in json.loads(
@@ -223,7 +222,7 @@ def saih(L):
 
 def rfep(L):
     # 4.8 (300): la Federación Española de Piragüismo (Rfep.kt): el PDF del calendario y la carpeta de resultados de barco dragón
-    y = dt.date.today().year
+    y = comun.hoy().year
     if not re.search(r"calendario-competiciones-nacionales-\d{4}[^\"]*\.pdf", texto("https://rfep.es/competiciones/calendario/")): raise ValueError("sin el PDF del calendario")
     if not re.search(r"\bterm-\d+\b", texto(f"https://rfep.es/wp-file-download/barco-dragon-temporada-{y}/")): raise ValueError("sin la carpeta de resultados")
     return "calendario y resultados"
@@ -250,7 +249,7 @@ def farmacias(L):
     n = re.search(r'vbf_vars\s*=\s*\{"nonce":"([a-z0-9]+)"', t)
     if not n: raise ValueError("no encuentro la clave del buscador (vbf_vars)")
     campos = {"action": "bearer_authentication_with_params", "nonce": n.group(1), "vbf_req_endpoint": "/farmacias-abiertas",
-              "vbf_req_fecha": dt.datetime.now(TZ).date().isoformat(), "vbf_req_cp": L["cp"], "vbf_req_municipio": L["nombre"],
+              "vbf_req_fecha": comun.hoy().isoformat(), "vbf_req_cp": L["cp"], "vbf_req_municipio": L["nombre"],
               "vbf_req_es_listado_geo": "false", "vbf_req_latitud": "null", "vbf_req_longitud": "null", "vbf_req_solo_guardias": "true",
               "vbf_req_aplica_filtro_fecha": "true", "vbf_req_lang": "es-ES"}
     r = json.loads(pedir("https://www.cofalmeria.com/wp-admin/admin-ajax.php", urllib.parse.urlencode(campos).encode(), "application/x-www-form-urlencoded"))
@@ -285,13 +284,13 @@ def sonda(L):
 def extras(L):
     x = json.loads(texto("https://raw.githubusercontent.com/Nenita111/tiempo-datos/main/extras.json"))
     b = x.get("vuelosBuscado")
-    if not b or (dt.date.today() - dt.date.fromisoformat(b)).days > 2: raise ValueError(f"vuelos sin buscar desde {b}")
+    if not b or (comun.hoy() - dt.date.fromisoformat(b)).days > 2: raise ValueError(f"vuelos sin buscar desde {b}")
     return f"vuelos del {b}, {len(x.get('sorteos', []))} sorteos"
 
 
 def paro(L):
     # datos abiertos del SEPE: el CSV del año (o del anterior, en enero)
-    y = dt.date.today().year
+    y = comun.hoy().year
     for año in (y, y - 1):
         try:
             r = urllib.request.urlopen(urllib.request.Request(f"https://sede.sepe.gob.es/es/portaltrabaja/resources/sede/datos_abiertos/datos/Paro_por_municipios_{año}_csv.csv",
@@ -316,7 +315,7 @@ def euribor(L):
 
 def festivos(L):
     j = json.loads(texto("https://www.juntadeandalucia.es/ssdigitales/datasets/work-calendar/years"))
-    if str(dt.date.today().year) not in j.get("result", []): raise ValueError("el calendario laboral no tiene este año")
+    if str(comun.hoy().year) not in j.get("result", []): raise ValueError("el calendario laboral no tiene este año")
     return "años " + ", ".join(j["result"][-2:])
 
 def rayos(L):
@@ -338,7 +337,7 @@ def medicamentos(L):
 
 def productos(L):
     # Consumo.kt: la búsqueda de Safety Gate (notificadas por España), como la hace su web
-    y = dt.date.today().year
+    y = comun.hoy().year
     q = {"criteria": {"notifyingCountry": ["ES"], "year": [y, y - 1]}, "searchCriteriaForNotification": False, "isLaunched": True, "isLaunchSearch": True,
          "pagination": {"numberElements": 5, "page": 0, "sortField": "PUBLICATION_DATE", "sortOrder": "DESC", "totalElements": 0},
          "language": "es", "displayDefaultResults": False, "isForMostRecent": False}
@@ -357,10 +356,8 @@ def sae(L):
 
 def fap(L):
     # fap.py (3.8, tarea diaria): la lista de circulares de este año de la Federación Andaluza de Piragüismo, como la lee
-    import os
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import fap as F
-    y = dt.date.today().year
+    y = comun.hoy().year
     c = F.circulares(pedir(F.CIRCULARES.format(y=y)).decode("utf-8", "replace"))
     if not c: raise ValueError("la página de circulares ya no da la lista (sin «el-item» con su PDF y su fecha)")
     return f"{len(c)} circulares de {y}, la última del {c[0]['fecha']}"
@@ -464,7 +461,7 @@ def tierra(L):
     x = json.loads(texto("https://epic.gsfc.nasa.gov/api/natural"))
     if not x or "image" not in x[0]: raise ValueError("la API no trae fotos")
     dia = x[0]["date"][:10]
-    if (dt.date.today() - dt.date.fromisoformat(dia)).days > 7: raise ValueError(f"lo último es del {dia}")
+    if (comun.hoy() - dt.date.fromisoformat(dia)).days > 7: raise ValueError(f"lo último es del {dia}")
     return f"{len(x)} fotos del {dia}"
 
 def solVideo(L):
@@ -478,7 +475,7 @@ def solVideo(L):
 def ruta(L):
     # Camaras.trayecto (3.9, 268): las fotos de las cámaras del trayecto de Adra a Almería que elige la app (Balanegra, Santa María del
     # Águila, Vícar y Vía Parque; sin las de la entrada de Almería), con su hora
-    if L["ine"] != "04003": return "NO COMPROBABLE: solo hay trayecto para Adra"
+    if L["ine"] != comun.INE: return "NO COMPROBABLE: solo hay trayecto para Adra"
     horas = []
     for cid in ("516", "519", "521", "526"):
         with urllib.request.urlopen(urllib.request.Request(f"https://etraffic.dgt.es/camarasEtraffic/{cid}.jpg", headers={"User-Agent": UA}), timeout=45) as f:
@@ -493,7 +490,7 @@ def vista(L):
     import math
     ml = 0.25; mlat = ml * 111.32 * math.cos(math.radians(L["lat"])) * 800 / (1840 * 110.57)
     bb = f"{L['lat'] - mlat:.4f},{L['lon'] - ml:.4f},{L['lat'] + mlat:.4f},{L['lon'] + ml:.4f}"
-    hoy = dt.datetime.now(TZ).date()
+    hoy = comun.hoy()
     for i in range(2, 13):
         f = hoy - dt.timedelta(days=i)
         for capa, sat in (("HLS_S30", "Sentinel-2"), ("HLS_L30", "Landsat")):
@@ -530,8 +527,6 @@ def calarVivo(L):
 def jev_(L):
     """Jev (TypeSafe), para las tareas de la nube (titulares, receta, SAS, sortea2). Por Composio (JEV_CACHE): cuántas respuestas trajo
     el sandbox (vacía: NO COMPROBABLE). Con la clave: una pregunta mínima. Sin nada: NO COMPROBABLE."""
-    import os
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import jev
     if not os.environ.get("TYPESAFE_API_KEY", "").strip():
         if os.environ.get("JEV_CACHE", "").strip():
@@ -552,8 +547,6 @@ FUENTES = [prevision, avisos, radar, satelite, playas, maritima, mareas, boya, o
 
 def segunda_mirada(fuente, fallo, bruto, pedir_jev=None):
     """La web respondió pero falta la marca que busca la app: ¿el dato sigue en la página con otro formato? Solo una pista (con Jev)."""
-    import os
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import jev
     if not os.environ.get("TYPESAFE_API_KEY", "").strip() and pedir_jev is None and not jev.COMPOSIO: return ""   # en el sandbox de Composio, sí
     t = bruto.decode("utf-8", "replace")
@@ -582,7 +575,7 @@ def main():
     r = revisar()
     for n, e, d in r: print(f"{e:15} {n:13} {d}")
     if o.json:
-        json.dump({"revisado": dt.datetime.now(TZ).isoformat(timespec="minutes"), "fuentes": [dict(fuente=n, estado=e, detalle=d) for n, e, d in r]},
+        json.dump({"revisado": comun.ahora().isoformat(timespec="minutes"), "fuentes": [dict(fuente=n, estado=e, detalle=d) for n, e, d in r]},
                   open(o.json, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     rotas = [n for n, e, _ in r if e == "ROTA"]
     print(f"\n{len(r) - len(rotas)}/{len(r)} bien" + (f" · ROTAS: {', '.join(rotas)}" if rotas else ""))

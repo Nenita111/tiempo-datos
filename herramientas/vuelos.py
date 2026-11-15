@@ -121,7 +121,7 @@ def actualizar(x, busquedas, buscado, busqueda):
     x["vuelosBuscado"] = buscado
     x["vuelosBusqueda"] = busqueda
     x["antelacionMinimaDias"] = 3
-    x["actualizado"] = dt.datetime.now(dt.timezone.utc).astimezone().isoformat(timespec="minutes")   # la tele se queda con el más nuevo
+    x["actualizado"] = comun.ahora().isoformat(timespec="minutes")   # la tele se queda con el más nuevo
     # campos antiguos (solo Almería) para la versión vieja de la app
     alm = next((a for a in aeropuertos if a["codigo"] == "LEI"), None)
     if alm:
@@ -138,9 +138,9 @@ def main():
     a = argparse.ArgumentParser()
     a.add_argument("extras"); a.add_argument("ficheros", nargs="*", help="CÓDIGO=fichero, p. ej. LEI=lei.txt")
     a.add_argument("--sesion", action="store_true", help="las respuestas de Kiwi del registro de la sesión (las de las últimas 12 h)")
-    a.add_argument("--buscado", default=dt.date.today().isoformat()); a.add_argument("--busqueda", required=True)
+    a.add_argument("--buscado", default=comun.hoy().isoformat()); a.add_argument("--busqueda", required=True)
     o = a.parse_args()
-    x = json.load(open(o.extras, encoding="utf-8"))
+    x = comun.leer(o.extras)
     busquedas = de_la_sesion() if o.sesion else {}
     busquedas.update({par.split("=", 1)[0].upper(): leer(par.split("=", 1)[1]) for par in o.ficheros})
     if not busquedas: sys.exit("No hay búsquedas de Kiwi (ni ficheros ni en la sesión): no se toca nada")

@@ -15,21 +15,19 @@ barco dragón y avisos_movil.py las manda al móvil, una vez.
 
   python3 -I herramientas/fap.py extras.json
 """
-import datetime as dt, hashlib, html, json, os, re, subprocess, sys, tempfile, urllib.request
-from zoneinfo import ZoneInfo
+import datetime as dt, hashlib, html, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 import jev
 
-TZ = ZoneInfo("Europe/Madrid")
-UA = "Mozilla/5.0 (Linux; Android 11; AFT) TiempoYRadar/1.0"       # el de la app
+UA = comun.UA_APP       # el de la app
 FAP = "https://fapira.com"
 CIRCULARES = FAP + "/index.php/circulares-2/circulares-{y}"
 NOTICIAS = FAP + "/index.php/noticias-2/noticias-{y}"
 DIAS = 60
 DRAGON = re.compile(r"(?i)\bdrag[oó]n\b|dragon\s*boat")
 CAMBIO = re.compile(r"(?i)suspensi[oó]n|suspend|aplaza|cancela|anula|nueva fecha|cambio de (fecha|sede|lugar)|modificaci[oó]n")
-MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+MESES = comun.MESES
 MENUDAS = {"de", "del", "la", "las", "el", "los", "y", "en", "a", "al", "por", "para", "con", "e", "o"}
 
 
@@ -37,7 +35,7 @@ def pedir(url, timeout=60, intentos=3):
     return comun.pedir(url, UA, timeout=timeout, intentos=intentos)
 
 
-def limpio(s): return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", s or ""))).strip()
+limpio = comun.limpio
 
 
 def absoluto(u): return u if u.startswith("http") else FAP + u
@@ -81,11 +79,8 @@ def titulo_limpio(t):
 
 def datos_pdf(datos):
     """El día, el lugar y el último día de inscripción de la tabla de la normativa (pdftotext). {} si no los trae o no se puede leer."""
-    with tempfile.TemporaryDirectory() as d:
-        f = os.path.join(d, "c.pdf"); open(f, "wb").write(datos)
-        try: t = subprocess.run(["pdftotext", "-layout", f, "-"], capture_output=True, text=True, timeout=60).stdout
-        except (OSError, subprocess.TimeoutExpired): return {}
-    return datos_texto(t)
+    try: return datos_texto(comun.texto_pdf(datos, "-layout", tiempo=60, comprobar=False))
+    except (OSError, subprocess.TimeoutExpired): return {}
 
 
 def datos_texto(t):
@@ -160,17 +155,16 @@ def leer(hoy, red=pedir):
 
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
-    x = json.load(open(sys.argv[1], encoding="utf-8"))
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(sys.argv[1])
+    hoy = comun.hoy()
     avisos, fallos = leer(hoy)
     if not avisos and fallos:
-        print(json.dumps({"fallos": fallos}, ensure_ascii=False)); sys.exit(1)
+        comun.decir({"fallos": fallos}); sys.exit(1)
     ya = (x.get("fap") or {}).get("juzgados") or {}
     juzgados, juez = juzgar(avisos, ya)
     x["fap"] = {"fecha": hoy.isoformat(), "novedades": novedades(avisos, juzgados), "juzgados": juzgados}
-    x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-    comun.guardar(sys.argv[1], x)
-    print(json.dumps({"avisos": len(avisos), "novedades": len(x["fap"]["novedades"]), "juez": juez, "fallos": fallos}, ensure_ascii=False))
+    comun.publicar(sys.argv[1], x)
+    comun.decir({"avisos": len(avisos), "novedades": len(x["fap"]["novedades"]), "juez": juez, "fallos": fallos})
 
 
 if __name__ == "__main__":

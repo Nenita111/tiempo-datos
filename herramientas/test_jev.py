@@ -195,6 +195,13 @@ class Etiquetas(unittest.TestCase):
     """Las listas reales del 29 oct (AESAN, AEMPS, Safety Gate) y las ofertas de la Junta del 27 oct, recortadas; Jev, de mentira."""
     def m(self, n): return open(os.path.join(os.path.dirname(__file__), "muestras", n), encoding="utf-8").read()
 
+    def setUp(self):
+        # CIMA (¿se vende sin receta?), de mentira en todas: antes dos de estas pruebas salían a internet (y sin red tardaban 39 s cada una)
+        self.cima = ET.sin_receta
+        ET.sin_receta = lambda regs, consultar=None: self.cima(regs, consultar or (lambda n: {"receta": True}))
+
+    def tearDown(self): ET.sin_receta = self.cima
+
     def red(self, url, cuerpo=None, tipo=None):
         if "aesan" in url: return self.m("aesan_alertas_20261029.html")
         if "aemps.gob.es" in url: return self.m("aemps_lista_20261029.html")

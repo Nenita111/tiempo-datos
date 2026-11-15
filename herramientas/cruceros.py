@@ -7,14 +7,12 @@ Los ferris (Melilla, Nador) no: su pantalla de llegadas y salidas (pantallas_em.
 
 Imprime una línea JSON: {"cruceros": N, "pdf": url, "actualizacion": "15/02/26"} o {"error": …} (sale con 1; deja lo que había).
 """
-import datetime as dt, json, os, re, subprocess, sys, tempfile
-from zoneinfo import ZoneInfo
+import datetime as dt, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
-TZ = ZoneInfo("Europe/Madrid")
 PAGINA = "https://apalmeria.com/pasajeros/cruceros/"
-DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+DIAS = comun.DIAS
 
 
 def pdf_del_anio(html, anio):
@@ -25,10 +23,7 @@ def pdf_del_anio(html, anio):
 
 
 def texto_pdf(datos):
-    with tempfile.TemporaryDirectory() as d:
-        p = os.path.join(d, "a.pdf")
-        with open(p, "wb") as f: f.write(datos)
-        return subprocess.run(["pdftotext", "-layout", p, "-"], capture_output=True, text=True, check=True).stdout
+    return comun.texto_pdf(datos, "-layout")
 
 
 def leer(texto):
@@ -58,8 +53,8 @@ def leer(texto):
 def main():
     if len(sys.argv) < 2: sys.exit(__doc__)
     ruta = sys.argv[1]
-    x = json.load(open(ruta, encoding="utf-8"))
-    hoy = dt.datetime.now(TZ).date()
+    x = comun.leer(ruta)
+    hoy = comun.hoy()
     try:
         html = comun.pedir(PAGINA).decode("utf-8", "replace")
         filas, act, urls = [], None, []
@@ -71,14 +66,11 @@ def main():
         if not urls: raise ValueError(f"sin la relación de cruceros de {hoy.year} en {PAGINA}")
         if not filas: raise ValueError("la relación no se ha podido leer")
     except Exception as e:
-        print(json.dumps({"error": str(e)[:200]}, ensure_ascii=False)); sys.exit(1)
+        comun.fallar(e)
     prox = sorted((f for f in filas if (f.get("hasta") or f["fecha"]) >= hoy.isoformat()), key=lambda f: (f["fecha"], f["entrada"]))
     nuevo = {"lista": prox, "fuente": "Autoridad Portuaria de Almería", "pdf": urls[-1], "url": PAGINA, "actualizacion": act}
-    if x.get("cruceros") != nuevo:
-        x["cruceros"] = nuevo
-        x["actualizado"] = dt.datetime.now(TZ).isoformat(timespec="minutes")
-        comun.guardar(ruta, x)
-    print(json.dumps({"cruceros": len(prox), "pdf": urls[-1], "actualizacion": act}, ensure_ascii=False))
+    comun.poner(ruta, x, "cruceros", nuevo)
+    comun.decir({"cruceros": len(prox), "pdf": urls[-1], "actualizacion": act})
 
 
 if __name__ == "__main__":
