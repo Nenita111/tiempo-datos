@@ -268,6 +268,19 @@ línea). Un script nuevo usa eso en vez de repetirlo. Todas las pruebas, sin sal
 `python3 -I -m unittest discover -s herramientas -p 'test_*.py'` (con el clon completo: necesitan `herramientas/muestras/`). GitHub las
 pasa solo (`.github/workflows/pruebas.yml`) cada vez que cambia algo de `herramientas/`; con los datos de cada día, no.
 
+**Avisos al móvil de la tarea diaria (15 nov 2026, lo pidió Isa: los vuelos estuvieron cinco días sin actualizarse y solo lo decía el
+informe).** `diario.py` trae «avisar» cuando algo lleva 2 días o más fallando (un paso, una fuente rota de la revisión, Jev, o los vuelos
+sin buscar): una línea por cosa, el día que los cumple y luego cada 7 mientras siga; desde cuándo falla cada cosa lo recuerda en
+`estado_diario.json` («fallos»). Y `vuelos.py` imprime «Aviso: ✈️ Vuelo barato desde …» cuando el más barato desde un aeropuerto cuesta
+al menos un 10 % menos que lo más barato de los 14 días anteriores (hasta tener 7 días apuntados, en «vuelosMin», no avisa). La tarea
+manda todas esas líneas a Isa en un único mensaje (SendUserMessage); sin ninguna, no manda nada. Un script puede dejar además su propio
+aviso (`comun.apuntar_aviso`): `diario.py` lo recoge y sale en el mismo «avisar».
+
+**Estafas en circulación (15 nov 2026, lo pidió Isa).** `incibe.py` (paso «estafas» de `diario.py`): los avisos de seguridad para la
+ciudadanía del INCIBE, de su RSS oficial (www.incibe.es/ciudadania/avisos/feed; su robots.txt no lo cierra; uno o dos al mes). Guarda en
+extras.json («estafas») los de los últimos 60 días (título, día, a quién afecta, de qué va y enlace); la tele los enseña en «Alertas y
+productos». Uno recién publicado va además al móvil, una vez.
+
 **extras.json más corto (15 nov 2026).** Lo que la tele no lee ya no va en él: el estado de los scripts (arriba, `estado_diario.json`) y
 los campos antiguos de vuelos (`vuelos`, `vuelosOrigen`, `vuelosFecha`: `vuelos.py` los quita en su siguiente pasada). Y el enlace de cada
 curso y de cada ayuda (son el de su lista más su número) deja de guardarse cuando la página publicada dice que sabe deducirlo

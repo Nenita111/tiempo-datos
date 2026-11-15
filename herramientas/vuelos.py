@@ -12,10 +12,12 @@ Con --sesion no hace falta copiar nada: las respuestas del conector de Kiwi qued
 (~/.claude/projects/**/*.jsonl, o en …/tool-results/ si son grandes) y se toma la última de cada aeropuerto de las últimas 12 horas.
 
 Guarda hasta 6 por aeropuerto (del más barato al más caro) con su enlace de Kiwi (la tele dibuja el QR del más barato).
+Si el más barato desde un aeropuerto cuesta al menos un 10 % menos que lo más barato de los 14 días anteriores, imprime además una
+línea «Aviso: ✈️ Vuelo barato desde …» (la tarea diaria la manda al móvil); los mínimos de cada día se recuerdan en estado_diario.json.
 Los campos antiguos («vuelos», «vuelosOrigen» y «vuelosFecha»: solo Almería, lo mismo que «aeropuertos» con otro formato) ya no se
 escriben y se quitan si siguen: la app los lee solo de un extras.json sin «aeropuertos», que ya no hay.
 """
-import argparse, glob, json, os, sys, time
+import argparse, datetime as dt, glob, json, os, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))   # comun.py, al lado (con -I no se mira la carpeta del script)
 import comun
 
@@ -128,6 +130,29 @@ def actualizar(x, busquedas, buscado, busqueda):
     return x
 
 
+BARATO, DIAS_BARATO, MIN_DIAS = 0.9, 14, 7     # vuelo barato: un 10 % menos que lo más barato de los 14 días de antes (con 7 apuntados al menos)
+
+
+def baratos(ruta, x, dia):
+    """Avisos al móvil de vuelo barato (15 nov 2026, lo pidió Isa): el más barato de hoy desde un aeropuerto, si cuesta al menos un 10 % menos
+    que el más barato de cada uno de los DIAS_BARATO días anteriores. El más barato de cada día se recuerda en estado_diario.json
+    («vuelosMin», 30 días por aeropuerto): hasta tener MIN_DIAS días apuntados no se avisa de nada. Una línea por aeropuerto."""
+    hist = comun.recuerdo(ruta, {}, "vuelosMin") or {}
+    corto = lambda f: f"{int(f[8:10])} {comun.MESES[int(f[5:7]) - 1][:3]}"
+    avisos = []
+    for a in x.get("aeropuertos") or []:
+        if not a.get("vuelos"): continue
+        v = min(a["vuelos"], key=lambda v: v["precio"])
+        antes = [e for e in hist.get(a["codigo"], []) if e[0] != dia.isoformat()]
+        previos = [p for d, p in antes if (dia - dt.timedelta(days=DIAS_BARATO)).isoformat() <= d < dia.isoformat()]
+        if len(previos) >= MIN_DIAS and v["precio"] <= BARATO * min(previos):
+            avisos.append(f"✈️ Vuelo barato desde {a['origen']}: {v['destino']}, del {corto(v['ida'])} al {corto(v['vuelta'])}, {v['precio']} € "
+                          f"(lo más barato en {DIAS_BARATO} días era {min(previos)} €){': ' + v['enlace'] if v.get('enlace') else ''}")
+        hist[a["codigo"]] = (antes + [[dia.isoformat(), v["precio"]]])[-30:]
+    comun.recordar(ruta, {}, "vuelosMin", hist)
+    return avisos
+
+
 def main():
     a = argparse.ArgumentParser()
     a.add_argument("extras"); a.add_argument("ficheros", nargs="*", help="CÓDIGO=fichero, p. ej. LEI=lei.txt")
@@ -143,6 +168,7 @@ def main():
     actualizar(x, busquedas, o.buscado, o.busqueda)
     comun.guardar(o.extras, x)
     print(", ".join(f"{a['origen']} {len(a['vuelos'])}" for a in x["aeropuertos"]))
+    for aviso in baratos(o.extras, x, dt.date.fromisoformat(o.buscado)): print("Aviso: " + aviso)      # la tarea los manda al móvil
 
 
 if __name__ == "__main__":
