@@ -55,54 +55,54 @@
  "cuencaPctAnterior": 44.1,
  "espanaPct": 57.2,
  "espanaPctAnterior": 52.1,
- "vuelosFecha": "Buscado el 10/11 · ida y vuelta",
+ "vuelosFecha": "Buscado el 15/11 · ida y vuelta",
  "vuelosOrigen": "Almería",
  "vuelos": [
   {
    "destino": "Liverpool",
    "fecha": "12/12",
    "vuelta": "15/12",
-   "precio": "67 €",
+   "precio": "90 €",
    "compania": "easyJet",
    "escalas": "directo"
   },
   {
-   "destino": "Sevilla",
-   "fecha": "08/12",
-   "vuelta": "10/12",
-   "precio": "111 €",
+   "destino": "Madrid",
+   "fecha": "01/12",
+   "vuelta": "06/12",
+   "precio": "102 €",
    "compania": "Iberia",
    "escalas": "directo"
   },
   {
    "destino": "Bucarest",
-   "fecha": "07/12",
-   "vuelta": "11/12",
-   "precio": "120 €",
+   "fecha": "27/11",
+   "vuelta": "30/11",
+   "precio": "110 €",
    "compania": "Wizz Air",
+   "escalas": "directo"
+  },
+  {
+   "destino": "Sevilla",
+   "fecha": "18/12",
+   "vuelta": "21/12",
+   "precio": "112 €",
+   "compania": "Iberia",
    "escalas": "directo"
   },
   {
    "destino": "Barcelona",
    "fecha": "06/12",
    "vuelta": "11/12",
-   "precio": "121 €",
+   "precio": "113 €",
    "compania": "Vueling",
-   "escalas": "directo"
-  },
-  {
-   "destino": "Madrid",
-   "fecha": "06/12",
-   "vuelta": "10/12",
-   "precio": "131 €",
-   "compania": "Iberia",
    "escalas": "directo"
   },
   {
    "destino": "Melilla",
    "fecha": "12/12",
    "vuelta": "15/12",
-   "precio": "134 €",
+   "precio": "136 €",
    "compania": "Iberia",
    "escalas": "directo"
   }
@@ -122,55 +122,55 @@
      "destino": "Liverpool",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
-     "precio": 67,
+     "precio": 90,
      "compania": "easyJet",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/msncv4"
+     "enlace": "https://kiwi.com/u/gxgwyt"
     },
     {
-     "destino": "Sevilla",
-     "ida": "2026-12-08",
-     "vuelta": "2026-12-10",
-     "precio": 111,
+     "destino": "Madrid",
+     "ida": "2026-12-01",
+     "vuelta": "2026-12-06",
+     "precio": 102,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/ptqzfq"
+     "enlace": "https://kiwi.com/u/rrutdn"
     },
     {
      "destino": "Bucarest",
-     "ida": "2026-12-07",
-     "vuelta": "2026-12-11",
-     "precio": 120,
+     "ida": "2026-11-27",
+     "vuelta": "2026-11-30",
+     "precio": 110,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/kk7vun5"
+     "enlace": "https://kiwi.com/u/6ghmgj"
+    },
+    {
+     "destino": "Sevilla",
+     "ida": "2026-12-18",
+     "vuelta": "2026-12-21",
+     "precio": 112,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/3th3mw"
     },
     {
      "destino": "Barcelona",
      "ida": "2026-12-06",
      "vuelta": "2026-12-11",
-     "precio": 121,
+     "precio": 113,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/9ktgud"
-    },
-    {
-     "destino": "Madrid",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-10",
-     "precio": 131,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/3ffj4s"
+     "enlace": "https://kiwi.com/u/p3v8m2"
     },
     {
      "destino": "Melilla",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
-     "precio": 134,
+     "precio": 136,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/hgvss4z"
+     "enlace": "https://kiwi.com/u/6y5vv4x"
     }
    ]
   },
@@ -179,22 +179,13 @@
    "codigo": "GRX",
    "vuelos": [
     {
-     "destino": "Palma de Mallorca",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-13",
-     "precio": 46,
-     "compania": "Vueling / Air Europa",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/rvubwb5"
-    },
-    {
      "destino": "Asturias",
      "ida": "2026-12-11",
      "vuelta": "2026-12-14",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/5p8w5z"
+     "enlace": "https://kiwi.com/u/j53vrk"
     },
     {
      "destino": "Oporto",
@@ -203,35 +194,44 @@
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/z6h67n"
+     "enlace": "https://kiwi.com/u/jwhr3g"
     },
     {
      "destino": "Santander",
-     "ida": "2026-11-27",
-     "vuelta": "2026-11-30",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-14",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/b5f6q3"
+     "enlace": "https://kiwi.com/u/urfrf7h"
     },
     {
-     "destino": "Nantes",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-10",
-     "precio": 59,
-     "compania": "Volotea",
+     "destino": "Palma de Mallorca",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-13",
+     "precio": 53,
+     "compania": "Vueling / Air Europa",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/44svx7j"
+     "enlace": "https://kiwi.com/u/msxj46d"
     },
     {
      "destino": "Londres",
-     "ida": "2026-12-01",
-     "vuelta": "2026-12-05",
-     "precio": 69,
+     "ida": "2026-12-08",
+     "vuelta": "2026-12-12",
+     "precio": 58,
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Luton",
-     "enlace": "https://kiwi.com/u/zzhjh7c"
+     "enlace": "https://kiwi.com/u/d8dhtt"
+    },
+    {
+     "destino": "Nantes",
+     "ida": "2026-11-29",
+     "vuelta": "2026-12-03",
+     "precio": 59,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/dpjf8r"
     }
    ]
   },
@@ -246,52 +246,52 @@
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/jwqb8c"
+     "enlace": "https://kiwi.com/u/wjxnfx5"
     },
     {
      "destino": "Palma de Mallorca",
-     "ida": "2026-12-03",
-     "vuelta": "2026-12-07",
+     "ida": "2026-12-18",
+     "vuelta": "2026-12-20",
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/5b54zs"
+     "enlace": "https://kiwi.com/u/p4hh3rw"
+    },
+    {
+     "destino": "Oporto",
+     "ida": "2026-12-14",
+     "vuelta": "2026-12-19",
+     "precio": 38,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/pj4fnc"
     },
     {
      "destino": "Lisboa",
      "ida": "2026-12-10",
      "vuelta": "2026-12-12",
-     "precio": 37,
+     "precio": 40,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/v3mdjt7"
+     "enlace": "https://kiwi.com/u/4h7ck9"
     },
     {
-     "destino": "Turín",
-     "ida": "2026-12-10",
-     "vuelta": "2026-12-13",
-     "precio": 37,
-     "compania": "Ryanair",
+     "destino": "Venecia",
+     "ida": "2026-12-16",
+     "vuelta": "2026-12-21",
+     "precio": 40,
+     "compania": "Ryanair / Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/pbqk28u"
+     "enlace": "https://kiwi.com/u/wf3zpj"
     },
     {
      "destino": "Bilbao",
-     "ida": "2026-12-13",
-     "vuelta": "2026-12-15",
-     "precio": 38,
+     "ida": "2026-12-20",
+     "vuelta": "2026-12-24",
+     "precio": 42,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/q7gfqmw"
-    },
-    {
-     "destino": "Valencia",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-17",
-     "precio": 39,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xzxpxpb"
+     "enlace": "https://kiwi.com/u/mp68sf6"
     }
    ]
   },
@@ -301,69 +301,69 @@
    "vuelos": [
     {
      "destino": "Barcelona",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-14",
+     "ida": "2026-12-20",
+     "vuelta": "2026-12-25",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/yzzfyy"
+     "enlace": "https://kiwi.com/u/97cf5w6"
     },
     {
      "destino": "Bilbao",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-15",
+     "ida": "2026-12-19",
+     "vuelta": "2026-12-22",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/3xpmu2"
+     "enlace": "https://kiwi.com/u/grsmu8"
     },
     {
      "destino": "Birmingham",
      "ida": "2026-12-11",
      "vuelta": "2026-12-13",
-     "precio": 50,
+     "precio": 51,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/v6r2g5"
+     "enlace": "https://kiwi.com/u/yn9j495"
+    },
+    {
+     "destino": "Dublín",
+     "ida": "2026-12-05",
+     "vuelta": "2026-12-07",
+     "precio": 75,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/5wg8n4"
     },
     {
      "destino": "Mánchester",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
-     "precio": 69,
+     "precio": 79,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/tq3fkc"
-    },
-    {
-     "destino": "Dublín",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-14",
-     "precio": 69,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/8m26ug"
+     "enlace": "https://kiwi.com/u/rpc9twh"
     },
     {
      "destino": "Londres",
-     "ida": "2026-12-09",
-     "vuelta": "2026-12-11",
-     "precio": 84,
-     "compania": "easyJet / Ryanair",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-14",
+     "precio": 93,
+     "compania": "Ryanair",
      "escalas": "directo",
-     "nota": "ida a Gatwick, vuelta desde Stansted",
-     "enlace": "https://kiwi.com/u/8zcuyks"
+     "nota": "Stansted",
+     "enlace": "https://kiwi.com/u/j7vsys"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-10",
- "vuelosBusqueda": "ida y vuelta del 13/11 al 15/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-15",
+ "vuelosBusqueda": "ida y vuelta del 18/11 al 20/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-15",
- "actualizado": "2026-11-15T06:16+01:00",
+ "actualizado": "2026-11-15T18:39+00:00",
  "cortes": [],
  "cielo": {
   "eventos": [
