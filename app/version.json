@@ -1,8 +1,8 @@
 {
-  "versionCode": 73,
-  "versionName": "4.42",
+  "versionCode": 75,
+  "versionName": "4.44",
   "apk": "app/Tiempo.apk",
-  "sha256": "560769f7c4a4ba0d2ec8ce845af71a446a269735a2fe14f485fbe11333dd8a3a",
-  "bytes": 1375261,
-  "notas": "Luz de casa (Datadis): escribe la cuenta en el menú ≡ de la tele y sale «Mi luz» (el consumo hora a hora, el mes, mes a mes y la potencia) y «Luz por suministro» (cada CUPS con su dirección: día, semana, mes y año, y lo que se sale de lo habitual). Todo se guarda en la tele."
+  "sha256": "af5c9d75dacbe66daa8db10d50fe2da18b441b3d740ade4966c31f67585fc84a",
+  "bytes": 1379737,
+  "notas": "Terremotos: las listas, del más reciente (arriba) al más antiguo, empezando siempre por el último. Inundaciones: si falta la imagen ampliada del Paseo de los Navegantes se vuelve a pedir a las 2 horas, y las zonas inundables ya no se bajan de más."
 }
