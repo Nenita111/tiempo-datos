@@ -73,43 +73,43 @@
      "precio": 104,
      "compania": "easyJet",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7jd6gyg"
-    },
-    {
-     "destino": "Sevilla",
-     "ida": "2026-12-14",
-     "vuelta": "2026-12-17",
-     "precio": 112,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/63fyu5s"
-    },
-    {
-     "destino": "Madrid",
-     "ida": "2026-11-23",
-     "vuelta": "2026-11-25",
-     "precio": 113,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/t4yyc6"
+     "enlace": "https://kiwi.com/u/z8qn6sz"
     },
     {
      "destino": "Barcelona",
      "ida": "2026-12-06",
      "vuelta": "2026-12-11",
-     "precio": 113,
+     "precio": 106,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/nwtcrt"
+     "enlace": "https://kiwi.com/u/upqwfhk"
     },
     {
      "destino": "Bucarest",
      "ida": "2026-11-27",
      "vuelta": "2026-11-30",
-     "precio": 115,
+     "precio": 106,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/juzm8k"
+     "enlace": "https://kiwi.com/u/stvb9c"
+    },
+    {
+     "destino": "Sevilla",
+     "ida": "2026-12-08",
+     "vuelta": "2026-12-11",
+     "precio": 112,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/cb9xvtj"
+    },
+    {
+     "destino": "Madrid",
+     "ida": "2026-12-07",
+     "vuelta": "2026-12-09",
+     "precio": 120,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/q88gup"
     },
     {
      "destino": "Melilla",
@@ -118,7 +118,7 @@
      "precio": 136,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7zmd3q"
+     "enlace": "https://kiwi.com/u/p9rprub"
     }
    ]
   },
@@ -128,12 +128,12 @@
    "vuelos": [
     {
      "destino": "Oporto",
-     "ida": "2026-12-13",
-     "vuelta": "2026-12-17",
+     "ida": "2026-11-29",
+     "vuelta": "2026-12-03",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/hn9pbv"
+     "enlace": "https://kiwi.com/u/nyfhnh"
     },
     {
      "destino": "Asturias",
@@ -142,25 +142,25 @@
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/nbuvghj"
+     "enlace": "https://kiwi.com/u/ydqjf5"
     },
     {
      "destino": "Santander",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-14",
+     "ida": "2026-12-18",
+     "vuelta": "2026-12-21",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/pytk2uz"
+     "enlace": "https://kiwi.com/u/uyfj6r5"
     },
     {
      "destino": "Palma de Mallorca",
      "ida": "2026-12-11",
      "vuelta": "2026-12-13",
-     "precio": 53,
+     "precio": 52,
      "compania": "Vueling / Air Europa",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/d9vtz9"
+     "enlace": "https://kiwi.com/u/fv52vv"
     },
     {
      "destino": "Londres",
@@ -170,16 +170,16 @@
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Luton",
-     "enlace": "https://kiwi.com/u/guyuq3b"
+     "enlace": "https://kiwi.com/u/nwsunm"
     },
     {
      "destino": "Nantes",
-     "ida": "2026-11-29",
-     "vuelta": "2026-12-03",
-     "precio": 59,
+     "ida": "2026-12-03",
+     "vuelta": "2026-12-06",
+     "precio": 60,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/prpmbg"
+     "enlace": "https://kiwi.com/u/5yx9pp"
     }
    ]
   },
@@ -194,25 +194,25 @@
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/ftfxpg"
+     "enlace": "https://kiwi.com/u/s4qmxf5"
     },
     {
      "destino": "Palma de Mallorca",
-     "ida": "2026-12-18",
-     "vuelta": "2026-12-20",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-14",
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/cjvtvfv"
+     "enlace": "https://kiwi.com/u/5fpb9sy"
     },
     {
-     "destino": "Oporto",
-     "ida": "2026-12-14",
-     "vuelta": "2026-12-19",
-     "precio": 37,
-     "compania": "Ryanair",
+     "destino": "Bilbao",
+     "ida": "2026-12-20",
+     "vuelta": "2026-12-24",
+     "precio": 36,
+     "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/nujs2yh"
+     "enlace": "https://kiwi.com/u/wvgbqgp"
     },
     {
      "destino": "Lisboa",
@@ -221,26 +221,26 @@
      "precio": 39,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/cj3juq"
+     "enlace": "https://kiwi.com/u/wsubct"
     },
     {
-     "destino": "Bilbao",
-     "ida": "2026-12-21",
-     "vuelta": "2026-12-24",
-     "precio": 42,
-     "compania": "Vueling",
+     "destino": "Oporto",
+     "ida": "2026-12-14",
+     "vuelta": "2026-12-19",
+     "precio": 40,
+     "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/3f8n9t"
+     "enlace": "https://kiwi.com/u/9ntj32"
     },
     {
      "destino": "Venecia",
      "ida": "2026-12-13",
-     "vuelta": "2026-12-16",
-     "precio": 43,
+     "vuelta": "2026-12-17",
+     "precio": 42,
      "compania": "Ryanair",
      "escalas": "directo",
      "nota": "Treviso",
-     "enlace": "https://kiwi.com/u/4kqgtg"
+     "enlace": "https://kiwi.com/u/wbkyhx"
     }
    ]
   },
@@ -250,69 +250,69 @@
    "vuelos": [
     {
      "destino": "Barcelona",
-     "ida": "2026-12-20",
+     "ida": "2026-12-21",
      "vuelta": "2026-12-25",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/s36fbs"
+     "enlace": "https://kiwi.com/u/8fsrdp"
     },
     {
      "destino": "Bilbao",
-     "ida": "2026-12-19",
-     "vuelta": "2026-12-22",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-15",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/m2qpmg"
+     "enlace": "https://kiwi.com/u/gwk8ub"
     },
     {
      "destino": "Birmingham",
      "ida": "2026-12-11",
      "vuelta": "2026-12-13",
-     "precio": 52,
+     "precio": 54,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/b3rdvx"
+     "enlace": "https://kiwi.com/u/mf2xps"
     },
     {
      "destino": "Mánchester",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-15",
-     "precio": 72,
+     "ida": "2026-12-17",
+     "vuelta": "2026-12-22",
+     "precio": 75,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xq7c8q"
+     "enlace": "https://kiwi.com/u/rjrzjq4"
     },
     {
      "destino": "Dublín",
      "ida": "2026-12-05",
      "vuelta": "2026-12-07",
-     "precio": 76,
+     "precio": 78,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/dbptych"
+     "enlace": "https://kiwi.com/u/sfmpxt"
     },
     {
      "destino": "Londres",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-14",
+     "ida": "2026-12-09",
+     "vuelta": "2026-12-11",
      "precio": 94,
-     "compania": "Ryanair",
+     "compania": "easyJet / Ryanair",
      "escalas": "directo",
-     "nota": "Stansted",
-     "enlace": "https://kiwi.com/u/73243s4"
+     "nota": "ida a Gatwick, vuelta desde Stansted",
+     "enlace": "https://kiwi.com/u/bb2t8ty"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-16",
- "vuelosBusqueda": "ida y vuelta del 19/11 al 21/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-17",
+ "vuelosBusqueda": "ida y vuelta del 20/11 al 22/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-17",
- "actualizado": "2026-11-17T06:11+01:00",
+ "actualizado": "2026-11-17T08:50+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
