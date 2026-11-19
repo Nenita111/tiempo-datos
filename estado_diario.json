@@ -206,7 +206,8 @@
   "936465",
   "936469",
   "937101",
-  "937102"
+  "937102",
+  "943021"
  ],
  "estafasVistas": [
   "https://www.incibe.es/ciudadania/avisos/un-falso-concurso-de-baile-permite-los-ciberdelincuentes-utilizar-tu-cuenta-de",
@@ -226,11 +227,14 @@
   "vale": "2026-11-23"
  },
  "fallos": {
-  "fuente gasolina": {
-   "desde": "2026-11-18"
+  "dragon": {
+   "desde": "2026-11-19"
   },
-  "fuente luna": {
-   "desde": "2026-11-17"
+  "estafas": {
+   "desde": "2026-11-19"
+  },
+  "vuelos": {
+   "desde": "2026-11-18"
   }
  },
  "sendaAdra": {
