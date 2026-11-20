@@ -311,8 +311,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-19",
- "actualizado": "2026-11-19T06:12+01:00",
+ "sorteosBuscado": "2026-11-20",
+ "actualizado": "2026-11-20T06:17+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -822,19 +822,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-19",
-  "nombre": "Ensalada de aguacate y mandarina",
+  "fecha": "2026-11-20",
+  "nombre": "Potaje de acelgas",
   "tiempo": {
-   "temperature": "mild",
+   "temperature": "cool",
    "rain": "dry",
    "wind": "light wind",
-   "sky": "Poco nuboso"
+   "sky": "Nubes altas"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-13",
-    "nombre": "Caldo de pimentón"
-   },
    {
     "fecha": "2026-11-14",
     "nombre": "Crema de calabaza"
@@ -858,12 +854,21 @@
    {
     "fecha": "2026-11-19",
     "nombre": "Ensalada de aguacate y mandarina"
+   },
+   {
+    "fecha": "2026-11-20",
+    "nombre": "Potaje de acelgas"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/225/22": {
+    "tipo": "lista_definitiva",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
    "https://www.juntadeandalucia.es/boja/2026/223/24": {
     "tipo": "convocatoria",
     "provincia": "otra",
@@ -968,46 +973,6 @@
     "tipo": "convocatoria",
     "provincia": "otra",
     "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/220/14": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/220/15": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/220/16": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/220/17": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/220/18": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/220/19": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/220/20": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/220/21": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
    }
   },
   "avisar": [
@@ -1124,16 +1089,6 @@
     "experiencia": 0.98,
     "colectivo": "general"
    },
-   "692230": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular -2487",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-20",
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
    "692227": {
     "zona": false,
     "zv": 4,
@@ -1164,6 +1119,16 @@
     "experiencia": 0.97,
     "colectivo": "general"
    },
+   "692230": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular -2487",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-20",
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
    "692356": {
     "zona": false,
     "zv": 4,
@@ -1182,16 +1147,6 @@
     "hasta": "2026-11-26",
     "nivel": "grado",
     "experiencia": 0.93,
-    "colectivo": "general"
-   },
-   "691918": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Medio",
-    "entidad": "Agencia Pública Andaluza de Educación",
-    "hasta": "2026-11-19",
-    "nivel": "grado",
-    "experiencia": 0.03,
     "colectivo": "general"
    }
   },
@@ -1310,6 +1265,18 @@
     "colectivo": "general",
     "experiencia": 0.09
    },
+   "01-2026-52045": {
+    "nivel": "no_consta",
+    "entidad": "ayuntamiento",
+    "colectivo": "general",
+    "experiencia": 0.05
+   },
+   "01-2026-52125": {
+    "nivel": "no_consta",
+    "entidad": "junta",
+    "colectivo": "general",
+    "experiencia": 0.07
+   },
    "01-2026-52030": {
     "nivel": "no_consta",
     "entidad": "otra",
@@ -1330,10 +1297,10 @@
     "inscripcion": 0.03
    }
   },
-  "fecha": "2026-11-19"
+  "fecha": "2026-11-20"
  },
  "fap": {
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "novedades": [
    {
     "tipo": "circular",
@@ -1785,22 +1752,22 @@
  },
  "agendaJunta": [
   {
-   "titulo": "Ciencia en el Cabo",
-   "fecha": "2026-11-19",
-   "lugar": "Almería",
-   "km": 50,
-   "fuente": "Junta de Andalucía",
-   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
-   "horario": "De 10:15h a 13:50h",
-   "precio": "Actividad gratuita"
-  },
-  {
    "titulo": "I Jornada Nacional de Conservación y Restauración del Patrimonio: ciencia e innovación aplicada a la piedra natural",
    "fecha": "2026-11-25",
    "lugar": "Almería",
    "km": 50,
    "fuente": "Junta de Andalucía",
    "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia"
+  },
+  {
+   "titulo": "Jornadas Promoción de la Sostenibilidad Empresarial en el Espacio Natural de Sierra Nevada",
+   "fecha": "2026-11-26",
+   "lugar": "Laujar de Andarax",
+   "km": 30,
+   "fuente": "Junta de Andalucía",
+   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
+   "horario": "de 09:15h a 14:00h",
+   "precio": "Actividad gratuita"
   },
   {
    "titulo": "XLIII Jornadas Universitarias Andaluzas de Derecho del Trabajo y Relaciones Laborales \"Redefiniendo el papel de las fuentes del Derecho del Trabajo en el contexto actual\"",
@@ -3758,25 +3725,6 @@
  "ayudas": {
   "lista": [
    {
-    "num": "938972",
-    "titulo": "Prácticas profesionales no laborales",
-    "ambito": "Junta de Andalucía",
-    "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
-    "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/938972",
-    "desde": "2026-11-06",
-    "hasta": "2026-11-19",
-    "importe": 500000,
-    "para": [
-     "personas",
-     "autónomos y pymes",
-     "entidades",
-     "empresas"
-    ],
-    "boletin": "https://juntadeandalucia.es/boja/2026/214/5",
-    "registrada": "2026-10-30"
-   },
-   {
     "num": "922528",
     "titulo": "Para la inserción laboral y el fomento de la contratación en el ámbito de la Comunidad Autónoma de Andalucía. Programa Emplea-T (Línea 5). MINIMI GENERAL",
     "ambito": "Junta de Andalucía",
@@ -4290,7 +4238,7 @@
   ],
   "fuente": "Base de Datos Nacional de Subvenciones (BDNS)",
   "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias",
-  "dia": "2026-11-18"
+  "dia": "2026-11-20"
  },
  "cursos": {
   "presenciales": [
@@ -4504,20 +4452,6 @@
     "km": 50
    },
    {
-    "id": "409",
-    "codigo": "COMT09",
-    "nombre": "Psicología aplicada a las ventas",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/409",
-    "fin": "2026-12-15",
-    "inicio": "2027-01-15",
-    "horas": 40,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "tarde",
-    "municipio": "Almería",
-    "km": 50
-   },
-   {
     "id": "408",
     "codigo": "COMT09",
     "nombre": "Psicología aplicada a las ventas",
@@ -4528,6 +4462,20 @@
     "para": "desempleadas",
     "modalidad": "presencial",
     "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "409",
+    "codigo": "COMT09",
+    "nombre": "Psicología aplicada a las ventas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/409",
+    "fin": "2026-12-15",
+    "inicio": "2027-01-15",
+    "horas": 40,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
     "municipio": "Almería",
     "km": 50
    },
@@ -4672,6 +4620,66 @@
     "km": 50
    },
    {
+    "id": "290",
+    "codigo": "AGAU0004",
+    "nombre": "Manipulación y aplicacion de productos fitosanitarios. nivel avanzado",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/290",
+    "fin": "2027-01-08",
+    "inicio": "2027-01-18",
+    "horas": 60,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "convocado": true,
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "294",
+    "codigo": "SSCI0001",
+    "nombre": "Innovaciones tecnologicas en los protocolos de limpieza y desinfeccion ambiental",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/294",
+    "fin": "2027-01-08",
+    "inicio": "2027-01-18",
+    "horas": 220,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "convocado": true,
+    "municipio": "Huércal-Overa",
+    "km": 120
+   },
+   {
+    "id": "288",
+    "codigo": "INAD0001",
+    "nombre": "Manipulación en crudo y conservación de alimentos",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/288",
+    "fin": "2027-01-08",
+    "inicio": "2027-01-18",
+    "horas": 125,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "convocado": true,
+    "municipio": "Huércal-Overa",
+    "km": 120
+   },
+   {
+    "id": "291",
+    "codigo": "EOCB0008",
+    "nombre": "Preparación básica para actividades de mantenimiento general de infraestructuras en edificios e instalaciones",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/291",
+    "fin": "2027-01-08",
+    "inicio": "2027-01-18",
+    "horas": 120,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "convocado": true,
+    "municipio": "Huércal-Overa",
+    "km": 120
+   },
+   {
     "id": "546",
     "codigo": "ADGD180PO",
     "nombre": "Mejora de procesos: lean y VSM",
@@ -4698,6 +4706,36 @@
     "horario": "mañana",
     "municipio": "Almería",
     "km": 50
+   },
+   {
+    "id": "289",
+    "codigo": "COMT0001",
+    "nombre": "Caja y reposición",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/289",
+    "fin": "2027-01-22",
+    "inicio": "2027-02-01",
+    "horas": 60,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "convocado": true,
+    "municipio": "Roquetas de Mar",
+    "km": 36
+   },
+   {
+    "id": "292",
+    "codigo": "HOTA0006",
+    "nombre": "Gestión y seguimiento de los nuevos procedimientos de limpieza",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/292",
+    "fin": "2027-01-22",
+    "inicio": "2027-02-01",
+    "horas": 75,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "convocado": true,
+    "municipio": "Roquetas de Mar",
+    "km": 36
    },
    {
     "id": "536",
@@ -4727,6 +4765,21 @@
     "km": 50
    },
    {
+    "id": "295",
+    "codigo": "COMT0001",
+    "nombre": "Caja y reposición",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/295",
+    "fin": "2027-02-12",
+    "inicio": "2027-02-22",
+    "horas": 60,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "convocado": true,
+    "municipio": "Huércal-Overa",
+    "km": 120
+   },
+   {
     "id": "537",
     "codigo": "ADGD151PO",
     "nombre": "Habilidades sociales de comunicación y resolución de conflictos en el centro de trabajo",
@@ -4742,42 +4795,6 @@
    }
   ],
   "linea": [
-   {
-    "id": "2939",
-    "codigo": "MF1327",
-    "nombre": "Operaciones auxiliares en el punto de venta",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2939",
-    "fin": "2026-11-19",
-    "inicio": "2026-12-17",
-    "horas": 90,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
-    "id": "2369",
-    "codigo": "MF1327",
-    "nombre": "Operaciones auxiliares en el punto de venta",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2369",
-    "fin": "2026-11-19",
-    "inicio": "2026-12-17",
-    "horas": 90,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "horario": "mañana"
-   },
-   {
-    "id": "456717",
-    "codigo": "IFCD99",
-    "nombre": "Programación en inteligencia artificial y BIG data aplicables en entornos 5G",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456717",
-    "fin": "2026-11-19",
-    "inicio": "2027-01-11",
-    "horas": 150,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "municipio": "Jerez de la Frontera"
-   },
    {
     "id": "2877",
     "codigo": "MF0241",
@@ -5117,6 +5134,18 @@
     "horario": "tarde"
    },
    {
+    "id": "2876",
+    "codigo": "MF0970",
+    "nombre": "Operaciones básicas de comunicación",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2876",
+    "fin": "2026-12-11",
+    "inicio": "2026-12-30",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
     "id": "2761",
     "codigo": "MF0503",
     "nombre": "Promociones en espacios comerciales",
@@ -5160,6 +5189,18 @@
     "fin": "2026-12-14",
     "inicio": "2027-01-11",
     "horas": 30,
+    "para": "desempleadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "2372",
+    "codigo": "MF0240",
+    "nombre": "Operaciones auxiliares a la venta.",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2372",
+    "fin": "2026-12-14",
+    "inicio": "2027-01-11",
+    "horas": 140,
     "para": "desempleadas",
     "modalidad": "en línea",
     "horario": "mañana"
@@ -5223,12 +5264,24 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "tarde"
+   },
+   {
+    "id": "2972",
+    "codigo": "MF1001",
+    "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2972",
+    "fin": "2026-12-17",
+    "inicio": "2027-01-12",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
    }
   ],
-  "lineaTotal": 94,
+  "lineaTotal": 95,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-19"
+  "dia": "2026-11-20"
  },
  "polen": {
   "estacion": "Almería",
@@ -5453,7 +5506,7 @@
     ]
    }
   ],
-  "dias": 380,
+  "dias": 379,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -5466,26 +5519,6 @@
     "lugar": "Centro Fundación Unicaja de Almería",
     "municipio": "Almería",
     "enlace": "https://www.turismodealmeria.org/evento/ciclo-360o-en-almeria/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Presentación de la novela «Héroes de Ceniza», de Fernando J. Múñez",
-    "inicio": "2026-11-19",
-    "hora": "18:00",
-    "lugar": "Biblioteca Pública Francisco Villaespesa",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/presentacion-de-la-novela-heroes-de-ceniza-de-fernando-j-munez/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Presentación del libro «El Padre Ramón y el misterio de las esquelas»",
-    "inicio": "2026-11-19",
-    "hora": "18:00",
-    "lugar": "Librería Picasso",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/presentacion-del-libro-el-padre-ramon-y-el-misterio-de-las-esquelas/",
     "fuente": "Turismo de Almería",
     "gratis": true
    },
@@ -5600,7 +5633,7 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-19"
+  "dia": "2026-11-20"
  },
  "sasOfertas": {
   "lista": [
