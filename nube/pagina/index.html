@@ -198,6 +198,10 @@ footer{height:46px;flex:none;display:flex;justify-content:space-between;align-it
 .p-semana .main{grid-template-columns:1fr;grid-template-rows:1fr 392px}
 .semana{grid-column:1/-1;display:flex;flex-direction:column}.semana.sola{grid-column:auto}.semana.sola .dia{padding:26px 6px 30px}.semana.sola .dia>b{font-size:30px}.semana.sola .dia small{font-size:22px}
 .dias{flex:1;display:grid;grid-template-columns:repeat(7,1fr);gap:12px;min-height:0}
+/* 21 nov 2026 (lo pidió Isa: «en semana mejora la vista a 7 días»): cada cosa a la misma altura en los 7 días (nombre en una línea, fecha,
+   icono, máxima y mínima, barra, lluvia y viento) y las columnas iguales */
+.semana.sola .dias{grid-template-columns:repeat(7,minmax(0,1fr))}.semana.sola .dia{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto auto auto auto auto;justify-items:center;align-items:center;row-gap:12px}
+.semana.sola .dia>b{white-space:nowrap;font-size:28px;hyphens:none}.semana.sola .dia>span{margin-top:0}.semana.sola .dia .rango{width:80%}
 .dia{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 6px 16px;border-radius:24px;text-align:center}
 .dia.hoy{background:rgba(244,166,42,.10);box-shadow:inset 0 0 0 2px rgba(244,166,42,.42)}
 .dia.hoy>b:first-child{text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:4px;text-underline-offset:7px}.dia.pasado{opacity:.55}
@@ -802,7 +806,7 @@ footer.ap1 .tabs .tab.on{margin:0 6px}footer.ap1 .tabs .tab.on::before{left:-8px
 body{--h:212;--h2:262}
 body.p-ahora{--h:205;--h2:250}body.p-semana{--h:198;--h2:168}body.p-agua{--h:200;--h2:228}body.p-mar{--h:190;--h2:166}
 body.p-cielo{--h:246;--h2:286}body.p-espacio{--h:266;--h2:308}body.p-planeta{--h:150;--h2:192}body.p-casa{--h:36;--h2:12}body.p-consumo,body.p-suministros{--h:44;--h2:22}body.p-alertas{--h:4;--h2:338}
-body.p-productos{--h:328;--h2:282}body.p-hoy{--h:44;--h2:196}body.p-carretera{--h:26;--h2:48}body.p-sismos{--h:12;--h2:36}body.p-mundo{--h:206;--h2:150}
+body.p-productos{--h:328;--h2:282}body.p-hoy{--h:44;--h2:196}body.p-dragon{--h:356;--h2:196}body.p-carretera{--h:26;--h2:48}body.p-sismos{--h:12;--h2:36}body.p-mundo{--h:206;--h2:150}
 body.p-campo{--h:96;--h2:142}body.p-pescado{--h:196;--h2:232}body.p-noticias{--h:222;--h2:10}body.p-economia{--h:158;--h2:44}body.p-empleo{--h:262;--h2:212}
 body.p-sas{--h:172;--h2:204}body.p-clima{--h:14;--h2:44}body.p-aire{--h:168;--h2:48}body.p-tormentas{--h:262;--h2:46}body.p-inundaciones{--h:214;--h2:190}body.p-calor{--h:18;--h2:350}body.p-maremotos{--h:200;--h2:230}body.p-acuiferos{--h:190;--h2:160}body.p-senderos{--h:110;--h2:30}body.p-planes{--h:38;--h2:330}body.p-ayudas{--h:226;--h2:150}body.p-naturaleza{--h:120;--h2:84}body.p-aviso{--h:24;--h2:2}
 body{--c1:hsl(var(--h),92%,67%);--c2:hsl(var(--h2),88%,66%);--c1s:hsla(var(--h),92%,62%,.38);--kc:hsl(var(--h),62%,76%);
@@ -928,6 +932,8 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .nat-r{list-style:none}.nat-r li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--linea);font-size:20px}
 .nat-r li span{min-width:0;overflow:hidden;white-space:nowrap}.nat-r em{color:var(--mu);font-size:20px}.nat-r small{font-size:20px;color:var(--mu);font-weight:700;white-space:nowrap}
 .nat-r small.amen{color:var(--mal)}
+.nat-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end}.nat-ab{min-width:0}
+.nat-datos.con-fotos .nat-fb{flex:1;min-height:0;display:flex;flex-direction:column}.nat-datos.con-fotos .nat-f{flex:1;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr))}.nat-datos.con-fotos .nat-f figure{display:flex;flex-direction:column;min-height:0}.nat-datos.con-fotos .nat-f .nf-i{flex:1;height:auto;min-height:150px}
 .nat-f{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 10px;margin-top:6px}.nat-f figure{min-width:0}.nat-f .nf-i{position:relative;border-radius:12px;overflow:hidden;height:136px;background:var(--tile2)}
 /* 4.39 (lo pidió Isa el 10 nov 2026: «en fotos de lo visto pon los créditos más pequeños debajo de la foto»): el autor y la licencia, debajo y
    en letra pequeña (.cred: lo único por debajo de los 20 px, porque es la firma de la foto y no un dato) */
@@ -1803,7 +1809,7 @@ const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "com
   get aire() { return ["aire", "radiacion", "radsol", "prevision"].concat(polen() ? ["x"] : [], olasVigentes() ? ["olas"] : []); },
   agua: ["lluvia", "saih", "sequia", "agua"], get mar() { return ["boya", "playas", "oleaje", "maritima", "mareas"].concat(enBano() ? ["aguaBano"] : []); }, cielo: ["sol", "solVideo", "iss", "luna", "aviones"],
   espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"], consumo: ["datadis"], suministros: ["datadis"],
-  alertas: ["alimentarias", "medicamentos", "productos", "x"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias", "regatas", "rfep"], carretera: ["camara", "ruta", "camaras", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
+  alertas: ["alimentarias", "medicamentos", "productos", "x"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias"], dragon: ["regatas", "rfep", "x"], carretera: ["camara", "ruta", "camaras", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
   sismos: ["terremotos", "sismosMundo"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas", "x"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
   noticias: ["noticias", "cortesAgua", "sangre"], planes: ["x"], ayudas: ["x"]};
 const NOMBRE_FUENTE = {islasCalor: "temperatura de la superficie (Landsat)", maremotos: "riesgo de maremoto", inundaciones: "zonas inundables", naturaleza: "biodiversidad (GBIF)", clima: "clima (AEMET)", climaRia: "lo normal en el pueblo (IFAPA)", radsol: "radiación solar (AEMET)", polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
@@ -1839,7 +1845,16 @@ function deAyer(B = E) {
   const F = B.fuentes || {}, h = inicioHoy();
   return DIARIAS.filter(t => F[t] && F[t].ok && F[t].ok < h && !(t === "luz" && (B.luz || {}).fecha && (luzVigente(B.luz || {}).hoy || []).length));
 }
-const esperandoHoy = (B = E) => deAyer(B).length > 0 && Date.now() - (B.arranque || 0) < ESPERA_HOY;
+/* 21 nov 2026 (Isa: «sale el mensaje poniendo al día los datos de hoy y no se muestra ninguna información»): no se espera por lo que ya
+   ha fallado en esta vuelta (farmacias, rota desde el 20 nov), y la espera es de 2 minutos como mucho al día en esta página aunque la app
+   se pare y vuelva (cada vez que vuelve, «arranque» es otro) */
+const ESPERA = {dia: 0, desde: 0};
+function esperandoHoy(B = E) {
+  const Er = B.errores || {}, h = inicioHoy(), ahora = Date.now();
+  if (ahora - (B.arranque || 0) >= ESPERA_HOY || !deAyer(B).some(t => !Er[t])) return false;
+  if (ESPERA.dia !== h) { ESPERA.dia = h; ESPERA.desde = ahora; }
+  return ahora - ESPERA.desde < ESPERA_HOY;
+}
 /* ---------- datos desfasados (lo pidió Isa el 28 oct 2026: «si un dato está desfasado no lo muestres») ----------
    Lo que manda la app se guarda tal cual (EB); lo que se pinta (E) es eso sin lo desfasado, y se vuelve a mirar en cada pintado:
    - lo de una fuente que lleva más de lo que vale sin llegar bien (VALE_H, en horas; si no está, el triple de su periodo y al menos 2 h);
@@ -1895,8 +1910,25 @@ function desfasadasDe(B) {
   if (finSq && ahora - finSq > 50 * 864e5) D.sequia = finSq.getTime();   // el informe sale a primeros de mes: ya han faltado dos
   return D;
 }
+/* 21 nov 2026 (lo pidió Isa: «en terremotos muestra solo los de las últimas 48 h»): cerca, en España y en el mundo, lo de las últimas 48 horas
+   (la lista y los puntos del mapa; las cuentas y el más fuerte, de esas 48 horas) */
+const SISMOS_H = 48, sismoReciente = t => t != null && Date.now() - (t < 1e12 ? t * 1000 : t) <= SISMOS_H * 36e5;
+function sismos48(T) {
+  if (!T) return T;
+  const L = (T.lista || []).filter(x => sismoReciente(x.s)), P = (T.puntos || []).filter(q => sismoReciente(q[3]));
+  const r = Object.assign({}, T, {lista: L, puntos: P, total: Math.max(P.length, L.length), max: Math.max(0, ...P.map(q => q[2] || 0), ...L.map(x => x.mag || 0))});
+  if (T.espana) r.espana = sismos48(T.espana);
+  return r;
+}
 function alDia(B) {
   if (!B) return B;
+  const r = alDiaTodo(B);
+  if (!r || window.PRUEBA_SIN_DESFASE) return r;
+  if (r.terremotos) r.terremotos = sismos48(r.terremotos);
+  if (r.sismosMundo) { const L = (r.sismosMundo.lista || []).filter(x => sismoReciente(x.s)); r.sismosMundo = Object.assign({}, r.sismosMundo, {lista: L, total: L.length, dias: 2}); }
+  return r;
+}
+function alDiaTodo(B) {
   if (window.PRUEBA_SIN_DESFASE) return Object.assign({}, B, {desfasadas: {}});   // solo las pruebas viejas que viajan en el tiempo con datos fijos
   const D = desfasadasDe(B), o = Object.assign({}, B, {desfasadas: D});
   for (const k of Object.keys(D)) if (!EN_EXTRAS[k]) for (const c of CLAVES_FUENTE[k] || [k]) delete o[c];
@@ -1955,7 +1987,7 @@ const avisosFuertes = () => (E.avisos || []).filter(a => a.nivel >= 2).sort((a, 
 const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente());
 const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayClima() || hayCalor() ? ["clima"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayInundaciones() || hayMaremotos() || hayAcuiferos() ? ["inundaciones"] : [], E.terremotos || E.sismosMundo ? ["sismos"] : [], ["mar"], ["cielo"],
   E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayConsumo() ? ["consumo", "suministros"] : [], hayAlertas() || hayProductos() ? ["alertas"] : [],
-  ["hoy"], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
+  ["hoy"], hayDragon() ? ["dragon"] : [], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
   ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length ? ["sas"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() ? ["planes"] : []);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): ajustes de las pantallas con el mando (≡ en la app): las que no salen, su orden y los
@@ -1970,7 +2002,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
 // 4.36 (lo pidió Isa el 8 nov 2026: «reorganiza las pestañas de forma lógica»): el tiempo (ahora, semana, clima, aire y sol); el agua y la
 // tierra (agua, mar, inundaciones y acuíferos, terremotos); el cielo y el planeta (cielo, espacio, planeta, naturaleza); el día (hoy, planes,
 // noticias, alertas, casa); moverse (carretera, trenes); y el trabajo y el dinero (campo, lonja, economía, empleo, ayudas y cursos)
-const ORDEN_BASE = ["ahora", "semana", "clima", "aire", "agua", "mar", "inundaciones", "sismos", "cielo", "espacio", "planeta", "naturaleza", "hoy", "planes", "noticias",
+const ORDEN_BASE = ["ahora", "semana", "clima", "aire", "agua", "mar", "inundaciones", "sismos", "cielo", "espacio", "planeta", "naturaleza", "hoy", "dragon", "planes", "noticias",
   "alertas", "casa", "consumo", "suministros", "carretera", "trenes", "campo", "pescado", "economia", "empleo", "sas", "ayudas"];
 const ORDEN_V = 3;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
@@ -2006,7 +2038,7 @@ const paginas = () => {
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
 const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones y acuíferos", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa", consumo: "Mi luz", suministros: "Luz por suministro",
-  alertas: "Alertas y productos", productos: "Productos", hoy: "Hoy", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Lonja", noticias: "Noticias",
+  alertas: "Alertas y productos", productos: "Productos", hoy: "Hoy", dragon: "Barco dragón", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Lonja", noticias: "Noticias",
   economia: "Economía", empleo: "Empleo", sas: "SAS", planes: "Planes", ayudas: "Ayudas y cursos gratis"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
   get clima() { return "Fuentes: Junta de Andalucía (IFAPA, red RIA: lo normal de los últimos años y la lluvia medida) · AEMET (horas de sol 1981-2010 y récords)" + (hayCalor() ? " · islas de calor: Landsat 8 y 9 (USGS/NASA) por el Planetary Computer de Microsoft, Copernicus (CORINE Land Cover 2018) e IGN (ortofoto PNOA)" : ""); },
@@ -2027,6 +2059,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (hayProductos() ? " · Comisión Europea, Safety Gate (productos que avisa España)" : "") + (estafasRecientes().length ? " · INCIBE (estafas)" : ""); },
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
   hoy: "Fuentes: Wikipedia · Colegio de Farmacéuticos · ESPN",
+  dragon: "Fuentes: Federación Andaluza de Piragüismo · Real Federación Española de Piragüismo · Federación Internacional de Barco Dragón (IDBF) · Paddle Europe",
   carretera: "Fuentes: DGT (cámaras e incidencias) · Consorcio de Transporte del Área de Almería (autobús) · Kiwi.com (vuelos) · OpenSky (aeropuerto)",
   trenes: "Fuente: Renfe (visor de trenes en tiempo real de Alta Velocidad, Larga y Media Distancia)",
   get sismos() { return "Fuentes: Instituto Geográfico Nacional (IGN)" + (E.sismosMundo ? " · Servicio Geológico de EE. UU. (USGS) · mapa: Natural Earth" : ""); },
@@ -2125,9 +2158,9 @@ function textoFuentes(p) {
   if (p === "mar" && crucerosProximos().length) base += " · cruceros: Autoridad Portuaria de Almería";
   return (base + (p === "ahora" && fuegosCerca().length ? " · fuegos: NASA FIRMS" : "")
     + (p === "agua" && lluviaRia() ? " · lluvia: Junta de Andalucía (IFAPA)" : "") + (p === "agua" && saihVigente() ? " · lluvia y ríos ahora: Junta de Andalucía (SAIH Hidrosur)" : "")
-    + (p === "economia" && ((E.ipc || {}).espana || []).length ? " · INE (IPC)" : "") + (p === "hoy" && (regatasProximas().some(r => !r.espana) || resultadosRegatas().some(x => !x.espana) || novedadFap(regatasProximas())) ? " · Federación Andaluza de Piragüismo" : "")
-    + (p === "hoy" && rfepEnTarjeta() ? " · Federación Española de Piragüismo" : "")
-    + (p === "hoy" && campeonatosDragon().length ? " · IDBF" : "")
+    + (p === "economia" && ((E.ipc || {}).espana || []).length ? " · INE (IPC)" : "") + (false && (regatasProximas().some(r => !r.espana) || resultadosRegatas().some(x => !x.espana) || novedadFap(regatasProximas())) ? " · Federación Andaluza de Piragüismo" : "")
+    + (false && rfepEnTarjeta() ? " · Federación Española de Piragüismo" : "")
+    + (false && campeonatosDragon().length ? " · IDBF" : "")
     + (p === "ahora" && (rayosRecientes() || rayoUltimo()) ? " · rayos: EUMETSAT (satélite MTG)" : "") + (p === "campo" && raifVigente().length ? " · plagas: RAIF (Junta de Andalucía)" : "")
     + (p === "planeta" && respiratoriasVigente() ? " · virus respiratorios: Junta de Andalucía" : "")
     + (p === "agua" && sequiaDestacadas().length ? " · sequía: Junta de Andalucía (Hidrosur)" : "")
@@ -2267,14 +2300,14 @@ function pSemana() {
     const badge = fu && fu.nivel >= 2 && fuegoVisible() ? `<em class="badge" style="background:${FUEGO[fu.nivel][1]}">Incendio ${FUEGO[fu.nivel][0].toLowerCase()}</em>`
       : hayAviso ? `<em class="badge no"></em>` : "";
     const n = diasHasta(x.fecha);   // hoy, subrayado siempre (por su fecha); lo que ya pasó, más apagado
-    return `<div class="dia${n === 0 ? " hoy" : n < 0 ? " pasado" : ""}"><b>${diaNombre(x.fecha)}</b><span>${f.getDate()} ${MES3[f.getMonth()]}</span>${icono(x.cod, x.desc, 86)}
+    return `<div class="dia${n === 0 ? " hoy" : n < 0 ? " pasado" : ""}"><b>${diaNombre(x.fecha)}</b><span>${f.getDate()} ${MES3[f.getMonth()]}</span>${icono(x.cod, x.desc, 128)}
       <div class="tt"><b class="num">${x.max ?? "–"}°</b><span>${x.min ?? "–"}°</span></div><div class="rango"><u style="left:${a.toFixed(0)}%;width:${Math.max(6, b - a).toFixed(0)}%"></u></div>
       <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}</div>`;
   }).join("");
   // 4.36 (lo pidió Isa el 8 nov 2026: «elimina la predicción de las próximas 24 horas en Semana»): van en Ahora (las 48 horas); la salida y la
   // puesta del sol, en la cabecera; los 7 días, a lo alto, con el riesgo de incendio al lado
   const sol = solHoy(), inc = tarjetaIncendio(3);
-  return `<div class="main" style="grid-template-rows:1fr${inc ? ";grid-template-columns:minmax(0,1fr) 760px" : ""}"><div data-f="prevision" class="tile semana sola${aemetMunicipio(false) ? " conqr" : ""}" style="--i:1">${qrEsquina(aemetMunicipio(false), "Los 7 días<br>en AEMET", 80)}<div class="k">Próximos 7 días${sol ? `<em>${diaFecha(isoDe(new Date()))}: sale el sol a las ${esc(sol.orto)} y se pone a las ${esc(sol.ocaso)}</em>` : ""}</div><div class="dias">${cols}</div></div>${inc}</div>`;
+  return `<div class="main" style="grid-template-rows:1fr${inc ? ";grid-template-columns:minmax(0,1fr) 640px" : ""}"><div data-f="prevision" class="tile semana sola${aemetMunicipio(false) ? " conqr" : ""}" style="--i:1">${qrEsquina(aemetMunicipio(false), "Los 7 días<br>en AEMET", 80)}<div class="k">Próximos 7 días${sol ? `<em>${diaFecha(isoDe(new Date()))}: sale el sol a las ${esc(sol.orto)} y se pone a las ${esc(sol.ocaso)}</em>` : ""}</div><div class="dias">${cols}</div></div>${inc}</div>`;
 }
 /* 368 (lo pidió Isa el 4 nov 2026): el mapa del riesgo de incendio forestal de AEMET de hoy, mañana y pasado (Mas.incendio: de sus GeoTIFF,
    el píxel del centro de cada celda de 0,02°), con la costa y las provincias, el sitio y los fuegos vistos por satélite (NASA FIRMS); los
@@ -3168,9 +3201,9 @@ function rfepEnTarjeta() {
   const R = regatasProximas();
   return R.some(r => r.espana) || resultadosRegatas().some(x => x.espana) || (!novedadFap(R) && !!noticiaRfep());
 }
-function tarjetaRegatas() {
+function tarjetaRegatas(pag = false) {   // 21 nov 2026: «pag», en su pestaña (los campeonatos van en su tarjeta, al lado)
   const R = regatasProximas(), X = resultadoRegata(), X2 = otroResultado(), N = novedadFap(R), NE = N ? null : noticiaRfep();
-  const hayC = campeonatosDragon().length > 0;
+  const hayC = !pag && campeonatosDragon().length > 0;
   const f = ["regatas", rfepEnTarjeta() ? "rfep" : "", N || hayC ? "x" : ""].filter(Boolean).join(" ");
   if (!R.length && !X && !N && !NE && !hayC) return "";
   // 4.41: los campeonatos que vienen; con el resultado del club debajo, de uno en uno, y el resultado, con 2 renglones
@@ -3179,12 +3212,23 @@ function tarjetaRegatas() {
   if (!R.length) return `<div data-f="${f}" class="tile regatas" style="--i:6"><div class="k">Barco dragón<em>${f.includes("rfep") ? "federaciones andaluza y española" : "Federación Andaluza"}</em></div>${BARCO_DRAGON}${nov}${camp}${sinNac}${X ? bloqueResultado(X, nov || camp ? 2 : 4) : ""}${otra}
     ${X || N || NE ? qrPie(X ? X.enlace : N ? N.enlace : NE.enlace, X ? `Resultados de la ${fedDe(X)} de Piragüismo` : N ? "Circular o noticia de la Federación Andaluza de Piragüismo" : "Noticia de la Federación Española de Piragüismo")
       : qrPie(campeonatosDragon()[0].enlace, "Campeonatos de la Federación Internacional de Barco Dragón")}</div>`;
-  const r = R[0], resto = turnoFijo("regatas", R.slice(1), X || N || NE ? 2 : 3);
+  const r = R[0], resto = turnoFijo("regatas", R.slice(1), pag ? 6 : X || N || NE ? 2 : 3);
   return `<div data-f="${f}" class="tile regatas" style="--i:6"><div class="k">Barco dragón<em>próxima regata</em>${resto.marca}</div>${BARCO_DRAGON}
     ${bloqueProxima(r)}${nov}
     ${resto.items.length ? `<ul class="rg-l">${resto.items.map(x => `<li><i>${fechaCorta(x.desde)}</i><span>Después: ${esc(tituloRegata(x.titulo))}</span></li>`).join("")}</ul>` : ""}
     ${camp}${X ? bloqueResultado(X, camp ? 0 : nov ? 2 : 4) : ""}${camp ? "" : otra}
     ${qrPie(r.enlace, `Calendario de la ${fedDe(r)} de Piragüismo`, 52)}</div>`;
+}
+/* 21 nov 2026 (lo pidió Isa: «pon en otra pestaña el dragon boat»): el barco dragón, en su pantalla (era una columna de Hoy): las regatas de
+   las federaciones y el resultado del club a la izquierda; los campeonatos internacionales que vienen, a la derecha, más a la vez */
+const hayDragon = () => { try { const R = regatasProximas(); return !!(R.length || resultadoRegata() || novedadFap(R) || noticiaRfep() || campeonatosDragon().length); } catch (e) { return false; } };
+function pDragon() {
+  const rg = tarjetaRegatas(true), C = campeonatosDragon();
+  const ca = C.length ? `<div data-f="x" class="tile regatas" style="--i:2"><div class="k">Campeonatos internacionales<em>IDBF y Paddle Europe</em></div>${bloqueCampeonatos(6)}
+    ${qrPie(C[0].enlace, "Campeonatos de la Federación Internacional de Barco Dragón")}</div>` : "";
+  const cs = [rg, ca].filter(Boolean);
+  if (!cs.length) return `<div class="main">${vacia("Sin regatas ni campeonatos de barco dragón por venir.")}</div>`;
+  return `<div class="main" style="grid-template-columns:repeat(${cs.length},minmax(0,1fr))">${cs.map(c => `<div class="col" style="grid-template-rows:1fr">${c}</div>`).join("")}</div>`;
 }
 function chipRegata() {
   const r = regatasProximas()[0];
@@ -3448,7 +3492,7 @@ function tarjetaClimaAnio(i) {
   const solL = HD.map((h, k) => h == null ? "" : `${k ? "L" : "M"}${cx(k)},${yI(h)}`).join(" ");
   // 4.37: las horas de sol, el número solo del mes de más y del de menos (con letra de 20 px, los 12 se pisaban)
   const hs = HD.filter(h => h != null), hMax = Math.max(...hs), hMin = Math.min(...hs);
-  const solP = HD.map((h, k) => h == null ? "" : `<circle cx="${cx(k)}" cy="${yI(h)}" r="4" class="sol-p"/>${h === hMax || h === hMin ? `<text x="${cx(k)}" y="${(yI(h) - 10).toFixed(1)}" class="h">${coma(h, 1)}</text>` : ""}`).join("");
+  const solP = HD.map((h, k) => h == null ? "" : `<circle cx="${cx(k)}" cy="${yI(h)}" r="4" class="sol-p"/><text x="${cx(k)}" y="${(k % 2 ? +yI(h) + 26 : yI(h) - 10).toFixed(1)}" class="h">${coma(h, 1)}</text>`).join("");   // 21 nov 2026 (lo pidió Isa: «pon el valor de cada mes de las horas de sol»): los 12, uno arriba y otro abajo para no pisarse
   return `<div data-f="climaRia clima" class="tile clima-anio" style="--i:${i}"><div class="k">El año, mes a mes<em>${NC.ria ? `${NC.de} · sol: ${esc(C.estacion)}, ${esc(C.periodo)}` : NC.de}</em></div>
     <svg viewBox="0 0 ${W} ${H}" class="anio"><defs><linearGradient id="gradT" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff7a45"/><stop offset="1" stop-color="#4aa3ff"/></linearGradient></defs>
       ${cols}<path d="${solL}" class="sol"/>${solP}</svg>
@@ -3514,8 +3558,8 @@ function tarjetaNatDatos(i) {
   const anios = A.map(([a, n]) => `<div title="${a}"><i style="height:${Math.max(2, n / amax * 100).toFixed(0)}%"></i><span>${String(a).slice(2)}</span></div>`).join("");
   const F = (N.fotos || []).slice(0, 6);   // 4.27 (lo pidió Isa: «añade imágenes de las especies»): con fotos, las fotos
   const R = (N.recientes || []).slice(0, 6).map(r => `<li><span><b>${esc(r.nombre || r.especie)}</b>${r.nombre ? ` <em>${esc(r.especie)}</em>` : ""}${r.amenaza ? ` <small class="amen">${{VU: "vulnerable", EN: "en peligro", CR: "en peligro crítico"}[r.amenaza]}</small>` : ""}</span><small>${esc(r.grupo)} · ${diaFecha(r.fecha)}</small></li>`).join("");
-  return `<div data-f="naturaleza" class="tile nat-datos" style="--i:${i}"><div class="k">Especies registradas en el entorno<em>${miles(N.total)} registros</em></div>
-    <ul class="nat-g">${barras}</ul><div class="nat-a">${anios}</div><p class="nat-at">Registros de cada año (los de iNaturalist y otros crecen desde 2017)</p>
+  return `<div data-f="naturaleza" class="tile nat-datos${F.length >= 3 ? " con-fotos" : ""}" style="--i:${i}"><div class="k">Especies registradas en el entorno<em>${miles(N.total)} registros</em></div>
+    <div class="nat-top"><ul class="nat-g">${barras}</ul><div class="nat-ab"><div class="nat-a">${anios}</div><p class="nat-at">Registros de cada año (los de iNaturalist y otros crecen desde 2017)</p></div></div>
     ${F.length >= 3 ? `<div class="nat-fb"><div class="k sub">Fotos de lo visto<em>los dos últimos meses</em></div><div class="nat-f">${F.map(f => `<figure><div class="nf-i"><img src="${esc(f.url)}" alt="" onerror="fotoFalla(this)">${f.grupo ? `<i class="nf-p" style="background:${colorGrupo(f.grupo)}"></i>` : ""}
       <figcaption><b class="nf-t">${esc(f.nombre || f.especie)}</b><span class="nf-t">${diaFecha(f.fecha)}</span></figcaption></div><small class="cred">© ${esc(f.autor)} · ${esc(f.licencia)}</small></figure>`).join("")}</div></div>
       <div class="nat-rb" hidden><div class="k sub">Lo último visto</div><ul class="nat-r">${R}</ul></div>`
@@ -3529,7 +3573,8 @@ function fotoFalla(im) {
   if (f) f.remove();
   if (g && b && g.children.length < 3) { const r = b.nextElementSibling; b.remove(); if (r && r.classList.contains("nat-rb")) r.hidden = false; }
 }
-const pNaturaleza = () => `<div class="main" style="grid-template-columns:minmax(0,1fr) 760px">${tarjetaNatMapa(1)}${tarjetaNatDatos(2)}</div>`;
+// 21 nov 2026 (lo pidió Isa: «en naturaleza dedica más espacio a las fotos y menos al mapa»): el mapa, a 600 px; las fotos, más grandes
+const pNaturaleza = () => `<div class="main" style="grid-template-columns:600px minmax(0,1fr)">${tarjetaNatMapa(1)}${tarjetaNatDatos(2)}</div>`;
 /* ---------- 4.26 (lo pidió Isa el 5 nov 2026: «actividad eléctrica atmosférica»): los rayos que ve el satélite MTG ahora (zona del radar), el
    último a 50 km o menos y los días con rayos cerca del último mes (lo que vio la tele: Rayos.conHistoria) y la probabilidad de tormenta de
    AEMET de las próximas 48 horas. La lluvia del radar, con los rayos encima, está en Ahora. Sale solo si hay algo que contar. ---------- */
@@ -3601,39 +3646,47 @@ function pInundaciones() {
      inundaría el peor maremoto (plan de la Junta), en rojo, encima de los escenarios de inundación, en el mapa y en el zoom, con los puntos de
      encuentro, y sus niveles de aviso debajo de la leyenda («los que se notaron aquí», fuera: lo pidió Isa) */
   const M = hayMaremotos() ? E.maremotos : null, adra = E.lugar.ine === "04003";
+  // 21 nov 2026 (lo pidió Isa: «en maremotos haz una ampliación en los alrededores del Paseo de los Navegantes»): 3 × 1,3 km, con su turno
+  const MZ = M && M.zoom && M.zoom.base && (M.zoom.caja || []).length === 4 ? M.zoom : null;
   const mz = cz => M ? `<div class="mar-capa">` + svgOrto(`<path d="${trazado(M.zona, cz)}" class="mar-z2" vector-effect="non-scaling-stroke"/>`)
     + (M.encuentro || []).filter(q => q[0] >= cz[0] && q[0] <= cz[2] && q[1] >= cz[1] && q[1] <= cz[3]).map(q => `<i class="mar-pe" style="left:${pcX(q[0], cz)}%;top:${pcY(q[1], cz)}%"></i>`).join("") + "</div>" : "";
   // 4.27 (lo pidió Isa: «haz un zoom en un recuadro con 2 km alrededor del puerto» y «haz el zoom más grande y que se vea el puerto pero no
   // el agua de debajo»): el recuadro en el mapa grande y su zoom al lado, a 820 px de ancho, con la leyenda a dos columnas debajo
   const c = I.caja, pc = (v, a, b) => ((v - a) / (b - a) * 100).toFixed(2);
   const caja = Z ? `<div class="inund-r" style="left:${pc(Z.caja[0], c[0], c[2])}%;right:${(100 - pc(Z.caja[2], c[0], c[2])).toFixed(2)}%;top:${(100 - pc(Z.caja[3], c[1], c[3])).toFixed(2)}%;bottom:${pc(Z.caja[1], c[1], c[3])}%"></div><i class="inund-ra" style="left:${pc((Z.caja[0] + Z.caja[2]) / 2, c[0], c[2])}%;top:${(100 - pc((Z.caja[1] + Z.caja[3]) / 2, c[1], c[3])).toFixed(2)}%"></i>` : "";
-  const zoom = Z ? `<figure class="inund-z"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1};width:min(100%, ${Math.round(420 * (Z.ancho || 1) / (Z.alto || 1))}px)"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${acu(Z.caja)}${mz(Z.caja)}${puntoZoom(Z.caja)}</div>
+  const zoom = Z ? `<figure class="inund-z" id="inundZf"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1};width:min(100%, ${Math.round(420 * (Z.ancho || 1) / (Z.alto || 1))}px)"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${acu(Z.caja)}${mz(Z.caja)}${puntoZoom(Z.caja)}</div>
       <figcaption>${Z.titulo ? esc(Z.titulo) : `${esc(Z.puerto)} y ${coma(Z.interior || 1.5, 1)} km tierra adentro, ${coma(Z.km, 0)} km a cada lado`}</figcaption></figure>` : "";
+  const zoomM = MZ ? `<figure class="inund-z" id="mareZf" style="display:none"><div class="marco" style="aspect-ratio:${MZ.ancho || 1}/${MZ.alto || 1};width:min(100%, ${Math.round(420 * (MZ.ancho || 1) / (MZ.alto || 1))}px)"><img class="base" src="${esc(MZ.base)}" alt="">${mz(MZ.caja)}${puntoZoom(MZ.caja)}${Z ? `<div class="inund-r" style="left:${pcX(Z.caja[0], MZ.caja)}%;right:${(100 - pcX(Z.caja[2], MZ.caja)).toFixed(2)}%;top:${pcY(Z.caja[3], MZ.caja)}%;bottom:${(100 - pcY(Z.caja[1], MZ.caja)).toFixed(2)}%"></div>` : ""}</div>
+      <figcaption>${esc(MZ.titulo || "")}${Z ? " (el recuadro, la ampliación del paseo)" : ""}</figcaption></figure>` : "";
   const mare = M ? `<div class="mare-c"><div class="k sub">Si llega un maremoto<em>${adra ? "zona de aviso AL01, de Adra a Almería" : "niveles del Plan Estatal"}</em></div>
       <ul class="mare-niv"><li class="r"><b>Alerta</b><span>ola de más de 0,5 m (o más de 1 m en tierra): inunda la costa</span></li><li class="a"><b>Aviso</b><span>ola de 0,2 a 0,5 m (o de 0,5 a 1 m en tierra)</span></li><li class="v"><b>Información</b><span>sin riesgo, o olas de menos de 0,2 m</span></li></ul>
       <p class="mare-p nota-q">El peor en esta costa, según el Plan Estatal: uno en la falla de Alborán Sur, con <b>más de 5 m en Málaga y Melilla en unos 20 minutos</b>.${M.pga != null ? ` Peligrosidad sísmica en ${esc(E.lugar.nombre)} (IGN, 2015): <b>${coma(M.pga, 2)} g</b>${M.intensidad != null ? `, intensidad <b>${["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][M.intensidad] || M.intensidad}</b>` : ""} cada 475 años.` : ""}</p></div>` : "";
-  const leyM = M ? `<li class="mz"><i class="mz2"></i><span>Lo que inundaría el peor maremoto<small>plan de la Junta</small></span></li>${(M.encuentro || []).length ? `<li class="mz"><i class="pe2"></i><span>Puntos de encuentro<small>propuestos, por verificar</small></span></li>` : ""}` : "";
+  const leyM = M ? `<li class="mz"${MZ ? ` data-k="${C.length}"` : ""}><i class="mz2"></i><span>Lo que inundaría el peor maremoto<small>plan de la Junta</small></span></li>${(M.encuentro || []).length ? `<li class="mz"><i class="pe2"></i><span>Puntos de encuentro<small>propuestos, por verificar</small></span></li>` : ""}` : "";
   // los acuíferos en la leyenda: los colores de los nitratos y las masas en mal estado químico (plan hidrológico), por su nombre
   const nomMasa = m => esc(tit(m.nombre).replace(/ (De|Del|La|Las|Los|El|Y) /g, (x, w) => ` ${w.toLowerCase()} `)), malas = A ? (A.masas || []).filter(m => m.quimico === "malo").map(nomMasa) : [];
-  const leyA = A ? `<li data-k="${C.length}" class="acu-li"><i style="background:${colorNitrato(60)}"></i><span>Acuíferos: nitratos en los pozos (mg/l)<small><i style="background:${colorNitrato(10)}"></i>menos de 25 <i style="background:${colorNitrato(30)}"></i>de 25 a 50 <i style="background:${colorNitrato(60)}"></i>50 o más (el límite)${malas.length ? ` · <i class="am"></i>en mal estado químico: ${malas.length > 1 ? `${malas.slice(0, -1).join(", ")} y ${malas[malas.length - 1]}` : malas[0]}` : ""}</small></span></li>` : "";
+  const leyA = A ? `<li data-k="${C.length + (MZ ? 1 : 0)}" class="acu-li"><i style="background:${colorNitrato(60)}"></i><span>Acuíferos: nitratos en los pozos (mg/l)<small><i style="background:${colorNitrato(10)}"></i>menos de 25 <i style="background:${colorNitrato(30)}"></i>de 25 a 50 <i style="background:${colorNitrato(60)}"></i>50 o más (el límite)${malas.length ? ` · <i class="am"></i>en mal estado químico: ${malas.length > 1 ? `${malas.slice(0, -1).join(", ")} y ${malas[malas.length - 1]}` : malas[0]}` : ""}</small></span></li>` : "";
   const tile = `<div data-f="inundaciones${M ? " maremotos" : ""}${A ? " x" : ""}" class="tile inund"><div class="k">Zonas inundables${M ? ", maremotos" : ""}${A ? " y acuíferos" : ""}<em>escenarios oficiales · no es una previsión</em></div>
     <div class="inund-f"><div class="inund-m"><div class="marco" style="aspect-ratio:${I.ancho || 1400}/${I.alto || 914}"><img class="base" src="${esc(I.base)}" alt="">${C.map((c, k) => `<img class="capa" id="inund${k}" src="${esc(c.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}
       ${acu(c)}${mz(c)}${caja}${puntoPueblo(c)}<div class="tag" id="inundTag">${esc(C[0].nombre)}</div></div>
       <p class="nota">Lo que se inundaría con una crecida del río o un temporal en la costa que de media pasa una vez cada 10, 100 o 500 años (Sistema Nacional de Cartografía de Zonas Inundables, del Ministerio para la Transición Ecológica, por la IDEE). Escenarios de peligrosidad: no dicen que vaya a pasar ahora.</p>${mare}</div>
-    <div class="inund-l">${zoom}<ul>${C.map((c, k) => `<li data-k="${k}" class="${k ? "" : "on"}"><i style="background:${COLOR_INUND[c.id] || "#4aa3ff"}"></i><span>${esc(c.nombre)}${c.vacia ? "<small>sin zona cartografiada aquí</small>" : ""}</span></li>`).join("")}${leyM}${leyA}</ul></div></div></div>`;
+    <div class="inund-l">${zoom}${zoomM}<ul>${C.map((c, k) => `<li data-k="${k}" class="${k ? "" : "on"}"><i style="background:${COLOR_INUND[c.id] || "#4aa3ff"}"></i><span>${esc(c.nombre)}${c.vacia ? "<small>sin zona cartografiada aquí</small>" : ""}</span></li>`).join("")}${leyM}${leyA}</ul></div></div></div>`;
   return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${tile}</div></div>`;
 }
 function animarInundaciones() {
   const C = (E.inundaciones || {}).capas || [], tag = document.getElementById("inundTag");
   // 4.35: después de los escenarios, el turno de los acuíferos (sin las zonas inundables ni la del maremoto)
-  const nA = document.getElementById("inundA") ? C.length + 1 : C.length;
+  // 21 nov 2026: luego el de la ampliación del maremoto (sin las zonas inundables; el zoom del paseo deja sitio a la ampliación)
+  const hayMZ = !!document.getElementById("mareZf"), iA = C.length + (hayMZ ? 1 : 0);
+  const nA = document.getElementById("inundA") ? iA + 1 : iA;
   if (!tag || nA < 2) return;
   let k = 0, id = null, fijo = false;
-  const ver = j => { k = j; const ac = j === C.length;
+  const ver = j => { k = j; const ac = j === iA, mar = hayMZ && j === C.length;
+    const zf = document.getElementById("inundZf"), mf = document.getElementById("mareZf");
+    if (mf) { mf.style.display = mar ? "" : "none"; if (zf) zf.style.display = mar ? "none" : ""; }
     C.forEach((c, n) => { ["inund", "inundZ"].forEach(p => { const im = document.getElementById(p + n); if (im) im.style.opacity = n === j ? 1 : 0; }); });
     ["inundA", "inundZA"].forEach(x => { const e = document.getElementById(x); if (e) e.style.opacity = ac ? 1 : 0; });
     document.querySelectorAll(".inund .mar-capa").forEach(e => { e.style.opacity = ac ? 0 : 1; });
-    tag.textContent = ac ? "Acuíferos: nitratos en los pozos (mg/l)" : C[j].nombre + (C[j].vacia ? " · sin zona cartografiada aquí" : ""); document.querySelectorAll(".inund-l li[data-k]").forEach(li => li.classList.toggle("on", +li.dataset.k === j)); };
+    tag.textContent = ac ? "Acuíferos: nitratos en los pozos (mg/l)" : mar ? "Lo que inundaría el peor maremoto" : C[j].nombre + (C[j].vacia ? " · sin zona cartografiada aquí" : ""); document.querySelectorAll(".inund-l li[data-k]").forEach(li => li.classList.toggle("on", +li.dataset.k === j)); };
   document.querySelectorAll(".inund-l li[data-k]").forEach(li => li.addEventListener("click", () => { fijo = true; ver(+li.dataset.k); }));   // móvil y ordenador
   const paso = () => { if (!tag.isConnected) return; if (!fijo) ver((k + 1) % nA); id = setTimeout(paso, 5000); };
   paradas.push(() => clearTimeout(id));
@@ -3672,6 +3725,9 @@ const TIPO_ALIM = {general: "para toda la población", complementos: "complement
    La primera vez (sin nada apuntado) se toma como primera vista su fecha de publicación, sin pasar de hace una semana.
    Se apunta al quedar pintada (apuntarVistos, con su clave «al:…»). */
 const CLAVE_ALIM = "tiempo.alimVistas", SEMANA_MS = 7 * 864e5;
+/* 21 nov 2026 (lo pidió Isa: «en alertas deja de enseñar las que lleve viendo los 4 días anteriores»): lo de Alertas y productos (alimentos,
+   medicamentos, productos y estafas) sale el día que se ve por primera vez y los 3 siguientes; al quinto día, fuera */
+const DIAS_ALERTA = 4, vistaYa = t => t != null && t > 0 && t < inicioHoy() - (DIAS_ALERTA - 1) * 864e5;
 let alimVistas = null;
 const claveAlim = a => a.enlace || `${a.titulo}|${a.fecha}`;
 function vistasAlim() {
@@ -3697,7 +3753,7 @@ function apuntarAlim(k) {
 const deAlergenos = a => a.tipo === "alergias" || /alergia|intoleranc/i.test(a.titulo || "") || !!ALERGENO[(etiqueta("alim", a.enlace) || {}).alergeno];
 function alertasAlimentarias() {
   const V = vistasAlim();
-  const A = ((E.alimentarias || {}).alertas || []).filter(a => !deAlergenos(a) && (!V[claveAlim(a)] || Date.now() - V[claveAlim(a)] < SEMANA_MS));
+  const A = ((E.alimentarias || {}).alertas || []).filter(a => !deAlergenos(a) && !vistaYa(V[claveAlim(a)]));
   const rango = a => ["general", "complementos"].indexOf(a.tipo || "general");
   return A.slice().sort((p, q) => rango(p) - rango(q) || (q.andalucia ? 1 : 0) - (p.andalucia ? 1 : 0) || q.fecha.localeCompare(p.fecha));
 }
@@ -3935,7 +3991,7 @@ const pCasa = () => `<div class="main"><div class="col izq" style="grid-template
 /* ---------- alertas (3.0): las alimentarias de la AESAN y los medicamentos retirados, todas a la vez ---------- */
 /* 15 nov 2026 (lo pidió Isa: «estafas en circulación (avisos del INCIBE) en Alertas y productos»): los avisos de seguridad para la ciudadanía del
    INCIBE (extras.estafas, de su RSS: tiempo-datos, incibe.py), los de los últimos 60 días y como mucho 3 (una por vuelta, rotando): su título, a quién afecta y su QR */
-const estafasRecientes = () => (((E.extras || {}).estafas || {}).lista || []).filter(a => a && a.titulo && a.fecha && diasHasta(a.fecha) <= 0 && diasHasta(a.fecha) >= -60).slice(0, 3);
+const estafasRecientes = () => (((E.extras || {}).estafas || {}).lista || []).filter(a => a && a.titulo && a.fecha && diasHasta(a.fecha) <= 0 && diasHasta(a.fecha) >= -60 && !vistaYa(vistos["es:" + a.enlace])).slice(0, 3);
 const filaEstafa = (a, tipo = "") => {
     const d = new Date(a.fecha + "T12:00"), k = "es:" + a.enlace;
     return `<li ${claveNuevo(k)}><div class="md-dia"><b>${d.getDate()}</b><span>${MES3[d.getMonth()]}</span></div>
@@ -4128,7 +4184,7 @@ function tarjetaTemporada(i) {
 }
 /* hoy (3.0): tal día como hoy y el fútbol; la farmacia de guardia, la agenda (con las colectas de sangre) y lo de temporada; el barco dragón */
 function pHoy() {   // 4.13: la agenda, en Noticias; el oleaje de la costa, aquí
-  const ef = tarjetaEfemerides(1), fu = tarjetaFutbol(2), fa = tarjetaFarmacia(), ol = "", te = tarjetaTemporada(6), rg = tarjetaRegatas();   // 4.35: el oleaje, en Aire y sol
+  const ef = tarjetaEfemerides(1), fu = tarjetaFutbol(2), fa = tarjetaFarmacia(), ol = "", te = tarjetaTemporada(6), rg = "";   // 21 nov 2026: el barco dragón, en su pestaña (pDragon). 4.35: el oleaje, en Aire y sol
   // con el oleaje, el fútbol pasa a la segunda columna; la temporada (o lo último) se queda con lo que sobra
   const c2 = [fa, ol ? fu : "", te].filter(Boolean), grande = te || c2[c2.length - 1];
   const cols = `<div class="col c1" style="grid-template-rows:1fr auto">${ef}${ol || fu}</div><div class="col c2" style="grid-template-rows:${c2.map(x => x === grande ? "1fr" : "auto").join(" ")}">${c2.join("")}</div>`;
@@ -4425,7 +4481,7 @@ function tarjetaSismosCerca(sinQr) {   // sinQr: el QR va en el mapa
   if (!T) return vaciaDe("terremotos", "Datos del IGN no disponibles ahora mismo.", 1);
   const t = enTurno("terremotos", recientes(T.lista), 12, true);
   const fila = s => `<li ${claveNuevo("sismo:" + (s.evid || s.lugar + s.fecha + s.hora))}><span><span class="mag">${coma(s.mag, 1)}</span>${esc(lugarSismo(s.lugar))}${marcaNuevo("sismo:" + (s.evid || s.lugar + s.fecha + s.hora), s.s)}</span><b>${s.km} km <small>${s.fecha}${s.hora ? " · " + s.hora : ""}</small></b></li>`;
-  return `<div data-f="terremotos" class="tile sis" style="--i:1"><div class="k">Cerca de ${esc(E.lugar.nombre)} · 10 días<em>${T.total} a menos de ${T.radio} km · del más reciente</em></div>
+  return `<div data-f="terremotos" class="tile sis" style="--i:1"><div class="k">Cerca de ${esc(E.lugar.nombre)} · 48 horas<em>${T.total} a menos de ${T.radio} km · del más reciente</em></div>
     ${T.lista.length ? `<ul class="lst sismo" ${enCarrusel(t, "terremotos", fila)}>${t.items.map(fila).join("")}</ul>` + (sinQr ? "" : qrSismo(T))
       : `<p class="mut" style="font-size:23px;font-weight:600">Ningún terremoto registrado cerca.</p>`}</div>`;
 }
@@ -4450,7 +4506,7 @@ const mundoLista = () => { const M = E.sismosMundo; return ((M && M.lista) || []
 function tarjetaMundoMapa() {
   const M = E.sismosMundo, L = mundoLista(), fuerte = L.length ? L.reduce((a, b) => (b.mag > a.mag ? b : a)) : null;
   if (!M) return vaciaDe("sismosMundo", "Buscando los terremotos del mundo (USGS)…", 2);
-  return `<div data-f="sismosMundo" class="tile mundo-t" style="--i:2"><div class="k">En el mundo · última semana<em>${M.total} de magnitud ${coma(M.minimo, 1)} o más</em></div>
+  return `<div data-f="sismosMundo" class="tile mundo-t" style="--i:2"><div class="k">En el mundo · 48 horas<em>${M.total} de magnitud ${coma(M.minimo, 1)} o más</em></div>
     ${mapaMundo(L)}<div class="pie-m"><p class="leyenda-m"><i style="background:${colorMag(7)}"></i>7 o más <i style="background:${colorMag(6)}"></i>de 6 a 6,9 <i style="background:${colorMag(5)}"></i>menos de 6${L.some(s => sismoNuevo(s.s)) ? ` · <i class="nv"></i>últimas 24 h` : ""} · <i class="yo"></i>${esc(E.lugar.nombre)} · los números, como en la lista</p>
     ${fuerte ? (q => q ? `<div class="qm">${q}<span>Ficha del USGS<br>del más fuerte (${coma(fuerte.mag, 1)})</span></div>` : "")(qrSvg(fuerte.url, "qr", 60)) : ""}</div></div>`;
 }
@@ -4489,7 +4545,7 @@ function tarjetaMapaCerca(i, alto) {
   const T = E.terremotos;
   if (!T || !(T.puntos || []).length) return "";
   const L = (T.lista || []).filter(s => s.url), m = L.length ? L.reduce((a, b) => (b.mag > a.mag ? b : a)) : null;
-  return `<div data-f="terremotos" class="tile mapa-ct" style="--i:${i}"><div class="k">En el mapa · 10 días<em>${T.puntos.length === T.total ? `los ${T.total}` : `${T.puntos.length} de ${T.total}`}</em></div>${mapaCerca(T, alto)}
+  return `<div data-f="terremotos" class="tile mapa-ct" style="--i:${i}"><div class="k">En el mapa · 48 horas<em>${T.puntos.length === T.total ? `los ${T.total}` : `${T.puntos.length} de ${T.total}`}</em></div>${mapaCerca(T, alto)}
     <div class="pie-m"><p class="leyenda-m"><i style="background:${colorMagCerca(1)}"></i>menos de 2 <i style="background:${colorMagCerca(2)}"></i>de 2 a 2,9 <i style="background:${colorMagCerca(3)}"></i>de 3 a 3,9 <i style="background:${colorMagCerca(4)}"></i>4 o más${(T.puntos || []).some(p => sismoNuevo(p[3])) ? ` · <i class="nv"></i>últimas 24 h` : ""} · <i class="yo"></i>${esc(E.lugar.nombre)}</p>
     ${m ? (q => q ? `<div class="qm">${q}<span>Ficha del IGN<br>del más fuerte (${coma(m.mag, 1)})</span></div>` : "")(qrSvg(m.url, "qr", 60)) : ""}</div></div>`;
 }
@@ -4528,7 +4584,7 @@ const sismosEspana = () => (E.terremotos || {}).espana;
 function tarjetaMapaEspana(i) {
   const Es = sismosEspana();
   if (!Es || !(Es.puntos || []).length) return "";
-  return `<div data-f="terremotos" class="tile mapa-ct es-t" style="--i:${i}"><div class="k">${secNueva("sismos-es")}En España · 10 días<em>${Es.total} ${Es.total === 1 ? "terremoto" : "terremotos"}${Es.total ? `; el más fuerte, de ${coma(Es.max, 1)}` : ""}</em></div>${mapaEspana(Es)}
+  return `<div data-f="terremotos" class="tile mapa-ct es-t" style="--i:${i}"><div class="k">${secNueva("sismos-es")}En España · 48 horas<em>${Es.total} ${Es.total === 1 ? "terremoto" : "terremotos"}${Es.total ? `; el más fuerte, de ${coma(Es.max, 1)}` : ""}</em></div>${mapaEspana(Es)}
     <p class="leyenda-m prescindible"><i style="background:${colorMagCerca(1)}"></i>menos de 2 <i style="background:${colorMagCerca(2)}"></i>de 2 a 2,9 <i style="background:${colorMagCerca(3)}"></i>de 3 a 3,9 <i style="background:${colorMagCerca(4)}"></i>4 o más · en el mapa, todos los que da el IGN (también los de Portugal y el norte de África)</p></div>`;
 }
 function tarjetaSismosEspana(i) {
@@ -4545,7 +4601,7 @@ function pSismos() {
   const em = tarjetaMapaEspana(3), el = tarjetaSismosEspana(4), mm = E.sismosMundo ? tarjetaMundoMapa() : "", ml = E.sismosMundo ? (tarjetaMundoResto(6, true) || tarjetaMundoLista()) : "";
   // si falta España o el mundo, lo de cerca ocupa dos columnas: la lista en una y el mapa, a lo alto, en otra
   const otra = [[em, el], [mm, ml]].map(c => c.filter(Boolean)).filter(c => c.length), alto = otra.length === 1 ? 1180 : 0;
-  const cm = tarjetaMapaCerca(1, alto).replace(">En el mapa · 10 días<", ">A 150 km o menos · 10 días<"), cl = E.terremotos ? tarjetaSismosCerca(!!cm) : "";
+  const cm = tarjetaMapaCerca(1, alto).replace(">En el mapa · 48 horas<", ">A 150 km o menos · 48 horas<"), cl = E.terremotos ? tarjetaSismosCerca(!!cm) : "";
   const cols = (alto && cm && cl ? [[cl], [cm]] : [[cm, cl].filter(Boolean)]).concat(otra).filter(c => c.length);
   if (!cols.length) return `<div class="main">${vaciaDe("terremotos", "Datos del IGN no disponibles ahora mismo.", 1)}</div>`;
   // una sola parte: su lista y su mapa, uno al lado del otro (como era Terremotos)
@@ -5138,8 +5194,10 @@ function sasEnZona(x) {
   if (e) return e.provincia === "andalucia" || e.provincia === "almeria" || (e.provincia === "no_consta" && !OTRA_SAS.test(t));
   return ALMERIA_SAS.test(t) || !OTRA_SAS.test(t);
 }
-const sasBoja = () => (((E.boja || {}).disposiciones) || []).filter(sasEnZona).sort((a, b) => (pesoSas(b) - pesoSas(a)) || b.fecha.localeCompare(a.fecha));
-const sasBoe = () => (((E.boe || {}).disposiciones) || []).filter(sasEnZona).sort((a, b) => b.fecha.localeCompare(a.fecha));
+// 21 nov 2026 (lo pidió Isa: «en SAS no muestres la información que ya lleve viendo 4 días»): lo visto los 4 días anteriores, fuera (vistaYa)
+const sasNoVisto = k => x => !vistaYa(vistos[k + (x.url || x.id)]);
+const sasBoja = () => (((E.boja || {}).disposiciones) || []).filter(sasEnZona).filter(sasNoVisto("boja:")).sort((a, b) => (pesoSas(b) - pesoSas(a)) || b.fecha.localeCompare(a.fecha));
+const sasBoe = () => (((E.boe || {}).disposiciones) || []).filter(sasEnZona).filter(sasNoVisto("boe:")).sort((a, b) => b.fecha.localeCompare(a.fecha));
 /* el resumen de las disposiciones del SAS, más corto para la tele (el texto entero, en el QR): siglas de uso común en el SAS */
 const abreviarSas = t => String(t || "")
   .replace(/^Convoca,? mediante el sistema de concurso de méritos,? la cobertura (?:del|de un) puesto de cargo intermedio,?(?: próximo a quedar vacante,)? de /i, "Concurso de méritos para cargo intermedio: ")
@@ -5215,10 +5273,10 @@ function pEmpleo(partes) {   // 4.34: «partes», las tarjetas sueltas (una colu
   return `<div class="main" style="grid-template-columns:${dos ? `minmax(0,${cS}fr) minmax(0,${cO}fr)` : "1fr"}">${sae}${junta}</div>`;
 }
 /* ---------- SAS (3.0): lo del Servicio Andaluz de Salud en el BOJA y el BOE de la última semana, en una lista (primero lo de Almería) ---------- */
-const haySas = () => [...(((E.boja || {}).disposiciones) || []), ...(((E.boe || {}).disposiciones) || [])].some(sasEnZona) || bolsaNovedades().length > 0;   // 3.9: sin ordenar nada
+const haySas = () => (((E.boja || {}).disposiciones) || []).some(x => sasEnZona(x) && sasNoVisto("boja:")(x)) || (((E.boe || {}).disposiciones) || []).some(x => sasEnZona(x) && sasNoVisto("boe:")(x)) || bolsaNovedades().length > 0;   // 3.9: sin ordenar nada
 /* 4.8 (304, lo pidió Isa el 31 oct 2026): lo que publica el SAS de su Bolsa Única (listados, trámites de audiencia, criterios de valoración…):
    las novedades de los dos últimos meses, la más reciente arriba, y aviso arriba el día que sale y el siguiente */
-const bolsaNovedades = () => (((E.bolsaSas || {}).novedades) || []).filter(n => n.fecha && diasHasta(n.fecha.slice(0, 10)) >= -60);
+const bolsaNovedades = () => (((E.bolsaSas || {}).novedades) || []).filter(n => n.fecha && diasHasta(n.fecha.slice(0, 10)) >= -60 && !vistaYa(vistos["bolsa:" + n.enlace]));
 function tarjetaBolsa(i, cols = 1) {
   const N = bolsaNovedades();
   if (!N.length) return "";
@@ -5491,8 +5549,8 @@ function tarjetaRespiratorias(i) {
 /* ---------- consumo (lo pidió Isa el 28 oct 2026; ideas 215, 216 y 224): medicamentos retirados, productos peligrosos y agua del grifo ----------
    Medicamentos: alertas de calidad de la AEMPS del último mes que llegan a farmacias (la app trae las de 45 días). Productos: los que España
    ha avisado a Safety Gate, la red de alerta de la UE, en los últimos 3 meses. Agua: la red del municipio en el SINAC (Ministerio de Sanidad). */
-const medicamentosRecientes = () => (((E.medicamentos || {}).alertas) || []).filter(a => diasHasta(a.fecha) >= -30);
-const productosRecientes = () => ((E.productos || {}).productos) || [];
+const medicamentosRecientes = () => (((E.medicamentos || {}).alertas) || []).filter(a => diasHasta(a.fecha) >= -30 && !vistaYa(vistos["med:" + a.codigo]));
+const productosRecientes = () => (((E.productos || {}).productos) || []).filter(x => !vistaYa(vistos["sg:" + x.id]));
 const aguaDatos = () => { const A = E.agua; return A && (A.control || []).length ? A : null; };
 /* «MYNZEPLI 40 MG/ML SOLUCION INYECTABLE…» → la marca como viene y el resto en minúsculas */
 const nombreMed = s => { const t = String(s || "").trim(), i = t.indexOf(" "); return i < 0 ? t : t.slice(0, i) + t.slice(i).toLowerCase(); };
@@ -5704,7 +5762,7 @@ const centroSas = c => String(c || "").replace(/^Área de gestión sanitaria/i, 
 const enPlazoOoe = o => !!(o.plazo && o.plazo.hasta && diasHasta(o.plazo.hasta) >= 0 && !["desierta", "resuelta"].includes(o.estado));
 function ofertasSas() {
   const S = (E.extras || {}).sasOfertas || {}, dias = S.dias || 30;
-  return (S.lista || []).filter(o => o.id && o.fecha && diasHasta(o.fecha) >= -dias && diasHasta(o.fecha) <= 0 && (o.puesto || o.titulo))
+  return (S.lista || []).filter(o => o.id && o.fecha && diasHasta(o.fecha) >= -dias && diasHasta(o.fecha) <= 0 && (o.puesto || o.titulo) && !vistaYa(vistos["ooe:" + o.id]))
     .map((o, i) => [enPlazoOoe(o) ? 0 : 1, i, o]).sort((a, b) => a[0] - b[0] || a[1] - b[1]).map(x => x[2]);
 }
 function itemOoe(o) {
@@ -5738,7 +5796,7 @@ function pTrabajo() {
   return `<div class="main trabajo" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(t => `<div class="col" style="grid-template-rows:${corta(t) && cols.length > 1 ? "auto;align-content:start" : "minmax(0,1fr)"}">${t}</div>`).join("")}</div>`;
 }
 const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa, consumo: pConsumo, suministros: pSuministros,
-  alertas: pAlertas, productos: pProductos, hoy: pHoy, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
+  alertas: pAlertas, productos: pProductos, hoy: pHoy, dragon: pDragon, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
   economia: pEconomia, empleo: pTrabajo, sas: pSasPagina, planes: pPlanes, ayudas: pAyudas};
 /* ---------- 4.37 (lo pidió Isa el 8 nov 2026: «rediseña las pantallas para que su fondo sea adecuado respecto a la temática o situación»):
    detrás de cada pantalla, un dibujo propio y tenue de su tema (en el color de la pantalla) y, encima, la situación: el cielo con el tiempo
@@ -5969,6 +6027,7 @@ function capaTema(p) {
       + va(1380, 540, D.mariposa(1380, 540, 4), 5, 60, -44, 0, 9) + va(520, 440, D.mariposa(520, 440, 2.6), 4, -46, -30, -1.5, -8)
       + D.flor(300, 900, 5) + D.flor(1610, 912, 4.2) + D.flor(985, 930, 3.4) + va(1100, 320, D.gaviota(1100, 320, 3), 12, 110, -24),
     // el día: el sol que sale detrás del pueblo, con sus rayos, que giran despacio
+    dragon: () => T.mar(),   // 21 nov 2026: el barco dragón, en el mar
     hoy: () => `<clipPath id="cHoy"><rect x="0" y="0" width="1920" height="806"/></clipPath><g clip-path="url(#cHoy)">${D.sol(960, 806, 190, 1)}</g>`
       + mueveEn(600, 446, 720, 360, 960, 806, Array.from({length: 20}, (_, i) => { const a = Math.PI * i / 10, c = Math.cos(a), s = Math.sin(a);
         return `<line x1="${E2(960 + c * 250)}" y1="${E2(806 + s * 250)}" x2="${E2(960 + c * 340)}" y2="${E2(806 + s * 340)}" stroke-width="5"/>`; }).join(""), "mvGira", 150, 0, "--tm:linear")
