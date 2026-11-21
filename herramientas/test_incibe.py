@@ -51,6 +51,18 @@ class Incibe(unittest.TestCase):
         self.assertEqual(comun.leer(ruta), x); self.assertEqual(comun.recoger_avisos(ruta), [])
         self.assertNotIn("estafasVistas", x)                                              # lo que recuerda va en estado_diario.json
 
+    def test_el_cortafuegos_no_es_un_rss_vacio(self):
+        # desde el 19 nov 2026, «302 Security Redirect» a /estatico/defecto.incibe.es/404..html: falla diciendo eso y deja lo que había
+        d = tempfile.mkdtemp(); self.addCleanup(shutil.rmtree, d)
+        ruta = os.path.join(d, "extras.json"); comun.guardar(ruta, {"estafas": {"lista": []}})
+        orig = (comun.pedir, comun.fallar, sys.argv)
+        comun.pedir, sys.argv = (lambda u, *a, **k: b"<!DOCTYPE html><html><body>PRUEBA 404</body></html>"), ["incibe.py", ruta]
+        comun.fallar = lambda e: (_ for _ in ()).throw(AssertionError(str(e)))
+        try:
+            with self.assertRaisesRegex(AssertionError, "cortafuegos"): incibe.main()
+        finally: comun.pedir, comun.fallar, sys.argv = orig
+        self.assertEqual(comun.leer(ruta), {"estafas": {"lista": []}})
+
     def test_la_primera_vez_no_avisa_de_lo_viejo(self):
         d = tempfile.mkdtemp(); self.addCleanup(shutil.rmtree, d)
         ruta = os.path.join(d, "extras.json"); comun.guardar(ruta, {})

@@ -806,7 +806,7 @@ footer.ap1 .tabs .tab.on{margin:0 6px}footer.ap1 .tabs .tab.on::before{left:-8px
 body{--h:212;--h2:262}
 body.p-ahora{--h:205;--h2:250}body.p-semana{--h:198;--h2:168}body.p-agua{--h:200;--h2:228}body.p-mar{--h:190;--h2:166}
 body.p-cielo{--h:246;--h2:286}body.p-espacio{--h:266;--h2:308}body.p-planeta{--h:150;--h2:192}body.p-casa{--h:36;--h2:12}body.p-consumo,body.p-suministros{--h:44;--h2:22}body.p-alertas{--h:4;--h2:338}
-body.p-productos{--h:328;--h2:282}body.p-hoy{--h:44;--h2:196}body.p-dragon{--h:356;--h2:196}body.p-carretera{--h:26;--h2:48}body.p-sismos{--h:12;--h2:36}body.p-mundo{--h:206;--h2:150}
+body.p-productos{--h:328;--h2:282}body.p-hoy{--h:44;--h2:196}body.p-dragon{--h:356;--h2:196}body.p-noche{--h:230;--h2:260}body.p-resumen{--h:38;--h2:200}body.p-noche #wrap{filter:brightness(.62)}body.p-carretera{--h:26;--h2:48}body.p-sismos{--h:12;--h2:36}body.p-mundo{--h:206;--h2:150}
 body.p-campo{--h:96;--h2:142}body.p-pescado{--h:196;--h2:232}body.p-noticias{--h:222;--h2:10}body.p-economia{--h:158;--h2:44}body.p-empleo{--h:262;--h2:212}
 body.p-sas{--h:172;--h2:204}body.p-clima{--h:14;--h2:44}body.p-aire{--h:168;--h2:48}body.p-tormentas{--h:262;--h2:46}body.p-inundaciones{--h:214;--h2:190}body.p-calor{--h:18;--h2:350}body.p-maremotos{--h:200;--h2:230}body.p-acuiferos{--h:190;--h2:160}body.p-senderos{--h:110;--h2:30}body.p-planes{--h:38;--h2:330}body.p-ayudas{--h:226;--h2:150}body.p-naturaleza{--h:120;--h2:84}body.p-aviso{--h:24;--h2:2}
 body{--c1:hsl(var(--h),92%,67%);--c2:hsl(var(--h2),88%,66%);--c1s:hsla(var(--h),92%,62%,.38);--kc:hsl(var(--h),62%,76%);
@@ -932,6 +932,9 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .nat-r{list-style:none}.nat-r li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--linea);font-size:20px}
 .nat-r li span{min-width:0;overflow:hidden;white-space:nowrap}.nat-r em{color:var(--mu);font-size:20px}.nat-r small{font-size:20px;color:var(--mu);font-weight:700;white-space:nowrap}
 .nat-r small.amen{color:var(--mal)}
+.rs-l{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}.rs-l li{display:flex;gap:14px;align-items:baseline;font-size:24px;line-height:1.3}.rs-l li>b{flex:none;min-width:120px}.rs-l li>span{min-width:0}
+.rs-n{padding:2px 10px;border-radius:8px;background:#f6d23a;color:#222}.rs-n.n2{background:#f28c28}.rs-n.n3{background:#e53935;color:#fff}.rs-ok{font-size:24px;font-weight:700;margin-top:10px}.rs-d{font-size:26px;line-height:1.4;margin:12px 0}.rs-r{font-size:24px;font-weight:800;color:var(--acc);margin:6px 0}
+.noche-t .t0{font-size:150px}.noche-t .ya,.rs-t .ya{display:flex;align-items:center;gap:30px}.rs-t .t0{font-size:96px}.rs-t .t0 small{font-size:48px}.noche-t .desc,.rs-t .desc{font-size:32px}.dia .rema{font-size:20px;font-weight:800;color:var(--acc)}
 .nat-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end}.nat-ab{min-width:0}
 .nat-datos.con-fotos .nat-fb{flex:1;min-height:0;display:flex;flex-direction:column}.nat-datos.con-fotos .nat-f{flex:1;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr))}.nat-datos.con-fotos .nat-f figure{display:flex;flex-direction:column;min-height:0}.nat-datos.con-fotos .nat-f .nf-i{flex:1;height:auto;min-height:150px}
 .nat-f{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 10px;margin-top:6px}.nat-f figure{min-width:0}.nat-f .nf-i{position:relative;border-radius:12px;overflow:hidden;height:136px;background:var(--tile2)}
@@ -1522,6 +1525,21 @@ function ajustar(raiz) {
   try { apuntarVistos(raiz); } catch (e) {}
 }
 const avisosVistos = new Set();
+/* 21 nov 2026 (de las mejoras propuestas, «haz todo»): la tele dice en voz alta cada aviso naranja o rojo de AEMET nuevo, una vez (se
+   apunta en el navegador de la app), de 8:00 a 23:00 y solo en la tele (Android.decir) */
+const CLAVE_DICHOS = "tiempo.avisosDichos";
+function decirAvisos() {
+  if (!(window.Android && Android.decir)) return;
+  const h = new Date().getHours(); if (h < 8 || h >= 23) return;
+  let D = {}; try { D = JSON.parse(localStorage.getItem(CLAVE_DICHOS) || "{}") || {}; } catch (e) {}
+  const nuevos = avisosFuertes().filter(a => !D[a.nivel + "|" + a.fenomeno + "|" + a.desde]);
+  if (!nuevos.length) return;
+  const cuando = a => { const d = a.desde ? new Date(a.desde) : null; return d && !isNaN(d) ? ` desde el ${DIAS[d.getDay()]} ${d.getDate()} a las ${d.getHours()}:${dosd(d.getMinutes())}` : ""; };
+  try { Android.decir(nuevos.map(a => `Aviso ${String(a.color || "").toLowerCase()} de AEMET por ${a.fenomeno}${cuando(a)}.`).join(" ")); } catch (e) { return; }
+  for (const a of nuevos) D[a.nivel + "|" + a.fenomeno + "|" + a.desde] = Date.now();
+  for (const [k, t] of Object.entries(D)) if (Date.now() - t > 30 * 864e5) delete D[k];
+  try { localStorage.setItem(CLAVE_DICHOS, JSON.stringify(D)); } catch (e) {}
+}
 // cada pantalla 15 s, en bucle (4.3: los segundos de cada una se pueden cambiar en el menú de ajustes: rota(p))
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -2028,17 +2046,24 @@ function ordenPantallas() {
   });
   return o;
 }
+/* 21 nov 2026 (lo pidió Isa: «haz todo», de las mejoras propuestas):
+   - modo noche (de 0:00 a 7:00): solo la hora, el tiempo de ahora y los avisos, con la pantalla más apagada (el aviso naranja o rojo, también);
+   - resumen de la mañana («Buenos días», de 7:00 a 11:00): la primera pantalla, con el tiempo del día, los avisos, la agenda y lo nuevo. */
+const H_NOCHE = [0, 7], H_RESUMEN = [7, 11];
+const esNoche = () => { const h = new Date().getHours(); return h >= H_NOCHE[0] && h < H_NOCHE[1]; };
+const esMañana = () => { const h = new Date().getHours(); return h >= H_RESUMEN[0] && h < H_RESUMEN[1]; };
 const paginas = () => {
-  const L = paginasHay(), o = ordenPantallas();
+  if (esNoche() && !window.PRUEBA_SIN_DESFASE) return avisosFuertes().length ? ["aviso", "noche"] : ["noche"];
+  const L = paginasHay().concat(esMañana() && !window.PRUEBA_SIN_DESFASE ? ["resumen"] : []), o = ordenPantallas();
   let v = L.filter(p => p === "aviso" || !AJ.ocultas.includes(p));
   if (!v.some(p => p !== "aviso")) v = L;   // si se han quitado todas, salen todas
-  const k = p => p === "aviso" ? -1 : o.indexOf(p);
+  const k = p => p === "aviso" ? -2 : p === "resumen" ? -1 : o.indexOf(p);
   return v.sort((a, b) => k(a) - k(b));
 };
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
 const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones y acuíferos", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa", consumo: "Mi luz", suministros: "Luz por suministro",
-  alertas: "Alertas y productos", productos: "Productos", hoy: "Hoy", dragon: "Barco dragón", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Lonja", noticias: "Noticias",
+  alertas: "Alertas y productos", productos: "Productos", hoy: "Hoy", dragon: "Barco dragón", noche: "Noche", resumen: "Buenos días", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Lonja", noticias: "Noticias",
   economia: "Economía", empleo: "Empleo", sas: "SAS", planes: "Planes", ayudas: "Ayudas y cursos gratis"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
   get clima() { return "Fuentes: Junta de Andalucía (IFAPA, red RIA: lo normal de los últimos años y la lluvia medida) · AEMET (horas de sol 1981-2010 y récords)" + (hayCalor() ? " · islas de calor: Landsat 8 y 9 (USGS/NASA) por el Planetary Computer de Microsoft, Copernicus (CORINE Land Cover 2018) e IGN (ortofoto PNOA)" : ""); },
@@ -2059,6 +2084,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (hayProductos() ? " · Comisión Europea, Safety Gate (productos que avisa España)" : "") + (estafasRecientes().length ? " · INCIBE (estafas)" : ""); },
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
   hoy: "Fuentes: Wikipedia · Colegio de Farmacéuticos · ESPN",
+  noche: "Fuente: AEMET", resumen: "Fuentes: AEMET · agenda del pueblo · SAS (BOJA, BOE y ofertas) · alertas (AESAN, AEMPS, Safety Gate)",
   dragon: "Fuentes: Federación Andaluza de Piragüismo · Real Federación Española de Piragüismo · Federación Internacional de Barco Dragón (IDBF) · Paddle Europe",
   carretera: "Fuentes: DGT (cámaras e incidencias) · Consorcio de Transporte del Área de Almería (autobús) · Kiwi.com (vuelos) · OpenSky (aeropuerto)",
   trenes: "Fuente: Renfe (visor de trenes en tiempo real de Alta Velocidad, Larga y Media Distancia)",
@@ -2302,7 +2328,7 @@ function pSemana() {
     const n = diasHasta(x.fecha);   // hoy, subrayado siempre (por su fecha); lo que ya pasó, más apagado
     return `<div class="dia${n === 0 ? " hoy" : n < 0 ? " pasado" : ""}"><b>${diaNombre(x.fecha)}</b><span>${f.getDate()} ${MES3[f.getMonth()]}</span>${icono(x.cod, x.desc, 128)}
       <div class="tt"><b class="num">${x.max ?? "–"}°</b><span>${x.min ?? "–"}°</span></div><div class="rango"><u style="left:${a.toFixed(0)}%;width:${Math.max(6, b - a).toFixed(0)}%"></u></div>
-      <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}</div>`;
+      <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}${n >= 0 && remar(x) ? `<b class="rema">Para remar</b>` : ""}</div>`;
   }).join("");
   // 4.36 (lo pidió Isa el 8 nov 2026: «elimina la predicción de las próximas 24 horas en Semana»): van en Ahora (las 48 horas); la salida y la
   // puesta del sol, en la cabecera; los 7 días, a lo alto, con el riesgo de incendio al lado
@@ -3229,6 +3255,52 @@ function pDragon() {
   const cs = [rg, ca].filter(Boolean);
   if (!cs.length) return `<div class="main">${vacia("Sin regatas ni campeonatos de barco dragón por venir.")}</div>`;
   return `<div class="main" style="grid-template-columns:repeat(${cs.length},minmax(0,1fr))">${cs.map(c => `<div class="col" style="grid-template-rows:1fr">${c}</div>`).join("")}</div>`;
+}
+/* ---------- 21 nov 2026: noche y resumen de la mañana ---------- */
+const horaAhora = () => { const t = Date.now(), H = E.horas || []; return H.filter(h => Date.parse(h.t) <= t).pop() || H[0] || null; };
+const lineaAvisos = () => { const A = (E.avisos || []).filter(a => a.nivel >= 1);
+  return A.length ? `<ul class="rs-l">${A.slice(0, 4).map(a => `<li><b class="rs-n n${a.nivel}">${esc(may(a.color || ""))}</b><span>${esc(may(a.fenomeno || ""))}${a.desde ? ` · ${diaFecha(a.desde.slice(0, 10))}` : ""}</span></li>`).join("")}</ul>`
+    : avisosAlDia() ? `<p class="rs-ok">Sin avisos de AEMET</p>` : `<p class="rs-ok mut">Sin datos de los avisos de AEMET al día</p>`; };
+function pNoche() {
+  const h = horaAhora(), d = diaPrevision(0) || diaPrevision(1);
+  if (!h) return `<div class="main">${vaciaDe("prevision", "Cargando la previsión de AEMET…")}</div>`;
+  return `<div class="main" style="grid-template-columns:1fr"><div data-f="prevision avisos" class="tile noche-t"><div class="k">Ahora en ${esc(E.lugar.nombre)}<em>modo noche, hasta las ${H_NOCHE[1]}:00</em></div>
+    <div class="ya">${icono(h.cod, h.desc, 180)}<div><div class="t0 num">${h.temp ?? "–"}°</div><div class="desc">${esc(h.desc || "")}</div></div></div>
+    ${d ? `<p class="rs-d">${may(diaFecha(d.fecha))}: máxima <b>${d.max ?? "–"}°</b>, mínima <b>${d.min ?? "–"}°</b>, lluvia <b>${d.prob ?? 0} %</b>, viento <b>${d.viento ?? "–"} km/h ${esc(d.dir || "")}</b></p>` : ""}
+    ${lineaAvisos()}</div></div>`;
+}
+function pResumen() {
+  const d = diaPrevision(0), h = horaAhora(), sol = solHoy(), hoy = isoDe(new Date()), man = isoDe(new Date(Date.now() + 864e5));
+  const ag = agendaProxima().filter(a => a.fecha <= man).slice(0, 5);
+  const nSas = [...sasBoja().map(x => ["sas", {...x, k: "boja:"}]), ...sasBoe().map(x => ["sas", {...x, k: "boe:"}]), ...ofertasSas().map(o => ["sasOfertas", o])].filter(([c, x]) => nuevoDe(c, x));
+  const nAl = [...alertasAlimentarias().map(x => ["alimentarias", x]), ...medicamentosRecientes().map(x => ["medicamentos", x]), ...productosRecientes().map(x => ["productos", x]), ...estafasRecientes().map(x => ["estafas", x])].filter(([c, x]) => nuevoDe(c, x));
+  const tiempo = d ? `<div data-f="prevision" class="tile rs-t" style="--i:1"><div class="k">${may(diaFecha(hoy))}<em>AEMET</em></div>
+    <div class="ya">${icono(d.cod, d.desc, 120)}<div><div class="t0 num">${d.max ?? "–"}°<small> / ${d.min ?? "–"}°</small></div><div class="desc">${esc(d.desc || "")}</div></div></div>
+    <p class="rs-d">Ahora <b>${h && h.temp != null ? h.temp + "°" : "–"}</b> · lluvia <b>${d.prob ?? 0} %</b> · viento <b>${d.viento ?? "–"} km/h ${esc(d.dir || "")}</b>${sol && sol.salida ? ` · sol de <b>${esc(String(sol.salida))}</b> a <b>${esc(String(sol.puesta || ""))}</b>` : ""}</p>
+    ${remar(d) ? `<p class="rs-r">Buen día para remar: viento flojo y sin lluvia</p>` : ""}${lineaAvisos()}</div>` : vaciaDe("prevision", "Cargando la previsión de AEMET…", 1);
+  const agenda = `<div data-f="x" class="tile" style="--i:2"><div class="k">Hoy y mañana en ${esc(E.lugar.nombre)}<em>agenda</em></div>${ag.length
+    ? `<ul class="rs-l">${ag.map(a => `<li><b>${a.fecha <= hoy ? "Hoy" : diaNombre(a.fecha)}${a.hora ? ` ${esc(a.hora)}` : ""}</b><span>${esc(a.titulo)}${a.lugar ? ` · ${esc(a.lugar)}` : ""}</span></li>`).join("")}</ul>` : `<p class="rs-ok mut">Nada en la agenda para hoy ni para mañana.</p>`}</div>`;
+  const nov = `<div data-f="boja boe x alimentarias" class="tile" style="--i:3"><div class="k">Novedades de las últimas 24 horas</div><ul class="rs-l">
+    <li><b>SAS</b><span>${nSas.length ? `${nSas.length} ${nSas.length === 1 ? "novedad" : "novedades"}: ${esc(abreviarSas(nSas[0][1].resumen || nSas[0][1].puesto || nSas[0][1].titulo || ""))}` : "nada nuevo"}</span></li>
+    <li><b>Alertas</b><span>${nAl.length ? `${nAl.length} ${nAl.length === 1 ? "nueva" : "nuevas"}: ${esc(nAl[0][1].titulo || nAl[0][1].producto || nAl[0][1].nombre || "")}` : "nada nuevo"}</span></li></ul></div>`;
+  return `<div class="main" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${tiempo}</div><div class="col" style="grid-template-rows:auto 1fr">${agenda}${nov}</div></div>`;
+}
+/* 21 nov 2026: «buen día para remar» (barco dragón): según la previsión de AEMET del día, viento de 15 km/h o menos y lluvia del 20 % o menos */
+const REMAR = {viento: 15, lluvia: 20};
+const remar = d => !!d && d.viento != null && d.viento <= REMAR.viento && (d.prob ?? 0) <= REMAR.lluvia;
+/* 21 nov 2026: los mercadillos de El Ejido (ordenanza de comercio ambulante, BOP de Almería n.º 140, 22 jul 2022): de 8:00 a 14:00 */
+const MERCADILLOS_EJIDO = {enlace: "https://transparencia.elejido.es/files/pdfs/Ordenanza%20de%20COMERCIO%20AMBULANTE.pdf",
+  lista: [["El Ejido", 3, [1, 2, 3]], ["Santa María del Águila", 6, [1, 2, 3]], ["Las Norias", 5, null], ["Balerma", 1, null], ["San Agustín", 4, [1, 3]], ["Matagorda", 4, [2, 4]]]};
+function proximoMercadillo([nombre, dia, semanas]) {
+  const d = new Date(); d.setHours(12, 0, 0, 0); if (new Date().getHours() >= 14) d.setDate(d.getDate() + 1);
+  for (let i = 0; i < 40; i++, d.setDate(d.getDate() + 1)) if (d.getDay() === dia && (!semanas || semanas.includes(Math.ceil(d.getDate() / 7)))) return isoDe(d);
+  return null;
+}
+function tarjetaMercadillos(i) {
+  if (!["04003", "04902", "04029"].includes(E.lugar.ine)) return "";   // Adra, El Ejido y Berja
+  const L = MERCADILLOS_EJIDO.lista.map(m => [m[0], proximoMercadillo(m)]).filter(m => m[1]).sort((a, b) => a[1].localeCompare(b[1]));
+  return `<div class="tile" style="--i:${i}"><div class="k">Mercadillos de El Ejido<em>de 8:00 a 14:00</em></div><ul class="rs-l">${L.map(([n, f]) => `<li><b>${may(diaFecha(f))}</b><span>${esc(n)}</span></li>`).join("")}</ul>
+    <p class="nota">Según la ordenanza municipal (BOP de Almería, 22 jul 2022). Si cae en festivo, el ayuntamiento lo pasa a otro día.</p>${qrPie(MERCADILLOS_EJIDO.enlace, "Ordenanza de comercio ambulante de El Ejido", 52)}</div>`;
 }
 function chipRegata() {
   const r = regatasProximas()[0];
@@ -4186,7 +4258,7 @@ function tarjetaTemporada(i) {
 function pHoy() {   // 4.13: la agenda, en Noticias; el oleaje de la costa, aquí
   const ef = tarjetaEfemerides(1), fu = tarjetaFutbol(2), fa = tarjetaFarmacia(), ol = "", te = tarjetaTemporada(6), rg = "";   // 21 nov 2026: el barco dragón, en su pestaña (pDragon). 4.35: el oleaje, en Aire y sol
   // con el oleaje, el fútbol pasa a la segunda columna; la temporada (o lo último) se queda con lo que sobra
-  const c2 = [fa, ol ? fu : "", te].filter(Boolean), grande = te || c2[c2.length - 1];
+  const me = tarjetaMercadillos(7), c2 = [fa, ol ? fu : "", te, me].filter(Boolean), grande = te || c2[c2.length - 1];
   const cols = `<div class="col c1" style="grid-template-rows:1fr auto">${ef}${ol || fu}</div><div class="col c2" style="grid-template-rows:${c2.map(x => x === grande ? "1fr" : "auto").join(" ")}">${c2.join("")}</div>`;
   return rg ? `<div class="main" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr) 500px">${cols}<div class="col c3" style="grid-template-rows:1fr">${rg}</div></div>`
     : `<div class="main" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)">${cols}</div>`;
@@ -5796,7 +5868,7 @@ function pTrabajo() {
   return `<div class="main trabajo" style="grid-template-columns:repeat(${cols.length},minmax(0,1fr))">${cols.map(t => `<div class="col" style="grid-template-rows:${corta(t) && cols.length > 1 ? "auto;align-content:start" : "minmax(0,1fr)"}">${t}</div>`).join("")}</div>`;
 }
 const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa, consumo: pConsumo, suministros: pSuministros,
-  alertas: pAlertas, productos: pProductos, hoy: pHoy, dragon: pDragon, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
+  alertas: pAlertas, productos: pProductos, hoy: pHoy, dragon: pDragon, noche: pNoche, resumen: pResumen, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
   economia: pEconomia, empleo: pTrabajo, sas: pSasPagina, planes: pPlanes, ayudas: pAyudas};
 /* ---------- 4.37 (lo pidió Isa el 8 nov 2026: «rediseña las pantallas para que su fondo sea adecuado respecto a la temática o situación»):
    detrás de cada pantalla, un dibujo propio y tenue de su tema (en el color de la pantalla) y, encima, la situación: el cielo con el tiempo
@@ -6543,6 +6615,7 @@ window.app = {
     // un aviso naranja o rojo nuevo salta a la vista enseguida (si no se está usando el mando)
     const nuevos = avisosFuertes().map(a => a.nivel + "|" + a.fenomeno + "|" + a.desde).filter(k => !avisosVistos.has(k));
     nuevos.forEach(k => avisosVistos.add(k));
+    decirAvisos();
     if (nuevos.length && rotando()) { actual = "aviso"; paginaDesde = Date.now(); pintar(); return; }
     /* con la pantalla rotando sola, lo que llega se pinta al cambiar de pantalla (como mucho 15 s después) y no con cada dato:
        llegan decenas por hora y cada pintado completo cuesta en la tele. Se pinta enseguida si se está usando el mando, si aún no

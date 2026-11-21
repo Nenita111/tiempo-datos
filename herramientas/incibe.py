@@ -61,7 +61,10 @@ def main():
     x = comun.leer(ruta)
     hoy = comun.hoy()
     try:
-        todos = avisos(comun.pedir(RSS).decode("utf-8", "replace"))
+        xml = comun.pedir(RSS, intentos=1).decode("utf-8", "replace")      # sin insistir: desde el 19 nov 2026 su cortafuegos lo corta
+        # su cortafuegos responde «302 Security Redirect» a una página de error en HTML (también a robots.txt): no es un RSS vacío
+        if "<rss" not in xml[:2000]: raise ValueError("el INCIBE no da el RSS (su cortafuegos redirige a una página de error): no se insiste")
+        todos = avisos(xml)
         if not todos: raise ValueError("el RSS de avisos del INCIBE viene vacío")
     except Exception as e:
         comun.fallar(e)
