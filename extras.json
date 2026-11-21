@@ -67,58 +67,58 @@
    "codigo": "LEI",
    "vuelos": [
     {
-     "destino": "Liverpool",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-15",
-     "precio": 104,
-     "compania": "easyJet",
+     "destino": "Madrid",
+     "ida": "2026-12-25",
+     "vuelta": "2026-12-30",
+     "precio": 91,
+     "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/z8qn6sz"
+     "enlace": "https://kiwi.com/u/q4zj2mmw79"
     },
     {
-     "destino": "Barcelona",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-11",
-     "precio": 106,
-     "compania": "Vueling",
+     "destino": "Liverpool",
+     "ida": "2026-11-24",
+     "vuelta": "2026-11-28",
+     "precio": 101,
+     "compania": "easyJet",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/upqwfhk"
+     "enlace": "https://kiwi.com/u/m9nfugwxwv"
+    },
+    {
+     "destino": "Sevilla",
+     "ida": "2026-12-21",
+     "vuelta": "2026-12-25",
+     "precio": 107,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/u3qycymxhz"
     },
     {
      "destino": "Bucarest",
      "ida": "2026-11-27",
      "vuelta": "2026-11-30",
-     "precio": 106,
+     "precio": 121,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/stvb9c"
-    },
-    {
-     "destino": "Sevilla",
-     "ida": "2026-12-08",
-     "vuelta": "2026-12-11",
-     "precio": 112,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/cb9xvtj"
-    },
-    {
-     "destino": "Madrid",
-     "ida": "2026-12-07",
-     "vuelta": "2026-12-09",
-     "precio": 120,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/q88gup"
+     "enlace": "https://kiwi.com/u/7fzbbrsszm"
     },
     {
      "destino": "Melilla",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
-     "precio": 136,
+     "precio": 130,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/p9rprub"
+     "enlace": "https://kiwi.com/u/y2d8jskzh2"
+    },
+    {
+     "destino": "Barcelona",
+     "ida": "2026-12-06",
+     "vuelta": "2026-12-11",
+     "precio": 131,
+     "compania": "Vueling",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/vcngputggw"
     }
    ]
   },
@@ -127,59 +127,59 @@
    "codigo": "GRX",
    "vuelos": [
     {
-     "destino": "Oporto",
-     "ida": "2026-11-29",
-     "vuelta": "2026-12-03",
-     "precio": 49,
-     "compania": "Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/nyfhnh"
-    },
-    {
-     "destino": "Asturias",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-14",
-     "precio": 49,
-     "compania": "Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/ydqjf5"
-    },
-    {
      "destino": "Santander",
      "ida": "2026-12-18",
      "vuelta": "2026-12-21",
-     "precio": 49,
+     "precio": 56,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/uyfj6r5"
+     "enlace": "https://kiwi.com/u/z4dwur4tk3"
     },
     {
-     "destino": "Palma de Mallorca",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-13",
-     "precio": 52,
-     "compania": "Vueling / Air Europa",
+     "destino": "Madrid",
+     "ida": "2026-12-24",
+     "vuelta": "2026-12-29",
+     "precio": 59,
+     "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/fv52vv"
+     "enlace": "https://kiwi.com/u/3whky295ms"
+    },
+    {
+     "destino": "Oporto",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-17",
+     "precio": 64,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/33kgn7rq4k"
+    },
+    {
+     "destino": "Nantes",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-17",
+     "precio": 64,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/2yd3n8ps8w"
+    },
+    {
+     "destino": "Asturias",
+     "ida": "2026-12-21",
+     "vuelta": "2026-12-25",
+     "precio": 66,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/pn6475zu3w"
     },
     {
      "destino": "Londres",
      "ida": "2026-12-01",
      "vuelta": "2026-12-05",
-     "precio": 58,
+     "precio": 67,
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Luton",
-     "enlace": "https://kiwi.com/u/nwsunm"
-    },
-    {
-     "destino": "Nantes",
-     "ida": "2026-12-03",
-     "vuelta": "2026-12-06",
-     "precio": 60,
-     "compania": "Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/5yx9pp"
+     "enlace": "https://kiwi.com/u/gj8t99gffz"
     }
    ]
   },
@@ -194,7 +194,7 @@
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/s4qmxf5"
+     "enlace": "https://kiwi.com/u/gjbnfcp985"
     },
     {
      "destino": "Palma de Mallorca",
@@ -203,44 +203,44 @@
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/5fpb9sy"
+     "enlace": "https://kiwi.com/u/rqvx3ns765"
+    },
+    {
+     "destino": "Oporto",
+     "ida": "2026-11-29",
+     "vuelta": "2026-12-04",
+     "precio": 36,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/q52wtpz724"
     },
     {
      "destino": "Bilbao",
      "ida": "2026-12-20",
      "vuelta": "2026-12-24",
-     "precio": 36,
+     "precio": 38,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/wvgbqgp"
+     "enlace": "https://kiwi.com/u/7upvh7k97j"
+    },
+    {
+     "destino": "Milán",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-17",
+     "precio": 40,
+     "compania": "Wizz Air",
+     "escalas": "directo",
+     "nota": "Malpensa",
+     "enlace": "https://kiwi.com/u/5k92vv8jqs"
     },
     {
      "destino": "Lisboa",
-     "ida": "2026-12-10",
-     "vuelta": "2026-12-12",
-     "precio": 39,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/wsubct"
-    },
-    {
-     "destino": "Oporto",
-     "ida": "2026-12-14",
-     "vuelta": "2026-12-19",
-     "precio": 40,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/9ntj32"
-    },
-    {
-     "destino": "Venecia",
-     "ida": "2026-12-13",
+     "ida": "2026-12-12",
      "vuelta": "2026-12-17",
-     "precio": 42,
+     "precio": 43,
      "compania": "Ryanair",
      "escalas": "directo",
-     "nota": "Treviso",
-     "enlace": "https://kiwi.com/u/wbkyhx"
+     "enlace": "https://kiwi.com/u/q8h7w2tqjw"
     }
    ]
   },
@@ -255,7 +255,7 @@
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/8fsrdp"
+     "enlace": "https://kiwi.com/u/y8ug3u4t3b"
     },
     {
      "destino": "Bilbao",
@@ -264,55 +264,55 @@
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/gwk8ub"
+     "enlace": "https://kiwi.com/u/4dxxbhh9js"
     },
     {
      "destino": "Birmingham",
      "ida": "2026-12-11",
      "vuelta": "2026-12-13",
-     "precio": 54,
+     "precio": 53,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/mf2xps"
+     "enlace": "https://kiwi.com/u/rznb26h2v2"
     },
     {
      "destino": "Mánchester",
      "ida": "2026-12-17",
      "vuelta": "2026-12-22",
-     "precio": 75,
+     "precio": 67,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/rjrzjq4"
-    },
-    {
-     "destino": "Dublín",
-     "ida": "2026-12-05",
-     "vuelta": "2026-12-07",
-     "precio": 78,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/sfmpxt"
+     "enlace": "https://kiwi.com/u/hf3vcwkcfh"
     },
     {
      "destino": "Londres",
-     "ida": "2026-12-09",
-     "vuelta": "2026-12-11",
-     "precio": 94,
-     "compania": "easyJet / Ryanair",
+     "ida": "2026-12-26",
+     "vuelta": "2026-12-31",
+     "precio": 78,
+     "compania": "Ryanair",
      "escalas": "directo",
-     "nota": "ida a Gatwick, vuelta desde Stansted",
-     "enlace": "https://kiwi.com/u/bb2t8ty"
+     "nota": "Stansted",
+     "enlace": "https://kiwi.com/u/3xf3xn2cfc"
+    },
+    {
+     "destino": "Dublín",
+     "ida": "2026-12-14",
+     "vuelta": "2026-12-19",
+     "precio": 84,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/vzx7sdqfd4"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-17",
- "vuelosBusqueda": "ida y vuelta del 20/11 al 22/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-21",
+ "vuelosBusqueda": "ida y vuelta del 24/11 al 26/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-20",
- "actualizado": "2026-11-20T06:17+01:00",
+ "sorteosBuscado": "2026-11-21",
+ "actualizado": "2026-11-21T06:13+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -488,6 +488,15 @@
    "hasta": "2026-11-21",
    "lugar": "Auditorio Ciudad de Adra",
    "enlace": "https://www.noticiasdealmeria.com/adra-presenta-una-nueva-edicion-del-gran-outlet"
+  },
+  {
+   "titulo": "Gran Outlet de Adra 2026 (casi 15 comercios locales; 10:00-13:45 y 17:00-20:45)",
+   "fecha": "2026-11-21",
+   "fuente": "Noticias de Almería",
+   "ine": "04003",
+   "hora": "10:00",
+   "lugar": "Auditorio Ciudad de Adra",
+   "enlace": "https://www.noticiasdealmeria.com/noticia/242992/provincia/el-gran-outlet-de-adra-abre-hasta-el-sabado-con-casi-15-comercios-locales.html"
   }
  ],
  "raif": {
@@ -495,15 +504,15 @@
   "cultivos": [
    {
     "cultivo": "Tomate",
-    "desde": "2026-11-09",
-    "hasta": "2026-11-13",
+    "desde": "2026-11-16",
+    "hasta": "2026-11-20",
     "destacados": "Mosca blanca y Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Tomate.pdf"
    },
    {
     "cultivo": "Pimiento",
-    "desde": "2026-11-09",
-    "hasta": "2026-11-13",
+    "desde": "2026-11-16",
+    "hasta": "2026-11-20",
     "destacados": "Mosca blanca, Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Pimiento.pdf"
    },
@@ -540,38 +549,38 @@
   "fuente": "Red de Alerta e Información Fitosanitaria de Andalucía (RAIF, Junta de Andalucía)"
  },
  "respiratorias": {
-  "semana": "45/2026",
+  "semana": "46/2026",
   "iras": {
-   "tasa": 233.3,
-   "previa": 279.3
+   "tasa": 243.9,
+   "previa": 233.3
   },
   "gripal": {
    "tasa": 2.2,
-   "previa": 2.5
+   "previa": 2.2
   },
   "covid": {
-   "tasa": 1.3,
-   "previa": 2.0
+   "tasa": 1.1,
+   "previa": 1.3
   },
   "bronquiolitis": {
-   "tasa": 112.1,
-   "previa": 126.0
+   "tasa": 129.4,
+   "previa": 112.1
   },
   "irag": {
-   "tasa": 8.4,
-   "previa": 9.1
+   "tasa": 7.9,
+   "previa": 8.4
   },
   "positividad": {
-   "gripe": 6.9,
-   "gripePrevia": 4.3,
-   "covid": 3.4,
-   "covidPrevia": 18.8,
+   "gripe": 0.0,
+   "gripePrevia": 7.9,
+   "covid": 10.2,
+   "covidPrevia": 5.3,
    "vrs": 0.0,
-   "vrsPrevia": 0.0
+   "vrsPrevia": 1.3
   },
-  "desde": "2026-11-02",
-  "hasta": "2026-11-08",
-  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/11/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202645.pdf",
+  "desde": "2026-11-09",
+  "hasta": "2026-11-15",
+  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/11/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202646.pdf",
   "pagina": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/areas/sanidad/salud-vida/vigilancia/paginas/temporada2627.html",
   "fuente": "Junta de Andalucía (vigilancia centinela de la infección respiratoria aguda)"
  },
@@ -822,19 +831,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-20",
-  "nombre": "Potaje de acelgas",
+  "fecha": "2026-11-21",
+  "nombre": "Calabaza asada",
   "tiempo": {
-   "temperature": "cool",
+   "temperature": "mild",
    "rain": "dry",
    "wind": "light wind",
-   "sky": "Nubes altas"
+   "sky": "Poco nuboso"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-14",
-    "nombre": "Crema de calabaza"
-   },
    {
     "fecha": "2026-11-15",
     "nombre": "Lentejas con verduras"
@@ -858,11 +863,15 @@
    {
     "fecha": "2026-11-20",
     "nombre": "Potaje de acelgas"
+   },
+   {
+    "fecha": "2026-11-21",
+    "nombre": "Calabaza asada"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-20",
+  "fecha": "2026-11-21",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/225/22": {
     "tipo": "lista_definitiva",
@@ -1001,9 +1010,21 @@
  },
  "etiquetas": {
   "alim": {
+   "https://www.aesan.gob.es/alertas/2026_86": {
+    "alergeno": "ninguno",
+    "producto": "otro"
+   },
+   "https://www.aesan.gob.es/alertas/2026_87": {
+    "alergeno": "ninguno",
+    "producto": "otro"
+   },
    "https://www.aesan.gob.es/alertas/2026_78": {
     "alergeno": "ninguno",
     "producto": "complementos"
+   },
+   "https://www.aesan.gob.es/alertas/2026_84": {
+    "alergeno": "soja",
+    "producto": "lacteos"
    },
    "https://www.aesan.gob.es/alertas/2026_83": {
     "alergeno": "sulfitos",
@@ -1069,6 +1090,36 @@
    }
   },
   "ofertas": {
+   "694399": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Monitora o Monitor Sociosanitario (CE2625MSCA )",
+    "entidad": "Agencia de Servicios Sociales y Dependencia de Andalucía",
+    "hasta": "2026-12-04",
+    "nivel": "fp_superior",
+    "experiencia": 0.06,
+    "colectivo": "general"
+   },
+   "694357": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "SECRETARÍA/O DE DIRECCIÓN.",
+    "entidad": "Fundación Pública Andaluza Parque Tecnológico de Ciencias de la Salud de Granada",
+    "hasta": "2026-12-04",
+    "nivel": "fp_superior",
+    "experiencia": 0.04,
+    "colectivo": "general"
+   },
+   "694432": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico Facultativo Consultoría (Residuos)",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-24",
+    "nivel": "grado",
+    "experiencia": 0.87,
+    "colectivo": "general"
+   },
    "693967": {
     "zona": false,
     "zv": 4,
@@ -1077,6 +1128,26 @@
     "hasta": "2026-11-23",
     "nivel": "fp_medio",
     "experiencia": 0.04,
+    "colectivo": "general"
+   },
+   "694417": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "PRODUCTOR/A",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-22",
+    "nivel": "grado",
+    "experiencia": 0.96,
+    "colectivo": "general"
+   },
+   "694411": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "TÉCNICO/A ELECTRÓNICO-MÁLAGA",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-22",
+    "nivel": "grado",
+    "experiencia": 0.97,
     "colectivo": "general"
    },
    "693646": {
@@ -1089,54 +1160,14 @@
     "experiencia": 0.98,
     "colectivo": "general"
    },
-   "692227": {
+   "694402": {
     "zona": false,
     "zv": 4,
-    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular- 2487",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-20",
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "692224": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular- 2487",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-20",
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "692221": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular- 2487",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-20",
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "692230": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar en Caracterización Molecular y Cultivo Celular -2487",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-20",
-    "nivel": "fp_superior",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "692356": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a en el Departamento de Consultoría.",
-    "entidad": "Sociedad Andaluza para el Desarrollo de las Telecomunicaciones, S.A.M.P. (SANDETEL)",
-    "hasta": "2026-11-27",
+    "puesto": "REALIZADOR/A- SAN JUAN DE AZNALFARACHE",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-21",
     "nivel": "grado",
-    "experiencia": 0.1,
+    "experiencia": 0.97,
     "colectivo": "general"
    },
    "692029": {
@@ -1147,6 +1178,16 @@
     "hasta": "2026-11-26",
     "nivel": "grado",
     "experiencia": 0.93,
+    "colectivo": "general"
+   },
+   "692356": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a en el Departamento de Consultoría.",
+    "entidad": "Sociedad Andaluza para el Desarrollo de las Telecomunicaciones, S.A.M.P. (SANDETEL)",
+    "hasta": "2026-11-27",
+    "nivel": "grado",
+    "experiencia": 0.1,
     "colectivo": "general"
    }
   },
@@ -1265,6 +1306,12 @@
     "colectivo": "general",
     "experiencia": 0.09
    },
+   "01-2026-52851": {
+    "nivel": "master",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.08
+   },
    "01-2026-52045": {
     "nivel": "no_consta",
     "entidad": "ayuntamiento",
@@ -1297,10 +1344,10 @@
     "inscripcion": 0.03
    }
   },
-  "fecha": "2026-11-20"
+  "fecha": "2026-11-21"
  },
  "fap": {
-  "fecha": "2026-11-20",
+  "fecha": "2026-11-21",
   "novedades": [
    {
     "tipo": "circular",
@@ -3797,7 +3844,7 @@
     "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/877025",
     "desde": "2026-01-01",
     "hasta": "2026-12-31",
-    "importe": 1500000,
+    "importe": 2785617,
     "para": [
      "personas"
     ],
@@ -4238,24 +4285,10 @@
   ],
   "fuente": "Base de Datos Nacional de Subvenciones (BDNS)",
   "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias",
-  "dia": "2026-11-20"
+  "dia": "2026-11-21"
  },
  "cursos": {
   "presenciales": [
-   {
-    "id": "401",
-    "codigo": "IFCD85",
-    "nombre": "Programación para dispositivos móviles Android",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/401",
-    "fin": "2026-11-20",
-    "inicio": "2026-12-15",
-    "horas": 380,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Almería",
-    "km": 50
-   },
    {
     "id": "2535",
     "codigo": "COMT0411",
@@ -4796,30 +4829,6 @@
   ],
   "linea": [
    {
-    "id": "2877",
-    "codigo": "MF0241",
-    "nombre": "Información y atención al cliente/consumidor/usuario",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2877",
-    "fin": "2026-11-20",
-    "inicio": "2026-12-17",
-    "horas": 120,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
-    "id": "2879",
-    "codigo": "MF0246",
-    "nombre": "Organización de un sistema de información de consumo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2879",
-    "fin": "2026-11-20",
-    "inicio": "2026-12-18",
-    "horas": 120,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
     "id": "2933",
     "codigo": "MF1001",
     "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
@@ -5230,6 +5239,18 @@
     "horario": "tarde"
    },
    {
+    "id": "2961",
+    "codigo": "MF0975",
+    "nombre": "Técnicas de recepción y comunicación",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2961",
+    "fin": "2026-12-15",
+    "inicio": "2027-01-11",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
     "id": "87",
     "codigo": "SSCE0137",
     "nombre": "Metodologías activas para la formación permanente en las cooperativas",
@@ -5276,12 +5297,24 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "mañana"
+   },
+   {
+    "id": "2919",
+    "codigo": "MF0239",
+    "nombre": "Operaciones de venta",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2919",
+    "fin": "2026-12-17",
+    "inicio": "2027-01-18",
+    "horas": 160,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    }
   ],
-  "lineaTotal": 95,
+  "lineaTotal": 94,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-20"
+  "dia": "2026-11-21"
  },
  "polen": {
   "estacion": "Almería",
@@ -5506,7 +5539,7 @@
     ]
    }
   ],
-  "dias": 379,
+  "dias": 378,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -5519,26 +5552,6 @@
     "lugar": "Centro Fundación Unicaja de Almería",
     "municipio": "Almería",
     "enlace": "https://www.turismodealmeria.org/evento/ciclo-360o-en-almeria/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Presentación del libro «El arte de entenderse», de Lourdes Morales Mesa",
-    "inicio": "2026-11-20",
-    "hora": "18:00",
-    "lugar": "Librería El Faro de Recóndito",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/presentacion-del-libro-el-arte-de-entenderse-de-lourdes-morales-mesa/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Concierto de guitarra flamenca «Íntimo», de Lluis Castañ",
-    "inicio": "2026-11-20",
-    "hora": "18:30",
-    "lugar": "Centro Fundación Unicaja de Almería",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/concierto-de-guitarra-flamenca-intimo-de-lluis-castan/",
     "fuente": "Turismo de Almería",
     "gratis": true
    },
@@ -5633,7 +5646,7 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-20"
+  "dia": "2026-11-21"
  },
  "sasOfertas": {
   "lista": [
@@ -5840,25 +5853,6 @@
      "n": 10,
      "unidad": "habiles",
      "hasta": "2026-11-11"
-    }
-   },
-   {
-    "id": "399863",
-    "cod": "10418",
-    "tipo": "intermedio",
-    "fecha": "2026-10-21",
-    "boja": true,
-    "centro": "Hospital de Poniente",
-    "area": "poniente",
-    "titulo": "Ref. 9572 Resolución de 16 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios en el Hospital Universitario Poniente de Almería.",
-    "puesto": "Jefe/a de Grupo de Gestión y Servicios",
-    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/399863/87086/106029",
-    "docs": 1,
-    "estado": null,
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-05"
     }
    }
   ],
