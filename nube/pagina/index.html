@@ -200,7 +200,7 @@ footer{height:46px;flex:none;display:flex;justify-content:space-between;align-it
 .dias{flex:1;display:grid;grid-template-columns:repeat(7,1fr);gap:12px;min-height:0}
 /* 21 nov 2026 (lo pidió Isa: «en semana mejora la vista a 7 días»): cada cosa a la misma altura en los 7 días (nombre en una línea, fecha,
    icono, máxima y mínima, barra, lluvia y viento) y las columnas iguales */
-.semana.sola .dias{grid-template-columns:repeat(7,minmax(0,1fr))}.semana.sola .dia{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto auto auto auto auto;justify-items:center;align-items:center;row-gap:12px}
+.semana.sola .dias{grid-template-columns:repeat(7,minmax(0,1fr))}.semana.sola .dia{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto auto auto auto auto auto;justify-items:center;align-items:center;row-gap:12px}
 .semana.sola .dia>b{white-space:nowrap;font-size:28px;hyphens:none}.semana.sola .dia>span{margin-top:0}.semana.sola .dia .rango{width:80%}
 .dia{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 6px 16px;border-radius:24px;text-align:center}
 .dia.hoy{background:rgba(244,166,42,.10);box-shadow:inset 0 0 0 2px rgba(244,166,42,.42)}
@@ -808,7 +808,7 @@ body.p-ahora{--h:205;--h2:250}body.p-semana{--h:198;--h2:168}body.p-agua{--h:200
 body.p-cielo{--h:246;--h2:286}body.p-espacio{--h:266;--h2:308}body.p-planeta{--h:150;--h2:192}body.p-casa{--h:36;--h2:12}body.p-consumo,body.p-suministros{--h:44;--h2:22}body.p-alertas{--h:4;--h2:338}
 body.p-productos{--h:328;--h2:282}body.p-hoy{--h:44;--h2:196}body.p-dragon{--h:356;--h2:196}body.p-noche{--h:230;--h2:260}body.p-resumen{--h:38;--h2:200}body.p-noche #wrap{filter:brightness(.62)}body.p-carretera{--h:26;--h2:48}body.p-sismos{--h:12;--h2:36}body.p-mundo{--h:206;--h2:150}
 body.p-campo{--h:96;--h2:142}body.p-pescado{--h:196;--h2:232}body.p-noticias{--h:222;--h2:10}body.p-economia{--h:158;--h2:44}body.p-empleo{--h:262;--h2:212}
-body.p-sas{--h:172;--h2:204}body.p-clima{--h:14;--h2:44}body.p-aire{--h:168;--h2:48}body.p-tormentas{--h:262;--h2:46}body.p-inundaciones{--h:214;--h2:190}body.p-calor{--h:18;--h2:350}body.p-maremotos{--h:200;--h2:230}body.p-acuiferos{--h:190;--h2:160}body.p-senderos{--h:110;--h2:30}body.p-planes{--h:38;--h2:330}body.p-ayudas{--h:226;--h2:150}body.p-naturaleza{--h:120;--h2:84}body.p-aviso{--h:24;--h2:2}
+body.p-sas{--h:172;--h2:204}body.p-clima{--h:14;--h2:44}body.p-aire{--h:168;--h2:48}body.p-tormentas{--h:262;--h2:46}body.p-inundaciones{--h:214;--h2:190}body.p-calor{--h:18;--h2:350}body.p-maremotos{--h:200;--h2:230}body.p-acuiferos{--h:190;--h2:160}body.p-senderos{--h:110;--h2:30}body.p-planes{--h:38;--h2:330}body.p-ayudas{--h:226;--h2:150}body.p-cursos{--h:250;--h2:170}body.p-naturaleza{--h:120;--h2:84}body.p-aviso{--h:24;--h2:2}
 body{--c1:hsl(var(--h),92%,67%);--c2:hsl(var(--h2),88%,66%);--c1s:hsla(var(--h),92%,62%,.38);--kc:hsl(var(--h),62%,76%);
   --tile2:hsla(var(--h),50%,74%,.075);--linea:hsla(var(--h),40%,80%,.10);
   --velo:linear-gradient(162deg,hsla(var(--h),85%,72%,.085),hsla(var(--h),60%,60%,.012) 42%,rgba(255,255,255,.028));
@@ -936,7 +936,7 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .cine-l li>b{min-width:0;flex:0 1 auto;font-variant-numeric:tabular-nums}.cine-l li{flex-direction:column;gap:2px}
 .rs-l{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}.rs-l li{display:flex;gap:14px;align-items:baseline;font-size:24px;line-height:1.3}.rs-l li>b{flex:none;min-width:120px}.rs-l li>span{min-width:0}
 .rs-n{padding:2px 10px;border-radius:8px;background:#f6d23a;color:#222}.rs-n.n2{background:#f28c28}.rs-n.n3{background:#e53935;color:#fff}.rs-ok{font-size:24px;font-weight:700;margin-top:10px}.rs-d{font-size:26px;line-height:1.4;margin:12px 0}.rs-r{font-size:24px;font-weight:800;color:var(--acc);margin:6px 0}
-.noche-t .t0{font-size:150px}.noche-t .ya,.rs-t .ya{display:flex;align-items:center;gap:30px}.rs-t .t0{font-size:96px}.rs-t .t0 small{font-size:48px}.noche-t .desc,.rs-t .desc{font-size:32px}.dia .rema{font-size:20px;font-weight:800;color:var(--acc)}
+.noche-t .t0{font-size:150px}.noche-t .ya,.rs-t .ya{display:flex;align-items:center;gap:30px}.rs-t .t0{font-size:96px}.rs-t .t0 small{font-size:48px}.noche-t .desc,.rs-t .desc{font-size:32px}.dia .rema{font-size:20px;line-height:1.15;font-weight:800;color:var(--acc);text-align:center}
 .nat-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end}.nat-ab{min-width:0}
 .nat-datos.con-fotos .nat-fb{flex:1;min-height:0;display:flex;flex-direction:column}.nat-datos.con-fotos .nat-f{flex:1;min-height:0;grid-template-rows:repeat(2,minmax(0,1fr))}.nat-datos.con-fotos .nat-f figure{display:flex;flex-direction:column;min-height:0}.nat-datos.con-fotos .nat-f .nf-i{flex:1;height:auto;min-height:150px}
 .nat-f{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 10px;margin-top:6px}.nat-f figure{min-width:0}.nat-f .nf-i{position:relative;border-radius:12px;overflow:hidden;height:136px;background:var(--tile2)}
@@ -1842,7 +1842,7 @@ const FUENTES_PAGINA = {ahora: ["prevision", "avisos", "radar", "satelite", "com
   espacio: ["mtg", "espacio", "vista", "calar", "sonda"], planeta: ["planeta", "tierra", "polvo"], casa: ["luz", "gasolina", "renovable", "tele", "internet"], consumo: ["datadis"], suministros: ["datadis"],
   alertas: ["alimentarias", "medicamentos", "productos", "x"], productos: ["productos"], hoy: ["efemerides", "futbol", "farmacias"], dragon: ["regatas", "rfep", "x"], carretera: ["camara", "ruta", "camaras", "trafico", "autobus", "vuelos", "aviones"], trenes: ["trenes"],
   sismos: ["terremotos", "sismosMundo"], mundo: ["sismosMundo"], campo: ["campo"], pescado: ["lonja"], empleo: ["sae", "ofertasEmpleo"], sas: ["boja", "boe", "bolsaSas", "x"], economia: ["paro", "afiliados", "euribor", "ipc", "festivos"],
-  noticias: ["noticias", "cortesAgua", "sangre"], planes: ["x"], ayudas: ["x"]};
+  noticias: ["noticias", "cortesAgua", "sangre"], planes: ["x"], ayudas: ["x"], cursos: ["x"]};
 const NOMBRE_FUENTE = {islasCalor: "temperatura de la superficie (Landsat)", maremotos: "riesgo de maremoto", inundaciones: "zonas inundables", naturaleza: "biodiversidad (GBIF)", clima: "clima (AEMET)", climaRia: "lo normal en el pueblo (IFAPA)", radsol: "radiación solar (AEMET)", polvo: "polvo del Sáhara", autobus: "autobús", prevision: "previsión", avisos: "avisos", radar: "radar", satelite: "satélite", comarca: "comarca",   incendio: "riesgo de incendio", boya: "boya", playas: "playas", oleaje: "oleaje", maritima: "parte marítimo", mareas: "mareas", aguaBano: "agua de baño", fuegos: "fuegos (NASA)",   espacio: "foto de satélite", vista: "imagen semanal del satélite", sol: "el Sol", planeta: "el planeta", calar: "Calar Alto", luz: "luz", aire: "aire", gasolina: "carburantes",
   renovable: "renovables", alimentarias: "alertas AESAN", efemerides: "efemérides", terremotos: "terremotos", futbol: "UD Almería",
   farmacias: "farmacias", campo: "precios del campo", lonja: "lonja", trafico: "tráfico", noticias: "noticias",
@@ -2017,10 +2017,10 @@ const avisosFuertes = () => (E.avisos || []).filter(a => a.nivel >= 2).sort((a, 
    tema y con sus listas enteras siempre que quepan a un tamaño que se lea. Las que no tienen nada que enseñar no salen. */
 const hayPlaneta = () => !!(E.planeta || (E.polvo && (E.polvo.mapas || []).length) || respiratoriasVigente());
 const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahora", "semana"], hayClima() || hayCalor() ? ["clima"] : [], hayAire() ? ["aire"] : [], hayAgua() ? ["agua"] : [], hayInundaciones() || hayMaremotos() || hayAcuiferos() ? ["inundaciones"] : [], E.terremotos || E.sismosMundo ? ["sismos"] : [], ["mar"], ["cielo"],
-  E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayConsumo() ? ["consumo", "suministros"] : [], hayAlertas() || hayProductos() ? ["alertas"] : [],
+  E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayConsumo() ? ["consumo", "suministros"] : [], hayAlertas() ? ["alertas"] : [], hayProductos() ? ["productos"] : [],
   ["hoy"], hayDragon() ? ["dragon"] : [], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
-  ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length ? ["sas"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() || hayCine() ? ["planes"] : []);
+  ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length ? ["sas"] : [], ayudasVivas().length ? ["ayudas"] : [], (c => c.pre.length + c.lin.length)(cursosVivos()) ? ["cursos"] : [], hayPlanes() || hayCine() ? ["planes"] : []);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): ajustes de las pantallas con el mando (≡ en la app): las que no salen, su orden y los
    segundos de cada una. Los guarda la app (Android.ajustes / guardarAjustes, SharedPreferences): los mismos en la app y en el salvapantallas.
    El aviso de AEMET sale siempre, el primero. */
@@ -2034,7 +2034,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
 // tierra (agua, mar, inundaciones y acuíferos, terremotos); el cielo y el planeta (cielo, espacio, planeta, naturaleza); el día (hoy, planes,
 // noticias, alertas, casa); moverse (carretera, trenes); y el trabajo y el dinero (campo, lonja, economía, empleo, ayudas y cursos)
 const ORDEN_BASE = ["ahora", "semana", "clima", "aire", "agua", "mar", "inundaciones", "sismos", "cielo", "espacio", "planeta", "naturaleza", "hoy", "dragon", "planes", "noticias",
-  "alertas", "casa", "consumo", "suministros", "carretera", "trenes", "campo", "pescado", "economia", "empleo", "sas", "ayudas"];
+  "alertas", "productos", "casa", "consumo", "suministros", "carretera", "trenes", "campo", "pescado", "economia", "empleo", "sas", "ayudas", "cursos"];
 const ORDEN_V = 3;
 const SEG_MIN = 5, SEG_MAX = 120, SEG_DEF = 15;
 function leerAjustes() {
@@ -2076,8 +2076,8 @@ const paginas = () => {
 const segundosDe = p => { const s = +AJ.seg[p]; return s >= SEG_MIN && s <= SEG_MAX ? s : SEG_DEF; };
 const rota = p => (p && p !== "aviso" ? segundosDe(p) : SEG_DEF) * 1000;
 const TITULOS = {aviso: "Aviso", ahora: "Ahora", semana: "Semana", inundaciones: "Inundaciones y acuíferos", calor: "Calor", maremotos: "Maremotos", acuiferos: "Acuíferos", clima: "Clima", aire: "Aire y sol", naturaleza: "Naturaleza", agua: "Agua", mar: "Mar", cielo: "Cielo", espacio: "Espacio", planeta: "Planeta", casa: "Casa", consumo: "Mi luz", suministros: "Luz por suministro",
-  alertas: "Alertas y productos", productos: "Productos", hoy: "Hoy", dragon: "Barco dragón", noche: "Noche", resumen: "Buenos días", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Lonja", noticias: "Noticias",
-  economia: "Economía", empleo: "Empleo", sas: "SAS", planes: "Planes", ayudas: "Ayudas y cursos gratis"};
+  alertas: "Alertas", productos: "Productos peligrosos", hoy: "Hoy", dragon: "Barco dragón", noche: "Noche", resumen: "Buenos días", carretera: "Carretera", trenes: "Trenes", sismos: "Terremotos", mundo: "Mundo", campo: "Campo", pescado: "Lonja", noticias: "Noticias",
+  economia: "Economía", empleo: "Empleo", sas: "SAS", planes: "Planes", ayudas: "Ayudas", cursos: "Cursos gratis"};
 const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuente: AEMET", semana: "Fuente: AEMET",
   get clima() { return "Fuentes: Junta de Andalucía (IFAPA, red RIA: lo normal de los últimos años y la lluvia medida) · AEMET (horas de sol 1981-2010 y récords)" + (hayCalor() ? " · islas de calor: Landsat 8 y 9 (USGS/NASA) por el Planetary Computer de Microsoft, Copernicus (CORINE Land Cover 2018) e IGN (ortofoto PNOA)" : ""); },
   get inundaciones() { return "Fuentes: MITECO (SNCZI) por la IDEE · IGN (ortofoto PNOA)" + (hayMaremotos() ? " · Junta de Andalucía (Plan de Emergencia ante el Riesgo de Maremotos) · IGN (peligrosidad sísmica) · BOE (Plan Estatal)" : "")
@@ -2094,7 +2094,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   casa: "Fuentes: Red Eléctrica · CNMC (peaje 2.0TD, BOE) · MITECO · Cloudflare",
   consumo: "Fuente: Datadis (las distribuidoras eléctricas): lo que mide el contador de casa · tramos del peaje 2.0TD (CNMC, BOE)",
   suministros: "Fuente: Datadis (las distribuidoras eléctricas): lo que mide el contador de cada suministro, guardado en esta tele",
-  get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (hayProductos() ? " · Comisión Europea, Safety Gate (productos que avisa España)" : "") + (estafasRecientes().length ? " · INCIBE (estafas)" : ""); },
+  get alertas() { return "Fuentes: AESAN (alertas alimentarias) · AEMPS (medicamentos retirados)" + (estafasRecientes().length ? " · INCIBE (estafas)" : ""); },
   productos: "Fuente: Comisión Europea, Safety Gate (los que avisa España)",
   hoy: "Fuentes: Wikipedia · Colegio de Farmacéuticos · ESPN",
   noche: "Fuente: AEMET", resumen: "Fuentes: AEMET · agenda del pueblo · SAS (BOJA, BOE y ofertas) · alertas (AESAN, AEMPS, Safety Gate)",
@@ -2106,7 +2106,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   campo: "Fuente: FHAlmería (pizarra de las subastas)", pescado: "Fuente: Junta de Andalucía (IDAPES, primera venta en lonjas)",
   empleo: "Fuentes: Servicio Andaluz de Empleo · Junta de Andalucía (Transparencia)", sas: "Fuentes: Servicio Andaluz de Salud · BOJA · BOE",
   planes: "Fuentes: Ayuntamiento de Adra (Adra en la Senda) · Turismo de Almería · Motril Turismo · Diputación de Almería · Junta de Andalucía (agenda) · cine: Sensacine",
-  ayudas: "Fuentes: Base de Datos Nacional de Subvenciones (IGAE) · Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
+  ayudas: "Fuente: Base de Datos Nacional de Subvenciones (IGAE)", cursos: "Fuente: Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
   economia: "Fuentes: SEPE (paro registrado) · Seguridad Social (afiliados) · Banco de España (euríbor y Letras del Tesoro) · Junta de Andalucía (calendario laboral)",
   noticias: "Fuentes: Diario de Almería · La Voz de Almería · Noticias de Almería · Ideal Almería · Adra Digital"};
 const SORTEOS_FUENTE = "Fuentes: Diario de Almería · La Voz · Noticias de Almería · Ideal · Adra Digital · sorteos: Instagram";
@@ -2341,7 +2341,7 @@ function pSemana() {
     const n = diasHasta(x.fecha);   // hoy, subrayado siempre (por su fecha); lo que ya pasó, más apagado
     return `<div class="dia${n === 0 ? " hoy" : n < 0 ? " pasado" : ""}"><b>${diaNombre(x.fecha)}</b><span>${f.getDate()} ${MES3[f.getMonth()]}</span>${icono(x.cod, x.desc, 128)}
       <div class="tt"><b class="num">${x.max ?? "–"}°</b><span>${x.min ?? "–"}°</span></div><div class="rango"><u style="left:${a.toFixed(0)}%;width:${Math.max(6, b - a).toFixed(0)}%"></u></div>
-      <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}${n >= 0 && remar(x) ? `<b class="rema">Para remar</b>` : ""}</div>`;
+      <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}<b class="rema"${n >= 0 && remar(x) ? "" : ' style="visibility:hidden"'}>Para<br>remar</b></div>`;
   }).join("");
   // 4.36 (lo pidió Isa el 8 nov 2026: «elimina la predicción de las próximas 24 horas en Semana»): van en Ahora (las 48 horas); la salida y la
   // puesta del sol, en la cabecera; los 7 días, a lo alto, con el riesgo de incendio al lado
@@ -4139,7 +4139,8 @@ const hayAlertas = () => alertasAlimentarias().length > 0 || medicamentosRecient
    siempre los más recientes que quepan (4.26: «los más recientes, máximo todo en 1 pantalla»): así ninguna de las tres tapa a las otras. */
 function tarjetaAlertasJunta() {
   const A = primeroNuevo("alimentarias", alertasAlimentarias()), M = E.medicamentos ? primeroNuevo("medicamentos", medicamentosRecientes()) : [];
-  const P = E.productos ? primeroNuevo("productos", productosRecientes().slice().sort((a, b) => String(b.fecha || "").localeCompare(String(a.fecha || "")))) : [];
+  // 21 nov 2026 (lo pidió Isa: «muestra mejor la información, si fuera necesario aumenta el número de pestañas»): los productos, en su pestaña
+  const P = [];
   const S = primeroNuevo("estafas", estafasRecientes());
   if (!A.length && !M.length && !P.length && !S.length) return "";
   const TOPE = 6, na = A.length + M.length <= TOPE ? A.length : Math.max(3, TOPE - M.length), nm = A.length + M.length <= TOPE ? M.length : Math.max(3, TOPE - A.length);
@@ -4151,15 +4152,16 @@ function tarjetaAlertasJunta() {
   const T = {a: `<em class="tp tp-a">Alimento</em>`, m: `<em class="tp tp-m">Medicamento</em>`, p: `<em class="tp tp-p">Producto</em>`, e: `<em class="tp tp-e">Estafa</em>`};
   const cuenta = [A.length && `${n(A.length, "alimento", "alimentos")} (AESAN${rota(A.length, na)})`, M.length ? `${n(M.length, "medicamento", "medicamentos")} del último mes (AEMPS${rota(M.length, nm)})` : E.medicamentos && "ningún medicamento retirado en el último mes (AEMPS)",
     S.length && `${n(S.length, "estafa", "estafas")} en circulación (INCIBE${rota(S.length, 1)})`,
-    P.length ? `${n(P.length, "producto avisado", "productos avisados")} por España (Safety Gate)` : E.productos && "ningún producto peligroso avisado por España en 3 meses"].filter(Boolean).join(" · ");
+    P.length ? `${n(P.length, "producto avisado", "productos avisados")} por España (Safety Gate)` : ""].filter(Boolean).join(" · ");
   const sinFoto = E.productos && E.productos.fotosSin ? ` Sin foto ${E.productos.fotosSin}: Safety Gate no la dio (${esc(E.productos.fotosFallo || "sin respuesta")}).` : "";
-  return `<div data-f="${[A.length && "alimentarias", E.medicamentos && "medicamentos", E.productos && "productos", S.length && "x"].filter(Boolean).join(" ")}" class="tile cons juntas colsT" style="--i:1"><div class="k">Alertas y productos retirados<em>${cuenta}</em></div>
+  return `<div data-f="${[A.length && "alimentarias", E.medicamentos && "medicamentos", E.productos && "productos", S.length && "x"].filter(Boolean).join(" ")}" class="tile cons juntas colsT" style="--i:1"><div class="k">Alertas: alimentos, medicamentos y estafas<em>${cuenta}</em></div>
     <ul class="cols${cols}" ${t.attr}>${t.items.map(([k, x]) => k === "a" ? filaAlim(x, T.a) : k === "m" ? filaMed(x, T.m) : k === "e" ? filaEstafa(x, T.e) : filaProd(x, T.p)).join("")}</ul>
-    <p class="nota">Alimentos: si lo tienes en casa, no lo consumas. Medicamentos: mira el lote en la caja y, ante la duda, pregunta en tu farmacia (clase 1, el riesgo más alto). Productos: si tienes alguno, deja de usarlo.${S.length ? " Estafas: no abras el enlace del mensaje ni des tus datos." : ""} En cada QR, su ficha oficial.${sinFoto}</p></div>`;
+    <p class="nota">Alimentos: si lo tienes en casa, no lo consumas. Medicamentos: mira el lote en la caja y, ante la duda, pregunta en tu farmacia (clase 1, el riesgo más alto). ${S.length ? " Estafas: no abras el enlace del mensaje ni des tus datos." : ""} En cada QR, su ficha oficial.${sinFoto}</p></div>`;
 }
 function pAlertas() {
   const junta = tarjetaAlertasJunta();
   if (junta) return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${junta}</div></div>`;
+  return `<div class="main">${vacia("Sin alertas ahora.")}</div>`;
   const med = tarjetaMedicamentos(), n = alertasAlimentarias().length, dos = n > 1 && (!med || n > 5);   // muchas alimentarias: en dos columnas
   // 4.34 (lo pidió Isa el 7 nov 2026: «la menor cantidad de pestañas posible»): los productos peligrosos, a la derecha (era su pantalla)
   if (hayProductos()) {   // una columna para cada cosa, a todo lo alto
@@ -5847,6 +5849,13 @@ function itemCurso(g) {
   return `<li ${claveNuevo(K.join("\u001f"))}><div><b>${esc(g.nombre)} <i class="eds">${ed.length} ediciones</i>${nuevo ? `<i class="nuevo">Nuevo</i>` : ""}</b><span>${comun.replace(/^ · /, "")}</span>
     <span>Solicitudes: ${ed.map(edicion).join(" · ")}</span></div>${qrSvg(enlaceDe(c, (E.extras || {}).cursos, "id"), "qr nq", 54)}</li>`;
 }
+function pCursos() {
+  const C = cursosVivos(), tP = enTurno("cursosP", C.pre, 30), tL = enTurno("cursosL", C.lin, 30);
+  const pre = C.pre.length ? `<div data-f="x" class="tile emp cu" style="--i:1"><div class="k">Cursos gratis · presenciales<em>${C.nPre} en Adra y Berja</em></div><ul ${tP.attr}>${tP.items.map(itemCurso).join("")}</ul></div>` : "";
+  const lin = C.lin.length ? `<div data-f="x" class="tile emp cu" style="--i:2"><div class="k">Cursos gratis · en línea<em>${C.total || C.nLin} para toda Andalucía</em></div><ul ${tL.attr}>${tL.items.map(itemCurso).join("")}</ul></div>` : "";
+  const cs = [pre, lin].filter(Boolean);
+  return `<div class="main" style="grid-template-columns:repeat(${cs.length || 1},minmax(0,1fr))">${cs.map(c => `<div class="col" style="grid-template-rows:1fr">${c}</div>`).join("") || vacia("Sin cursos gratis ahora.")}</div>`;
+}
 function pAyudas(partes) {
   const A = ayudasVivas(), C = cursosVivos(), lista = (clave, L, max) => enTurno(clave, L, max);
   const tA = lista("ayudas", A, 30), tP = lista("cursosP", C.pre, 30), tL = lista("cursosL", C.lin, 30);
@@ -5856,6 +5865,8 @@ function pAyudas(partes) {
   const lin = C.lin.length ? `<div data-f="x" class="tile emp cu" style="--i:3"><div class="k">Cursos gratis · en línea<em>${C.total || C.nLin} para toda Andalucía</em></div><ul ${tL.attr}>${tL.items.map(itemCurso).join("")}</ul></div>` : "";
   const der = [pre, lin].filter(Boolean);
   if (partes) return [ay, ...der].filter(Boolean);
+  // 21 nov 2026 (lo pidió Isa: «muestra mejor la información…»): las ayudas, a toda la pantalla y a dos columnas; los cursos, en su pestaña
+  if (ay) return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${ay.replace('class="tile emp ay"', 'class="tile emp ay colsT"').replace(`<ul ${tA.attr}>`, `<ul class="cols${Math.min(2, A.length)}" ${tA.attr}>`)}</div></div>`;
   return `<div class="main" style="grid-template-columns:${ay && der.length ? "minmax(0,1.1fr) minmax(0,1fr)" : "1fr"}">${ay ? `<div class="col" style="grid-template-rows:1fr">${ay}</div>` : ""}
     ${der.length ? `<div class="col" style="grid-template-rows:${der.map(() => "minmax(0,1fr)").join(" ")}">${der.join("")}</div>` : ""}</div>`;
 }
@@ -5938,7 +5949,7 @@ function pTrabajo() {
 }
 const PAGINAS = {aviso: pAviso, ahora: pAhora, semana: pSemana, inundaciones: pInundaciones, maremotos: pMaremotos, acuiferos: pAcuiferos, clima: pClima, aire: pAire, naturaleza: pNaturaleza, agua: pAgua, mar: pMar, cielo: pCielo, espacio: pEspacio, planeta: pPlaneta, casa: pCasa, consumo: pConsumo, suministros: pSuministros,
   alertas: pAlertas, productos: pProductos, hoy: pHoy, dragon: pDragon, noche: pNoche, resumen: pResumen, carretera: pCarretera, trenes: pTrenes, sismos: pSismos, mundo: pMundo, campo: pCampo, pescado: pPescado, noticias: pNoticias,
-  economia: pEconomia, empleo: pTrabajo, sas: pSasPagina, planes: pPlanes, ayudas: pAyudas};
+  economia: pEconomia, empleo: pTrabajo, sas: pSasPagina, planes: pPlanes, ayudas: pAyudas, cursos: pCursos};
 /* ---------- 4.37 (lo pidió Isa el 8 nov 2026: «rediseña las pantallas para que su fondo sea adecuado respecto a la temática o situación»):
    detrás de cada pantalla, un dibujo propio y tenue de su tema (en el color de la pantalla) y, encima, la situación: el cielo con el tiempo
    de ahora de AEMET (sol o luna, nubes, lluvia, tormenta, niebla, calima, viento; en Ahora ya lo pinta su animación), un aviso (AEMET,
@@ -6227,6 +6238,7 @@ function capaTema(p) {
       + ventanas(1220, 560, 480, 400, 52) + ventanas(1010, 640, 210, 360, 52) + parpadea(1460, 375, rect("m4", 1436, 300, 48, 150, 8) + rect("m4", 1385, 351, 150, 48, 8), 3.2, 0, .5) + rect("m1", 1420, 880, 80, 120, 6)
       + `<path stroke-width="7" d="M60,540 H330 l30,-22 l30,22 h44 l26,-160 l46,300 l32,-140 h46 l34,-36 l34,36 H960"/>` + mueve(240, 760, corazon(240, 800, 3), "mvCorazon", 1.5) + suelo(996, "m3"),
     // las ayudas y los cursos: el birrete (que flota), los libros y el lápiz (que escribe)
+    cursos: () => T.ayudas(),   // 21 nov 2026: los cursos, en su pestaña
     ayudas: () => halo(520, 500, 360) + flota(520, 560, D.birrete(520, 640, 6), 7, -16, 2.4) + rect("m3", 1240, 912, 440, 76, 10) + rect("m2", 1280, 838, 380, 74, 10) + rect("m3", 1230, 764, 450, 74, 10)
       + D.libro(1455, 760, 4.6) + mece(860, 980, g(`<path class="rel" d="M0,0 L18,-58 L176,-216 L216,-176 L58,-18 Z"/><path d="M18,-58 L58,-18 M150,-190 L190,-150"/>`, 1.3, 860, 980), 3, 1.6) + suelo(990, "m3"),
     aviso: () => halo(960, 620, 520) + monte(760, 180, 75, "m1") + monte(880, 120, 77, "m2") + late(960, 760, tri(960, 900, 6.4), 2.4, 1.04) + suelo(990, "m3")
