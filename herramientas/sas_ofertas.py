@@ -198,6 +198,14 @@ def recoger(pedir, hoy, dias=30, antes=None, pausa=time.sleep, pdf=texto_pdf, in
     return orden, {"ofertas": len(orden), "nuevas": nuevas, "con_plazo": sum(1 for o in orden if o.get("plazo")), "peticiones": n, "fallos": fallos}
 
 
+SU_CATEGORIA = re.compile(r"t[ée]cnic[oa](?:/a)?s? de salud", re.I)
+
+
+def de_su_categoria(lista):
+    """Las ofertas de técnico/a de salud (la categoría de Isa)."""
+    return [o for o in lista if SU_CATEGORIA.search(f"{o.get('puesto', '')} {o.get('titulo', '')}")]
+
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("extras"); ap.add_argument("--dias", type=int, default=30)
     a = ap.parse_args()
@@ -209,6 +217,11 @@ def main():
         if len(res["fallos"]) >= 3 and not lista: raise ValueError("; ".join(res["fallos"])[:200])
     except Exception as e:
         comun.fallar(e)
+    # 21 nov 2026 (lo pidió Isa: «mis categorías en el SAS son las de técnicos de salud»): cada oferta nueva de su categoría, al móvil
+    antes = {o.get("id") for o in viejo.get("lista") or []}
+    for o in de_su_categoria(lista):
+        if o.get("id") not in antes:
+            comun.apuntar_aviso(a.extras, f"🩺 SAS: {o.get('puesto') or o.get('titulo')} · {o.get('centro', '')} · publicada el {o.get('fecha', '')}"[:300])
     nuevo = {"lista": lista, "dias": a.dias, "fuente": "Servicio Andaluz de Salud", "url": PAGINA}
     comun.poner(a.extras, x, "sasOfertas", nuevo)
     comun.decir(res)

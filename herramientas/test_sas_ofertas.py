@@ -147,3 +147,11 @@ class Ofertas(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SuCategoria(unittest.TestCase):
+    def test_tecnicos_de_salud(self):
+        import sas_ofertas
+        L = [{"id": "1", "puesto": "Técnico/a de Salud (Epidemiología)"}, {"id": "2", "puesto": "Técnico Medio Función Administrativa"},
+             {"id": "3", "titulo": "Provisión de un puesto de Técnicos de Salud de Sanidad Ambiental"}]
+        self.assertEqual([o["id"] for o in sas_ofertas.de_su_categoria(L)], ["1", "3"])

@@ -42,6 +42,8 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     ("dragon", "dragon.py", 120),
     # 15 nov 2026: las estafas en circulación (avisos del INCIBE para la ciudadanía, de su RSS)
     ("estafas", "incibe.py", 120),
+    # 21 nov 2026: las sesiones de hoy del Ocine Copo de El Ejido (Sensacine)
+    ("cine", "cine.py", 60),
     # 15 nov 2026: el próximo puente (calendario laboral de la Junta); sus vuelos los busca la tarea una vez a la semana («toca».puente)
     ("puente", "puente.py", 120),
     ("sequia", "sequia.py", 900),

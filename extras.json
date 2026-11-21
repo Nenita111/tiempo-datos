@@ -312,7 +312,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-21",
- "actualizado": "2026-11-21T06:13+01:00",
+ "actualizado": "2026-11-21T11:52+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -6169,5 +6169,102 @@
   ],
   "fuente": "INCIBE (Instituto Nacional de Ciberseguridad)",
   "url": "https://www.incibe.es/ciudadania/avisos"
+ },
+ "cine": {
+  "cine": "Ocine Copo",
+  "sitio": "El Ejido",
+  "fecha": "2026-11-21",
+  "peliculas": [
+   {
+    "titulo": "Los Juegos del Hambre: Amanecer en la cosecha",
+    "horas": [
+     "16:00",
+     "17:45",
+     "19:00",
+     "20:45",
+     "22:00"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "El director",
+    "horas": [
+     "16:00",
+     "18:15",
+     "20:30",
+     "22:40"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Cómo robar un banco",
+    "horas": [
+     "15:50",
+     "22:35"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "La otra madre",
+    "horas": [
+     "16:00"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "La Bola Negra",
+    "horas": [
+     "16:15",
+     "19:10"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Karateka",
+    "horas": [
+     "16:15"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Ratones al ataque: Operación Navidad",
+    "horas": [
+     "16:20"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "El gato con sombrero",
+    "horas": [
+     "18:00"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Scrooge y los fantasmas de la Navidad",
+    "horas": [
+     "18:10",
+     "20:30",
+     "22:35"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Ruega por nosotras",
+    "horas": [
+     "20:10"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "En el corazón de la bestia",
+    "horas": [
+     "22:30"
+    ],
+    "version": "Versión doblada"
+   }
+  ],
+  "fuente": "Sensacine",
+  "enlace": "https://www.sensacine.com/cines/cine/E2899/"
  }
 }

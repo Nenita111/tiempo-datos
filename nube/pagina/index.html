@@ -932,6 +932,8 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .nat-r{list-style:none}.nat-r li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--linea);font-size:20px}
 .nat-r li span{min-width:0;overflow:hidden;white-space:nowrap}.nat-r em{color:var(--mu);font-size:20px}.nat-r small{font-size:20px;color:var(--mu);font-weight:700;white-space:nowrap}
 .nat-r small.amen{color:var(--mal)}
+.et.tuya{background:#1f8a4c;color:#fff;font-style:normal;padding:1px 8px;border-radius:6px}
+.cine-l li>b{min-width:0;flex:0 1 auto;font-variant-numeric:tabular-nums}.cine-l li{flex-direction:column;gap:2px}
 .rs-l{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}.rs-l li{display:flex;gap:14px;align-items:baseline;font-size:24px;line-height:1.3}.rs-l li>b{flex:none;min-width:120px}.rs-l li>span{min-width:0}
 .rs-n{padding:2px 10px;border-radius:8px;background:#f6d23a;color:#222}.rs-n.n2{background:#f28c28}.rs-n.n3{background:#e53935;color:#fff}.rs-ok{font-size:24px;font-weight:700;margin-top:10px}.rs-d{font-size:26px;line-height:1.4;margin:12px 0}.rs-r{font-size:24px;font-weight:800;color:var(--acc);margin:6px 0}
 .noche-t .t0{font-size:150px}.noche-t .ya,.rs-t .ya{display:flex;align-items:center;gap:30px}.rs-t .t0{font-size:96px}.rs-t .t0 small{font-size:48px}.noche-t .desc,.rs-t .desc{font-size:32px}.dia .rema{font-size:20px;font-weight:800;color:var(--acc)}
@@ -1528,6 +1530,17 @@ const avisosVistos = new Set();
 /* 21 nov 2026 (de las mejoras propuestas, «haz todo»): la tele dice en voz alta cada aviso naranja o rojo de AEMET nuevo, una vez (se
    apunta en el navegador de la app), de 8:00 a 23:00 y solo en la tele (Android.decir) */
 const CLAVE_DICHOS = "tiempo.avisosDichos";
+/* 21 nov 2026 (lo pidió Isa: «calcula cuándo se ve la Estación Espacial»): además de en Cielo y en Buenos días, la tele avisa en voz alta
+   unos 5 minutos antes de cada paso a simple vista (de 8:00 a 23:00) */
+const issDichos = new Set();
+setInterval(() => { try {
+  if (!(window.Android && Android.decir) || !E) return;
+  const h = new Date().getHours(); if (h < 8 || h >= 23) return;
+  const p = (pasosISS() || [])[0]; if (!p) return;
+  const falta = (p.ini - Date.now()) / 60000;
+  if (falta > 3 && falta <= 6 && !issDichos.has(p.ini)) { issDichos.add(p.ini);
+    Android.decir(`La Estación Espacial pasa en ${Math.round(falta)} minutos: mira al ${rumboTexto(p.azIni)}; se verá ${alturaPaso(p.max)}.`); }
+} catch (e) {} }, 60000);
 function decirAvisos() {
   if (!(window.Android && Android.decir)) return;
   const h = new Date().getHours(); if (h < 8 || h >= 23) return;
@@ -2007,7 +2020,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
   E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayConsumo() ? ["consumo", "suministros"] : [], hayAlertas() || hayProductos() ? ["alertas"] : [],
   ["hoy"], hayDragon() ? ["dragon"] : [], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
-  ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length ? ["sas"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() ? ["planes"] : []);
+  ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length ? ["sas"] : [], hayAyudas() ? ["ayudas"] : [], hayPlanes() || hayCine() ? ["planes"] : []);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): ajustes de las pantallas con el mando (≡ en la app): las que no salen, su orden y los
    segundos de cada una. Los guarda la app (Android.ajustes / guardarAjustes, SharedPreferences): los mismos en la app y en el salvapantallas.
    El aviso de AEMET sale siempre, el primero. */
@@ -2092,7 +2105,7 @@ const FUENTES = {aviso: "Fuente: AEMET · avisos meteorológicos", ahora: "Fuent
   mundo: "Fuentes: Servicio Geológico de EE. UU. (USGS) · mapa: Natural Earth",
   campo: "Fuente: FHAlmería (pizarra de las subastas)", pescado: "Fuente: Junta de Andalucía (IDAPES, primera venta en lonjas)",
   empleo: "Fuentes: Servicio Andaluz de Empleo · Junta de Andalucía (Transparencia)", sas: "Fuentes: Servicio Andaluz de Salud · BOJA · BOE",
-  planes: "Fuentes: Ayuntamiento de Adra (Adra en la Senda) · Turismo de Almería · Motril Turismo · Diputación de Almería · Junta de Andalucía (agenda)",
+  planes: "Fuentes: Ayuntamiento de Adra (Adra en la Senda) · Turismo de Almería · Motril Turismo · Diputación de Almería · Junta de Andalucía (agenda) · cine: Sensacine",
   ayudas: "Fuentes: Base de Datos Nacional de Subvenciones (IGAE) · Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
   economia: "Fuentes: SEPE (paro registrado) · Seguridad Social (afiliados) · Banco de España (euríbor y Letras del Tesoro) · Junta de Andalucía (calendario laboral)",
   noticias: "Fuentes: Diario de Almería · La Voz de Almería · Noticias de Almería · Ideal Almería · Adra Digital"};
@@ -2300,7 +2313,7 @@ function pAhora() {
   } else izq = vaciaDe("radar", E.lugar.enCanarias ? "El radar de AEMET de esta pantalla cubre la Península y Baleares." : "Cargando el radar de AEMET…");
   const hero = `<div data-f="prevision" class="tile hero" style="--i:1">${qrEsquina(aemetMunicipio(true), "Por horas<br>en AEMET", 80)}<div class="ya">${icono(h0.cod, h0.desc, 136)}<div><div class="t0 num">${h0.temp ?? "–"}°</div>
       <div class="desc">${esc(h0.desc)}</div></div></div>${titular()}${lineaSalir()}
-    <p class="datos"><span>Sensación <b>${h0.sens ?? "–"}°</b></span> · <span>Viento <b>${h0.viento ?? "–"} km/h ${esc(h0.dir || "")}</b></span> · <span>Humedad <b>${h0.hum ?? "–"} %</b></span> · <span>Lluvia <b>${h0.prob ?? 0} %</b></span>${(diaPrevision(0) || {}).uv != null ? `<span class="uvd"> · UV <b>${diaPrevision(0).uv}</b></span>` : ""}</p></div>`;
+    <p class="datos"><span>Sensación <b>${h0.sens ?? "–"}°</b></span> · <span>Viento <b>${h0.viento ?? "–"} km/h ${esc(h0.dir || "")}</b></span> · <span>Humedad <b>${h0.hum ?? "–"} %</b></span> · <span>Lluvia <b>${h0.prob ?? 0} %</b></span>${aguaMar() != null ? `<span> · Mar <b>${coma(aguaMar(), 1)}°</b></span>` : ""}${(diaPrevision(0) || {}).uv != null ? `<span class="uvd"> · UV <b>${diaPrevision(0).uv}</b></span>` : ""}</p></div>`;
   const C = (E.comarca || []).slice(0, 6);
   const comarca = C.length ? `<div data-f="comarca" class="tile" style="--i:3"><div class="k">La comarca ahora</div><div class="cm">${C.map(m =>
       `<div>${icono(m.cod, m.desc, 46)}<p><span>${esc(m.nombre)}</span><b>${m.temp ?? "–"}°</b></p></div>`).join("")}</div></div>` : "";
@@ -3277,13 +3290,32 @@ function pResumen() {
   const tiempo = d ? `<div data-f="prevision" class="tile rs-t" style="--i:1"><div class="k">${may(diaFecha(hoy))}<em>AEMET</em></div>
     <div class="ya">${icono(d.cod, d.desc, 120)}<div><div class="t0 num">${d.max ?? "–"}°<small> / ${d.min ?? "–"}°</small></div><div class="desc">${esc(d.desc || "")}</div></div></div>
     <p class="rs-d">Ahora <b>${h && h.temp != null ? h.temp + "°" : "–"}</b> · lluvia <b>${d.prob ?? 0} %</b> · viento <b>${d.viento ?? "–"} km/h ${esc(d.dir || "")}</b>${sol && sol.salida ? ` · sol de <b>${esc(String(sol.salida))}</b> a <b>${esc(String(sol.puesta || ""))}</b>` : ""}</p>
-    ${remar(d) ? `<p class="rs-r">Buen día para remar: viento flojo y sin lluvia</p>` : ""}${lineaAvisos()}</div>` : vaciaDe("prevision", "Cargando la previsión de AEMET…", 1);
+    ${remar(d) ? `<p class="rs-r">Buen día para remar: viento flojo y sin lluvia</p>` : ""}${aguaMar() != null ? `<p class="rs-d">El mar, a <b>${coma(aguaMar(), 1)}°</b> (${esc(E.boya.nombre)})</p>` : ""}${lineaIss()}${lineaAvisos()}</div>` : vaciaDe("prevision", "Cargando la previsión de AEMET…", 1);
   const agenda = `<div data-f="x" class="tile" style="--i:2"><div class="k">Hoy y mañana en ${esc(E.lugar.nombre)}<em>agenda</em></div>${ag.length
     ? `<ul class="rs-l">${ag.map(a => `<li><b>${a.fecha <= hoy ? "Hoy" : diaNombre(a.fecha)}${a.hora ? ` ${esc(a.hora)}` : ""}</b><span>${esc(a.titulo)}${a.lugar ? ` · ${esc(a.lugar)}` : ""}</span></li>`).join("")}</ul>` : `<p class="rs-ok mut">Nada en la agenda para hoy ni para mañana.</p>`}</div>`;
   const nov = `<div data-f="boja boe x alimentarias" class="tile" style="--i:3"><div class="k">Novedades de las últimas 24 horas</div><ul class="rs-l">
     <li><b>SAS</b><span>${nSas.length ? `${nSas.length} ${nSas.length === 1 ? "novedad" : "novedades"}: ${esc(abreviarSas(nSas[0][1].resumen || nSas[0][1].puesto || nSas[0][1].titulo || ""))}` : "nada nuevo"}</span></li>
+    ${(n => n ? `<li><b>Tu categoría</b><span>${n} ${n === 1 ? "oferta o convocatoria" : "ofertas o convocatorias"} de técnico/a de salud en el SAS</span></li>` : "")([...sasBoja(), ...sasBoe()].filter(x => suCategoria(x.resumen)).length + ofertasSas().filter(o => suCategoria(`${o.puesto} ${o.titulo}`)).length)}
     <li><b>Alertas</b><span>${nAl.length ? `${nAl.length} ${nAl.length === 1 ? "nueva" : "nuevas"}: ${esc(nAl[0][1].titulo || nAl[0][1].producto || nAl[0][1].nombre || "")}` : "nada nuevo"}</span></li></ul></div>`;
   return `<div class="main" style="grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${tiempo}</div><div class="col" style="grid-template-rows:auto 1fr">${agenda}${nov}</div></div>`;
+}
+/* 21 nov 2026 (lo pidió Isa: «añade la temperatura del mar» y «calcula cuándo se ve la Estación Espacial»): el agua de la boya, en Ahora
+   y en Buenos días; el próximo paso a simple vista de hoy, en Buenos días */
+const aguaMar = () => E.boya && E.boya.agua != null ? E.boya.agua : null;
+function lineaIss() {
+  const P = (pasosISS() || []).filter(p => isoDe(new Date(p.ini)) === isoDe(new Date()));
+  if (!P.length) return "";
+  const p = P[0];
+  return `<p class="rs-d">La Estación Espacial se ve hoy a las <b>${horaMin(p.ini)}</b>, del ${rumboTexto(p.azIni)} al ${rumboTexto(p.azFin)}, ${alturaPaso(p.max)}</p>`;
+}
+/* 21 nov 2026 (lo pidió Isa: «añade Ocine»): las sesiones de hoy del Ocine Copo de El Ejido que quedan (extras.cine, de Sensacine), por turnos */
+function tarjetaCine(i) {
+  const C = (E.extras || {}).cine, hoy = isoDe(new Date()), ya = `${dosd(new Date().getHours())}:${dosd(new Date().getMinutes())}`;
+  if (!C || C.fecha !== hoy) return "";
+  const P = (C.peliculas || []).map(p => ({...p, horas: (p.horas || []).filter(h => h >= ya)})).filter(p => p.horas.length);
+  if (!P.length) return "";
+  const t = turnoFijo("cine", P, 6);
+  return `<div data-f="x" class="tile" style="--i:${i}"><div class="k">Cine hoy · ${esc(C.cine)}, ${esc(C.sitio)}<em>${P.length} películas · ${esc(C.fuente)}</em>${t.marca}</div><ul class="rs-l cine-l">${t.items.map(p => `<li><b>${p.horas.join(" · ")}</b><span>${esc(p.titulo)}</span></li>`).join("")}</ul></div>`;
 }
 /* 21 nov 2026: «buen día para remar» (barco dragón): según la previsión de AEMET del día, viento de 15 km/h o menos y lluvia del 20 % o menos */
 const REMAR = {viento: 15, lluvia: 20};
@@ -3298,7 +3330,7 @@ function proximoMercadillo([nombre, dia, semanas]) {
 }
 function tarjetaMercadillos(i) {
   if (!["04003", "04902", "04029"].includes(E.lugar.ine)) return "";   // Adra, El Ejido y Berja
-  const L = MERCADILLOS_EJIDO.lista.map(m => [m[0], proximoMercadillo(m)]).filter(m => m[1]).sort((a, b) => a[1].localeCompare(b[1]));
+  const L = MERCADILLOS_EJIDO.lista.map(m => [m[0], proximoMercadillo(m)]).filter(m => m[1]).sort((a, b) => a[1].localeCompare(b[1])).slice(0, 3);
   return `<div class="tile" style="--i:${i}"><div class="k">Mercadillos de El Ejido<em>de 8:00 a 14:00</em></div><ul class="rs-l">${L.map(([n, f]) => `<li><b>${may(diaFecha(f))}</b><span>${esc(n)}</span></li>`).join("")}</ul>
     <p class="nota">Según la ordenanza municipal (BOP de Almería, 22 jul 2022). Si cae en festivo, el ayuntamiento lo pasa a otro día.</p>${qrPie(MERCADILLOS_EJIDO.enlace, "Ordenanza de comercio ambulante de El Ejido", 52)}</div>`;
 }
@@ -3964,10 +3996,39 @@ function tarjetaPotencia(X) {
     <p class="nota">Datadis publica lo del contador con dos o tres días de retraso. Consultado el ${conAnio((E.datadis || {}).consultado || X.consultado || isoDe(new Date()))}.${X.guardados ? ` La tele guarda ya ${X.guardados === 1 ? "1 día" : `${miles(X.guardados)} días`}.` : ""}</p></div>`;
 }
 /* con varios suministros, uno cada vez que sale la pantalla (con su dirección) */
+/* 21 nov 2026 (lo pidió Isa: «compara las tarifas»): el PVPC de cada día (los precios por horas que llegan, E.luz) se guarda en la tele
+   (navegador de la app) y, con el consumo de cada hora de Datadis de esos días, sale a cuánto le ha salido el kWh con el PVPC (solo el
+   término de energía, como los precios de la tarjeta de la luz) y a cuánto si gastara lo mismo en todas las horas (la media del día):
+   una tarifa de precio fijo le conviene si su kWh de energía cuesta menos. Nada se estima: solo los días con las 24 horas de los dos. */
+const CLAVE_PVPC = "tiempo.pvpc";
+function guardarPvpc() {
+  const L = E.luz; if (!L || !L.fecha) return;
+  let P = {}; try { P = JSON.parse(localStorage.getItem(CLAVE_PVPC) || "{}") || {}; } catch (e) {}
+  const pon = (f, l) => { if (f && (l || []).length === 24 && l.every(x => x && x[1] != null)) P[f] = l.map(x => +x[1]); };
+  pon(L.fecha, L.hoy); const m = new Date(L.fecha + "T12:00"); m.setDate(m.getDate() + 1); pon(isoDe(m), L.manana);
+  const F = Object.keys(P).sort(); for (const f of F.slice(0, Math.max(0, F.length - 400))) delete P[f];
+  try { localStorage.setItem(CLAVE_PVPC, JSON.stringify(P)); } catch (e) {}
+}
+function compararTarifas(s) {
+  let P = {}; try { P = JSON.parse(localStorage.getItem(CLAVE_PVPC) || "{}") || {}; } catch (e) {}
+  const D = diasLuz(s).filter(d => diaEntero(d) && (d.h || []).length === 24 && d.h.every(v => v != null) && P[d.f]).slice(-30);
+  let kwh = 0, coste = 0, plano = 0;
+  for (const d of D) { const p = P[d.f], k = d.h.reduce((a, v) => a + +v, 0), media = p.reduce((a, v) => a + v, 0) / 24;
+    kwh += k; coste += d.h.reduce((a, v, i) => a + +v * p[i], 0); plano += k * media; }
+  return {dias: D.length, kwh, medio: kwh ? coste / kwh : null, plano: kwh ? plano / kwh : null, desde: D.length ? D[0].f : null};
+}
+function tarjetaTarifas(s) {
+  const T = compararTarifas(s);
+  if (!T.dias || !T.medio) return `<div data-f="datadis luz" class="tile" style="--i:5"><div class="k">PVPC o precio fijo</div><p class="rs-d">Se compara en cuanto haya días con el consumo de cada hora de Datadis y los precios del PVPC guardados en la tele (se guardan desde el 21 nov 2026).</p></div>`;
+  const ahorro = (T.plano - T.medio) / T.plano * 100;
+  return `<div data-f="datadis luz" class="tile" style="--i:5"><div class="k">PVPC o precio fijo<em>${T.dias} ${T.dias === 1 ? "día" : "días"} desde el ${diaFecha(T.desde)} · ${coma(T.kwh, 1)} kWh</em></div>
+    <p class="rs-d">Con el PVPC, tu kWh te ha salido a <b>${coma(T.medio, 3)} €</b> de media (solo la energía). Una tarifa de precio fijo te conviene si su kWh de energía cuesta menos de eso.</p>
+    <p class="rs-d">Gastando lo mismo a todas horas te habría salido a ${coma(T.plano, 3)} €: tu horario ${ahorro >= 0 ? `te ahorra un <b>${coma(ahorro, 1)} %</b>` : `te cuesta un <b>${coma(-ahorro, 1)} %</b> más`}.</p></div>`;
+}
 function pConsumo() {
   const tS = turnoFijo("miLuz", suministrosLuz(), 1), s = tS.items[0];
   if (!s) return `<div class="main"></div>`;
-  return `<div class="main"><div class="col izq" style="grid-template-rows:1fr auto">${tarjetaConsumoDia(s, tS.marca)}${tarjetaMeses(s)}</div><div class="col" style="grid-template-rows:1fr auto">${tarjetaConsumoMes(s)}${tarjetaPotencia(s)}</div></div>`;
+  return `<div class="main"><div class="col izq" style="grid-template-rows:1fr auto">${tarjetaConsumoDia(s, tS.marca)}${tarjetaMeses(s)}</div><div class="col" style="grid-template-rows:1fr auto auto">${tarjetaConsumoMes(s)}${tarjetaPotencia(s)}${tarjetaTarifas(s)}</div></div>`;
 }
 /* ---------- 4.42 (lo pidió Isa el 11 nov 2026: «diferencia por cups (indicando dirección de suministro), con estadísticas de consumo diario,
    semanal, mensual y anual. Si hay valores significativos infórmalos. Crea una pantalla específica para esta información»): Luz por
@@ -5268,6 +5329,10 @@ function sasEnZona(x) {
 }
 // 21 nov 2026 (lo pidió Isa: «en SAS no muestres la información que ya lleve viendo 4 días»): lo visto los 4 días anteriores, fuera (vistaYa)
 const sasNoVisto = k => x => !vistaYa(vistos[k + (x.url || x.id)]);
+/* 21 nov 2026 (lo pidió Isa: «mis categorías en el SAS son las de técnicos de salud»): lo de su categoría, delante y marcado; las ofertas
+   nuevas de su categoría, además, al móvil (tiempo-datos, sas_ofertas.py) */
+const suCategoria = t => /t[ée]cnic[oa](?:\/a)?s? de salud/i.test(t || "") ? 1 : 0;
+const marcaTuya = t => suCategoria(t) ? `<i class="et tuya">Tu categoría</i> ` : "";
 const sasBoja = () => (((E.boja || {}).disposiciones) || []).filter(sasEnZona).filter(sasNoVisto("boja:")).sort((a, b) => (pesoSas(b) - pesoSas(a)) || b.fecha.localeCompare(a.fecha));
 const sasBoe = () => (((E.boe || {}).disposiciones) || []).filter(sasEnZona).filter(sasNoVisto("boe:")).sort((a, b) => b.fecha.localeCompare(a.fecha));
 /* el resumen de las disposiciones del SAS, más corto para la tele (el texto entero, en el QR): siglas de uso común en el SAS */
@@ -5374,7 +5439,7 @@ function plazoSas(p) {
 function pSas(partes) {   // 4.34: «partes», las dos tarjetas sueltas (la lista en una columna) para la pantalla Empleo
   const B = sasBoja(), O = sasBoe(), nB = B.length, nE = O.length;   // 3.9: cada lista, una vez
   const L = B.map(x => ({...x, k: "boja:"})).concat(O.map(x => ({...x, k: "boe:"})))
-    .sort((a, b) => (pesoSas(b) - pesoSas(a)) || b.fecha.localeCompare(a.fecha));
+    .sort((a, b) => (suCategoria(b.resumen) - suCategoria(a.resumen)) || (pesoSas(b) - pesoSas(a)) || b.fecha.localeCompare(a.fecha));
   const t = enTurno("sas", L, 40);
   const donde = x => { const e = etiquetaSas(x), p = e ? e.provincia : deAlmeria(x.texto) ? "almeria" : "";
     return (e && ETIQ_SAS[e.tipo] ? ` · <i class="et">${ETIQ_SAS[e.tipo]}</i>` : "") + (p === "almeria" ? ` · <b class="aqui">Almería</b>` : p === "andalucia" ? " · toda Andalucía" : "")
@@ -5382,7 +5447,7 @@ function pSas(partes) {   // 4.34: «partes», las dos tarjetas sueltas (la list
   const cuantos = [nB ? `${nB} en el BOJA` : "", nE ? `${nE} en el BOE` : ""].filter(Boolean).join(" y ") + (c => c ? ` (<b class="am">${c} de hoy, en amarillo</b>)` : "")(L.filter(x => deHoy(x.fecha)).length);
   const bo = tarjetaBolsa(2, partes ? 0 : L.length ? 1 : 2);   // 4.8 (304): la Bolsa Única, a la derecha (4.34: en Empleo, sin columnas)
   const disp = L.length ? `<div class="col" style="grid-template-rows:1fr"><div data-f="boja boe" class="tile emp sas colsT" style="--i:1"><div class="k">${partes ? "SAS · oposiciones y concursos" : "Servicio Andaluz de Salud · oposiciones y concursos"}<em>${cuantos} en 7 días${partes ? " · Almería sin el Levante, Motril y Andalucía" : " · Almería (sin el Levante ni a 10 km de Serón, Tíjola u Olula), la costa hasta Motril y toda Andalucía"}</em></div><ul class="${partes ? "una" : bo ? "cols2" : "cols3"}" ${t.attr}>
-    ${t.items.map(x => `<li ${claveNuevo(x.k + (x.url || x.id))}${claseHoy(x.fecha)}><div><b>${esc(abreviarSas(x.resumen))}${marcaNuevo(x.k + (x.url || x.id), x.fecha)}</b><span>${x.boletin ? esc(x.boletin) : "BOE"} · ${fechaCorta(x.fecha)}${donde(x)}</span></div>${qrSvg(x.url, "qr nq", 54)}</li>`).join("")}</ul></div></div>` : "";
+    ${t.items.map(x => `<li ${claveNuevo(x.k + (x.url || x.id))}${claseHoy(x.fecha)}><div><b>${marcaTuya(x.resumen)}${esc(abreviarSas(x.resumen))}${marcaNuevo(x.k + (x.url || x.id), x.fecha)}</b><span>${x.boletin ? esc(x.boletin) : "BOE"} · ${fechaCorta(x.fecha)}${donde(x)}</span></div>${qrSvg(x.url, "qr nq", 54)}</li>`).join("")}</ul></div></div>` : "";
   if (partes) return [disp.replace(/^<div class="col" style="grid-template-rows:1fr">/, "").replace(/<\/div>$/, ""), bo].filter(Boolean);
   return `<div class="main" style="grid-template-columns:${disp && bo ? "minmax(0,1fr) 600px" : "1fr"}">${disp}${bo ? `<div class="col" style="grid-template-rows:1fr">${bo}</div>` : ""}</div>`;
 }
@@ -5726,6 +5791,7 @@ function planesVivos() {
     .sort((a, b) => desde(a).localeCompare(desde(b)) || String(a.hora || "").localeCompare(String(b.hora || "")));
 }
 const hayPlanes = () => planesVivos().length > 0;
+const hayCine = () => { const C = (E.extras || {}).cine; return !!(C && C.fecha === isoDe(new Date()) && (C.peliculas || []).length); };
 function itemPlan(p) {
   const cuando = p.fin && p.fin !== p.inicio ? `del ${diaFecha(p.inicio)} al ${diaFecha(p.fin)}` : diaFecha(p.inicio);
   const et = (p.senderismo ? `<i class="et sd">senderismo</i>` : p.aireLibre ? `<i class="et al">al aire libre</i>` : "") + (p.gratis ? `<i class="et gr">gratis</i>` : p.precio ? `<i class="et pr">${esc(p.precio)}</i>` : "");
@@ -5741,7 +5807,10 @@ function tarjetaPlanes(i, cols) {
     <ul class="cols${Math.min(cols, Math.max(1, L.length))}"${L.length <= cols ? ' style="column-fill:balance"' : ""} ${t.attr}>${t.items.map(itemPlan).join("")}</ul></div>`;
 }
 /* 4.35 (lo pidió Isa el 8 nov 2026: «elimina los senderos señalizados y el tiempo en cada sendero»): Planes, a tres columnas */
-const pPlanes = () => `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${tarjetaPlanes(1, 3)}</div></div>`;
+// 21 nov 2026: el cine de hoy (Ocine Copo), a la derecha de los planes
+const pPlanes = () => { const ci = tarjetaCine(2), pl = hayPlanes() ? tarjetaPlanes(1, ci ? 2 : 3) : "";
+  if (!pl) return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${ci}</div></div>`;
+  return `<div class="main" style="grid-template-columns:${ci ? "minmax(0,1fr) 600px" : "1fr"}"><div class="col" style="grid-template-rows:1fr">${pl}</div>${ci ? `<div class="col" style="grid-template-rows:auto">${ci}</div>` : ""}</div>`; };
 /* 406 y 407: ayudas abiertas (BDNS: Ayuntamiento de Adra, Diputación de Almería y Junta, para personas, autónomos y pymes; ayudas.py) y cursos
    gratis de formación para el empleo (el buscador de la Junta: presenciales en la provincia y en línea; cursos.py) */
 const ayudasVivas = () => ((((E.extras || {}).ayudas) || {}).lista || []).filter(a => !a.hasta || diasHasta(a.hasta) >= 0);
@@ -5835,12 +5904,12 @@ const enPlazoOoe = o => !!(o.plazo && o.plazo.hasta && diasHasta(o.plazo.hasta) 
 function ofertasSas() {
   const S = (E.extras || {}).sasOfertas || {}, dias = S.dias || 30;
   return (S.lista || []).filter(o => o.id && o.fecha && diasHasta(o.fecha) >= -dias && diasHasta(o.fecha) <= 0 && (o.puesto || o.titulo) && !vistaYa(vistos["ooe:" + o.id]))
-    .map((o, i) => [enPlazoOoe(o) ? 0 : 1, i, o]).sort((a, b) => a[0] - b[0] || a[1] - b[1]).map(x => x[2]);
+    .map((o, i) => [enPlazoOoe(o) ? 0 : 1, i, o]).sort((a, b) => suCategoria(`${b[2].puesto} ${b[2].titulo}`) - suCategoria(`${a[2].puesto} ${a[2].titulo}`) || a[0] - b[0] || a[1] - b[1]).map(x => x[2]);
 }
 function itemOoe(o) {
   const k = "ooe:" + o.id, abierta = enPlazoOoe(o);
   const estado = o.estado === "desierta" ? "declarada desierta" : o.estado === "resuelta" ? "ya resuelta" : o.estado ? `ya hay ${o.estado}` : "";
-  return `<li ${claveNuevo(k)}${abierta ? ' class="abierta"' : ""}><div><b>${esc(o.puesto || o.titulo)}${marcaNuevo(k, o.fecha)}</b>
+  return `<li ${claveNuevo(k)}${abierta ? ' class="abierta"' : ""}><div><b>${marcaTuya(`${o.puesto} ${o.titulo}`)}${esc(o.puesto || o.titulo)}${marcaNuevo(k, o.fecha)}</b>
     <span><i class="et">${TIPO_OOE[o.tipo] || "Oferta"}</i> · <b class="aqui">${esc(centroSas(o.centro))}</b>${o.cod ? ` · cód. ${esc(o.cod)}` : ""}</span>
     <span>${o.boja ? "BOJA del" : "publicada el"} ${diaFecha(o.fecha)}${plazoSas(o.plazo)}${estado ? ` · ${estado}` : ""}</span></div>${qrSvg(o.enlace, "qr nq", 54)}</li>`;
 }
@@ -6616,6 +6685,7 @@ window.app = {
     const nuevos = avisosFuertes().map(a => a.nivel + "|" + a.fenomeno + "|" + a.desde).filter(k => !avisosVistos.has(k));
     nuevos.forEach(k => avisosVistos.add(k));
     decirAvisos();
+    try { guardarPvpc(); } catch (e) {}
     if (nuevos.length && rotando()) { actual = "aviso"; paginaDesde = Date.now(); pintar(); return; }
     /* con la pantalla rotando sola, lo que llega se pinta al cambiar de pantalla (como mucho 15 s después) y no con cada dato:
        llegan decenas por hora y cada pintado completo cuesta en la tele. Se pinta enseguida si se está usando el mando, si aún no
