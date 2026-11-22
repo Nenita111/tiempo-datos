@@ -311,8 +311,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-21",
- "actualizado": "2026-11-21T11:52+01:00",
+ "sorteosBuscado": "2026-11-22",
+ "actualizado": "2026-11-22T06:13+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -478,18 +478,7 @@
   ],
   "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"
  },
- "agenda": [
-  {
-   "titulo": "Gran Outlet de Adra",
-   "fecha": "2026-11-19",
-   "fuente": "Noticias de Almería (presentado por el Ayuntamiento de Adra)",
-   "ine": "04003",
-   "hora": "10:00",
-   "hasta": "2026-11-21",
-   "lugar": "Auditorio Ciudad de Adra",
-   "enlace": "https://www.noticiasdealmeria.com/adra-presenta-una-nueva-edicion-del-gran-outlet"
-  }
- ],
+ "agenda": [],
  "raif": {
   "provincia": "Almería",
   "cultivos": [
@@ -822,8 +811,8 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-21",
-  "nombre": "Calabaza asada",
+  "fecha": "2026-11-22",
+  "nombre": "Crema de calabaza",
   "tiempo": {
    "temperature": "mild",
    "rain": "dry",
@@ -831,10 +820,6 @@
    "sky": "Poco nuboso"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-15",
-    "nombre": "Lentejas con verduras"
-   },
    {
     "fecha": "2026-11-16",
     "nombre": "Ensalada de granada"
@@ -858,11 +843,15 @@
    {
     "fecha": "2026-11-21",
     "nombre": "Calabaza asada"
+   },
+   {
+    "fecha": "2026-11-22",
+    "nombre": "Crema de calabaza"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-21",
+  "fecha": "2026-11-22",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/225/22": {
     "tipo": "lista_definitiva",
@@ -1121,16 +1110,6 @@
     "experiencia": 0.04,
     "colectivo": "general"
    },
-   "694417": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "PRODUCTOR/A",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-11-22",
-    "nivel": "grado",
-    "experiencia": 0.96,
-    "colectivo": "general"
-   },
    "694411": {
     "zona": false,
     "zv": 4,
@@ -1141,34 +1120,14 @@
     "experiencia": 0.97,
     "colectivo": "general"
    },
-   "693646": {
+   "694417": {
     "zona": false,
     "zv": 4,
-    "puesto": "PRODUCTOR/A -SAN JUAN DE AZNALFARACHE",
+    "puesto": "PRODUCTOR/A",
     "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-11-21",
+    "hasta": "2026-11-22",
     "nivel": "grado",
-    "experiencia": 0.98,
-    "colectivo": "general"
-   },
-   "694402": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "REALIZADOR/A- SAN JUAN DE AZNALFARACHE",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-11-21",
-    "nivel": "grado",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "692029": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar Fomento de la Investigación -46-2026",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-26",
-    "nivel": "grado",
-    "experiencia": 0.93,
+    "experiencia": 0.96,
     "colectivo": "general"
    },
    "692356": {
@@ -1179,6 +1138,16 @@
     "hasta": "2026-11-27",
     "nivel": "grado",
     "experiencia": 0.1,
+    "colectivo": "general"
+   },
+   "692029": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a Auxiliar Fomento de la Investigación -46-2026",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-11-26",
+    "nivel": "grado",
+    "experiencia": 0.93,
     "colectivo": "general"
    }
   },
@@ -1328,17 +1297,11 @@
     "experiencia": 0.07
    }
   },
-  "agenda": {
-   "2026-11-19|Gran Outlet de Adra": {
-    "gratis": 0.03,
-    "familias": 0.27,
-    "inscripcion": 0.03
-   }
-  },
-  "fecha": "2026-11-21"
+  "agenda": {},
+  "fecha": "2026-11-22"
  },
  "fap": {
-  "fecha": "2026-11-21",
+  "fecha": "2026-11-22",
   "novedades": [
    {
     "tipo": "circular",
@@ -4281,20 +4244,6 @@
  "cursos": {
   "presenciales": [
    {
-    "id": "2535",
-    "codigo": "COMT0411",
-    "nombre": "Gestión comercial de ventas",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2535",
-    "fin": "2026-11-21",
-    "inicio": "2026-12-21",
-    "horas": 610,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Alhama de Almería",
-    "km": 46
-   },
-   {
     "id": "456686",
     "codigo": "IFCD97",
     "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
@@ -4476,20 +4425,6 @@
     "km": 50
    },
    {
-    "id": "408",
-    "codigo": "COMT09",
-    "nombre": "Psicología aplicada a las ventas",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/408",
-    "fin": "2026-12-15",
-    "inicio": "2027-01-15",
-    "horas": 40,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Almería",
-    "km": 50
-   },
-   {
     "id": "409",
     "codigo": "COMT09",
     "nombre": "Psicología aplicada a las ventas",
@@ -4500,6 +4435,20 @@
     "para": "desempleadas",
     "modalidad": "presencial",
     "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "408",
+    "codigo": "COMT09",
+    "nombre": "Psicología aplicada a las ventas",
+    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/408",
+    "fin": "2026-12-15",
+    "inicio": "2027-01-15",
+    "horas": 40,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
     "municipio": "Almería",
     "km": 50
    },
@@ -5305,7 +5254,7 @@
   "lineaTotal": 94,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-21"
+  "dia": "2026-11-22"
  },
  "polen": {
   "estacion": "Almería",
@@ -5530,7 +5479,7 @@
     ]
    }
   ],
-  "dias": 378,
+  "dias": 377,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -6173,11 +6122,12 @@
  "cine": {
   "cine": "Ocine Copo",
   "sitio": "El Ejido",
-  "fecha": "2026-11-21",
+  "fecha": "2026-11-22",
   "peliculas": [
    {
     "titulo": "Los Juegos del Hambre: Amanecer en la cosecha",
     "horas": [
+     "11:45",
      "16:00",
      "17:45",
      "19:00",
@@ -6193,6 +6143,54 @@
      "18:15",
      "20:30",
      "22:40"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Scrooge y los fantasmas de la Navidad",
+    "horas": [
+     "12:00",
+     "18:10",
+     "20:30",
+     "22:35"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Wildwood",
+    "horas": [
+     "12:00"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "El gato con sombrero",
+    "horas": [
+     "12:10",
+     "18:00"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Karateka",
+    "horas": [
+     "12:10",
+     "16:15"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "¿Me entiendes o te lo explico?",
+    "horas": [
+     "12:10"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Ratones al ataque: Operación Navidad",
+    "horas": [
+     "12:15",
+     "16:20"
     ],
     "version": "Versión doblada"
    },
@@ -6216,36 +6214,6 @@
     "horas": [
      "16:15",
      "19:10"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "Karateka",
-    "horas": [
-     "16:15"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "Ratones al ataque: Operación Navidad",
-    "horas": [
-     "16:20"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "El gato con sombrero",
-    "horas": [
-     "18:00"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "Scrooge y los fantasmas de la Navidad",
-    "horas": [
-     "18:10",
-     "20:30",
-     "22:35"
     ],
     "version": "Versión doblada"
    },

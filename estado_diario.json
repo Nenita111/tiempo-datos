@@ -228,20 +228,8 @@
   "vale": "2026-11-23"
  },
  "fallos": {
-  "estafas": {
-   "desde": "2026-11-19"
-  },
-  "fuente farmacias": {
-   "desde": "2026-11-21"
-  },
-  "fuente gasolina": {
-   "desde": "2026-11-20"
-  },
-  "fuente iss": {
-   "desde": "2026-11-21"
-  },
-  "vuelos": {
-   "desde": "2026-11-18"
+  "fuente sae": {
+   "desde": "2026-11-22"
   }
  },
  "sendaAdra": {
