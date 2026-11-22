@@ -1,0 +1,378 @@
+{
+"nota": "Respuestas reales del 22 nov 2026, recortadas: Turismo de Almería (API de su agenda), Faro Cultural de Roquetas (música), portada y fichas de Cultura de El Ejido y agenda de Motril Turismo.",
+"turismoEventos": [
+{
+"id": 104127,
+"title": "Chanqueños pa Belén en familia",
+"content": "<p><strong>Chanqueños pa Belén en familia</strong>, un espectáculo navideño para toda la familia en el Auditorio Municipal Maestro Padilla, Almería.</p><p>Dos pases disponibles: 19:00h y 22:00h.</p>",
+"status": "publish",
+"date_created": "2026-11-16 11:39:51",
+"date_modified": "2026-11-16 11:40:28",
+"featured_media": 104071,
+"permalink": "https://www.turismodealmeria.org/evento/chanquenos-pa-belen-en-familia/",
+"meta": {
+"evcal_srow": "1797098400",
+"evcal_erow": "1797098400"
+},
+"formatted_dates": {
+"start": "2026-12-12 19:00:00",
+"start_iso": "2026-12-12T19:00:00+01:00",
+"end": "2026-12-12 19:00:00",
+"end_iso": "2026-12-12T19:00:00+01:00"
+},
+"location": [
+{
+"id": 387,
+"name": "Auditorio Municipal Maestro Padilla",
+"slug": "auditorio-municipal-maestro-padilla"
+}
+],
+"organizer": [],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+]
+},
+{
+"id": 104122,
+"title": "Piratas de la Mar Salada",
+"content": "<p><strong>Piratas de la Mar Salada</strong>, teatro musical y de títeres para toda la familia en la Sala ABBA Teatro de Almería. Los espectadores viven una aventura pirata en busca de un tesoro, con canciones y participación del público.</p><p>Hora: 18:00h.</p><p><strong>Más información y entradas:</strong> <a href=\"https://entradium.com/es/events/piratas-de-la-mar-salada-almeria\" target=\"_blank\" rel=\"noopener\">entradium.com</a></p>",
+"status": "publish",
+"date_created": "2026-11-16 11:32:36",
+"date_modified": "2026-11-16 12:29:01",
+"featured_media": 104155,
+"permalink": "https://www.turismodealmeria.org/evento/piratas-de-la-mar-salada/",
+"meta": {
+"evcal_srow": "1795885200",
+"evcal_erow": "1795885200"
+},
+"formatted_dates": {
+"start": "2026-11-28 18:00:00",
+"start_iso": "2026-11-28T18:00:00+01:00",
+"end": "2026-11-28 18:00:00",
+"end_iso": "2026-11-28T18:00:00+01:00"
+},
+"location": [
+{
+"id": 1630,
+"name": "Sala ABBA teatro",
+"slug": "sala-abba-teatro"
+}
+],
+"organizer": [],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+]
+},
+{
+"id": 103288,
+"title": "Concierto: Nixon en Almería",
+"content": "<p>Berlin Social Club acoge el sábado 28 de noviembre el concierto de <strong>Nixon</strong>.</p>\n<p>Apertura de puertas a las 20:30 h y concierto a las 21:30 h. Entradas: 19,80 €. Venta en <a href=\"https://berlinalmeria.com/producto/28-noviembre-nixon/\" target=\"_blank\">berlinalmeria.com</a>.</p>",
+"status": "publish",
+"date_created": "2026-10-19 11:52:36",
+"date_modified": "2026-10-19 11:52:39",
+"featured_media": 103234,
+"permalink": "https://www.turismodealmeria.org/evento/concierto-nixon-en-almeria/",
+"meta": {
+"evcal_srow": "1795901400",
+"evcal_erow": "1795901400",
+"evcal_allday": "no"
+},
+"formatted_dates": {
+"start": "2026-11-28 22:30:00",
+"start_iso": "2026-11-28T22:30:00+01:00",
+"end": "2026-11-28 22:30:00",
+"end_iso": "2026-11-28T22:30:00+01:00"
+},
+"location": [
+{
+"id": 1547,
+"name": "Berlin Social Club",
+"slug": "berlin-social-club"
+}
+],
+"organizer": [],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+]
+},
+{
+"id": 102780,
+"title": "Banda Municipal de Almería: Una mirada paralela a la música para banda y orquesta del siglo XIX",
+"content": "<p>La Banda Municipal de Almería, dirigida por José Solá Palmer, ofrece el domingo 25 de octubre a las 12:00 h en el Teatro Apolo el concierto «Una mirada paralela a la música para banda y orquesta del siglo XIX».</p>\n<p>El programa viaja por la música europea del Romanticismo con autores ligados a la ópera, el ballet y la tradición sinfónica, como Gioachino Rossini, Félix Mendelssohn, Ambroise Thomas, Léo Delibes y Richard Wagner, junto a Camillo de Nardis, gran referente de las bandas italianas. Una propuesta que pone en diálogo la música orquestal y la de banda.</p>\n<p>Entrada libre hasta c",
+"status": "publish",
+"date_created": "2026-10-05 11:19:44",
+"date_modified": "2026-10-05 11:19:44",
+"featured_media": 102885,
+"permalink": "https://www.turismodealmeria.org/evento/banda-municipal-de-almeria-una-mirada-paralela-a-la-musica-para-banda-y-orquesta-del-siglo-xix/",
+"meta": {
+"evcal_srow": "1792929600",
+"evcal_erow": "1792929600",
+"evcal_allday": "no"
+},
+"formatted_dates": {
+"start": "2026-10-25 13:00:00",
+"start_iso": "2026-10-25T13:00:00+01:00",
+"end": "2026-10-25 13:00:00",
+"end_iso": "2026-10-25T13:00:00+01:00"
+},
+"location": [
+{
+"id": 386,
+"name": "Teatro Apolo",
+"slug": "teatro-apolo"
+}
+],
+"organizer": [],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+]
+},
+{
+"id": 102772,
+"title": "Banda Municipal de Almería: Una mirada a la Hispanidad, músicas de acá y de allá",
+"content": "<p>La Banda Municipal de Almería, dirigida por José Solá Palmer, ofrece el domingo 18 de octubre a las 12:00 h en el Teatro Apolo el concierto «Una mirada a la Hispanidad, músicas de acá y de allá».</p>\n<p>El programa recorre la música de España e Hispanoamérica a través de compositores que han llevado lo popular y lo tradicional a la creación musical: de Emilio Cebrián y Miguel Asins Arbó a los venezolanos y mexicanos Moisés Moleiro y Pablo Moncayo, junto a autores más actuales como Juan A. García Mesas y Ariel Malando.</p>\n<p>Entrada libre hasta completar aforo.</p>",
+"status": "publish",
+"date_created": "2026-10-05 11:19:27",
+"date_modified": "2026-10-05 11:19:27",
+"featured_media": 102877,
+"permalink": "https://www.turismodealmeria.org/evento/banda-municipal-de-almeria-una-mirada-a-la-hispanidad-musicas-de-aca-y-de-alla/",
+"meta": {
+"evcal_srow": "1792324800",
+"evcal_erow": "1792324800",
+"evcal_allday": "no"
+},
+"formatted_dates": {
+"start": "2026-10-18 14:00:00",
+"start_iso": "2026-10-18T14:00:00+02:00",
+"end": "2026-10-18 14:00:00",
+"end_iso": "2026-10-18T14:00:00+02:00"
+},
+"location": [
+{
+"id": 386,
+"name": "Teatro Apolo",
+"slug": "teatro-apolo"
+}
+],
+"organizer": [],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+]
+},
+{
+"id": 102770,
+"title": "Banda Municipal de Almería: Una mirada a nuestros solistas (3)",
+"content": "<p>La Banda Municipal de Almería, dirigida por José Solá Palmer, continúa el domingo 29 de noviembre a las 12:00 h en el Teatro Apolo su ciclo «Una mirada a nuestros solistas», esta vez con el trombón y la tuba como protagonistas.</p>\n<p>Los almerienses Antonio Castellano Martín (trombón) e Ismael Cabezas Muñoz (tuba) interpretan obras de Gaetano Donizetti, Eugène Bozza, Carlos Marques, Juan J. Poveda Romero y Steven Reineke, un repertorio del siglo XIX a la actualidad que muestra las posibilidades técnicas y expresivas de ambos instrumentos.</p>\n<p>Entrada libre hasta completar aforo.</p>",
+"status": "publish",
+"date_created": "2026-10-05 11:19:23",
+"date_modified": "2026-10-05 11:19:23",
+"featured_media": 102869,
+"permalink": "https://www.turismodealmeria.org/evento/banda-municipal-de-almeria-una-mirada-a-nuestros-solistas-3/",
+"meta": {
+"evcal_srow": "1795953600",
+"evcal_erow": "1795953600",
+"evcal_allday": "no"
+},
+"formatted_dates": {
+"start": "2026-11-29 13:00:00",
+"start_iso": "2026-11-29T13:00:00+01:00",
+"end": "2026-11-29 13:00:00",
+"end_iso": "2026-11-29T13:00:00+01:00"
+},
+"location": [
+{
+"id": 386,
+"name": "Teatro Apolo",
+"slug": "teatro-apolo"
+}
+],
+"organizer": [],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+]
+},
+{
+"id": 102566,
+"title": "El Cascanueces. Ballet Clásico Internacional",
+"content": "<p>El Auditorio Municipal Maestro Padilla acoge el jueves 10 de diciembre a las 20:30 h «El Cascanueces», a cargo del Ballet Clásico Internacional.</p>\n<p>La compañía, una propuesta de Tatiana Solovieva Producciones, lleva 30 años recorriendo España con grandes títulos del ballet clásico y ha sido premiada varias veces por votación popular, en Toledo y en Vigo. Con escenografía de Evgeny Gurenko y bailarines de trayectoria internacional, presenta el cuento navideño por excelencia con la música de Chaikovski.</p>\n<p>Entradas de 27 a 33 € según la zona. <a href=\"https://www.flowte.me/storefront/",
+"status": "publish",
+"date_created": "2026-09-28 17:21:08",
+"date_modified": "2026-09-28 17:21:08",
+"featured_media": 102467,
+"permalink": "https://www.turismodealmeria.org/evento/el-cascanueces-ballet-clasico-internacional/",
+"meta": {
+"evcal_srow": "1796934600",
+"evcal_erow": "1796941800"
+},
+"formatted_dates": {
+"start": "2026-12-10 21:30:00",
+"start_iso": "2026-12-10T21:30:00+01:00",
+"end": "2026-12-10 23:30:00",
+"end_iso": "2026-12-10T23:30:00+01:00"
+},
+"location": [
+{
+"id": 387,
+"name": "Auditorio Municipal Maestro Padilla",
+"slug": "auditorio-municipal-maestro-padilla"
+}
+],
+"organizer": [],
+"event_type": [
+{
+"id": 1345,
+"name": "Cultural",
+"slug": "cultural"
+}
+]
+},
+{
+"id": 96357,
+"title": "Sara Baras Infinita",
+"content": "Disfruta del espectáculo de Sara Baras en el Auditorio Municipal Maestro Padilla en Almería. Un viaje inolvidable de flamenco que tendrá lugar los días 27 y 28 de noviembre.",
+"status": "publish",
+"date_created": "2026-04-27 11:29:01",
+"date_modified": "2026-11-06 09:43:06",
+"featured_media": 96353,
+"permalink": "https://www.turismodealmeria.org/evento/sara-baras-infinita/",
+"meta": {
+"evcal_srow": "1795809600",
+"evcal_erow": "1795903200",
+"evcal_allday": "no"
+},
+"formatted_dates": {
+"start": "2026-11-27 21:00:00",
+"start_iso": "2026-11-27T21:00:00+01:00",
+"end": "2026-11-28 23:00:00",
+"end_iso": "2026-11-28T23:00:00+01:00"
+},
+"location": [
+{
+"id": 387,
+"name": "Auditorio Municipal Maestro Padilla",
+"slug": "auditorio-municipal-maestro-padilla"
+}
+],
+"organizer": [],
+"event_type": []
+},
+{
+"id": 104129,
+"title": "Proyecciones. El día + corto",
+"content": "<p>Ciclo de proyecciones <strong>«El día + corto»</strong> en la Casa del Cine de Almería, con motivo del solsticio de invierno: selección de cortometrajes para todos los públicos.</p><p>Celebrado durante tres días consecutivos, 19, 20 y 21 de diciembre. Horario de referencia de la primera sesión: 18:00h.</p>",
+"status": "publish",
+"date_created": "2026-11-16 11:41:16",
+"date_modified": "2026-11-16 11:41:46",
+"featured_media": 0,
+"permalink": "https://www.turismodealmeria.org/evento/proyecciones-el-dia-corto/",
+"meta": {
+"evcal_srow": "1797699600",
+"evcal_erow": "1797699600"
+},
+"formatted_dates": {
+"start": "2026-12-19 18:00:00",
+"start_iso": "2026-12-19T18:00:00+01:00",
+"end": "2026-12-19 18:00:00",
+"end_iso": "2026-12-19T18:00:00+01:00"
+},
+"location": [
+{
+"id": 1089,
+"name": "Casa del Cine de Almería",
+"slug": "casa-del-cine-de-almeria"
+}
+],
+"organizer": [],
+"event_type": [
+{
+"id": 1349,
+"name": "Cine",
+"slug": "cine"
+}
+]
+}
+],
+"turismoLugares": [
+{
+"id": 387,
+"name": "Auditorio Municipal Maestro Padilla",
+"city": "",
+"latitude": 36.8237027,
+"longitude": -2.444132
+},
+{
+"id": 1547,
+"name": "Berlin Social Club",
+"city": "",
+"latitude": 36.83495888522873,
+"longitude": -2.464916540399097
+},
+{
+"id": 1089,
+"name": "Casa del Cine de Almería",
+"city": "",
+"latitude": 36.851974,
+"longitude": -2.441012
+},
+{
+"id": 1630,
+"name": "Sala ABBA teatro",
+"city": "",
+"latitude": null,
+"longitude": null
+},
+{
+"id": 386,
+"name": "Teatro Apolo",
+"city": "",
+"latitude": 36.8405586,
+"longitude": -2.4640752
+}
+],
+"roquetasMusica": "Próximos eventos en <strong>Música</strong></h2>\n\t\n\t\t\t\t\t\n\t\t<div class=\"row g-5\">\n\t\t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/dia-flamenco-2026-b2.jpg\" alt=\"Día Internacional del Flamenco\" title=\"Día Internacional del Flamenco\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>27 nov 2026, 21:00 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1821/info-actividad\" title=\"Detalle actividad. Día Internacional del Flamenco\">Música: Día Internacional del Flamenco\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/zambomba-flamenca-2026b.jpg\" alt=\"Zambomba Flamenca “Familia y Tradición”\" title=\"Zambomba Flamenca “Familia y Tradición”\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>11 dic 2026, 20:30 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1811/info-actividad\" title=\"Detalle actividad. Zambomba Flamenca “Familia y Tradición”\">Música: Zambomba Flamenca “Familia y Tradición”\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/asi-canta-jerez-2026c.jpg\" alt=\"Así canta Jerez en navidad\" title=\"Así canta Jerez en navidad\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>18 dic 2026, 20:00 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1794/info-actividad\" title=\"Detalle actividad. Así canta Jerez en navidad\">Música: Así canta Jerez en navidad\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/asi-canta-jerez-2026c.jpg\" alt=\"Así canta Jerez en navidad\" title=\"Así canta Jerez en navidad\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>18 dic 2026, 22:30 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1794/info-actividad\" title=\"Detalle actividad. Así canta Jerez en navidad\">Música: Así canta Jerez en navidad\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/1781778753.png\" alt=\"Un viaje por los clásicos del techno pop de los 80-90\" title=\"Un viaje por los clásicos del techno pop de los 80-90\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>15 ene 2027, 20:30 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1795/info-actividad\" title=\"Detalle actividad. Un viaje por los clásicos del techno pop de los 80-90\">Música: Un viaje por los clásicos del techno pop de los 80-90\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/queen-2027.jpg\" alt=\"We Love Queen\" title=\"We Love Queen\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>06 feb 2027, 21:00 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1877/info-actividad\" title=\"Detalle actividad. We Love Queen\">Música: We Love Queen\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/miguel-campello-2027.jpg\" alt=\"Miguel Campello\" title=\"Miguel Campello\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>12 feb 2027, 21:00 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1880/info-actividad\" title=\"Detalle actividad. Miguel Campello\">Música: Miguel Campello, Flamencura\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/fito-2026.jpg\" alt=\"Fito & Fitipaldis\" title=\"Fito & Fitipaldis\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>05 mar 2027, 20:30 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1803/info-actividad\" title=\"Detalle actividad. Fito & Fitipaldis\">Música: Fito & Fitipaldis, Aullidos Tour. Teatros y Auditorios 2026-2027\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/fito-2026.jpg\" alt=\"Fito & Fitipaldis\" title=\"Fito & Fitipaldis\"/></div>\n\t\t\t\t\t\t\t\t<p class=\"date m-0\"><strong>06 mar 2027, 20:30 h</strong></p>\n\t\t\t\t\t\t\t\t<p class=\"lugar m-0\"><strong>Teatro Auditorio</strong></p>\n\t\t\t\t<h3 class=\"titulo m-0\"><a class=\"stretched-link\" href=\"https://farocultural.roquetasdemar.es/actividad/1803/info-actividad\" title=\"Detalle actividad. Fito & Fitipaldis\">Música: Fito & Fitipaldis, Aullidos Tour. Teatros y Auditorios 2026-2027\t\t\t\t</a></h3>\n\t\t\t</div>\n\n\t\t\t\n    \t\t\t<div class=\"col-auto event position-relative\">\n\t\t\t\t<div class=\"mb-3\"><img class=\"img-fluid\" src=\"https://teatroauditorioroquetas.org/uploads/orquesta-",
+"ejidoPortada": "<a href=\"https://cultura.elejido.es/?ai1ec_event=candileja-musicales-para-todos-dumbo-el-musical-domingo-27-de-diciembre-auditorio-18-h\" title=\"Candileja musicales para todos «Dumbo, el musical» &#8211; Domingo 27 de diciembre &#8211; Auditorio, 18 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=ciavieja-en-familia-2026-visita-taller-familiar-con-calamo-y-pergamino-felicitaciones-de-navidad-sabado-5-de-diciembre\" title=\"COMPLETO Ciavieja en familia 2026 &#8211; Visita-taller familiar «Con cálamo y pergamino. Felicitaciones de Navidad»- sábado, 12 de diciembre\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=ciavieja-en-familia-2026-visita-taller-familiar-juegos-en-roma-sabado-21-de-noviembre\" title=\"COMPLETO Ciavieja en familia 2026 &#8211; Visita-taller familiar «Juegos en Roma»- sábado, 21 de noviembre\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=cursos-aula-de-ocio-2026-2027\" title=\"Cursos Aula de ocio 2026-2027\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=david-dominguez-el-raro-de-los-90-las-risas-continuan-domingo-29-de-noviembre-auditorio-1830-h\" title=\"David Dominguez «El raro de los 90, las risas continúan» &#8211; Domingo 29 de noviembre &#8211; Auditorio, 18:30 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=dreaming-bubbles-the-bubble-show-miercoles-30-de-diciembre-auditorio-18-h\" title=\"Dreaming Bubbles «The Bubble Show» &#8211; Miércoles 30 de diciembre &#8211; Auditorio, 18 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=ecos-de-el-ejido-espectaculo-musical-domingo-22-de-noviembre-1800h\" title=\"Ecos de El Ejido &#8211; Espectáculo musical- Domingo 22 de noviembre, 18:00h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=israel-fernandez-de-oro-y-marfil-sabado-23-de-enero-auditorio-2030-h\" title=\"Israel Fernández «De oro y marfil» &#8211; Sábado 23 de enero &#8211; Auditorio, 20:30 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=luis-piedrahita-apocalipticamente-correcto-viernes-11-de-diciembre-auditorio-21-h\" title=\"Luis Piedrahita «Apocalípticamente correcto» &#8211; Viernes 11 de diciembre &#8211; Auditorio, 21 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=medina-azahara-el-musical-viernes-12-de-marzo-auditorio-2030-h\" title=\"Medina Azahara, el musical  &#8211; Viernes 12 de marzo &#8211; Auditorio, 20:30 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=musica-mulhacen-producciones-amor-en-los-80-la-chica-de-ayer-sabado-19-de-diciembre-auditorio-19-h\" title=\"Música &#8211; Mulhacén Producciones «Amor en los 80: La chica de ayer» &#8211; Sábado 19 de diciembre &#8211; Auditorio, 19 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=oscel-concierto-de-ano-nuevo-domingo-3-de-enero-auditorio-1830-h\" title=\"OSCEL Concierto de año nuevo &#8211; Domingo 3 de enero &#8211; Auditorio, 18:30 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=otono-cultural-2026-el-ejido-ciclo-de-cine-mediterraneo-love-me-tender-martes-15-de-diciembre-2030h\" title=\"Otoño Cultural 2026 El Ejido &#8211; Ciclo de cine Mediterráneo &#8211; «Love me tender»- Martes, 15 de diciembre, 20:30h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=otono-cultural-2026-el-ejido-ciclo-de-cine-mediterraneo-tres-adioses-martes-1-de-diciembre-2030h\" title=\"Otoño Cultural 2026 El Ejido &#8211; Ciclo de cine Mediterráneo &#8211; «Tres adioses»- Martes, 1 de diciembre, 20:30h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=otono-cultural-taller-y-cuentacuentos-conmemorativos-del-dia-mundial-del-olivo-sabado-28-de-noviembre\" title=\"COMPLETO Otoño Cultural &#8211; Taller y cuentacuentos conmemorativos del Día Mundial del Olivo &#8211; Sábado 28 de noviembre\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=pentacion-espectaculos-jose-sacristan-el-hijo-de-la-comica-sabado-21-de-noviembre-auditorio-2030-h\" title=\"Pentación Espectáculos &#8211; José Sacristán «El hijo de la cómica» &#8211; Sábado 21 de noviembre &#8211; Auditorio, 20:30 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=petite-lorena-tremenda-sabado-6-de-febrero-auditorio-2030-h\" title=\"Petite Lorena «Tremenda» &#8211; Sábado 6 de febrero &#8211; Auditorio, 20:30 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=talleres-juveniles-2026-2027\" title=\"Talleres Juveniles 2026-2027\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=toni-bright-magia-de-la-mente-creer-es-poder-domingo-20-de-diciembre-auditorio-1830-h\" title=\"Toni Bright, magia de la mente «Creer es poder» &#8211; Domingo 20 de diciembre &#8211; Auditorio, 18:30 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=visitas-guiadas-al-yacimiento-de-ciavieja-de-guia-una-arqueologa-sabado-12-de-septiembre-2\" title=\"Gala especial &#8211; Magia para todos «MagicDuo» &#8211; Sábado 12 de diciembre, 19:00 h\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=visitas-guiadas-al-yacimiento-de-ciavieja-de-guia-una-arqueologa-sabado-28-de-noviembre\" title=\"Visitas guiadas al Yacimiento de Ciavieja &#8211; «De guía una arqueóloga» &#8211; Sábado, 28 de noviembre\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=visitas-guiadas-al-yacimiento-de-ciavieja-de-guia-una-arqueologa-sabado-6-de-diciembre\" title=\"Visitas guiadas al Yacimiento de Ciavieja &#8211; «De guía una arqueóloga» &#8211; Sábado, 5 de diciembre\">\n<a href=\"https://cultura.elejido.es/?ai1ec_event=xxxi-muestra-de-teatro-aficionado-de-la-alpujarra-el-ejido-2026\" title=\"XXXI Muestra de Teatro Aficionado de la Alpujarra El Ejido 2026\">",
+"ejidoFichas": {
+"https://cultura.elejido.es/?ai1ec_event=xxxi-muestra-de-teatro-aficionado-de-la-alpujarra-el-ejido-2026": "<meta property=\"og:title\" content=\"XXXI Muestra de Teatro Aficionado de la Alpujarra El Ejido 2026 (2026-11-07)\"",
+"https://cultura.elejido.es/?ai1ec_event=pentacion-espectaculos-jose-sacristan-el-hijo-de-la-comica-sabado-21-de-noviembre-auditorio-2030-h": "<meta property=\"og:title\" content=\"Pentación Espectáculos - José Sacristán &quot;El hijo de la cómica&quot; - Sábado 21 de noviembre - Auditorio, 20:30 h (2026-11-21)\"",
+"https://cultura.elejido.es/?ai1ec_event=ecos-de-el-ejido-espectaculo-musical-domingo-22-de-noviembre-1800h": "<meta property=\"og:title\" content=\"Ecos de El Ejido - Espectáculo musical- Domingo 22 de noviembre, 18:00h (2026-11-22)\"",
+"https://cultura.elejido.es/?ai1ec_event=otono-cultural-taller-y-cuentacuentos-conmemorativos-del-dia-mundial-del-olivo-sabado-28-de-noviembre": "<meta property=\"og:title\" content=\"COMPLETO Otoño Cultural - Taller y cuentacuentos conmemorativos del Día Mundial del Olivo - Sábado 28 de noviembre (2026-11-28)\"",
+"https://cultura.elejido.es/?ai1ec_event=david-dominguez-el-raro-de-los-90-las-risas-continuan-domingo-29-de-noviembre-auditorio-1830-h": "<meta property=\"og:title\" content=\"David Dominguez &quot;El raro de los 90, las risas continúan&quot; - Domingo 29 de noviembre - Auditorio, 18:30 h (2026-11-29)\"",
+"https://cultura.elejido.es/?ai1ec_event=otono-cultural-2026-el-ejido-ciclo-de-cine-mediterraneo-tres-adioses-martes-1-de-diciembre-2030h": "<meta property=\"og:title\" content=\"Otoño Cultural 2026 El Ejido - Ciclo de cine Mediterráneo - &quot;Tres adioses&quot;- Martes, 1 de diciembre, 20:30h (2026-12-01)\"",
+"https://cultura.elejido.es/?ai1ec_event=luis-piedrahita-apocalipticamente-correcto-viernes-11-de-diciembre-auditorio-21-h": "<meta property=\"og:title\" content=\"Luis Piedrahita &quot;Apocalípticamente correcto&quot; - Viernes 11 de diciembre - Auditorio, 21 h (2026-12-11)\"",
+"https://cultura.elejido.es/?ai1ec_event=visitas-guiadas-al-yacimiento-de-ciavieja-de-guia-una-arqueologa-sabado-12-de-septiembre-2": "<meta property=\"og:title\" content=\"Gala especial - Magia para todos &quot;MagicDuo&quot; - Sábado 12 de diciembre, 19:00 h (2026-12-12)\"",
+"https://cultura.elejido.es/?ai1ec_event=otono-cultural-2026-el-ejido-ciclo-de-cine-mediterraneo-love-me-tender-martes-15-de-diciembre-2030h": "<meta property=\"og:title\" content=\"Otoño Cultural 2026 El Ejido - Ciclo de cine Mediterráneo - &quot;Love me tender&quot;- Martes, 15 de diciembre, 20:30h (2026-12-15)\"",
+"https://cultura.elejido.es/?ai1ec_event=musica-mulhacen-producciones-amor-en-los-80-la-chica-de-ayer-sabado-19-de-diciembre-auditorio-19-h": "<meta property=\"og:title\" content=\"Música - Mulhacén Producciones &quot;Amor en los 80: La chica de ayer&quot; - Sábado 19 de diciembre - Auditorio, 19 h (2026-12-19)\"",
+"https://cultura.elejido.es/?ai1ec_event=toni-bright-magia-de-la-mente-creer-es-poder-domingo-20-de-diciembre-auditorio-1830-h": "<meta property=\"og:title\" content=\"Toni Bright, magia de la mente &quot;Creer es poder&quot; - Domingo 20 de diciembre - Auditorio, 18:30 h (2026-12-20)\"",
+"https://cultura.elejido.es/?ai1ec_event=candileja-musicales-para-todos-dumbo-el-musical-domingo-27-de-diciembre-auditorio-18-h": "<meta property=\"og:title\" content=\"Candileja musicales para todos &quot;Dumbo, el musical&quot; - Domingo 27 de diciembre - Auditorio, 18 h (2026-12-27)\"",
+"https://cultura.elejido.es/?ai1ec_event=dreaming-bubbles-the-bubble-show-miercoles-30-de-diciembre-auditorio-18-h": "<meta property=\"og:title\" content=\"Dreaming Bubbles &quot;The Bubble Show&quot; - Miércoles 30 de diciembre - Auditorio, 18 h (2026-12-30)\"",
+"https://cultura.elejido.es/?ai1ec_event=oscel-concierto-de-ano-nuevo-domingo-3-de-enero-auditorio-1830-h": "<meta property=\"og:title\" content=\"OSCEL Concierto de año nuevo - Domingo 3 de enero - Auditorio, 18:30 h (2027-01-03)\"",
+"https://cultura.elejido.es/?ai1ec_event=israel-fernandez-de-oro-y-marfil-sabado-23-de-enero-auditorio-2030-h": "<meta property=\"og:title\" content=\"Israel Fernández &quot;De oro y marfil&quot; - Sábado 23 de enero - Auditorio, 20:30 h (2027-01-23)\"",
+"https://cultura.elejido.es/?ai1ec_event=petite-lorena-tremenda-sabado-6-de-febrero-auditorio-2030-h": "<meta property=\"og:title\" content=\"Petite Lorena &quot;Tremenda&quot; - Sábado 6 de febrero - Auditorio, 20:30 h (2026-11-04)\"",
+"https://cultura.elejido.es/?ai1ec_event=medina-azahara-el-musical-viernes-12-de-marzo-auditorio-2030-h": "<meta property=\"og:title\" content=\"Medina Azahara, el musical  - Viernes 12 de marzo - Auditorio, 20:30 h (2027-03-12)\""
+},
+"motril": "<div class=\"views-row views-row-4 views-row-even evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-copia-perfecta\">CINE: LA COPIA PERFECTA</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Miércoles, 04 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-5 views-row-odd evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-copia-perfecta-0\">CINE: &quot;LA COPIA PERFECTA&quot;</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Viernes, 06 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-7 views-row-odd evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/samba-do-raiz\">SAMBA DO RAÍZ</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Conciertos</div></div></div><div class=\"field field-name-field-referencia-a-sitio field-type-entityreference field-label-inline clearfix\"><div class=\"field-label\">Sitio:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/patrimonio-y-monumentos/teatro-calderon-barca\">Teatro Calderón de la Barca</a></div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Sábado, 07 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20:00</div></div></div><div class=\"field field-name-field-precio-normal field-type-number-decimal field-label-inline clearfix\"><div class=\"field-label\">Normal:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">9.00€</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p>Samba de raiz Recorre en un repertorio inigualable la tradición popular de samba de raiz , que es el samba que popularmente se ha mantenido y conservado con fuerza en panorama musical de Brasil. Es una selección de composiciones...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-8 views-row-even evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-ultima-ronda-venecia\">CINE: &quot;LA ÚLTIMA RONDA EN VENECIA&quot;</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Martes, 10 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-9 views-row-odd evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-ultima-ronda-venecia-0\">CINE: &quot;LA ÚLTIMA RONDA EN VENECIA&quot;</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Viernes, 13 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-11 views-row-odd evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-camino\">CINE: &quot;EN EL CAMINO&quot;</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Miércoles, 18 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-12 views-row-even evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-camino-0\">CINE: &quot;EN EL CAMINO&quot;</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Viernes, 20 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-14 views-row-even evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/aires-hojas-al-viento\">AIRES, HOJAS AL VIENTO </a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Teatro</div></div></div><div class=\"field field-name-field-referencia-a-sitio field-type-entityreference field-label-inline clearfix\"><div class=\"field-label\">Sitio:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/patrimonio-y-monumentos/teatro-calderon-barca\">Teatro Calderón de la Barca</a></div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Sábado, 21 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20:00</div></div></div><div class=\"field field-name-field-precio-normal field-type-number-decimal field-label-inline clearfix\"><div class=\"field-label\">Normal:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">6.00€</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p>Splinky es un hombrecito preso del demonio de su soledad, que atenúa su tristeza aferrándose a los recuerdos de su pasado que colecciona dentro de un enorme baúl. Vive en el auto engaño de que su antiguo amor sigue existiendo y cada día...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-15 views-row-odd evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-musicos\">CINE: &quot;LOS MÚSICOS&quot;</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Miércoles, 25 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-17 views-row-odd views-row-last evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/cine-musicos-0\">CINE: &quot;LOS MÚSICOS&quot;</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Cine</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Viernes, 27 de Noviembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">20 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Versión original con subtítulos en castellano</p>\n<p style=\"padding: 0px 10px; font-family: Verdana, Tahoma, 'DejaVu Sans', sans-serif;\">Cine Club...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n    </div>\n  \n  \n  \n  \n  \n  \n</div>    </div>\n  \n  \n  \n  \n</div>          </div>\n\n    \n  </div>\n\n    <footer id=\"footer\" class=\"region region-footer\">\n    <div id=\"block-menu-menu-footer-menu\" class=\"block block-menu first odd\" role=\"navigation\">\n\n      \n  <ul class=\"menu\"><li class=\"menu__item is-leaf first leaf\"><a href=\"/es/creditos\" title=\"\" class=\"menu__link\">Créditos</a></li>\n<li class=\"menu__item is-leaf leaf\"><a href=\"/es/telefonos-interes\" title=\"\" class=\"menu__link\">Teléfonos de interés</a></li>\n<li class=\"menu__item is-leaf leaf\"><a href=\"/es/politica-privacidad-y-condiciones-uso\" title=\"\" class=\"menu__link\">Política de privacidad</a></li>\n<li class=\"menu__item is-leaf last leaf\"><a href=\"/es/oficina-turismo\" title=\"\" class=\"menu__link\">Aviso legal</a></li>\n</ul>\n</div>\n<div id=\"block-social-links-social-links\" class=\"block block-social-links even\">\n\n        <h2 class=\"block__title block-title\"> </h2>\n    \n  <ul><li> <a href=\"http://facebook.com/MotrilTurismo\"><i class=\"icon-facebook\"></i></a></li><li> <a href=\"http://twitter.com/MotrilTurismo\"><i class=\"icon-twitter\"></i></a></li><li> <a href=\"http://instagram.com/MotrilTurismo\"><i class=\"icon-instagram\"></i></a></li>\n</div>\n<div id=\"block-copyright-block-copyright-block\" class=\"block block-copyright-block last odd\">\n\n      \n  Copyright &copy; 2015-2026. Todos los derechos reservados. Diseñado por <a class=\"copyright-link\" href=\"http://alzago.com\">Alzago</a>.\n</div>\n  </footer>\n\n</div>\n\n  <script>function euCookieComplianceLoadScripts() {}</script>\n<script>var eu_cookie_compliance_cookie_name = \"\";</script>\n<script src=\"https://motrilturismo.com/sites/all/modules/contrib/eu_cookie_compliance/js/eu_cookie_compliance.js?tovsf2\"></script>\n</body>\n</html>\n<!DOCTYPE html>\n<!--[if IEMobile 7]><html class=\"iem7\"  lang=\"es\" dir=\"ltr\"><![endif]-->\n<!--[if lte IE 6]><html class=\"lt-ie9 lt-ie8 lt-ie7\"  lang=\"es\" dir=\"ltr\"><![endif]-->\n<!--[if (IE 7)&(!IEMobile)]><html class=\"lt-ie9 lt-ie8\"  lang=\"es\" dir=\"ltr\"><![endif]-->\n<!--[if IE 8]><html class=\"lt-ie9\"  lang=\"es\" dir=\"ltr\"><![endif]-->\n<!--[if (gte IE 9)|(gt IEMobile 7)]><!--><html  lang=\"es\" dir=\"ltr\" prefix=\"og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product#\"><!--<![endif]-->\n\n<head>\n  <meta charset=\"utf-8\" />\n<link rel=\"shortcut icon\" href=\"https://motrilturismo.com/sites/default/files/favicon.png\" type=\"image/png\" />\n<meta name=\"generator\" content=\"Drupal 7 (http://drupal.org)\" />\n<link rel=\"canonical\" href=\"https://motrilturismo.com/es/agenda/2026-12\" />\n<link rel=\"shortlink\" href=\"https://motrilturismo.com/es/agenda/2026-12\" />\n<meta property=\"og:site_name\" content=\"https://motrilturismo.com\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:url\" content=\"https://motrilturismo.com/es/agenda/2026-12\" />\n<meta property=\"og:title\" content=\"Agenda\" />\n<meta name=\"twitter:card\" content=\"summary\" />\n<meta name=\"twitter:url\" content=\"https://motrilturismo.com/es/agenda/2026-12\" />\n<meta name=\"twitter:title\" content=\"Agenda\" />\n<meta itemprop=\"name\" content=\"Agenda\" />\n<meta name=\"dcterms.title\" content=\"Agenda\" />\n<meta name=\"dcterms.type\" content=\"Text\" />\n<meta name=\"dcterms.format\" content=\"text/html\" />\n<meta name=\"dcterms.identifier\" content=\"https://motrilturismo.com/es/agenda/2026-12\" />\n  <title>Agenda | https://motrilturismo.com</title>\n\n      <meta name=\"MobileOptimized\" content=\"width\">\n    <meta name=\"HandheldFriendly\" content=\"true\">\n    <meta name=\"viewport\" content=\"width=device-width\">\n    <meta http-equiv=\"cleartype\" content=\"on\">\n\n  <style>\n@import url(\"https://motrilturismo.com/modules/system/system.base.css?tovsf2\");\n</style>\n<style>\n@import url(\"https://motrilturismo.com/sites/all/modules/contrib/jquery_update/replace/ui/themes/base/minified/jquery.ui.core.min.css?tovsf2\");\n@import url(\"https://motrilturismo.com/sites/all/modules/contrib/jquery_update/replace/ui/themes/base/minified/jquery.ui.theme.min.css?tovsf2\");\n@import url(\"https://motrilturismo.com/sites/all/modules/contrib/jquery_update/replace/ui/themes/base/minified/jquery.ui.datepicker.min.css?tovsf2\");\n@import url(\"https://motrilturismo.com/sites/all/modules/contrib/date/date_popup/themes/jquery.timeentry.css?tovsf2\");\n@import url(\"https://motrilturismo.com/sites/all/<div class=\"views-row views-row-2 views-row-even evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/motril-y-su-arte-0\">MOTRIL Y SU ARTE</a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Actividades</div></div></div><div class=\"field field-name-field-referencia-a-sitio field-type-entityreference field-label-inline clearfix\"><div class=\"field-label\">Sitio:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/patrimonio-y-monumentos/teatro-calderon-barca\">Teatro Calderón de la Barca</a></div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">De <span class=\"date-display-start\">Viernes, 11 de Diciembre, 2026</span> hasta <span class=\"date-display-end\">Sábado, 12 de Diciembre, 2026</span></div></div></div><div class=\"field field-name-field-precio-normal field-type-number-decimal field-label-inline clearfix\"><div class=\"field-label\">Normal:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">8.00€</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p>VIERNES, DÍA 11</p>\n<p>20:30 H</p>\n<p>Asociación Aguaviva</p>\n<p>Asociación de San Antonio</p>\n<p>Escuela Flamenca «Mercedes Martín»</p>\n<p>Punta y Tacón</p>\n<p> </p>\n<p>SÁBADO, DÍA 12</p>\n<p>17:30 H</p>\n<p>Campanilla Dance</p>\n<p>Dance...</p></div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n  <div class=\"views-row views-row-4 views-row-even views-row-last evento\">\n    <div class=\"node node-evento node-teaser view-mode-teaser pagina-basica clearfix\">\n        <div class=\"ds-zona ds-zona1 \">\n      <div class=\"field field-name-title-field field-type-text field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><a href=\"/es/agenda/navidas-flamenca-motril-al-son-las-ninas\">NAVIDAS FLAMENCA EN MOTRIL - AL SON DE LAS NIÑAS </a></div></div></div>    </div>\n      \n      <div class=\"ds-zona ds-zona3 \">\n      <div class=\"field field-name-field-evento-etiquetas field-type-taxonomy-term-reference field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\">Conciertos</div></div></div><div class=\"field field-name-field-horario-fecha field-type-datestamp field-label-inline clearfix\"><div class=\"field-label\">Fecha:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\"><span class=\"date-display-single\">Sábado, 12 de Diciembre, 2026</span></div></div></div><div class=\"field field-name-field-horario-horario field-type-text-long field-label-inline clearfix\"><div class=\"field-label\">Horario:&nbsp;</div><div class=\"field-items\"><div class=\"field-item even\">21 h</div></div></div><div class=\"field field-name-body field-type-text-with-summary field-label-hidden\"><div class=\"field-items\"><div class=\"field-item even\"><p>En la Plaza de España</p>\n</div></div></div>    </div>\n      \n      \n  </div>\n  </div>\n    </div>\n  \n  \n  \n  \n  \n  \n</div>    </div>\n  \n  \n  \n  \n</div>          </div>\n\n    \n  </div>\n\n    <footer id=\"footer\" class=\"region region-footer\">\n    <div id=\"block-menu-menu-footer-menu\" class=\"block block-menu first odd\" role=\"navigation\">\n\n      \n  <ul class=\"menu\"><li class=\"menu__item is-leaf first leaf\"><a href=\"/es/creditos\" title=\"\" class=\"menu__link\">Créditos</a></li>\n<li class=\"menu__item is-leaf leaf\"><a href=\"/es/telefonos-interes\" title=\"\" class=\"menu__link\">Teléfonos de interés</a></li>\n<li class=\"menu__item is-leaf leaf\"><a href=\"/es/politica-privacidad-y-condiciones-uso\" title=\"\" class=\"menu__link\">Política de privacidad</a></li>\n<li class=\"menu__item is-leaf last leaf\"><a href=\"/es/oficina-turismo\" title=\"\" class=\"menu__link\">Aviso legal</a></li>\n</ul>\n</div>\n<div id=\"block-social-links-social-links\" class=\"block block-social-links even\">\n\n        <h2 class=\"block__title block-title\"> </h2>\n    \n  <ul><li> <a href=\"http://facebook.com/MotrilTurismo\"><i class=\"icon-facebook\"></i></a></li><li> <a href=\"http://twitter.com/MotrilTurismo\"><i class=\"icon-twitter\"></i></a></li><li> <a href=\"http://instagram.com/MotrilTurismo\"><i class=\"icon-instagram\"></i></a></li>\n</div>\n<div id=\"block-copyright-block-copyright-block\" class=\"block block-copyright-block last odd\">\n\n      \n  Copyright &copy; 2015-2026. Todos los derechos reservados. Diseñado por <a class=\"copyright-link\" href=\"http://alzago.com\">Alzago</a>.\n</div>\n  </footer>\n\n</div>\n\n  <script>function euCookieComplianceLoadScripts() {}</script>\n<script>var eu_cookie_compliance_cookie_name = \"\";</script>\n<script src=\"https://motrilturismo.com/sites/all/modules/contrib/eu_cookie_compliance/js/eu_cookie_compliance.js?tovsf2\"></script>\n</body>\n</html>\n"
+}

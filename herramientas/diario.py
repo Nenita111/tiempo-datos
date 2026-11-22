@@ -44,6 +44,8 @@ PASOS = [   # nombre, script, tiempo máximo (s); todos reciben extras.json
     ("estafas", "incibe.py", 120),
     # 21 nov 2026: las sesiones de hoy del Ocine Copo de El Ejido (Sensacine)
     ("cine", "cine.py", 60),
+    # 22 nov 2026: conciertos y espectáculos de Motril a Almería capital (Turismo de Almería, Roquetas, El Ejido y Motril; unos 2 minutos)
+    ("espectaculos", "espectaculos.py", 300),
     # 15 nov 2026: el próximo puente (calendario laboral de la Junta); sus vuelos los busca la tarea una vez a la semana («toca».puente)
     ("puente", "puente.py", 120),
     ("sequia", "sequia.py", 900),

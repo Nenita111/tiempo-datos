@@ -101,7 +101,9 @@ def pedir_turismo_almeria(pedir, dormir):
 
 
 # ---- Motril Turismo
-def motril(pag, hoy):
+def motril_filas(pag):
+    """Cada evento de una página de la agenda de Motril Turismo: {titulo, dias: [fecha, …], precio, gratis, tipo (sus etiquetas), hora,
+    lugar, enlace}, tal cual (también para espectaculos.py)."""
     def campo(b, nombre):
         m = re.search(r"field-name-" + nombre + r'[^"]*">(.*?)</div></div></div>', b, re.S)
         return texto(re.sub(r'<div class="field-label">.*?</div>', "", m.group(1), flags=re.S)) if m else ""
@@ -115,9 +117,16 @@ def motril(pag, hoy):
         if not ds: continue
         precio = campo(b, "field-precio-normal")
         gratis = True if LIBRE.search(precio) or re.fullmatch(r"0(?:[.,]00?)?\s*€?", precio or "x") else None
-        p = plan(titular(texto(a.group(2))), ds[0], ds[-1], hoy, gratis=gratis, tipo=campo(b, "field-evento-etiquetas"),
-                 hora=campo(b, "field-horario-horario")[:40], lugar=campo(b, "field-referencia-a-sitio"), municipio="Motril",
-                 precio="" if gratis else precio[:20], enlace=MOTRIL + a.group(1), fuente="Motril Turismo")
+        res.append({"titulo": titular(texto(a.group(2))), "dias": ds, "precio": precio, "gratis": gratis, "tipo": campo(b, "field-evento-etiquetas"),
+                    "hora": campo(b, "field-horario-horario")[:40], "lugar": campo(b, "field-referencia-a-sitio"), "enlace": MOTRIL + a.group(1)})
+    return res
+
+
+def motril(pag, hoy):
+    res = []
+    for f in motril_filas(pag):
+        p = plan(f["titulo"], f["dias"][0], f["dias"][-1], hoy, gratis=f["gratis"], tipo=f["tipo"], hora=f["hora"], lugar=f["lugar"],
+                 municipio="Motril", precio="" if f["gratis"] else f["precio"][:20], enlace=f["enlace"], fuente="Motril Turismo")
         if p: res.append(p)
     return res
 

@@ -152,6 +152,12 @@ y los carteles del buzón de capturas. Nunca redes sociales ni saltarse robots.t
 `python3 herramientas/sangre.py extras.json --fecha AAAA-MM-DD --horario HH:MM-HH:MM [--horario …] --lugar … --enlace … --fuente …`.
 Sin argumentos, solo quita las que ya pasaron (lo hace la tarea diaria).
 
+## 2i. Conciertos y espectáculos (pantalla «Conciertos y espectáculos», 22 nov 2026)
+
+Lo hace solo la tarea diaria (`espectaculos.py`, sin búsquedas web ni Jev): conciertos, flamenco, teatro, danza, musicales, humor y
+magia de los próximos 60 días de Turismo de Almería, el Faro Cultural de Roquetas, Cultura de El Ejido y Motril Turismo (10 s entre
+sus páginas). Lo de una fuente que falla se deja como estaba. Lo de Adra sale de la agenda del pueblo (2c).
+
 ## 3. Revisión de las fuentes de la app
 
 `python3 herramientas/revisar_fuentes.py --json revision.json`: pide cada fuente como la app y comprueba la marca

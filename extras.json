@@ -312,7 +312,7 @@
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
  "sorteosBuscado": "2026-11-22",
- "actualizado": "2026-11-22T06:13+01:00",
+ "actualizado": "2026-11-22T19:28+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -6234,5 +6234,684 @@
   ],
   "fuente": "Sensacine",
   "enlace": "https://www.sensacine.com/cines/cine/E2899/"
+ },
+ "espectaculos": {
+  "lista": [
+   {
+    "titulo": "Ecos de El Ejido",
+    "fecha": "2026-11-22",
+    "tipo": "Espectáculo",
+    "hora": "18:00",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=ecos-de-el-ejido-espectaculo-musical-domingo-22-de-noviembre-1800h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "Stand Up Comedy: Dani Alés - Tabú",
+    "fecha": "2026-11-22",
+    "tipo": "Humor",
+    "hora": "19:00",
+    "lugar": "Calle tirso de molina 30",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/stand-up-comedy-dani-ales-tabu/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Pinky, La magia tiene nombre propio",
+    "fecha": "2026-11-26",
+    "tipo": "Magia",
+    "hora": "18:00",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1846/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Tres piezas. Ciclo Delicatessen otoño 2026",
+    "fecha": "2026-11-26",
+    "tipo": "Espectáculo",
+    "hora": "20:30",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "precio": "14 €",
+    "enlace": "https://www.turismodealmeria.org/evento/tres-piezas-ciclo-delicatessen-otono-2026/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Sara Baras Infinita",
+    "fecha": "2026-11-27",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/sara-baras-infinita/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Me ofendes: Noviembre. Polar",
+    "fecha": "2026-11-27",
+    "tipo": "Espectáculo",
+    "hora": "20:30",
+    "lugar": "Cervecería el Zaguán",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/me-ofendes-noviembre-polar/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Día Internacional del Flamenco",
+    "fecha": "2026-11-27",
+    "tipo": "Flamenco",
+    "hora": "21:00",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1821/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Piratas de la Mar Salada",
+    "fecha": "2026-11-28",
+    "tipo": "Espectáculo",
+    "hora": "17:00",
+    "lugar": "Sala ABBA teatro",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/piratas-de-la-mar-salada/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Tablao Flamenco La Canastera",
+    "fecha": "2026-11-28",
+    "tipo": "Flamenco",
+    "hora": "19:00",
+    "lugar": "La Canastera - Tablao flamenco",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/tablao-flamenco-la-canastera-8/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Candilena: Al fin y al Cabo de Gata",
+    "fecha": "2026-11-28",
+    "tipo": "Espectáculo",
+    "hora": "20:30",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "precio": "15 €",
+    "enlace": "https://www.turismodealmeria.org/evento/candilena-al-fin-y-al-cabo-de-gata/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "53 Domingos",
+    "fecha": "2026-11-28",
+    "tipo": "Teatro",
+    "hora": "21:00",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1810/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Concierto: Nixon en Almería",
+    "fecha": "2026-11-28",
+    "tipo": "Concierto",
+    "hora": "21:30",
+    "lugar": "Berlin Social Club",
+    "municipio": "Almería",
+    "precio": "19,80 €",
+    "enlace": "https://www.turismodealmeria.org/evento/concierto-nixon-en-almeria/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Banda Municipal de Almería: Una mirada a nuestros solistas (3)",
+    "fecha": "2026-11-29",
+    "tipo": "Concierto",
+    "hora": "12:00",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/banda-municipal-de-almeria-una-mirada-a-nuestros-solistas-3/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "David Dominguez «El raro de los 90, las risas continúan»",
+    "fecha": "2026-11-29",
+    "tipo": "Humor",
+    "hora": "18:30",
+    "lugar": "Auditorio de El Ejido",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=david-dominguez-el-raro-de-los-90-las-risas-continuan-domingo-29-de-noviembre-auditorio-1830-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "OCAL: «Titán». Mahler, 1ª Sinfonía",
+    "fecha": "2026-11-29",
+    "tipo": "Concierto",
+    "hora": "19:00",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/ocal-titan-mahler-1a-sinfonia/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Teatro Solidario: “Un Mundo Ideal”, A cargo de los alumnos de La Escuela Municipal de Teatro.",
+    "fecha": "2026-12-04",
+    "tipo": "Teatro",
+    "hora": "21:00",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1819/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Antonio Gómez Quartet",
+    "fecha": "2026-12-04",
+    "tipo": "Espectáculo",
+    "hora": "22:00",
+    "lugar": "Clasijazz",
+    "municipio": "Almería",
+    "precio": "15 €",
+    "enlace": "https://www.turismodealmeria.org/evento/antonio-gomez-quartet/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Monólogos con Labordeta y Kikín",
+    "fecha": "2026-12-05",
+    "tipo": "Humor",
+    "hora": "20:00",
+    "lugar": "Sala emma",
+    "municipio": "Almería",
+    "precio": "12 €",
+    "enlace": "https://www.turismodealmeria.org/evento/monologos-con-labordeta-y-kikin/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Twilight + Satürno en Dragonfly Rock Café",
+    "fecha": "2026-12-05",
+    "tipo": "Concierto",
+    "hora": "21:30",
+    "lugar": "Dragonfly Rock Café",
+    "municipio": "Almería",
+    "precio": "6 €",
+    "enlace": "https://www.turismodealmeria.org/evento/twilight-saturno-en-dragonfly-rock-cafe/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Ópera: L’elisir d’amore",
+    "fecha": "2026-12-06",
+    "tipo": "Concierto",
+    "hora": "19:00",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "30 €",
+    "enlace": "https://www.turismodealmeria.org/evento/opera-lelisir-damore/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Zambomba Flamenca - 7 de diciembre",
+    "fecha": "2026-12-07",
+    "tipo": "Flamenco",
+    "hora": "17:00",
+    "lugar": "Berlin Social Club",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/zambomba-flamenca-7-de-diciembre/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "«El cielo puede esperar», en el Teatro Apolo",
+    "fecha": "2026-12-09",
+    "tipo": "Teatro",
+    "hora": "19:30",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "precio": "10 euros",
+    "enlace": "https://www.turismodealmeria.org/evento/el-cielo-puede-esperar-en-el-teatro-apolo/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "El cielo puede esperar: Gata Teatro",
+    "fecha": "2026-12-09",
+    "tipo": "Teatro",
+    "hora": "20:30",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "precio": "10 €",
+    "enlace": "https://www.turismodealmeria.org/evento/el-cielo-puede-esperar-gata-teatro/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "El Cascanueces. Ballet Clásico Internacional",
+    "fecha": "2026-12-10",
+    "tipo": "Danza",
+    "hora": "20:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "33 €",
+    "enlace": "https://www.turismodealmeria.org/evento/el-cascanueces-ballet-clasico-internacional/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Amor Eterno",
+    "fecha": "2026-12-11",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "lugar": "Escuela de Teatro y Cine ARTENVACÍO",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/amor-eterno/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Ara Malikian - Intruso",
+    "fecha": "2026-12-11",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/ara-malikian-intruso/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Eva Jesús: Concierto de Navidad",
+    "fecha": "2026-12-11",
+    "tipo": "Concierto",
+    "hora": "20:30",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "precio": "18 €",
+    "enlace": "https://www.turismodealmeria.org/evento/eva-jesus-concierto-de-navidad/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Zambomba Flamenca “Familia y Tradición”",
+    "fecha": "2026-12-11",
+    "tipo": "Flamenco",
+    "hora": "20:30",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1811/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Luis Piedrahita «Apocalípticamente correcto»",
+    "fecha": "2026-12-11",
+    "tipo": "Espectáculo",
+    "hora": "21:00",
+    "lugar": "Auditorio de El Ejido",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=luis-piedrahita-apocalipticamente-correcto-viernes-11-de-diciembre-auditorio-21-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "Chanqueños pa Belén en familia",
+    "fecha": "2026-12-12",
+    "tipo": "Espectáculo",
+    "hora": "18:00",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/chanquenos-pa-belen-en-familia/",
+    "fuente": "Turismo de Almería",
+    "infantil": true
+   },
+   {
+    "titulo": "Evolución: Música Electrónica Sin Límites",
+    "fecha": "2026-12-12",
+    "tipo": "Concierto",
+    "hora": "18:00",
+    "lugar": "Port of Spain",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/evolucion-musica-electronica-sin-limites-2/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Magia para todos «MagicDuo»",
+    "fecha": "2026-12-12",
+    "tipo": "Magia",
+    "hora": "19:00",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=visitas-guiadas-al-yacimiento-de-ciavieja-de-guia-una-arqueologa-sabado-12-de-septiembre-2",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "Cómicos fin de año",
+    "fecha": "2026-12-12",
+    "tipo": "Humor",
+    "hora": "21:00",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1807/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Navidas flamenca en motril - al son de las niñas",
+    "fecha": "2026-12-12",
+    "tipo": "Flamenco",
+    "hora": "21:00",
+    "municipio": "Motril",
+    "enlace": "https://motrilturismo.com/es/agenda/navidas-flamenca-motril-al-son-las-ninas",
+    "fuente": "Motril Turismo"
+   },
+   {
+    "titulo": "Coro Gospel Clasijazz: Concierto de Navidad",
+    "fecha": "2026-12-15",
+    "tipo": "Concierto",
+    "hora": "20:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "10 €",
+    "enlace": "https://www.turismodealmeria.org/evento/coro-gospel-clasijazz-concierto-de-navidad/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Así canta Jerez en navidad",
+    "fecha": "2026-12-18",
+    "tipo": "Concierto",
+    "hora": "20:00 y 22:30",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1794/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Línea 16",
+    "fecha": "2026-12-18",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "lugar": "Escuela de Teatro y Cine ARTENVACÍO",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/linea-16/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Víctor Manuel: Solo a solas conmigo",
+    "fecha": "2026-12-18",
+    "tipo": "Espectáculo",
+    "hora": "20:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "60 €",
+    "enlace": "https://www.turismodealmeria.org/evento/victor-manuel-solo-a-solas-conmigo/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Un viaje encantador",
+    "fecha": "2026-12-19",
+    "tipo": "Espectáculo",
+    "hora": "17:00",
+    "lugar": "Sala ABBA teatro",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/un-viaje-encantador/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "COCO, el musical",
+    "fecha": "2026-12-19",
+    "tipo": "Musical",
+    "hora": "18:00",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1804/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Mulhacén Producciones «Amor en los 80: La chica de ayer»",
+    "fecha": "2026-12-19",
+    "tipo": "Concierto",
+    "hora": "19:00",
+    "lugar": "Auditorio de El Ejido",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=musica-mulhacen-producciones-amor-en-los-80-la-chica-de-ayer-sabado-19-de-diciembre-auditorio-19-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "El Banco con Orgullo",
+    "fecha": "2026-12-20",
+    "tipo": "Espectáculo",
+    "hora": "18:00",
+    "lugar": "Sala emma",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/el-banco-con-orgullo/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Toni Bright, magia de la mente «Creer es poder»",
+    "fecha": "2026-12-20",
+    "tipo": "Magia",
+    "hora": "18:30",
+    "lugar": "Auditorio de El Ejido",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=toni-bright-magia-de-la-mente-creer-es-poder-domingo-20-de-diciembre-auditorio-1830-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "Concierto Especial de Navidad «Raíz», de la Agrupación Musical San Indalecio",
+    "fecha": "2026-12-21",
+    "tipo": "Concierto",
+    "hora": "19:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "10 euros",
+    "enlace": "https://www.turismodealmeria.org/evento/concierto-especial-de-navidad-raiz-de-la-agrupacion-musical-san-indalecio/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Zambomba Flamenca - 22 de diciembre",
+    "fecha": "2026-12-22",
+    "tipo": "Flamenco",
+    "hora": "18:00",
+    "lugar": "Berlin Social Club",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/zambomba-flamenca-22-de-diciembre/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Sala Sol, 2ª edición: El último baile",
+    "fecha": "2026-12-26",
+    "tipo": "Danza",
+    "hora": "17:00",
+    "lugar": "Berlin Social Club",
+    "municipio": "Almería",
+    "precio": "25 €",
+    "enlace": "https://www.turismodealmeria.org/evento/sala-sol-2a-edicion-el-ultimo-baile/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Las Guerreras K-Pop, El musical",
+    "fecha": "2026-12-26",
+    "tipo": "Musical",
+    "hora": "17:30",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1805/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Diego El Cigala: Aurora",
+    "fecha": "2026-12-26",
+    "tipo": "Espectáculo",
+    "hora": "20:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "70 €",
+    "enlace": "https://www.turismodealmeria.org/evento/diego-el-cigala-aurora/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Cantajuego: Yo quiero ser",
+    "fecha": "2026-12-27",
+    "tipo": "Espectáculo",
+    "hora": "12:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "28 €",
+    "enlace": "https://www.turismodealmeria.org/evento/cantajuego-yo-quiero-ser/",
+    "fuente": "Turismo de Almería",
+    "infantil": true
+   },
+   {
+    "titulo": "Candileja musicales para todos «Dumbo, el musical»",
+    "fecha": "2026-12-27",
+    "tipo": "Musical",
+    "hora": "18:00",
+    "lugar": "Auditorio de El Ejido",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=candileja-musicales-para-todos-dumbo-el-musical-domingo-27-de-diciembre-auditorio-18-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "El lago de los cisnes. Ballet Clásico Internacional",
+    "fecha": "2026-12-28",
+    "tipo": "Danza",
+    "hora": "20:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "33 €",
+    "enlace": "https://www.turismodealmeria.org/evento/el-lago-de-los-cisnes-ballet-clasico-internacional/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Teatros infantiles en las plazas",
+    "fecha": "2026-12-29",
+    "tipo": "Teatro",
+    "hora": "12:00",
+    "lugar": "Aguadulce",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1857/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar",
+    "infantil": true
+   },
+   {
+    "titulo": "Concierto de Navidad del Grupo Almenara",
+    "fecha": "2026-12-29",
+    "tipo": "Concierto",
+    "hora": "20:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "15 €",
+    "enlace": "https://www.turismodealmeria.org/evento/concierto-de-navidad-del-grupo-almenara/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Teatros infantiles en las plazas",
+    "fecha": "2026-12-30",
+    "tipo": "Teatro",
+    "hora": "12:00",
+    "lugar": "Anfiteatro",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1858/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar",
+    "infantil": true
+   },
+   {
+    "titulo": "Dreaming Bubbles «The Bubble Show»",
+    "fecha": "2026-12-30",
+    "tipo": "Espectáculo",
+    "hora": "18:00",
+    "lugar": "Auditorio de El Ejido",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=dreaming-bubbles-the-bubble-show-miercoles-30-de-diciembre-auditorio-18-h",
+    "fuente": "Ayuntamiento de El Ejido",
+    "infantil": true
+   },
+   {
+    "titulo": "Cómicos Fin de Año 2026",
+    "fecha": "2026-12-30",
+    "tipo": "Humor",
+    "hora": "19:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "20 euros",
+    "enlace": "https://www.turismodealmeria.org/evento/comicos-fin-de-ano-2026/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Alejandra López y Claudia del Moreno",
+    "fecha": "2027-01-02",
+    "tipo": "Espectáculo",
+    "hora": "22:00",
+    "lugar": "Clasijazz",
+    "municipio": "Almería",
+    "precio": "40 €",
+    "enlace": "https://www.turismodealmeria.org/evento/alejandra-lopez-y-claudia-del-moreno/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "OSCEL Concierto de año nuevo",
+    "fecha": "2027-01-03",
+    "tipo": "Concierto",
+    "hora": "18:30",
+    "lugar": "Auditorio de El Ejido",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=oscel-concierto-de-ano-nuevo-domingo-3-de-enero-auditorio-1830-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "El rollo de siempre: tributo a Platero y Extremoduro",
+    "fecha": "2027-01-09",
+    "tipo": "Concierto",
+    "hora": "19:30",
+    "lugar": "Berlin Social Club",
+    "municipio": "Almería",
+    "precio": "17,60 €",
+    "enlace": "https://www.turismodealmeria.org/evento/el-rollo-de-siempre-tributo-a-platero-y-extremoduro/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Forever: The best show about the King of Pop",
+    "fecha": "2027-01-09",
+    "tipo": "Espectáculo",
+    "hora": "20:30",
+    "lugar": "Auditorio Municipal Maestro Padilla",
+    "municipio": "Almería",
+    "precio": "50 €",
+    "enlace": "https://www.turismodealmeria.org/evento/forever-the-best-show-about-the-king-of-pop/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Panorama desde el puente",
+    "fecha": "2027-01-09",
+    "tipo": "Teatro",
+    "hora": "21:00",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1879/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Un viaje por los clásicos del techno pop de los 80-90",
+    "fecha": "2027-01-15",
+    "tipo": "Concierto",
+    "hora": "20:30",
+    "lugar": "Teatro Auditorio de Roquetas",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1795/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
+   },
+   {
+    "titulo": "Siempre Serrat: tributo al maestro en la Sala EMMA",
+    "fecha": "2027-01-16",
+    "tipo": "Concierto",
+    "hora": "20:00",
+    "lugar": "Sala emma",
+    "municipio": "Almería",
+    "precio": "15 €",
+    "enlace": "https://www.turismodealmeria.org/evento/siempre-serrat-tributo-sala-emma/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Stand up comedy Artenvacío: Manolo Lera, «Pocas luces»",
+    "fecha": "2027-01-16",
+    "tipo": "Humor",
+    "hora": "20:00",
+    "lugar": "Escuela de Teatro y Cine ARTENVACÍO",
+    "municipio": "Almería",
+    "precio": "12 €",
+    "enlace": "https://www.turismodealmeria.org/evento/stand-up-comedy-artenvacio-manolo-lera-pocas-luces/",
+    "fuente": "Turismo de Almería"
+   }
+  ],
+  "fuentes": [
+   "Ayuntamiento de El Ejido",
+   "Ayuntamiento de Roquetas de Mar",
+   "Motril Turismo",
+   "Turismo de Almería"
+  ],
+  "dia": "2026-11-22"
  }
 }
