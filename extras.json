@@ -68,57 +68,58 @@
    "vuelos": [
     {
      "destino": "Madrid",
-     "ida": "2026-12-25",
-     "vuelta": "2026-12-30",
+     "ida": "2026-12-14",
+     "vuelta": "2026-12-16",
      "precio": 91,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/q4zj2mmw79"
+     "enlace": "https://kiwi.com/u/yk4bxhrup9"
     },
     {
      "destino": "Liverpool",
-     "ida": "2026-11-24",
-     "vuelta": "2026-11-28",
-     "precio": 101,
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-15",
+     "precio": 97,
      "compania": "easyJet",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/m9nfugwxwv"
+     "enlace": "https://kiwi.com/u/jp7ggpq8rh"
     },
     {
      "destino": "Sevilla",
-     "ida": "2026-12-21",
-     "vuelta": "2026-12-25",
-     "precio": 107,
+     "ida": "2026-12-15",
+     "vuelta": "2026-12-17",
+     "precio": 112,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/u3qycymxhz"
+     "enlace": "https://kiwi.com/u/hbwxksyvbj"
     },
     {
      "destino": "Bucarest",
-     "ida": "2026-11-27",
-     "vuelta": "2026-11-30",
-     "precio": 121,
+     "ida": "2026-12-14",
+     "vuelta": "2026-12-18",
+     "precio": 126,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7fzbbrsszm"
-    },
-    {
-     "destino": "Melilla",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-15",
-     "precio": 130,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/y2d8jskzh2"
+     "enlace": "https://kiwi.com/u/c8y768ytjq"
     },
     {
      "destino": "Barcelona",
      "ida": "2026-12-06",
      "vuelta": "2026-12-11",
-     "precio": 131,
+     "precio": 132,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/vcngputggw"
+     "enlace": "https://kiwi.com/u/5umzywrm84"
+    },
+    {
+     "destino": "Londres",
+     "ida": "2026-12-28",
+     "vuelta": "2027-01-02",
+     "precio": 134,
+     "compania": "easyJet",
+     "escalas": "directo",
+     "nota": "Gatwick",
+     "enlace": "https://kiwi.com/u/kyq692276s"
     }
    ]
   },
@@ -127,49 +128,31 @@
    "codigo": "GRX",
    "vuelos": [
     {
-     "destino": "Santander",
-     "ida": "2026-12-18",
-     "vuelta": "2026-12-21",
-     "precio": 56,
-     "compania": "Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/z4dwur4tk3"
-    },
-    {
-     "destino": "Madrid",
-     "ida": "2026-12-24",
-     "vuelta": "2026-12-29",
-     "precio": 59,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/3whky295ms"
-    },
-    {
      "destino": "Oporto",
      "ida": "2026-12-13",
      "vuelta": "2026-12-17",
      "precio": 64,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/33kgn7rq4k"
+     "enlace": "https://kiwi.com/u/wbut6294yn"
     },
     {
-     "destino": "Nantes",
-     "ida": "2026-12-13",
-     "vuelta": "2026-12-17",
+     "destino": "Santander",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-14",
      "precio": 64,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/2yd3n8ps8w"
+     "enlace": "https://kiwi.com/u/v2hdsdmwq3"
     },
     {
      "destino": "Asturias",
-     "ida": "2026-12-21",
-     "vuelta": "2026-12-25",
+     "ida": "2026-12-25",
+     "vuelta": "2026-12-30",
      "precio": 66,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/pn6475zu3w"
+     "enlace": "https://kiwi.com/u/kxcpmdvrnr"
     },
     {
      "destino": "Londres",
@@ -179,7 +162,25 @@
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Luton",
-     "enlace": "https://kiwi.com/u/gj8t99gffz"
+     "enlace": "https://kiwi.com/u/z8r3y6mbrg"
+    },
+    {
+     "destino": "Madrid",
+     "ida": "2026-12-06",
+     "vuelta": "2026-12-11",
+     "precio": 68,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/mp5mu7hmhg"
+    },
+    {
+     "destino": "Nantes",
+     "ida": "2026-12-03",
+     "vuelta": "2026-12-06",
+     "precio": 68,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/nxusjpzv3p"
     }
    ]
   },
@@ -194,53 +195,54 @@
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/gjbnfcp985"
+     "enlace": "https://kiwi.com/u/y44dtv3gf5"
     },
     {
      "destino": "Palma de Mallorca",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-14",
+     "ida": "2026-12-17",
+     "vuelta": "2026-12-20",
      "precio": 32,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/rqvx3ns765"
-    },
-    {
-     "destino": "Oporto",
-     "ida": "2026-11-29",
-     "vuelta": "2026-12-04",
-     "precio": 36,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/q52wtpz724"
+     "enlace": "https://kiwi.com/u/26k36utumb"
     },
     {
      "destino": "Bilbao",
      "ida": "2026-12-20",
      "vuelta": "2026-12-24",
-     "precio": 38,
+     "precio": 32,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7upvh7k97j"
+     "enlace": "https://kiwi.com/u/vyrsbfth2s"
+    },
+    {
+     "destino": "Oporto",
+     "ida": "2026-12-14",
+     "vuelta": "2026-12-19",
+     "precio": 42,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/xrm7s27fyq"
     },
     {
      "destino": "Milán",
      "ida": "2026-12-12",
      "vuelta": "2026-12-17",
-     "precio": 40,
+     "precio": 44,
      "compania": "Wizz Air",
      "escalas": "directo",
      "nota": "Malpensa",
-     "enlace": "https://kiwi.com/u/5k92vv8jqs"
+     "enlace": "https://kiwi.com/u/vgdg5qdmj8"
     },
     {
-     "destino": "Lisboa",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-17",
-     "precio": 43,
+     "destino": "Venecia",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-15",
+     "precio": 44,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/q8h7w2tqjw"
+     "nota": "Treviso",
+     "enlace": "https://kiwi.com/u/uzzux9cwhz"
     }
    ]
   },
@@ -249,70 +251,70 @@
    "codigo": "RMU",
    "vuelos": [
     {
-     "destino": "Barcelona",
-     "ida": "2026-12-21",
-     "vuelta": "2026-12-25",
-     "precio": 49,
-     "compania": "Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/y8ug3u4t3b"
-    },
-    {
      "destino": "Bilbao",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
      "precio": 49,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/4dxxbhh9js"
+     "enlace": "https://kiwi.com/u/jzfxtbg3xu"
     },
     {
      "destino": "Birmingham",
      "ida": "2026-12-11",
      "vuelta": "2026-12-13",
-     "precio": 53,
+     "precio": 51,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/rznb26h2v2"
+     "enlace": "https://kiwi.com/u/7bg5rnhcc5"
+    },
+    {
+     "destino": "Barcelona",
+     "ida": "2026-12-21",
+     "vuelta": "2026-12-25",
+     "precio": 53,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/dht5p6hg6b"
     },
     {
      "destino": "Mánchester",
-     "ida": "2026-12-17",
-     "vuelta": "2026-12-22",
-     "precio": 67,
+     "ida": "2026-12-26",
+     "vuelta": "2026-12-31",
+     "precio": 68,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/hf3vcwkcfh"
+     "enlace": "https://kiwi.com/u/xgdbhs6pcx"
     },
     {
      "destino": "Londres",
-     "ida": "2026-12-26",
-     "vuelta": "2026-12-31",
-     "precio": 78,
+     "ida": "2026-12-28",
+     "vuelta": "2027-01-01",
+     "precio": 69,
      "compania": "Ryanair",
      "escalas": "directo",
      "nota": "Stansted",
-     "enlace": "https://kiwi.com/u/3xf3xn2cfc"
+     "enlace": "https://kiwi.com/u/49r83dwzp7"
     },
     {
      "destino": "Dublín",
-     "ida": "2026-12-14",
-     "vuelta": "2026-12-19",
-     "precio": 84,
+     "ida": "2026-12-28",
+     "vuelta": "2026-12-31",
+     "precio": 79,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/vzx7sdqfd4"
+     "enlace": "https://kiwi.com/u/9dd5p9bgw6"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-21",
- "vuelosBusqueda": "ida y vuelta del 24/11 al 26/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-23",
+ "vuelosBusqueda": "ida y vuelta del 26/11 al 28/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-22",
- "actualizado": "2026-11-22T19:28+01:00",
+ "sorteosBuscado": "2026-11-23",
+ "actualizado": "2026-11-23T06:17+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -811,19 +813,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-22",
-  "nombre": "Crema de calabaza",
+  "fecha": "2026-11-23",
+  "nombre": "Lombarda con manzana",
   "tiempo": {
    "temperature": "mild",
    "rain": "dry",
    "wind": "light wind",
-   "sky": "Poco nuboso"
+   "sky": "Despejado"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-16",
-    "nombre": "Ensalada de granada"
-   },
    {
     "fecha": "2026-11-17",
     "nombre": "Crema de puerros"
@@ -847,12 +845,31 @@
    {
     "fecha": "2026-11-22",
     "nombre": "Crema de calabaza"
+   },
+   {
+    "fecha": "2026-11-23",
+    "nombre": "Lombarda con manzana"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-22",
+  "fecha": "2026-11-23",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/226/18": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/226/19": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/226/20": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
    "https://www.juntadeandalucia.es/boja/2026/225/22": {
     "tipo": "lista_definitiva",
     "provincia": "andalucia",
@@ -949,16 +966,6 @@
     "zona": "otra"
    },
    "https://www.juntadeandalucia.es/boja/2026/222/25": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/221/21": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/221/22": {
     "tipo": "convocatoria",
     "provincia": "otra",
     "zona": "otra"
@@ -1110,26 +1117,6 @@
     "experiencia": 0.04,
     "colectivo": "general"
    },
-   "694411": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "TÉCNICO/A ELECTRÓNICO-MÁLAGA",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-11-22",
-    "nivel": "grado",
-    "experiencia": 0.97,
-    "colectivo": "general"
-   },
-   "694417": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "PRODUCTOR/A",
-    "entidad": "Canal Sur Radio y Televisión, S.A.",
-    "hasta": "2026-11-22",
-    "nivel": "grado",
-    "experiencia": 0.96,
-    "colectivo": "general"
-   },
    "692356": {
     "zona": false,
     "zv": 4,
@@ -1152,108 +1139,6 @@
    }
   },
   "sae": {
-   "01-2026-51354": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
-   "01-2026-51356": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
-   "01-2026-51358": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
-   "01-2026-51360": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
-   "01-2026-51361": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.05
-   },
-   "01-2026-51365": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
-   "01-2026-51367": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
-   "01-2026-51368": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
-   "01-2026-51369": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
-   "01-2026-51371": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.05
-   },
-   "01-2026-51374": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
-   "01-2026-51375": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
-   "01-2026-51376": {
-    "nivel": "grado",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
-   "01-2026-51453": {
-    "nivel": "no_consta",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
-   "01-2026-50065": {
-    "nivel": "no_consta",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
-   "01-2026-51311": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
-   "01-2026-51494": {
-    "nivel": "no_consta",
-    "entidad": "ayuntamiento",
-    "colectivo": "general",
-    "experiencia": 0.06
-   },
    "01-2026-45981": {
     "nivel": "no_consta",
     "entidad": "otra",
@@ -1298,10 +1183,10 @@
    }
   },
   "agenda": {},
-  "fecha": "2026-11-22"
+  "fecha": "2026-11-23"
  },
  "fap": {
-  "fecha": "2026-11-22",
+  "fecha": "2026-11-23",
   "novedades": [
    {
     "tipo": "circular",
@@ -3731,7 +3616,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/922528",
     "desde": "2026-08-06",
     "hasta": "2026-11-30",
     "importe": 3500000,
@@ -3747,7 +3631,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/922529",
     "desde": "2026-08-06",
     "hasta": "2026-11-30",
     "importe": 500000,
@@ -3763,7 +3646,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/922530",
     "desde": "2026-08-06",
     "hasta": "2026-11-30",
     "importe": 1000000,
@@ -3779,7 +3661,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Instituto Andaluz de la Mujer",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/877024",
     "desde": "2026-01-01",
     "hasta": "2026-12-31",
     "importe": 250000,
@@ -3795,7 +3676,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Instituto Andaluz de la Mujer",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/877025",
     "desde": "2026-01-01",
     "hasta": "2026-12-31",
     "importe": 2785617,
@@ -3811,7 +3691,6 @@
     "ambito": "Diputación de Almería",
     "organo": "Diputación Provincial de Almería",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/911146",
     "desde": "2026-06-30",
     "hasta": "2026-12-31",
     "importe": 100000,
@@ -3826,7 +3705,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/932953",
     "desde": "2026-10-14",
     "hasta": "2027-01-20",
     "importe": 15000,
@@ -3843,7 +3721,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Salud y Consumo",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/931694",
     "desde": "2026-10-05",
     "hasta": "2027-04-12",
     "importe": 5610,
@@ -3859,7 +3736,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Agencia Pública Andaluza de Educación",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/896099",
     "hasta": "2027-06-30",
     "plazo": "6 de mayo y 31 de octubre y 31 diciembre 2026 y 28 febrero,30 de abril y 30 de junio 2027.",
     "importe": 265305130,
@@ -3874,7 +3750,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Sostenibilidad y Medio Ambiente",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/941171",
     "hasta": "2027-11-03",
     "importe": 6600,
     "para": [
@@ -3888,7 +3763,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Sostenibilidad y Medio Ambiente",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/941170",
     "hasta": "2027-11-03",
     "importe": 40000,
     "para": [
@@ -3902,7 +3776,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Sostenibilidad y Medio Ambiente",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/941169",
     "hasta": "2027-11-03",
     "importe": 40000,
     "para": [
@@ -3916,7 +3789,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/898836",
     "desde": "2026-04-23",
     "hasta": "2028-12-31",
     "importe": 69933214,
@@ -3933,7 +3805,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/898839",
     "desde": "2026-04-23",
     "hasta": "2028-12-31",
     "importe": 27656376,
@@ -3950,7 +3821,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/929233",
     "plazo": "Último día de la parada",
     "importe": 1600000,
     "para": [
@@ -3967,7 +3837,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/929229",
     "plazo": "Último día de la parada",
     "importe": 950000,
     "para": [
@@ -3984,7 +3853,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/903639",
     "plazo": "Último día hábil de la parada",
     "importe": 250000,
     "para": [
@@ -3999,7 +3867,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/929241",
     "plazo": "Último día de la parada",
     "importe": 1500000,
     "para": [
@@ -4016,7 +3883,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/872439",
     "plazo": "Ültimo día hábil de la parada",
     "importe": 1500000,
     "para": [
@@ -4033,7 +3899,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/903636",
     "plazo": "Último día hábil de la parada",
     "importe": 1150000,
     "para": [
@@ -4050,7 +3915,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/903637",
     "plazo": "Último día hábil de la parada",
     "importe": 255000,
     "para": [
@@ -4067,7 +3931,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/883398",
     "plazo": "sin fecha de cierre",
     "importe": 12500000,
     "para": [
@@ -4082,7 +3945,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Instituto Andaluz de la Mujer",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/942485",
     "plazo": "10 días, a partir del día siguiente al de la publicación en boja",
     "importe": 36514,
     "para": [
@@ -4096,7 +3958,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Agencia Andaluza de la Energía",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899704",
     "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
     "importe": 6935000,
     "para": [
@@ -4112,7 +3973,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Agencia Andaluza de la Energía",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899701",
     "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
     "importe": 2933000,
     "para": [
@@ -4128,7 +3988,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Agencia Andaluza de la Energía",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899700",
     "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
     "importe": 2000000,
     "para": [
@@ -4144,7 +4003,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Agencia Andaluza de la Energía",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899702",
     "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
     "importe": 11380000,
     "para": [
@@ -4160,7 +4018,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Agencia Andaluza de la Energía",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/899703",
     "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
     "importe": 5850000,
     "para": [
@@ -4176,7 +4033,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Agencia Andaluza de la Energía",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/935159",
     "plazo": "Hasta que se declare su finalización mediante Resolución de la Dirección Gerencia de la Agencia Anda",
     "importe": 5000000,
     "para": [
@@ -4192,7 +4048,6 @@
     "ambito": "Diputación de Almería",
     "organo": "Diputación Provincial de Almería",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/932330",
     "plazo": "sin fecha de cierre",
     "importe": 100000,
     "para": [
@@ -4206,7 +4061,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
     "estado": "abierta",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/920309",
     "plazo": "sin fecha de cierre",
     "importe": 116506379,
     "para": [
@@ -4224,7 +4078,6 @@
     "ambito": "Junta de Andalucía",
     "organo": "Consejería de Agricultura, Pesca, Agua y Desarrollo Rural",
     "estado": "proxima",
-    "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/929244",
     "desde": "2027-01-11",
     "hasta": "2027-01-25",
     "importe": 3200000,
@@ -4239,7 +4092,7 @@
   ],
   "fuente": "Base de Datos Nacional de Subvenciones (BDNS)",
   "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias",
-  "dia": "2026-11-21"
+  "dia": "2026-11-23"
  },
  "cursos": {
   "presenciales": [
@@ -4247,7 +4100,6 @@
     "id": "456686",
     "codigo": "IFCD97",
     "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456686",
     "fin": "2026-11-24",
     "inicio": "2027-01-13",
     "horas": 150,
@@ -4260,7 +4112,6 @@
     "id": "192",
     "codigo": "ADGD359PO",
     "nombre": "Lean manufacturing",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/192",
     "fin": "2026-11-25",
     "inicio": "2026-12-11",
     "horas": 50,
@@ -4274,7 +4125,6 @@
     "id": "2301",
     "codigo": "AGAO0108",
     "nombre": "Actividades auxiliares en viveros, jardines y centros de jardinería",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2301",
     "fin": "2026-11-27",
     "inicio": "2026-12-09",
     "horas": 330,
@@ -4288,7 +4138,6 @@
     "id": "2533",
     "codigo": "COML0309",
     "nombre": "Organización y gestión de almacenes",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2533",
     "fin": "2026-11-28",
     "inicio": "2026-12-28",
     "horas": 390,
@@ -4302,7 +4151,6 @@
     "id": "2534",
     "codigo": "COML0309",
     "nombre": "Organización y gestión de almacenes",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2534",
     "fin": "2026-11-28",
     "inicio": "2026-12-28",
     "horas": 390,
@@ -4316,7 +4164,6 @@
     "id": "398",
     "codigo": "COMT08",
     "nombre": "Planificación del aprovisionamiento y gestión de stocks",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/398",
     "fin": "2026-11-28",
     "inicio": "2026-12-28",
     "horas": 60,
@@ -4330,7 +4177,6 @@
     "id": "2334",
     "codigo": "COMT0211",
     "nombre": "Actividades auxiliares de comercio",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2334",
     "fin": "2026-11-30",
     "inicio": "2027-01-07",
     "horas": 270,
@@ -4344,7 +4190,6 @@
     "id": "353",
     "codigo": "IMAI0003",
     "nombre": "Fontanería",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/353",
     "fin": "2026-12-04",
     "inicio": "2027-01-21",
     "horas": 60,
@@ -4358,7 +4203,6 @@
     "id": "395",
     "codigo": "SSCE20",
     "nombre": "Competencias digitales para formadores y tutores según el marco de referencia de competencia digital docente",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/395",
     "fin": "2026-12-09",
     "inicio": "2027-01-08",
     "horas": 80,
@@ -4372,7 +4216,6 @@
     "id": "2538",
     "codigo": "SSCS0108",
     "nombre": "Atención sociosanitaria a personas en el domicilio",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2538",
     "fin": "2026-12-10",
     "inicio": "2027-01-12",
     "horas": 600,
@@ -4386,7 +4229,6 @@
     "id": "410",
     "codigo": "ADGD14",
     "nombre": "Venta online en la empresa: RRSS y herramientas de comunicación",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/410",
     "fin": "2026-12-11",
     "inicio": "2027-01-12",
     "horas": 50,
@@ -4400,7 +4242,6 @@
     "id": "755",
     "codigo": "ADGD180PO",
     "nombre": "Mejora de procesos: lean y VSM",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/755",
     "fin": "2026-12-15",
     "inicio": "2027-01-20",
     "horas": 12,
@@ -4414,7 +4255,6 @@
     "id": "541",
     "codigo": "COMM0013",
     "nombre": "Negociación y cierre eficaz de ventas",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/541",
     "fin": "2026-12-15",
     "inicio": "2027-01-15",
     "horas": 20,
@@ -4428,7 +4268,6 @@
     "id": "409",
     "codigo": "COMT09",
     "nombre": "Psicología aplicada a las ventas",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/409",
     "fin": "2026-12-15",
     "inicio": "2027-01-15",
     "horas": 40,
@@ -4442,7 +4281,6 @@
     "id": "408",
     "codigo": "COMT09",
     "nombre": "Psicología aplicada a las ventas",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/408",
     "fin": "2026-12-15",
     "inicio": "2027-01-15",
     "horas": 40,
@@ -4456,7 +4294,6 @@
     "id": "548",
     "codigo": "ADGD359PO",
     "nombre": "Lean manufacturing",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/548",
     "fin": "2026-12-16",
     "inicio": "2027-01-12",
     "horas": 50,
@@ -4470,7 +4307,6 @@
     "id": "756",
     "codigo": "ADGD181PO",
     "nombre": "Mejora de procesos: seis sigma",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/756",
     "fin": "2026-12-16",
     "inicio": "2027-01-26",
     "horas": 16,
@@ -4484,7 +4320,6 @@
     "id": "396",
     "codigo": "SSCE20",
     "nombre": "Competencias digitales para formadores y tutores según el marco de referencia de competencia digital docente",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/396",
     "fin": "2026-12-18",
     "inicio": "2027-01-18",
     "horas": 80,
@@ -4498,7 +4333,6 @@
     "id": "2129",
     "codigo": "ARGI0209",
     "nombre": "Impresión digital",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2129",
     "fin": "2026-12-18",
     "inicio": "2027-01-21",
     "horas": 440,
@@ -4512,7 +4346,6 @@
     "id": "407",
     "codigo": "INAD0001",
     "nombre": "Manipulación en crudo y conservación de alimentos",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/407",
     "fin": "2026-12-18",
     "inicio": "2027-01-18",
     "horas": 125,
@@ -4526,7 +4359,6 @@
     "id": "400",
     "codigo": "IFCT0087",
     "nombre": "Seguridad digital básica",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/400",
     "fin": "2026-12-18",
     "inicio": "2027-01-20",
     "horas": 60,
@@ -4540,7 +4372,6 @@
     "id": "403",
     "codigo": "COMT07",
     "nombre": "Gestión básica del almacén",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/403",
     "fin": "2026-12-24",
     "inicio": "2027-01-25",
     "horas": 20,
@@ -4554,7 +4385,6 @@
     "id": "547",
     "codigo": "ADGD181PO",
     "nombre": "Mejora de procesos: seis sigma",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/547",
     "fin": "2026-12-30",
     "inicio": "2027-02-02",
     "horas": 16,
@@ -4568,7 +4398,6 @@
     "id": "540",
     "codigo": "COML011PO",
     "nombre": "Gestion y control de compras y stock en almacen",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/540",
     "fin": "2026-12-31",
     "inicio": "2027-01-28",
     "horas": 30,
@@ -4582,7 +4411,6 @@
     "id": "402",
     "codigo": "COMT08",
     "nombre": "Planificación del aprovisionamiento y gestión de stocks",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/402",
     "fin": "2027-01-01",
     "inicio": "2027-01-22",
     "horas": 60,
@@ -4596,7 +4424,6 @@
     "id": "290",
     "codigo": "AGAU0004",
     "nombre": "Manipulación y aplicacion de productos fitosanitarios. nivel avanzado",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/290",
     "fin": "2027-01-08",
     "inicio": "2027-01-18",
     "horas": 60,
@@ -4611,7 +4438,6 @@
     "id": "294",
     "codigo": "SSCI0001",
     "nombre": "Innovaciones tecnologicas en los protocolos de limpieza y desinfeccion ambiental",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/294",
     "fin": "2027-01-08",
     "inicio": "2027-01-18",
     "horas": 220,
@@ -4626,7 +4452,6 @@
     "id": "288",
     "codigo": "INAD0001",
     "nombre": "Manipulación en crudo y conservación de alimentos",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/288",
     "fin": "2027-01-08",
     "inicio": "2027-01-18",
     "horas": 125,
@@ -4641,7 +4466,6 @@
     "id": "291",
     "codigo": "EOCB0008",
     "nombre": "Preparación básica para actividades de mantenimiento general de infraestructuras en edificios e instalaciones",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/291",
     "fin": "2027-01-08",
     "inicio": "2027-01-18",
     "horas": 120,
@@ -4656,7 +4480,6 @@
     "id": "546",
     "codigo": "ADGD180PO",
     "nombre": "Mejora de procesos: lean y VSM",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/546",
     "fin": "2027-01-15",
     "inicio": "2027-02-10",
     "horas": 12,
@@ -4670,7 +4493,6 @@
     "id": "539",
     "codigo": "COML008PO",
     "nombre": "Gestión básica del almacén",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/539",
     "fin": "2027-01-19",
     "inicio": "2027-02-12",
     "horas": 20,
@@ -4684,7 +4506,6 @@
     "id": "289",
     "codigo": "COMT0001",
     "nombre": "Caja y reposición",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/289",
     "fin": "2027-01-22",
     "inicio": "2027-02-01",
     "horas": 60,
@@ -4699,7 +4520,6 @@
     "id": "292",
     "codigo": "HOTA0006",
     "nombre": "Gestión y seguimiento de los nuevos procedimientos de limpieza",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/292",
     "fin": "2027-01-22",
     "inicio": "2027-02-01",
     "horas": 75,
@@ -4714,7 +4534,6 @@
     "id": "536",
     "codigo": "CTRG0011",
     "nombre": "Liderazgo, organización del trabajo en equipo y solución de problemas",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/536",
     "fin": "2027-01-22",
     "inicio": "2027-02-23",
     "horas": 80,
@@ -4728,7 +4547,6 @@
     "id": "456742",
     "codigo": "IFCD102",
     "nombre": "Programación realidad virtual y realidad aumentada aplicables en entornos 5G",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456742",
     "fin": "2027-01-27",
     "inicio": "2027-03-15",
     "horas": 150,
@@ -4741,7 +4559,6 @@
     "id": "295",
     "codigo": "COMT0001",
     "nombre": "Caja y reposición",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/295",
     "fin": "2027-02-12",
     "inicio": "2027-02-22",
     "horas": 60,
@@ -4756,7 +4573,6 @@
     "id": "537",
     "codigo": "ADGD151PO",
     "nombre": "Habilidades sociales de comunicación y resolución de conflictos en el centro de trabajo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/537",
     "fin": "2027-02-23",
     "inicio": "2027-03-30",
     "horas": 70,
@@ -4772,7 +4588,6 @@
     "id": "2933",
     "codigo": "MF1001",
     "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2933",
     "fin": "2026-11-23",
     "inicio": "2026-12-03",
     "horas": 90,
@@ -4784,7 +4599,6 @@
     "id": "457713",
     "codigo": "IFCT123",
     "nombre": "Implantación y gestión de la ciberseguridad",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/457713",
     "fin": "2026-11-23",
     "inicio": "2027-01-11",
     "horas": 91,
@@ -4796,7 +4610,6 @@
     "id": "2762",
     "codigo": "MF1000",
     "nombre": "Organización comercial",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2762",
     "fin": "2026-11-23",
     "inicio": "2026-12-21",
     "horas": 120,
@@ -4808,7 +4621,6 @@
     "id": "456689",
     "codigo": "IFCD97",
     "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456689",
     "fin": "2026-11-23",
     "inicio": "2027-01-13",
     "horas": 150,
@@ -4820,7 +4632,6 @@
     "id": "456686",
     "codigo": "IFCD97",
     "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456686",
     "fin": "2026-11-24",
     "inicio": "2027-01-13",
     "horas": 150,
@@ -4833,7 +4644,6 @@
     "id": "2285",
     "codigo": "SSCE0110",
     "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2285",
     "fin": "2026-11-24",
     "inicio": "2027-01-15",
     "horas": 380,
@@ -4845,7 +4655,6 @@
     "id": "2881",
     "codigo": "MF1000",
     "nombre": "Organización comercial",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2881",
     "fin": "2026-11-25",
     "inicio": "2026-12-17",
     "horas": 120,
@@ -4857,7 +4666,6 @@
     "id": "114",
     "codigo": "COMM0009",
     "nombre": "Atención al cliente",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/114",
     "fin": "2026-11-27",
     "inicio": "2026-12-14",
     "horas": 30,
@@ -4869,7 +4677,6 @@
     "id": "2818",
     "codigo": "MF0973",
     "nombre": "Grabación de datos",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2818",
     "fin": "2026-11-27",
     "inicio": "2026-12-29",
     "horas": 90,
@@ -4881,7 +4688,6 @@
     "id": "112",
     "codigo": "SEAD097PO",
     "nombre": "Gestión de la PRL en PYMES y micropymes",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/112",
     "fin": "2026-11-30",
     "inicio": "2026-12-09",
     "horas": 30,
@@ -4893,7 +4699,6 @@
     "id": "2873",
     "codigo": "MF0971",
     "nombre": "Reproducción y archivo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2873",
     "fin": "2026-11-30",
     "inicio": "2026-12-10",
     "horas": 120,
@@ -4905,7 +4710,6 @@
     "id": "2929",
     "codigo": "MF1973",
     "nombre": "Sistemas de gestión ambiental",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2929",
     "fin": "2026-11-30",
     "inicio": "2026-12-10",
     "horas": 150,
@@ -4917,7 +4721,6 @@
     "id": "2952",
     "codigo": "MF1443",
     "nombre": "Selección, elaboración, adaptación y utilización de materiales, medios y recursos didácticos en formación profesional para el empleo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2952",
     "fin": "2026-12-02",
     "inicio": "2027-01-19",
     "horas": 90,
@@ -4929,7 +4732,6 @@
     "id": "2920",
     "codigo": "MF1001",
     "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2920",
     "fin": "2026-12-03",
     "inicio": "2027-01-07",
     "horas": 90,
@@ -4941,7 +4743,6 @@
     "id": "2930",
     "codigo": "MF1792",
     "nombre": "Gestión de la prevención de riesgos laborales en pequeños negocios",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2930",
     "fin": "2026-12-03",
     "inicio": "2026-12-15",
     "horas": 60,
@@ -4953,7 +4754,6 @@
     "id": "108",
     "codigo": "ADGD0058",
     "nombre": "Gestión de secciones de crédito de cooperativas agrarias",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/108",
     "fin": "2026-12-03",
     "inicio": "2027-01-25",
     "horas": 50,
@@ -4966,7 +4766,6 @@
     "id": "2829",
     "codigo": "MF1328",
     "nombre": "Manipulación y movimientos con transpalés y carretillas de mano",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2829",
     "fin": "2026-12-03",
     "inicio": "2027-01-11",
     "horas": 50,
@@ -4978,7 +4777,6 @@
     "id": "2918",
     "codigo": "MF0970",
     "nombre": "Operaciones básicas de comunicación",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2918",
     "fin": "2026-12-03",
     "inicio": "2027-01-07",
     "horas": 120,
@@ -4990,7 +4788,6 @@
     "id": "456732",
     "codigo": "IFCD99",
     "nombre": "Programación en inteligencia artificial y BIG data aplicables en entornos 5G",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456732",
     "fin": "2026-12-03",
     "inicio": "2027-01-25",
     "horas": 150,
@@ -5002,7 +4799,6 @@
     "id": "2913",
     "codigo": "MF0973",
     "nombre": "Grabación de datos",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2913",
     "fin": "2026-12-04",
     "inicio": "2027-01-07",
     "horas": 90,
@@ -5014,7 +4810,6 @@
     "id": "79",
     "codigo": "COMM0012",
     "nombre": "Marketing para empresas de economía social",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/79",
     "fin": "2026-12-04",
     "inicio": "2027-01-13",
     "horas": 40,
@@ -5026,7 +4821,6 @@
     "id": "2832",
     "codigo": "MF0976",
     "nombre": "Operaciones administrativas comerciales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2832",
     "fin": "2026-12-04",
     "inicio": "2027-01-12",
     "horas": 160,
@@ -5038,7 +4832,6 @@
     "id": "2960",
     "codigo": "MF0973",
     "nombre": "Grabación de datos",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2960",
     "fin": "2026-12-09",
     "inicio": "2027-01-07",
     "horas": 90,
@@ -5050,7 +4843,6 @@
     "id": "2763",
     "codigo": "MF1001",
     "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2763",
     "fin": "2026-12-10",
     "inicio": "2027-01-07",
     "horas": 90,
@@ -5062,7 +4854,6 @@
     "id": "117",
     "codigo": "ADGD305PO",
     "nombre": "Gestión de cooperativas de trabajo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/117",
     "fin": "2026-12-11",
     "inicio": "2027-01-14",
     "horas": 64,
@@ -5074,7 +4865,6 @@
     "id": "2878",
     "codigo": "MF0245",
     "nombre": "Gestión de quejas y reclamaciones en materia de consumo",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2878",
     "fin": "2026-12-11",
     "inicio": "2027-01-11",
     "horas": 90,
@@ -5086,7 +4876,6 @@
     "id": "2876",
     "codigo": "MF0970",
     "nombre": "Operaciones básicas de comunicación",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2876",
     "fin": "2026-12-11",
     "inicio": "2026-12-30",
     "horas": 120,
@@ -5098,7 +4887,6 @@
     "id": "2761",
     "codigo": "MF0503",
     "nombre": "Promociones en espacios comerciales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2761",
     "fin": "2026-12-11",
     "inicio": "2027-01-07",
     "horas": 70,
@@ -5110,7 +4898,6 @@
     "id": "2936",
     "codigo": "MF0950",
     "nombre": "Construcción de páginas WEB",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2936",
     "fin": "2026-12-14",
     "inicio": "2027-01-11",
     "horas": 210,
@@ -5122,7 +4909,6 @@
     "id": "2865",
     "codigo": "MF0249",
     "nombre": "Higiene y atención sanitaria domiciliaria",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2865",
     "fin": "2026-12-14",
     "inicio": "2027-01-12",
     "horas": 170,
@@ -5134,7 +4920,6 @@
     "id": "2376",
     "codigo": "MF0972",
     "nombre": "Limpieza, tratamiento y mantenimiento de suelos, paredes y techos en edificios y locales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2376",
     "fin": "2026-12-14",
     "inicio": "2027-01-11",
     "horas": 30,
@@ -5146,7 +4931,6 @@
     "id": "2372",
     "codigo": "MF0240",
     "nombre": "Operaciones auxiliares a la venta.",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2372",
     "fin": "2026-12-14",
     "inicio": "2027-01-11",
     "horas": 140,
@@ -5158,7 +4942,6 @@
     "id": "2898",
     "codigo": "MF0979",
     "nombre": "Gestión operativa de tesorería",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2898",
     "fin": "2026-12-15",
     "inicio": "2027-01-29",
     "horas": 90,
@@ -5170,7 +4953,6 @@
     "id": "2892",
     "codigo": "MF1002",
     "nombre": "Inglés profesional para actividades comerciales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2892",
     "fin": "2026-12-15",
     "inicio": "2027-01-13",
     "horas": 90,
@@ -5182,7 +4964,6 @@
     "id": "2961",
     "codigo": "MF0975",
     "nombre": "Técnicas de recepción y comunicación",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2961",
     "fin": "2026-12-15",
     "inicio": "2027-01-11",
     "horas": 90,
@@ -5194,7 +4975,6 @@
     "id": "87",
     "codigo": "SSCE0137",
     "nombre": "Metodologías activas para la formación permanente en las cooperativas",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/87",
     "fin": "2026-12-16",
     "inicio": "2027-01-19",
     "horas": 40,
@@ -5206,7 +4986,6 @@
     "id": "456756",
     "codigo": "IFCD102",
     "nombre": "Programación realidad virtual y realidad aumentada aplicables en entornos 5G",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/456756",
     "fin": "2026-12-16",
     "inicio": "2027-02-04",
     "horas": 150,
@@ -5218,7 +4997,6 @@
     "id": "2962",
     "codigo": "MF0978",
     "nombre": "Gestión de archivos",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2962",
     "fin": "2026-12-17",
     "inicio": "2027-01-14",
     "horas": 60,
@@ -5230,7 +5008,6 @@
     "id": "2972",
     "codigo": "MF1001",
     "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2972",
     "fin": "2026-12-17",
     "inicio": "2027-01-12",
     "horas": 90,
@@ -5242,7 +5019,6 @@
     "id": "2919",
     "codigo": "MF0239",
     "nombre": "Operaciones de venta",
-    "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos/2919",
     "fin": "2026-12-17",
     "inicio": "2027-01-18",
     "horas": 160,
@@ -5254,7 +5030,7 @@
   "lineaTotal": 94,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-22"
+  "dia": "2026-11-23"
  },
  "polen": {
   "estacion": "Almería",
@@ -5479,7 +5255,7 @@
     ]
    }
   ],
-  "dias": 377,
+  "dias": 376,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -5494,19 +5270,6 @@
     "enlace": "https://www.turismodealmeria.org/evento/ciclo-360o-en-almeria/",
     "fuente": "Turismo de Almería",
     "gratis": true
-   },
-   {
-    "titulo": "Descubre las Calas Mágicas de Cabo de Gata en eBike",
-    "inicio": "2026-11-22",
-    "lugar": "salida desde Cruz Roja Adra",
-    "enlace": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
-    "fuente": "Ayuntamiento de Adra (Adra en la Senda)",
-    "aireLibre": true,
-    "programa": "Adra en la Senda",
-    "hora": "salida a las 07:30",
-    "precio": "15 €",
-    "detalle": "4 h · dificultad baja · desde 14 años",
-    "inscripcion": "inscripción: 677 942 005 (Juventud)"
    },
    {
     "titulo": "Encuentro con Omar Linares: presentación de «La consulta del filósofo»",
@@ -5586,7 +5349,7 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-21"
+  "dia": "2026-11-23"
  },
  "sasOfertas": {
   "lista": [
@@ -5846,7 +5609,7 @@
    }
   ],
   "fuente": "Festivos: calendario laboral de la Junta de Andalucía. Vuelos: Kiwi.com",
-  "buscado": "2026-11-15",
+  "buscado": "2026-11-23",
   "aeropuertos": [
    {
     "origen": "Almería",
@@ -5859,52 +5622,53 @@
       "precio": 133,
       "compania": "Iberia",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/x46xmb"
-     },
-     {
-      "destino": "Madrid",
-      "ida": "2026-12-05",
-      "vuelta": "2026-12-07",
-      "precio": 172,
-      "compania": "Iberia",
-      "escalas": "directo",
-      "enlace": "https://kiwi.com/u/q7vnht"
+      "enlace": "https://kiwi.com/u/uyhgqpzssx"
      },
      {
       "destino": "Bucarest",
       "ida": "2026-12-04",
       "vuelta": "2026-12-07",
-      "precio": 181,
+      "precio": 152,
       "compania": "Wizz Air",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/rwktng"
+      "enlace": "https://kiwi.com/u/7q85gtc332"
      },
      {
       "destino": "Melilla",
-      "ida": "2026-12-05",
+      "ida": "2026-12-04",
       "vuelta": "2026-12-08",
-      "precio": 201,
+      "precio": 211,
       "compania": "Iberia",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/3zr55uu"
-     },
-     {
-      "destino": "Barcelona",
-      "ida": "2026-12-04",
-      "vuelta": "2026-12-07",
-      "precio": 207,
-      "compania": "Vueling",
-      "escalas": "directo",
-      "enlace": "https://kiwi.com/u/3zdhnz"
+      "enlace": "https://kiwi.com/u/kjf32kzuq6"
      },
      {
       "destino": "Liverpool",
       "ida": "2026-12-05",
       "vuelta": "2026-12-08",
-      "precio": 241,
+      "precio": 212,
       "compania": "easyJet",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/jc5bc9"
+      "enlace": "https://kiwi.com/u/pvwnrgdb63"
+     },
+     {
+      "destino": "Madrid",
+      "ida": "2026-12-05",
+      "vuelta": "2026-12-07",
+      "precio": 214,
+      "compania": "Iberia",
+      "escalas": "directo",
+      "enlace": "https://kiwi.com/u/q7f5wnkzt5"
+     },
+     {
+      "destino": "Londres",
+      "ida": "2026-12-05",
+      "vuelta": "2026-12-07",
+      "precio": 281,
+      "compania": "easyJet",
+      "escalas": "directo",
+      "nota": "Gatwick",
+      "enlace": "https://kiwi.com/u/zgbhqv6zxk"
      }
     ]
    },
@@ -5914,57 +5678,58 @@
     "vuelos": [
      {
       "destino": "Madrid",
-      "ida": "2026-12-04",
+      "ida": "2026-12-05",
       "vuelta": "2026-12-07",
-      "precio": 74,
-      "compania": "Volotea",
+      "precio": 94,
+      "compania": "Iberia / Volotea",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/tnp6fwj"
-     },
-     {
-      "destino": "Santander",
-      "ida": "2026-12-04",
-      "vuelta": "2026-12-07",
-      "precio": 128,
-      "compania": "Volotea",
-      "escalas": "directo",
-      "enlace": "https://kiwi.com/u/7hnh7pj"
+      "enlace": "https://kiwi.com/u/mzfggm5nw9"
      },
      {
       "destino": "Barcelona",
       "ida": "2026-12-05",
       "vuelta": "2026-12-07",
-      "precio": 135,
+      "precio": 122,
       "compania": "Vueling",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/98w48m4"
+      "enlace": "https://kiwi.com/u/5fpkuh4fmb"
      },
      {
       "destino": "Palma de Mallorca",
       "ida": "2026-12-05",
-      "vuelta": "2026-12-07",
-      "precio": 140,
+      "vuelta": "2026-12-08",
+      "precio": 138,
       "compania": "Air Europa / Vueling",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/89r2rq"
+      "enlace": "https://kiwi.com/u/mrzxzpfzhq"
+     },
+     {
+      "destino": "Gran Canaria",
+      "ida": "2026-12-04",
+      "vuelta": "2026-12-07",
+      "precio": 154,
+      "compania": "Vueling",
+      "escalas": "directo",
+      "enlace": "https://kiwi.com/u/zd2pkh7v44"
      },
      {
       "destino": "Asturias",
       "ida": "2026-12-04",
       "vuelta": "2026-12-07",
-      "precio": 149,
+      "precio": 160,
       "compania": "Volotea",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/np3xwf"
+      "enlace": "https://kiwi.com/u/tkmyk2gnhg"
      },
      {
-      "destino": "Melilla",
-      "ida": "2026-12-04",
-      "vuelta": "2026-12-07",
-      "precio": 173,
-      "compania": "Iberia",
+      "destino": "Londres",
+      "ida": "2026-12-05",
+      "vuelta": "2026-12-08",
+      "precio": 178,
+      "compania": "Wizz Air",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/u6z79uqq"
+      "nota": "Luton",
+      "enlace": "https://kiwi.com/u/q5n4gdjwfs"
      }
     ]
    },
@@ -5979,7 +5744,7 @@
       "precio": 32,
       "compania": "Ryanair",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/c283228"
+      "enlace": "https://kiwi.com/u/nxf52fbwkj"
      },
      {
       "destino": "Londres",
@@ -5989,43 +5754,44 @@
       "compania": "Ryanair / Wizz Air",
       "escalas": "directo",
       "nota": "ida a Stansted, vuelta desde Gatwick",
-      "enlace": "https://kiwi.com/u/sb95mz"
-     },
-     {
-      "destino": "Madrid",
-      "ida": "2026-12-05",
-      "vuelta": "2026-12-07",
-      "precio": 76,
-      "compania": "Wizz Air",
-      "escalas": "directo",
-      "enlace": "https://kiwi.com/u/c2x93c"
-     },
-     {
-      "destino": "Düsseldorf",
-      "ida": "2026-12-05",
-      "vuelta": "2026-12-07",
-      "precio": 81,
-      "compania": "Ryanair",
-      "escalas": "directo",
-      "enlace": "https://kiwi.com/u/6d83zm"
+      "enlace": "https://kiwi.com/u/8jcjtfxspd"
      },
      {
       "destino": "Birmingham",
       "ida": "2026-12-05",
       "vuelta": "2026-12-07",
-      "precio": 86,
-      "compania": "Ryanair / Jet2",
+      "precio": 79,
+      "compania": "easyJet / Jet2",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/8x6sdzy"
+      "enlace": "https://kiwi.com/u/kvrq5s95gz"
+     },
+     {
+      "destino": "Madrid",
+      "ida": "2026-12-05",
+      "vuelta": "2026-12-08",
+      "precio": 84,
+      "compania": "Wizz Air",
+      "escalas": "directo",
+      "enlace": "https://kiwi.com/u/ysk4grv7qu"
      },
      {
       "destino": "Oporto",
       "ida": "2026-12-05",
       "vuelta": "2026-12-07",
-      "precio": 100,
+      "precio": 113,
       "compania": "Ryanair",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/75pct2c"
+      "enlace": "https://kiwi.com/u/j8qh9sj4mz"
+     },
+     {
+      "destino": "Milán",
+      "ida": "2026-12-05",
+      "vuelta": "2026-12-07",
+      "precio": 115,
+      "compania": "Wizz Air / easyJet",
+      "escalas": "directo",
+      "nota": "Malpensa",
+      "enlace": "https://kiwi.com/u/hppvpqq632"
      }
     ]
    },
@@ -6034,59 +5800,59 @@
     "codigo": "RMU",
     "vuelos": [
      {
+      "destino": "Mánchester",
+      "ida": "2026-12-05",
+      "vuelta": "2026-12-08",
+      "precio": 119,
+      "compania": "Ryanair",
+      "escalas": "directo",
+      "enlace": "https://kiwi.com/u/swxv424qc6"
+     },
+     {
       "destino": "Dublín",
       "ida": "2026-12-05",
       "vuelta": "2026-12-07",
-      "precio": 75,
+      "precio": 132,
       "compania": "Ryanair",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/5wg8n4"
+      "enlace": "https://kiwi.com/u/bz8q7zr77c"
      },
      {
       "destino": "Birmingham",
       "ida": "2026-12-04",
       "vuelta": "2026-12-07",
-      "precio": 100,
+      "precio": 136,
       "compania": "Ryanair",
       "escalas": "directo",
-      "enlace": "https://kiwi.com/u/cqyz5f8"
-     },
-     {
-      "destino": "Mánchester",
-      "ida": "2026-12-05",
-      "vuelta": "2026-12-08",
-      "precio": 117,
-      "compania": "Ryanair",
-      "escalas": "directo",
-      "enlace": "https://kiwi.com/u/uh5vzr"
-     },
-     {
-      "destino": "Barcelona",
-      "ida": "2026-12-04",
-      "vuelta": "2026-12-07",
-      "precio": 125,
-      "compania": "Volotea",
-      "escalas": "directo",
-      "enlace": "https://kiwi.com/u/w59r2bf"
-     },
-     {
-      "destino": "Bilbao",
-      "ida": "2026-12-05",
-      "vuelta": "2026-12-08",
-      "precio": 131,
-      "compania": "Volotea",
-      "escalas": "directo",
-      "enlace": "https://kiwi.com/u/vyvu6r"
+      "enlace": "https://kiwi.com/u/ykfp4cpgrf"
      },
      {
       "destino": "Londres",
       "ida": "2026-12-05",
       "vuelta": "2026-12-07",
-      "precio": 191,
-      "compania": "Ryanair",
+      "precio": 197,
+      "compania": "easyJet / Ryanair",
       "escalas": "directo",
-      "nota": "Stansted",
-      "enlace": "https://kiwi.com/u/rdk8z2d"
+      "nota": "ida a Gatwick, vuelta desde Stansted",
+      "enlace": "https://kiwi.com/u/qpdzxsyc7m"
+     },
+     {
+      "destino": "Barcelona",
+      "ida": "2026-12-04",
+      "vuelta": "2026-12-07",
+      "precio": 213,
+      "compania": "Volotea",
+      "escalas": "directo",
+      "enlace": "https://kiwi.com/u/9wzhvjb763"
+     },
+     {
+      "destino": "Bilbao",
+      "ida": "2026-12-05",
+      "vuelta": "2026-12-08",
+      "precio": 223,
+      "compania": "Volotea",
+      "escalas": "directo",
+      "enlace": "https://kiwi.com/u/32w3un94rh"
      }
     ]
    }
@@ -6122,12 +5888,11 @@
  "cine": {
   "cine": "Ocine Copo",
   "sitio": "El Ejido",
-  "fecha": "2026-11-22",
+  "fecha": "2026-11-23",
   "peliculas": [
    {
     "titulo": "Los Juegos del Hambre: Amanecer en la cosecha",
     "horas": [
-     "11:45",
      "16:00",
      "17:45",
      "19:00",
@@ -6143,54 +5908,6 @@
      "18:15",
      "20:30",
      "22:40"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "Scrooge y los fantasmas de la Navidad",
-    "horas": [
-     "12:00",
-     "18:10",
-     "20:30",
-     "22:35"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "Wildwood",
-    "horas": [
-     "12:00"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "El gato con sombrero",
-    "horas": [
-     "12:10",
-     "18:00"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "Karateka",
-    "horas": [
-     "12:10",
-     "16:15"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "¿Me entiendes o te lo explico?",
-    "horas": [
-     "12:10"
-    ],
-    "version": "Versión doblada"
-   },
-   {
-    "titulo": "Ratones al ataque: Operación Navidad",
-    "horas": [
-     "12:15",
-     "16:20"
     ],
     "version": "Versión doblada"
    },
@@ -6218,6 +5935,36 @@
     "version": "Versión doblada"
    },
    {
+    "titulo": "Karateka",
+    "horas": [
+     "16:15"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Ratones al ataque: Operación Navidad",
+    "horas": [
+     "16:20"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "El gato con sombrero",
+    "horas": [
+     "18:00"
+    ],
+    "version": "Versión doblada"
+   },
+   {
+    "titulo": "Scrooge y los fantasmas de la Navidad",
+    "horas": [
+     "18:10",
+     "20:30",
+     "22:35"
+    ],
+    "version": "Versión doblada"
+   },
+   {
     "titulo": "Ruega por nosotras",
     "horas": [
      "20:10"
@@ -6237,25 +5984,6 @@
  },
  "espectaculos": {
   "lista": [
-   {
-    "titulo": "Ecos de El Ejido",
-    "fecha": "2026-11-22",
-    "tipo": "Espectáculo",
-    "hora": "18:00",
-    "municipio": "El Ejido",
-    "enlace": "https://cultura.elejido.es/?ai1ec_event=ecos-de-el-ejido-espectaculo-musical-domingo-22-de-noviembre-1800h",
-    "fuente": "Ayuntamiento de El Ejido"
-   },
-   {
-    "titulo": "Stand Up Comedy: Dani Alés - Tabú",
-    "fecha": "2026-11-22",
-    "tipo": "Humor",
-    "hora": "19:00",
-    "lugar": "Calle tirso de molina 30",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/stand-up-comedy-dani-ales-tabu/",
-    "fuente": "Turismo de Almería"
-   },
    {
     "titulo": "Pinky, La magia tiene nombre propio",
     "fecha": "2026-11-26",
@@ -6912,6 +6640,6 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-22"
+  "dia": "2026-11-23"
  }
 }

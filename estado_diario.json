@@ -228,7 +228,16 @@
   "vale": "2026-11-23"
  },
  "fallos": {
-  "fuente sae": {
+  "estafas": {
+   "desde": "2026-11-23"
+  },
+  "fuente gasolina": {
+   "desde": "2026-11-23"
+  },
+  "fuente rayos": {
+   "desde": "2026-11-23"
+  },
+  "vuelos": {
    "desde": "2026-11-22"
   }
  },
@@ -236,7 +245,6 @@
   "https://cultura.elejido.es/?ai1ec_event=candileja-musicales-para-todos-dumbo-el-musical-domingo-27-de-diciembre-auditorio-18-h": "2026-12-27",
   "https://cultura.elejido.es/?ai1ec_event=david-dominguez-el-raro-de-los-90-las-risas-continuan-domingo-29-de-noviembre-auditorio-1830-h": "2026-11-29",
   "https://cultura.elejido.es/?ai1ec_event=dreaming-bubbles-the-bubble-show-miercoles-30-de-diciembre-auditorio-18-h": "2026-12-30",
-  "https://cultura.elejido.es/?ai1ec_event=ecos-de-el-ejido-espectaculo-musical-domingo-22-de-noviembre-1800h": "2026-11-22",
   "https://cultura.elejido.es/?ai1ec_event=israel-fernandez-de-oro-y-marfil-sabado-23-de-enero-auditorio-2030-h": "2027-01-23",
   "https://cultura.elejido.es/?ai1ec_event=luis-piedrahita-apocalipticamente-correcto-viernes-11-de-diciembre-auditorio-21-h": "2026-12-11",
   "https://cultura.elejido.es/?ai1ec_event=medina-azahara-el-musical-viernes-12-de-marzo-auditorio-2030-h": "2027-03-12",
@@ -493,7 +501,7 @@
     "titulo": "Camino de Santiago (Francés)"
    }
   ],
-  "visto": "2026-11-16"
+  "visto": "2026-11-23"
  },
  "vuelosMin": {
   "AGP": [
@@ -507,6 +515,10 @@
    ],
    [
     "2026-11-21",
+    32
+   ],
+   [
+    "2026-11-23",
     32
    ]
   ],
@@ -522,6 +534,10 @@
    [
     "2026-11-21",
     56
+   ],
+   [
+    "2026-11-23",
+    64
    ]
   ],
   "LEI": [
@@ -536,6 +552,10 @@
    [
     "2026-11-21",
     91
+   ],
+   [
+    "2026-11-23",
+    91
    ]
   ],
   "RMU": [
@@ -549,6 +569,10 @@
    ],
    [
     "2026-11-21",
+    49
+   ],
+   [
+    "2026-11-23",
     49
    ]
   ]
