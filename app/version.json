@@ -1,8 +1,8 @@
 {
-  "versionCode": 75,
-  "versionName": "4.44",
+  "versionCode": 76,
+  "versionName": "4.45",
   "apk": "app/Tiempo.apk",
-  "sha256": "af5c9d75dacbe66daa8db10d50fe2da18b441b3d740ade4966c31f67585fc84a",
-  "bytes": 1379737,
-  "notas": "Terremotos: las listas, del más reciente (arriba) al más antiguo, empezando siempre por el último. Inundaciones: si falta la imagen ampliada del Paseo de los Navegantes se vuelve a pedir a las 2 horas, y las zonas inundables ya no se bajan de más."
+  "sha256": "2ca7e8b4959d334ed0dbf16bef4a58db2b768687ef49547b4c9171273d0d9a41",
+  "bytes": 1431365,
+  "notas": "Buenos días por la mañana y modo noche; pestañas Barco dragón, Conciertos y espectáculos, Cursos gratis y Productos peligrosos; Para remar en Semana; mercadillos de El Ejido; avisos naranjas y rojos en voz alta; PVPC o precio fijo en Mi luz; cine de hoy; firma nueva (se instala una vez desde el PC)"
 }
