@@ -48,6 +48,9 @@ body.claro #escena .m1{fill-opacity:.09}body.claro #escena .m2{fill-opacity:.15}
 #escena .orla{fill:none;stroke-opacity:.2;stroke-width:2}#escena .orla.cuentas{stroke-width:7;stroke-dasharray:1 26;stroke-opacity:.34}
 #escena .marco{stroke-opacity:.42;stroke-width:2.5}#escena .marco .rel{fill-opacity:.22}body.claro #escena .marco{stroke-opacity:.5}
 #mov{position:absolute;inset:0;overflow:hidden}
+html[data-letra] #mov,html[data-letra] .a-est{right:auto;bottom:auto;width:1920px;height:1080px;transform:scale(var(--zi));transform-origin:0 0}
+html[data-letra] #menu .mn{transform:scale(var(--zi))}
+#tecleo{position:absolute;top:34px;left:50%;transform:translateX(-50%);z-index:60;padding:12px 34px;border-radius:22px;background:rgba(15,22,34,.92);color:#fff;font-size:44px;font-weight:800;box-shadow:0 20px 50px -20px #000}
 #mov i{position:absolute;display:block;width:1px;height:1px;transform-origin:0 0;will-change:transform,opacity;animation:var(--an) var(--du,12s) var(--tm,ease-in-out) var(--de,0s) infinite var(--di,normal) both}
 #mov svg{overflow:visible}#mov i.rec{overflow:hidden;animation:none;will-change:auto}
 #mov i.rec svg{will-change:transform;animation:var(--an) var(--du,12s) var(--tm,ease-in-out) var(--de,0s) infinite var(--di,normal) both}
@@ -940,7 +943,7 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .cine-l li>b{min-width:0;flex:0 1 auto;font-variant-numeric:tabular-nums}.cine-l li{flex-direction:column;gap:2px}
 .rs-l{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
 .tile[data-f="mercadillo"] .rs-l{margin-bottom:26px}   /* 4.47: la fecha «Act.» (la fuente), debajo de la lista, sin tapar la última fila */
-.mibolsa .mb-c+.mb-c{margin-top:10px}.mibolsa .mb-t{font-weight:700;color:var(--h);font-size:22px;margin-top:4px}.mibolsa .rs-l{margin-top:4px;gap:6px}.mibolsa .rs-l li{font-size:22px}.mibolsa .rs-l li>b{min-width:112px}.mibolsa .rs-l li>span{text-align:left}.rs-l li{display:flex;gap:14px;align-items:baseline;font-size:24px;line-height:1.3}.rs-l li>b{flex:none;min-width:120px}.rs-l li>span{min-width:0}
+.mibolsa .mb-v{white-space:nowrap;font-weight:700}.mibolsa .mb-v.sube{color:var(--ok)}.mibolsa .mb-v.baja{color:#e5533d}.mibolsa .mb-c+.mb-c{margin-top:10px}.mibolsa .mb-t{font-weight:700;color:var(--h);font-size:22px;margin-top:4px}.mibolsa .rs-l{margin-top:4px;gap:6px}.mibolsa .rs-l li{font-size:22px}.mibolsa .rs-l li>b{min-width:112px}.mibolsa .rs-l li>span{text-align:left}.rs-l li{display:flex;gap:14px;align-items:baseline;font-size:24px;line-height:1.3}.rs-l li>b{flex:none;min-width:120px}.rs-l li>span{min-width:0}
 .rs-n{padding:2px 10px;border-radius:8px;background:#f6d23a;color:#222}.rs-n.n2{background:#f28c28}.rs-n.n3{background:#e53935;color:#fff}.rs-ok{font-size:24px;font-weight:700;margin-top:10px}.rs-d{font-size:26px;line-height:1.4;margin:12px 0}.rs-r{font-size:24px;font-weight:800;color:var(--acc);margin:6px 0}
 .noche-t .t0{font-size:150px}.noche-t .ya,.rs-t .ya{display:flex;align-items:center;gap:30px}.rs-t .t0{font-size:96px}.rs-t .t0 small{font-size:48px}.noche-t .desc,.rs-t .desc{font-size:32px}.dia .rema{font-size:20px;line-height:1.15;font-weight:800;color:var(--acc);text-align:center}
 .nat-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end}.nat-ab{min-width:0}
@@ -1025,6 +1028,12 @@ body.claro .im-mar{fill:#d6e4f0}body.claro .im-costa{stroke:rgba(20,40,70,.75)}b
 .lonjap.toda.pocas .lp li{font-size:32px;padding:20px 0}.lonjap.toda.pocas .lp li b{font-size:34px}.lonjap.toda.pocas .lp li i{font-size:24px}.lonjap.toda.pocas .lp .pf,.lonjap.toda.pocas .lp svg{transform:scale(1.25)}.lonjap .lp .pf{flex:none;width:64px;height:32px;display:block}
 .mn-movil{display:flex;align-items:center;gap:22px;margin-top:18px;padding-top:16px;border-top:1px solid var(--linea)}.mn-movil svg.qr{width:116px;height:116px;padding:6px}
 .mn-movil p{font-size:20px;line-height:1.35;color:var(--mu);font-weight:600}.mn-movil b{display:block;font-size:23px;color:var(--tx);margin-bottom:2px}.mn-movil u{text-decoration:none;color:var(--c1);white-space:nowrap}
+.mn-sub{width:1800px}.mn ol.sub{grid-template-rows:none;grid-auto-flow:row;grid-template-columns:1fr;row-gap:6px}.mn ol.sub li em{margin-left:6px}
+.mn-f{margin-top:18px}.mn-fk{display:flex;align-items:baseline;gap:18px;font-size:24px;font-weight:800;margin-bottom:8px}.mn-fk em{font-style:normal;font-size:20px;color:var(--mu);font-weight:600}
+.mn-f ul{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:22px;row-gap:2px;margin-bottom:10px}
+.mn-ok{font-size:20px;line-height:1.35;color:var(--tx2);text-align:justify;hyphens:auto}.mn-ok b{color:var(--ok)}
+.mn-f li{display:flex;gap:10px;align-items:baseline;font-size:20px;line-height:1.25;padding:1px 8px;border-radius:8px}.mn-f li b{font-weight:700;flex:1;min-width:0}.mn-f li span{flex:none;color:var(--mu);font-weight:600}
+.mn-f li.mal{background:hsla(5,80%,55%,.16)}.mn-f li.mal span{color:#e5533d}
 .mn-ay{display:flex;gap:28px;justify-content:center;margin-top:24px;font-size:20px;color:var(--mu);font-weight:700}.mn-ay span{white-space:nowrap}
 /* ---------- 4.18 (lo pidió Isa el 3 nov 2026: «haz que las pantallas tengan un diseño moderno y eficiente») ----------
    Más sitio para lo que importa: márgenes, huecos y cabecera más ajustados (unos 40 px más de alto y 16 de ancho para las tarjetas), esquinas
@@ -1500,7 +1509,7 @@ function ajustarChips(raiz) {
 }
 /* 4.37: los textos de los dibujos (gráficas y mapas, que se escalan con su tarjeta) tampoco por debajo de LETRA_MIN en la pantalla */
 function agrandarSvgTextos(raiz) {
-  const pagina = document.body.getBoundingClientRect().width / 1920 || 1;
+  const pagina = document.body.getBoundingClientRect().width / (document.body.offsetWidth || 1920) || 1;
   for (const t of raiz.querySelectorAll("svg text")) {
     const m = t.getScreenCTM && t.getScreenCTM();
     if (!m || !t.getClientRects().length) continue;
@@ -1590,6 +1599,50 @@ function decirAvisos() {
   decirNuevos(CLAVE_DICHOS, 30, avisosFuertes(), a => a.nivel + "|" + a.fenomeno + "|" + a.desde,
     N => N.map(a => `Aviso ${String(a.color || "").toLowerCase()} de AEMET por ${a.fenomeno}${cuando(a)}.`).join(" "));
 }
+/* 4.48: en voz, de 8 a 23 h y una vez: las ofertas del SAS de su categoría que estén en plazo y lo del BOJA y el BOE de su categoría */
+const CLAVE_SAS_VOZ = "tiempo.sasDichos", sinBarra = t => String(t || "").replace(/\/as?\b/g, "");
+function decirSas() {
+  const h = new Date().getHours(); if (h < 8 || h >= 23) return;
+  const O = ofertasSas().filter(o => enPlazoOoe(o) && suCategoria(`${o.puesto} ${o.titulo}`)).map(o => ({k: "ooe:" + o.id, t: `${sinBarra(o.puesto || o.titulo)}, en ${centroSas(o.centro)}`}));
+  const B = [...sasBoja(), ...sasBoe()].filter(x => suCategoria(x.resumen || x.titulo) && diasHasta(x.fecha) >= -2).map(x => ({k: "bo:" + (x.url || x.titulo || x.resumen), t: sinBarra(abreviarSas(x.resumen || x.titulo))}));
+  decirNuevos(CLAVE_SAS_VOZ, 60, O.concat(B), x => x.k, N => `${N.length === 1 ? "Novedad del SAS" : `${N.length} novedades del SAS`} de tu categoría: ${N.map(x => x.t).join(". ")}.`);
+}
+/* 4.48: un listado definitivo nuevo de la bolsa (de los 7 últimos días), en voz una vez, con el puesto */
+const CLAVE_BOLSA_VOZ = "tiempo.bolsaDichos";
+function decirBolsa() {
+  const h = new Date().getHours(); if (h < 8 || h >= 23 || !E.bolsa) return;
+  const pri = p => Array.isArray(p) ? p[0] : p;
+  const L = miBolsa().filter(c => c.publicado && diasHasta(c.publicado) >= -7 && ((c.bolsa && c.bolsa.pos != null) || (c.adicional && c.adicional.pos != null)));
+  decirNuevos(CLAVE_BOLSA_VOZ, 400, L, c => c.cat + "|" + c.publicado, N => N.map(c => `Nuevo listado definitivo de la bolsa del SAS de ${sinBarra(String(c.cat).replace(/: /, ", "))}: `
+    + [c.bolsa && c.bolsa.pos != null ? `en la bolsa, puesto ${pri(c.bolsa.pos)}` : "", c.adicional && c.adicional.pos != null ? `en el adicional, puesto ${pri(c.adicional.pos)}` : ""].filter(Boolean).join("; ") + ".").join(" "));
+}
+/* 4.48: «Buenos días» en voz a la hora elegida en el menú ≡ (AJ.voz), una vez al día y en la hora siguiente (si la tele está encendida) */
+const CLAVE_BD = "tiempo.buenosDias";
+function textoBuenosDias() {
+  const d = diaPrevision(0), f = new Date(), hoy = isoDe(f);
+  if (!d) return "";
+  const P = [`Buenos días. Hoy es ${DIAS[f.getDay()]} ${f.getDate()} de ${MESES[f.getMonth()]}.`,
+    `En ${E.lugar.nombre}, ${String(d.desc || "").toLowerCase()}${d.max != null ? `, máxima de ${d.max} grados` : ""}${d.min != null ? ` y mínima de ${d.min}` : ""}; lluvia, ${d.prob ?? 0} por ciento${d.viento != null ? `; viento de ${d.viento} kilómetros por hora` : ""}.`];
+  const A = (E.avisos || []).filter(a => a.nivel >= 1);
+  P.push(A.length ? A.slice(0, 3).map(a => `Aviso ${String(a.color || "").toLowerCase()} de AEMET por ${String(a.fenomeno || "").toLowerCase()}.`).join(" ") : avisosAlDia() ? "Sin avisos de AEMET." : "");
+  const r = ratosRemar(hoy);
+  if (r && r.length) P.push(`Para remar, ${textoHorasRemar(r).replace(/ h\b/g, " horas")}.`); else if (!r && remar(d)) P.push("Buen día para remar.");
+  const m = sabadosMercadillo(1)[0];
+  if (E.lugar.ine === "04003" && m && m.fecha === hoy && !m.no) P.push("Hoy hay mercadillo en la calle del Puerto, de 8 a 14 horas.");
+  const iss = (pasosISS() || []).find(p => isoDe(new Date(p.ini)) === hoy && p.ini > Date.now());
+  if (iss) P.push(`La Estación Espacial se ve hoy a las ${horaMin(iss.ini)}.`);
+  return P.filter(Boolean).join(" ");
+}
+function decirBuenosDias() {
+  if (!AJ.voz || !(window.Android && Android.decir) || window.MOVIL || window.NUBE) return;
+  const [h, mi] = AJ.voz.split(":").map(Number), d = new Date(), min = d.getHours() * 60 + d.getMinutes(), hoy = isoDe(d);
+  if (min < h * 60 + mi || min >= h * 60 + mi + 60) return;
+  let ya = null; try { ya = localStorage.getItem(CLAVE_BD); } catch (e) {}
+  if (ya === hoy || !E || !E.lugar) return;
+  const t = textoBuenosDias(); if (!t) return;
+  try { Android.decir(t); localStorage.setItem(CLAVE_BD, hoy); } catch (e) {}
+}
+setInterval(() => { try { decirBuenosDias(); } catch (e) {} }, 30e3);
 // cada pantalla 15 s, en bucle (4.3: los segundos de cada una se pueden cambiar en el menú de ajustes: rota(p))
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -2081,8 +2134,11 @@ function leerAjustes() {
   try { s = window.Android && Android.ajustes ? Android.ajustes() : localStorage.getItem("tiempo.ajustes"); } catch (e) {}
   try { a = JSON.parse(s || "{}") || {}; } catch (e) {}
   const de = x => Array.isArray(x) ? x.filter((p, i) => ORDEN_BASE.includes(p) && x.indexOf(p) === i) : [];
-  return {orden: a.ordenV === ORDEN_V ? de(a.orden) : [], ocultas: de(a.ocultas), seg: a.seg && typeof a.seg === "object" ? a.seg : {}, ordenV: ORDEN_V};
+  return {orden: a.ordenV === ORDEN_V ? de(a.orden) : [], ocultas: de(a.ocultas), seg: a.seg && typeof a.seg === "object" ? a.seg : {}, ordenV: ORDEN_V,
+    letra: LETRAS[a.letra] ? a.letra : 0, voz: VOZ_HORAS.includes(a.voz) ? a.voz : null};
 }
+/* 4.48: el tamaño de la letra (la página se dibuja más pequeña y se agranda: lo que no cabe, por turnos) y la hora de «Buenos días» en voz */
+var LETRAS = [1, 1.1, 1.2], LETRA_NOMBRE = ["normal", "más grande", "aún más grande"], VOZ_HORAS = [null, "7:00", "7:30", "8:00", "8:30", "9:00", "9:30", "10:00"];
 let AJ = leerAjustes();
 function guardarAjustes() {
   const s = JSON.stringify(AJ);
@@ -2383,7 +2439,7 @@ function pSemana() {
     const n = diasHasta(x.fecha);   // hoy, subrayado siempre (por su fecha); lo que ya pasó, más apagado
     return `<div class="dia${n === 0 ? " hoy" : n < 0 ? " pasado" : ""}"><b>${diaNombre(x.fecha)}</b><span>${f.getDate()} ${MES3[f.getMonth()]}</span>${icono(x.cod, x.desc, 128)}
       <div class="tt"><b class="num">${x.max ?? "–"}°</b><span>${x.min ?? "–"}°</span></div><div class="rango"><u style="left:${a.toFixed(0)}%;width:${Math.max(6, b - a).toFixed(0)}%"></u></div>
-      <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}<b class="rema"${n >= 0 && remar(x) ? "" : ' style="visibility:hidden"'}>Para<br>remar</b></div>`;
+      <small>${GOTA}${x.prob ?? 0} %</small><small>${x.viento ?? "–"} km/h ${esc(x.dir || "")}</small>${badge}${rema(x, n)}</div>`;
   }).join("");
   // 4.36 (lo pidió Isa el 8 nov 2026: «elimina la predicción de las próximas 24 horas en Semana»): van en Ahora (las 48 horas); la salida y la
   // puesta del sol, en la cabecera; los 7 días, a lo alto, con el riesgo de incendio al lado
@@ -2503,7 +2559,13 @@ function tarjetaLluvia(i) {
   // días sin llover: medidos por la estación agroclimática de la Junta (4.12: sin el reanálisis ERA5 de Open-Meteo)
   const seco = R && R.sinLlover != null ? {n: R.sinLlover, ul: R.ultima, de: ` · estación de ${esc(R.estacion)} (Junta)`} : null;
   const filas = [];
-  if (R) filas.push(`<li class="d2">Lluvia medida en ${MESES[new Date(R.hasta + "T12:00").getMonth()]}<b>${coma(R.mes, 1)} mm<small>7 días: ${coma(R.semana, 1)} · ayer: ${coma(R.ayer, 1)}</small></b></li>`);
+  // 4.48: con lo normal de la misma estación (IFAPA, 2001-2025): el mes entero y el año hidrológico (desde el 1 de octubre)
+  const NR = R && E.climaRia && E.climaRia.estacion === R.estacion ? (E.climaRia.normales || []).filter(x => x.mes >= 1 && x.mes <= 12 && x.R != null) : [], N = NR.length === 12 ? NR : null;
+  const mesR = R ? new Date(R.hasta + "T12:00").getMonth() : 0, nMes = N ? (N.find(x => x.mes === mesR + 1) || {}).R : null;
+  if (R) filas.push(`<li class="d2">Lluvia medida en ${MESES[mesR]}<b>${coma(R.mes, 1)} mm<small>7 días: ${coma(R.semana, 1)} · ayer: ${coma(R.ayer, 1)}</small></b></li>`);
+  if (R && nMes) filas.push(`<li class="d2">Lo normal en ${MESES[mesR]}<b>${coma(nMes, 1)} mm<small>llevamos el ${Math.round(R.mes / nMes * 100)} % (${esc(E.climaRia.periodo || "")})</small></b></li>`);
+  if (R && R.hidro != null) { const anio = N ? ((E.climaRia.normales || []).find(x => x.mes === "año") || {}).R || N.reduce((t, x) => t + x.R, 0) : null;
+    filas.push(`<li class="d2">Desde el 1 de octubre<b>${coma(R.hidro, 1)} mm<small>${anio ? `${Math.round(R.hidro / anio * 100)} % de un año normal (${coma(anio, 0)} mm)` : "año hidrológico"}</small></b></li>`); }
   if (R && R.et0Semana != null) { const falta = R.et0Semana - R.semana;   // evapotranspiración de referencia (ET0) menos la lluvia, 1 mm = 1 l/m²
     filas.push(`<li class="d2">Para regar (7 días)<b>${falta > 0 ? `faltan ${coma(falta, 1)} l/m²` : "no hace falta"}<small>evaporado: ${coma(R.et0Semana, 1)} · llovido: ${coma(R.semana, 1)}</small></b></li>`); }
   const t = enTurno("lluvia", filas, filas.length);
@@ -3335,7 +3397,7 @@ function pResumen() {
   const tiempo = d ? `<div data-f="prevision" class="tile rs-t" style="--i:1"><div class="k">${may(diaFecha(hoy))}<em>AEMET</em></div>
     <div class="ya">${icono(d.cod, d.desc, 120)}<div><div class="t0 num">${d.max ?? "–"}°<small> / ${d.min ?? "–"}°</small></div><div class="desc">${esc(d.desc || "")}</div></div></div>
     <p class="rs-d">Ahora <b>${h && h.temp != null ? h.temp + "°" : "–"}</b> · lluvia <b>${d.prob ?? 0} %</b> · viento <b>${d.viento ?? "–"} km/h ${esc(d.dir || "")}</b>${sol && sol.salida ? ` · sol de <b>${esc(String(sol.salida))}</b> a <b>${esc(String(sol.puesta || ""))}</b>` : ""}</p>
-    ${remar(d) ? `<p class="rs-r">Buen día para remar: viento flojo y sin lluvia</p>` : ""}${aguaMar() != null ? `<p class="rs-d">El mar, a <b>${coma(aguaMar(), 1)}°</b> (${esc(E.boya.nombre)})</p>` : ""}${lineaIss()}${lineaAvisos()}</div>` : vaciaDe("prevision", "Cargando la previsión de AEMET…", 1);
+    ${lineaRemar(hoy, d)}${aguaMar() != null || olasDe(hoy) ? `<p class="rs-d">${aguaMar() != null ? `El mar, a <b>${coma(aguaMar(), 1)}°</b> (${esc(E.boya.nombre)})${olasDe(hoy) ? " · " : ""}` : ""}${olasDe(hoy) ? `${aguaMar() != null ? "" : "En el mar, "}<b>${olasDe(hoy)}</b>` : ""}</p>` : ""}${lineaIss()}${lineaAvisos()}</div>` : vaciaDe("prevision", "Cargando la previsión de AEMET…", 1);
   const agenda = `<div data-f="x" class="tile" style="--i:2"><div class="k">Hoy y mañana en ${esc(E.lugar.nombre)}<em>agenda</em></div>${ag.length
     ? `<ul class="rs-l">${ag.map(a => `<li><b>${a.fecha <= hoy ? "Hoy" : diaNombre(a.fecha)}${a.hora ? ` ${esc(a.hora)}` : ""}</b><span>${esc(a.titulo)}${a.lugar ? ` · ${esc(a.lugar)}` : ""}</span></li>`).join("")}</ul>` : `<p class="rs-ok mut">Nada en la agenda para hoy ni para mañana.</p>`}</div>`;
   const nov = `<div data-f="boja boe x alimentarias" class="tile" style="--i:3"><div class="k">Novedades de las últimas 24 horas</div><ul class="rs-l">
@@ -3365,6 +3427,34 @@ function tarjetaCine(i) {
 /* 21 nov 2026: «buen día para remar» (barco dragón): según la previsión de AEMET del día, viento de 15 km/h o menos y lluvia del 20 % o menos */
 const REMAR = {viento: 15, lluvia: 20};
 const remar = d => !!d && d.viento != null && d.viento <= REMAR.viento && (d.prob ?? 0) <= REMAR.lluvia;
+/* 4.48: las horas para remar de un día, con la previsión por horas de AEMET (de 8 a 20 h, las que no han pasado): [[9, 13], …];
+   null si AEMET no da ese día por horas hasta las 19 */
+function ratosRemar(fecha) {
+  const H = (E.horas || []).filter(h => String(h.t).slice(0, 10) === fecha), r = [], ahora = Date.now();
+  if (!H.some(h => +h.t.slice(11, 13) >= 19)) return null;
+  for (const h of H) {
+    const n = +h.t.slice(11, 13);
+    if (n < 8 || n >= 20 || Date.parse(h.t) + 36e5 <= ahora || !remar(h)) continue;
+    const u = r[r.length - 1];
+    if (u && u[1] === n) u[1] = n + 1; else r.push([n, n + 1]);
+  }
+  return r;
+}
+/* 4.48: en Semana, «Para remar» con el rato más largo si AEMET da ese día por horas (si no, por el día entero); siempre ocupa su fila */
+function rema(x, n) {
+  const r = n >= 0 ? ratosRemar(x.fecha) : null, l = r && r.length ? r.reduce((a, b) => b[1] - b[0] > a[1] - a[0] ? b : a) : null;
+  const sale = n >= 0 && (r ? !!l : remar(x));
+  return `<b class="rema"${sale ? "" : ' style="visibility:hidden"'}>${l ? `Remar<br>${l[0]}–${l[1]} h` : "Para<br>remar"}</b>`;
+}
+/* 4.48: en Buenos días, las horas para remar de hoy (si AEMET las da por horas) o, si no, el día entero */
+function lineaRemar(fecha, d) {
+  const r = ratosRemar(fecha);
+  if (r) return r.length ? `<p class="rs-r">Para remar, ${textoHorasRemar(r)}: viento flojo y sin lluvia</p>` : "";
+  return remar(d) ? `<p class="rs-r">Buen día para remar: viento flojo y sin lluvia</p>` : "";
+}
+const textoHorasRemar = r => r.map(([a, b]) => `de ${a} a ${b} h`).join(r.length > 2 ? ", " : " y ").replace(/, (de \d+ a \d+ h)$/, " y $1");
+/* el oleaje del día (Puertos del Estado): «olas de 0,2 a 1,6 m» */
+const olasDe = fecha => { const o = (E.oleaje || []).find(x => x.fecha === fecha); return o && o.hs != null ? `olas de ${o.hsMin != null && o.hsMin < o.hs ? `${coma(o.hsMin, 1)} a ` : ""}${coma(o.hs, 1)} m` : ""; };
 /* 24 nov 2026 (lo pidió Isa: «pon solo el mercadillo de adra»; antes, los de El Ejido): el mercadillo de Adra, en la calle del Puerto,
    de 8 a 14 h, «todos los sábados del mes a excepción del último» (Plan Estratégico de Comercio Municipal del Ayuntamiento de Adra, pp. 63
    y 114). No se baja: sale de esa regla. */
@@ -6035,15 +6125,21 @@ function tarjetaMiBolsa(i) {
   const C = miBolsa(), k = `<div class="k">Tu sitio en la Bolsa del SAS`;
   if (!C.length) return `<div data-f="bolsa" class="tile mibolsa" style="--i:${i}">${k}<em>técnico/a de salud</em></div><p class="nota">No apareces en los listados definitivos de Técnico/a de Salud con las cifras del DNI y el apellido que tiene la tele (menú ≡ → «Tu sitio en la Bolsa del SAS»).</p></div>`;
   const puesto = p => p[0] === p[1] ? `${p[0]}.º` : `${p[0]}.º–${p[1]}.º`;
+  // 4.48: el puesto del listado definitivo anterior (lo guarda la app al cambiar el listado) y cuántos se ha subido o bajado
+  const pri = p => Array.isArray(p) ? p[0] : p, ant = [];
+  const antes = (c, t) => { const x = c.antes && c.antes[t], y = c[t]; if (!x || x.pos == null || !y || y.pos == null || (t === "bolsa" && y.estado !== "admitida")) return "";
+    const d = pri(x.pos) - pri(y.pos); ant.push(c.antes.publicado);
+    return ` · <span class="mb-v${d > 0 ? " sube" : d < 0 ? " baja" : ""}">${d > 0 ? `▲ ${d}` : d < 0 ? `▼ ${-d}` : "="} (antes, ${Array.isArray(x.pos) ? puesto(x.pos) : x.pos + ".º"})</span>`; };
   const cat = c => {
     const b = c.bolsa, a = c.adicional, L = [];
-    if (b) L.push(`<li><b>Bolsa</b><span>${b.estado === "admitida" ? `puesto <strong>${puesto(b.pos)}</strong> de ${b.de} admitidas con ${ptsBolsa(c.minimo)} puntos o más · tienes ${ptsBolsa(b.puntos)}`
+    if (b) L.push(`<li><b>Bolsa</b><span>${b.estado === "admitida" ? `puesto <strong>${puesto(b.pos)}</strong> de ${b.de} admitidas con ${ptsBolsa(c.minimo)} puntos o más · tienes ${ptsBolsa(b.puntos)}${antes(c, "bolsa")}`
       : b.estado === "bajo" ? `admitida con ${ptsBolsa(b.puntos)} puntos, por debajo del mínimo (${ptsBolsa(c.minimo)})` : `excluida${b.motivo ? ` (motivo ${esc(b.motivo)})` : ""}`}</span></li>`);
-    if (a) L.push(`<li><b>Adicional</b><span>puesto <strong>${a.pos}.º</strong> de ${a.de}${a.rango && (a.rango[0] !== a.pos || a.rango[1] !== a.pos) ? ` (${puesto(a.rango)} con el desempate por fecha)` : ""} · tienes ${ptsBolsa(a.puntos)} puntos</span></li>`);
+    if (a) L.push(`<li><b>Adicional</b><span>puesto <strong>${a.pos}.º</strong> de ${a.de}${a.rango && (a.rango[0] !== a.pos || a.rango[1] !== a.pos) ? ` (${puesto(a.rango)} con el desempate por fecha)` : ""} · tienes ${ptsBolsa(a.puntos)} puntos${antes(c, "adicional")}</span></li>`);
     return `<div class="mb-c"><div class="mb-t">${esc(String(c.cat).replace(/^Técnico\/a de Salud: /, ""))}</div><ul class="rs-l">${L.join("")}</ul></div>`;
   };
   const pub = C.map(c => c.publicado).filter(Boolean).sort().pop(), nuevo = C.find(c => c.masReciente);
   return `<div data-f="bolsa" class="tile mibolsa" style="--i:${i}">${k}<em>${pub ? `listado definitivo del ${diaFecha(pub)}` : "listados definitivos"}</em></div>${C.map(cat).join("")}`
+    + `${ant.length ? `<p class="nota">▲ ▼: puestos que has subido o bajado desde el listado definitivo anterior${ant[0] ? ` (del ${diaFecha(ant.filter(Boolean).sort()[0])})` : ""}.</p>` : ""}`
     + `${nuevo ? `<p class="nota">Hay un listado más reciente, aún no definitivo: ${esc(nuevo.masReciente)}.</p>` : ""}</div>`;
 }
 function pSasPagina() {
@@ -6457,10 +6553,11 @@ function pintar() {
   const p = lista[pag];
   actual = p;
   vueltaNueva = p !== ultimaPintada;   // otra parte de cada lista larga
-  let cuerpo;
   esperando = esperandoHoy();
-  if (esperando) cuerpo = paginaEsperando();
-  else try { cuerpo = PAGINAS[p](); } catch (e) { cuerpo = `<div class="main">${vacia("No se pudo dibujar esta pantalla: " + esc(e.message))}</div>`; }
+  const cuerpoDe = () => { if (esperando) return paginaEsperando();
+    try { return PAGINAS[p](); } catch (e) { return `<div class="main">${vacia("No se pudo dibujar esta pantalla: " + esc(e.message))}</div>`; } };
+  let z = zLetra(); ponerLetra(z);
+  const cuerpo = cuerpoDe();
   const claro = temaClaro();
   document.body.className = "p-" + p + (claro ? " claro" : "");
   document.documentElement.style.background = claro ? "#efebe3" : "#0a0f16";
@@ -6473,6 +6570,12 @@ function pintar() {
   vueltaNueva = false;
   ponerActualizado(w);
   ajustar(w);
+  // 4.48: con la letra más grande, si algo no cabe, la misma pantalla (la misma parte de cada lista) otra vez un poco más pequeña, hasta
+  // la de siempre: nada cortado
+  while (z > 1 + 1e-6 && [...w.querySelectorAll(".tile")].some(t => cortada(t))) {
+    z = Math.max(1, +(z - .1).toFixed(2)); ponerLetra(z);
+    w.innerHTML = cabecera(p) + cuerpoDe() + pie(lista); ajustarPie(w); ponerActualizado(w); ajustar(w);
+  }
   // el índice UV va al final de la línea de datos solo si cabe entero (si no, ya avisa el chip cuando es alto)
   // 4.37: los datos del momento van en dos líneas si hace falta; el UV, solo si no hace falta una tercera
   const dt = w.querySelector(".hero .datos"); if (dt && dt.getBoundingClientRect().height > 2.9 * parseFloat(getComputedStyle(dt).lineHeight)) { const u = dt.querySelector(".uvd"); if (u) u.remove(); }
@@ -6764,16 +6867,19 @@ setInterval(medirFluidez, 5 * 60000);
 const EN_LA_TELE = [{t: "datadis", titulo: "Luz de casa (Datadis)"}, {t: "bolsa", titulo: "Tu sitio en la Bolsa del SAS"}];
 const enLaTele = t => { try { return !!(window.Android && Android[t]); } catch (e) { return false; } };
 const estadoTele = t => { try { return Android[t + "Estado"]() || ""; } catch (e) { return ""; } };
-function filasMenu() { return [{t: "sitio"}].concat(EN_LA_TELE.filter(x => enLaTele(x.t)).map(x => ({t: x.t, tele: x.titulo})), ordenPantallas().map(p => ({t: "p", p})), [{t: "reset"}]); }
+function filasMenu() { return [{t: "sitio"}].concat(EN_LA_TELE.filter(x => enLaTele(x.t)).map(x => ({t: x.t, tele: x.titulo})), [{t: "mas"}], ordenPantallas().map(p => ({t: "p", p})), [{t: "reset"}]); }
 function pintarMenu() {
   let m = document.getElementById("menu");
   if (!menu) { if (m) m.remove(); return; }
   if (!m) { m = document.createElement("div"); m.id = "menu"; document.body.appendChild(m); }
+  if (menu.sub) { m.innerHTML = menuSub(); return; }
   const hay = new Set(paginasHay()), F = filasMenu(), i = Math.max(0, Math.min(F.length - 1, menu.i));
   const fila = (f, k) => {
     const sel = k === i ? " sel" : "";
     if (f.t === "sitio") return `<li class="mn-x${sel}"><b>Cambiar el sitio</b><span>${esc(E && E.lugar ? E.lugar.nombre : "")}</span></li>`;
     if (f.t === "reset") return `<li class="mn-x${sel}"><b>Volver a como venía</b><span>todas, en su orden, 15 s</span></li>`;
+    if (f.t === "mas") { const n = fuentesSinActualizar().length;
+      return `<li class="mn-x${sel}"><b>Letra, voz y fuentes</b><span>letra ${LETRA_NOMBRE[AJ.letra]} · ${AJ.voz ? `voz a las ${AJ.voz}` : "sin voz"} · ${n ? `${n} sin actualizar` : "todo al día"}</span></li>`; }
     if (f.tele) return `<li class="mn-x${sel}"><b>${f.tele}</b><span>${esc(estadoTele(f.t))}</span></li>`;
     const off = AJ.ocultas.includes(f.p), s = segundosDe(f.p);
     return `<li class="${off ? "off" : "on"}${sel}"><i class="mn-n">${k - F.findIndex(x => x.t === "p") + 1}</i><b>${TITULOS[f.p]}</b>${hay.has(f.p) ? "" : `<em>sin datos ahora</em>`}`
@@ -6781,7 +6887,36 @@ function pintarMenu() {
   };
   m.innerHTML = `<div class="mn"><div class="mn-k">Ajustes de las pantallas<em>se guardan solos · también en el salvapantallas</em></div>
     <ol class="${F.length > 24 ? "apretado" : ""}${F.length > 28 ? " apretado2" : ""}${F.length > 32 ? " apretado3" : ""}" style="grid-template-rows:repeat(${Math.ceil(F.length / 2)},auto)">${F.map(fila).join("")}</ol>
-    ${menuMovil()}<div class="mn-ay"><span>▲ ▼ elegir</span><span>OK quitar o poner</span><span>◀ ▶ segundos</span><span>« » mover</span><span>Atrás o ≡ cerrar</span></div></div>`;
+    ${menuMovil()}<div class="mn-ay"><span>▲ ▼ elegir</span><span>OK quitar o poner</span><span>◀ ▶ segundos</span><span>« » mover</span><span>1–9 ir a esa pantalla</span><span>Atrás o ≡ cerrar</span></div></div>`;
+}
+/* 4.48: «Letra, voz y fuentes»: el tamaño de la letra, «Buenos días» en voz y cuándo llegó bien lo último de cada fuente */
+const FILAS_SUB = ["letra", "voz", "volver"];
+function fuentesSinActualizar() { const D = (E && E.desfasadas) || {}; return Object.keys(D); }
+function menuSub() {
+  const j = menu.j || 0, sel = k => FILAS_SUB[j] === k ? " sel" : "";
+  const F = (E && E.fuentes) || {}, D = (E && E.desfasadas) || {}, hoy = isoDe(new Date());
+  const cuando = t => { if (!t) return "sin datos"; const d = new Date(t), h = `${d.getHours()}:${dosd(d.getMinutes())}`; return isoDe(d) === hoy ? `a las ${h}` : `${diaFecha(isoDe(d))}, ${h}`; };
+  const L = [...new Set(Object.keys(F).filter(k => F[k] && F[k].ok).concat(Object.keys(D)))]
+    .map(k => ({k, n: NOMBRE_FUENTE[k] || k, t: D[k] != null ? D[k] : F[k].ok, mal: D[k] != null}))
+    .sort((a, b) => b.mal - a.mal || a.n.localeCompare(b.n, "es"));
+  const mal = L.filter(x => x.mal).length;
+  return `<div class="mn mn-sub"><div class="mn-k">Letra, voz y fuentes<em>se guardan solos</em></div><ol class="sub">
+    <li class="mn-x${sel("letra")}"><b>Tamaño de la letra</b><span class="mn-s">◀ ${LETRA_NOMBRE[AJ.letra]} ▶</span></li>
+    <li class="mn-x${sel("voz")}"><b>«Buenos días» en voz</b><em>el tiempo de hoy, los avisos, las horas para remar y el mercadillo</em><span class="mn-s">◀ ${AJ.voz ? `a las ${AJ.voz}` : "no"} ▶</span></li>
+    <li class="mn-x${sel("volver")}"><b>Volver al menú</b></li></ol>
+    <div class="mn-f"><div class="mn-fk">Las fuentes<em>${mal ? `${mal} sin actualizar (lo último que llegó bien) y ${L.length - mal} al día` : `las ${L.length}, al día`}</em></div>
+    ${mal ? `<ul>${L.filter(x => x.mal).map(x => `<li class="mal"><b>${esc(may(x.n))}</b><span>${cuando(x.t)}</span></li>`).join("")}</ul>` : ""}
+    <p class="mn-ok"><b>Al día:</b> ${L.filter(x => !x.mal).map(x => esc(x.n)).join(" · ")}</p></div>
+    <div class="mn-ay"><span>▲ ▼ elegir</span><span>◀ ▶ cambiar</span><span>Atrás volver</span></div></div>`;
+}
+function accionSub(a) {
+  const k = FILAS_SUB[menu.j || 0], paso = a === "izq" ? -1 : 1;
+  if (a === "cerrar" || (a === "ok" && k === "volver")) menu.sub = false;
+  else if (a === "arriba") menu.j = Math.max(0, (menu.j || 0) - 1);
+  else if (a === "abajo") menu.j = Math.min(FILAS_SUB.length - 1, (menu.j || 0) + 1);
+  else if ((a === "izq" || a === "der" || a === "ok") && k === "letra") { AJ.letra = (AJ.letra + paso + LETRAS.length) % LETRAS.length; guardarAjustes(); ponerLetra(zLetra()); }
+  else if ((a === "izq" || a === "der" || a === "ok") && k === "voz") { const i = VOZ_HORAS.indexOf(AJ.voz); AJ.voz = VOZ_HORAS[(i + paso + VOZ_HORAS.length) % VOZ_HORAS.length]; guardarAjustes(); }
+  pintarMenu();
 }
 /* 4.19: el enlace para ver la página en un móvil de casa (lo sirve la app), con su QR; en el móvil no sale */
 function menuMovil() {
@@ -6800,6 +6935,7 @@ function accionMenu(a) {
     pintarMenu(); return;
   }
   if (!menu) return;
+  if (menu.sub) return accionSub(a);
   const f = F[menu.i] || {};
   if (a === "cerrar") {
     menu = null;
@@ -6816,7 +6952,8 @@ function accionMenu(a) {
     menu = null; pintarMenu();
     try { Android[f.t](); } catch (e) {}
     return;
-  } else if (a === "ok" && f.t === "reset") { AJ = {orden: [], ocultas: [], seg: {}, ordenV: ORDEN_V}; guardarAjustes(); }
+  } else if (a === "ok" && f.t === "reset") { AJ = {orden: [], ocultas: [], seg: {}, ordenV: ORDEN_V, letra: AJ.letra, voz: AJ.voz}; guardarAjustes(); }
+  else if (a === "ok" && f.t === "mas") { menu.sub = true; menu.j = 0; }
   else if (a === "ok" && f.t === "p") {
     AJ.ocultas = AJ.ocultas.includes(f.p) ? AJ.ocultas.filter(x => x !== f.p) : AJ.ocultas.concat(f.p);
     guardarAjustes();
@@ -6832,13 +6969,22 @@ function accionMenu(a) {
 }
 
 /* ---------- API para la app ---------- */
+let tecleo = "", tecleoT = 0, tecleoQ = 0;
+function pintarTecleo(t, ms) {
+  let el = document.getElementById("tecleo");
+  clearTimeout(tecleoQ);
+  if (!t) { if (el) el.remove(); return; }
+  if (!el) { el = document.createElement("div"); el.id = "tecleo"; document.body.appendChild(el); }
+  el.textContent = t;
+  if (ms) tecleoQ = setTimeout(() => pintarTecleo(""), ms);
+}
 window.app = {
   actualizar(estado) {
     EB = estado; E = alDia(EB);
     // un aviso naranja o rojo nuevo salta a la vista enseguida (si no se está usando el mando)
     const nuevos = avisosFuertes().map(a => a.nivel + "|" + a.fenomeno + "|" + a.desde).filter(k => !avisosVistos.has(k));
     nuevos.forEach(k => avisosVistos.add(k));
-    decirAvisos(); decirTsunami();
+    decirAvisos(); decirTsunami(); try { decirSas(); decirBolsa(); } catch (e) {}
     try { guardarPvpc(); } catch (e) {}
     if (nuevos.length && rotando()) { actual = "aviso"; paginaDesde = Date.now(); pintar(); return; }
     /* con la pantalla rotando sola, lo que llega se pinta al cambiar de pantalla (como mucho 15 s después) y no con cada dato:
@@ -6854,6 +7000,18 @@ window.app = {
     pag = ((i + delta) % n + n) % n; actual = lista[pag]; paginaDesde = Date.now(); pintar();
   },
   tecla() { ultimaTecla = Date.now(); },
+  // 4.48: los números del mando llevan a la pantalla de ese número (el del menú ≡); dos cifras seguidas, en segundo y medio
+  digito(d) {
+    if (!E || menu || salvapantallas) return;
+    tecleo += String(d); clearTimeout(tecleoT);
+    const ir = () => {
+      const n = +tecleo, p = ordenPantallas()[n - 1], L = paginas(); tecleo = "";
+      if (p && L.includes(p)) { pintarTecleo(""); actual = p; pag = L.indexOf(p); paginaDesde = Date.now(); pintar(); }
+      else pintarTecleo(p ? `${n} · ${TITULOS[p]}: ahora no sale` : `No hay pantalla ${n}`, 2500);
+    };
+    pintarTecleo(tecleo);
+    tecleoT = setTimeout(ir, tecleo.length >= 2 || +tecleo * 10 > ordenPantallas().length ? 300 : 1500);
+  },
   menu(accion) { accionMenu(accion); },
   modoSalvapantallas(si) { salvapantallas = !!si; pintar(); },
 };
@@ -6874,12 +7032,19 @@ setInterval(() => {
 setInterval(() => { if (E && rotando() && Date.now() - paginaDesde >= rota(actual)) app.pagina(1); }, 500);
 // en el salvapantallas el contenido se desplaza un poco cada minuto para no marcar la pantalla
 setInterval(() => { if (salvapantallas) document.getElementById("wrap").style.transform = `translate(${Math.round(Math.random() * 16 - 8)}px,${Math.round(Math.random() * 12 - 6)}px)`; }, 60000);
+/* 4.48: la letra elegida en el menú ≡ (en la tele; en el móvil y en internet, la de siempre) y la que lleva la pantalla de ahora */
+let zPuesta = 1;
+const zLetra = () => !window.MOVIL && !window.NUBE ? LETRAS[AJ.letra] || 1 : 1;
+function ponerLetra(z) { if (z !== zPuesta) { zPuesta = z; escalar(); } }
 function escalar() {
   const v = window.visualViewport, m = window.MOVIL, de = document.documentElement;
   // 4.19: en el móvil, el tamaño de la página sin ampliar (al ampliar con dos dedos no se encoge) y centrada; los botones, en movil.js
   const w = m ? de.clientWidth : v ? v.width : innerWidth, h = m ? de.clientHeight : v ? v.height : innerHeight;
-  const s = Math.min(w / 1920, h / 1080);
-  document.body.style.transform = (m ? `translate(${Math.round((w - 1920 * s) / 2)}px,${Math.round((h - 1080 * s) / 2)}px) ` : "") + `scale(${s})`;
+  // 4.48: con la letra más grande, la página se dibuja más pequeña (W × H) y se agranda más; el paisaje y el menú, a su tamaño de siempre
+  const z = zPuesta, W = Math.round(1920 / z), H = Math.round(1080 / z), de2 = document.body.style;
+  if (de2.width !== W + "px") { de2.width = W + "px"; de2.height = H + "px"; de.style.setProperty("--zi", (W / 1920).toFixed(4)); de.toggleAttribute("data-letra", z !== 1); }
+  const s = Math.min(w / W, h / H);
+  document.body.style.transform = (m ? `translate(${Math.round((w - W * s) / 2)}px,${Math.round((h - H * s) / 2)}px) ` : "") + `scale(${s})`;
   if (m && window.colocarMovil) colocarMovil(w, h, s);
 }
 addEventListener("resize", escalar); escalar();

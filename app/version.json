@@ -1,8 +1,8 @@
 {
-  "versionCode": 78,
-  "versionName": "4.47",
+  "versionCode": 79,
+  "versionName": "4.48",
   "apk": "app/Tiempo.apk",
-  "sha256": "e25993948934471f7e8075ea94ac13eb3aa9d53fbbb3340b1afa86021d46174a",
-  "bytes": 1467892,
-  "notas": "Aviso de maremoto para la costa (terremotos del IGN y el Plan Estatal); tu sitio en la Bolsa del SAS (se configura en ≡); lo de Adra en el BOE con las noticias; la lonja y los embalses por turnos"
+  "sha256": "cb6ef402e2066c2516165825af1dcf2fcb1564eaaf9f844c3df29b22e5800e73",
+  "bytes": 1475320,
+  "notas": "4.48: la lluvia del año y lo normal del mes; las horas para remar y las olas; en voz «Buenos días» a la hora que elijas (menú ≡ → Letra, voz y fuentes), las ofertas del SAS de tu categoría y un listado nuevo de la bolsa; en la bolsa, cuánto subes; letra más grande; los números del mando llevan a esa pantalla; copia de seguridad en la tele."
 }
