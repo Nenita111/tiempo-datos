@@ -191,5 +191,24 @@ class Extras(unittest.TestCase):
         self.assertEqual(list(json.loads(s.getvalue())), ["error"]); self.assertEqual(len(json.loads(s.getvalue())["error"]), 200)
 
 
+
+class TurismoAlmeria(unittest.TestCase):
+    """24 nov 2026: la API de Turismo de Almería, una vez al día para actividades.py y espectaculos.py (respuestas de PRUEBA)."""
+    def test_todas_las_paginas_y_una_vez(self):
+        pedidas = []
+        def pedir(u, timeout=60):
+            pedidas.append(u)
+            if "events" in u:
+                n = int(u.rsplit("page=", 1)[1])
+                return json.dumps({"data": [{"id": n}], "pagination": {"total_pages": 3}}).encode()
+            return json.dumps({"data": [{"id": "l1"}]}).encode()
+        with tempfile.TemporaryDirectory() as d:
+            c = os.path.join(d, "t.json")
+            ev, lu = comun.turismo_almeria(pedir, lambda s: None, cache=c)
+            self.assertEqual([e["id"] for e in ev], [1, 2, 3]); self.assertEqual(lu, [{"id": "l1"}]); self.assertEqual(len(pedidas), 4)
+            self.assertEqual(comun.turismo_almeria(pedir, lambda s: None, cache=c), (ev, lu)); self.assertEqual(len(pedidas), 4)   # de la caché
+            self.assertEqual(len(comun.turismo_almeria(pedir, lambda s: None, maximo=2, cache=os.path.join(d, "u.json"))[0]), 2)
+
+
 if __name__ == "__main__":
     unittest.main()

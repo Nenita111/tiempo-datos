@@ -91,6 +91,35 @@ def texto_pdf(datos, *opciones, tiempo=None, comprobar=True):
         return subprocess.run(["pdftotext", *opciones, p, "-"], capture_output=True, text=True, timeout=tiempo, check=comprobar).stdout
 
 
+# ------------------------------------------------------------------ Turismo de Almería (agenda de la provincia)
+TURALM = "https://www.turismodealmeria.org/wp-json"
+
+
+def turismo_almeria(pedir, dormir=time.sleep, maximo=15, cache=None):
+    """24 nov 2026 (lo pidió Isa: «optimiza y factoriza»): los eventos y los sitios de la API de Turismo de Almería (EventON), que
+    leían actividades.py (solo 2 páginas: las páginas no van por fecha y se perdía lo de las demás) y espectaculos.py (todas): todas las
+    páginas de eventos (hasta [maximo]) y de sitios, con un segundo entre páginas. Lo bajado se guarda para el resto del día (en el
+    directorio temporal; [cache] para las pruebas): el segundo script que lo pide ya no vuelve a pedirlo."""
+    ruta = cache or os.path.join(tempfile.gettempdir(), f"turismo-almeria-{hoy().isoformat()}.json")
+    try:
+        with open(ruta, encoding="utf-8") as f: return tuple(json.load(f))
+    except (OSError, ValueError): pass
+    ev, lu, n, total = [], [], 1, 1
+    while n <= min(total, maximo):
+        d = json.loads(pedir(f"{TURALM}/eventon-api/v1/events?per_page=100&page={n}", timeout=60))
+        ev += d.get("data") or []
+        total = int((d.get("pagination") or {}).get("total_pages") or 1)
+        n += 1; dormir(1)
+    for n in range(1, 8):
+        d = json.loads(pedir(f"{TURALM}/evenlocation/v1/locations?per_page=100&page={n}", timeout=60)).get("data") or []
+        lu += d; dormir(1)
+        if len(d) < 100: break
+    try:
+        with open(ruta, "w", encoding="utf-8") as f: json.dump([ev, lu], f)
+    except OSError: pass
+    return ev, lu
+
+
 # ------------------------------------------------------------------ distancias y municipios
 def km(a, b):
     """Los kilómetros, en línea recta, entre dos puntos (latitud, longitud) cercanos."""

@@ -95,18 +95,8 @@ def turismo_almeria(eventos, lugares, hoy):
     return res
 
 
-def pedir_turismo_almeria(pedir, dormir, maximo=15):
-    ev, lu, n, total = [], [], 1, 1
-    while n <= min(total, maximo):
-        d = json.loads(pedir(f"{TURALM}/eventon-api/v1/events?per_page=100&page={n}", timeout=60))
-        ev += d.get("data") or []
-        total = int((d.get("pagination") or {}).get("total_pages") or 1)
-        n += 1; dormir(1)
-    for n in range(1, 8):
-        d = json.loads(pedir(f"{TURALM}/evenlocation/v1/locations?per_page=100&page={n}", timeout=60)).get("data") or []
-        lu += d; dormir(1)
-        if len(d) < 100: break
-    return ev, lu
+def pedir_turismo_almeria(pedir, dormir, maximo=15):   # 24 nov 2026: la de comun (una vez al día, también para actividades.py)
+    return comun.turismo_almeria(pedir, dormir, maximo)
 
 
 # ---- Roquetas de Mar: Faro Cultural

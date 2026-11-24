@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import comun
 
 DIAS = 45
-TURALM = "https://www.turismodealmeria.org/wp-json"
+TURALM = comun.TURALM
 MOTRIL = "https://motrilturismo.com"
 DIPALME = "https://www.dipalme.org"
 DIPALME_DEPORTES = DIPALME + "/Servicios/cmsdipro/index.nsf/index.xsp?p=deportes"
@@ -89,15 +89,8 @@ def turismo_almeria(eventos, lugares, hoy):
     return res
 
 
-def pedir_turismo_almeria(pedir, dormir):
-    ev, lu = [], []
-    for n in (1, 2):
-        ev += json.loads(pedir(f"{TURALM}/eventon-api/v1/events?per_page=100&page={n}", timeout=60)).get("data") or []; dormir(1)
-    for n in range(1, 6):
-        d = json.loads(pedir(f"{TURALM}/evenlocation/v1/locations?per_page=100&page={n}", timeout=60)).get("data") or []
-        lu += d; dormir(1)
-        if len(d) < 100: break
-    return ev, lu
+def pedir_turismo_almeria(pedir, dormir):   # 24 nov 2026: la de comun (todas las páginas, y una vez al día)
+    return comun.turismo_almeria(pedir, dormir)
 
 
 # ---- Motril Turismo
