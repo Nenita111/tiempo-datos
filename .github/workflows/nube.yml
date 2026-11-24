@@ -56,5 +56,12 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: nube/web
+      # 24 nov 2026: si GitHub Pages falla al publicar (le pasa a veces, y manda un correo de «Run failed»), se espera y se prueba otra vez
       - id: publicar
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - if: steps.publicar.outcome == 'failure'
+        run: sleep 60
+      - id: publicar2
+        if: steps.publicar.outcome == 'failure'
         uses: actions/deploy-pages@v4
