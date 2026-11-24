@@ -2002,8 +2002,8 @@ function momentoFuente(claves) {
 function ponerActualizado(raiz) {
   for (const t of raiz.querySelectorAll(".tile[data-f]")) {
     if (t.dataset.f === "fija") { t.insertAdjacentHTML("beforeend", `<span class="act">Lista de cada mes · receta de cada día</span>`); continue; }
-    // 4.45: los mercadillos de El Ejido salen de la ordenanza (no se bajan): su pie lo dice, como el de lo de temporada
-    if (t.dataset.f === "ordenanza") { t.insertAdjacentHTML("beforeend", `<span class="act">Por la ordenanza · cada día, los siguientes</span>`); continue; }
+    // el mercadillo de Adra sale de la regla del Ayuntamiento (no se baja): su pie lo dice, como el de lo de temporada
+    if (t.dataset.f === "mercadillo") { t.insertAdjacentHTML("beforeend", `<span class="act">Ayuntamiento de Adra · cada día, los siguientes</span>`); continue; }
     const ms = momentoFuente(t.dataset.f);
     if (!ms) continue;
     const d = new Date(ms);
@@ -3328,20 +3328,25 @@ function tarjetaCine(i) {
 /* 21 nov 2026: «buen día para remar» (barco dragón): según la previsión de AEMET del día, viento de 15 km/h o menos y lluvia del 20 % o menos */
 const REMAR = {viento: 15, lluvia: 20};
 const remar = d => !!d && d.viento != null && d.viento <= REMAR.viento && (d.prob ?? 0) <= REMAR.lluvia;
-/* 21 nov 2026: los mercadillos de El Ejido (ordenanza de comercio ambulante, BOP de Almería n.º 140, 22 jul 2022): de 8:00 a 14:00 */
-const MERCADILLOS_EJIDO = {enlace: "https://transparencia.elejido.es/files/pdfs/Ordenanza%20de%20COMERCIO%20AMBULANTE.pdf",
-  lista: [["El Ejido", 3, [1, 2, 3]], ["Santa María del Águila", 6, [1, 2, 3]], ["Las Norias", 5, null], ["Balerma", 1, null], ["San Agustín", 4, [1, 3]], ["Matagorda", 4, [2, 4]]]};
-function proximoMercadillo([nombre, dia, semanas]) {
+/* 24 nov 2026 (lo pidió Isa: «pon solo el mercadillo de adra»; antes, los de El Ejido): el mercadillo de Adra, en la calle del Puerto,
+   de 8 a 14 h, «todos los sábados del mes a excepción del último» (Plan Estratégico de Comercio Municipal del Ayuntamiento de Adra, pp. 63
+   y 114). No se baja: sale de esa regla. */
+const ultimoSabado = d => { const s = new Date(d); s.setDate(s.getDate() + 7); return s.getMonth() !== d.getMonth(); };
+/* los sábados que vienen (desde hoy, si aún no son las 14:00), con «no» el último de cada mes */
+function sabadosMercadillo(n = 3) {
   const d = new Date(); d.setHours(12, 0, 0, 0); if (new Date().getHours() >= 14) d.setDate(d.getDate() + 1);
-  for (let i = 0; i < 40; i++, d.setDate(d.getDate() + 1)) if (d.getDay() === dia && (!semanas || semanas.includes(Math.ceil(d.getDate() / 7)))) return isoDe(d);
-  return null;
+  const R = [];
+  for (let i = 0; i < 70 && R.length < n; i++, d.setDate(d.getDate() + 1)) if (d.getDay() === 6) R.push({fecha: isoDe(d), no: ultimoSabado(d)});
+  return R;
 }
 function tarjetaMercadillos(i) {
-  if (!["04003", "04902", "04029"].includes(E.lugar.ine)) return "";   // Adra, El Ejido y Berja
-  const L = MERCADILLOS_EJIDO.lista.map(m => [m[0], proximoMercadillo(m)]).filter(m => m[1]).sort((a, b) => a[1].localeCompare(b[1])).slice(0, 3);
-  return `<div data-f="ordenanza" class="tile" style="--i:${i}"><div class="k">Mercadillos de El Ejido<em>de 8:00 a 14:00</em></div><ul class="rs-l">${L.map(([n, f]) => `<li><b>${may(diaFecha(f))}</b><span>${esc(n)}</span></li>`).join("")}</ul>
-    <p class="nota prescindible">Según la ordenanza municipal (BOP de Almería, 22 jul 2022). Si cae en festivo, el ayuntamiento lo pasa a otro día.</p>${qrPie(MERCADILLOS_EJIDO.enlace, "Ordenanza de comercio ambulante de El Ejido", 52).replace('class="pieqr"', 'class="pieqr prescindible"')}</div>`;
-  // 4.45 (24 nov 2026): la nota y el QR, prescindibles: con la farmacia y lo de temporada en la misma columna, a veces no cabían (la receta se cortaba)
+  if (E.lugar.ine !== "04003") return "";   // solo en Adra
+  // el primer sábado, aunque sea el último del mes (para decir que ese no hay); luego, solo los que hay
+  const S = sabadosMercadillo(5), L = [S[0], ...S.slice(1).filter(s => !s.no)].slice(0, 3);
+  return `<div data-f="mercadillo" class="tile" style="--i:${i}"><div class="k">Mercadillo de Adra<em>sábados, menos el último del mes</em></div><ul class="rs-l">${L.map(s => `<li><b>${may(diaFecha(s.fecha))}</b><span>${s.no ? "no hay: es el último sábado del mes" : "calle del Puerto, de 8:00 a 14:00"}</span></li>`).join("")}</ul>
+    <p class="nota prescindible">Según el Plan Estratégico de Comercio Municipal del Ayuntamiento de Adra.</p></div>`;
+  // la nota, prescindible (con la farmacia y lo de temporada en la misma columna, a veces no cabía); sin QR: el plan es un PDF de 200
+  // páginas, nada que mirar en el móvil (el de la ordenanza de El Ejido, sí)
 }
 function chipRegata() {
   const r = regatasProximas()[0];
@@ -3769,8 +3774,13 @@ function pInundaciones() {
   const caja = Z ? `<div class="inund-r" style="left:${pc(Z.caja[0], c[0], c[2])}%;right:${(100 - pc(Z.caja[2], c[0], c[2])).toFixed(2)}%;top:${(100 - pc(Z.caja[3], c[1], c[3])).toFixed(2)}%;bottom:${pc(Z.caja[1], c[1], c[3])}%"></div><i class="inund-ra" style="left:${pc((Z.caja[0] + Z.caja[2]) / 2, c[0], c[2])}%;top:${(100 - pc((Z.caja[1] + Z.caja[3]) / 2, c[1], c[3])).toFixed(2)}%"></i>` : "";
   const zoom = Z ? `<figure class="inund-z" id="inundZf"><div class="marco" style="aspect-ratio:${Z.ancho || 1}/${Z.alto || 1};width:min(100%, ${Math.round(420 * (Z.ancho || 1) / (Z.alto || 1))}px)"><img class="base" src="${esc(Z.base)}" alt="">${Z.capas.map((z, k) => `<img class="capa" id="inundZ${k}" src="${esc(z.url)}" alt=""${k ? ' style="opacity:0"' : ""}>`).join("")}${acu(Z.caja)}${mz(Z.caja)}${puntoZoom(Z.caja)}</div>
       <figcaption>${Z.titulo ? esc(Z.titulo) : `${esc(Z.puerto)} y ${coma(Z.interior || 1.5, 1)} km tierra adentro, ${coma(Z.km, 0)} km a cada lado`}</figcaption></figure>` : "";
-  const zoomM = MZ ? `<figure class="inund-z" id="mareZf" style="display:none"><div class="marco" style="aspect-ratio:${MZ.ancho || 1}/${MZ.alto || 1};width:min(100%, ${Math.round(420 * (MZ.ancho || 1) / (MZ.alto || 1))}px)"><img class="base" src="${esc(MZ.base)}" alt="">${mz(MZ.caja)}${puntoZoom(MZ.caja)}${Z ? `<div class="inund-r" style="left:${pcX(Z.caja[0], MZ.caja)}%;right:${(100 - pcX(Z.caja[2], MZ.caja)).toFixed(2)}%;top:${pcY(Z.caja[3], MZ.caja)}%;bottom:${(100 - pcY(Z.caja[1], MZ.caja)).toFixed(2)}%"></div>` : ""}</div>
-      <figcaption>${esc(MZ.titulo || "")}${Z ? " (el recuadro, la ampliación del paseo)" : ""}</figcaption></figure>` : "";
+  // 24 nov 2026 (lo pidió Isa: «amplía la zona de maremoto en la zona de paseo navegantes de adra en un recuadro»): el paseo de cerca (la
+  // ortofoto del zoom de Inundaciones, la del recuadro amarillo) con lo que inundaría el maremoto y los puntos de encuentro, arriba a la
+  // derecha (sobre los invernaderos), tan grande como deja el recuadro sin taparlo
+  const anchoIns = Z && MZ ? Math.max(30, Math.min(60, (+pcY(Z.caja[3], MZ.caja) - 6) * ((MZ.alto || 1) / (MZ.ancho || 1)) * ((Z.ancho || 1000) / (Z.alto || 427)))) : 0;
+  const insM = anchoIns ? `<div class="orto-z mare-ins" style="aspect-ratio:${Z.ancho || 1000}/${Z.alto || 427};width:${anchoIns.toFixed(1)}%"><img src="${esc(Z.base)}" alt="">${mz(Z.caja)}${puntoZoom(Z.caja)}</div>` : "";
+  const zoomM = MZ ? `<figure class="inund-z" id="mareZf" style="display:none"><div class="marco" style="aspect-ratio:${MZ.ancho || 1}/${MZ.alto || 1};width:min(100%, ${Math.round(420 * (MZ.ancho || 1) / (MZ.alto || 1))}px)"><img class="base" src="${esc(MZ.base)}" alt="">${mz(MZ.caja)}${puntoZoom(MZ.caja)}${Z ? `<div class="inund-r" style="left:${pcX(Z.caja[0], MZ.caja)}%;right:${(100 - pcX(Z.caja[2], MZ.caja)).toFixed(2)}%;top:${pcY(Z.caja[3], MZ.caja)}%;bottom:${(100 - pcY(Z.caja[1], MZ.caja)).toFixed(2)}%"></div>` : ""}${insM}</div>
+      <figcaption>${esc(MZ.titulo || "")}${insM ? " · arriba, el recuadro amarillo de cerca" : Z ? " (el recuadro, la ampliación del paseo)" : ""}</figcaption></figure>` : "";
   const mare = M ? `<div class="mare-c"><div class="k sub">Si llega un maremoto<em>${adra ? "zona de aviso AL01, de Adra a Almería" : "niveles del Plan Estatal"}</em></div>
       <ul class="mare-niv"><li class="r"><b>Alerta</b><span>ola de más de 0,5 m (o más de 1 m en tierra): inunda la costa</span></li><li class="a"><b>Aviso</b><span>ola de 0,2 a 0,5 m (o de 0,5 a 1 m en tierra)</span></li><li class="v"><b>Información</b><span>sin riesgo, o olas de menos de 0,2 m</span></li></ul>
       <p class="mare-p nota-q">El peor en esta costa, según el Plan Estatal: uno en la falla de Alborán Sur, con <b>más de 5 m en Málaga y Melilla en unos 20 minutos</b>.${M.pga != null ? ` Peligrosidad sísmica en ${esc(E.lugar.nombre)} (IGN, 2015): <b>${coma(M.pga, 2)} g</b>${M.intensidad != null ? `, intensidad <b>${["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][M.intensidad] || M.intensidad}</b>` : ""} cada 475 años.` : ""}</p></div>` : "";

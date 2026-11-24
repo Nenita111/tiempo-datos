@@ -1,8 +1,8 @@
 {
-  "versionCode": 76,
-  "versionName": "4.45",
+  "versionCode": 77,
+  "versionName": "4.46",
   "apk": "app/Tiempo.apk",
-  "sha256": "2ca7e8b4959d334ed0dbf16bef4a58db2b768687ef49547b4c9171273d0d9a41",
-  "bytes": 1431365,
-  "notas": "Buenos días por la mañana y modo noche; pestañas Barco dragón, Conciertos y espectáculos, Cursos gratis y Productos peligrosos; Para remar en Semana; mercadillos de El Ejido; avisos naranjas y rojos en voz alta; PVPC o precio fijo en Mi luz; cine de hoy; firma nueva (se instala una vez desde el PC)"
+  "sha256": "8b764448e0517309afc2a977aa10cc194b0cb493ea52ace8f0cebd9283afbf1b",
+  "bytes": 1431593,
+  "notas": "Maremoto: el paseo de cerca en un recuadro; en Hoy, solo el mercadillo de Adra (sábados menos el último del mes)"
 }
