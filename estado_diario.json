@@ -228,17 +228,14 @@
   "vale": "2026-11-23"
  },
  "fallos": {
+  "cine": {
+   "desde": "2026-11-24"
+  },
   "estafas": {
    "desde": "2026-11-23"
   },
-  "fuente gasolina": {
-   "desde": "2026-11-23"
-  },
-  "fuente rayos": {
-   "desde": "2026-11-23"
-  },
-  "vuelos": {
-   "desde": "2026-11-22"
+  "fuente farmacias": {
+   "desde": "2026-11-24"
   }
  },
  "fechasEjido": {

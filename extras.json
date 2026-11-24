@@ -313,8 +313,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-23",
- "actualizado": "2026-11-23T06:17+01:00",
+ "sorteosBuscado": "2026-11-24",
+ "actualizado": "2026-11-24T06:15+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -813,19 +813,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-23",
-  "nombre": "Lombarda con manzana",
+  "fecha": "2026-11-24",
+  "nombre": "Ensalada de granada",
   "tiempo": {
    "temperature": "mild",
    "rain": "dry",
    "wind": "light wind",
-   "sky": "Despejado"
+   "sky": "Poco nuboso"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-17",
-    "nombre": "Crema de puerros"
-   },
    {
     "fecha": "2026-11-18",
     "nombre": "Gurullos con conejo"
@@ -849,12 +845,66 @@
    {
     "fecha": "2026-11-23",
     "nombre": "Lombarda con manzana"
+   },
+   {
+    "fecha": "2026-11-24",
+    "nombre": "Ensalada de granada"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-23",
+  "fecha": "2026-11-24",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/227/17": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/227/18": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/227/19": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/227/20": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/227/21": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/227/22": {
+    "tipo": "otra",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/227/23": {
+    "tipo": "traslado",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/227/26": {
+    "tipo": "convocatoria",
+    "provincia": "almeria",
+    "zona": "almeria",
+    "plazo": {
+     "n": 10,
+     "unidad": "habiles",
+     "hasta": "2026-12-10"
+    }
+   },
+   "https://www.juntadeandalucia.es/boja/2026/227/27": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
    "https://www.juntadeandalucia.es/boja/2026/226/18": {
     "tipo": "convocatoria",
     "provincia": "otra",
@@ -909,89 +959,15 @@
     "tipo": "convocatoria",
     "provincia": "otra",
     "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/17": {
-    "tipo": "convocatoria",
-    "provincia": "almeria",
-    "zona": "almeria",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-12-01"
-    }
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/18": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/19": {
-    "tipo": "convocatoria",
-    "provincia": "almeria",
-    "zona": "almeria",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-12-01"
-    }
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/20": {
-    "tipo": "lista_provisional",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/21": {
-    "tipo": "convocatoria",
-    "provincia": "almeria",
-    "zona": "almeria",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-12-01"
-    }
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/22": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/23": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/24": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/222/25": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
    }
   },
   "avisar": [
    {
-    "url": "https://www.juntadeandalucia.es/boja/2026/222/17",
-    "fecha": "2026-11-17",
+    "url": "https://www.juntadeandalucia.es/boja/2026/227/26",
+    "fecha": "2026-11-24",
     "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante, de Jefe/a de Servicio de Gestión y Servicios en el Centro de Transfusión, Tejidos y Células de Almería, integrado en la Red Andaluza de Medicina Transfusional, Tejidos y Células",
-    "hasta": "2026-12-01"
-   },
-   {
-    "url": "https://www.juntadeandalucia.es/boja/2026/222/19",
-    "fecha": "2026-11-17",
-    "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante, de Jefe/a de Sección Facultativo de Cirugía Ortopédica y Traumatología en el Hospital Universitario Torrecárdenas de Almería",
-    "hasta": "2026-12-01"
-   },
-   {
-    "url": "https://www.juntadeandalucia.es/boja/2026/222/21",
-    "fecha": "2026-11-17",
-    "boletin": "BOJA",
-    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Sección Facultativo de Anestesiología y Reanimación en el Hospital Universitario Torrecárdenas de Almería",
-    "hasta": "2026-12-01"
+    "resumen": "Convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante, de Jefe/a de Sección Facultativo de Cirugía Ortopédica y Traumatología en el Hospital Universitario Torrecárdenas de Almería (BOJA núm. 222, de 17.11.2026)",
+    "hasta": "2026-12-10"
    }
   ]
  },
@@ -1077,6 +1053,16 @@
    }
   },
   "ofertas": {
+   "694699": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico Gestión Prevención de Riesgos Laborales",
+    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
+    "hasta": "2026-11-28",
+    "nivel": "grado",
+    "experiencia": 0.82,
+    "colectivo": "general"
+   },
    "694399": {
     "zona": false,
     "zv": 4,
@@ -1107,16 +1093,6 @@
     "experiencia": 0.87,
     "colectivo": "general"
    },
-   "693967": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "AUXILIAR GESTIÓN",
-    "entidad": "Agencia de Emergencias de Andalucía",
-    "hasta": "2026-11-23",
-    "nivel": "fp_medio",
-    "experiencia": 0.04,
-    "colectivo": "general"
-   },
    "692356": {
     "zona": false,
     "zv": 4,
@@ -1139,24 +1115,6 @@
    }
   },
   "sae": {
-   "01-2026-45981": {
-    "nivel": "no_consta",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.05
-   },
-   "01-2026-52234": {
-    "nivel": "no_consta",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.09
-   },
-   "01-2026-52851": {
-    "nivel": "master",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.08
-   },
    "01-2026-52045": {
     "nivel": "no_consta",
     "entidad": "ayuntamiento",
@@ -1169,6 +1127,24 @@
     "colectivo": "general",
     "experiencia": 0.07
    },
+   "01-2026-53076": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.08
+   },
+   "01-2026-53160": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.08
+   },
+   "01-2026-53162": {
+    "nivel": "master",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.08
+   },
    "01-2026-52030": {
     "nivel": "no_consta",
     "entidad": "otra",
@@ -1180,13 +1156,19 @@
     "entidad": "otra",
     "colectivo": "general",
     "experiencia": 0.07
+   },
+   "01-2026-52693": {
+    "nivel": "no_consta",
+    "entidad": "ayuntamiento",
+    "colectivo": "general",
+    "experiencia": 0.07
    }
   },
   "agenda": {},
-  "fecha": "2026-11-23"
+  "fecha": "2026-11-24"
  },
  "fap": {
-  "fecha": "2026-11-23",
+  "fecha": "2026-11-24",
   "novedades": [
    {
     "tipo": "circular",
@@ -1638,7 +1620,7 @@
  },
  "agendaJunta": [
   {
-   "titulo": "I Jornada Nacional de Conservación y Restauración del Patrimonio: ciencia e innovación aplicada a la piedra natural",
+   "titulo": "I Jornada Nacional de Conservación y Restauración del Patrimonio: ciencia e innovación aplicada a la piedra natural (Almería)",
    "fecha": "2026-11-25",
    "lugar": "Almería",
    "km": 50,
@@ -4585,50 +4567,6 @@
   ],
   "linea": [
    {
-    "id": "2933",
-    "codigo": "MF1001",
-    "nombre": "Gestión de la fuerza de ventas y equipos de comerciales",
-    "fin": "2026-11-23",
-    "inicio": "2026-12-03",
-    "horas": 90,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
-    "id": "457713",
-    "codigo": "IFCT123",
-    "nombre": "Implantación y gestión de la ciberseguridad",
-    "fin": "2026-11-23",
-    "inicio": "2027-01-11",
-    "horas": 91,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "municipio": "Málaga"
-   },
-   {
-    "id": "2762",
-    "codigo": "MF1000",
-    "nombre": "Organización comercial",
-    "fin": "2026-11-23",
-    "inicio": "2026-12-21",
-    "horas": 120,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "horario": "mañana"
-   },
-   {
-    "id": "456689",
-    "codigo": "IFCD97",
-    "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
-    "fin": "2026-11-23",
-    "inicio": "2027-01-13",
-    "horas": 150,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "municipio": "Algeciras"
-   },
-   {
     "id": "456686",
     "codigo": "IFCD97",
     "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
@@ -4759,8 +4697,7 @@
     "horas": 50,
     "para": "ocupadas",
     "modalidad": "en línea",
-    "horario": "día completo",
-    "convocado": true
+    "horario": "día completo"
    },
    {
     "id": "2829",
@@ -4794,6 +4731,17 @@
     "para": "desempleadas",
     "modalidad": "en línea",
     "municipio": "Málaga"
+   },
+   {
+    "id": "2950",
+    "codigo": "MF1329",
+    "nombre": "Atención básica al cliente",
+    "fin": "2026-12-04",
+    "inicio": "2026-12-18",
+    "horas": 50,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    },
    {
     "id": "2913",
@@ -5025,12 +4973,45 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "tarde"
+   },
+   {
+    "id": "85",
+    "codigo": "ADGD0058",
+    "nombre": "Gestión de secciones de crédito de cooperativas agrarias",
+    "fin": "2026-12-18",
+    "inicio": "2027-01-25",
+    "horas": 50,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
+    "id": "2957",
+    "codigo": "MF1444",
+    "nombre": "Impartición y tutorización de acciones formativas para el empleo",
+    "fin": "2026-12-18",
+    "inicio": "2027-01-19",
+    "horas": 100,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "2890",
+    "codigo": "MF0241",
+    "nombre": "Información y atención al cliente/consumidor/usuario",
+    "fin": "2026-12-18",
+    "inicio": "2027-01-20",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    }
   ],
-  "lineaTotal": 94,
+  "lineaTotal": 93,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-23"
+  "dia": "2026-11-24"
  },
  "polen": {
   "estacion": "Almería",
@@ -5255,7 +5236,7 @@
     ]
    }
   ],
-  "dias": 376,
+  "dias": 375,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -6632,6 +6613,37 @@
     "precio": "12 €",
     "enlace": "https://www.turismodealmeria.org/evento/stand-up-comedy-artenvacio-manolo-lera-pocas-luces/",
     "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Festival de tributos XXL: Grunge is not dead",
+    "fecha": "2027-01-23",
+    "tipo": "Concierto",
+    "hora": "19:00",
+    "lugar": "Berlin Social Club",
+    "municipio": "Almería",
+    "precio": "17,60 €",
+    "enlace": "https://www.turismodealmeria.org/evento/festival-de-tributos-xxl-grunge-is-not-dead/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Israel Fernández «De oro y marfil»",
+    "fecha": "2027-01-23",
+    "tipo": "Espectáculo",
+    "hora": "20:30",
+    "lugar": "Auditorio de El Ejido",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=israel-fernandez-de-oro-y-marfil-sabado-23-de-enero-auditorio-2030-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "Martita de Graná",
+    "fecha": "2027-01-23",
+    "tipo": "Teatro",
+    "hora": "20:30",
+    "lugar": "Aguadulce",
+    "municipio": "Roquetas de Mar",
+    "enlace": "https://farocultural.roquetasdemar.es/actividad/1872/info-actividad",
+    "fuente": "Ayuntamiento de Roquetas de Mar"
    }
   ],
   "fuentes": [
@@ -6640,6 +6652,6 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-23"
+  "dia": "2026-11-24"
  }
 }
