@@ -938,7 +938,9 @@ body.claro .mn{background:var(--velo,none),#f7f3ec}
 .nat-r small.amen{color:var(--mal)}
 .et.tuya{background:#1f8a4c;color:#fff;font-style:normal;padding:1px 8px;border-radius:6px}
 .cine-l li>b{min-width:0;flex:0 1 auto;font-variant-numeric:tabular-nums}.cine-l li{flex-direction:column;gap:2px}
-.rs-l{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}.rs-l li{display:flex;gap:14px;align-items:baseline;font-size:24px;line-height:1.3}.rs-l li>b{flex:none;min-width:120px}.rs-l li>span{min-width:0}
+.rs-l{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+.tile[data-f="mercadillo"] .rs-l{margin-bottom:26px}   /* 4.47: la fecha «Act.» (la fuente), debajo de la lista, sin tapar la última fila */
+.mibolsa .mb-c+.mb-c{margin-top:10px}.mibolsa .mb-t{font-weight:700;color:var(--h);font-size:22px;margin-top:4px}.mibolsa .rs-l{margin-top:4px;gap:6px}.mibolsa .rs-l li{font-size:22px}.mibolsa .rs-l li>b{min-width:112px}.mibolsa .rs-l li>span{text-align:left}.rs-l li{display:flex;gap:14px;align-items:baseline;font-size:24px;line-height:1.3}.rs-l li>b{flex:none;min-width:120px}.rs-l li>span{min-width:0}
 .rs-n{padding:2px 10px;border-radius:8px;background:#f6d23a;color:#222}.rs-n.n2{background:#f28c28}.rs-n.n3{background:#e53935;color:#fff}.rs-ok{font-size:24px;font-weight:700;margin-top:10px}.rs-d{font-size:26px;line-height:1.4;margin:12px 0}.rs-r{font-size:24px;font-weight:800;color:var(--acc);margin:6px 0}
 .noche-t .t0{font-size:150px}.noche-t .ya,.rs-t .ya{display:flex;align-items:center;gap:30px}.rs-t .t0{font-size:96px}.rs-t .t0 small{font-size:48px}.noche-t .desc,.rs-t .desc{font-size:32px}.dia .rema{font-size:20px;line-height:1.15;font-weight:800;color:var(--acc);text-align:center}
 .nat-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:end}.nat-ab{min-width:0}
@@ -1374,7 +1376,8 @@ function ajustarTurnos(raiz) {
   const filaFuera = c => { const t = tarjeta(c), u = c.lastElementChild; if (!u || t === c) return false;
     const r = t.getBoundingClientRect(), f = t.offsetHeight ? r.height / t.offsetHeight : 1;
     return u.getBoundingClientRect().bottom > r.bottom - parseFloat(getComputedStyle(t).paddingBottom || 0) * f + 2; };
-  const sobraColumna = c => c.matches(".cols1,.cols2,.cols3,.pr .precios") && c.scrollWidth > c.clientWidth + 2;   // listas en columnas: lo que no cabe pasa a otra columna, a la derecha
+  // 4.47: también la lonja del pueblo a toda la pantalla (con 49 especies, 16 se iban a una cuarta columna, fuera de la tarjeta)
+  const sobraColumna = c => c.matches(".cols1,.cols2,.cols3,.pr .precios,.lonjap.toda .lp") && c.scrollWidth > c.clientWidth + 2;   // listas en columnas: lo que no cabe pasa a otra columna, a la derecha
   const noCabeEn = (x, ls) => x.scrollHeight > x.clientHeight + 2 || ls.some(c => cortada(tarjeta(c), true) || filaFuera(c) || c.scrollHeight > c.clientHeight + 2 || sobraColumna(c));
   const pintadas = new Map(listas.map(c => [c, c.children.length]));
   // 3.9: en las listas en columnas, lo que ha pasado a una columna de fuera (a la derecha) se quita de una vez
@@ -1545,17 +1548,47 @@ setInterval(() => { try {
   if (falta > 3 && falta <= 6 && !issDichos.has(p.ini)) { issDichos.add(p.ini);
     Android.decir(`La Estación Espacial pasa en ${Math.round(falta)} minutos: mira al ${rumboTexto(p.azIni)}; se verá ${alturaPaso(p.max)}.`); }
 } catch (e) {} }, 60000);
-function decirAvisos() {
-  if (!(window.Android && Android.decir)) return;
-  const h = new Date().getHours(); if (h < 8 || h >= 23) return;
-  let D = {}; try { D = JSON.parse(localStorage.getItem(CLAVE_DICHOS) || "{}") || {}; } catch (e) {}
-  const nuevos = avisosFuertes().filter(a => !D[a.nivel + "|" + a.fenomeno + "|" + a.desde]);
+/* 4.47 (lo pidió Isa: «añade el aviso de tsunami del IGN»): el nivel de maremoto para la costa del pueblo (Tsunami.kt: las matrices de decisión
+   del Plan Estatal, BOE-A-2021-8361, con los terremotos del IGN de las últimas 12 horas). Alerta (rojo) y aviso (amarillo), 6 horas;
+   información (sin riesgo), 3. Alerta y aviso, también en voz, a cualquier hora (una vez cada terremoto). */
+const TSUNAMI_H = {alerta: 6, aviso: 6, informacion: 3}, CLAVE_TSUNAMI = "tiempo.tsunamiDichos";
+function tsunamiVivo() {
+  const ahora = Date.now() / 1000;
+  return (((E.tsunami || {}).eventos) || []).filter(e => e.s && ahora - e.s >= -600 && ahora - e.s < (TSUNAMI_H[e.nivel] || 3) * 3600)[0] || null;
+}
+function textoTsunami(e) {
+  const d = new Date(e.s * 1000);
+  return `terremoto de ${coma(e.mag, 1)} en ${esc(lugarSismo(e.lugar))}, ${diaFecha(isoDe(d))} a las ${d.getHours()}:${dosd(d.getMinutes())}`;
+}
+function chipTsunami() {
+  const e = tsunamiVivo(); if (!e) return "";
+  return e.nivel === "alerta" ? `<span class="chip av3">⚠ Alerta de maremoto en la costa: ${textoTsunami(e)}</span>`
+    : e.nivel === "aviso" ? `<span class="chip av1">⚠ Aviso de maremoto en la costa: ${textoTsunami(e)}</span>`
+    : `<span class="chip ok">● Sin riesgo de maremoto: ${textoTsunami(e)}</span>`;
+}
+/* 4.47 (lo pidió Isa: «optimiza y factoriza»): decir en voz lo nuevo, una vez cada cosa: lo dicho se apunta en el navegador de la tele
+   (con [clave]) y se olvida a los [dias]. [texto] da lo que se dice de los nuevos. */
+function decirNuevos(clave, dias, lista, k, texto) {
+  if (!(window.Android && Android.decir) || !lista.length) return;
+  let D = {}; try { D = JSON.parse(localStorage.getItem(clave) || "{}") || {}; } catch (e) {}
+  const nuevos = lista.filter(x => !D[k(x)]);
   if (!nuevos.length) return;
+  try { Android.decir(texto(nuevos)); } catch (e) { return; }
+  for (const x of nuevos) D[k(x)] = Date.now();
+  for (const [j, v] of Object.entries(D)) if (Date.now() - v > dias * 864e5) delete D[j];
+  try { localStorage.setItem(clave, JSON.stringify(D)); } catch (e) {}
+}
+function decirTsunami() {
+  const e = tsunamiVivo();
+  if (!e || e.nivel === "informacion") return;
+  const d = new Date(e.s * 1000);
+  decirNuevos(CLAVE_TSUNAMI, 7, [e], x => x.evid + "|" + x.nivel, () => `${e.nivel === "alerta" ? "Alerta" : "Aviso"} de maremoto en la costa de ${E.lugar.nombre}, según el Plan Estatal: terremoto de magnitud ${coma(e.mag, 1)} en ${lugarSismo(e.lugar)} a las ${d.getHours()}:${dosd(d.getMinutes())}. Sigue las indicaciones de Protección Civil.`);
+}
+function decirAvisos() {
+  const h = new Date().getHours(); if (h < 8 || h >= 23) return;
   const cuando = a => { const d = a.desde ? new Date(a.desde) : null; return d && !isNaN(d) ? ` desde el ${DIAS[d.getDay()]} ${d.getDate()} a las ${d.getHours()}:${dosd(d.getMinutes())}` : ""; };
-  try { Android.decir(nuevos.map(a => `Aviso ${String(a.color || "").toLowerCase()} de AEMET por ${a.fenomeno}${cuando(a)}.`).join(" ")); } catch (e) { return; }
-  for (const a of nuevos) D[a.nivel + "|" + a.fenomeno + "|" + a.desde] = Date.now();
-  for (const [k, t] of Object.entries(D)) if (Date.now() - t > 30 * 864e5) delete D[k];
-  try { localStorage.setItem(CLAVE_DICHOS, JSON.stringify(D)); } catch (e) {}
+  decirNuevos(CLAVE_DICHOS, 30, avisosFuertes(), a => a.nivel + "|" + a.fenomeno + "|" + a.desde,
+    N => N.map(a => `Aviso ${String(a.color || "").toLowerCase()} de AEMET por ${a.fenomeno}${cuando(a)}.`).join(" "));
 }
 // cada pantalla 15 s, en bucle (4.3: los segundos de cada una se pueden cambiar en el menú de ajustes: rota(p))
 
@@ -1899,7 +1932,7 @@ function esperandoHoy(B = E) {
      la DGT (45 min), la radiación (la última hora de la REA, 6 h) y el informe de sequía (50 días después de acabar su mes).
    Su tarjeta sale vacía o no sale, y arriba se dice qué falta y desde cuándo («⚠ Sin actualizar desde…»).
    Los avisos de AEMET no se quitan (cada uno dice hasta cuándo vale), pero sin datos al día no se dice «Sin avisos». */
-const VALE_H = {islasCalor: 24 * 30, maremotos: 24 * 120, climaRia: 24 * 400, inundaciones: 24 * 120, naturaleza: 24 * 7, clima: 24 * 40, radsol: 36, polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, camaras: .75, datadis: 24 * 45, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
+const VALE_H = {tsunami: 12, islasCalor: 24 * 30, maremotos: 24 * 120, climaRia: 24 * 400, inundaciones: 24 * 120, naturaleza: 24 * 7, clima: 24 * 40, radsol: 36, polvo: 30, vista: 72, saih: 2, radar: .5, satelite: 1, aviones: .25, trenes: .25, calar: .75, camara: .75, ruta: .75, camaras: .75, datadis: 24 * 45, olas: 36, mtg: .75, tierra: 48, solVideo: 96, radiacion: 3, sangre: 24, sonda: .5, rayos: .5, trafico: 1, fuegos: 2, tele: 2, cortesAgua: 2,
   comarca: 3, terremotos: 3, aire: 4,
   sol: 6, renovable: 6, sismosMundo: 6, boya: 6, prevision: 12, playas: 12, maritima: 12, oleaje: 12, noticias: 12, futbol: 12,
   lluvia: 12, mareas: 24, incendio: 24, alimentarias: 24, campo: 24, ofertasEmpleo: 24, sae: 24, boja: 24, boe: 24, planeta: 36, efemerides: 36,   farmacias: 36, gasolina: 48, medicamentos: 48, euribor: 48, espacio: 48, bolsaSas: 48, lonja: 72, productos: 72, regatas: 72, rfep: 72, paro: 72, afiliados: 72, ipc: 168,
@@ -2003,7 +2036,7 @@ function ponerActualizado(raiz) {
   for (const t of raiz.querySelectorAll(".tile[data-f]")) {
     if (t.dataset.f === "fija") { t.insertAdjacentHTML("beforeend", `<span class="act">Lista de cada mes · receta de cada día</span>`); continue; }
     // el mercadillo de Adra sale de la regla del Ayuntamiento (no se baja): su pie lo dice, como el de lo de temporada
-    if (t.dataset.f === "mercadillo") { t.insertAdjacentHTML("beforeend", `<span class="act">Ayuntamiento de Adra · cada día, los siguientes</span>`); continue; }
+    if (t.dataset.f === "mercadillo") { t.insertAdjacentHTML("beforeend", `<span class="act">Plan de Comercio de Adra · cada día, los siguientes</span>`); continue; }
     const ms = momentoFuente(t.dataset.f);
     if (!ms) continue;
     const d = new Date(ms);
@@ -2026,7 +2059,7 @@ const paginasHay = () => (avisosFuertes().length ? ["aviso"] : []).concat(["ahor
   E.espacio || E.calar || sondaVolando() || vistaFotos().length ? ["espacio"] : [], hayPlaneta() ? ["planeta"] : [], hayNaturaleza() ? ["naturaleza"] : [], ["casa"], hayConsumo() ? ["consumo", "suministros"] : [], hayAlertas() ? ["alertas"] : [], hayProductos() ? ["productos"] : [],
   ["hoy"], hayDragon() ? ["dragon"] : [], hayCarretera() ? ["carretera"] : [], hayTrenes() ? ["trenes"] : [], E.campo || raifVigente().length ? ["campo"] : [], hayLonjaPueblo() ? ["pescado"] : [],
   noticiasRecientes().length || sorteosActivos().length || cortesVigentes().length || agendaProxima().length ? ["noticias"] : [], hayEconomia() ? ["economia"] : [],
-  ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length ? ["sas"] : [], ayudasVivas().length ? ["ayudas"] : [], (c => c.pre.length + c.lin.length)(cursosVivos()) ? ["cursos"] : [], hayPlanes() || hayCine() ? ["planes"] : [], hayEspectaculos() ? ["espectaculos"] : []);
+  ofertasVigentes().length || saeVigentes().length ? ["empleo"] : [], haySas() || ofertasSas().length || E.bolsa ? ["sas"] : [], ayudasVivas().length ? ["ayudas"] : [], (c => c.pre.length + c.lin.length)(cursosVivos()) ? ["cursos"] : [], hayPlanes() || hayCine() ? ["planes"] : [], hayEspectaculos() ? ["espectaculos"] : []);
 /* 4.3 (lo pidió Isa el 30 oct 2026: «haz lo pendiente»): ajustes de las pantallas con el mando (≡ en la app): las que no salen, su orden y los
    segundos de cada una. Los guarda la app (Android.ajustes / guardarAjustes, SharedPreferences): los mismos en la app y en el salvapantallas.
    El aviso de AEMET sale siempre, el primero. */
@@ -2191,6 +2224,8 @@ function chips() {
   const caidas = fuentesCaidas(actual);
   if (caidas.length) c.push(`<span class="chip viejo">${textoCaidas(caidas)}</span>`);
   for (const x of [chipGeomag(), chipISS(), chipFestivo(), chipRegata(), chipBolsa(), chipCielo(), chipSequia()]) if (x) c.push(x);
+  // 4.47: el maremoto, delante de todo si hay alerta o aviso; si es «sin riesgo», detrás de los avisos de AEMET
+  const ts = chipTsunami(); if (ts) { if (/av[13]/.test(ts)) c.unshift(ts); else c.splice(1, 0, ts); }
   return `<span class="chips">${c.slice(0, 3).join("")}</span>`;
 }
 /* las fuentes de la pantalla, arriba entre el sitio y la hora (lo pidió Isa el 28 oct 2026) */
@@ -2487,10 +2522,12 @@ function tarjetaEmbalses(i) {
     return `<li${adra ? ' class="aqui"' : ""}><span class="em-n">${esc(e.nombre)}<small>${adra ? "río Adra · " : ""}${coma(e.actual, 0)} de ${coma(e.capacidad, 0)} hm³</small></span>
       <span class="em-b"><i style="width:${Math.min(100, p).toFixed(1)}%;background:${colorEmbalse(p)}"></i>${pa != null ? `<u style="left:${Math.min(99.5, pa).toFixed(1)}%"></u>` : ""}</span>
       <b>${Math.round(p)} %</b></li>`;
-  }).join("");
+  });
+  // 4.47: con muchos embalses (8 el 31 oct), por turnos: no cabían y la leyenda se salía de la tarjeta
+  const tE = enTurno("embalses", filas, filas.length);
   return `<div data-f="x" class="tile emb" style="--i:${i}"><div class="k">Embalses<em>${esc(X.cuenca ? `cuenca ${X.cuenca}` : "")}${fecha ? ` · ${fecha}` : ""}</em></div>
     ${X.cuencaPct != null ? `<div class="emb-t"><b class="num">${coma(X.cuencaPct, 1)}<small> %</small></b><span>de su capacidad, en la cuenca<small>hace un año: ${coma(X.cuencaPctAnterior, 1)} %${X.espanaPct != null ? ` · en toda España: ${coma(X.espanaPct, 1)} %` : ""}</small></span></div>` : ""}
-    ${filas ? `<ul class="emb-l">${filas}</ul><p class="ley-e"><i></i>embalsado ahora <u></u>hace un año · boletín hidrológico del MITECO</p>` : ""}</div>`;
+    ${filas.length ? `<ul class="emb-l" ${tE.attr}>${tE.items.join("")}</ul><p class="ley-e"><i></i>embalsado ahora <u></u>hace un año · boletín hidrológico del MITECO</p>` : ""}</div>`;
 }
 function tarjetaSequia(i) {
   const S = (E.extras || {}).sequia, F = filasSequia();
@@ -3343,10 +3380,8 @@ function tarjetaMercadillos(i) {
   if (E.lugar.ine !== "04003") return "";   // solo en Adra
   // el primer sábado, aunque sea el último del mes (para decir que ese no hay); luego, solo los que hay
   const S = sabadosMercadillo(5), L = [S[0], ...S.slice(1).filter(s => !s.no)].slice(0, 3);
-  return `<div data-f="mercadillo" class="tile" style="--i:${i}"><div class="k">Mercadillo de Adra<em>sábados, menos el último del mes</em></div><ul class="rs-l">${L.map(s => `<li><b>${may(diaFecha(s.fecha))}</b><span>${s.no ? "no hay: es el último sábado del mes" : "calle del Puerto, de 8:00 a 14:00"}</span></li>`).join("")}</ul>
-    <p class="nota prescindible">Según el Plan Estratégico de Comercio Municipal del Ayuntamiento de Adra.</p></div>`;
-  // la nota, prescindible (con la farmacia y lo de temporada en la misma columna, a veces no cabía); sin QR: el plan es un PDF de 200
-  // páginas, nada que mirar en el móvil (el de la ordenanza de El Ejido, sí)
+  return `<div data-f="mercadillo" class="tile" style="--i:${i}"><div class="k">Mercadillo de Adra<em>sábados, menos el último del mes</em></div><ul class="rs-l">${L.map(s => `<li><b>${may(diaFecha(s.fecha))}</b><span>${s.no ? "no hay: es el último sábado del mes" : "calle del Puerto, de 8:00 a 14:00"}</span></li>`).join("")}</ul></div>`;
+  // la fuente, en su «Act.» (con una nota debajo, la fecha la tapaba); sin QR: el plan es un PDF de 200 páginas, nada que mirar en el móvil
 }
 function chipRegata() {
   const r = regatasProximas()[0];
@@ -5479,7 +5514,10 @@ function pSas(partes) {   // 4.34: «partes», las dos tarjetas sueltas (la list
 }
 
 /* ---------- noticias del pueblo de la última semana: la más contada por los medios, en grande; las demás, de la más reciente a la más antigua ---------- */
-const noticiasRecientes = () => ((E.noticias || {}).noticias || []).filter(n => Date.now() / 1000 - n.s < 7 * 86400);
+/* 4.47 (lo pidió Isa: «plenos y anuncios del Ayuntamiento de Adra»): lo del pueblo en el BOE (Empleo.puebloBoe: el Ayuntamiento y lo que lo
+   nombra), con las demás noticias de la semana. El tablón de la sede electrónica y las videoactas los cierra su robots.txt. */
+const boePueblo = () => (((E.boe || {}).pueblo) || []).map(b => ({titulo: b.texto, fuente: "BOE", s: new Date(b.fecha + "T08:00").getTime() / 1000, enlace: b.url, medios: 1}));
+const noticiasRecientes = () => ((E.noticias || {}).noticias || []).concat(boePueblo()).filter(n => Date.now() / 1000 - n.s < 7 * 86400).sort((a, b) => b.s - a.s);
 function haceCuanto(s) {
   const d = new Date(s * 1000), ahora = new Date(), min = Math.round((ahora - d) / 6e4);
   const dias = Math.round((new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate()) - new Date(d.getFullYear(), d.getMonth(), d.getDate())) / 864e5);
@@ -5986,12 +6024,38 @@ function tarjetaOfertasSas(i, cols = 1) {
   return `<div data-f="x" class="tile emp ooe colsT" style="--i:${i}"><div class="k">${secNueva("sas-ofertas")}SAS · provisión temporal<em>${L.length} ${L.length === 1 ? "oferta" : "ofertas"} en ${dias} días${ab ? ` · <b class="am">${ab} en plazo</b>` : ""} · Sur de Granada, Poniente y Almería capital</em></div>
     <ul class="${cols > 1 ? `cols${cols}` : "una"}" ${t.attr}>${t.items.map(itemOoe).join("")}</ul></div>`;
 }
+/* 4.47 (lo pidió Isa: «tu sitio en la Bolsa del SAS de técnico/a de salud»): su puesto en los listados definitivos (BolsaSas.kt; solo en la
+   tele: E.bolsa no va a la página de internet). Cada categoría en la que sale: en la bolsa (entre las admitidas con el mínimo o más; con
+   las empatadas, un intervalo: el desempate del art. 27 no se publica) y en el adicional (el puesto publicado y, con el desempate por
+   fecha de inscripción, el intervalo). Nunca el nombre ni el DNI. */
+const miBolsa = () => (((E.bolsa || {}).categorias) || []).filter(c => c.bolsa || c.adicional);
+const ptsBolsa = x => x == null ? "–" : String(Math.round(x * 1000) / 1000).replace(".", ",");
+function tarjetaMiBolsa(i) {
+  if (!E.bolsa) return "";
+  const C = miBolsa(), k = `<div class="k">Tu sitio en la Bolsa del SAS`;
+  if (!C.length) return `<div data-f="bolsa" class="tile mibolsa" style="--i:${i}">${k}<em>técnico/a de salud</em></div><p class="nota">No apareces en los listados definitivos de Técnico/a de Salud con las cifras del DNI y el apellido que tiene la tele (menú ≡ → «Tu sitio en la Bolsa del SAS»).</p></div>`;
+  const puesto = p => p[0] === p[1] ? `${p[0]}.º` : `${p[0]}.º–${p[1]}.º`;
+  const cat = c => {
+    const b = c.bolsa, a = c.adicional, L = [];
+    if (b) L.push(`<li><b>Bolsa</b><span>${b.estado === "admitida" ? `puesto <strong>${puesto(b.pos)}</strong> de ${b.de} admitidas con ${ptsBolsa(c.minimo)} puntos o más · tienes ${ptsBolsa(b.puntos)}`
+      : b.estado === "bajo" ? `admitida con ${ptsBolsa(b.puntos)} puntos, por debajo del mínimo (${ptsBolsa(c.minimo)})` : `excluida${b.motivo ? ` (motivo ${esc(b.motivo)})` : ""}`}</span></li>`);
+    if (a) L.push(`<li><b>Adicional</b><span>puesto <strong>${a.pos}.º</strong> de ${a.de}${a.rango && (a.rango[0] !== a.pos || a.rango[1] !== a.pos) ? ` (${puesto(a.rango)} con el desempate por fecha)` : ""} · tienes ${ptsBolsa(a.puntos)} puntos</span></li>`);
+    return `<div class="mb-c"><div class="mb-t">${esc(String(c.cat).replace(/^Técnico\/a de Salud: /, ""))}</div><ul class="rs-l">${L.join("")}</ul></div>`;
+  };
+  const pub = C.map(c => c.publicado).filter(Boolean).sort().pop(), nuevo = C.find(c => c.masReciente);
+  return `<div data-f="bolsa" class="tile mibolsa" style="--i:${i}">${k}<em>${pub ? `listado definitivo del ${diaFecha(pub)}` : "listados definitivos"}</em></div>${C.map(cat).join("")}`
+    + `${nuevo ? `<p class="nota">Hay un listado más reciente, aún no definitivo: ${esc(nuevo.masReciente)}.</p>` : ""}</div>`;
+}
 function pSasPagina() {
-  const of = tarjetaOfertasSas(1), der = haySas() ? pSas(true) : [];
-  if (!of) return der.length ? pSas() : `<div class="main">${vacia("Sin ofertas ni convocatorias del SAS ahora.")}</div>`;
-  if (!der.length) return `<div class="main" style="grid-template-columns:1fr"><div class="col" style="grid-template-rows:1fr">${tarjetaOfertasSas(1, 2)}</div></div>`;
+  // 4.47: con el puesto en la bolsa, arriba a la izquierda (a su tamaño), encima de las ofertas (que van por turnos: se ajustan a lo que quede)
+  const mb = tarjetaMiBolsa(3), of = tarjetaOfertasSas(1), der = haySas() ? pSas(true) : [];
   // 4.39 (lo pidió Isa: «junta las secciones…»): las oposiciones y la Bolsa, en una tarjeta
-  return `<div class="main trabajo" style="grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)"><div class="col" style="grid-template-rows:1fr">${of}</div><div class="col" style="grid-template-rows:1fr">${der.length === 2 ? juntar(der[0], der[1], false) : der.join("")}</div></div>`;
+  const dj = der.length === 2 ? juntar(der[0], der[1], false) : der.join("");
+  if (!of && !mb) return dj ? pSas() : `<div class="main">${vacia("Sin ofertas ni convocatorias del SAS ahora.")}</div>`;
+  const izq = mb ? `<div class="col" style="grid-template-rows:${of ? "auto minmax(0,1fr)" : "auto;align-content:start"}">${mb}${of}</div>`
+    : `<div class="col" style="grid-template-rows:1fr">${dj ? of : tarjetaOfertasSas(1, 2)}</div>`;
+  if (!dj) return `<div class="main" style="grid-template-columns:1fr">${izq}</div>`;
+  return `<div class="main trabajo" style="grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)">${izq}<div class="col" style="grid-template-rows:1fr">${dj}</div></div>`;
 }
 function pTrabajo() {
   // 4.36 (lo pidió Isa el 8 nov 2026: «haz una página específica para ayudas y subvenciones y cursos gratis»): aquí, el empleo y el SAS
@@ -6695,9 +6759,12 @@ setInterval(medirFluidez, 5 * 60000);
 
 /* ---------- 4.3: el menú de ajustes de las pantallas (≡ en el mando, solo en la app) ----------
    ▲▼ elige · OK quita o pone la pantalla · ◀ ▶ cambia sus segundos (de 5 en 5) · « » la mueve · Atrás o ≡ cierra. Cada cambio se guarda. */
-/* 4.42: «Luz de casa (Datadis)», debajo del sitio: abre en la tele el diálogo para escribir la cuenta (Android.datadis; fuera de la app no sale) */
-const menuDatadis = () => { try { return !!(window.Android && Android.datadis); } catch (e) { return false; } };
-function filasMenu() { return [{t: "sitio"}].concat(menuDatadis() ? [{t: "datadis"}] : [], ordenPantallas().map(p => ({t: "p", p})), [{t: "reset"}]); }
+/* lo que se escribe en la tele, debajo del sitio: abre su diálogo (Android.<t>; fuera de la app no sale) y dice cómo está (Android.<t>Estado).
+   4.42: «Luz de casa (Datadis)», la cuenta; 4.47: «Tu sitio en la Bolsa del SAS», las cifras del DNI y el apellido */
+const EN_LA_TELE = [{t: "datadis", titulo: "Luz de casa (Datadis)"}, {t: "bolsa", titulo: "Tu sitio en la Bolsa del SAS"}];
+const enLaTele = t => { try { return !!(window.Android && Android[t]); } catch (e) { return false; } };
+const estadoTele = t => { try { return Android[t + "Estado"]() || ""; } catch (e) { return ""; } };
+function filasMenu() { return [{t: "sitio"}].concat(EN_LA_TELE.filter(x => enLaTele(x.t)).map(x => ({t: x.t, tele: x.titulo})), ordenPantallas().map(p => ({t: "p", p})), [{t: "reset"}]); }
 function pintarMenu() {
   let m = document.getElementById("menu");
   if (!menu) { if (m) m.remove(); return; }
@@ -6707,7 +6774,7 @@ function pintarMenu() {
     const sel = k === i ? " sel" : "";
     if (f.t === "sitio") return `<li class="mn-x${sel}"><b>Cambiar el sitio</b><span>${esc(E && E.lugar ? E.lugar.nombre : "")}</span></li>`;
     if (f.t === "reset") return `<li class="mn-x${sel}"><b>Volver a como venía</b><span>todas, en su orden, 15 s</span></li>`;
-    if (f.t === "datadis") return `<li class="mn-x${sel}"><b>Luz de casa (Datadis)</b><span>${esc((() => { try { return Android.datadisEstado() || ""; } catch (e) { return ""; } })())}</span></li>`;
+    if (f.tele) return `<li class="mn-x${sel}"><b>${f.tele}</b><span>${esc(estadoTele(f.t))}</span></li>`;
     const off = AJ.ocultas.includes(f.p), s = segundosDe(f.p);
     return `<li class="${off ? "off" : "on"}${sel}"><i class="mn-n">${k - F.findIndex(x => x.t === "p") + 1}</i><b>${TITULOS[f.p]}</b>${hay.has(f.p) ? "" : `<em>sin datos ahora</em>`}`
       + `<span class="mn-v">${off ? "no sale" : "sale"}</span><span class="mn-s">${off ? "" : `◀ ${s} s ▶`}</span></li>`;
@@ -6745,9 +6812,9 @@ function accionMenu(a) {
     menu = null; pintarMenu();
     try { Android.cambiarSitio(); } catch (e) {}
     return;
-  } else if (a === "ok" && f.t === "datadis") {
+  } else if (a === "ok" && f.tele) {
     menu = null; pintarMenu();
-    try { Android.datadis(); } catch (e) {}
+    try { Android[f.t](); } catch (e) {}
     return;
   } else if (a === "ok" && f.t === "reset") { AJ = {orden: [], ocultas: [], seg: {}, ordenV: ORDEN_V}; guardarAjustes(); }
   else if (a === "ok" && f.t === "p") {
@@ -6771,7 +6838,7 @@ window.app = {
     // un aviso naranja o rojo nuevo salta a la vista enseguida (si no se está usando el mando)
     const nuevos = avisosFuertes().map(a => a.nivel + "|" + a.fenomeno + "|" + a.desde).filter(k => !avisosVistos.has(k));
     nuevos.forEach(k => avisosVistos.add(k));
-    decirAvisos();
+    decirAvisos(); decirTsunami();
     try { guardarPvpc(); } catch (e) {}
     if (nuevos.length && rotando()) { actual = "aviso"; paginaDesde = Date.now(); pintar(); return; }
     /* con la pantalla rotando sola, lo que llega se pinta al cambiar de pantalla (como mucho 15 s después) y no con cada dato:

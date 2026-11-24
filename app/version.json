@@ -1,8 +1,8 @@
 {
-  "versionCode": 77,
-  "versionName": "4.46",
+  "versionCode": 78,
+  "versionName": "4.47",
   "apk": "app/Tiempo.apk",
-  "sha256": "8b764448e0517309afc2a977aa10cc194b0cb493ea52ace8f0cebd9283afbf1b",
-  "bytes": 1431593,
-  "notas": "Maremoto: el paseo de cerca en un recuadro; en Hoy, solo el mercadillo de Adra (sábados menos el último del mes)"
+  "sha256": "e25993948934471f7e8075ea94ac13eb3aa9d53fbbb3340b1afa86021d46174a",
+  "bytes": 1467892,
+  "notas": "Aviso de maremoto para la costa (terremotos del IGN y el Plan Estatal); tu sitio en la Bolsa del SAS (se configura en ≡); lo de Adra en el BOE con las noticias; la lonja y los embalses por turnos"
 }
