@@ -234,7 +234,10 @@
   "estafas": {
    "desde": "2026-11-23"
   },
-  "fuente farmacias": {
+  "fuente mtg": {
+   "desde": "2026-11-25"
+  },
+  "vuelos": {
    "desde": "2026-11-24"
   }
  },
@@ -242,10 +245,15 @@
   "https://cultura.elejido.es/?ai1ec_event=candileja-musicales-para-todos-dumbo-el-musical-domingo-27-de-diciembre-auditorio-18-h": "2026-12-27",
   "https://cultura.elejido.es/?ai1ec_event=david-dominguez-el-raro-de-los-90-las-risas-continuan-domingo-29-de-noviembre-auditorio-1830-h": "2026-11-29",
   "https://cultura.elejido.es/?ai1ec_event=dreaming-bubbles-the-bubble-show-miercoles-30-de-diciembre-auditorio-18-h": "2026-12-30",
+  "https://cultura.elejido.es/?ai1ec_event=escuelas-municipales-de-teatro-navidad-minima-viernes-18-y-sabado-19-de-diciembre": "2026-12-18",
   "https://cultura.elejido.es/?ai1ec_event=israel-fernandez-de-oro-y-marfil-sabado-23-de-enero-auditorio-2030-h": "2027-01-23",
   "https://cultura.elejido.es/?ai1ec_event=luis-piedrahita-apocalipticamente-correcto-viernes-11-de-diciembre-auditorio-21-h": "2026-12-11",
   "https://cultura.elejido.es/?ai1ec_event=medina-azahara-el-musical-viernes-12-de-marzo-auditorio-2030-h": "2027-03-12",
   "https://cultura.elejido.es/?ai1ec_event=musica-mulhacen-producciones-amor-en-los-80-la-chica-de-ayer-sabado-19-de-diciembre-auditorio-19-h": "2026-12-19",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-2026-cuentacuentos-navideno-nunca-dejes-que-un-unicornio-se-encuentre-a-un-reno-sabado-19-de-diciembre-1030-h": "2026-12-19",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-2026-taller-creativo-de-colgadores-de-navidad-sabado-12-de-diciembre-1030-h": "2026-12-12",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-concierto-de-navidad-coral-lola-callejon-sabado-19-de-diciembre-iglesia-san-isidro-labrador": "2026-12-19",
+  "https://cultura.elejido.es/?ai1ec_event=norbac-erfus-el-gran-taller-sabado-2-de-enero-centro-de-interpretacion-de-la-cultura-mediterranea-1130-h": "2027-01-02",
   "https://cultura.elejido.es/?ai1ec_event=oscel-concierto-de-ano-nuevo-domingo-3-de-enero-auditorio-1830-h": "2027-01-03",
   "https://cultura.elejido.es/?ai1ec_event=otono-cultural-2026-el-ejido-ciclo-de-cine-mediterraneo-love-me-tender-martes-15-de-diciembre-2030h": "2026-12-15",
   "https://cultura.elejido.es/?ai1ec_event=otono-cultural-2026-el-ejido-ciclo-de-cine-mediterraneo-tres-adioses-martes-1-de-diciembre-2030h": "2026-12-01",

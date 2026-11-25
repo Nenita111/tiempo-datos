@@ -313,8 +313,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-24",
- "actualizado": "2026-11-24T06:15+01:00",
+ "sorteosBuscado": "2026-11-25",
+ "actualizado": "2026-11-25T06:13+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -813,19 +813,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-24",
-  "nombre": "Ensalada de granada",
+  "fecha": "2026-11-25",
+  "nombre": "Lentejas con verduras",
   "tiempo": {
-   "temperature": "mild",
+   "temperature": "cool",
    "rain": "dry",
    "wind": "light wind",
    "sky": "Poco nuboso"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-18",
-    "nombre": "Gurullos con conejo"
-   },
    {
     "fecha": "2026-11-19",
     "nombre": "Ensalada de aguacate y mandarina"
@@ -849,12 +845,26 @@
    {
     "fecha": "2026-11-24",
     "nombre": "Ensalada de granada"
+   },
+   {
+    "fecha": "2026-11-25",
+    "nombre": "Lentejas con verduras"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-24",
+  "fecha": "2026-11-25",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/228/19": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/228/20": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
    "https://www.juntadeandalucia.es/boja/2026/227/17": {
     "tipo": "convocatoria",
     "provincia": "otra",
@@ -924,41 +934,6 @@
     "tipo": "lista_definitiva",
     "provincia": "andalucia",
     "zona": "andalucia"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/223/24": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/223/25": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/223/26": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/223/27": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/223/28": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/223/29": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/223/30": {
-    "tipo": "convocatoria",
-    "provincia": "otra",
-    "zona": "otra"
    }
   },
   "avisar": [
@@ -1021,6 +996,9 @@
    }
   },
   "prod": {
+   "10119808": {
+    "ninos": 1.0
+   },
    "10119691": {
     "ninos": 1.0
    },
@@ -1047,12 +1025,29 @@
    },
    "10118789": {
     "ninos": 0.04
-   },
-   "10118819": {
-    "ninos": 0.17
    }
   },
   "ofertas": {
+   "694855": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a de Fomento de la Investigación - 2489",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-12-09",
+    "nivel": "grado",
+    "experiencia": 0.94,
+    "colectivo": "general"
+   },
+   "694852": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Responsable de Control Económico y Presupuestario -2488",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-12-09",
+    "nivel": "grado",
+    "experiencia": 0.94,
+    "colectivo": "general"
+   },
    "694699": {
     "zona": false,
     "zv": 4,
@@ -1083,16 +1078,6 @@
     "experiencia": 0.04,
     "colectivo": "general"
    },
-   "694432": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico Facultativo Consultoría (Residuos)",
-    "entidad": "Agencia de Medio Ambiente y Agua de Andalucía, M.P.",
-    "hasta": "2026-11-24",
-    "nivel": "grado",
-    "experiencia": 0.87,
-    "colectivo": "general"
-   },
    "692356": {
     "zona": false,
     "zv": 4,
@@ -1115,18 +1100,6 @@
    }
   },
   "sae": {
-   "01-2026-52045": {
-    "nivel": "no_consta",
-    "entidad": "ayuntamiento",
-    "colectivo": "general",
-    "experiencia": 0.05
-   },
-   "01-2026-52125": {
-    "nivel": "no_consta",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
    "01-2026-53076": {
     "nivel": "grado",
     "entidad": "otra",
@@ -1145,11 +1118,29 @@
     "colectivo": "general",
     "experiencia": 0.08
    },
+   "01-2026-53174": {
+    "nivel": "no_consta",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.08
+   },
+   "01-2026-53235": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.07
+   },
    "01-2026-52030": {
     "nivel": "no_consta",
     "entidad": "otra",
     "colectivo": "programa_empleo",
     "experiencia": 0.07
+   },
+   "01-2026-51272": {
+    "nivel": "fp_medio",
+    "entidad": "junta",
+    "colectivo": "general",
+    "experiencia": 0.06
    },
    "01-2026-49596": {
     "nivel": "grado",
@@ -1165,10 +1156,10 @@
    }
   },
   "agenda": {},
-  "fecha": "2026-11-24"
+  "fecha": "2026-11-25"
  },
  "fap": {
-  "fecha": "2026-11-24",
+  "fecha": "2026-11-25",
   "novedades": [
    {
     "tipo": "circular",
@@ -3698,6 +3689,19 @@
     "registrada": "2026-10-01"
    },
    {
+    "num": "944288",
+    "titulo": "El año 2026, de los «Premios al Trabajo Autónomo en Andalucía",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Empleo, Empresa y Trabajo Autónomo",
+    "estado": "abierta",
+    "hasta": "2027-01-29",
+    "importe": 28800,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "registrada": "2026-11-24"
+   },
+   {
     "num": "931694",
     "titulo": "La fase autonómica del concurso escolar CONSUMÓPOLIS para el curso académico 2026-2027",
     "ambito": "Junta de Andalucía",
@@ -4074,22 +4078,10 @@
   ],
   "fuente": "Base de Datos Nacional de Subvenciones (BDNS)",
   "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias",
-  "dia": "2026-11-23"
+  "dia": "2026-11-25"
  },
  "cursos": {
   "presenciales": [
-   {
-    "id": "456686",
-    "codigo": "IFCD97",
-    "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
-    "fin": "2026-11-24",
-    "inicio": "2027-01-13",
-    "horas": 150,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "municipio": "Almería",
-    "km": 50
-   },
    {
     "id": "192",
     "codigo": "ADGD359PO",
@@ -4108,7 +4100,7 @@
     "codigo": "AGAO0108",
     "nombre": "Actividades auxiliares en viveros, jardines y centros de jardinería",
     "fin": "2026-11-27",
-    "inicio": "2026-12-09",
+    "inicio": "2027-01-07",
     "horas": 330,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4407,7 +4399,7 @@
     "codigo": "AGAU0004",
     "nombre": "Manipulación y aplicacion de productos fitosanitarios. nivel avanzado",
     "fin": "2027-01-08",
-    "inicio": "2027-01-18",
+    "inicio": "2027-02-08",
     "horas": 60,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4421,7 +4413,7 @@
     "codigo": "SSCI0001",
     "nombre": "Innovaciones tecnologicas en los protocolos de limpieza y desinfeccion ambiental",
     "fin": "2027-01-08",
-    "inicio": "2027-01-18",
+    "inicio": "2027-02-08",
     "horas": 220,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4435,7 +4427,7 @@
     "codigo": "INAD0001",
     "nombre": "Manipulación en crudo y conservación de alimentos",
     "fin": "2027-01-08",
-    "inicio": "2027-01-18",
+    "inicio": "2027-02-08",
     "horas": 125,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4449,7 +4441,7 @@
     "codigo": "EOCB0008",
     "nombre": "Preparación básica para actividades de mantenimiento general de infraestructuras en edificios e instalaciones",
     "fin": "2027-01-08",
-    "inicio": "2027-01-18",
+    "inicio": "2027-02-08",
     "horas": 120,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4489,7 +4481,7 @@
     "codigo": "COMT0001",
     "nombre": "Caja y reposición",
     "fin": "2027-01-22",
-    "inicio": "2027-02-01",
+    "inicio": "2027-02-22",
     "horas": 60,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4503,7 +4495,7 @@
     "codigo": "HOTA0006",
     "nombre": "Gestión y seguimiento de los nuevos procedimientos de limpieza",
     "fin": "2027-01-22",
-    "inicio": "2027-02-01",
+    "inicio": "2027-02-22",
     "horas": 75,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4542,7 +4534,7 @@
     "codigo": "COMT0001",
     "nombre": "Caja y reposición",
     "fin": "2027-02-12",
-    "inicio": "2027-02-22",
+    "inicio": "2027-03-16",
     "horas": 60,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4566,29 +4558,6 @@
    }
   ],
   "linea": [
-   {
-    "id": "456686",
-    "codigo": "IFCD97",
-    "nombre": "Programación para soluciones de IOT y smart city aplicables a entornos 5G",
-    "fin": "2026-11-24",
-    "inicio": "2027-01-13",
-    "horas": 150,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "municipio": "Almería",
-    "km": 50
-   },
-   {
-    "id": "2285",
-    "codigo": "SSCE0110",
-    "nombre": "Habilitacion para la docencia en grados A,B y c del sistema de formacion profesional",
-    "fin": "2026-11-24",
-    "inicio": "2027-01-15",
-    "horas": 380,
-    "para": "desempleadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
    {
     "id": "2881",
     "codigo": "MF1000",
@@ -4618,6 +4587,17 @@
     "fin": "2026-11-27",
     "inicio": "2026-12-29",
     "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
+    "id": "104",
+    "codigo": "COMM04",
+    "nombre": "Introducción a la inteligencia artificial aplicada al marketing",
+    "fin": "2026-11-27",
+    "inicio": "2026-12-09",
+    "horas": 50,
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "día completo"
@@ -4975,6 +4955,28 @@
     "horario": "tarde"
    },
    {
+    "id": "2868",
+    "codigo": "MF0981",
+    "nombre": "Registros contables",
+    "fin": "2026-12-17",
+    "inicio": "2027-01-08",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
+   },
+   {
+    "id": "86",
+    "codigo": "ADGN12",
+    "nombre": "Fiscalidad cooperativa avanzada",
+    "fin": "2026-12-18",
+    "inicio": "2027-01-26",
+    "horas": 40,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
     "id": "85",
     "codigo": "ADGD0058",
     "nombre": "Gestión de secciones de crédito de cooperativas agrarias",
@@ -4995,23 +4997,12 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "mañana"
-   },
-   {
-    "id": "2890",
-    "codigo": "MF0241",
-    "nombre": "Información y atención al cliente/consumidor/usuario",
-    "fin": "2026-12-18",
-    "inicio": "2027-01-20",
-    "horas": 120,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
    }
   ],
-  "lineaTotal": 93,
+  "lineaTotal": 97,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-24"
+  "dia": "2026-11-25"
  },
  "polen": {
   "estacion": "Almería",
@@ -5236,7 +5227,7 @@
     ]
    }
   ],
-  "dias": 375,
+  "dias": 374,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -5269,6 +5260,16 @@
     "lugar": "Librería Picasso",
     "municipio": "Almería",
     "enlace": "https://www.turismodealmeria.org/evento/presentacion-del-libro-de-la-infidelidad-de-juan-varo-zafra/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "Banda Municipal de Almería: Una mirada a nuestros solistas (3)",
+    "inicio": "2026-11-29",
+    "hora": "12:00",
+    "lugar": "Teatro Apolo",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/banda-municipal-de-almeria-una-mirada-a-nuestros-solistas-3/",
     "fuente": "Turismo de Almería",
     "gratis": true
    },
@@ -5330,7 +5331,7 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-23"
+  "dia": "2026-11-25"
  },
  "sasOfertas": {
   "lista": [
@@ -5379,8 +5380,8 @@
     "titulo": "Ref. 9646 Resolución de 11 de noviembre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante, de Jefe/a de Sección Facultativo de Cirugía Ortopédica y Traumatología en el Hospital Universitario Torrecárdenas de Almería",
     "puesto": "Jefe/a de Sección Facultativo de Cirugía Ortopédica y Traumatología",
     "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/401417/88086/107046",
-    "docs": 1,
-    "estado": null,
+    "docs": 2,
+    "estado": "corrección de errores",
     "plazo": {
      "n": 10,
      "unidad": "habiles",
@@ -5493,8 +5494,8 @@
     "titulo": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones, en el Distrito Sanitario de Atención Primaria de Almería .",
     "puesto": "Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones",
     "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400149/87317/106265",
-    "docs": 1,
-    "estado": null,
+    "docs": 2,
+    "estado": "lista provisional de admitidos",
     "plazo": {
      "n": 10,
      "unidad": "habiles",
@@ -5512,8 +5513,8 @@
     "titulo": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos en el Distrito Sanitario de Atención Primaria de Almería.",
     "puesto": "Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos",
     "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400148/87316/106264",
-    "docs": 1,
-    "estado": null,
+    "docs": 2,
+    "estado": "lista provisional de admitidos",
     "plazo": {
      "n": 10,
      "unidad": "habiles",
@@ -6269,9 +6270,9 @@
     "fuente": "Turismo de Almería"
    },
    {
-    "titulo": "Magia para todos «MagicDuo»",
+    "titulo": "Navidad 2026",
     "fecha": "2026-12-12",
-    "tipo": "Magia",
+    "tipo": "Espectáculo",
     "hora": "19:00",
     "municipio": "El Ejido",
     "enlace": "https://cultura.elejido.es/?ai1ec_event=visitas-guiadas-al-yacimiento-de-ciavieja-de-guia-una-arqueologa-sabado-12-de-septiembre-2",
@@ -6308,6 +6309,14 @@
     "fuente": "Turismo de Almería"
    },
    {
+    "titulo": "Navidad 2026",
+    "fecha": "2026-12-18",
+    "tipo": "Espectáculo",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=escuelas-municipales-de-teatro-navidad-minima-viernes-18-y-sabado-19-de-diciembre",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
     "titulo": "Así canta Jerez en navidad",
     "fecha": "2026-12-18",
     "tipo": "Concierto",
@@ -6339,6 +6348,14 @@
     "fuente": "Turismo de Almería"
    },
    {
+    "titulo": "Navidad El Ejido 2026",
+    "fecha": "2026-12-19",
+    "tipo": "Espectáculo",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-concierto-de-navidad-coral-lola-callejon-sabado-19-de-diciembre-iglesia-san-isidro-labrador",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
     "titulo": "Un viaje encantador",
     "fecha": "2026-12-19",
     "tipo": "Espectáculo",
@@ -6359,9 +6376,9 @@
     "fuente": "Ayuntamiento de Roquetas de Mar"
    },
    {
-    "titulo": "Mulhacén Producciones «Amor en los 80: La chica de ayer»",
+    "titulo": "Navidad 2026",
     "fecha": "2026-12-19",
-    "tipo": "Concierto",
+    "tipo": "Espectáculo",
     "hora": "19:00",
     "lugar": "Auditorio de El Ejido",
     "municipio": "El Ejido",
@@ -6379,9 +6396,9 @@
     "fuente": "Turismo de Almería"
    },
    {
-    "titulo": "Toni Bright, magia de la mente «Creer es poder»",
+    "titulo": "Navidad 2026",
     "fecha": "2026-12-20",
-    "tipo": "Magia",
+    "tipo": "Espectáculo",
     "hora": "18:30",
     "lugar": "Auditorio de El Ejido",
     "municipio": "El Ejido",
@@ -6454,9 +6471,9 @@
     "infantil": true
    },
    {
-    "titulo": "Candileja musicales para todos «Dumbo, el musical»",
+    "titulo": "Navidad 2026",
     "fecha": "2026-12-27",
-    "tipo": "Musical",
+    "tipo": "Espectáculo",
     "hora": "18:00",
     "lugar": "Auditorio de El Ejido",
     "municipio": "El Ejido",
@@ -6508,15 +6525,14 @@
     "infantil": true
    },
    {
-    "titulo": "Dreaming Bubbles «The Bubble Show»",
+    "titulo": "Navidad 2026",
     "fecha": "2026-12-30",
     "tipo": "Espectáculo",
     "hora": "18:00",
     "lugar": "Auditorio de El Ejido",
     "municipio": "El Ejido",
     "enlace": "https://cultura.elejido.es/?ai1ec_event=dreaming-bubbles-the-bubble-show-miercoles-30-de-diciembre-auditorio-18-h",
-    "fuente": "Ayuntamiento de El Ejido",
-    "infantil": true
+    "fuente": "Ayuntamiento de El Ejido"
    },
    {
     "titulo": "Cómicos Fin de Año 2026",
@@ -6541,9 +6557,9 @@
     "fuente": "Turismo de Almería"
    },
    {
-    "titulo": "OSCEL Concierto de año nuevo",
+    "titulo": "Navidad 2026",
     "fecha": "2027-01-03",
-    "tipo": "Concierto",
+    "tipo": "Espectáculo",
     "hora": "18:30",
     "lugar": "Auditorio de El Ejido",
     "municipio": "El Ejido",
@@ -6652,6 +6668,6 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-24"
+  "dia": "2026-11-25"
  }
 }
