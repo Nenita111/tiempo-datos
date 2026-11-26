@@ -234,8 +234,11 @@
   "estafas": {
    "desde": "2026-11-23"
   },
-  "fuente mtg": {
-   "desde": "2026-11-25"
+  "fuente gasolina": {
+   "desde": "2026-11-26"
+  },
+  "fuente iss": {
+   "desde": "2026-11-26"
   },
   "vuelos": {
    "desde": "2026-11-24"
@@ -252,7 +255,10 @@
   "https://cultura.elejido.es/?ai1ec_event=musica-mulhacen-producciones-amor-en-los-80-la-chica-de-ayer-sabado-19-de-diciembre-auditorio-19-h": "2026-12-19",
   "https://cultura.elejido.es/?ai1ec_event=navidad-2026-cuentacuentos-navideno-nunca-dejes-que-un-unicornio-se-encuentre-a-un-reno-sabado-19-de-diciembre-1030-h": "2026-12-19",
   "https://cultura.elejido.es/?ai1ec_event=navidad-2026-taller-creativo-de-colgadores-de-navidad-sabado-12-de-diciembre-1030-h": "2026-12-12",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-agrupacion-musical-santa-maria-de-la-paz-de-el-ejido-concierto-de-navidad-domingo-13-de-diciembre-teatro-municipal-12-h": "2026-12-13",
   "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-concierto-de-navidad-coral-lola-callejon-sabado-19-de-diciembre-iglesia-san-isidro-labrador": "2026-12-19",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-el-coro-cristo-de-la-luz-de-dalias-canta-a-la-navidad-miercoles-23-de-diciembre-20-h-pza-parroco-jose-jimenez": "2026-12-23",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-zambomba-flamenca-alejandra-foruria-escuela-de-danza-viernes-11-de-diciembre-2000-h-pza-parroco-jose-jimenez": "2026-12-11",
   "https://cultura.elejido.es/?ai1ec_event=norbac-erfus-el-gran-taller-sabado-2-de-enero-centro-de-interpretacion-de-la-cultura-mediterranea-1130-h": "2027-01-02",
   "https://cultura.elejido.es/?ai1ec_event=oscel-concierto-de-ano-nuevo-domingo-3-de-enero-auditorio-1830-h": "2027-01-03",
   "https://cultura.elejido.es/?ai1ec_event=otono-cultural-2026-el-ejido-ciclo-de-cine-mediterraneo-love-me-tender-martes-15-de-diciembre-2030h": "2026-12-15",

@@ -313,8 +313,8 @@
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-25",
- "actualizado": "2026-11-25T06:13+01:00",
+ "sorteosBuscado": "2026-11-26",
+ "actualizado": "2026-11-26T06:13+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -813,19 +813,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-25",
-  "nombre": "Lentejas con verduras",
+  "fecha": "2026-11-26",
+  "nombre": "Crema de puerros",
   "tiempo": {
    "temperature": "cool",
    "rain": "dry",
    "wind": "light wind",
-   "sky": "Poco nuboso"
+   "sky": "Despejado"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-19",
-    "nombre": "Ensalada de aguacate y mandarina"
-   },
    {
     "fecha": "2026-11-20",
     "nombre": "Potaje de acelgas"
@@ -849,12 +845,36 @@
    {
     "fecha": "2026-11-25",
     "nombre": "Lentejas con verduras"
+   },
+   {
+    "fecha": "2026-11-26",
+    "nombre": "Crema de puerros"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-25",
+  "fecha": "2026-11-26",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/229/25": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/229/26": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/229/27": {
+    "tipo": "lista_provisional",
+    "provincia": "andalucia",
+    "zona": "andalucia"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/229/28": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
    "https://www.juntadeandalucia.es/boja/2026/228/19": {
     "tipo": "convocatoria",
     "provincia": "otra",
@@ -948,6 +968,10 @@
  },
  "etiquetas": {
   "alim": {
+   "https://www.aesan.gob.es/alertas/2026_88": {
+    "alergeno": "ninguno",
+    "producto": "frutas_verduras"
+   },
    "https://www.aesan.gob.es/alertas/2026_86": {
     "alergeno": "ninguno",
     "producto": "otro"
@@ -1028,6 +1052,36 @@
    }
   },
   "ofertas": {
+   "697630": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Jefe/a de Cocina (Área Repostería)",
+    "entidad": "Servicio Andaluz de Empleo",
+    "hasta": "2026-11-29",
+    "nivel": "fp_superior",
+    "experiencia": 0.05,
+    "colectivo": "general"
+   },
+   "697621": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "JEFE/A DE RADIOENLACES Y UNIDADES MÓVILES",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-11-30",
+    "nivel": "grado",
+    "experiencia": 0.58,
+    "colectivo": "general"
+   },
+   "697735": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Dirección de Infraestructuras y Desarrollo",
+    "entidad": "Verificaciones Industriales de Andalucía S.A.",
+    "hasta": "2026-12-11",
+    "nivel": "grado",
+    "experiencia": 0.04,
+    "colectivo": "general"
+   },
    "694855": {
     "zona": false,
     "zv": 4,
@@ -1046,6 +1100,26 @@
     "hasta": "2026-12-09",
     "nivel": "grado",
     "experiencia": 0.94,
+    "colectivo": "general"
+   },
+   "697594": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "TÉCNICO/A ELECTRÓNICO",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-11-28",
+    "nivel": "grado",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "697588": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "JEFE/A SECCIÓN ECONÓMICO ADMINISTRATIVA",
+    "entidad": "Agencia Pública Empresarial de la Radio y Televisión de Andalucía",
+    "hasta": "2026-11-28",
+    "nivel": "grado",
+    "experiencia": 0.97,
     "colectivo": "general"
    },
    "694699": {
@@ -1100,24 +1174,6 @@
    }
   },
   "sae": {
-   "01-2026-53076": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.08
-   },
-   "01-2026-53160": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.08
-   },
-   "01-2026-53162": {
-    "nivel": "master",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.08
-   },
    "01-2026-53174": {
     "nivel": "no_consta",
     "entidad": "otra",
@@ -1136,11 +1192,29 @@
     "colectivo": "programa_empleo",
     "experiencia": 0.07
    },
+   "01-2026-52909": {
+    "nivel": "no_consta",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.08
+   },
+   "01-2026-53517": {
+    "nivel": "no_consta",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.07
+   },
    "01-2026-51272": {
     "nivel": "fp_medio",
     "entidad": "junta",
     "colectivo": "general",
     "experiencia": 0.06
+   },
+   "01-2026-53467": {
+    "nivel": "no_consta",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.08
    },
    "01-2026-49596": {
     "nivel": "grado",
@@ -1153,13 +1227,19 @@
     "entidad": "ayuntamiento",
     "colectivo": "general",
     "experiencia": 0.07
+   },
+   "01-2026-53374": {
+    "nivel": "no_consta",
+    "entidad": "junta",
+    "colectivo": "general",
+    "experiencia": 0.06
    }
   },
   "agenda": {},
-  "fecha": "2026-11-25"
+  "fecha": "2026-11-26"
  },
  "fap": {
-  "fecha": "2026-11-25",
+  "fecha": "2026-11-26",
   "novedades": [
    {
     "tipo": "circular",
@@ -1610,14 +1690,6 @@
   "fuente": "Junta de Andalucía (Consejería de Sanidad)"
  },
  "agendaJunta": [
-  {
-   "titulo": "I Jornada Nacional de Conservación y Restauración del Patrimonio: ciencia e innovación aplicada a la piedra natural (Almería)",
-   "fecha": "2026-11-25",
-   "lugar": "Almería",
-   "km": 50,
-   "fuente": "Junta de Andalucía",
-   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia"
-  },
   {
    "titulo": "Jornadas Promoción de la Sostenibilidad Empresarial en el Espacio Natural de Sierra Nevada",
    "fecha": "2026-11-26",
@@ -3936,6 +4008,7 @@
     "para": [
      "personas"
     ],
+    "boletin": "https://juntadeandalucia.es/boja/2026/228/3",
     "registrada": "2026-11-17"
    },
    {
@@ -4078,23 +4151,10 @@
   ],
   "fuente": "Base de Datos Nacional de Subvenciones (BDNS)",
   "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias",
-  "dia": "2026-11-25"
+  "dia": "2026-11-26"
  },
  "cursos": {
   "presenciales": [
-   {
-    "id": "192",
-    "codigo": "ADGD359PO",
-    "nombre": "Lean manufacturing",
-    "fin": "2026-11-25",
-    "inicio": "2026-12-11",
-    "horas": 50,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Almería",
-    "km": 50
-   },
    {
     "id": "2301",
     "codigo": "AGAO0108",
@@ -4159,6 +4219,19 @@
     "horario": "mañana",
     "municipio": "Huércal de Almería",
     "km": 54
+   },
+   {
+    "id": "399",
+    "codigo": "INAD0002",
+    "nombre": "Manipulación de alimentos de alto riesgo",
+    "fin": "2026-12-03",
+    "inicio": "2027-01-11",
+    "horas": 25,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "El Ejido",
+    "km": 19
    },
    {
     "id": "353",
@@ -4239,19 +4312,6 @@
     "km": 50
    },
    {
-    "id": "409",
-    "codigo": "COMT09",
-    "nombre": "Psicología aplicada a las ventas",
-    "fin": "2026-12-15",
-    "inicio": "2027-01-15",
-    "horas": 40,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "tarde",
-    "municipio": "Almería",
-    "km": 50
-   },
-   {
     "id": "408",
     "codigo": "COMT09",
     "nombre": "Psicología aplicada a las ventas",
@@ -4261,6 +4321,19 @@
     "para": "desempleadas",
     "modalidad": "presencial",
     "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "409",
+    "codigo": "COMT09",
+    "nombre": "Psicología aplicada a las ventas",
+    "fin": "2026-12-15",
+    "inicio": "2027-01-15",
+    "horas": 40,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
     "municipio": "Almería",
     "km": 50
    },
@@ -4559,17 +4632,6 @@
   ],
   "linea": [
    {
-    "id": "2881",
-    "codigo": "MF1000",
-    "nombre": "Organización comercial",
-    "fin": "2026-11-25",
-    "inicio": "2026-12-17",
-    "horas": 120,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "tarde"
-   },
-   {
     "id": "114",
     "codigo": "COMM0009",
     "nombre": "Atención al cliente",
@@ -4598,6 +4660,17 @@
     "fin": "2026-11-27",
     "inicio": "2026-12-09",
     "horas": 50,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
+    "id": "95",
+    "codigo": "COMT17",
+    "nombre": "Bases de datos de clientela: segmentación y explotación comercial",
+    "fin": "2026-11-30",
+    "inicio": "2026-12-18",
+    "horas": 20,
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "día completo"
@@ -4900,17 +4973,6 @@
     "horario": "tarde"
    },
    {
-    "id": "87",
-    "codigo": "SSCE0137",
-    "nombre": "Metodologías activas para la formación permanente en las cooperativas",
-    "fin": "2026-12-16",
-    "inicio": "2027-01-19",
-    "horas": 40,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "día completo"
-   },
-   {
     "id": "456756",
     "codigo": "IFCD102",
     "nombre": "Programación realidad virtual y realidad aumentada aplicables en entornos 5G",
@@ -4920,6 +4982,17 @@
     "para": "desempleadas",
     "modalidad": "en línea",
     "municipio": "Linares"
+   },
+   {
+    "id": "2910",
+    "codigo": "MF1791",
+    "nombre": "Gestión administrativa y económico-financiera de pequeños negocios o microempresas",
+    "fin": "2026-12-17",
+    "inicio": "2027-01-15",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    },
    {
     "id": "2962",
@@ -4959,7 +5032,7 @@
     "codigo": "MF0981",
     "nombre": "Registros contables",
     "fin": "2026-12-17",
-    "inicio": "2027-01-08",
+    "inicio": "2026-12-18",
     "horas": 120,
     "para": "ocupadas",
     "modalidad": "en línea",
@@ -4981,7 +5054,7 @@
     "codigo": "ADGD0058",
     "nombre": "Gestión de secciones de crédito de cooperativas agrarias",
     "fin": "2026-12-18",
-    "inicio": "2027-01-25",
+    "inicio": "2027-01-26",
     "horas": 50,
     "para": "ocupadas",
     "modalidad": "en línea",
@@ -4999,10 +5072,10 @@
     "horario": "mañana"
    }
   ],
-  "lineaTotal": 97,
+  "lineaTotal": 99,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-25"
+  "dia": "2026-11-26"
  },
  "polen": {
   "estacion": "Almería",
@@ -5227,7 +5300,7 @@
     ]
    }
   ],
-  "dias": 374,
+  "dias": 373,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -5324,6 +5397,19 @@
     "detalle": "10 km · Todo el día · dificultad baja · desde 12 años",
     "senderismo": true,
     "inscripcion": "inscripción: 677 942 005 (Juventud)"
+   },
+   {
+    "titulo": "Scape Room Parque Geominero del Cerro del Toro, Motril",
+    "inicio": "2027-01-10",
+    "lugar": "salida desde Cruz Roja Adra",
+    "enlace": "https://www.adra.es/documents/20122/1266013/Adra+en+la+senda+2026-2027.pdf/10bb8dd4-e94a-10ee-06aa-d364c7e1f254?t=1791286633887",
+    "fuente": "Ayuntamiento de Adra (Adra en la Senda)",
+    "aireLibre": true,
+    "programa": "Adra en la Senda",
+    "hora": "salida a las 07:30",
+    "precio": "Por determinar",
+    "detalle": "4 h · dificultad baja · desde 10 años",
+    "inscripcion": "inscripción: 677 942 005 (Juventud)"
    }
   ],
   "fuentes": [
@@ -5331,7 +5417,7 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-25"
+  "dia": "2026-11-26"
  },
  "sasOfertas": {
   "lista": [
@@ -5346,8 +5432,8 @@
     "titulo": "Convocatoria Pública para la Provisión Temporal de un puesto de Técnico Medio Función Administrativa opción Administración General para el AGS Sur de Granada.",
     "puesto": "Técnico Medio Función Administrativa opción Administración General",
     "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/401463/88122/107080",
-    "docs": 1,
-    "estado": null,
+    "docs": 2,
+    "estado": "lista provisional de admitidos",
     "plazo": null
    },
    {
@@ -6218,6 +6304,15 @@
     "fuente": "Turismo de Almería"
    },
    {
+    "titulo": "Navidad El Ejido 2026",
+    "fecha": "2026-12-11",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-zambomba-flamenca-alejandra-foruria-escuela-de-danza-viernes-11-de-diciembre-2000-h-pza-parroco-jose-jimenez",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
     "titulo": "Eva Jesús: Concierto de Navidad",
     "fecha": "2026-12-11",
     "tipo": "Concierto",
@@ -6296,6 +6391,15 @@
     "municipio": "Motril",
     "enlace": "https://motrilturismo.com/es/agenda/navidas-flamenca-motril-al-son-las-ninas",
     "fuente": "Motril Turismo"
+   },
+   {
+    "titulo": "Navidad El Ejido 2026",
+    "fecha": "2026-12-13",
+    "tipo": "Espectáculo",
+    "hora": "12:00",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-agrupacion-musical-santa-maria-de-la-paz-de-el-ejido-concierto-de-navidad-domingo-13-de-diciembre-teatro-municipal-12-h",
+    "fuente": "Ayuntamiento de El Ejido"
    },
    {
     "titulo": "Coro Gospel Clasijazz: Concierto de Navidad",
@@ -6425,6 +6529,15 @@
     "municipio": "Almería",
     "enlace": "https://www.turismodealmeria.org/evento/zambomba-flamenca-22-de-diciembre/",
     "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Navidad El Ejido 2026",
+    "fecha": "2026-12-23",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-el-coro-cristo-de-la-luz-de-dalias-canta-a-la-navidad-miercoles-23-de-diciembre-20-h-pza-parroco-jose-jimenez",
+    "fuente": "Ayuntamiento de El Ejido"
    },
    {
     "titulo": "Sala Sol, 2ª edición: El último baile",
@@ -6668,6 +6781,6 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-25"
+  "dia": "2026-11-26"
  }
 }
