@@ -234,11 +234,23 @@
   "estafas": {
    "desde": "2026-11-23"
   },
-  "fuente gasolina": {
-   "desde": "2026-11-26"
+  "fuente alimentarias": {
+   "desde": "2026-11-27"
   },
-  "fuente iss": {
-   "desde": "2026-11-26"
+  "fuente efemerides": {
+   "desde": "2026-11-27"
+  },
+  "fuente farmacias": {
+   "desde": "2026-11-27"
+  },
+  "fuente medicamentos": {
+   "desde": "2026-11-27"
+  },
+  "fuente rfep": {
+   "desde": "2026-11-27"
+  },
+  "fuente trenes": {
+   "desde": "2026-11-27"
   },
   "vuelos": {
    "desde": "2026-11-24"
@@ -253,7 +265,13 @@
   "https://cultura.elejido.es/?ai1ec_event=luis-piedrahita-apocalipticamente-correcto-viernes-11-de-diciembre-auditorio-21-h": "2026-12-11",
   "https://cultura.elejido.es/?ai1ec_event=medina-azahara-el-musical-viernes-12-de-marzo-auditorio-2030-h": "2027-03-12",
   "https://cultura.elejido.es/?ai1ec_event=musica-mulhacen-producciones-amor-en-los-80-la-chica-de-ayer-sabado-19-de-diciembre-auditorio-19-h": "2026-12-19",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-2026-concierto-navidad-de-la-osm-plaza-parroco-jose-jimenez-miercoles-30-de-diciembre-20-h": "2026-12-30",
   "https://cultura.elejido.es/?ai1ec_event=navidad-2026-cuentacuentos-navideno-nunca-dejes-que-un-unicornio-se-encuentre-a-un-reno-sabado-19-de-diciembre-1030-h": "2026-12-19",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-2026-exposicion-de-pintura-tres-paisajes-una-mirada-de-francisco-baena-del-2-de-diciembre-al-7-de-enero": "2026-12-02",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-2026-las-melodias-del-belen-municipal-banda-sinfonica-de-el-ejido-concierto-de-navidad-sabado-26-de-diciembre-1200-h": "2026-12-26",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-2026-las-melodias-del-belen-municipal-conservatorio-profesional-de-musica-de-el-ejido-concierto-de-navidad-jueves-17-de-diciembre-1800-h": "2026-12-16",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-2026-las-melodias-del-belen-municipal-conservatorio-profesional-de-musica-de-el-ejido-concierto-de-navidad-jueves-17-de-diciembre-1800-h-2": "2026-12-17",
+  "https://cultura.elejido.es/?ai1ec_event=navidad-2026-las-melodias-del-belen-municipal-d-t-trumpet-jazz-swing-clasicos-y-villancicos-martes-29-de-diciembre-1900-h": "2026-12-29",
   "https://cultura.elejido.es/?ai1ec_event=navidad-2026-taller-creativo-de-colgadores-de-navidad-sabado-12-de-diciembre-1030-h": "2026-12-12",
   "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-agrupacion-musical-santa-maria-de-la-paz-de-el-ejido-concierto-de-navidad-domingo-13-de-diciembre-teatro-municipal-12-h": "2026-12-13",
   "https://cultura.elejido.es/?ai1ec_event=navidad-el-ejido-2026-concierto-de-navidad-coral-lola-callejon-sabado-19-de-diciembre-iglesia-san-isidro-labrador": "2026-12-19",
@@ -531,6 +549,10 @@
    [
     "2026-11-23",
     32
+   ],
+   [
+    "2026-11-27",
+    32
    ]
   ],
   "GRX": [
@@ -549,6 +571,10 @@
    [
     "2026-11-23",
     64
+   ],
+   [
+    "2026-11-27",
+    50
    ]
   ],
   "LEI": [
@@ -567,6 +593,10 @@
    [
     "2026-11-23",
     91
+   ],
+   [
+    "2026-11-27",
+    93
    ]
   ],
   "RMU": [
@@ -585,6 +615,10 @@
    [
     "2026-11-23",
     49
+   ],
+   [
+    "2026-11-27",
+    50
    ]
   ]
  }

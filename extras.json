@@ -67,59 +67,59 @@
    "codigo": "LEI",
    "vuelos": [
     {
-     "destino": "Madrid",
-     "ida": "2026-12-14",
-     "vuelta": "2026-12-16",
-     "precio": 91,
-     "compania": "Wizz Air",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/yk4bxhrup9"
-    },
-    {
      "destino": "Liverpool",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
-     "precio": 97,
+     "precio": 93,
      "compania": "easyJet",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/jp7ggpq8rh"
-    },
-    {
-     "destino": "Sevilla",
-     "ida": "2026-12-15",
-     "vuelta": "2026-12-17",
-     "precio": 112,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/hbwxksyvbj"
+     "enlace": "https://kiwi.com/u/gquzdyph2p"
     },
     {
      "destino": "Bucarest",
-     "ida": "2026-12-14",
-     "vuelta": "2026-12-18",
-     "precio": 126,
+     "ida": "2026-12-07",
+     "vuelta": "2026-12-11",
+     "precio": 100,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/c8y768ytjq"
+     "enlace": "https://kiwi.com/u/qurnssv3xq"
     },
     {
-     "destino": "Barcelona",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-11",
-     "precio": 132,
-     "compania": "Vueling",
+     "destino": "Madrid",
+     "ida": "2026-12-28",
+     "vuelta": "2027-01-01",
+     "precio": 114,
+     "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/5umzywrm84"
+     "enlace": "https://kiwi.com/u/gwyb2fvnqx"
+    },
+    {
+     "destino": "Sevilla",
+     "ida": "2027-01-01",
+     "vuelta": "2027-01-06",
+     "precio": 114,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/ffwdt9v8yt"
     },
     {
      "destino": "Londres",
      "ida": "2026-12-28",
      "vuelta": "2027-01-02",
-     "precio": 134,
+     "precio": 133,
      "compania": "easyJet",
      "escalas": "directo",
      "nota": "Gatwick",
-     "enlace": "https://kiwi.com/u/kyq692276s"
+     "enlace": "https://kiwi.com/u/6xf62rwudy"
+    },
+    {
+     "destino": "Melilla",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-14",
+     "precio": 145,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/nrfdwvyu4k"
     }
    ]
   },
@@ -128,59 +128,58 @@
    "codigo": "GRX",
    "vuelos": [
     {
-     "destino": "Oporto",
-     "ida": "2026-12-13",
-     "vuelta": "2026-12-17",
-     "precio": 64,
-     "compania": "Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/wbut6294yn"
-    },
-    {
      "destino": "Santander",
      "ida": "2026-12-11",
      "vuelta": "2026-12-14",
-     "precio": 64,
+     "precio": 50,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/v2hdsdmwq3"
+     "enlace": "https://kiwi.com/u/svvbv453rn"
     },
     {
-     "destino": "Asturias",
-     "ida": "2026-12-25",
-     "vuelta": "2026-12-30",
-     "precio": 66,
+     "destino": "Oporto",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-17",
+     "precio": 57,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/kxcpmdvrnr"
-    },
-    {
-     "destino": "Londres",
-     "ida": "2026-12-01",
-     "vuelta": "2026-12-05",
-     "precio": 67,
-     "compania": "Wizz Air",
-     "escalas": "directo",
-     "nota": "Luton",
-     "enlace": "https://kiwi.com/u/z8r3y6mbrg"
+     "enlace": "https://kiwi.com/u/kbhjbb6tq8"
     },
     {
      "destino": "Madrid",
-     "ida": "2026-12-06",
-     "vuelta": "2026-12-11",
-     "precio": 68,
-     "compania": "Volotea",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-15",
+     "precio": 58,
+     "compania": "Iberia / Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/mp5mu7hmhg"
+     "enlace": "https://kiwi.com/u/jq3cpwr9jx"
     },
     {
      "destino": "Nantes",
-     "ida": "2026-12-03",
-     "vuelta": "2026-12-06",
-     "precio": 68,
+     "ida": "2026-12-10",
+     "vuelta": "2026-12-13",
+     "precio": 61,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/nxusjpzv3p"
+     "enlace": "https://kiwi.com/u/35brsb722x"
+    },
+    {
+     "destino": "Palma de Mallorca",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-13",
+     "precio": 67,
+     "compania": "Vueling / Air Europa",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/7skvtggfgs"
+    },
+    {
+     "destino": "Asturias",
+     "ida": "2027-01-01",
+     "vuelta": "2027-01-06",
+     "precio": 67,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/fxs9tqjfv8"
     }
    ]
   },
@@ -189,60 +188,58 @@
    "codigo": "AGP",
    "vuelos": [
     {
-     "destino": "Ibiza",
-     "ida": "2026-12-12",
-     "vuelta": "2026-12-14",
-     "precio": 32,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/y44dtv3gf5"
-    },
-    {
-     "destino": "Palma de Mallorca",
-     "ida": "2026-12-17",
-     "vuelta": "2026-12-20",
-     "precio": 32,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/26k36utumb"
-    },
-    {
      "destino": "Bilbao",
      "ida": "2026-12-20",
      "vuelta": "2026-12-24",
      "precio": 32,
      "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/vyrsbfth2s"
+     "enlace": "https://kiwi.com/u/f8uuvmt4v4"
     },
     {
-     "destino": "Oporto",
-     "ida": "2026-12-14",
-     "vuelta": "2026-12-19",
-     "precio": 42,
+     "destino": "Palma de Mallorca",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-14",
+     "precio": 33,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xrm7s27fyq"
+     "enlace": "https://kiwi.com/u/tcxw592zmq"
     },
     {
-     "destino": "Milán",
-     "ida": "2026-12-12",
+     "destino": "Turín",
+     "ida": "2026-12-13",
      "vuelta": "2026-12-17",
-     "precio": 44,
+     "precio": 35,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "nota": "Malpensa",
-     "enlace": "https://kiwi.com/u/vgdg5qdmj8"
+     "enlace": "https://kiwi.com/u/46t2gh43fq"
+    },
+    {
+     "destino": "Ibiza",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-14",
+     "precio": 39,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/2xrvtq4bf9"
     },
     {
      "destino": "Venecia",
-     "ida": "2026-12-13",
-     "vuelta": "2026-12-15",
-     "precio": 44,
-     "compania": "Ryanair",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-16",
+     "precio": 43,
+     "compania": "Wizz Air / Ryanair",
      "escalas": "directo",
-     "nota": "Treviso",
-     "enlace": "https://kiwi.com/u/uzzux9cwhz"
+     "enlace": "https://kiwi.com/u/hu96t55b6b"
+    },
+    {
+     "destino": "Santiago de Compostela",
+     "ida": "2027-01-01",
+     "vuelta": "2027-01-06",
+     "precio": 44,
+     "compania": "Wizz Air",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/t6jq362xgc"
     }
    ]
   },
@@ -254,67 +251,67 @@
      "destino": "Bilbao",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
-     "precio": 49,
+     "precio": 50,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/jzfxtbg3xu"
-    },
-    {
-     "destino": "Birmingham",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-13",
-     "precio": 51,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7bg5rnhcc5"
+     "enlace": "https://kiwi.com/u/pz8dc27wzt"
     },
     {
      "destino": "Barcelona",
      "ida": "2026-12-21",
      "vuelta": "2026-12-25",
-     "precio": 53,
+     "precio": 57,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/dht5p6hg6b"
-    },
-    {
-     "destino": "Mánchester",
-     "ida": "2026-12-26",
-     "vuelta": "2026-12-31",
-     "precio": 68,
-     "compania": "Ryanair",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xgdbhs6pcx"
+     "enlace": "https://kiwi.com/u/xbkhdy6v6b"
     },
     {
      "destino": "Londres",
-     "ida": "2026-12-28",
+     "ida": "2026-12-30",
      "vuelta": "2027-01-01",
-     "precio": 69,
+     "precio": 57,
      "compania": "Ryanair",
      "escalas": "directo",
      "nota": "Stansted",
-     "enlace": "https://kiwi.com/u/49r83dwzp7"
+     "enlace": "https://kiwi.com/u/s7jnsckdf8"
+    },
+    {
+     "destino": "Birmingham",
+     "ida": "2026-12-30",
+     "vuelta": "2027-01-01",
+     "precio": 70,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/xgsh4ckvct"
     },
     {
      "destino": "Dublín",
-     "ida": "2026-12-28",
+     "ida": "2026-12-29",
      "vuelta": "2026-12-31",
-     "precio": 79,
+     "precio": 71,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/9dd5p9bgw6"
+     "enlace": "https://kiwi.com/u/qvmq2tf5j9"
+    },
+    {
+     "destino": "Mánchester",
+     "ida": "2026-12-29",
+     "vuelta": "2027-01-01",
+     "precio": 72,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/nzd3rf3v5q"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-23",
- "vuelosBusqueda": "ida y vuelta del 26/11 al 28/12, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-27",
+ "vuelosBusqueda": "ida y vuelta del 30/11 al 01/01, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-26",
- "actualizado": "2026-11-26T06:13+01:00",
+ "sorteosBuscado": "2026-11-27",
+ "actualizado": "2026-11-27T06:16+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -480,7 +477,17 @@
   ],
   "fuente": "Instituto Geográfico Nacional · Observatorio Astronómico Nacional"
  },
- "agenda": [],
+ "agenda": [
+  {
+   "titulo": "Campeonato de Andalucía de Petanca de FANDDI",
+   "fecha": "2026-11-28",
+   "fuente": "Noticias de Almería",
+   "ine": "04003",
+   "hasta": "2026-11-29",
+   "lugar": "Adra",
+   "enlace": "https://www.noticiasdealmeria.com/adra-acoge-este-fin-de-semana-el-campeonato-de-andalucia-de-petanca-de-fanddi"
+  }
+ ],
  "raif": {
   "provincia": "Almería",
   "cultivos": [
@@ -813,8 +820,8 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-26",
-  "nombre": "Crema de puerros",
+  "fecha": "2026-11-27",
+  "nombre": "Sopa de ajo",
   "tiempo": {
    "temperature": "cool",
    "rain": "dry",
@@ -822,10 +829,6 @@
    "sky": "Despejado"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-20",
-    "nombre": "Potaje de acelgas"
-   },
    {
     "fecha": "2026-11-21",
     "nombre": "Calabaza asada"
@@ -849,12 +852,26 @@
    {
     "fecha": "2026-11-26",
     "nombre": "Crema de puerros"
+   },
+   {
+    "fecha": "2026-11-27",
+    "nombre": "Sopa de ajo"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-26",
+  "fecha": "2026-11-27",
   "etiquetas": {
+   "https://www.juntadeandalucia.es/boja/2026/230/19": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
+   "https://www.juntadeandalucia.es/boja/2026/230/20": {
+    "tipo": "convocatoria",
+    "provincia": "otra",
+    "zona": "otra"
+   },
    "https://www.juntadeandalucia.es/boja/2026/229/25": {
     "tipo": "convocatoria",
     "provincia": "otra",
@@ -949,11 +966,6 @@
     "tipo": "convocatoria",
     "provincia": "otra",
     "zona": "otra"
-   },
-   "https://www.juntadeandalucia.es/boja/2026/225/22": {
-    "tipo": "lista_definitiva",
-    "provincia": "andalucia",
-    "zona": "andalucia"
    }
   },
   "avisar": [
@@ -1052,16 +1064,6 @@
    }
   },
   "ofertas": {
-   "697630": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Jefe/a de Cocina (Área Repostería)",
-    "entidad": "Servicio Andaluz de Empleo",
-    "hasta": "2026-11-29",
-    "nivel": "fp_superior",
-    "experiencia": 0.05,
-    "colectivo": "general"
-   },
    "697621": {
     "zona": false,
     "zv": 4,
@@ -1080,6 +1082,16 @@
     "hasta": "2026-12-11",
     "nivel": "grado",
     "experiencia": 0.04,
+    "colectivo": "general"
+   },
+   "697630": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Jefe/a de Cocina (Área Repostería)",
+    "entidad": "Servicio Andaluz de Empleo",
+    "hasta": "2026-11-29",
+    "nivel": "fp_superior",
+    "experiencia": 0.05,
     "colectivo": "general"
    },
    "694855": {
@@ -1161,31 +1173,9 @@
     "nivel": "grado",
     "experiencia": 0.1,
     "colectivo": "general"
-   },
-   "692029": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a Auxiliar Fomento de la Investigación -46-2026",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-11-26",
-    "nivel": "grado",
-    "experiencia": 0.93,
-    "colectivo": "general"
    }
   },
   "sae": {
-   "01-2026-53174": {
-    "nivel": "no_consta",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.08
-   },
-   "01-2026-53235": {
-    "nivel": "grado",
-    "entidad": "otra",
-    "colectivo": "general",
-    "experiencia": 0.07
-   },
    "01-2026-52030": {
     "nivel": "no_consta",
     "entidad": "otra",
@@ -1204,11 +1194,23 @@
     "colectivo": "general",
     "experiencia": 0.07
    },
+   "01-2026-53650": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.09
+   },
    "01-2026-51272": {
     "nivel": "fp_medio",
     "entidad": "junta",
     "colectivo": "general",
     "experiencia": 0.06
+   },
+   "01-2026-53235": {
+    "nivel": "grado",
+    "entidad": "otra",
+    "colectivo": "general",
+    "experiencia": 0.07
    },
    "01-2026-53467": {
     "nivel": "no_consta",
@@ -1227,19 +1229,13 @@
     "entidad": "ayuntamiento",
     "colectivo": "general",
     "experiencia": 0.07
-   },
-   "01-2026-53374": {
-    "nivel": "no_consta",
-    "entidad": "junta",
-    "colectivo": "general",
-    "experiencia": 0.06
    }
   },
   "agenda": {},
-  "fecha": "2026-11-26"
+  "fecha": "2026-11-27"
  },
  "fap": {
-  "fecha": "2026-11-26",
+  "fecha": "2026-11-27",
   "novedades": [
    {
     "tipo": "circular",
@@ -1690,16 +1686,6 @@
   "fuente": "Junta de Andalucía (Consejería de Sanidad)"
  },
  "agendaJunta": [
-  {
-   "titulo": "Jornadas Promoción de la Sostenibilidad Empresarial en el Espacio Natural de Sierra Nevada",
-   "fecha": "2026-11-26",
-   "lugar": "Laujar de Andarax",
-   "km": 30,
-   "fuente": "Junta de Andalucía",
-   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
-   "horario": "de 09:15h a 14:00h",
-   "precio": "Actividad gratuita"
-  },
   {
    "titulo": "XLIII Jornadas Universitarias Andaluzas de Derecho del Trabajo y Relaciones Laborales \"Redefiniendo el papel de las fuentes del Derecho del Trabajo en el contexto actual\"",
    "fecha": "2026-11-26",
@@ -4169,32 +4155,6 @@
     "km": 50
    },
    {
-    "id": "2533",
-    "codigo": "COML0309",
-    "nombre": "Organización y gestión de almacenes",
-    "fin": "2026-11-28",
-    "inicio": "2026-12-28",
-    "horas": 390,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Alhama de Almería",
-    "km": 46
-   },
-   {
-    "id": "2534",
-    "codigo": "COML0309",
-    "nombre": "Organización y gestión de almacenes",
-    "fin": "2026-11-28",
-    "inicio": "2026-12-28",
-    "horas": 390,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "tarde",
-    "municipio": "Alhama de Almería",
-    "km": 46
-   },
-   {
     "id": "398",
     "codigo": "COMT08",
     "nombre": "Planificación del aprovisionamiento y gestión de stocks",
@@ -4247,6 +4207,32 @@
     "km": 54
    },
    {
+    "id": "2534",
+    "codigo": "COML0309",
+    "nombre": "Organización y gestión de almacenes",
+    "fin": "2026-12-08",
+    "inicio": "2027-01-08",
+    "horas": 390,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
+    "municipio": "Alhama de Almería",
+    "km": 46
+   },
+   {
+    "id": "2533",
+    "codigo": "COML0309",
+    "nombre": "Organización y gestión de almacenes",
+    "fin": "2026-12-09",
+    "inicio": "2027-01-08",
+    "horas": 390,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Alhama de Almería",
+    "km": 46
+   },
+   {
     "id": "395",
     "codigo": "SSCE20",
     "nombre": "Competencias digitales para formadores y tutores según el marco de referencia de competencia digital docente",
@@ -4264,7 +4250,7 @@
     "codigo": "SSCS0108",
     "nombre": "Atención sociosanitaria a personas en el domicilio",
     "fin": "2026-12-10",
-    "inicio": "2027-01-12",
+    "inicio": "2026-12-28",
     "horas": 600,
     "para": "desempleadas",
     "modalidad": "presencial",
@@ -4312,19 +4298,6 @@
     "km": 50
    },
    {
-    "id": "408",
-    "codigo": "COMT09",
-    "nombre": "Psicología aplicada a las ventas",
-    "fin": "2026-12-15",
-    "inicio": "2027-01-15",
-    "horas": 40,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Almería",
-    "km": 50
-   },
-   {
     "id": "409",
     "codigo": "COMT09",
     "nombre": "Psicología aplicada a las ventas",
@@ -4334,6 +4307,19 @@
     "para": "desempleadas",
     "modalidad": "presencial",
     "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "408",
+    "codigo": "COMT09",
+    "nombre": "Psicología aplicada a las ventas",
+    "fin": "2026-12-15",
+    "inicio": "2027-01-15",
+    "horas": 40,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
     "municipio": "Almería",
     "km": 50
    },
@@ -4360,6 +4346,32 @@
     "para": "desempleadas",
     "modalidad": "presencial",
     "horario": "tarde",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "2298",
+    "codigo": "EOCJ0311",
+    "nombre": "Operaciones básicas de revestimientos ligeros y técnicos en construcción",
+    "fin": "2026-12-16",
+    "inicio": "2027-01-11",
+    "horas": 310,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "2296",
+    "codigo": "EOCJ0311",
+    "nombre": "Operaciones básicas de revestimientos ligeros y técnicos en construcción",
+    "fin": "2026-12-16",
+    "inicio": "2027-02-02",
+    "horas": 310,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "día completo",
     "municipio": "Almería",
     "km": 50
    },
@@ -4687,6 +4699,17 @@
     "horario": "día completo"
    },
    {
+    "id": "2970",
+    "codigo": "MF0239",
+    "nombre": "Operaciones de venta",
+    "fin": "2026-11-30",
+    "inicio": "2026-12-28",
+    "horas": 160,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
     "id": "2873",
     "codigo": "MF0971",
     "nombre": "Reproducción y archivo",
@@ -4828,6 +4851,17 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "mañana"
+   },
+   {
+    "id": "2870",
+    "codigo": "MF0979",
+    "nombre": "Gestión operativa de tesorería",
+    "fin": "2026-12-09",
+    "inicio": "2026-12-22",
+    "horas": 90,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    },
    {
     "id": "2960",
@@ -5048,68 +5082,38 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "día completo"
-   },
-   {
-    "id": "85",
-    "codigo": "ADGD0058",
-    "nombre": "Gestión de secciones de crédito de cooperativas agrarias",
-    "fin": "2026-12-18",
-    "inicio": "2027-01-26",
-    "horas": 50,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "día completo"
-   },
-   {
-    "id": "2957",
-    "codigo": "MF1444",
-    "nombre": "Impartición y tutorización de acciones formativas para el empleo",
-    "fin": "2026-12-18",
-    "inicio": "2027-01-19",
-    "horas": 100,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "mañana"
    }
   ],
-  "lineaTotal": 99,
+  "lineaTotal": 102,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-26"
+  "dia": "2026-11-27"
  },
  "polen": {
   "estacion": "Almería",
-  "dia": "2026-11-03",
+  "dia": "2026-11-17",
   "tipos": [
    {
     "id": 2,
     "nombre": "Alternaria (hongo)",
+    "valor": 2
+   },
+   {
+    "id": 14,
+    "nombre": "Pino",
     "valor": 1
    }
   ],
   "semana": [
    {
-    "id": 7,
-    "nombre": "Cupresáceas",
-    "valor": 7,
-    "nivel": "bajo"
-   },
-   {
-    "id": 22,
-    "nombre": "Urticáceas (parietaria)",
-    "valor": 7,
-    "nivel": "bajo"
-   },
-   {
     "id": 2,
     "nombre": "Alternaria (hongo)",
-    "valor": 4
+    "valor": 2
    },
    {
-    "id": 9,
-    "nombre": "Gramíneas",
-    "valor": 1,
-    "nivel": "bajo"
+    "id": 14,
+    "nombre": "Pino",
+    "valor": 1
    },
    {
     "id": 18,
@@ -5148,7 +5152,7 @@
      2,
      2,
      1,
-     0
+     1
     ],
     "niveles": [
      "bajo",
@@ -5263,7 +5267,7 @@
      0,
      1,
      1,
-     0
+     1
     ],
     "niveles": null
    },
@@ -5282,7 +5286,7 @@
      1,
      0,
      7,
-     0
+     1
     ],
     "niveles": [
      "bajo",
@@ -5300,42 +5304,12 @@
     ]
    }
   ],
-  "dias": 373,
+  "dias": 386,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
  "actividades": {
   "lista": [
-   {
-    "titulo": "Ciclo 360º en Almería",
-    "inicio": "2026-11-10",
-    "fin": "2026-11-26",
-    "lugar": "Centro Fundación Unicaja de Almería",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/ciclo-360o-en-almeria/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Encuentro con Omar Linares: presentación de «La consulta del filósofo»",
-    "inicio": "2026-11-26",
-    "hora": "18:00",
-    "lugar": "Biblioteca Pública Francisco Villaespesa",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/encuentro-con-omar-linares-presentacion-de-la-consulta-del-filosofo/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
-   {
-    "titulo": "Presentación del libro «De la infidelidad», de Juan Varo Zafra",
-    "inicio": "2026-11-26",
-    "hora": "18:00",
-    "lugar": "Librería Picasso",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/presentacion-del-libro-de-la-infidelidad-de-juan-varo-zafra/",
-    "fuente": "Turismo de Almería",
-    "gratis": true
-   },
    {
     "titulo": "Banda Municipal de Almería: Una mirada a nuestros solistas (3)",
     "inicio": "2026-11-29",
@@ -5385,6 +5359,26 @@
     "gratis": true
    },
    {
+    "titulo": "El cine vuelve a Katiuska: Cinema Paradiso",
+    "inicio": "2026-12-16",
+    "hora": "19:00",
+    "lugar": "Centro de Innovación Cultural Katiuska",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/el-cine-vuelve-a-katiuska-cinema-paradiso/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
+    "titulo": "Taller: Qué forma jurídica necesita mi proyecto cultural",
+    "inicio": "2026-12-17",
+    "hora": "18:00",
+    "lugar": "Centro de Innovación Cultural Katiuska",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/taller-que-forma-juridica-necesita-mi-proyecto-cultural/",
+    "fuente": "Turismo de Almería",
+    "gratis": true
+   },
+   {
     "titulo": "Sendero Urbano en Malaga Iluminada",
     "inicio": "2026-12-20",
     "lugar": "salida desde Cruz Roja Adra",
@@ -5417,7 +5411,7 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-26"
+  "dia": "2026-11-27"
  },
  "sasOfertas": {
   "lista": [
@@ -5548,82 +5542,6 @@
      "n": 10,
      "unidad": "habiles",
      "hasta": "2026-11-23"
-    }
-   },
-   {
-    "id": "400173",
-    "cod": "11819",
-    "tipo": "base",
-    "fecha": "2026-10-27",
-    "boja": false,
-    "centro": "Hospital Universitario Torrecárdenas",
-    "area": "almeria",
-    "titulo": "Convocatoria Pública para la Provisión Temporal de un puesto de Técnico Función Administrativa opción Administración General para el Hospital Universitario Torrecárdenas",
-    "puesto": "Técnico Función Administrativa opción Administración General",
-    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400173/87363/106313",
-    "docs": 1,
-    "estado": null,
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-11"
-    }
-   },
-   {
-    "id": "400149",
-    "cod": "10431",
-    "tipo": "intermedio",
-    "fecha": "2026-10-27",
-    "boja": true,
-    "centro": "Distrito Almería",
-    "area": "almeria",
-    "titulo": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones, en el Distrito Sanitario de Atención Primaria de Almería .",
-    "puesto": "Jefe/a de Equipo de Gestión y Servicios para la Unidad de Gestión Clínica Plaza de Toros, como Encargo Complementario de Funciones",
-    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400149/87317/106265",
-    "docs": 2,
-    "estado": "lista provisional de admitidos",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-11"
-    }
-   },
-   {
-    "id": "400148",
-    "cod": "10430",
-    "tipo": "intermedio",
-    "fecha": "2026-10-27",
-    "boja": true,
-    "centro": "Distrito Almería",
-    "area": "almeria",
-    "titulo": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio de Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos en el Distrito Sanitario de Atención Primaria de Almería.",
-    "puesto": "Jefe/a de Grupo de Gestión y Servicios para la Unidad de Gestión Clínica Puche-Los Molinos",
-    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400148/87316/106264",
-    "docs": 2,
-    "estado": "lista provisional de admitidos",
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-11"
-    }
-   },
-   {
-    "id": "400147",
-    "cod": "10429",
-    "tipo": "intermedio",
-    "fecha": "2026-10-27",
-    "boja": true,
-    "centro": "Distrito Poniente de Almería",
-    "area": "poniente",
-    "titulo": "Resolución de 22 de octubre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca, mediante el sistema de concurso de méritos, la cobertura del puesto de cargo intermedio, próximo a quedar vacante , de Coordinador/a de Cuidados de Enfermería de la Unidad de Gestión Clínica de Ejido Norte en el Distrito Sanitario de Atención Primaria Poniente de Almería.",
-    "puesto": "Coordinador/a de Cuidados de Enfermería de la Unidad de Gestión Clínica de Ejido Norte",
-    "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/400147/87315/106263",
-    "docs": 1,
-    "estado": null,
-    "plazo": {
-     "n": 10,
-     "unidad": "habiles",
-     "hasta": "2026-11-11"
     }
    }
   ],
@@ -6053,27 +5971,6 @@
  "espectaculos": {
   "lista": [
    {
-    "titulo": "Pinky, La magia tiene nombre propio",
-    "fecha": "2026-11-26",
-    "tipo": "Magia",
-    "hora": "18:00",
-    "lugar": "Teatro Auditorio de Roquetas",
-    "municipio": "Roquetas de Mar",
-    "enlace": "https://farocultural.roquetasdemar.es/actividad/1846/info-actividad",
-    "fuente": "Ayuntamiento de Roquetas de Mar"
-   },
-   {
-    "titulo": "Tres piezas. Ciclo Delicatessen otoño 2026",
-    "fecha": "2026-11-26",
-    "tipo": "Espectáculo",
-    "hora": "20:30",
-    "lugar": "Teatro Apolo",
-    "municipio": "Almería",
-    "precio": "14 €",
-    "enlace": "https://www.turismodealmeria.org/evento/tres-piezas-ciclo-delicatessen-otono-2026/",
-    "fuente": "Turismo de Almería"
-   },
-   {
     "titulo": "Sara Baras Infinita",
     "fecha": "2026-11-27",
     "tipo": "Espectáculo",
@@ -6104,6 +6001,17 @@
     "fuente": "Ayuntamiento de Roquetas de Mar"
    },
    {
+    "titulo": "Arde Tardeo",
+    "fecha": "2026-11-28",
+    "tipo": "Espectáculo",
+    "hora": "15:00",
+    "lugar": "La Pajarería",
+    "municipio": "Almería",
+    "precio": "10 €",
+    "enlace": "https://www.turismodealmeria.org/evento/arde-tardeo/",
+    "fuente": "Turismo de Almería"
+   },
+   {
     "titulo": "Piratas de la Mar Salada",
     "fecha": "2026-11-28",
     "tipo": "Espectáculo",
@@ -6121,6 +6029,17 @@
     "lugar": "La Canastera - Tablao flamenco",
     "municipio": "Almería",
     "enlace": "https://www.turismodealmeria.org/evento/tablao-flamenco-la-canastera-8/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Juanma Molina",
+    "fecha": "2026-11-28",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "lugar": "Escuela de Teatro y Cine ARTENVACÍO",
+    "municipio": "Almería",
+    "precio": "12 €",
+    "enlace": "https://www.turismodealmeria.org/evento/juanma-molina/",
     "fuente": "Turismo de Almería"
    },
    {
@@ -6156,6 +6075,16 @@
     "fuente": "Turismo de Almería"
    },
    {
+    "titulo": "Mapogo y Gusano Jack",
+    "fecha": "2026-11-28",
+    "tipo": "Espectáculo",
+    "hora": "21:30",
+    "lugar": "Dragonfly Rock Café",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/mapogo-y-gusano-jack/",
+    "fuente": "Turismo de Almería"
+   },
+   {
     "titulo": "Banda Municipal de Almería: Una mirada a nuestros solistas (3)",
     "fecha": "2026-11-29",
     "tipo": "Concierto",
@@ -6184,6 +6113,17 @@
     "lugar": "Auditorio Municipal Maestro Padilla",
     "municipio": "Almería",
     "enlace": "https://www.turismodealmeria.org/evento/ocal-titan-mahler-1a-sinfonia/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Paco Calavera",
+    "fecha": "2026-12-04",
+    "tipo": "Espectáculo",
+    "hora": "21:00",
+    "lugar": "Escuela de Teatro y Cine ARTENVACÍO",
+    "municipio": "Almería",
+    "precio": "12 €",
+    "enlace": "https://www.turismodealmeria.org/evento/paco-calavera-2/",
     "fuente": "Turismo de Almería"
    },
    {
@@ -6227,6 +6167,26 @@
     "municipio": "Almería",
     "precio": "6 €",
     "enlace": "https://www.turismodealmeria.org/evento/twilight-saturno-en-dragonfly-rock-cafe/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Queen vs. ABBA (Candlelight)",
+    "fecha": "2026-12-06",
+    "tipo": "Espectáculo",
+    "hora": "17:00",
+    "lugar": "Círculo Mercantil de Almería",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/queen-vs-abba-candlelight/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Coldplay e Imagine Dragons (Candlelight)",
+    "fecha": "2026-12-06",
+    "tipo": "Espectáculo",
+    "hora": "19:00",
+    "lugar": "Círculo Mercantil de Almería",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/coldplay-e-imagine-dragons-candlelight/",
     "fuente": "Turismo de Almería"
    },
    {
@@ -6414,6 +6374,24 @@
    },
    {
     "titulo": "Navidad 2026",
+    "fecha": "2026-12-16",
+    "tipo": "Espectáculo",
+    "hora": "18:30",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=navidad-2026-las-melodias-del-belen-municipal-conservatorio-profesional-de-musica-de-el-ejido-concierto-de-navidad-jueves-17-de-diciembre-1800-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "Navidad 2026",
+    "fecha": "2026-12-17",
+    "tipo": "Espectáculo",
+    "hora": "19:00",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=navidad-2026-las-melodias-del-belen-municipal-conservatorio-profesional-de-musica-de-el-ejido-concierto-de-navidad-jueves-17-de-diciembre-1800-h-2",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
+    "titulo": "Navidad 2026",
     "fecha": "2026-12-18",
     "tipo": "Espectáculo",
     "municipio": "El Ejido",
@@ -6540,6 +6518,15 @@
     "fuente": "Ayuntamiento de El Ejido"
    },
    {
+    "titulo": "Navidad 2026",
+    "fecha": "2026-12-26",
+    "tipo": "Espectáculo",
+    "hora": "12:00",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=navidad-2026-las-melodias-del-belen-municipal-banda-sinfonica-de-el-ejido-concierto-de-navidad-sabado-26-de-diciembre-1200-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
     "titulo": "Sala Sol, 2ª edición: El último baile",
     "fecha": "2026-12-26",
     "tipo": "Danza",
@@ -6616,6 +6603,15 @@
     "infantil": true
    },
    {
+    "titulo": "Navidad 2026",
+    "fecha": "2026-12-29",
+    "tipo": "Espectáculo",
+    "hora": "19:00",
+    "municipio": "El Ejido",
+    "enlace": "https://cultura.elejido.es/?ai1ec_event=navidad-2026-las-melodias-del-belen-municipal-d-t-trumpet-jazz-swing-clasicos-y-villancicos-martes-29-de-diciembre-1900-h",
+    "fuente": "Ayuntamiento de El Ejido"
+   },
+   {
     "titulo": "Concierto de Navidad del Grupo Almenara",
     "fecha": "2026-12-29",
     "tipo": "Concierto",
@@ -6641,7 +6637,7 @@
     "titulo": "Navidad 2026",
     "fecha": "2026-12-30",
     "tipo": "Espectáculo",
-    "hora": "18:00",
+    "hora": "18:00 y 20:00",
     "lugar": "Auditorio de El Ejido",
     "municipio": "El Ejido",
     "enlace": "https://cultura.elejido.es/?ai1ec_event=dreaming-bubbles-the-bubble-show-miercoles-30-de-diciembre-auditorio-18-h",
@@ -6755,6 +6751,27 @@
     "fuente": "Turismo de Almería"
    },
    {
+    "titulo": "Cuéntame tus mierdas. Show de Ismael Galán",
+    "fecha": "2027-01-23",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "lugar": "Sala emma",
+    "municipio": "Almería",
+    "enlace": "https://www.turismodealmeria.org/evento/cuentame-tus-mierdas-show-de-ismael-galan/",
+    "fuente": "Turismo de Almería"
+   },
+   {
+    "titulo": "Ser adulta es un marrón",
+    "fecha": "2027-01-23",
+    "tipo": "Espectáculo",
+    "hora": "20:00",
+    "lugar": "Escuela de Teatro y Cine ARTENVACÍO",
+    "municipio": "Almería",
+    "precio": "12 €",
+    "enlace": "https://www.turismodealmeria.org/evento/ser-adulta-es-un-marron/",
+    "fuente": "Turismo de Almería"
+   },
+   {
     "titulo": "Israel Fernández «De oro y marfil»",
     "fecha": "2027-01-23",
     "tipo": "Espectáculo",
@@ -6781,6 +6798,6 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-26"
+  "dia": "2026-11-27"
  }
 }
