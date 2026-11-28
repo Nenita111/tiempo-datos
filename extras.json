@@ -70,56 +70,56 @@
      "destino": "Liverpool",
      "ida": "2026-12-12",
      "vuelta": "2026-12-15",
-     "precio": 93,
+     "precio": 91,
      "compania": "easyJet",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/gquzdyph2p"
+     "enlace": "https://kiwi.com/u/tzqs4j3qxf"
+    },
+    {
+     "destino": "Madrid",
+     "ida": "2027-01-01",
+     "vuelta": "2027-01-06",
+     "precio": 97,
+     "compania": "Iberia / Wizz Air",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/xzhruhuv4r"
+    },
+    {
+     "destino": "Sevilla",
+     "ida": "2026-12-31",
+     "vuelta": "2027-01-05",
+     "precio": 116,
+     "compania": "Iberia",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/fwutzjp7g4"
     },
     {
      "destino": "Bucarest",
      "ida": "2026-12-07",
      "vuelta": "2026-12-11",
-     "precio": 100,
+     "precio": 121,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/qurnssv3xq"
-    },
-    {
-     "destino": "Madrid",
-     "ida": "2026-12-28",
-     "vuelta": "2027-01-01",
-     "precio": 114,
-     "compania": "Wizz Air",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/gwyb2fvnqx"
-    },
-    {
-     "destino": "Sevilla",
-     "ida": "2027-01-01",
-     "vuelta": "2027-01-06",
-     "precio": 114,
-     "compania": "Iberia",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/ffwdt9v8yt"
-    },
-    {
-     "destino": "Londres",
-     "ida": "2026-12-28",
-     "vuelta": "2027-01-02",
-     "precio": 133,
-     "compania": "easyJet",
-     "escalas": "directo",
-     "nota": "Gatwick",
-     "enlace": "https://kiwi.com/u/6xf62rwudy"
+     "enlace": "https://kiwi.com/u/xj8h9c58pb"
     },
     {
      "destino": "Melilla",
      "ida": "2026-12-12",
-     "vuelta": "2026-12-14",
-     "precio": 145,
+     "vuelta": "2026-12-15",
+     "precio": 146,
      "compania": "Iberia",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/nrfdwvyu4k"
+     "enlace": "https://kiwi.com/u/zzywf8n4vk"
+    },
+    {
+     "destino": "Londres",
+     "ida": "2026-12-12",
+     "vuelta": "2026-12-15",
+     "precio": 153,
+     "compania": "easyJet",
+     "escalas": "directo",
+     "nota": "Gatwick",
+     "enlace": "https://kiwi.com/u/s3wc728b7k"
     }
    ]
   },
@@ -128,58 +128,59 @@
    "codigo": "GRX",
    "vuelos": [
     {
-     "destino": "Santander",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-14",
-     "precio": 50,
-     "compania": "Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/svvbv453rn"
-    },
-    {
      "destino": "Oporto",
      "ida": "2026-12-13",
      "vuelta": "2026-12-17",
-     "precio": 57,
+     "precio": 50,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/kbhjbb6tq8"
+     "enlace": "https://kiwi.com/u/nn89rgu93q"
+    },
+    {
+     "destino": "Santander",
+     "ida": "2026-12-11",
+     "vuelta": "2026-12-14",
+     "precio": 54,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/2bp87jmmtx"
     },
     {
      "destino": "Madrid",
      "ida": "2026-12-13",
      "vuelta": "2026-12-15",
-     "precio": 58,
-     "compania": "Iberia / Volotea",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/jq3cpwr9jx"
-    },
-    {
-     "destino": "Nantes",
-     "ida": "2026-12-10",
-     "vuelta": "2026-12-13",
      "precio": 61,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/35brsb722x"
-    },
-    {
-     "destino": "Palma de Mallorca",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-13",
-     "precio": 67,
-     "compania": "Vueling / Air Europa",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/7skvtggfgs"
+     "enlace": "https://kiwi.com/u/mzypgqh8hb"
     },
     {
      "destino": "Asturias",
      "ida": "2027-01-01",
      "vuelta": "2027-01-06",
-     "precio": 67,
+     "precio": 61,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/fxs9tqjfv8"
+     "enlace": "https://kiwi.com/u/9nt7r58868"
+    },
+    {
+     "destino": "Nantes",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-17",
+     "precio": 61,
+     "compania": "Volotea",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/w9hhrp62nh"
+    },
+    {
+     "destino": "Londres",
+     "ida": "2026-12-08",
+     "vuelta": "2026-12-12",
+     "precio": 61,
+     "compania": "Wizz Air",
+     "escalas": "directo",
+     "nota": "Luton",
+     "enlace": "https://kiwi.com/u/h9w6zrp9mz"
     }
    ]
   },
@@ -188,31 +189,22 @@
    "codigo": "AGP",
    "vuelos": [
     {
-     "destino": "Bilbao",
-     "ida": "2026-12-20",
-     "vuelta": "2026-12-24",
-     "precio": 32,
-     "compania": "Vueling",
-     "escalas": "directo",
-     "enlace": "https://kiwi.com/u/f8uuvmt4v4"
-    },
-    {
      "destino": "Palma de Mallorca",
      "ida": "2026-12-11",
-     "vuelta": "2026-12-14",
+     "vuelta": "2026-12-13",
      "precio": 33,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/tcxw592zmq"
+     "enlace": "https://kiwi.com/u/uv9tfzpy3b"
     },
     {
-     "destino": "Turín",
-     "ida": "2026-12-13",
-     "vuelta": "2026-12-17",
-     "precio": 35,
-     "compania": "Wizz Air",
+     "destino": "Bilbao",
+     "ida": "2026-12-20",
+     "vuelta": "2026-12-24",
+     "precio": 34,
+     "compania": "Vueling",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/46t2gh43fq"
+     "enlace": "https://kiwi.com/u/839bzu9jfy"
     },
     {
      "destino": "Ibiza",
@@ -221,25 +213,34 @@
      "precio": 39,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/2xrvtq4bf9"
+     "enlace": "https://kiwi.com/u/g3nzysnwg7"
     },
     {
-     "destino": "Venecia",
-     "ida": "2026-12-11",
-     "vuelta": "2026-12-16",
-     "precio": 43,
-     "compania": "Wizz Air / Ryanair",
+     "destino": "Turín",
+     "ida": "2026-12-13",
+     "vuelta": "2026-12-17",
+     "precio": 41,
+     "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/hu96t55b6b"
+     "enlace": "https://kiwi.com/u/2uf2bbdq9h"
     },
     {
      "destino": "Santiago de Compostela",
      "ida": "2027-01-01",
      "vuelta": "2027-01-06",
-     "precio": 44,
+     "precio": 47,
      "compania": "Wizz Air",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/t6jq362xgc"
+     "enlace": "https://kiwi.com/u/zfgsmndvdb"
+    },
+    {
+     "destino": "Oporto",
+     "ida": "2026-12-14",
+     "vuelta": "2026-12-19",
+     "precio": 48,
+     "compania": "Ryanair",
+     "escalas": "directo",
+     "enlace": "https://kiwi.com/u/w42vgwgscs"
     }
    ]
   },
@@ -254,64 +255,64 @@
      "precio": 50,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/pz8dc27wzt"
+     "enlace": "https://kiwi.com/u/tzvbkym7b7"
     },
     {
      "destino": "Barcelona",
      "ida": "2026-12-21",
      "vuelta": "2026-12-25",
-     "precio": 57,
+     "precio": 58,
      "compania": "Volotea",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xbkhdy6v6b"
+     "enlace": "https://kiwi.com/u/bb9gm4r7b2"
     },
     {
      "destino": "Londres",
      "ida": "2026-12-30",
      "vuelta": "2027-01-01",
-     "precio": 57,
+     "precio": 58,
      "compania": "Ryanair",
      "escalas": "directo",
      "nota": "Stansted",
-     "enlace": "https://kiwi.com/u/s7jnsckdf8"
+     "enlace": "https://kiwi.com/u/p6gpj44xp6"
     },
     {
-     "destino": "Birmingham",
-     "ida": "2026-12-30",
-     "vuelta": "2027-01-01",
-     "precio": 70,
+     "destino": "Mánchester",
+     "ida": "2026-12-18",
+     "vuelta": "2026-12-22",
+     "precio": 64,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/xgsh4ckvct"
+     "enlace": "https://kiwi.com/u/2jsn2wrygx"
     },
     {
      "destino": "Dublín",
      "ida": "2026-12-29",
-     "vuelta": "2026-12-31",
-     "precio": 71,
+     "vuelta": "2027-01-02",
+     "precio": 66,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/qvmq2tf5j9"
+     "enlace": "https://kiwi.com/u/8vcwvgx7cf"
     },
     {
-     "destino": "Mánchester",
-     "ida": "2026-12-29",
+     "destino": "Birmingham",
+     "ida": "2026-12-27",
      "vuelta": "2027-01-01",
-     "precio": 72,
+     "precio": 73,
      "compania": "Ryanair",
      "escalas": "directo",
-     "enlace": "https://kiwi.com/u/nzd3rf3v5q"
+     "enlace": "https://kiwi.com/u/qtsp6qtzyb"
     }
    ]
   }
  ],
- "vuelosBuscado": "2026-11-27",
- "vuelosBusqueda": "ida y vuelta del 30/11 al 01/01, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
+ "vuelosBuscado": "2026-11-28",
+ "vuelosBusqueda": "ida y vuelta del 01/12 al 02/01, 2 a 5 noches, vuelos directos, salida al menos 3 días después de la búsqueda (Kiwi.com)",
  "antelacionMinimaDias": 3,
  "sorteos": [],
  "sorteosZona": "de Motril a Almería",
- "sorteosBuscado": "2026-11-27",
- "actualizado": "2026-11-27T06:16+01:00",
+ "sorteosBuscado": "2026-11-28",
+ "actualizado": "2026-11-28T06:20+01:00",
  "cortes": [],
  "cielo": {
   "eventos": [
@@ -493,15 +494,15 @@
   "cultivos": [
    {
     "cultivo": "Tomate",
-    "desde": "2026-11-16",
-    "hasta": "2026-11-20",
+    "desde": "2026-11-23",
+    "hasta": "2026-11-27",
     "destacados": "Mosca blanca y Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Tomate.pdf"
    },
    {
     "cultivo": "Pimiento",
-    "desde": "2026-11-16",
-    "hasta": "2026-11-20",
+    "desde": "2026-11-23",
+    "hasta": "2026-11-27",
     "destacados": "Mosca blanca, Trips",
     "enlace": "https://www.juntadeandalucia.es/agriculturapescaaguaydesarrollorural/raif/wp-content/uploads/2026/02/Informe_EspecialInteres_Pimiento.pdf"
    },
@@ -538,38 +539,38 @@
   "fuente": "Red de Alerta e Información Fitosanitaria de Andalucía (RAIF, Junta de Andalucía)"
  },
  "respiratorias": {
-  "semana": "46/2026",
+  "semana": "47/2026",
   "iras": {
-   "tasa": 243.9,
-   "previa": 233.3
+   "tasa": 234.4,
+   "previa": 243.9
   },
   "gripal": {
-   "tasa": 2.2,
+   "tasa": 2.1,
    "previa": 2.2
   },
   "covid": {
-   "tasa": 1.1,
-   "previa": 1.3
+   "tasa": 0.5,
+   "previa": 1.1
   },
   "bronquiolitis": {
-   "tasa": 129.4,
-   "previa": 112.1
+   "tasa": 128.4,
+   "previa": 129.4
   },
   "irag": {
    "tasa": 7.9,
-   "previa": 8.4
+   "previa": 7.9
   },
   "positividad": {
-   "gripe": 0.0,
-   "gripePrevia": 7.9,
-   "covid": 10.2,
-   "covidPrevia": 5.3,
+   "gripe": 6.5,
+   "gripePrevia": 0.0,
+   "covid": 6.5,
+   "covidPrevia": 10.8,
    "vrs": 0.0,
-   "vrsPrevia": 1.3
+   "vrsPrevia": 0.0
   },
-  "desde": "2026-11-09",
-  "hasta": "2026-11-15",
-  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/11/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202646.pdf",
+  "desde": "2026-11-16",
+  "hasta": "2026-11-22",
+  "enlace": "https://www.juntadeandalucia.es/sites/default/files/inline-files/2026/11/Informe%20semanal%20IRAs_IRAG%20Andalucia_sem202647.pdf",
   "pagina": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/areas/sanidad/salud-vida/vigilancia/paginas/temporada2627.html",
   "fuente": "Junta de Andalucía (vigilancia centinela de la infección respiratoria aguda)"
  },
@@ -820,19 +821,15 @@
  },
  "noEsCorte": [],
  "receta": {
-  "fecha": "2026-11-27",
-  "nombre": "Sopa de ajo",
+  "fecha": "2026-11-28",
+  "nombre": "Potaje de acelgas",
   "tiempo": {
    "temperature": "cool",
    "rain": "dry",
    "wind": "light wind",
-   "sky": "Despejado"
+   "sky": "Nubes altas"
   },
   "recientes": [
-   {
-    "fecha": "2026-11-21",
-    "nombre": "Calabaza asada"
-   },
    {
     "fecha": "2026-11-22",
     "nombre": "Crema de calabaza"
@@ -856,11 +853,15 @@
    {
     "fecha": "2026-11-27",
     "nombre": "Sopa de ajo"
+   },
+   {
+    "fecha": "2026-11-28",
+    "nombre": "Potaje de acelgas"
    }
   ]
  },
  "sas": {
-  "fecha": "2026-11-27",
+  "fecha": "2026-11-28",
   "etiquetas": {
    "https://www.juntadeandalucia.es/boja/2026/230/19": {
     "tipo": "convocatoria",
@@ -1032,6 +1033,9 @@
    }
   },
   "prod": {
+   "10119934": {
+    "ninos": 0.07
+   },
    "10119808": {
     "ninos": 1.0
    },
@@ -1058,12 +1062,29 @@
    },
    "10118787": {
     "ninos": 0.05
-   },
-   "10118789": {
-    "ninos": 0.04
    }
   },
   "ofertas": {
+   "698092": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "CÁMARA OPERADOR/A - SAN JUAN DE AZNALFARACHE",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-30",
+    "nivel": "fp_superior",
+    "experiencia": 0.98,
+    "colectivo": "general"
+   },
+   "698089": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "CÁMARA OPERADOR/A - CÓRDOBA",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-28",
+    "nivel": "fp_superior",
+    "experiencia": 0.98,
+    "colectivo": "general"
+   },
    "697621": {
     "zona": false,
     "zv": 4,
@@ -1074,14 +1095,14 @@
     "experiencia": 0.58,
     "colectivo": "general"
    },
-   "697735": {
+   "698086": {
     "zona": false,
     "zv": 4,
-    "puesto": "Dirección de Infraestructuras y Desarrollo",
-    "entidad": "Verificaciones Industriales de Andalucía S.A.",
-    "hasta": "2026-12-11",
-    "nivel": "grado",
-    "experiencia": 0.04,
+    "puesto": "CÁMARA OPERADOR/A - MÁLAGA",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-28",
+    "nivel": "fp_superior",
+    "experiencia": 0.98,
     "colectivo": "general"
    },
    "697630": {
@@ -1094,20 +1115,80 @@
     "experiencia": 0.05,
     "colectivo": "general"
    },
-   "694855": {
+   "698131": {
     "zona": false,
     "zv": 4,
-    "puesto": "Técnico/a de Fomento de la Investigación - 2489",
-    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
-    "hasta": "2026-12-09",
+    "puesto": "OPERADOR/A MONTADOR/A DE VIDEO- SAN JUAN AZNALFARACHE",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-28",
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "698140": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "OPERADOR/A MONTADOR/A DE VIDEO - MÁLAGA",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-30",
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "697735": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Dirección de Infraestructuras y Desarrollo",
+    "entidad": "Verificaciones Industriales de Andalucía S.A.",
+    "hasta": "2026-12-11",
     "nivel": "grado",
-    "experiencia": 0.94,
+    "experiencia": 0.04,
+    "colectivo": "general"
+   },
+   "698119": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "OPERADOR/A MONTADOR/A DE VIDEO- CÓRDOBA",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-28",
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "698107": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "CÁMARA OPERADOR/A - CÁDIZ",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-30",
+    "nivel": "fp_superior",
+    "experiencia": 0.97,
+    "colectivo": "general"
+   },
+   "698104": {
+    "zona": true,
+    "zv": 4,
+    "puesto": "CÁMARA OPERADOR/A - ALMERÍA",
+    "entidad": "Canal Sur Radio y Televisión, S.A.",
+    "hasta": "2026-11-28",
+    "nivel": "fp_superior",
+    "experiencia": 0.98,
     "colectivo": "general"
    },
    "694852": {
     "zona": false,
     "zv": 4,
     "puesto": "Responsable de Control Económico y Presupuestario -2488",
+    "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
+    "hasta": "2026-12-09",
+    "nivel": "grado",
+    "experiencia": 0.94,
+    "colectivo": "general"
+   },
+   "694855": {
+    "zona": false,
+    "zv": 4,
+    "puesto": "Técnico/a de Fomento de la Investigación - 2489",
     "entidad": "Fundación Pública Andaluza Progreso y Salud, M.P.",
     "hasta": "2026-12-09",
     "nivel": "grado",
@@ -1163,25 +1244,9 @@
     "nivel": "fp_superior",
     "experiencia": 0.04,
     "colectivo": "general"
-   },
-   "692356": {
-    "zona": false,
-    "zv": 4,
-    "puesto": "Técnico/a en el Departamento de Consultoría.",
-    "entidad": "Sociedad Andaluza para el Desarrollo de las Telecomunicaciones, S.A.M.P. (SANDETEL)",
-    "hasta": "2026-11-27",
-    "nivel": "grado",
-    "experiencia": 0.1,
-    "colectivo": "general"
    }
   },
   "sae": {
-   "01-2026-52030": {
-    "nivel": "no_consta",
-    "entidad": "otra",
-    "colectivo": "programa_empleo",
-    "experiencia": 0.07
-   },
    "01-2026-52909": {
     "nivel": "no_consta",
     "entidad": "otra",
@@ -1231,11 +1296,17 @@
     "experiencia": 0.07
    }
   },
-  "agenda": {},
-  "fecha": "2026-11-27"
+  "agenda": {
+   "2026-11-28|Campeonato de Andalucía de Petanca de FANDDI": {
+    "gratis": 0.02,
+    "familias": 0.21,
+    "inscripcion": 0.04
+   }
+  },
+  "fecha": "2026-11-28"
  },
  "fap": {
-  "fecha": "2026-11-27",
+  "fecha": "2026-11-28",
   "novedades": [
    {
     "tipo": "circular",
@@ -1685,17 +1756,7 @@
   "url": "https://www.juntadeandalucia.es/organismos/saludyconsumo/areas/entornos-saludables/salud-ambiental/paginas/zonas-bano.html",
   "fuente": "Junta de Andalucía (Consejería de Sanidad)"
  },
- "agendaJunta": [
-  {
-   "titulo": "XLIII Jornadas Universitarias Andaluzas de Derecho del Trabajo y Relaciones Laborales \"Redefiniendo el papel de las fuentes del Derecho del Trabajo en el contexto actual\"",
-   "fecha": "2026-11-26",
-   "lugar": "Almería",
-   "km": 50,
-   "fuente": "Junta de Andalucía",
-   "enlace": "https://www.juntadeandalucia.es/datosabiertos/portal/dataset/agenda-de-eventos-organizados-por-la-junta-de-andalucia",
-   "hasta": "2026-11-27"
-  }
- ],
+ "agendaJunta": [],
  "acuiferos": {
   "anio": 2024,
   "puntos": [
@@ -3984,6 +4045,19 @@
     "registrada": "2026-01-26"
    },
    {
+    "num": "945301",
+    "titulo": "Ayudas en régimen de concurrencia competitiva, para el fomento de la moda andaluza",
+    "ambito": "Junta de Andalucía",
+    "organo": "Consejería de Cultura, Patrimonio Histórico y Deporte",
+    "estado": "abierta",
+    "plazo": "15 dias desde el inicio del periodo",
+    "importe": 500000,
+    "para": [
+     "autónomos y pymes"
+    ],
+    "registrada": "2026-11-27"
+   },
+   {
     "num": "942485",
     "titulo": "Convocatoria Becas de formación en el área de documentación del Instituto Andaluz de la Mujer, para el año 2027",
     "ambito": "Junta de Andalucía",
@@ -4137,23 +4211,10 @@
   ],
   "fuente": "Base de Datos Nacional de Subvenciones (BDNS)",
   "enlace": "https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias",
-  "dia": "2026-11-26"
+  "dia": "2026-11-28"
  },
  "cursos": {
   "presenciales": [
-   {
-    "id": "2301",
-    "codigo": "AGAO0108",
-    "nombre": "Actividades auxiliares en viveros, jardines y centros de jardinería",
-    "fin": "2026-11-27",
-    "inicio": "2027-01-07",
-    "horas": 330,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "mañana",
-    "municipio": "Almería",
-    "km": 50
-   },
    {
     "id": "398",
     "codigo": "COMT08",
@@ -4298,19 +4359,6 @@
     "km": 50
    },
    {
-    "id": "409",
-    "codigo": "COMT09",
-    "nombre": "Psicología aplicada a las ventas",
-    "fin": "2026-12-15",
-    "inicio": "2027-01-15",
-    "horas": 40,
-    "para": "desempleadas",
-    "modalidad": "presencial",
-    "horario": "tarde",
-    "municipio": "Almería",
-    "km": 50
-   },
-   {
     "id": "408",
     "codigo": "COMT09",
     "nombre": "Psicología aplicada a las ventas",
@@ -4320,6 +4368,19 @@
     "para": "desempleadas",
     "modalidad": "presencial",
     "horario": "mañana",
+    "municipio": "Almería",
+    "km": 50
+   },
+   {
+    "id": "409",
+    "codigo": "COMT09",
+    "nombre": "Psicología aplicada a las ventas",
+    "fin": "2026-12-15",
+    "inicio": "2027-01-15",
+    "horas": 40,
+    "para": "desempleadas",
+    "modalidad": "presencial",
+    "horario": "tarde",
     "municipio": "Almería",
     "km": 50
    },
@@ -4643,39 +4704,6 @@
    }
   ],
   "linea": [
-   {
-    "id": "114",
-    "codigo": "COMM0009",
-    "nombre": "Atención al cliente",
-    "fin": "2026-11-27",
-    "inicio": "2026-12-14",
-    "horas": 30,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "día completo"
-   },
-   {
-    "id": "2818",
-    "codigo": "MF0973",
-    "nombre": "Grabación de datos",
-    "fin": "2026-11-27",
-    "inicio": "2026-12-29",
-    "horas": 90,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "día completo"
-   },
-   {
-    "id": "104",
-    "codigo": "COMM04",
-    "nombre": "Introducción a la inteligencia artificial aplicada al marketing",
-    "fin": "2026-11-27",
-    "inicio": "2026-12-09",
-    "horas": 50,
-    "para": "ocupadas",
-    "modalidad": "en línea",
-    "horario": "día completo"
-   },
    {
     "id": "95",
     "codigo": "COMT17",
@@ -5082,12 +5110,45 @@
     "para": "ocupadas",
     "modalidad": "en línea",
     "horario": "día completo"
+   },
+   {
+    "id": "85",
+    "codigo": "ADGD0058",
+    "nombre": "Gestión de secciones de crédito de cooperativas agrarias",
+    "fin": "2026-12-18",
+    "inicio": "2027-01-26",
+    "horas": 50,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "día completo"
+   },
+   {
+    "id": "2957",
+    "codigo": "MF1444",
+    "nombre": "Impartición y tutorización de acciones formativas para el empleo",
+    "fin": "2026-12-18",
+    "inicio": "2027-01-19",
+    "horas": 100,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "mañana"
+   },
+   {
+    "id": "2890",
+    "codigo": "MF0241",
+    "nombre": "Información y atención al cliente/consumidor/usuario",
+    "fin": "2026-12-18",
+    "inicio": "2027-01-20",
+    "horas": 120,
+    "para": "ocupadas",
+    "modalidad": "en línea",
+    "horario": "tarde"
    }
   ],
-  "lineaTotal": 102,
+  "lineaTotal": 99,
   "enlace": "https://www.juntadeandalucia.es/empleoformacionytrabajoautonomo/formacion/web/buscador-de-cursos",
   "fuente": "Información obtenida del portal web Formación para el Empleo de la Junta de Andalucía",
-  "dia": "2026-11-27"
+  "dia": "2026-11-28"
  },
  "polen": {
   "estacion": "Almería",
@@ -5304,7 +5365,7 @@
     ]
    }
   ],
-  "dias": 386,
+  "dias": 385,
   "fuente": "SEAIC, Red Española de Aerobiología (polenes.com), estación de Almería",
   "enlace": "https://www.polenes.com"
  },
@@ -5536,8 +5597,8 @@
     "titulo": "Resolución de 4 de noviembre de 2026, de la Dirección General de Personal del Servicio Andaluz de Salud, por la que se convoca mediante el sistema de concurso de méritos la cobertura de un puesto de Jefe/a de Equipo de Gestión y Servicios como encargo complementario de funciones para la Unidad de Gestión Clínica de Almuñécar en el Área de Gestión Sanitaria Sur de Granada.",
     "puesto": "Jefe/a de Equipo de Gestión y Servicios como encargo complementario de funciones para la Unidad de Gestión Clínica de Almuñécar",
     "enlace": "https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/ooe_file/401108/87776/106741",
-    "docs": 1,
-    "estado": null,
+    "docs": 2,
+    "estado": "lista provisional de admitidos",
     "plazo": {
      "n": 10,
      "unidad": "habiles",
@@ -5970,36 +6031,6 @@
  },
  "espectaculos": {
   "lista": [
-   {
-    "titulo": "Sara Baras Infinita",
-    "fecha": "2026-11-27",
-    "tipo": "Espectáculo",
-    "hora": "20:00",
-    "lugar": "Auditorio Municipal Maestro Padilla",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/sara-baras-infinita/",
-    "fuente": "Turismo de Almería"
-   },
-   {
-    "titulo": "Me ofendes: Noviembre. Polar",
-    "fecha": "2026-11-27",
-    "tipo": "Espectáculo",
-    "hora": "20:30",
-    "lugar": "Cervecería el Zaguán",
-    "municipio": "Almería",
-    "enlace": "https://www.turismodealmeria.org/evento/me-ofendes-noviembre-polar/",
-    "fuente": "Turismo de Almería"
-   },
-   {
-    "titulo": "Día Internacional del Flamenco",
-    "fecha": "2026-11-27",
-    "tipo": "Flamenco",
-    "hora": "21:00",
-    "lugar": "Teatro Auditorio de Roquetas",
-    "municipio": "Roquetas de Mar",
-    "enlace": "https://farocultural.roquetasdemar.es/actividad/1821/info-actividad",
-    "fuente": "Ayuntamiento de Roquetas de Mar"
-   },
    {
     "titulo": "Arde Tardeo",
     "fecha": "2026-11-28",
@@ -6798,6 +6829,6 @@
    "Motril Turismo",
    "Turismo de Almería"
   ],
-  "dia": "2026-11-27"
+  "dia": "2026-11-28"
  }
 }
